@@ -1,7 +1,6 @@
 using UnityEngine;
 using Unity.Mathematics;
 using static Unity.Mathematics.math;
-
 public class UnitBase
 {
     private Nebukam.ORCA.Agent agenter;

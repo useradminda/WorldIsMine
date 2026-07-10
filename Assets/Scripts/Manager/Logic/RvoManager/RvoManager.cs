@@ -11,6 +11,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
     public AgentGroup<Agent> Agents => agents;
 
     private ORCA simulation;
+    private ObstacleGroup obstacles = new ObstacleGroup();
 
     // 等待添加的列表
     private List<Agent> waitingAddList = new List<Agent>();
@@ -25,6 +26,11 @@ public class RvoManager : Singleton<RvoManager>, IManager
         simulation.agents = Agents;
     }
 
+    public void SetBorderInfo(List<Vector3> borderList)
+    {
+        setBorderInfo(borderList);
+    }
+
     public void ManagerUpdate()
     {
         if (simulation != null)
@@ -37,7 +43,6 @@ public class RvoManager : Singleton<RvoManager>, IManager
     { 
         if(simulation != null && simulation.TryComplete())
         {
-
             addWaitingList();
         }
     }
@@ -47,6 +52,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
         agents.Clear();
         agents.Release();
         simulation.staticObstacles = null;
+        obstacles.Clear();
         simulation.agents = null;
         simulation.DisposeAll();
         simulation = null;
@@ -82,6 +88,19 @@ public class RvoManager : Singleton<RvoManager>, IManager
             Agents.Add(a);
         }
         waitingAddList.Clear();
+    }
+
+    // 设置边界
+    private void setBorderInfo(List<Vector3> borderList)
+    {
+        float3[] squarePoints = new float3[] {
+              new float3(borderList[0].x, 0, borderList[0].z),
+              new float3(borderList[1].x, 0, borderList[1].z),
+              new float3(borderList[2].x, 0, borderList[2].z),
+              new float3(borderList[3].x, 0, borderList[3].z),
+           };
+        obstacles.Add(squarePoints, false, 10);
+        simulation.staticObstacles = obstacles;
     }
 }    
      
