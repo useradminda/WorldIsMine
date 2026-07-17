@@ -22,7 +22,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
     {
         agents = new AgentGroup<Agent>();
         simulation = new ORCA();
-        simulation.plane = Nebukam.Common.AxisPair.XY;
+        simulation.plane = Nebukam.Common.AxisPair.XZ;
         simulation.agents = Agents;
     }
 
@@ -76,6 +76,13 @@ public class RvoManager : Singleton<RvoManager>, IManager
     public Agent AddAgent(Agent agent)
     {
         waitingAddList.Add(agent);
+        return agent;
+    }
+
+    public Agent AddAgentCurrent(Agent agent)
+    {
+        Nebukam.Common.IVertex a = (Nebukam.Common.IVertex)agent;
+        Agents.Add(a);
         return agent;
     }
 

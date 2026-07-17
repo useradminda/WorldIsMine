@@ -132,17 +132,26 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 
 
                 float _cT = UNITY_ACCESS_INSTANCED_PROP(Props, _CurrentTime);
-                float f = (_cT + _Time.y  - _timeSinceLevelLoad) / len;
+                //float f = (_cT + _Time.y  - _timeSinceLevelLoad) / len;
+
+                float invLen = rcp(len);
+
+                float f =
+                (
+                    _cT +
+                    _Time.y -
+                    _timeSinceLevelLoad
+                ) * invLen;
+
 
                 if (gravityRadio == 0.2)
                 {
                     f = 0.1;
                 }
 
-                //float f = _cT / len;
 
-                fmod(f, 1.0);
-
+               // fmod(f, 1.0);
+               f = frac(f);
                
 
                 float animMap_x = (vid + 0.5) * _AnimMap_TexelSize.x ;
@@ -165,9 +174,34 @@ Shader "chenjd/BuiltIn/AnimMapShader"
                 float blackPower = UNITY_ACCESS_INSTANCED_PROP(Props, _BlackPower);
 
                 float4 objectToWorldPoint = mul(unity_ObjectToWorld, pos);
-                float _dis = distance(objectToWorldPoint.xyz, blackHolePoint.xyz);
-                float t = saturate(blackPower / (_dis * _dis));//saturate((_Time.y * _BlackPower)/ (_dis * _dis));               
-                objectToWorldPoint.xyz = lerp(objectToWorldPoint.xyz, blackHolePoint.xyz, t);
+               // float _dis = distance(objectToWorldPoint.xyz, blackHolePoint.xyz);
+                //float t = saturate(blackPower / (_dis * _dis));//saturate((_Time.y * _BlackPower)/ (_dis * _dis));               
+                if (blackPower > 0.0001)
+                {
+                    float3 dir =
+                        objectToWorldPoint.xyz
+                        - blackHolePoint.xyz;
+
+                    float disSqr =
+                        dot(dir, dir);
+
+                    float t =
+                        saturate(
+                            blackPower
+                            *
+                            rcp(
+                                max(
+                                    disSqr,
+                                    0.0001)));
+
+                    objectToWorldPoint.xyz =
+                        lerp(
+                            objectToWorldPoint.xyz,
+                            blackHolePoint.xyz,
+                            t);
+                }
+
+
                 o.vertex = mul(UNITY_MATRIX_VP, objectToWorldPoint);
 
                 
@@ -198,11 +232,25 @@ Shader "chenjd/BuiltIn/AnimMapShader"
                 col += _slashCol;
                 
                 // 冰冻
-                float _ICEStateValue = UNITY_ACCESS_INSTANCED_PROP(Props, _ICEState);
-                //if (_ICEStateValue == 1)
+                // float _ICEStateValue = UNITY_ACCESS_INSTANCED_PROP(Props, _ICEState);
+                // //if (_ICEStateValue == 1)
+                // {
+                //     fixed4 iceCol = tex2D(_ICETex, i.uv);
+                //     col += iceCol * _ICEStateValue;
+                // }
+
+                 float _ICEStateValue = UNITY_ACCESS_INSTANCED_PROP(Props, _ICEState);
+                if (_ICEStateValue > 0.001)
                 {
-                    fixed4 iceCol = tex2D(_ICETex, i.uv);
-                    col += iceCol * _ICEStateValue;
+                    fixed4 iceCol =
+                        tex2D(
+                            _ICETex,
+                            i.uv);
+
+                    col +=
+                        iceCol
+                        *
+                        _ICEStateValue;
                 }
 
                 // 遮罩图
