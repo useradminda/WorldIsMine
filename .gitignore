@@ -8,3 +8,10 @@ obj
 UserSettings/Layouts
 *.csproj
 *.sln
+EasyOA.csproj
+Nebukam.Beacon.csproj
+Nebukam.Common.csproj
+Nebukam.Common.Editor.csproj
+Nebukam.JobAssist.csproj
+Nebukam.ORCA.csproj
+Nebukam.Signals.csproj

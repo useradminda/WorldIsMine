@@ -1,0 +1,49 @@
+using Newtonsoft.Json;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+
+public class #ClassName#Config
+{
+    private static #ClassName#Config ins;
+    public static #ClassName#Config Ins
+    {
+        get
+        {
+            if(ins == null)
+            {
+                ins = new #ClassName#Config();
+                ins.init();
+            }
+            return ins;
+        }
+    }
+
+    private List<#ClassName#> dataList = new List<#ClassName#>();
+    public List<#ClassName#> ConfigDataList => dataList;
+
+    private void init()
+    {
+        string json = File.ReadAllText(Application.streamingAssetsPath + "#ClassName#.json");
+        dataList = JsonConvert.DeserializeObject<List<#ClassName#>>(json);
+    }
+
+    public #ClassName# SearchById(int id)
+    {
+        for(int i = 0; i < ConfigDataList.Count; i++)
+        {
+            if (ConfigDataList[i].id == id)
+            {
+                return ConfigDataList[i];
+            }
+        }
+        return null;
+    }
+}
+
+public class #ClassName#
+{
+	#propField#
+}
