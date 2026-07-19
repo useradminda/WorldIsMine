@@ -29,14 +29,16 @@ Shader "chenjd/BuiltIn/AnimMapShader"
         _HighLightValue("HighLightValue", float) = 1
         
 
+        // 假影子参数（实例化控制）
+       
 		//_AnimLen("Anim Length", Float) = 0
        // _CurrentTime("current time", Float) = 0
             //_Color("Color", Color) = (0, 0, 0, 1)
 
-        /*_GroundY("地面Y高度 (外部传入)",float) = 0
-        _Shadow_Color("影子颜色",Color) = (1,1,1,1)
-        _Shadow_Length("影子长度",float) = 0
-        _Shadow_Rotated("影子旋转角度",range(0,360)) = 0*/
+        _GroundY("地面Y高度 (外部传入)",float) = 0
+        _Shadow_Color("影子颜色",Color) = (0,0,0,0.3)
+        _Shadow_Length("影子长度",float) = 1
+        _Shadow_Rotated("影子旋转角度",range(0,360)) = 0
 	}
 	
     SubShader
@@ -272,8 +274,8 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 
 
 
-        //pass
-        //{
+        // pass
+        // {
         //    Stencil{
 
         //        Ref 1
@@ -373,6 +375,139 @@ Shader "chenjd/BuiltIn/AnimMapShader"
         //    }
 
         //    ENDCG
-        //}
+        // }
+        //==================== 顶点偏移假影子Pass（半透明后置渲染） ====================
+        //==================== 改造后的动画同步假影子Pass（保留你原有的旋转拉伸逻辑） ====================
+        Pass
+        {
+            Tags
+            {
+                "Queue"="Transparent"
+                "RenderType"="Transparent"
+                "IgnoreProjector"="True"
+            }
+            // 预乘混合解决多层重叠发黑
+            Blend One OneMinusSrcAlpha
+            ZWrite Off
+            Offset 2, 2
+            Cull Back // 剔除背面，减少重叠面片
+
+            CGPROGRAM
+            #pragma vertex vertShadowFake
+            #pragma fragment fragShadowFake
+            // 开启实例化保证合批
+            #pragma multi_compile_instancing
+            #include "UnityCG.cginc"
+
+            // 动画贴图相关（同步主体模型动画）
+            sampler2D _AnimMap;
+            float4 _AnimMap_TexelSize;
+            sampler2D _MainTex;
+            float4 _MainTex_ST;
+
+            // 影子全局属性
+            half _GroundY;
+            half4 _Shadow_Color;
+            half _Shadow_Length;
+            half _Shadow_Rotated;
+
+            // 实例化缓冲（所有动画/黑洞/重力参数同步主体）
+            UNITY_INSTANCING_BUFFER_START(Props)
+                UNITY_DEFINE_INSTANCED_PROP(float, _AnimLen)
+                UNITY_DEFINE_INSTANCED_PROP(float, _CurrentTime)
+                UNITY_DEFINE_INSTANCED_PROP(float4, _WorldPoint)
+                UNITY_DEFINE_INSTANCED_PROP(float, _BlackPower)
+                UNITY_DEFINE_INSTANCED_PROP(float, _TimeSinceLevelLoad)
+                UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)               
+            UNITY_INSTANCING_BUFFER_END(Props)
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+                uint vid : SV_VertexID; // 顶点ID读取AnimMap
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+            struct v2f
+            {
+                float4 pos : SV_POSITION;
+                float4 worldPos : TEXCOORD0;
+                float cacheWorldY : TEXCOORD1;
+                float2 uv : TEXCOORD2;
+                UNITY_VERTEX_INPUT_INSTANCE_ID
+            };
+
+            v2f vertShadowFake(appdata v)
+            {
+                UNITY_SETUP_INSTANCE_ID(v);
+                v2f o = (v2f)0;
+                UNITY_TRANSFER_INSTANCE_ID(v, o);
+
+                // ========== 1. 和主体完全同步AnimMap动画逻辑（解决影子不动） ==========
+                float gravityRadio = UNITY_ACCESS_INSTANCED_PROP(Props, _GravityValue);
+                float len = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimLen);
+                float _timeSinceLevelLoad = UNITY_ACCESS_INSTANCED_PROP(Props, _TimeSinceLevelLoad);
+                float _cT = UNITY_ACCESS_INSTANCED_PROP(Props, _CurrentTime);
+                float invLen = rcp(len);
+                float f = (_cT + _Time.y - _timeSinceLevelLoad) * invLen;
+
+                if (gravityRadio == 0.2)
+                    f = 0.1;
+                f = frac(f);
+
+                // 根据顶点ID采样动画贴图，拿到动画后的本地顶点
+                float animMap_x = (v.vid + 0.5) * _AnimMap_TexelSize.x ;
+                float animMap_y = f;
+                float4 animLocalPos = tex2Dlod(_AnimMap, float4(animMap_x, animMap_y, 0, 0));
+                animLocalPos.z *= gravityRadio;
+
+                // ========== 2. 同步黑洞吸力顶点偏移 ==========
+                float4 worldPos = mul(unity_ObjectToWorld, animLocalPos);
+                float4 blackHolePoint = UNITY_ACCESS_INSTANCED_PROP(Props, _WorldPoint);
+                float blackPower = UNITY_ACCESS_INSTANCED_PROP(Props, _BlackPower);
+                if (blackPower > 0.0001)
+                {
+                    float3 dir = worldPos.xyz - blackHolePoint.xyz;
+                    float disSqr = dot(dir, dir);
+                    float t = saturate(blackPower * rcp(max(disSqr, 0.0001)));
+                    worldPos.xyz = lerp(worldPos.xyz, blackHolePoint.xyz, t);
+                }
+
+                // ========== 3. 完全保留你原来写的影子拉伸、旋转逻辑 ==========
+                o.cacheWorldY = worldPos.y;
+                float originalY = worldPos.y;
+                worldPos.y = _GroundY;
+
+                half lerpVal = lerp(0, _Shadow_Length, originalY - _GroundY);
+                half radian = _Shadow_Rotated / 180.0 * UNITY_PI;
+                half2 ratatedAngle = half2(
+                    (0 * cos(radian) - 1 * sin(radian)),
+                    (0 * sin(radian) + 1 * cos(radian))
+                );
+                worldPos.xz += lerpVal * ratatedAngle;
+
+                o.worldPos = worldPos;
+                o.pos = mul(UNITY_MATRIX_VP, worldPos);
+                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                return o;
+            }
+
+            fixed4 fragShadowFake(v2f i) : SV_TARGET
+            {
+                UNITY_SETUP_INSTANCE_ID(i);
+                // 剔除地面下方顶点
+                clip(i.cacheWorldY - _GroundY);
+                // 同步主体透明裁剪，镂空不画影子
+                fixed4 mainTexCol = tex2D(_MainTex, i.uv);
+                clip(mainTexCol.a - 0.5);
+
+                // 预乘Alpha，解决多层面片重叠发黑（核心修复你截图斑驳问题）
+                half4 shadowCol = _Shadow_Color;
+                shadowCol.rgb *= shadowCol.a;
+                return shadowCol;
+            }
+            ENDCG
+        }
 	}
 }
