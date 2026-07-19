@@ -36,7 +36,7 @@ Shader "chenjd/BuiltIn/AnimMapShader"
             //_Color("Color", Color) = (0, 0, 0, 1)
 
         _GroundY("地面Y高度 (外部传入)",float) = 0
-        _Shadow_Color("影子颜色",Color) = (0,0,0,0.3)
+        _Shadow_Color("影子颜色",Color) = (0,0,0,1)
         _Shadow_Length("影子长度",float) = 1
         _Shadow_Rotated("影子旋转角度",range(0,360)) = 0
 	}

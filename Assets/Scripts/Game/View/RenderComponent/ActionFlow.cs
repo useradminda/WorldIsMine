@@ -49,7 +49,7 @@ public class ActionFlow : MonoBehaviour
     void Awake()
     {
         initActionDataDic();
-        PlayAction(EActionType.wait);
+        PlayAction(EActionType.run);
     }
 
     private void Start()

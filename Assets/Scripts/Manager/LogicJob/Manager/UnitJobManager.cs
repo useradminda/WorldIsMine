@@ -9,8 +9,8 @@ public class UnitJobManager : MonoBehaviour
 {
     public GameObject HeroPrefab;
 
-    private int countX = 200;
-    private int countZ = 200;
+    private int countX = 10;
+    private int countZ = 10;
 
     NativeArray<float3> positions;
 
@@ -18,7 +18,7 @@ public class UnitJobManager : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
 
         positions = new NativeArray<float3>(countX * countZ, Allocator.Persistent);
 
@@ -26,7 +26,7 @@ public class UnitJobManager : MonoBehaviour
 
         for (int i = 0; i < countX * countZ; i++)
         {
-            float3 pos = new float3(UnityEngine.Random.Range(-100f, 100f), 0, UnityEngine.Random.Range(-100f, 100f));
+            float3 pos = new float3(i * -countX, 0, -countZ);
             positions[i] = pos;
             var go = Instantiate(HeroPrefab);
             go.transform.position = pos;
@@ -41,7 +41,7 @@ public class UnitJobManager : MonoBehaviour
         {
             for (int z = 0; z < countZ; z++)
             {
-                Agent agent = UnitFactory.CreateAgent(new float3(x, 0, z), new float3(0, 0, 0), 0.5f, 1f);
+                Agent agent = UnitFactory.CreateAgent(new float3(-7 * x, 6, -20 * z), new float3(0, 0, 0), 1f, 10f);
                 RvoManager.Instance.AddAgentCurrent(agent);
                 agent.prefVelocity = new float3(0, 0, 1);
             }
@@ -60,7 +60,7 @@ public class UnitJobManager : MonoBehaviour
                 .pos;
             Agent a = RvoManager.Instance
                 .Agents[i];
-            a.prefVelocity = new float3(0, 0, 1);
+            a.prefVelocity = new float3(0, 0, -5);
           //  a.velocity = new float3(0, 0, 1);
         }
 
@@ -82,10 +82,7 @@ public class UnitJobManager : MonoBehaviour
         syncJob
             .Schedule(
                 transformsAccessArray)
-            .Complete();
-
-
-      
+            .Complete(); 
     }
 
     private void LateUpdate()
