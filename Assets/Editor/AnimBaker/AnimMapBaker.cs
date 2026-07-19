@@ -419,6 +419,12 @@ public class AnimMapBaker{
 
     public Texture2D GetBeCopyMainTex(SkinnedMeshRenderer smr, SkinnedMeshRenderer horseSkin)
     {
+        if (horseSkin == null)
+        {
+            _needCombineTex = false;
+            Texture2D oriTex = (Texture2D)smr.sharedMaterial.mainTexture;
+            return oriTex;
+        }
         _needCombineTex = smr.sharedMaterial.mainTexture != horseSkin.sharedMaterial.mainTexture ? true : false;
         if (_needCombineTex == false)
         {

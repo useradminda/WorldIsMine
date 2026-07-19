@@ -9,8 +9,8 @@ public class UnitJobManager : MonoBehaviour
 {
     public GameObject HeroPrefab;
 
-    private int countX = 10;
-    private int countZ = 10;
+    private int countX = 50;
+    private int countZ = 50;
 
     NativeArray<float3> positions;
 
@@ -41,7 +41,7 @@ public class UnitJobManager : MonoBehaviour
         {
             for (int z = 0; z < countZ; z++)
             {
-                Agent agent = UnitFactory.CreateAgent(new float3(-7 * x, 6, -20 * z), new float3(0, 0, 0), 1f, 10f);
+                Agent agent = UnitFactory.CreateAgent(new float3(-1 * x, 1, -2 * z), new float3(0, 0, 0), 2f, 10f);
                 RvoManager.Instance.AddAgentCurrent(agent);
                 agent.prefVelocity = new float3(0, 0, 1);
             }
@@ -60,7 +60,7 @@ public class UnitJobManager : MonoBehaviour
                 .pos;
             Agent a = RvoManager.Instance
                 .Agents[i];
-            a.prefVelocity = new float3(0, 0, -5);
+            a.prefVelocity = new float3(0, 0, -10);
           //  a.velocity = new float3(0, 0, 1);
         }
 
