@@ -5,25 +5,19 @@ using UnityEngine;
 public class BornConfig : MonoBehaviour
 {
     // 红方出生点
-    public List<Transform> RedPoints = new List<Transform>();
+    public Transform RedPoint;
     // 蓝方
-    public List<Transform> BluePoints = new List<Transform>();
+    public Transform BluePoint;
 
     public Vector3 GetBornPoint(ECampType campType)
     {
         if (campType == ECampType.Red)
         {
-            if (RedPoints.Count > 0)
-            {
-                return RedPoints[0].position;
-            }
+            return RedPoint.position;
         }
         if (campType == ECampType.Blue)
         {
-            if (BluePoints.Count > 0)
-            {
-                return BluePoints[0].position;
-            }
+            return BluePoint.position;
         }
         return Vector3.zero;
     }
