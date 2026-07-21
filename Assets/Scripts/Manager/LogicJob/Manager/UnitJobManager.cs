@@ -42,7 +42,7 @@ public class UnitJobManager : MonoBehaviour
             for (int z = 0; z < countZ; z++)
             {
                 Agent agent = UnitFactory.CreateAgent(new float3(-1 * x, 1, -2 * z), new float3(0, 0, 0), 2f, 10f);
-                RvoManager.Instance.AddAgentCurrent(agent);
+                RvoManager.Instance.AddAgentImmediately(agent);
                 agent.prefVelocity = new float3(0, 0, 1);
             }
         }

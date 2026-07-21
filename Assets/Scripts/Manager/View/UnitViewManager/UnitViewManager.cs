@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using ZTools;
+
+public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
+{
+    public WaitListTemplate<UnitView> UnitList = new WaitListTemplate<UnitView>(null);
+
+    public void ManagerInit()
+    {
+
+    }
+
+    public void ManagerUpdate()
+    {
+        for (int i = 0; i < UnitList.Count; i++)
+        {
+            UnitList.DataList[i].ViewUpdate();
+        }
+    }
+
+    public void ManagerLateUpdate()
+    {
+        UnitList.AddWaitingList();
+    }
+
+    public void ManagerRefuse()
+    {
+
+    }
+    public void ManagerDestroy()
+    {
+
+    }
+
+    public void AddUnitView(UnitView unitView)
+    {
+        UnitList.Add(unitView);
+    }
+}
