@@ -1,7 +1,7 @@
 using UnityEngine;
 using Unity.Mathematics;
 using static Unity.Mathematics.math;
-public class UnitBase
+public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
     public Nebukam.ORCA.Agent Agenter => agenter;
@@ -11,8 +11,12 @@ public class UnitBase
 
     private float3 tarPos;
 
-    public UnitBase()
+    public ECampType CampType => campType;
+    private ECampType campType;
+
+    public UnitLogicBase(ECampType campType)
     {
+        this.campType = campType;
         prop = new UnitProp(1, 1);
     }
 
@@ -22,7 +26,7 @@ public class UnitBase
         this.agenter = agenter;
     }
 
-    public void UpdateMove()
+    public void UnitUpdate()
     {
         if (Agenter == null)
         {

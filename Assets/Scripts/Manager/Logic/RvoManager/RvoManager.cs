@@ -56,6 +56,8 @@ public class RvoManager : Singleton<RvoManager>, IManager
         simulation.agents = null;
         simulation.DisposeAll();
         simulation = null;
+        waitingAddList.Clear();
+        waitingRemoveList.Clear();
     }
 
     public void ManagerDestroy()
@@ -64,13 +66,6 @@ public class RvoManager : Singleton<RvoManager>, IManager
         simulation = null;
     }
 
-    // 给RVO增加一个agent(等待添加的列表) 
-    //public Agent AddAgent(float3 bornPoint, float3 forward, float radius, float maxSpeed)
-    //{
-    //    Agent agent = UnitFactory.CreateAgent(bornPoint, forward, radius, maxSpeed);
-    //    waitingAddList.Add(agent);
-    //    return agent;
-    //}
 
     // 给RVO增加一个agent(等待添加的列表) 
     public Agent AddAgent(Agent agent)
@@ -79,7 +74,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
         return agent;
     }
 
-    public Agent AddAgentCurrent(Agent agent)
+    public Agent AddAgentImmediately(Agent agent)
     {
         Nebukam.Common.IVertex a = (Nebukam.Common.IVertex)agent;
         Agents.Add(a);

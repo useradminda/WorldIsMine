@@ -1,8 +1,8 @@
 using AillieoUtils;
 public class KDInfo : IPositionProvider
 {
-    private UnitBase ub;
-    public UnitBase UB => ub;
+    private UnitLogicBase ub;
+    public UnitLogicBase UB => ub;
 
     public AillieoUtils.Vector2 position
     {
@@ -12,7 +12,7 @@ public class KDInfo : IPositionProvider
         }
     }
 
-    public void SetUnit(UnitBase ub)
+    public void SetUnit(UnitLogicBase ub)
     {
         this.ub = ub;
     }

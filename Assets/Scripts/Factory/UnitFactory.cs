@@ -1,13 +1,12 @@
 using Nebukam;
 using Nebukam.ORCA;
-using System.Diagnostics;
 using Unity.Mathematics;
 public static class UnitFactory
 {
     // 创建一个单位
-    public static UnitBase CreateUnit(float3 bornPoint, float3 forward, float radius)
+    public static UnitLogicBase CreateUnit(float3 bornPoint, float3 forward, float radius, ECampType campType)
     {
-        UnitBase unit = new UnitBase();
+        UnitLogicBase unit = new UnitLogicBase(campType);
         Agent agent = CreateAgent(bornPoint, forward, radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;
