@@ -50,8 +50,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         for (int i = 0; i < count; i++)
         {
-            Vector3 bornPoint = BornConfigIns.GetBornPoint(campType);
             Vector3 forward = BornConfigIns.GetForward(campType);
+            Vector3 bornPoint = BornConfigIns.GetBornPoint(campType);
+            bornPoint = getCreatePoint(bornPoint, forward, count);       
 
             UnitLogicBase unitLogic = UnitFactory.CreateUnit(bornPoint, forward, radius, campType);
             UnitManager.Instance.AddUnit(unitLogic);
@@ -63,6 +64,20 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         }
     }
 
+    // 获取创建位置点
+    private Vector3 getCreatePoint(Vector3 bornPoint, Vector3 forward, int count)
+    {
+        float soliderWithClipDis = BattleDefine.AreaTotalWith / BattleDefine.FootManWithCount;
+        int withLineIndex = count / BattleDefine.FootManWithCount;
+        float z = bornPoint.z + (-forward.z) * (withLineIndex - 1) * BattleDefine.FootManHeightSegDis;
+
+        float x = 0;
+        int index = count / 2;
+        int leftOrRightFlagValue = count % 2;
+        int flagValue = leftOrRightFlagValue == 0 ? 1 : -1;   
+        x = bornPoint.x + flagValue * index * soliderWithClipDis;
+        return new Vector3(x, 0, z);        
+    }
 
     private bool initBattle()
     {
@@ -74,6 +89,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         UnitManager.Instance.ManagerInit();
         KDTreeManager.Instance.ManagerInit();
+
         RvoManager.Instance.ManagerInit();
         if (ObstacleConfigIns == null)
         {

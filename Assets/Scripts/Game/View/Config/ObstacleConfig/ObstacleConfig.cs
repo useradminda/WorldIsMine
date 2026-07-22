@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+
 // 障碍物配置
 public class ObstacleConfig : MonoBehaviour
 {

@@ -9,14 +9,17 @@ public class UnitLogicBase
     private UnitProp prop;
     public UnitProp Prop => prop;
 
-    private float3 tarPos;
+    private float3 targetForward;
 
     public ECampType CampType => campType;
     private ECampType campType;
 
-    public UnitLogicBase(ECampType campType)
+
+
+    public UnitLogicBase(ECampType campType, float3 targetForward)
     {
         this.campType = campType;
+        this.targetForward = targetForward;
         prop = new UnitProp(1, 1);
     }
 
@@ -35,6 +38,8 @@ public class UnitLogicBase
         }
         float agentSpeed = Agenter.saveMaxSpeed;  
         Agenter.maxSpeed = agentSpeed;     
-        Agenter.prefVelocity = normalize(tarPos - Agenter.pos) * agentSpeed;
+        Agenter.prefVelocity = normalize(this.targetForward) * agentSpeed;
     }
+
+
 }

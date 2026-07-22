@@ -6,7 +6,7 @@ public static class UnitFactory
     // 创建一个单位
     public static UnitLogicBase CreateUnit(float3 bornPoint, float3 forward, float radius, ECampType campType)
     {
-        UnitLogicBase unit = new UnitLogicBase(campType);
+        UnitLogicBase unit = new UnitLogicBase(campType, forward);
         Agent agent = CreateAgent(bornPoint, forward, radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;
