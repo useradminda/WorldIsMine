@@ -50,7 +50,7 @@ public class UnitJobManager : MonoBehaviour
 
     void Update()
     {
-        RvoManager.Instance.ManagerUpdate();
+        RvoManager.Instance.ManagerUpdate(Time.deltaTime);
 
         for (int i = 0; i < countX * countZ; i++)
         {
@@ -87,7 +87,7 @@ public class UnitJobManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        RvoManager.Instance.ManagerLateUpdate();
+        RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }
 
     void OnDestroy()

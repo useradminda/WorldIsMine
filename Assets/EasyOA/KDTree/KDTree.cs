@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine.UIElements;
 
 namespace AillieoUtils
 {
@@ -290,15 +291,16 @@ namespace AillieoUtils
             node.splitPos = managed[permutation[foundIndex]].position[splitAxis];
             return foundIndex;
         }
-        
-        public IEnumerable<T> QueryInRange(Vector2 center, float radius)
+
+        List<T> list = new List<T>();
+        public IEnumerable<T> QueryInRange(Vector2 center, float radius, bool single)
         {
-            List<T> list = new List<T>();
-            QueryInRange(center, radius, list);
+            list.Clear();
+            QueryInRange(center, radius, list, single);
             return list;
         }
 
-        public void QueryInRange(Vector2 center, float radius, ICollection<T> toFill)
+        public void QueryInRange(Vector2 center, float radius, ICollection<T> toFill, bool single)
         {
             if (managed.Count == 0)
             {
@@ -337,6 +339,10 @@ namespace AillieoUtils
                         if (Vector2.SqrMagnitude(managed[index].position - center) <= radiusSq)
                         {
                             toFill.Add(managed[index]);
+                            if (toFill.Count >= 1 && single)
+                            {
+                                return;
+                            }
                         }
                     }
                 }

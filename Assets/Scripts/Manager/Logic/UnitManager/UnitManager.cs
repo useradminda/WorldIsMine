@@ -13,15 +13,15 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     }
 
-    public void ManagerUpdate()
+    public void ManagerUpdate(float dt)
     {
         for (int i = 0; i < UnitList.Count; i++)
         {
-            UnitList.DataList[i].UnitUpdate();
+            UnitList.DataList[i].UnitUpdate(dt);
         }
     }
 
-    public void ManagerLateUpdate()
+    public void ManagerLateUpdate(float dt)
     {
         UnitList.AddWaitingList();
     }

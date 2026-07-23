@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ExcelSetting
   m_EditorClassIdentifier: 
   ExcelCatchInfoList:
-  - ExcelName: abc.xlsx
+  - ExcelName: Skill.xlsx
     SheetNameList:
-    - jjj
-    - qqq
-    - bbb
-    - gfdg
+    - SkillCfg
+  - ExcelName: SoliderUnit.xlsx
+    SheetNameList:
+    - SoliderCfg

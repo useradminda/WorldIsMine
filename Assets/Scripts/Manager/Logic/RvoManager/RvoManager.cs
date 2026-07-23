@@ -31,7 +31,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
         setBorderInfo(borderList);
     }
 
-    public void ManagerUpdate()
+    public void ManagerUpdate(float dt)
     {
         if (simulation != null)
         {
@@ -39,7 +39,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
         }
     }
 
-    public void ManagerLateUpdate()
+    public void ManagerLateUpdate(float dt)
     { 
         if(simulation != null && simulation.TryComplete())
         {
@@ -95,6 +95,8 @@ public class RvoManager : Singleton<RvoManager>, IManager
     // 设置边界
     private void setBorderInfo(List<Vector3> borderList)
     {
+        if (borderList.Count <= 0)
+            return;
         float3[] squarePoints = new float3[] {
               new float3(borderList[0].x, 0, borderList[0].z),
               new float3(borderList[1].x, 0, borderList[1].z),

@@ -1,9 +1,9 @@
 
-public class IdolState : StateBase
+public class IdleState : StateBase
 {
     public override EStateTyep StateType { get { return EStateTyep.Idle; }}
 
-    public IdolState(UnitLogicBase ulb) : base(ulb)
+    public IdleState(UnitLogicBase ulb) : base(ulb)
     {
 
     }
@@ -13,7 +13,7 @@ public class IdolState : StateBase
 
     }
 
-    public override void UpdateState()
+    public override void UpdateState(float dt)
     {
 
     }
@@ -22,4 +22,6 @@ public class IdolState : StateBase
     {
 
     }
+
+   
 }

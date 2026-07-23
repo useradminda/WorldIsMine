@@ -10,7 +10,7 @@ public enum EStateTyep
 public abstract class StateBase
 {
     private UnitLogicBase ub;
-    public UnitLogicBase UnityLogic => ub;
+    public UnitLogicBase UnitLogic => ub;
 
     public StateBase(UnitLogicBase ub)
     {
@@ -21,7 +21,7 @@ public abstract class StateBase
 
     public abstract void EnterState(params object[] objects);
 
-    public abstract void UpdateState();
+    public abstract void UpdateState(float dt);
 
     public abstract void ExitState();
 }

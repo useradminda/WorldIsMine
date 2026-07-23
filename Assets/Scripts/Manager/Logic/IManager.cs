@@ -5,8 +5,8 @@ using UnityEngine;
 public interface IManager
 {
     void ManagerInit();
-    void ManagerUpdate();
-    void ManagerLateUpdate();
+    void ManagerUpdate(float dt);
+    void ManagerLateUpdate(float dt);
     void ManagerRefuse();
     void ManagerDestroy();
 }

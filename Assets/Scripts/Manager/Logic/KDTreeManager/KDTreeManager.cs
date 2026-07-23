@@ -10,7 +10,7 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
     private IEnumerable<KDInfo> queryResult = new List<KDInfo>();
 
     private KDTree<KDInfo> kdTree;
-    protected KDTree<KDInfo> mKDTree
+    public KDTree<KDInfo> mKDTree
     {
         get
         {
@@ -29,7 +29,7 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
         KDInfoList = new WaitListTemplate<KDInfo>((KDInfo a) => mKDTree.Add(a));
     }
 
-    public void ManagerUpdate()
+    public void ManagerUpdate(float dt)
     {
         if (mKDTree != null)
         {
@@ -37,7 +37,7 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
         }
     }
 
-    public void ManagerLateUpdate()
+    public void ManagerLateUpdate(float dt)
     {
         KDInfoList.AddWaitingList();
     }

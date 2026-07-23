@@ -8,7 +8,12 @@ public class OperateManager : MonoSingleton<OperateManager>
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            BattleEngine.Instance.CreateUnit(ECampType.Red, 100, 1, "Soliders/Soldier1_1");
+            BattleEngine.Instance.CreateUnit(1, ECampType.Red, 100);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            BattleEngine.Instance.CreateUnit(1, ECampType.Blue, 100);
+
         }
     }
 }

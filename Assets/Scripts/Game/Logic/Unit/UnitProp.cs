@@ -11,9 +11,14 @@ public class UnitProp
     public int Hp => hp;
 
 
-    public UnitProp(float radius, float maxSpeed)
+    public UnitProp(int hp, float radius, float maxSpeed)
     {
         this.radius = radius;
         this.maxSpeed = maxSpeed;
+    }
+
+    public void ChangeHp(int value)
+    {
+        hp += value;
     }
 }

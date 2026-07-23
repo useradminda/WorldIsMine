@@ -28,25 +28,27 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // Update is called once per frame
     void Update()
     {
-        UnitManager.Instance.ManagerUpdate();
-        RvoManager.Instance.ManagerUpdate();
-        KDTreeManager.Instance.ManagerUpdate();
+        UnitManager.Instance.ManagerUpdate(Time.deltaTime);
+        RvoManager.Instance.ManagerUpdate(Time.deltaTime);
+        KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
 
-        UnitViewManager.Instance.ManagerUpdate();
+        UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
+
+        OperateManager.Instance.UpdateInput();
     }
 
     private void LateUpdate()
     {
-        UnitManager.Instance.ManagerLateUpdate();
-        RvoManager.Instance.ManagerLateUpdate();
-        KDTreeManager.Instance.ManagerLateUpdate();
+        UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
-        UnitViewManager.Instance.ManagerLateUpdate();
+        UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }
 
 
     // 创建单位
-    public void CreateUnit(ECampType campType, int count, float radius, string prefab)
+    public void CreateUnit(int id, ECampType campType, int count)
     {
         for (int i = 0; i < count; i++)
         {
@@ -54,12 +56,12 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             Vector3 bornPoint = BornConfigIns.GetBornPoint(campType);
             bornPoint = getCreatePoint(bornPoint, forward, count);       
 
-            UnitLogicBase unitLogic = UnitFactory.CreateUnit(bornPoint, forward, radius, campType);
+            UnitLogicBase unitLogic = UnitFactory.CreateUnit(id, bornPoint, forward, campType);
             UnitManager.Instance.AddUnit(unitLogic);
             RvoManager.Instance.AddAgent(unitLogic.Agenter);
             KDTreeManager.Instance.AddWaitingKDInfo(unitLogic);
 
-            UnitView unityView = UnitViewFactory.CreateUnitView(prefab, bornPoint, forward, unitLogic);
+            UnitView unityView = UnitViewFactory.CreateUnitView(unitLogic.SoliderCfg.prefab, bornPoint, forward, unitLogic);
             UnitViewManager.Instance.AddUnitView(unityView);
         }
     }

@@ -4,10 +4,10 @@ using Unity.Mathematics;
 public static class UnitFactory
 {
     // 创建一个单位
-    public static UnitLogicBase CreateUnit(float3 bornPoint, float3 forward, float radius, ECampType campType)
+    public static UnitLogicBase CreateUnit(int id, float3 bornPoint, float3 forward, ECampType campType)
     {
-        UnitLogicBase unit = new UnitLogicBase(campType, forward);
-        Agent agent = CreateAgent(bornPoint, forward, radius, unit.Prop.MaxSpeed);
+        UnitLogicBase unit = new UnitLogicBase(id, campType, forward);
+        Agent agent = CreateAgent(bornPoint, forward, unit.Prop.Radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;
     }

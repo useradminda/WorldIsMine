@@ -12,7 +12,7 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
 
     }
 
-    public void ManagerUpdate()
+    public void ManagerUpdate(float dt)
     {
         for (int i = 0; i < UnitList.Count; i++)
         {
@@ -20,7 +20,7 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
         }
     }
 
-    public void ManagerLateUpdate()
+    public void ManagerLateUpdate(float dt)
     {
         UnitList.AddWaitingList();
     }
