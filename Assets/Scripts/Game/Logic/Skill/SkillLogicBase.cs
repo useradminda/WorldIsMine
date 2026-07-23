@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 public class SkillLogicBase
 {
     private float skillRange = 0f;
@@ -8,10 +10,13 @@ public class SkillLogicBase
     public UnitLogicBase UnitLogic => unitLogic;
 
     private SkillCfg skillCfg;
+    public SkillCfg SkillCfg => skillCfg;
 
     public bool BNormalSkill => this.skillCfg.normal == 1;
 
     private float curCD;
+
+    private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
 
     public SkillLogicBase(UnitLogicBase ulb, SkillCfg skillCfg)
     {
@@ -28,15 +33,18 @@ public class SkillLogicBase
     }
 
     // 更新
-    public void SkillUpdate(float dt)
+    public void SkillDoEffectUpdate(float dt)
     {
-        curCD -= dt;
-        if (curCD < 0)
+        if (curCD > 0)
         {
-            if (BNormalSkill)
+            curCD -= dt;
+            if (curCD < 0)
             {
-                SkillDoEffect();
-                SkillResetCD();
+                if (BNormalSkill)
+                {
+                    SkillDoEffect();
+                    SkillResetCD();
+                }
             }
         }
     }
@@ -52,8 +60,15 @@ public class SkillLogicBase
         curCD = skillCfg.cd;
     }
 
-    public void Refuse()
+    public void SkillRefuse()
     {
         
+    }
+
+    public List<UnitLogicBase> SkillSearchTarget()
+    {
+        targetList.Clear();
+        targetList = BattleLogicTools.SearchNotMyCampUnits(UnitLogic.Agenter.pos.x, UnitLogic.Agenter.pos.z, SkillRange, UnitLogic.CampType, true);
+        return targetList;
     }
 }

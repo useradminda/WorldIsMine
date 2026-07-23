@@ -16,7 +16,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     private void Awake()
     {
-        initBattle();
+        battleInit = initBattle();
     }
 
     // Start is called before the first frame update
@@ -28,6 +28,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // Update is called once per frame
     void Update()
     {
+        if (battleInit == false)
+            return;
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
@@ -39,6 +41,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     private void LateUpdate()
     {
+        if (battleInit == false)
+            return;
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);

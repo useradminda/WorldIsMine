@@ -1,6 +1,4 @@
-
 using System.Collections.Generic;
-
 
 public static class BattleLogicTools
 {
@@ -8,7 +6,6 @@ public static class BattleLogicTools
     private static IEnumerable<KDInfo> queryResult = new List<KDInfo>();
     private static List<UnitLogicBase> unitLogicList = new List<UnitLogicBase>();
     
-   
     public static List<UnitLogicBase> SearchNotMyCampUnits(float x, float z, float range, ECampType campType, bool single = false)
     {
         unitLogicList.Clear();
@@ -16,7 +13,7 @@ public static class BattleLogicTools
         queryResult = KDTreeManager.Instance.mKDTree.QueryInRange(searchPos, range, single);
         foreach (KDInfo value in queryResult)
         {
-            if (value.UB.CampType != campType)
+            if (value.UB.CampType != campType && value.UB.IsDead == false)
             {
                 unitLogicList.Add(value.UB);
             }
@@ -31,7 +28,7 @@ public static class BattleLogicTools
         queryResult = KDTreeManager.Instance.mKDTree.QueryInRange(searchPos, range, single);
         foreach (KDInfo value in queryResult)
         {
-            if (value.UB.CampType == campType)
+            if (value.UB.CampType == campType && value.UB.IsDead == false)
             {
                 unitLogicList.Add(value.UB);
             }

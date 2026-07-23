@@ -15,7 +15,7 @@ public class AttackState : StateBase
     {
         targetUnit = (UnitLogicBase)objects[0];
         useSkill = (SkillLogicBase)objects[1];
-        useSkill.SkillDoEffect();
+        useSkill.SkillEnter();
     }
 
     public override void UpdateState(float dt)
@@ -39,6 +39,6 @@ public class AttackState : StateBase
 
     private void skillUpdate(float dt)
     {
-        useSkill.SkillUpdate(dt);
+        useSkill.SkillDoEffectUpdate(dt);
     }
 }
