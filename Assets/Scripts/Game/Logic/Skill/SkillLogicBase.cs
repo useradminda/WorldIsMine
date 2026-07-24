@@ -52,7 +52,7 @@ public class SkillLogicBase
     // 执行
     public void SkillDoEffect()
     {
-        
+        BattleLogicDamageTools.DoDamage(unitLogic, targetList, this);
     }
 
     public void SkillResetCD()
@@ -62,7 +62,7 @@ public class SkillLogicBase
 
     public void SkillRefuse()
     {
-        
+        SkillResetCD();    
     }
 
     public List<UnitLogicBase> SkillSearchTarget()
