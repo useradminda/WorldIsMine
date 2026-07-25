@@ -22,6 +22,7 @@ public class AnimMapBakerWindow : EditorWindow {
     private const string BuiltInShader = "chenjd/BuiltIn/AnimMapShader";
     private const string URPShader = "chenjd/URP/AnimMapShader";
     private const string ShadowShader = "chenjd/BuiltIn/AnimMapWithShadowShader";
+    private static List<GameObject> _targetGoList = new List<GameObject>() {};
     private static GameObject _targetGo;
     private static AnimMapBaker _baker;
     private static string _exportFolderParentPath = "Assets/AnimMapBaker";
@@ -61,84 +62,102 @@ public class AnimMapBakerWindow : EditorWindow {
 
     private void OnGUI()
     {
-        _targetGo = (GameObject)EditorGUILayout.ObjectField(_targetGo, typeof(GameObject), true);
-        _subPath = _targetGo == null ? _subPath : _exportFolderParentPath  + "/" + _targetGo.name;
-        EditorGUILayout.LabelField(string.Format($"Output Path: {_subPath}"));
-        _subPath = EditorGUILayout.TextField(_subPath);
+        if (GUILayout.Button("Add"))
+        {
+            _targetGoList.Add(null);
+        }
+        if (GUILayout.Button("Del"))
+        {
+            _targetGoList.RemoveAt(_targetGoList.Count - 1);
+        }
+        for (int i = 0; i < _targetGoList.Count; i++)
+            {
+                _targetGoList[i] = (GameObject)EditorGUILayout.ObjectField(_targetGoList[i], typeof(GameObject), true);
+            }
 
-        _isShadowEnabled = EditorGUILayout.Toggle("Enable Shadow", _isShadowEnabled);
+            //_targetGo = (GameObject)EditorGUILayout.ObjectField(_targetGo, typeof(GameObject), true);
+           
+            //EditorGUILayout.LabelField(string.Format($"Output Path: {_subPath}"));
+            //_subPath = EditorGUILayout.TextField(_subPath);
 
-        //if(_isShadowEnabled)
-        //{
-        //    var style = new GUIStyle(EditorStyles.label);
-        //    style.normal.textColor = Color.yellow;
+            //_isShadowEnabled = EditorGUILayout.Toggle("Enable Shadow", _isShadowEnabled);
 
-        //    EditorGUILayout.LabelField("Warning: Enabling shadows will cause additional draw calls to draw shadows.", style);
+            //if(_isShadowEnabled)
+            //{
+            //    var style = new GUIStyle(EditorStyles.label);
+            //    style.normal.textColor = Color.yellow;
 
-        //    _prevAnimMapShader = _animMapShader;
-        //    _animMapShader = Shader.Find(ShadowShader);
-        //}
-        //else if(_prevAnimMapShader != null)
-        //{
-        //    _animMapShader = _prevAnimMapShader;
-        //}
+            //    EditorGUILayout.LabelField("Warning: Enabling shadows will cause additional draw calls to draw shadows.", style);
 
+            //    _prevAnimMapShader = _animMapShader;
+            //    _animMapShader = Shader.Find(ShadowShader);
+            //}
+            //else if(_prevAnimMapShader != null)
+            //{
+            //    _animMapShader = _prevAnimMapShader;
+            //}
+           
         if (!GUILayout.Button("Bake")) return;
 
-        if(_targetGo == null)
+        for (int i = 0; i < _targetGoList.Count; i++)
         {
-            EditorUtility.DisplayDialog("错误", "请选择一个GameObject！", "确认");
-            return;
-        }
-        // 重置需要烘焙的角色
-        _targetGo.transform.position = Vector3.zero;
-        _targetGo.transform.localScale = Vector3.one;
-        _targetGo.transform.eulerAngles = Vector3.zero;
-
-        var shaderName = GraphicsSettings.renderPipelineAsset != null ? URPShader : BuiltInShader;
-        _animMapShader = Shader.Find(shaderName);
-       
-        // 存在之前的则删除
-        if (Directory.Exists(_subPath))
-        {
-            Directory.Delete(_subPath, true);
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-        }
-       
-        createDirectory();
-       
-        // 创建一个烘焙器
-        if (_baker == null)
-        {
-            _baker = new AnimMapBaker();
-        }
-        // 设置目标
-        _baker.SetAnimData(_targetGo);
-
-        var list = _baker.Bake();
-
-        if (list == null) return;
-        string _targetGoName = _targetGo.name;
-
-        var data_first = list[0];
-        Mesh mesh = SaveMesh(ref data_first, _targetGoName);
-
-        Dictionary<EActionType, MatInfo> matDic = new Dictionary<EActionType, MatInfo>();
-
-        foreach (var t in list)
-        {
-            var data = t;
-            float animLength = data.AnimLen;
-            EActionType actionType = AnimMapBaker.GetActionTypeByAnimName(data.Name);
-            if (!matDic.ContainsKey(actionType))
+            _targetGo = _targetGoList[i];
+            if (_targetGo == null)
             {
-                MatInfo matInfo = new MatInfo() { AnimLen = animLength, Mat = SaveMat(ref data, _targetGo.name) };
-                matDic.Add(actionType, matInfo);
+                //EditorUtility.DisplayDialog("错误", "请选择一个GameObject！", "确认");
+                continue;
             }
+            _subPath = _targetGo == null ? _subPath : _exportFolderParentPath + "/" + _targetGo.name;
+            // 重置需要烘焙的角色
+            _targetGo.transform.position = Vector3.zero;
+            _targetGo.transform.localScale = Vector3.one;
+            _targetGo.transform.eulerAngles = Vector3.zero;
+
+            var shaderName = GraphicsSettings.renderPipelineAsset != null ? URPShader : BuiltInShader;
+            _animMapShader = Shader.Find(shaderName);
+
+            // 存在之前的则删除
+            if (Directory.Exists(_subPath))
+            {
+                Directory.Delete(_subPath, true);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+
+            createDirectory();
+
+            // 创建一个烘焙器
+            if (_baker == null)
+            {
+                _baker = new AnimMapBaker();
+            }
+            // 设置目标
+            _baker.SetAnimData(_targetGo);
+
+            var list = _baker.Bake();
+
+            if (list == null) return;
+            string _targetGoName = _targetGo.name;
+
+            var data_first = list[0];
+            Mesh mesh = SaveMesh(ref data_first, _targetGoName);
+
+            Dictionary<EActionType, MatInfo> matDic = new Dictionary<EActionType, MatInfo>();
+
+            foreach (var t in list)
+            {
+                var data = t;
+                float animLength = data.AnimLen;
+                EActionType actionType = AnimMapBaker.GetActionTypeByAnimName(data.Name);
+                if (!matDic.ContainsKey(actionType))
+                {
+                    MatInfo matInfo = new MatInfo() { AnimLen = animLength, Mat = SaveMat(ref data, _targetGo.name) };
+                    matDic.Add(actionType, matInfo);
+                }
+            }
+            SavePrefab(mesh, _targetGo.name, matDic);
+            _baker = null;
         }
-        SavePrefab(mesh, _targetGo.name, matDic);
-        _baker = null;
     }
 
    

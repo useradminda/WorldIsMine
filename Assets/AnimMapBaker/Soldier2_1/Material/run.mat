@@ -49,8 +49,8 @@ Material:
     - _ICEState: 0
     - _LightScale: 1
     - _MaskValue: 0
-    - _Shadow_Length: 1
-    - _Shadow_Rotated: 0
+    - _Shadow_Length: 0.7
+    - _Shadow_Rotated: 217
     m_Colors:
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}

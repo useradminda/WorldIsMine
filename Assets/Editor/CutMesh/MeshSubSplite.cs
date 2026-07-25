@@ -5,7 +5,7 @@ using System.IO;
 
 public static class MeshSubMeshSplitter
 {
-    [MenuItem("Mesh工具/从选中场景物体合并SubMesh+生成图集")]
+    [MenuItem("Mesh工具/从选中场景物体合并SubMesh+生成图集(处理士兵包含了SubMesh)")]
     static void MergeFromSceneGameObject()
     {
         GameObject selectGo = Selection.activeGameObject;
@@ -33,7 +33,7 @@ public static class MeshSubMeshSplitter
         RunMergeLogic(srcMesh, mats, smr);
     }
 
-    [MenuItem("Mesh工具/从Project选中Mesh资源合并SubMesh+生成图集")]
+    [MenuItem("Mesh工具/从Project选中Mesh资源合并SubMesh+生成图集(处理士兵包含了SubMesh)")]
     static void MergeFromProjectMeshAsset()
     {
         Mesh srcMesh = Selection.activeObject as Mesh;

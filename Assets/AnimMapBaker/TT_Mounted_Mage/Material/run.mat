@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _BlackPower: 0
     - _GravityValue: 1
-    - _GroundY: 0.65
+    - _GroundY: 0
     - _HalfLambertValue: 0.5
     - _HighLightValue: 1
     - _ICEState: 0

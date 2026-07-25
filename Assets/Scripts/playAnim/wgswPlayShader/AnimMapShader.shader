@@ -219,15 +219,16 @@ Shader "chenjd/BuiltIn/AnimMapShader"
                
                 fixed4 col = tex2D(_MainTex, i.uv);      
 
-
-                float3 lDir = _MainLightDir;// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
+                // float3 lDir = normalize(_WorldSpaceLightPos0.xyz); // 获取真实光源
+                float3 lDir = normalize(_MainLightDir.xyz);// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
                 //光照渐变 i.objectNormal => i.worldNormal 灯光不变 ，模型阴影变     i.objectNormal 跟着模型走，不管模型旋转方向
                 float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;// saturate(dot(tangentNormal, tangentLight)) * 0.5 + _HalfLambertValue;// saturate(dot(i.worldNormal, _MainLightDir)) * 0.5 + _HalfLambertValue;//dot(mainLight.direction, i.normalWS) * 0.5 + _HalfLambertValue; //  
                 col.rgb *= Ramp_light * _LightColor * _LightScale;//Ramp_light * mainLight.color;
                 clip(col.a - 0.5);
 
                float high_light = saturate(dot(i.objectNormal, normalize(lDir)));
-               col.rgb *= Ramp_light * Ramp_light * _HighLightValue;//Ramp_light * mainLight.color;
+               //col.rgb *= Ramp_light * Ramp_light * _HighLightValue;//Ramp_light * mainLight.color;
+               col.rgb *= _HighLightValue;
 
                 // 闪白
                 float4 _slashCol = UNITY_ACCESS_INSTANCED_PROP(Props, _SlashColor);

@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3586181485119033826}
-  - component: {fileID: 7894505644817776956}
-  - component: {fileID: 582771344171675346}
-  - component: {fileID: 3525586316645775059}
   m_Layer: 0
   m_Name: Soldier2_1
   m_TagString: Untagged
@@ -30,9 +27,45 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7427338099724972912}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4131811762893153559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7427338099724972912}
+  - component: {fileID: 7894505644817776956}
+  - component: {fileID: 582771344171675346}
+  - component: {fileID: 3525586316645775059}
+  - component: {fileID: 7216151330116306088}
+  m_Layer: 0
+  m_Name: Soldier2_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7427338099724972912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4131811762893153559}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3586181485119033826}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &7894505644817776956
 MeshRenderer:
@@ -40,7 +73,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2659144418197540389}
+  m_GameObject: {fileID: 4131811762893153559}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -54,7 +87,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 376861c27e713d84aa4aa3edf2ee54e0, type: 2}
+  - {fileID: 2100000, guid: b2a56b60ff922cb42bace8a88327def0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +115,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2659144418197540389}
+  m_GameObject: {fileID: 4131811762893153559}
   m_Mesh: {fileID: 4300000, guid: 809fa46f628553244aed773279e32314, type: 2}
 --- !u!114 &3525586316645775059
 MonoBehaviour:
@@ -90,13 +123,13 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2659144418197540389}
+  m_GameObject: {fileID: 4131811762893153559}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentAnimTime: 0
+  CurrentAnimTime: 0.9281666
   ActionDataList:
   - Mat: {fileID: 2100000, guid: eb3abdc2912d1e4419e44bd5a018f69b, type: 2}
     AnimLen: 0.8000001
@@ -113,3 +146,15 @@ MonoBehaviour:
   - Mat: {fileID: 2100000, guid: 01361da5412b5784b8623b3f8fc90cd8, type: 2}
     AnimLen: 1.0000005
     ActionType: 3
+--- !u!114 &7216151330116306088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4131811762893153559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbf8a9fd600d4846a59eb630d3ad688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
