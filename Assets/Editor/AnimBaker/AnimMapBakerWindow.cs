@@ -155,8 +155,9 @@ public class AnimMapBakerWindow : EditorWindow {
             actionFlow.SetActionData(key, value.AnimLen, value.Mat);
         }   
         string preafbPath = _prefabFolderPath + "/" + preafabName + ".prefab";
-        string resourcesPath = "Resources/Soliders/" + preafabName + ".prefab";
+        string resourcesPath =  "Assets/" + "Resources/Soliders/" + preafabName + ".prefab";
         PrefabUtility.SaveAsPrefabAsset(go, preafbPath);
+        PrefabUtility.SaveAsPrefabAsset(go, resourcesPath);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         GameObject.DestroyImmediate(go);

@@ -24,8 +24,13 @@ public static class MeshSubMeshSplitter
 
         Mesh srcMesh = smr.sharedMesh;
         Material[] mats = smr.sharedMaterials;
+        if (srcMesh.subMeshCount <= 1)
+        {
+            EditorUtility.DisplayDialog("错误", "没有submesh", "确定");
+            return;
+        }
 
-        RunMergeLogic(srcMesh, mats);
+        RunMergeLogic(srcMesh, mats, smr);
     }
 
     [MenuItem("Mesh工具/从Project选中Mesh资源合并SubMesh+生成图集")]
@@ -44,10 +49,16 @@ public static class MeshSubMeshSplitter
         Material[] mats = tempSMR.sharedMaterials;
         Object.DestroyImmediate(tempObj);
 
-        RunMergeLogic(srcMesh, mats);
+        if (srcMesh.subMeshCount <= 1)
+        {
+            EditorUtility.DisplayDialog("错误", "没有submesh", "确定");
+            return;
+        }
+
+        RunMergeLogic(srcMesh, mats, tempSMR);
     }
 
-    static void RunMergeLogic(Mesh srcMesh, Material[] sourceMats)
+    static void RunMergeLogic(Mesh srcMesh, Material[] sourceMats, SkinnedMeshRenderer smr)
     {
         int subMeshCount = srcMesh.subMeshCount;
         List<Texture2D> texList = new List<Texture2D>();
@@ -76,6 +87,10 @@ public static class MeshSubMeshSplitter
 
         Mesh newSingleMesh = new Mesh();
         newSingleMesh.name = $"{srcMesh.name}_SingleSubMesh_Atlas";
+
+        Material new_mat = new Material(sourceMats[0]);
+      
+       
 
         List<Vector3> allVerts = new List<Vector3>();
         List<Vector2> allUV0 = new List<Vector2>();
@@ -139,8 +154,10 @@ public static class MeshSubMeshSplitter
 
         string meshSavePath = Path.Combine(dir, $"{fileName}_SingleSubMesh_Atlas.asset");
         string atlasSavePath = Path.Combine(dir, $"{fileName}_Atlas.png");
+        string matSavePath = Path.Combine(dir, $"{fileName}_mat.mat");
 
         AssetDatabase.CreateAsset(newSingleMesh, meshSavePath);
+        AssetDatabase.CreateAsset(new_mat, matSavePath);
         File.WriteAllBytes(atlasSavePath, atlas.EncodeToPNG());
         AssetDatabase.ImportAsset(atlasSavePath);
 
@@ -157,6 +174,12 @@ public static class MeshSubMeshSplitter
         EditorUtility.DisplayDialog("完成",
             $"生成文件：\n网格：{meshSavePath}\n图集：{atlasSavePath}\n图集已开启Read/Write可读写",
             "确定");
+
+        Texture2D finalTex = AssetDatabase.LoadAssetAtPath<Texture2D>(atlasSavePath);
+        smr.sharedMesh = newSingleMesh;
+        new_mat.mainTexture = finalTex;
+        smr.sharedMaterials = new Material[1] {new_mat};
+        
     }
 
     private static Texture2D PackTexturesToAtlas(List<Texture2D> textures, out Rect[] uvRects)
