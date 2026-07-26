@@ -1,6 +1,8 @@
 using Nebukam;
 using Nebukam.ORCA;
+using System.Collections.Generic;
 using Unity.Mathematics;
+
 public static class UnitFactory
 {
     // 创建一个单位
@@ -26,5 +28,13 @@ public static class UnitFactory
         agent.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         agent.saveMaxSpeed = maxSpeed;
         return agent;
+    }
+
+    // 创建一个飞行物逻辑
+    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, float3 oriPos, float3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> beAtkUnitLogic, SkillLogicBase skillLogic)
+    {
+        FlyObjectLogicBase flyObjectLogic = new FlyObjectLogicBase();
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfgId, oriPos, tarPos, atkUnitLogic, beAtkUnitLogic, skillLogic);
+        return flyObjectLogic;
     }
 }

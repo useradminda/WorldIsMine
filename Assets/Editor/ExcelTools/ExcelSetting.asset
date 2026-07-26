@@ -19,3 +19,6 @@ MonoBehaviour:
   - ExcelName: SoliderUnit.xlsx
     SheetNameList:
     - SoliderCfg
+  - ExcelName: FlyObject.xlsx
+    SheetNameList:
+    - FlyObjectCfg

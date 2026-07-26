@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class SkillLogicBase
 {
-    private float skillRange = 0f;
-    public float SkillRange => skillRange;
+    public float SkillRange => SkillCfg.searchRange;
 
     private UnitLogicBase unitLogic;
     public UnitLogicBase UnitLogic => unitLogic;
@@ -17,6 +16,7 @@ public class SkillLogicBase
     private float curCD;
 
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
+    protected List<UnitLogicBase> mTargetList => targetList;
 
     public SkillLogicBase(UnitLogicBase ulb, SkillCfg skillCfg)
     {
@@ -50,16 +50,18 @@ public class SkillLogicBase
     }
 
     // 执行
-    public void SkillDoEffect()
+    public virtual void SkillDoEffect()
     {
         BattleLogicDamageTools.DoDamage(unitLogic, targetList, this);
     }
 
+    // 重置CD
     public void SkillResetCD()
     {
         curCD = skillCfg.cd;
     }
 
+    // 清理
     public void SkillRefuse()
     {
         SkillResetCD();    

@@ -47,10 +47,12 @@ public class SkillCfg
 {
 	public int id;
 	public string name;
-	public float range;
+	public float searchRange;
 	public float skillArea;
 	public int damage;
 	public float cd;
 	public int normal;
+	public int skillType;
+	public int flyObjectId;
 	
 }
