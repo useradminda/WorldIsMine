@@ -1,7 +1,4 @@
-using Nebukam.ORCA;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEngine;
+
 using ZTools;
 
 public class UnitManager : Singleton<UnitManager>, IManager
@@ -17,7 +14,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
     {
         for (int i = 0; i < UnitList.Count; i++)
         {
-            UnitList.DataList[i].UnitUpdate(dt);
+            UnitList[i].UnitUpdate(dt);
         }
     }
 

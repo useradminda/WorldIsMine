@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 using ZTools;
 
 public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
@@ -16,7 +14,7 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
     {
         for (int i = 0; i < UnitList.Count; i++)
         {
-            UnitList.DataList[i].ViewUpdate();
+            UnitList[i].ViewUpdate();
         }
     }
 

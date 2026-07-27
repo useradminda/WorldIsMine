@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class WaitListTemplate<T>
 {
@@ -19,6 +17,11 @@ public class WaitListTemplate<T>
     public int Count
     {
         get { return dataList.Count; }
+    }
+
+    public T this[int index]
+    {
+        get => dataList[index];
     }
 
     public WaitListTemplate(Action<T> addCallBack)

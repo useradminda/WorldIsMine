@@ -26,7 +26,7 @@ public class UnitLogicBase
     private StateMachine stateMachine;
     public StateMachine StateMachine => stateMachine;
 
-    public float3 CurPos => Agenter.pos;
+    public Vector3 CurPos => Agenter.pos;
 
     public bool IsDead => Prop.Hp <= 0;
 

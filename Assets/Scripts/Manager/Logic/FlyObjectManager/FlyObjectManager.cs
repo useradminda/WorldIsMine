@@ -1,18 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class FlyObjectManager : MonoBehaviour
+using System.Collections.Generic;
+using ZTools;
+public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 {
-    // Start is called before the first frame update
-    void Start()
+    public WaitListTemplate<FlyObjectLogicBase> flyObjectList = new WaitListTemplate<FlyObjectLogicBase>(null);
+
+    public void ManagerInit()
     {
-        
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ManagerUpdate(float dt)
     {
-        
+        for (int i = 0; i < flyObjectList.Count; i++)
+        {
+            flyObjectList[i].FlyObjectUpdate(dt);
+        }
+    }
+
+    public void ManagerLateUpdate(float dt)
+    {
+        flyObjectList.AddWaitingList();
+    }
+
+    public void ManagerRefuse()
+    {
+       
+    }
+
+    public void ManagerDestroy()
+    {
+
+    }
+
+    // 增加一个Unit
+    public FlyObjectLogicBase AddUnit(FlyObjectLogicBase flyObjet)
+    {
+        flyObjectList.Add(flyObjet);
+        return flyObjet;
     }
 }

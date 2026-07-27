@@ -1,7 +1,7 @@
 
 public class AttackState : StateBase
 {
-    public override EStateTyep StateType { get { return EStateTyep.Move; } }
+    public override EStateTyep StateType { get { return EStateTyep.Attack; } }
 
     private UnitLogicBase targetUnit;
     private SkillLogicBase useSkill;

@@ -1,5 +1,6 @@
 
 using System.Collections.Generic;
+using UnityEngine;
 
 public class MoveState : StateBase
 {
@@ -17,7 +18,7 @@ public class MoveState : StateBase
 
     public override void UpdateState(float dt)
     {
-        searchEnemyUnits();
+        searchTargetUnits();
     }
 
     public override void ExitState()
@@ -25,13 +26,18 @@ public class MoveState : StateBase
 
     }
 
-    private void searchEnemyUnits()
+    private void searchTargetUnits()
     {
         SkillLogicBase normalSkill = UnitLogic.NormalSkill;
-        List<UnitLogicBase> enemyUnits = normalSkill.SkillSearchTarget();
-        if (enemyUnits != null && enemyUnits.Count > 0)
+        List<UnitLogicBase> targetUnits = normalSkill.SkillSearchTarget();
+        if (targetUnits != null && targetUnits.Count > 0)
         {
-            UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, enemyUnits[0], UnitLogic.NormalSkill);
+            UnitLogicBase ulb = targetUnits[0];
+            float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
+            if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
+            {
+                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
+            }
         }
     }
 }

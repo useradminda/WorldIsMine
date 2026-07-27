@@ -6,8 +6,6 @@ using ZTools;
 public class KDTreeManager : Singleton<KDTreeManager>, IManager
 {
     public WaitListTemplate<KDInfo> KDInfoList;
-    // 查询结果
-    private IEnumerable<KDInfo> queryResult = new List<KDInfo>();
 
     private KDTree<KDInfo> kdTree;
     public KDTree<KDInfo> mKDTree
@@ -18,7 +16,6 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
             {
                 kdTree = new KDTree<KDInfo>();
                 kdTree.initPool();
-                //queryResult = kdTree.QueryInRange(Vector2.zero, 1);
             }
             return kdTree;
         }

@@ -66,7 +66,6 @@ public class RvoManager : Singleton<RvoManager>, IManager
         simulation = null;
     }
 
-
     // 给RVO增加一个agent(等待添加的列表) 
     public Agent AddAgent(Agent agent)
     {

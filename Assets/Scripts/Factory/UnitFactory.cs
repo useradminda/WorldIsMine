@@ -2,7 +2,7 @@ using Nebukam;
 using Nebukam.ORCA;
 using System.Collections.Generic;
 using Unity.Mathematics;
-
+using UnityEngine;
 public static class UnitFactory
 {
     // 创建一个单位
@@ -31,10 +31,20 @@ public static class UnitFactory
     }
 
     // 创建一个飞行物逻辑
-    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, float3 oriPos, float3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> beAtkUnitLogic, SkillLogicBase skillLogic)
+    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, SkillLogicBase skillLogic)
     {
-        FlyObjectLogicBase flyObjectLogic = new FlyObjectLogicBase();
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfgId, oriPos, tarPos, atkUnitLogic, beAtkUnitLogic, skillLogic);
+        FlyObjectLogicBase flyObjectLogic = null;
+        FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
+        if (flyObjectCfg.flyType == "arrow")
+        {
+            flyObjectLogic = new ArrowFlyObject();
+        }
+        else
+        {
+            flyObjectLogic = new FlyObjectLogicBase();
+        }
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, skillLogic);
+        FlyObjectManager.Instance.AddUnit(flyObjectLogic);
         return flyObjectLogic;
     }
 }

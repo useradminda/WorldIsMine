@@ -1,27 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 
-// 飞行物
+using UnityEngine;
 public class FlyObjectLogicBase
 {
-    // 使用状态
     private bool useState = false;
     public bool UseState => useState;
 
+    protected Vector3 mOriPos;
+    protected Vector3 mTarPos;
+
+    protected UnitLogicBase mAtkUnitLogic;
+    protected List<UnitLogicBase> mTargetLogicList;
+
+    protected SkillLogicBase mSkillLogic;
+
+    private FlyObjectCfg flyObjectCfg;
+    protected FlyObjectCfg mFlyObjectCfg => flyObjectCfg;
 
     public FlyObjectLogicBase()
     {
         
     }
 
-    // 设置飞行物的信息
-    public void SetFlyObjectInfo(int flyObjectCfgId, float3 oriPos, float3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> beAtkUnitLogic, SkillLogicBase skillLogic)
+    public void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, SkillLogicBase skillLogic)
+    {
+        this.flyObjectCfg = flyObjectCfg;
+        this.mOriPos = oriPos;
+        this.mTarPos = tarPos;
+        this.mAtkUnitLogic = atkUnitLogic;
+        this.mTargetLogicList = targetLogicList;
+        this.mSkillLogic = skillLogic;
+    }
+
+    public virtual void FlyObjectUpdate(float dt)
     {
 
     }
 
-    public void FlyObjectUpdate()
+    public virtual void TouchTarUnit()
     {
 
     }
@@ -29,11 +46,5 @@ public class FlyObjectLogicBase
     public void Reset()
     {
         useState = false;
-    }
-
-
-    private void touchTarUnit()
-    {
-
     }
 }

@@ -31,6 +31,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (battleInit == false)
             return;
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
+        FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
 
@@ -44,6 +45,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (battleInit == false)
             return;
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
 

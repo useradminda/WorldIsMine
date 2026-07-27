@@ -1,1 +1,1 @@
-[{"id":1,"name":"刀盾近战","searchRange":1.0,"skillArea":0.0,"damage":1,"cd":2.0,"normal":1,"skillType":1,"flyObjectId":0},{"id":2,"name":"弓手远程","searchRange":10.0,"skillArea":0.0,"damage":1,"cd":2.0,"normal":1,"skillType":2,"flyObjectId":1}]
+[{"id":1,"name":"刀盾近战","searchRange":20.0,"atkRange":1.0,"skillArea":0.0,"damage":1,"cd":2.0,"normal":1,"skillType":1,"flyObjectId":0},{"id":2,"name":"弓手远程","searchRange":20.0,"atkRange":10.0,"skillArea":0.0,"damage":1,"cd":2.0,"normal":1,"skillType":2,"flyObjectId":1}]

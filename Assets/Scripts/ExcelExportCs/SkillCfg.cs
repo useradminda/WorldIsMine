@@ -48,6 +48,7 @@ public class SkillCfg
 	public int id;
 	public string name;
 	public float searchRange;
+	public float atkRange;
 	public float skillArea;
 	public int damage;
 	public float cd;
