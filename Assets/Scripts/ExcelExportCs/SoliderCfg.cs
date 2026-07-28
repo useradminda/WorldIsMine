@@ -47,7 +47,7 @@ public class SoliderCfg
 {
 	public int id;
 	public string name;
-	public string showName;
+	public string des;
 	public int[] skill;
 	public int hp;
 	public int atk;
