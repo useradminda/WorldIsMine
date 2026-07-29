@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+enum PKSide {
+  PK_SIDE_UNKNOWN = 0;
+  PK_SIDE_A = 1;
+  PK_SIDE_B = 2;
+  PK_SIDE_DRAW = 3;
+}
+
+enum PKSessionStatus {
+  PK_SESSION_STATUS_CREATED = 0;
+  PK_SESSION_STATUS_RUNNING = 1;
+  PK_SESSION_STATUS_ENDED = 2;
+}
+
+enum PKSyncCommandType {
+  PK_SYNC_COMMAND_TYPE_UNKNOWN = 0;
+  PK_SYNC_COMMAND_TYPE_GIFT = 1;
+  PK_SYNC_COMMAND_TYPE_ATTACK = 2;
+  PK_SYNC_COMMAND_TYPE_MONSTER_SPAWN = 3;
+  PK_SYNC_COMMAND_TYPE_MONSTER_DAMAGE = 4;
+  PK_SYNC_COMMAND_TYPE_BUFF_APPLY = 5;
+  PK_SYNC_COMMAND_TYPE_WIN = 6;
+  PK_SYNC_COMMAND_TYPE_END = 7;
+  PK_SYNC_COMMAND_TYPE_BOSS_ATTACK = 8;
+}
+
+message PKAnchorInfo {
+  string anchor_id = 1;
+  string room_id = 2;
+  string client_id = 3;
+}
+
+message SessionSnapshot {
+  string session_id = 1;
+  PKAnchorInfo anchor_a = 2;
+  PKAnchorInfo anchor_b = 3;
+  PKSessionStatus status = 4;
+  int64 score_a = 5;
+  int64 score_b = 6;
+  int64 sequence = 7;
+  int64 start_time_ms = 8;
+  int64 end_time_ms = 9;
+}

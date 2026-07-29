@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+message ClientBindRequest {
+  string anchor_id = 1;
+  string anchor_name = 2;
+  string platform = 3;
+  string room_id = 4;
+}
+
+message ClientBindResponse {
+  bool accepted = 1;
+  string reason = 2;
+  string anchor_id = 3;
+  string anchor_name = 4;
+  string platform = 5;
+  string room_id = 6;
+}
+
+message ClientHeartbeat {
+  string client_id = 1;
+  string room_id = 2;
+  string tag = 3;
+  int64 client_time_ms = 4;
+  int64 server_time_ms = 5;
+}
+
+message ClientDebugText {
+  string text = 1;
+}
+
+message PlayerLoadRequest {
+  string role_id = 1;
+  int32 role_type = 2;
+  string account_id = 3;
+  string platform = 4;
+  string open_id = 5;
+  string nickname = 6;
+  string avatar = 7;
+  bool create_if_missing = 8;
+}
+
+message PlayerSnapshot {
+  string account_id = 1;
+  string platform = 2;
+  string open_id = 3;
+  string nickname = 4;
+  string avatar = 5;
+  string role_id = 6;
+  int32 role_type = 7;
+  int32 level = 8;
+  int64 exp = 9;
+  int64 power = 10;
+  int64 version = 11;
+}
+
+message PlayerLoadResponse {
+  bool accepted = 1;
+  string reason = 2;
+  bool created = 3;
+  PlayerSnapshot player = 4;
+}

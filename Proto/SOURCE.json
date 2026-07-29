@@ -1,0 +1,17 @@
+{
+  "sourceRepository": "xxp-server-dy",
+  "sourceBranch": "pro_skbz",
+  "sourceCommit": "63c3219d0e4c0cac127b0f57006e54c6455ef1c8",
+  "sourceDirectory": "FuWuQiDuan/ClientProtocol/Protos",
+  "protobufRuntime": "Google.Protobuf 3.32.0",
+  "runtimeDependencies": {
+    "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+  },
+  "generator": "Grpc.Tools/protoc 2.71.0",
+  "files": {
+    "client/client_base.proto": "EFF68C47D74C4F7A37CD08F8298302F4FA82ABD15B7F592CF1F143F8C9BAC59B",
+    "client/pk_client.proto": "EA5177CAFFFFDA6D1963D5D90E927310025C356E2D6C2D15CCDDA63EA600C41F",
+    "pk/pk_common.proto": "CD9A0ABA4FC6EC7123DC15CB713BDD133798BB1B9BE490018E1A46E95C9C5B51",
+    "pk/pk_events.proto": "DDDC7248D2407DB273473D1E9C67D7E9C45133D5333F9338C898063895F6A583"
+  }
+}

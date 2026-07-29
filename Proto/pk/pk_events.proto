@@ -1,0 +1,157 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+import "pk/pk_common.proto";
+
+message LiveGiftEvent {
+  string event_id = 1;
+  string platform = 2;
+  string room_id = 3;
+  string anchor_id = 4;
+  string viewer_id = 5;
+  string viewer_name = 6;
+  string gift_id = 7;
+  int32 gift_count = 8;
+  int64 gift_value = 9;
+  int64 event_time_ms = 10;
+}
+
+message RoleFightEvent {
+  string event_id = 1;
+  string platform = 2;
+  string room_id = 3;
+  string anchor_id = 4;
+  int32 skill_id = 5;
+  int32 skill_level = 6;
+  int32 buff_id = 7;
+  int32 buff_level = 8;
+  int64 event_time_ms = 9;
+}
+
+message SubmitGiftResponse {
+  string session_id = 1;
+  bool accepted = 2;
+  bool duplicate = 3;
+  string reason = 4;
+  repeated SyncCommand commands = 5;
+}
+
+message SyncCommand {
+  string session_id = 1;
+  string target_room_id = 2;
+  string target_anchor_id = 3;
+  string event_id = 4;
+  int64 sequence = 5;
+  string command_type = 6;
+  PKSyncCommandType command_kind = 7;
+  int64 server_time_ms = 8;
+  PKSide source_side = 9;
+  string source_room_id = 10;
+  string source_anchor_id = 11;
+  int64 score_a = 12;
+  int64 score_b = 13;
+  PKSessionStatus status = 14;
+  string reason = 15;
+  int64 score_delta = 16;
+
+  oneof payload {
+    GiftSyncPayload gift = 20;
+    AttackSyncPayload attack = 21;
+    MonsterSpawnSyncPayload monster_spawn = 22;
+    MonsterDamageSyncPayload monster_damage = 23;
+    BuffApplySyncPayload buff_apply = 24;
+    WinSyncPayload win = 25;
+    EndSyncPayload end = 26;
+    BossAttackSyncPayload boss_attack = 27;
+  }
+}
+
+message GiftSyncPayload {
+  PKSide source_side = 1;
+  string source_room_id = 2;
+  string source_anchor_id = 3;
+  string viewer_id = 4;
+  string viewer_name = 5;
+  string gift_id = 6;
+  int32 gift_count = 7;
+  int64 gift_value = 8;
+  int64 add_score = 9;
+  int64 score_a = 10;
+  int64 score_b = 11;
+  PKSessionStatus status = 12;
+  string reason = 13;
+}
+
+message AttackSyncPayload {
+  PKSide source_side = 1;
+  string source_room_id = 2;
+  string source_anchor_id = 3;
+  int32 skill_id = 4;
+  int32 skill_level = 5;
+  int32 buff_id = 6;
+  int32 buff_level = 7;
+  int64 damage = 8;
+  int64 add_score = 9;
+  int64 score_a = 10;
+  int64 score_b = 11;
+  PKSessionStatus status = 12;
+  string reason = 13;
+}
+
+message MonsterSpawnSyncPayload {
+  string monster_id = 1;
+  int64 monster_max_hp = 2;
+  int64 monster_hp = 3;
+  PKSessionStatus status = 4;
+}
+
+message MonsterDamageSyncPayload {
+  PKSide source_side = 1;
+  string source_room_id = 2;
+  string source_anchor_id = 3;
+  string monster_id = 4;
+  int64 monster_max_hp = 5;
+  int64 monster_hp = 6;
+  int64 damage = 7;
+  PKSessionStatus status = 8;
+}
+
+message BuffApplySyncPayload {
+  PKSide source_side = 1;
+  string source_room_id = 2;
+  string source_anchor_id = 3;
+  int32 buff_id = 4;
+  int32 buff_level = 5;
+  string reason = 6;
+}
+
+message WinSyncPayload {
+  PKSide winner_side = 1;
+  int64 score_a = 2;
+  int64 score_b = 3;
+  PKSessionStatus status = 4;
+  string reason = 5;
+}
+
+message EndSyncPayload {
+  PKSide winner_side = 1;
+  int64 score_a = 2;
+  int64 score_b = 3;
+  int64 end_time_ms = 4;
+  PKSessionStatus status = 5;
+  string reason = 6;
+}
+
+message BossAttackSyncPayload {
+  string boss_id = 1;
+  int64 boss_attack = 2;
+  int64 damage = 3;
+  int64 boss_max_hp = 4;
+  int64 boss_hp = 5;
+  int64 attack_time_ms = 6;
+  PKSessionStatus status = 7;
+  string reason = 8;
+}

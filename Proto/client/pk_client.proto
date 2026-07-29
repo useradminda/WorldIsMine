@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+import "pk/pk_common.proto";
+
+message PKStartClientRequest {
+  string session_id = 1;
+  string target_room_id = 2;
+  string target_anchor_id = 3;
+  int64 start_time_ms = 4;
+  int64 duration_ms = 5;
+}
+
+message PKEndClientRequest {
+  string session_id = 1;
+  string room_id = 2;
+  int64 end_time_ms = 3;
+}
+
+message PKMatchmakingRegisterRequest {
+  string request_id = 1;
+  int64 duration_ms = 2;
+  int64 enqueue_time_ms = 3;
+}
+
+message PKMatchmakingCancelRequest {
+  string reason = 1;
+}
+
+message PKStartClientResponse {
+  bool accepted = 1;
+  string reason = 2;
+  SessionSnapshot snapshot = 3;
+}
