@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 
 public class SkillLogicBase
@@ -20,8 +21,8 @@ public class SkillLogicBase
 
     public SkillLogicBase(UnitLogicBase ulb, SkillCfg skillCfg)
     {
-        unitLogic = ulb;
-        this.skillCfg = skillCfg;
+        unitLogic = ulb ?? throw new ArgumentNullException(nameof(ulb));
+        this.skillCfg = skillCfg ?? throw new ArgumentNullException(nameof(skillCfg));
         SkillResetCD();
     }
 

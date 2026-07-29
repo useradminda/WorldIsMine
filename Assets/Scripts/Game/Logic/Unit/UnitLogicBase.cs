@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.Mathematics;
 using static Unity.Mathematics.math;
 using System.Collections.Generic;
+using System;
 public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
@@ -36,6 +37,9 @@ public class UnitLogicBase
         this.campType = campType;
         this.targetForward = targetForward;
         soliderCfg = SoliderCfgConfig.Ins.SearchById(id);
+        if (soliderCfg == null)
+            throw new InvalidOperationException($"Soldier config was not found. UnitId={id}");
+
         initProp();
         initSkills();
     }
@@ -85,7 +89,15 @@ public class UnitLogicBase
     {
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
-            SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(i);
+            int skillId = soliderCfg.skill[i];
+            SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(skillId);
+            if (skillCfg == null)
+            {
+                Debug.LogError(
+                    $"技能配置不存在。UnitId={soliderCfg.id}, SkillId={skillId}");
+                continue;
+            }
+
             SkillLogicBase skill = new SkillLogicBase(this, skillCfg);
             if (skill.BNormalSkill)
             {

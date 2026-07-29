@@ -26,7 +26,11 @@ public class SoliderCfgConfig
 
     private void init()
     {
-        string json = File.ReadAllText(Application.streamingAssetsPath + "SoliderCfg.json");
+        string path = Path.Combine(
+            Application.streamingAssetsPath,
+            "JsonData",
+            "SoliderCfg.json");
+        string json = File.ReadAllText(path);
         dataList = JsonConvert.DeserializeObject<List<SoliderCfg>>(json);
     }
 

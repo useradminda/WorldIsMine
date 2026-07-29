@@ -26,7 +26,11 @@ public class FlyObjectCfgConfig
 
     private void init()
     {
-        string json = File.ReadAllText(Application.streamingAssetsPath + "FlyObjectCfg.json");
+        string path = Path.Combine(
+            Application.streamingAssetsPath,
+            "JsonData",
+            "FlyObjectCfg.json");
+        string json = File.ReadAllText(path);
         dataList = JsonConvert.DeserializeObject<List<FlyObjectCfg>>(json);
     }
 
