@@ -113,7 +113,7 @@ public class AnimMapBakerWindow : EditorWindow {
             _targetGo.transform.localScale = Vector3.one;
             _targetGo.transform.eulerAngles = Vector3.zero;
 
-            var shaderName = GraphicsSettings.renderPipelineAsset != null ? URPShader : BuiltInShader;
+            var shaderName = GraphicsSettings.defaultRenderPipeline != null ? URPShader : BuiltInShader;
             _animMapShader = Shader.Find(shaderName);
 
             // 存在之前的则删除
@@ -274,4 +274,3 @@ class MatInfo
     public float AnimLen;
     public Material Mat;
 }
-
