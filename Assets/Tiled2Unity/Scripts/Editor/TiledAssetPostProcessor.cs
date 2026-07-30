@@ -217,7 +217,11 @@ namespace Tiled2Unity
             textureImporter.generateCubemap = TextureImporterGenerateCubemap.None;
             textureImporter.filterMode = FilterMode.Point;
             textureImporter.wrapMode = TextureWrapMode.Clamp;
+#if UNITY_6000_0_OR_NEWER
+            textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
+#else
             textureImporter.textureFormat = TextureImporterFormat.AutomaticTruecolor;
+#endif
         }
 
     }
