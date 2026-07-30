@@ -24,7 +24,8 @@ namespace WorldIsMine.Net.Protocol
         S2CPlayerLeave = 21001,
         S2CPlayerCampSelected = 21002,
         C2SLiveClientTest = 21003,
-        S2CLiveClientTest = 21004
+        S2CLiveClientTest = 21004,
+        S2CPlayerGift = 21005
     }
 
     public enum ActionCode

@@ -55,9 +55,14 @@ namespace WorldIsMine.Net.Tests
             int startCount = 0;
             int endCount = 0;
             int syncCount = 0;
+            SyncCommand sync = null;
             service.StartResponseReceived += _ => startCount++;
             service.BattleEnded += _ => endCount++;
-            service.SyncCommandReceived += _ => syncCount++;
+            service.SyncCommandReceived += value =>
+            {
+                syncCount++;
+                sync = value;
+            };
 
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPkStart,
@@ -73,19 +78,29 @@ namespace WorldIsMine.Net.Tests
                 RequestCode.S2CPkSync,
                 ActionCode.None,
                 3,
-                new SyncCommand { SessionId = "pk-session-1", Sequence = 1 }.ToByteArray())));
+                new SyncCommand
+                {
+                    SessionId = "pk-session-1",
+                    Sequence = 1,
+                    Gift = new GiftSyncPayload
+                    {
+                        PlayerId = 42,
+                        GiftId = "13585"
+                    }
+                }.ToByteArray())));
 
             Assert.AreEqual(3, mainThread.Drain());
             Assert.AreEqual(1, startCount);
             Assert.AreEqual(1, endCount);
             Assert.AreEqual(1, syncCount);
+            Assert.AreEqual((ulong)42, sync.Gift.PlayerId);
         }
     }
 
     public sealed class PlayerServiceTests
     {
         [Test]
-        public void Router_DispatchesPlayerEnterAndLeaveOnMainThread()
+        public void Router_DispatchesPlayerLifecycleAndGiftOnMainThread()
         {
             var router = new MessageRouter();
             var mainThread = new MainThreadDispatcher();
@@ -93,9 +108,11 @@ namespace WorldIsMine.Net.Tests
             LivePlayerEnterNotify entered = null;
             LivePlayerLeaveNotify left = null;
             LivePlayerCampSelectedNotify selected = null;
+            LivePlayerGiftNotify gifted = null;
             service.PlayerEntered += value => entered = value;
             service.PlayerLeft += value => left = value;
             service.PlayerCampSelected += value => selected = value;
+            service.PlayerGifted += value => gifted = value;
 
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPlayerEnter,
@@ -108,10 +125,22 @@ namespace WorldIsMine.Net.Tests
                     {
                         PlayerId = 42,
                         Platform = "dy",
-                        OpenId = "open-1",
                         Nickname = "Alice"
                     },
                     FirstEnter = true
+                }.ToByteArray())));
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CPlayerGift,
+                ActionCode.None,
+                13,
+                new LivePlayerGiftNotify
+                {
+                    RoomId = "room-1",
+                    PlayerId = 42,
+                    GiftId = "13585",
+                    GiftCount = 2,
+                    GiftValue = 20,
+                    EventId = "gift-event-1"
                 }.ToByteArray())));
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPlayerCampSelected,
@@ -137,12 +166,15 @@ namespace WorldIsMine.Net.Tests
             Assert.IsNull(entered);
             Assert.IsNull(left);
             Assert.IsNull(selected);
-            Assert.AreEqual(3, mainThread.Drain());
+            Assert.IsNull(gifted);
+            Assert.AreEqual(4, mainThread.Drain());
             Assert.AreEqual((ulong)42, entered.Player.PlayerId);
             Assert.AreEqual("Alice", entered.Player.Nickname);
             Assert.AreEqual((ulong)42, left.PlayerId);
             Assert.AreEqual("viewer_leave", left.Reason);
             Assert.AreEqual(LivePlayerCamp.Red, selected.Camp);
+            Assert.AreEqual((ulong)42, gifted.PlayerId);
+            Assert.AreEqual("13585", gifted.GiftId);
         }
 
         [Test]

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using ClientProtocol;
@@ -19,6 +20,7 @@ namespace WorldIsMine.Net.Runtime
         [SerializeField] private string testIdentityMarkdownPath = "TestData/dy-test-identity.md";
         [SerializeField] private bool connectOnStart = false;
         [SerializeField] private bool showLiveTestPanel = true;
+        [SerializeField] private bool showRuntimeLogPanel = true;
         [Header("PK")]
         [SerializeField] private bool autoMatchAfterBind = false;
         [SerializeField] private int defaultPkDurationSeconds = 300;
@@ -43,6 +45,7 @@ namespace WorldIsMine.Net.Runtime
         public event Action<LivePlayerEnterNotify> PlayerEntered;
         public event Action<LivePlayerLeaveNotify> PlayerLeft;
         public event Action<LivePlayerCampSelectedNotify> PlayerCampSelected;
+        public event Action<LivePlayerGiftNotify> PlayerGifted;
         public event Action<LiveClientTestResponse> LiveTestResponseReceived;
 
         private void Awake()
@@ -63,7 +66,14 @@ namespace WorldIsMine.Net.Runtime
             Client.Player.PlayerEntered += OnPlayerEntered;
             Client.Player.PlayerLeft += OnPlayerLeft;
             Client.Player.PlayerCampSelected += OnPlayerCampSelected;
+            Client.Player.PlayerGifted += OnPlayerGifted;
             Client.LiveTest.ResponseReceived += OnLiveTestResponse;
+
+            if (testMode && showRuntimeLogPanel &&
+                GetComponent<RuntimeLogPanel>() == null)
+            {
+                gameObject.AddComponent<RuntimeLogPanel>();
+            }
 
             if (testMode && showLiveTestPanel)
             {
@@ -170,6 +180,17 @@ namespace WorldIsMine.Net.Runtime
         {
             Debug.Log("[Net][Flow] Stopping network client.");
             return Client == null ? Task.CompletedTask : Client.StopAsync();
+        }
+
+        public async Task<AnchorSessionStartResult> ReconnectTestSessionAsync()
+        {
+            if (!testMode)
+                throw new InvalidOperationException("ReconnectTestSessionAsync requires TestMode.");
+
+            Debug.Log("[Net][Flow] Reconnecting and rebinding the configured anchor session.");
+            LastStartResult = null;
+            await StopClientAsync();
+            return await StartTestSessionAsync();
         }
 
         public Task<long> RegisterPkMatchAsync()
@@ -295,7 +316,7 @@ namespace WorldIsMine.Net.Runtime
             {
                 Debug.Log(
                     $"[Net][S->C][Player] Enter RoomId={notify.RoomId}, " +
-                    $"PlayerId={notify.Player?.PlayerId}, OpenId={notify.Player?.OpenId}, " +
+                    $"PlayerId={notify.Player?.PlayerId}, " +
                     $"Nickname={notify.Player?.Nickname}, FirstEnter={notify.FirstEnter}, " +
                     $"Payload={notify}");
             }
@@ -324,6 +345,19 @@ namespace WorldIsMine.Net.Runtime
                     $"Changed={notify.Changed}, Payload={notify}");
             }
             PlayerCampSelected?.Invoke(notify);
+        }
+
+        private void OnPlayerGifted(LivePlayerGiftNotify notify)
+        {
+            if (logPlayerProtocolDetails)
+            {
+                Debug.Log(
+                    $"[Net][S->C][Player] Gift RoomId={notify.RoomId}, " +
+                    $"PlayerId={notify.PlayerId}, GiftId={notify.GiftId}, " +
+                    $"Count={notify.GiftCount}, Value={notify.GiftValue}, " +
+                    $"EventId={notify.EventId}, Payload={notify}");
+            }
+            PlayerGifted?.Invoke(notify);
         }
 
         private void OnLiveTestResponse(LiveClientTestResponse response)
@@ -475,12 +509,252 @@ namespace WorldIsMine.Net.Runtime
         }
     }
 
+    public sealed class RuntimeLogPanel : MonoBehaviour
+    {
+        private const int MaxEntries = 300;
+        private const float ScreenMargin = 20f;
+        private const float PreferredHeightRatio = 0.42f;
+        private const float MinimumHeight = 280f;
+
+        private readonly object _syncRoot = new object();
+        private readonly List<LogEntry> _entries = new List<LogEntry>();
+        private LogEntry[] _snapshot = Array.Empty<LogEntry>();
+        private int _logVersion;
+        private int _snapshotVersion = -1;
+        private int _displayedVersion = -1;
+        private bool _autoScroll = true;
+        private Vector2 _scrollPosition;
+        private Rect _windowRect;
+
+        private GUIStyle _windowStyle;
+        private GUIStyle _toolbarStyle;
+        private GUIStyle _toolbarButtonStyle;
+        private GUIStyle _logStyle;
+        private GUIStyle _warningStyle;
+        private GUIStyle _errorStyle;
+        private GUIStyle _stackTraceStyle;
+
+        private void Awake()
+        {
+            Application.logMessageReceivedThreaded += OnLogMessageReceived;
+        }
+
+        private void OnDestroy()
+        {
+            Application.logMessageReceivedThreaded -= OnLogMessageReceived;
+        }
+
+        private void OnGUI()
+        {
+            EnsureStyles();
+            RefreshSnapshot();
+
+            float availableWidth = Mathf.Max(320f, Screen.width - ScreenMargin * 2f);
+            float availableHeight = Mathf.Max(240f, Screen.height - ScreenMargin * 2f);
+            float preferredHeight = Mathf.Max(
+                MinimumHeight,
+                Screen.height * PreferredHeightRatio);
+            float windowHeight = Mathf.Min(preferredHeight, availableHeight);
+
+            _windowRect = new Rect(
+                ScreenMargin,
+                ScreenMargin,
+                availableWidth,
+                windowHeight);
+            _windowRect = GUI.Window(
+                GetInstanceID(),
+                _windowRect,
+                DrawWindow,
+                "运行日志",
+                _windowStyle);
+        }
+
+        private void DrawWindow(int id)
+        {
+            int warningCount = 0;
+            int errorCount = 0;
+            for (int i = 0; i < _snapshot.Length; i++)
+            {
+                if (_snapshot[i].Type == LogType.Warning)
+                    warningCount++;
+                else if (IsError(_snapshot[i].Type))
+                    errorCount++;
+            }
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button(
+                    "清空",
+                    _toolbarButtonStyle,
+                    GUILayout.Width(90f),
+                    GUILayout.Height(36f)))
+            {
+                ClearLogs();
+            }
+
+            _autoScroll = GUILayout.Toggle(
+                _autoScroll,
+                "自动滚动",
+                _toolbarButtonStyle,
+                GUILayout.Width(140f),
+                GUILayout.Height(36f));
+            GUILayout.Space(12f);
+            GUILayout.Label(
+                $"总数 {_snapshot.Length}    警告 {warningCount}    错误 {errorCount}",
+                _toolbarStyle,
+                GUILayout.Height(36f));
+            GUILayout.EndHorizontal();
+
+            if (_autoScroll && _displayedVersion != _snapshotVersion)
+                _scrollPosition.y = float.MaxValue;
+
+            _scrollPosition = GUILayout.BeginScrollView(
+                _scrollPosition,
+                false,
+                true,
+                GUILayout.ExpandHeight(true));
+            for (int i = 0; i < _snapshot.Length; i++)
+            {
+                LogEntry entry = _snapshot[i];
+                GUILayout.Label(
+                    $"[{entry.Time:HH:mm:ss}] [{entry.Type}] {entry.Message}",
+                    ResolveLogStyle(entry.Type));
+
+                if (IsError(entry.Type) &&
+                    !string.IsNullOrWhiteSpace(entry.StackTrace))
+                {
+                    GUILayout.Label(entry.StackTrace, _stackTraceStyle);
+                }
+            }
+            GUILayout.EndScrollView();
+            _displayedVersion = _snapshotVersion;
+        }
+
+        private void OnLogMessageReceived(
+            string condition,
+            string stackTrace,
+            LogType type)
+        {
+            var entry = new LogEntry(
+                DateTime.Now,
+                condition ?? string.Empty,
+                stackTrace ?? string.Empty,
+                type);
+
+            lock (_syncRoot)
+            {
+                if (_entries.Count >= MaxEntries)
+                    _entries.RemoveRange(0, Math.Min(50, _entries.Count));
+                _entries.Add(entry);
+                _logVersion++;
+            }
+        }
+
+        private void RefreshSnapshot()
+        {
+            lock (_syncRoot)
+            {
+                if (_snapshotVersion == _logVersion)
+                    return;
+
+                _snapshot = _entries.ToArray();
+                _snapshotVersion = _logVersion;
+            }
+        }
+
+        private void ClearLogs()
+        {
+            lock (_syncRoot)
+            {
+                _entries.Clear();
+                _logVersion++;
+            }
+
+            _snapshot = Array.Empty<LogEntry>();
+            _snapshotVersion = -1;
+            _displayedVersion = -1;
+            _scrollPosition = Vector2.zero;
+        }
+
+        private GUIStyle ResolveLogStyle(LogType type)
+        {
+            if (type == LogType.Warning)
+                return _warningStyle;
+            return IsError(type) ? _errorStyle : _logStyle;
+        }
+
+        private static bool IsError(LogType type)
+        {
+            return type == LogType.Error ||
+                   type == LogType.Assert ||
+                   type == LogType.Exception;
+        }
+
+        private void EnsureStyles()
+        {
+            if (_windowStyle != null)
+                return;
+
+            int fontSize = Mathf.Clamp(Mathf.RoundToInt(Screen.height / 42f), 16, 22);
+            _windowStyle = new GUIStyle(GUI.skin.window)
+            {
+                fontSize = fontSize + 2,
+                padding = new RectOffset(14, 14, 28, 12)
+            };
+            _toolbarStyle = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = fontSize,
+                alignment = TextAnchor.MiddleLeft
+            };
+            _toolbarButtonStyle = new GUIStyle(GUI.skin.button)
+            {
+                fontSize = fontSize,
+                alignment = TextAnchor.MiddleCenter
+            };
+            _logStyle = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = fontSize,
+                wordWrap = true,
+                richText = false
+            };
+            _logStyle.normal.textColor = Color.white;
+            _warningStyle = new GUIStyle(_logStyle);
+            _warningStyle.normal.textColor = new Color(1f, 0.78f, 0.25f);
+            _errorStyle = new GUIStyle(_logStyle);
+            _errorStyle.normal.textColor = new Color(1f, 0.35f, 0.35f);
+            _stackTraceStyle = new GUIStyle(_logStyle)
+            {
+                fontSize = Mathf.Max(14, fontSize - 2)
+            };
+            _stackTraceStyle.normal.textColor = new Color(1f, 0.58f, 0.58f);
+        }
+
+        private readonly struct LogEntry
+        {
+            public LogEntry(
+                DateTime time,
+                string message,
+                string stackTrace,
+                LogType type)
+            {
+                Time = time;
+                Message = message;
+                StackTrace = stackTrace;
+                Type = type;
+            }
+
+            public DateTime Time { get; }
+            public string Message { get; }
+            public string StackTrace { get; }
+            public LogType Type { get; }
+        }
+    }
+
     public sealed class LiveTestPanel : MonoBehaviour
     {
         private const float ScreenMargin = 20f;
         private const float PreferredWindowWidth = 560f;
-        private const float CollapsedWindowHeight = 520f;
-        private const float ExpandedWindowHeight = 680f;
+        private const float CollapsedWindowHeight = 590f;
+        private const float ExpandedWindowHeight = 750f;
 
         private static readonly string[] GiftIds =
         {
@@ -492,7 +766,8 @@ namespace WorldIsMine.Net.Runtime
         private Rect _windowRect;
         private string _openId = "test-user-001";
         private string _nickname = "测试玩家";
-        private string _status = "请先连接并 Bind 主播房间";
+        private string _status = "等待玩家测试操作";
+        private bool _reconnecting;
         private int _giftIndex;
         private bool _giftMenuOpen;
         private Vector2 _scrollPosition;
@@ -613,6 +888,16 @@ namespace WorldIsMine.Net.Runtime
                 SendGift();
 
             GUILayout.Space(12f);
+            bool previousEnabled = GUI.enabled;
+            GUI.enabled = previousEnabled && !_reconnecting;
+            if (GUILayout.Button(
+                    _reconnecting ? "主播重新连接中..." : "主播重新连接",
+                    _buttonStyle,
+                    GUILayout.Height(46f)))
+                ReconnectAnchor();
+            GUI.enabled = previousEnabled;
+
+            GUILayout.Space(12f);
             GUILayout.Label($"状态：{_status}", _statusStyle);
             GUILayout.EndScrollView();
         }
@@ -695,6 +980,32 @@ namespace WorldIsMine.Net.Runtime
             {
                 _status = ex.Message;
                 Debug.LogException(ex);
+            }
+        }
+
+        private async void ReconnectAnchor()
+        {
+            if (_reconnecting)
+                return;
+
+            try
+            {
+                _reconnecting = true;
+                _status = "正在重新连接并 Bind 主播...";
+                AnchorSessionStartResult result =
+                    await _runtime.ReconnectTestSessionAsync();
+                _status = result.Success
+                    ? "主播重新连接并 Bind 成功"
+                    : $"主播重新 Bind 失败：{result.Reason}";
+            }
+            catch (Exception ex)
+            {
+                _status = $"主播重新连接失败：{ex.Message}";
+                Debug.LogException(ex);
+            }
+            finally
+            {
+                _reconnecting = false;
             }
         }
 

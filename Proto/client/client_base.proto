@@ -35,7 +35,7 @@ message ClientDebugText {
 message PlayerSnapshot {
   uint64 player_id = 1;
   string platform = 2;
-  string open_id = 3;
+  string open_id = 3 [deprecated = true];
   string nickname = 4;
   string avatar = 5;
   uint32 level = 6;
@@ -71,6 +71,16 @@ message LivePlayerCampSelectedNotify {
   LivePlayerCamp previous_camp = 4;
   bool changed = 5;
   int64 server_time_ms = 6;
+}
+
+message LivePlayerGiftNotify {
+  string room_id = 1;
+  uint64 player_id = 2;
+  string gift_id = 3;
+  int32 gift_count = 4;
+  int64 gift_value = 5;
+  string event_id = 6;
+  int64 server_time_ms = 7;
 }
 
 enum LiveClientTestAction {

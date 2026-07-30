@@ -1,8 +1,8 @@
 {
   "sourceRepository": "xxp-server-dy",
   "sourceBranch": "pro_skbz",
-  "sourceCommit": "1166450f91cc906dc056265acd1f40f1656ed96f",
-  "sourceState": "player lifecycle protocol from the 2026-07-29 server working tree",
+  "sourceCommit": "561d82d6d1bd492a0ec35db6da32fbd465a17196",
+  "sourceState": "player identity and gift protocol from the 2026-07-30 server working tree",
   "sourceDirectory": "FuWuQiDuan/ClientProtocol/Protos",
   "protobufRuntime": "Google.Protobuf 3.32.0",
   "runtimeDependencies": {
@@ -10,9 +10,9 @@
   },
   "generator": "Grpc.Tools/protoc 2.71.0",
   "files": {
-    "client/client_base.proto": "57E11597F666DC4C17DEF6EBFBA044DD4C50CC2CD0C14FCD012FF8903F2FAE69",
-    "client/pk_client.proto": "EA5177CAFFFFDA6D1963D5D90E927310025C356E2D6C2D15CCDDA63EA600C41F",
-    "pk/pk_common.proto": "CD9A0ABA4FC6EC7123DC15CB713BDD133798BB1B9BE490018E1A46E95C9C5B51",
-    "pk/pk_events.proto": "DDDC7248D2407DB273473D1E9C67D7E9C45133D5333F9338C898063895F6A583"
+    "client/client_base.proto": "D2854B7842F0FB2BD48C9FEFAF80F391EB74A15D9274AFA14A33AE3B226F05DA",
+    "client/pk_client.proto": "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
+    "pk/pk_common.proto": "B25A0F78DC35018F8095E1647A71027B8271EC61012090F9286411E8FCBB1798",
+    "pk/pk_events.proto": "9BB00D3217871A5613A18CA1548873AF20D26D1CE2AE12276DDF9D45D6A9C3BC"
   }
 }

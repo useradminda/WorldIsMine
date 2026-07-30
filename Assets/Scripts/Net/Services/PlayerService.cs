@@ -36,11 +36,17 @@ namespace WorldIsMine.Net.Services
                 ActionCode.None,
                 LivePlayerCampSelectedNotify.Parser,
                 OnPlayerCampSelected);
+            router.Register(
+                RequestCode.S2CPlayerGift,
+                ActionCode.None,
+                LivePlayerGiftNotify.Parser,
+                OnPlayerGift);
         }
 
         public event Action<LivePlayerEnterNotify> PlayerEntered;
         public event Action<LivePlayerLeaveNotify> PlayerLeft;
         public event Action<LivePlayerCampSelectedNotify> PlayerCampSelected;
+        public event Action<LivePlayerGiftNotify> PlayerGifted;
 
         private void OnPlayerEnter(LivePlayerEnterNotify notify, NetPacket packet)
         {
@@ -57,6 +63,11 @@ namespace WorldIsMine.Net.Services
             NetPacket packet)
         {
             _mainThread.Post(() => PlayerCampSelected?.Invoke(notify));
+        }
+
+        private void OnPlayerGift(LivePlayerGiftNotify notify, NetPacket packet)
+        {
+            _mainThread.Post(() => PlayerGifted?.Invoke(notify));
         }
     }
 

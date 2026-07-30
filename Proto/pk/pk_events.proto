@@ -17,6 +17,7 @@ message LiveGiftEvent {
   int32 gift_count = 8;
   int64 gift_value = 9;
   int64 event_time_ms = 10;
+  uint64 player_id = 11;
 }
 
 message RoleFightEvent {
@@ -83,6 +84,7 @@ message GiftSyncPayload {
   int64 score_b = 11;
   PKSessionStatus status = 12;
   string reason = 13;
+  uint64 player_id = 14;
 }
 
 message AttackSyncPayload {
