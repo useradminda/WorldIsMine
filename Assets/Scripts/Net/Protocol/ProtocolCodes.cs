@@ -19,7 +19,12 @@ namespace WorldIsMine.Net.Protocol
         S2CPkStart = 20002,
         S2CPkEnd = 20003,
         C2SClientDebug = 20004,
-        S2CClientDebug = 20005
+        S2CClientDebug = 20005,
+        S2CPlayerEnter = 21000,
+        S2CPlayerLeave = 21001,
+        S2CPlayerCampSelected = 21002,
+        C2SLiveClientTest = 21003,
+        S2CLiveClientTest = 21004
     }
 
     public enum ActionCode

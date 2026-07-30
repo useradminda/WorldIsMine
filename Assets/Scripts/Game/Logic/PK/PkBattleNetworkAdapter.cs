@@ -10,7 +10,7 @@ namespace WorldIsMine.Game.PK
     /// Converts server PK synchronization messages into game-layer events.
     /// Add this component to the battle scene and assign NetworkRuntime.
     /// </summary>
-    public sealed class PkBattleSyncController : MonoBehaviour
+    public sealed class PkBattleNetworkAdapter : MonoBehaviour
     {
         [Serializable]
         public sealed class GiftUnitRule

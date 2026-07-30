@@ -38,7 +38,8 @@ namespace WorldIsMine.Net.Runtime
 
             _router = new MessageRouter();
             _transport = new TcpTransport();
-            Player = new PlayerService(_transport, _router, MainThread, _config.RequestTimeout);
+            Player = new PlayerService(_router, MainThread);
+            LiveTest = new LiveTestService(_transport, _router, MainThread);
             Bind = new BindService(_transport, _router, MainThread, _config.RequestTimeout);
             Pk = new PkService(_transport, _router, MainThread);
             Heartbeat = new HeartbeatService(
@@ -62,6 +63,7 @@ namespace WorldIsMine.Net.Runtime
 
         public MainThreadDispatcher MainThread { get; }
         public PlayerService Player { get; }
+        public LiveTestService LiveTest { get; }
         public BindService Bind { get; }
         public PkService Pk { get; }
         public HeartbeatService Heartbeat { get; }
@@ -131,7 +133,6 @@ namespace WorldIsMine.Net.Runtime
             if (state == TransportState.Disconnected)
             {
                 var exception = new IOException("Network connection was closed.");
-                Player.FailPending(exception);
                 Bind.FailPending(exception);
                 Pk.Reset();
                 Heartbeat.Stop();
@@ -142,7 +143,6 @@ namespace WorldIsMine.Net.Runtime
 
         private void OnTransportError(Exception exception)
         {
-            Player.FailPending(exception);
             Bind.FailPending(exception);
             MainThread.Post(() => Error?.Invoke(exception));
         }

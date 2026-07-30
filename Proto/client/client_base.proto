@@ -32,34 +32,68 @@ message ClientDebugText {
   string text = 1;
 }
 
-message PlayerLoadRequest {
-  string role_id = 1;
-  int32 role_type = 2;
-  string account_id = 3;
-  string platform = 4;
-  string open_id = 5;
-  string nickname = 6;
-  string avatar = 7;
-  bool create_if_missing = 8;
-}
-
 message PlayerSnapshot {
-  string account_id = 1;
+  uint64 player_id = 1;
   string platform = 2;
   string open_id = 3;
   string nickname = 4;
   string avatar = 5;
-  string role_id = 6;
-  int32 role_type = 7;
-  int32 level = 8;
-  int64 exp = 9;
-  int64 power = 10;
-  int64 version = 11;
+  uint32 level = 6;
+  uint64 exp = 7;
+  uint64 power = 8;
+  uint64 version = 9;
 }
 
-message PlayerLoadResponse {
+message LivePlayerEnterNotify {
+  string room_id = 1;
+  PlayerSnapshot player = 2;
+  bool first_enter = 3;
+  int64 server_time_ms = 4;
+}
+
+message LivePlayerLeaveNotify {
+  string room_id = 1;
+  uint64 player_id = 2;
+  string reason = 3;
+  int64 server_time_ms = 4;
+}
+
+enum LivePlayerCamp {
+  LIVE_PLAYER_CAMP_NONE = 0;
+  LIVE_PLAYER_CAMP_RED = 1;
+  LIVE_PLAYER_CAMP_BLUE = 2;
+}
+
+message LivePlayerCampSelectedNotify {
+  string room_id = 1;
+  uint64 player_id = 2;
+  LivePlayerCamp camp = 3;
+  LivePlayerCamp previous_camp = 4;
+  bool changed = 5;
+  int64 server_time_ms = 6;
+}
+
+enum LiveClientTestAction {
+  LIVE_CLIENT_TEST_ACTION_NONE = 0;
+  LIVE_CLIENT_TEST_ACTION_ENTER = 1;
+  LIVE_CLIENT_TEST_ACTION_SELECT_CAMP = 2;
+  LIVE_CLIENT_TEST_ACTION_GIFT = 3;
+}
+
+message LiveClientTestRequest {
+  LiveClientTestAction action = 1;
+  string open_id = 2;
+  string nickname = 3;
+  string avatar = 4;
+  LivePlayerCamp camp = 5;
+  string gift_id = 6;
+  int32 gift_count = 7;
+  int32 gift_value = 8;
+}
+
+message LiveClientTestResponse {
   bool accepted = 1;
   string reason = 2;
-  bool created = 3;
-  PlayerSnapshot player = 4;
+  LiveClientTestAction action = 3;
+  string event_id = 4;
 }

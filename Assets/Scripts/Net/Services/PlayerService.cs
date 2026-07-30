@@ -11,88 +11,96 @@ namespace WorldIsMine.Net.Services
 {
     public sealed class PlayerService
     {
-        private readonly TcpTransport _transport;
-        private readonly TimeSpan _requestTimeout;
         private readonly MainThreadDispatcher _mainThread;
-        private readonly RequestAwaiter<PlayerLoadResponse> _response =
-            new RequestAwaiter<PlayerLoadResponse>();
-
-        public event Action<PlayerLoadResponse> LoginCompleted;
 
         public PlayerService(
+            MessageRouter router,
+            MainThreadDispatcher mainThread)
+        {
+            if (router == null)
+                throw new ArgumentNullException(nameof(router));
+            _mainThread = mainThread ?? throw new ArgumentNullException(nameof(mainThread));
+
+            router.Register(
+                RequestCode.S2CPlayerEnter,
+                ActionCode.None,
+                LivePlayerEnterNotify.Parser,
+                OnPlayerEnter);
+            router.Register(
+                RequestCode.S2CPlayerLeave,
+                ActionCode.None,
+                LivePlayerLeaveNotify.Parser,
+                OnPlayerLeave);
+            router.Register(
+                RequestCode.S2CPlayerCampSelected,
+                ActionCode.None,
+                LivePlayerCampSelectedNotify.Parser,
+                OnPlayerCampSelected);
+        }
+
+        public event Action<LivePlayerEnterNotify> PlayerEntered;
+        public event Action<LivePlayerLeaveNotify> PlayerLeft;
+        public event Action<LivePlayerCampSelectedNotify> PlayerCampSelected;
+
+        private void OnPlayerEnter(LivePlayerEnterNotify notify, NetPacket packet)
+        {
+            _mainThread.Post(() => PlayerEntered?.Invoke(notify));
+        }
+
+        private void OnPlayerLeave(LivePlayerLeaveNotify notify, NetPacket packet)
+        {
+            _mainThread.Post(() => PlayerLeft?.Invoke(notify));
+        }
+
+        private void OnPlayerCampSelected(
+            LivePlayerCampSelectedNotify notify,
+            NetPacket packet)
+        {
+            _mainThread.Post(() => PlayerCampSelected?.Invoke(notify));
+        }
+    }
+
+    public sealed class LiveTestService
+    {
+        private readonly TcpTransport _transport;
+        private readonly MainThreadDispatcher _mainThread;
+
+        public LiveTestService(
             TcpTransport transport,
             MessageRouter router,
-            MainThreadDispatcher mainThread,
-            TimeSpan requestTimeout)
+            MainThreadDispatcher mainThread)
         {
             _transport = transport ?? throw new ArgumentNullException(nameof(transport));
             _mainThread = mainThread ?? throw new ArgumentNullException(nameof(mainThread));
-            _requestTimeout = requestTimeout;
+            if (router == null)
+                throw new ArgumentNullException(nameof(router));
 
             router.Register(
-                RequestCode.User,
-                ActionCode.Login,
-                PlayerLoadResponse.Parser,
+                RequestCode.S2CLiveClientTest,
+                ActionCode.None,
+                LiveClientTestResponse.Parser,
                 OnResponse);
         }
 
-        // Current server "Login" loads or creates player data; it is not token authentication.
-        public async Task<PlayerLoadResponse> LoginOrCreateAsync(
-            PlayerLoginOptions options,
+        public event Action<LiveClientTestResponse> ResponseReceived;
+
+        public Task<long> SendAsync(
+            LiveClientTestRequest request,
             CancellationToken cancellationToken = default)
         {
-            if (options == null)
-                throw new ArgumentNullException(nameof(options));
-            options.Validate();
+            if (request == null)
+                throw new ArgumentNullException(nameof(request));
 
-            var request = new PlayerLoadRequest
-            {
-                RoleId = options.RoleId,
-                RoleType = options.RoleType,
-                AccountId = string.IsNullOrWhiteSpace(options.AccountId)
-                    ? options.RoleId
-                    : options.AccountId,
-                Platform = options.Platform ?? string.Empty,
-                OpenId = string.IsNullOrWhiteSpace(options.OpenId)
-                    ? options.RoleId
-                    : options.OpenId,
-                Nickname = string.IsNullOrWhiteSpace(options.Nickname)
-                    ? options.RoleId
-                    : options.Nickname,
-                Avatar = options.Avatar ?? string.Empty,
-                CreateIfMissing = options.CreateIfMissing
-            };
-
-            TaskCompletionSource<PlayerLoadResponse> pending = _response.Begin();
-            try
-            {
-                await _transport.SendAsync(
-                        RequestCode.User,
-                        ActionCode.Login,
-                        request.ToByteArray(),
-                        cancellationToken)
-                    .ConfigureAwait(false);
-                return await RequestAwaiter<PlayerLoadResponse>.WaitAsync(
-                        pending.Task,
-                        _requestTimeout,
-                        cancellationToken)
-                    .ConfigureAwait(false);
-            }
-            finally
-            {
-                _response.End(pending);
-            }
+            return _transport.SendAsync(
+                RequestCode.C2SLiveClientTest,
+                ActionCode.None,
+                request.ToByteArray(),
+                cancellationToken);
         }
 
-        internal void FailPending(Exception exception)
+        private void OnResponse(LiveClientTestResponse response, NetPacket packet)
         {
-            _response.Fail(exception);
-        }
-
-        private void OnResponse(PlayerLoadResponse response, NetPacket packet)
-        {
-            _response.Complete(response);
-            _mainThread.Post(() => LoginCompleted?.Invoke(response));
+            _mainThread.Post(() => ResponseReceived?.Invoke(response));
         }
     }
 }
