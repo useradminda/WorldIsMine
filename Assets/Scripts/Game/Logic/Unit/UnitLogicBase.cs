@@ -1,7 +1,7 @@
 using UnityEngine;
-using Unity.Mathematics;
-using static Unity.Mathematics.math;
+
 using System.Collections.Generic;
+using Unity.Mathematics;
 public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
@@ -10,7 +10,18 @@ public class UnitLogicBase
     private UnitProp prop;
     public UnitProp Prop => prop;
 
-    private float3 targetForward;
+    private Vector3 targetForward;
+    public Vector3 MoveForward
+    {
+        get
+        {
+            if (NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
+            {
+                targetForward = Vector3.Normalize(NormalSkill.TargetList[0].CurPos - CurPos);
+            }
+            return targetForward;
+        }
+    }
 
     public ECampType CampType => campType;
     private ECampType campType;
@@ -30,11 +41,11 @@ public class UnitLogicBase
 
     public bool IsDead => Prop.Hp <= 0;
 
-    public UnitLogicBase(int id, ECampType campType, float3 targetForward)
+    public UnitLogicBase(int id, ECampType campType, Vector3 targetForward)
     {
         stateMachine = new StateMachine(this);
         this.campType = campType;
-        this.targetForward = targetForward;
+        this.targetForward = Vector3.Normalize(targetForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(id);
         initProp();
         initSkills();
@@ -59,7 +70,7 @@ public class UnitLogicBase
         }
         float agentSpeed = Agenter.saveMaxSpeed;  
         Agenter.maxSpeed = agentSpeed;     
-        Agenter.prefVelocity = normalize(this.targetForward) * agentSpeed;
+        Agenter.prefVelocity = MoveForward;
     }
 
     // 获取普工攻击范围

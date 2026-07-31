@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scene/Loading.unity
     guid: 8ea5fe0df8e43d149a82b16f3d0d8785
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/CDCJ_01.unity
     guid: 8fb09f0026e017147ab6ccc598b3915c
   - enabled: 0
