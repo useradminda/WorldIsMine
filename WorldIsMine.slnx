@@ -1,0 +1,17 @@
+﻿<Solution>
+  <Project Path="RenderHeads.AVProMovieCapture.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Nebukam.ORCA.csproj" />
+  <Project Path="Nebukam.Signals.csproj" />
+  <Project Path="Nebukam.Common.csproj" />
+  <Project Path="Nebukam.Beacon.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="NativeFilePicker.Runtime.csproj" />
+  <Project Path="Nebukam.JobAssist.csproj" />
+  <Project Path="RenderHeads.AVProMovieCapture.Runtime.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="NativeFilePicker.Editor.csproj" />
+  <Project Path="Nebukam.Common.Editor.csproj" />
+  <Project Path="RenderHeads.AVProMovieCapture.Demos.csproj" />
+  <Project Path="EasyOA.csproj" />
+</Solution>
