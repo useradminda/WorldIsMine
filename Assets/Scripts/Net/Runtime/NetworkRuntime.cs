@@ -748,7 +748,46 @@ namespace WorldIsMine.Net.Runtime
         }
     }
 
-    public sealed class RuntimeLogPanel : MonoBehaviour
+    public abstract class CollapsibleRuntimePanel : MonoBehaviour
+    {
+        protected const float DefaultCollapsedButtonWidth = 180f;
+        protected const float DefaultCollapsedButtonHeight = 48f;
+
+        private bool _collapsed;
+
+        protected bool DrawCollapsedState(
+            Rect buttonRect,
+            GUIStyle buttonStyle,
+            string expandText)
+        {
+            if (!_collapsed)
+                return false;
+
+            if (GUI.Button(buttonRect, expandText, buttonStyle))
+                _collapsed = false;
+
+            // Restore the full window on the next OnGUI event so GUILayout
+            // receives a consistent layout for the current event.
+            return true;
+        }
+
+        protected void DrawCollapseButton(
+            GUIStyle buttonStyle,
+            float width = 90f,
+            float height = 36f)
+        {
+            if (GUILayout.Button(
+                    "收起",
+                    buttonStyle,
+                    GUILayout.Width(width),
+                    GUILayout.Height(height)))
+            {
+                _collapsed = true;
+            }
+        }
+    }
+
+    public sealed class RuntimeLogPanel : CollapsibleRuntimePanel
     {
         private const int MaxEntries = 300;
         private const float ScreenMargin = 20f;
@@ -787,6 +826,19 @@ namespace WorldIsMine.Net.Runtime
         {
             EnsureStyles();
             RefreshSnapshot();
+
+            var collapsedButtonRect = new Rect(
+                ScreenMargin,
+                ScreenMargin,
+                DefaultCollapsedButtonWidth,
+                DefaultCollapsedButtonHeight);
+            if (DrawCollapsedState(
+                    collapsedButtonRect,
+                    _toolbarButtonStyle,
+                    $"展开日志 ({_snapshot.Length})"))
+            {
+                return;
+            }
 
             float availableWidth = Mathf.Max(320f, Screen.width - ScreenMargin * 2f);
             float availableHeight = Mathf.Max(240f, Screen.height - ScreenMargin * 2f);
@@ -841,6 +893,7 @@ namespace WorldIsMine.Net.Runtime
                 $"总数 {_snapshot.Length}    警告 {warningCount}    错误 {errorCount}",
                 _toolbarStyle,
                 GUILayout.Height(36f));
+            DrawCollapseButton(_toolbarButtonStyle);
             GUILayout.EndHorizontal();
 
             if (_autoScroll && _displayedVersion != _snapshotVersion)
@@ -988,7 +1041,7 @@ namespace WorldIsMine.Net.Runtime
         }
     }
 
-    public sealed class LiveTestPanel : MonoBehaviour
+    public sealed class LiveTestPanel : CollapsibleRuntimePanel
     {
         private const float ScreenMargin = 20f;
         private const float PreferredWindowWidth = 560f;
@@ -1033,6 +1086,21 @@ namespace WorldIsMine.Net.Runtime
                 return;
 
             EnsureStyles();
+            var collapsedButtonRect = new Rect(
+                ScreenMargin,
+                Mathf.Max(
+                    ScreenMargin,
+                    Screen.height - DefaultCollapsedButtonHeight - ScreenMargin),
+                DefaultCollapsedButtonWidth,
+                DefaultCollapsedButtonHeight);
+            if (DrawCollapsedState(
+                    collapsedButtonRect,
+                    _buttonStyle,
+                    "展开玩家测试"))
+            {
+                return;
+            }
+
             float availableWidth = Mathf.Max(320f, Screen.width - ScreenMargin * 2f);
             float availableHeight = Mathf.Max(320f, Screen.height - ScreenMargin * 2f);
             float windowWidth = Mathf.Min(PreferredWindowWidth, availableWidth);
@@ -1056,6 +1124,11 @@ namespace WorldIsMine.Net.Runtime
 
         private void DrawWindow(int id)
         {
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            DrawCollapseButton(_buttonStyle);
+            GUILayout.EndHorizontal();
+
             _scrollPosition = GUILayout.BeginScrollView(
                 _scrollPosition,
                 false,
@@ -1267,7 +1340,7 @@ namespace WorldIsMine.Net.Runtime
         }
     }
 
-    public sealed class EquipmentGmPanel : MonoBehaviour
+    public sealed class EquipmentGmPanel : CollapsibleRuntimePanel
     {
         private const float ScreenMargin = 20f;
         private const float PreferredWindowWidth = 560f;
@@ -1313,6 +1386,23 @@ namespace WorldIsMine.Net.Runtime
                 return;
 
             EnsureStyles();
+            var collapsedButtonRect = new Rect(
+                Mathf.Max(
+                    ScreenMargin,
+                    Screen.width - DefaultCollapsedButtonWidth - ScreenMargin),
+                Mathf.Max(
+                    ScreenMargin,
+                    Screen.height - DefaultCollapsedButtonHeight - ScreenMargin),
+                DefaultCollapsedButtonWidth,
+                DefaultCollapsedButtonHeight);
+            if (DrawCollapsedState(
+                    collapsedButtonRect,
+                    _buttonStyle,
+                    "展开装备 GM"))
+            {
+                return;
+            }
+
             float availableWidth = Mathf.Max(320f, Screen.width - ScreenMargin * 2f);
             float availableHeight = Mathf.Max(320f, Screen.height - ScreenMargin * 2f);
             float windowWidth = Mathf.Min(PreferredWindowWidth, availableWidth);
@@ -1333,6 +1423,11 @@ namespace WorldIsMine.Net.Runtime
 
         private void DrawWindow(int id)
         {
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            DrawCollapseButton(_buttonStyle);
+            GUILayout.EndHorizontal();
+
             _scrollPosition = GUILayout.BeginScrollView(
                 _scrollPosition,
                 false,

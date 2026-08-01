@@ -12,6 +12,11 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // 出生位置
     public BornConfig BornConfigIns;
 
+    [Header("Legacy Debug")]
+    [SerializeField]
+    [Tooltip("旧数字键刷兵：1=红方100个，2=蓝方100个。正常联调必须关闭。")]
+    private bool enableLegacySpawnHotkeys = false;
+
     private bool battleInit = false;
 
     private void Awake()
@@ -37,7 +42,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
 
-        OperateManager.Instance.UpdateInput();
+        if (enableLegacySpawnHotkeys)
+            OperateManager.Instance.UpdateInput();
     }
 
     private void LateUpdate()
@@ -73,9 +79,10 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         Vector3 forward = BornConfigIns.GetForward(campType);
         Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
+        Vector3 targetPoint = BornConfigIns.GetTargetPoint();
         Debug.Log(
             $"[Battle][Spawn] Camp={campType}, UnitConfigId={id}, Count={count}, " +
-            $"BasePoint={baseBornPoint}, Forward={forward}");
+            $"BasePoint={baseBornPoint}, TargetPoint={targetPoint}, Forward={forward}");
 
         for (int i = 0; i < count; i++)
         {
@@ -85,7 +92,11 @@ public class BattleEngine : MonoSingleton<BattleEngine>
                 i,
                 count);
 
-            UnitLogicBase unitLogic = UnitFactory.CreateUnit(id, bornPoint, forward, campType);
+            UnitLogicBase unitLogic = UnitFactory.CreateUnit(
+                id,
+                bornPoint,
+                targetPoint,
+                campType);
             UnitManager.Instance.AddUnit(unitLogic);
             RvoManager.Instance.AddAgent(unitLogic.Agenter);
             KDTreeManager.Instance.AddWaitingKDInfo(unitLogic);
@@ -131,7 +142,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         Debug.Log(
             $"[Battle][Spawn] Ready. Red={BornConfigIns.GetBornPoint(ECampType.Red)}, " +
-            $"Blue={BornConfigIns.GetBornPoint(ECampType.Blue)}");
+            $"Blue={BornConfigIns.GetBornPoint(ECampType.Blue)}, " +
+            $"Target={BornConfigIns.GetTargetPoint()}");
 
         UnitManager.Instance.ManagerInit();
         KDTreeManager.Instance.ManagerInit();

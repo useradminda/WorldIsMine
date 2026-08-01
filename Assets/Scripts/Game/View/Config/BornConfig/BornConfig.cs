@@ -8,6 +8,8 @@ public class BornConfig : MonoBehaviour
     public Transform RedPoint;
     // 蓝方
     public Transform BluePoint;
+    // 红蓝双方共同目标点
+    public Transform TargetPoint;
 
     public Vector3 GetBornPoint(ECampType campType)
     {
@@ -24,11 +26,9 @@ public class BornConfig : MonoBehaviour
     public Vector3 GetForward(ECampType campType)
     {
         Transform ownPoint = GetPoint(campType);
-        Transform opponentPoint = GetPoint(
-            campType == ECampType.Red ? ECampType.Blue : ECampType.Red);
-        if (ownPoint != null && opponentPoint != null)
+        if (ownPoint != null && TargetPoint != null)
         {
-            Vector3 forward = opponentPoint.position - ownPoint.position;
+            Vector3 forward = TargetPoint.position - ownPoint.position;
             forward.y = 0f;
             if (forward.sqrMagnitude > 0.0001f)
                 return forward.normalized;
@@ -39,11 +39,19 @@ public class BornConfig : MonoBehaviour
             : Vector3.back;
     }
 
+    public Vector3 GetTargetPoint()
+    {
+        if (TargetPoint == null)
+            throw new InvalidOperationException("TargetPoint is not assigned.");
+
+        return TargetPoint.position;
+    }
+
     public bool HasDistinctSpawnPoints(float minimumDistance, out string reason)
     {
-        if (RedPoint == null || BluePoint == null)
+        if (RedPoint == null || BluePoint == null || TargetPoint == null)
         {
-            reason = "RedPoint and BluePoint must both be assigned.";
+            reason = "RedPoint, BluePoint and TargetPoint must all be assigned.";
             return false;
         }
 
@@ -54,6 +62,15 @@ public class BornConfig : MonoBehaviour
         if (Vector3.Distance(red, blue) < Mathf.Max(0.01f, minimumDistance))
         {
             reason = $"Spawn points are too close. Red={red}, Blue={blue}";
+            return false;
+        }
+
+        Vector3 target = TargetPoint.position;
+        target.y = 0f;
+        if (Vector3.Distance(red, target) < 0.01f ||
+            Vector3.Distance(blue, target) < 0.01f)
+        {
+            reason = $"A spawn point overlaps the target. Red={red}, Blue={blue}, Target={target}";
             return false;
         }
 

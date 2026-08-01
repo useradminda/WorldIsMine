@@ -6,9 +6,19 @@ using UnityEngine;
 public static class UnitFactory
 {
     // 创建一个单位
-    public static UnitLogicBase CreateUnit(int id, float3 bornPoint, float3 forward, ECampType campType)
+    public static UnitLogicBase CreateUnit(
+        int id,
+        float3 bornPoint,
+        float3 targetPoint,
+        ECampType campType)
     {
-        UnitLogicBase unit = new UnitLogicBase(id, campType, forward);
+        float3 forward = targetPoint - bornPoint;
+        forward.y = 0f;
+        forward = math.lengthsq(forward) > 0.0001f
+            ? math.normalize(forward)
+            : new float3(0f, 0f, 1f);
+
+        UnitLogicBase unit = new UnitLogicBase(id, campType, targetPoint);
         Agent agent = CreateAgent(bornPoint, forward, unit.Prop.Radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;
