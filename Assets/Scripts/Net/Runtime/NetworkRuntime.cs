@@ -18,7 +18,7 @@ namespace WorldIsMine.Net.Runtime
         [SerializeField] private NetworkConfig network = new NetworkConfig();
         [Header("DY Anchor")]
         [SerializeField] private bool testMode = true;
-        [SerializeField] private string testIdentityMarkdownPath = "TestData/dy-test-identity.md";
+        [SerializeField] private string testIdentityMarkdownPath = "dy-test-identity.md";
         [SerializeField] private bool connectOnStart = false;
         [SerializeField] private bool showLiveTestPanel = true;
         [SerializeField] private bool showEquipmentGmPanel = true;
@@ -733,10 +733,7 @@ namespace WorldIsMine.Net.Runtime
             if (Path.IsPathRooted(testIdentityMarkdownPath))
                 return Path.GetFullPath(testIdentityMarkdownPath);
 
-#if UNITY_EDITOR
-            string projectRoot = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
-            return Path.GetFullPath(Path.Combine(projectRoot, testIdentityMarkdownPath));
-#elif UNITY_STANDALONE_WIN
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
             return Path.Combine(
                 Application.streamingAssetsPath,
                 Path.GetFileName(testIdentityMarkdownPath));

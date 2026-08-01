@@ -13971,6 +13971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleConfigIns: {fileID: 2007356432}
   BornConfigIns: {fileID: 1944465874}
+  enableLegacySpawnHotkeys: 0
 --- !u!1001 &1760075018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14561,7 +14562,7 @@ MonoBehaviour:
     RequestTimeoutSeconds: 10
     HeartbeatIntervalSeconds: 20
   testMode: 1
-  testIdentityMarkdownPath: TestData/dy-test-identity.md
+  testIdentityMarkdownPath: dy-test-identity.md
   connectOnStart: 1
   showLiveTestPanel: 1
   showEquipmentGmPanel: 1
