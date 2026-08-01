@@ -25,93 +25,103 @@ namespace ClientProtocol {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChJway9wa19ldmVudHMucHJvdG8SDXh4cC5jbGllbnQudjEaEnBrL3BrX2Nv",
-            "bW1vbi5wcm90byLiAQoNTGl2ZUdpZnRFdmVudBIQCghldmVudF9pZBgBIAEo",
-            "CRIQCghwbGF0Zm9ybRgCIAEoCRIPCgdyb29tX2lkGAMgASgJEhEKCWFuY2hv",
-            "cl9pZBgEIAEoCRIRCgl2aWV3ZXJfaWQYBSABKAkSEwoLdmlld2VyX25hbWUY",
-            "BiABKAkSDwoHZ2lmdF9pZBgHIAEoCRISCgpnaWZ0X2NvdW50GAggASgFEhIK",
-            "CmdpZnRfdmFsdWUYCSABKAMSFQoNZXZlbnRfdGltZV9tcxgKIAEoAxIRCglw",
-            "bGF5ZXJfaWQYCyABKAQiuwEKDlJvbGVGaWdodEV2ZW50EhAKCGV2ZW50X2lk",
-            "GAEgASgJEhAKCHBsYXRmb3JtGAIgASgJEg8KB3Jvb21faWQYAyABKAkSEQoJ",
-            "YW5jaG9yX2lkGAQgASgJEhAKCHNraWxsX2lkGAUgASgFEhMKC3NraWxsX2xl",
-            "dmVsGAYgASgFEg8KB2J1ZmZfaWQYByABKAUSEgoKYnVmZl9sZXZlbBgIIAEo",
-            "BRIVCg1ldmVudF90aW1lX21zGAkgASgDIosBChJTdWJtaXRHaWZ0UmVzcG9u",
-            "c2USEgoKc2Vzc2lvbl9pZBgBIAEoCRIQCghhY2NlcHRlZBgCIAEoCBIRCglk",
-            "dXBsaWNhdGUYAyABKAgSDgoGcmVhc29uGAQgASgJEiwKCGNvbW1hbmRzGAUg",
-            "AygLMhoueHhwLmNsaWVudC52MS5TeW5jQ29tbWFuZCL5BgoLU3luY0NvbW1h",
-            "bmQSEgoKc2Vzc2lvbl9pZBgBIAEoCRIWCg50YXJnZXRfcm9vbV9pZBgCIAEo",
-            "CRIYChB0YXJnZXRfYW5jaG9yX2lkGAMgASgJEhAKCGV2ZW50X2lkGAQgASgJ",
-            "EhAKCHNlcXVlbmNlGAUgASgDEhQKDGNvbW1hbmRfdHlwZRgGIAEoCRI2Cgxj",
-            "b21tYW5kX2tpbmQYByABKA4yIC54eHAuY2xpZW50LnYxLlBLU3luY0NvbW1h",
-            "bmRUeXBlEhYKDnNlcnZlcl90aW1lX21zGAggASgDEioKC3NvdXJjZV9zaWRl",
-            "GAkgASgOMhUueHhwLmNsaWVudC52MS5QS1NpZGUSFgoOc291cmNlX3Jvb21f",
-            "aWQYCiABKAkSGAoQc291cmNlX2FuY2hvcl9pZBgLIAEoCRIPCgdzY29yZV9h",
-            "GAwgASgDEg8KB3Njb3JlX2IYDSABKAMSLgoGc3RhdHVzGA4gASgOMh4ueHhw",
-            "LmNsaWVudC52MS5QS1Nlc3Npb25TdGF0dXMSDgoGcmVhc29uGA8gASgJEhMK",
-            "C3Njb3JlX2RlbHRhGBAgASgDEi4KBGdpZnQYFCABKAsyHi54eHAuY2xpZW50",
-            "LnYxLkdpZnRTeW5jUGF5bG9hZEgAEjIKBmF0dGFjaxgVIAEoCzIgLnh4cC5j",
-            "bGllbnQudjEuQXR0YWNrU3luY1BheWxvYWRIABI/Cg1tb25zdGVyX3NwYXdu",
-            "GBYgASgLMiYueHhwLmNsaWVudC52MS5Nb25zdGVyU3Bhd25TeW5jUGF5bG9h",
-            "ZEgAEkEKDm1vbnN0ZXJfZGFtYWdlGBcgASgLMicueHhwLmNsaWVudC52MS5N",
-            "b25zdGVyRGFtYWdlU3luY1BheWxvYWRIABI5CgpidWZmX2FwcGx5GBggASgL",
-            "MiMueHhwLmNsaWVudC52MS5CdWZmQXBwbHlTeW5jUGF5bG9hZEgAEiwKA3dp",
-            "bhgZIAEoCzIdLnh4cC5jbGllbnQudjEuV2luU3luY1BheWxvYWRIABIsCgNl",
-            "bmQYGiABKAsyHS54eHAuY2xpZW50LnYxLkVuZFN5bmNQYXlsb2FkSAASOwoL",
-            "Ym9zc19hdHRhY2sYGyABKAsyJC54eHAuY2xpZW50LnYxLkJvc3NBdHRhY2tT",
-            "eW5jUGF5bG9hZEgAQgkKB3BheWxvYWQi2AIKD0dpZnRTeW5jUGF5bG9hZBIq",
-            "Cgtzb3VyY2Vfc2lkZRgBIAEoDjIVLnh4cC5jbGllbnQudjEuUEtTaWRlEhYK",
-            "DnNvdXJjZV9yb29tX2lkGAIgASgJEhgKEHNvdXJjZV9hbmNob3JfaWQYAyAB",
-            "KAkSEQoJdmlld2VyX2lkGAQgASgJEhMKC3ZpZXdlcl9uYW1lGAUgASgJEg8K",
-            "B2dpZnRfaWQYBiABKAkSEgoKZ2lmdF9jb3VudBgHIAEoBRISCgpnaWZ0X3Zh",
-            "bHVlGAggASgDEhEKCWFkZF9zY29yZRgJIAEoAxIPCgdzY29yZV9hGAogASgD",
-            "Eg8KB3Njb3JlX2IYCyABKAMSLgoGc3RhdHVzGAwgASgOMh4ueHhwLmNsaWVu",
-            "dC52MS5QS1Nlc3Npb25TdGF0dXMSDgoGcmVhc29uGA0gASgJEhEKCXBsYXll",
-            "cl9pZBgOIAEoBCLCAgoRQXR0YWNrU3luY1BheWxvYWQSKgoLc291cmNlX3Np",
-            "ZGUYASABKA4yFS54eHAuY2xpZW50LnYxLlBLU2lkZRIWCg5zb3VyY2Vfcm9v",
-            "bV9pZBgCIAEoCRIYChBzb3VyY2VfYW5jaG9yX2lkGAMgASgJEhAKCHNraWxs",
-            "X2lkGAQgASgFEhMKC3NraWxsX2xldmVsGAUgASgFEg8KB2J1ZmZfaWQYBiAB",
-            "KAUSEgoKYnVmZl9sZXZlbBgHIAEoBRIOCgZkYW1hZ2UYCCABKAMSEQoJYWRk",
-            "X3Njb3JlGAkgASgDEg8KB3Njb3JlX2EYCiABKAMSDwoHc2NvcmVfYhgLIAEo",
-            "AxIuCgZzdGF0dXMYDCABKA4yHi54eHAuY2xpZW50LnYxLlBLU2Vzc2lvblN0",
-            "YXR1cxIOCgZyZWFzb24YDSABKAkiiQEKF01vbnN0ZXJTcGF3blN5bmNQYXls",
-            "b2FkEhIKCm1vbnN0ZXJfaWQYASABKAkSFgoObW9uc3Rlcl9tYXhfaHAYAiAB",
-            "KAMSEgoKbW9uc3Rlcl9ocBgDIAEoAxIuCgZzdGF0dXMYBCABKA4yHi54eHAu",
-            "Y2xpZW50LnYxLlBLU2Vzc2lvblN0YXR1cyL4AQoYTW9uc3RlckRhbWFnZVN5",
-            "bmNQYXlsb2FkEioKC3NvdXJjZV9zaWRlGAEgASgOMhUueHhwLmNsaWVudC52",
-            "MS5QS1NpZGUSFgoOc291cmNlX3Jvb21faWQYAiABKAkSGAoQc291cmNlX2Fu",
-            "Y2hvcl9pZBgDIAEoCRISCgptb25zdGVyX2lkGAQgASgJEhYKDm1vbnN0ZXJf",
-            "bWF4X2hwGAUgASgDEhIKCm1vbnN0ZXJfaHAYBiABKAMSDgoGZGFtYWdlGAcg",
-            "ASgDEi4KBnN0YXR1cxgIIAEoDjIeLnh4cC5jbGllbnQudjEuUEtTZXNzaW9u",
-            "U3RhdHVzIqkBChRCdWZmQXBwbHlTeW5jUGF5bG9hZBIqCgtzb3VyY2Vfc2lk",
-            "ZRgBIAEoDjIVLnh4cC5jbGllbnQudjEuUEtTaWRlEhYKDnNvdXJjZV9yb29t",
-            "X2lkGAIgASgJEhgKEHNvdXJjZV9hbmNob3JfaWQYAyABKAkSDwoHYnVmZl9p",
-            "ZBgEIAEoBRISCgpidWZmX2xldmVsGAUgASgFEg4KBnJlYXNvbhgGIAEoCSKe",
-            "AQoOV2luU3luY1BheWxvYWQSKgoLd2lubmVyX3NpZGUYASABKA4yFS54eHAu",
-            "Y2xpZW50LnYxLlBLU2lkZRIPCgdzY29yZV9hGAIgASgDEg8KB3Njb3JlX2IY",
-            "AyABKAMSLgoGc3RhdHVzGAQgASgOMh4ueHhwLmNsaWVudC52MS5QS1Nlc3Np",
-            "b25TdGF0dXMSDgoGcmVhc29uGAUgASgJIrMBCg5FbmRTeW5jUGF5bG9hZBIq",
-            "Cgt3aW5uZXJfc2lkZRgBIAEoDjIVLnh4cC5jbGllbnQudjEuUEtTaWRlEg8K",
-            "B3Njb3JlX2EYAiABKAMSDwoHc2NvcmVfYhgDIAEoAxITCgtlbmRfdGltZV9t",
-            "cxgEIAEoAxIuCgZzdGF0dXMYBSABKA4yHi54eHAuY2xpZW50LnYxLlBLU2Vz",
-            "c2lvblN0YXR1cxIOCgZyZWFzb24YBiABKAkiywEKFUJvc3NBdHRhY2tTeW5j",
-            "UGF5bG9hZBIPCgdib3NzX2lkGAEgASgJEhMKC2Jvc3NfYXR0YWNrGAIgASgD",
-            "Eg4KBmRhbWFnZRgDIAEoAxITCgtib3NzX21heF9ocBgEIAEoAxIPCgdib3Nz",
-            "X2hwGAUgASgDEhYKDmF0dGFja190aW1lX21zGAYgASgDEi4KBnN0YXR1cxgH",
-            "IAEoDjIeLnh4cC5jbGllbnQudjEuUEtTZXNzaW9uU3RhdHVzEg4KBnJlYXNv",
-            "bhgIIAEoCUIRqgIOQ2xpZW50UHJvdG9jb2xiBnByb3RvMw=="));
+            "bW1vbi5wcm90bxoZcGxheWVyL3BsYXllcl90cm9vcC5wcm90byLSAgoNTGl2",
+            "ZUdpZnRFdmVudBIQCghldmVudF9pZBgBIAEoCRIQCghwbGF0Zm9ybRgCIAEo",
+            "CRIPCgdyb29tX2lkGAMgASgJEhEKCWFuY2hvcl9pZBgEIAEoCRIRCgl2aWV3",
+            "ZXJfaWQYBSABKAkSEwoLdmlld2VyX25hbWUYBiABKAkSDwoHZ2lmdF9pZBgH",
+            "IAEoCRISCgpnaWZ0X2NvdW50GAggASgFEhIKCmdpZnRfdmFsdWUYCSABKAMS",
+            "FQoNZXZlbnRfdGltZV9tcxgKIAEoAxIRCglwbGF5ZXJfaWQYCyABKAQSNQoM",
+            "dHJvb3Bfc3Bhd25zGAwgAygLMh8uc2tiei5wbGF5ZXIuR2lmdFRyb29wU3Bh",
+            "d25EYXRhEjcKDGJ1ZmZfZWZmZWN0cxgNIAMoCzIhLnh4cC5jbGllbnQudjEu",
+            "R2lmdENhbXBCdWZmRWZmZWN0IrsBCg5Sb2xlRmlnaHRFdmVudBIQCghldmVu",
+            "dF9pZBgBIAEoCRIQCghwbGF0Zm9ybRgCIAEoCRIPCgdyb29tX2lkGAMgASgJ",
+            "EhEKCWFuY2hvcl9pZBgEIAEoCRIQCghza2lsbF9pZBgFIAEoBRITCgtza2ls",
+            "bF9sZXZlbBgGIAEoBRIPCgdidWZmX2lkGAcgASgFEhIKCmJ1ZmZfbGV2ZWwY",
+            "CCABKAUSFQoNZXZlbnRfdGltZV9tcxgJIAEoAyKLAQoSU3VibWl0R2lmdFJl",
+            "c3BvbnNlEhIKCnNlc3Npb25faWQYASABKAkSEAoIYWNjZXB0ZWQYAiABKAgS",
+            "EQoJZHVwbGljYXRlGAMgASgIEg4KBnJlYXNvbhgEIAEoCRIsCghjb21tYW5k",
+            "cxgFIAMoCzIaLnh4cC5jbGllbnQudjEuU3luY0NvbW1hbmQiwQcKC1N5bmND",
+            "b21tYW5kEhIKCnNlc3Npb25faWQYASABKAkSFgoOdGFyZ2V0X3Jvb21faWQY",
+            "AiABKAkSGAoQdGFyZ2V0X2FuY2hvcl9pZBgDIAEoCRIQCghldmVudF9pZBgE",
+            "IAEoCRIQCghzZXF1ZW5jZRgFIAEoAxIUCgxjb21tYW5kX3R5cGUYBiABKAkS",
+            "NgoMY29tbWFuZF9raW5kGAcgASgOMiAueHhwLmNsaWVudC52MS5QS1N5bmND",
+            "b21tYW5kVHlwZRIWCg5zZXJ2ZXJfdGltZV9tcxgIIAEoAxIqCgtzb3VyY2Vf",
+            "c2lkZRgJIAEoDjIVLnh4cC5jbGllbnQudjEuUEtTaWRlEhYKDnNvdXJjZV9y",
+            "b29tX2lkGAogASgJEhgKEHNvdXJjZV9hbmNob3JfaWQYCyABKAkSDwoHc2Nv",
+            "cmVfYRgMIAEoAxIPCgdzY29yZV9iGA0gASgDEi4KBnN0YXR1cxgOIAEoDjIe",
+            "Lnh4cC5jbGllbnQudjEuUEtTZXNzaW9uU3RhdHVzEg4KBnJlYXNvbhgPIAEo",
+            "CRITCgtzY29yZV9kZWx0YRgQIAEoAxIuCgRnaWZ0GBQgASgLMh4ueHhwLmNs",
+            "aWVudC52MS5HaWZ0U3luY1BheWxvYWRIABIyCgZhdHRhY2sYFSABKAsyIC54",
+            "eHAuY2xpZW50LnYxLkF0dGFja1N5bmNQYXlsb2FkSAASPwoNbW9uc3Rlcl9z",
+            "cGF3bhgWIAEoCzImLnh4cC5jbGllbnQudjEuTW9uc3RlclNwYXduU3luY1Bh",
+            "eWxvYWRIABJBCg5tb25zdGVyX2RhbWFnZRgXIAEoCzInLnh4cC5jbGllbnQu",
+            "djEuTW9uc3RlckRhbWFnZVN5bmNQYXlsb2FkSAASOQoKYnVmZl9hcHBseRgY",
+            "IAEoCzIjLnh4cC5jbGllbnQudjEuQnVmZkFwcGx5U3luY1BheWxvYWRIABIs",
+            "CgN3aW4YGSABKAsyHS54eHAuY2xpZW50LnYxLldpblN5bmNQYXlsb2FkSAAS",
+            "LAoDZW5kGBogASgLMh0ueHhwLmNsaWVudC52MS5FbmRTeW5jUGF5bG9hZEgA",
+            "EjsKC2Jvc3NfYXR0YWNrGBsgASgLMiQueHhwLmNsaWVudC52MS5Cb3NzQXR0",
+            "YWNrU3luY1BheWxvYWRIABJGChFjYW1wX2J1ZmZfY2hhbmdlZBgcIAEoCzIp",
+            "Lnh4cC5jbGllbnQudjEuQ2FtcEJ1ZmZDaGFuZ2VkU3luY1BheWxvYWRIAEIJ",
+            "CgdwYXlsb2FkIsQDCg9HaWZ0U3luY1BheWxvYWQSKgoLc291cmNlX3NpZGUY",
+            "ASABKA4yFS54eHAuY2xpZW50LnYxLlBLU2lkZRIWCg5zb3VyY2Vfcm9vbV9p",
+            "ZBgCIAEoCRIYChBzb3VyY2VfYW5jaG9yX2lkGAMgASgJEhEKCXZpZXdlcl9p",
+            "ZBgEIAEoCRITCgt2aWV3ZXJfbmFtZRgFIAEoCRIPCgdnaWZ0X2lkGAYgASgJ",
+            "EhIKCmdpZnRfY291bnQYByABKAUSEgoKZ2lmdF92YWx1ZRgIIAEoAxIRCglh",
+            "ZGRfc2NvcmUYCSABKAMSDwoHc2NvcmVfYRgKIAEoAxIPCgdzY29yZV9iGAsg",
+            "ASgDEi4KBnN0YXR1cxgMIAEoDjIeLnh4cC5jbGllbnQudjEuUEtTZXNzaW9u",
+            "U3RhdHVzEg4KBnJlYXNvbhgNIAEoCRIRCglwbGF5ZXJfaWQYDiABKAQSNQoM",
+            "dHJvb3Bfc3Bhd25zGA8gAygLMh8uc2tiei5wbGF5ZXIuR2lmdFRyb29wU3Bh",
+            "d25EYXRhEjMKDGJ1ZmZfY2hhbmdlcxgQIAMoCzIdLnh4cC5jbGllbnQudjEu",
+            "Q2FtcEJ1ZmZDaGFuZ2UiwgIKEUF0dGFja1N5bmNQYXlsb2FkEioKC3NvdXJj",
+            "ZV9zaWRlGAEgASgOMhUueHhwLmNsaWVudC52MS5QS1NpZGUSFgoOc291cmNl",
+            "X3Jvb21faWQYAiABKAkSGAoQc291cmNlX2FuY2hvcl9pZBgDIAEoCRIQCghz",
+            "a2lsbF9pZBgEIAEoBRITCgtza2lsbF9sZXZlbBgFIAEoBRIPCgdidWZmX2lk",
+            "GAYgASgFEhIKCmJ1ZmZfbGV2ZWwYByABKAUSDgoGZGFtYWdlGAggASgDEhEK",
+            "CWFkZF9zY29yZRgJIAEoAxIPCgdzY29yZV9hGAogASgDEg8KB3Njb3JlX2IY",
+            "CyABKAMSLgoGc3RhdHVzGAwgASgOMh4ueHhwLmNsaWVudC52MS5QS1Nlc3Np",
+            "b25TdGF0dXMSDgoGcmVhc29uGA0gASgJIokBChdNb25zdGVyU3Bhd25TeW5j",
+            "UGF5bG9hZBISCgptb25zdGVyX2lkGAEgASgJEhYKDm1vbnN0ZXJfbWF4X2hw",
+            "GAIgASgDEhIKCm1vbnN0ZXJfaHAYAyABKAMSLgoGc3RhdHVzGAQgASgOMh4u",
+            "eHhwLmNsaWVudC52MS5QS1Nlc3Npb25TdGF0dXMi+AEKGE1vbnN0ZXJEYW1h",
+            "Z2VTeW5jUGF5bG9hZBIqCgtzb3VyY2Vfc2lkZRgBIAEoDjIVLnh4cC5jbGll",
+            "bnQudjEuUEtTaWRlEhYKDnNvdXJjZV9yb29tX2lkGAIgASgJEhgKEHNvdXJj",
+            "ZV9hbmNob3JfaWQYAyABKAkSEgoKbW9uc3Rlcl9pZBgEIAEoCRIWCg5tb25z",
+            "dGVyX21heF9ocBgFIAEoAxISCgptb25zdGVyX2hwGAYgASgDEg4KBmRhbWFn",
+            "ZRgHIAEoAxIuCgZzdGF0dXMYCCABKA4yHi54eHAuY2xpZW50LnYxLlBLU2Vz",
+            "c2lvblN0YXR1cyKpAQoUQnVmZkFwcGx5U3luY1BheWxvYWQSKgoLc291cmNl",
+            "X3NpZGUYASABKA4yFS54eHAuY2xpZW50LnYxLlBLU2lkZRIWCg5zb3VyY2Vf",
+            "cm9vbV9pZBgCIAEoCRIYChBzb3VyY2VfYW5jaG9yX2lkGAMgASgJEg8KB2J1",
+            "ZmZfaWQYBCABKAUSEgoKYnVmZl9sZXZlbBgFIAEoBRIOCgZyZWFzb24YBiAB",
+            "KAkingEKDldpblN5bmNQYXlsb2FkEioKC3dpbm5lcl9zaWRlGAEgASgOMhUu",
+            "eHhwLmNsaWVudC52MS5QS1NpZGUSDwoHc2NvcmVfYRgCIAEoAxIPCgdzY29y",
+            "ZV9iGAMgASgDEi4KBnN0YXR1cxgEIAEoDjIeLnh4cC5jbGllbnQudjEuUEtT",
+            "ZXNzaW9uU3RhdHVzEg4KBnJlYXNvbhgFIAEoCSKzAQoORW5kU3luY1BheWxv",
+            "YWQSKgoLd2lubmVyX3NpZGUYASABKA4yFS54eHAuY2xpZW50LnYxLlBLU2lk",
+            "ZRIPCgdzY29yZV9hGAIgASgDEg8KB3Njb3JlX2IYAyABKAMSEwoLZW5kX3Rp",
+            "bWVfbXMYBCABKAMSLgoGc3RhdHVzGAUgASgOMh4ueHhwLmNsaWVudC52MS5Q",
+            "S1Nlc3Npb25TdGF0dXMSDgoGcmVhc29uGAYgASgJIkwKGkNhbXBCdWZmQ2hh",
+            "bmdlZFN5bmNQYXlsb2FkEi4KB2NoYW5nZXMYASADKAsyHS54eHAuY2xpZW50",
+            "LnYxLkNhbXBCdWZmQ2hhbmdlIssBChVCb3NzQXR0YWNrU3luY1BheWxvYWQS",
+            "DwoHYm9zc19pZBgBIAEoCRITCgtib3NzX2F0dGFjaxgCIAEoAxIOCgZkYW1h",
+            "Z2UYAyABKAMSEwoLYm9zc19tYXhfaHAYBCABKAMSDwoHYm9zc19ocBgFIAEo",
+            "AxIWCg5hdHRhY2tfdGltZV9tcxgGIAEoAxIuCgZzdGF0dXMYByABKA4yHi54",
+            "eHAuY2xpZW50LnYxLlBLU2Vzc2lvblN0YXR1cxIOCgZyZWFzb24YCCABKAlC",
+            "EaoCDkNsaWVudFByb3RvY29sYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::ClientProtocol.PkCommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::ClientProtocol.PkCommonReflection.Descriptor, global::PlayerProtocol.PlayerTroopReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LiveGiftEvent), global::ClientProtocol.LiveGiftEvent.Parser, new[]{ "EventId", "Platform", "RoomId", "AnchorId", "ViewerId", "ViewerName", "GiftId", "GiftCount", "GiftValue", "EventTimeMs", "PlayerId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LiveGiftEvent), global::ClientProtocol.LiveGiftEvent.Parser, new[]{ "EventId", "Platform", "RoomId", "AnchorId", "ViewerId", "ViewerName", "GiftId", "GiftCount", "GiftValue", "EventTimeMs", "PlayerId", "TroopSpawns", "BuffEffects" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.RoleFightEvent), global::ClientProtocol.RoleFightEvent.Parser, new[]{ "EventId", "Platform", "RoomId", "AnchorId", "SkillId", "SkillLevel", "BuffId", "BuffLevel", "EventTimeMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.SubmitGiftResponse), global::ClientProtocol.SubmitGiftResponse.Parser, new[]{ "SessionId", "Accepted", "Duplicate", "Reason", "Commands" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.SyncCommand), global::ClientProtocol.SyncCommand.Parser, new[]{ "SessionId", "TargetRoomId", "TargetAnchorId", "EventId", "Sequence", "CommandType", "CommandKind", "ServerTimeMs", "SourceSide", "SourceRoomId", "SourceAnchorId", "ScoreA", "ScoreB", "Status", "Reason", "ScoreDelta", "Gift", "Attack", "MonsterSpawn", "MonsterDamage", "BuffApply", "Win", "End", "BossAttack" }, new[]{ "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.GiftSyncPayload), global::ClientProtocol.GiftSyncPayload.Parser, new[]{ "SourceSide", "SourceRoomId", "SourceAnchorId", "ViewerId", "ViewerName", "GiftId", "GiftCount", "GiftValue", "AddScore", "ScoreA", "ScoreB", "Status", "Reason", "PlayerId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.SyncCommand), global::ClientProtocol.SyncCommand.Parser, new[]{ "SessionId", "TargetRoomId", "TargetAnchorId", "EventId", "Sequence", "CommandType", "CommandKind", "ServerTimeMs", "SourceSide", "SourceRoomId", "SourceAnchorId", "ScoreA", "ScoreB", "Status", "Reason", "ScoreDelta", "Gift", "Attack", "MonsterSpawn", "MonsterDamage", "BuffApply", "Win", "End", "BossAttack", "CampBuffChanged" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.GiftSyncPayload), global::ClientProtocol.GiftSyncPayload.Parser, new[]{ "SourceSide", "SourceRoomId", "SourceAnchorId", "ViewerId", "ViewerName", "GiftId", "GiftCount", "GiftValue", "AddScore", "ScoreA", "ScoreB", "Status", "Reason", "PlayerId", "TroopSpawns", "BuffChanges" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.AttackSyncPayload), global::ClientProtocol.AttackSyncPayload.Parser, new[]{ "SourceSide", "SourceRoomId", "SourceAnchorId", "SkillId", "SkillLevel", "BuffId", "BuffLevel", "Damage", "AddScore", "ScoreA", "ScoreB", "Status", "Reason" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.MonsterSpawnSyncPayload), global::ClientProtocol.MonsterSpawnSyncPayload.Parser, new[]{ "MonsterId", "MonsterMaxHp", "MonsterHp", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.MonsterDamageSyncPayload), global::ClientProtocol.MonsterDamageSyncPayload.Parser, new[]{ "SourceSide", "SourceRoomId", "SourceAnchorId", "MonsterId", "MonsterMaxHp", "MonsterHp", "Damage", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.BuffApplySyncPayload), global::ClientProtocol.BuffApplySyncPayload.Parser, new[]{ "SourceSide", "SourceRoomId", "SourceAnchorId", "BuffId", "BuffLevel", "Reason" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.WinSyncPayload), global::ClientProtocol.WinSyncPayload.Parser, new[]{ "WinnerSide", "ScoreA", "ScoreB", "Status", "Reason" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.EndSyncPayload), global::ClientProtocol.EndSyncPayload.Parser, new[]{ "WinnerSide", "ScoreA", "ScoreB", "EndTimeMs", "Status", "Reason" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.CampBuffChangedSyncPayload), global::ClientProtocol.CampBuffChangedSyncPayload.Parser, new[]{ "Changes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.BossAttackSyncPayload), global::ClientProtocol.BossAttackSyncPayload.Parser, new[]{ "BossId", "BossAttack", "Damage", "BossMaxHp", "BossHp", "AttackTimeMs", "Status", "Reason" }, null, null, null, null)
           }));
     }
@@ -165,6 +175,8 @@ namespace ClientProtocol {
       giftValue_ = other.giftValue_;
       eventTimeMs_ = other.eventTimeMs_;
       playerId_ = other.playerId_;
+      troopSpawns_ = other.troopSpawns_.Clone();
+      buffEffects_ = other.buffEffects_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -306,6 +318,34 @@ namespace ClientProtocol {
       }
     }
 
+    /// <summary>Field number for the "troop_spawns" field.</summary>
+    public const int TroopSpawnsFieldNumber = 12;
+    private static readonly pb::FieldCodec<global::PlayerProtocol.GiftTroopSpawnData> _repeated_troopSpawns_codec
+        = pb::FieldCodec.ForMessage(98, global::PlayerProtocol.GiftTroopSpawnData.Parser);
+    private readonly pbc::RepeatedField<global::PlayerProtocol.GiftTroopSpawnData> troopSpawns_ = new pbc::RepeatedField<global::PlayerProtocol.GiftTroopSpawnData>();
+    /// <summary>
+    /// 礼物可能不刷兵，也可能产生多条刷兵结果。
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::PlayerProtocol.GiftTroopSpawnData> TroopSpawns {
+      get { return troopSpawns_; }
+    }
+
+    /// <summary>Field number for the "buff_effects" field.</summary>
+    public const int BuffEffectsFieldNumber = 13;
+    private static readonly pb::FieldCodec<global::ClientProtocol.GiftCampBuffEffect> _repeated_buffEffects_codec
+        = pb::FieldCodec.ForMessage(106, global::ClientProtocol.GiftCampBuffEffect.Parser);
+    private readonly pbc::RepeatedField<global::ClientProtocol.GiftCampBuffEffect> buffEffects_ = new pbc::RepeatedField<global::ClientProtocol.GiftCampBuffEffect>();
+    /// <summary>
+    /// MainServer 从礼物配置解析出的 Buff；只有 PKBattleCore 可以落为运行态。
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ClientProtocol.GiftCampBuffEffect> BuffEffects {
+      get { return buffEffects_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -332,6 +372,8 @@ namespace ClientProtocol {
       if (GiftValue != other.GiftValue) return false;
       if (EventTimeMs != other.EventTimeMs) return false;
       if (PlayerId != other.PlayerId) return false;
+      if(!troopSpawns_.Equals(other.troopSpawns_)) return false;
+      if(!buffEffects_.Equals(other.buffEffects_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -350,6 +392,8 @@ namespace ClientProtocol {
       if (GiftValue != 0L) hash ^= GiftValue.GetHashCode();
       if (EventTimeMs != 0L) hash ^= EventTimeMs.GetHashCode();
       if (PlayerId != 0UL) hash ^= PlayerId.GetHashCode();
+      hash ^= troopSpawns_.GetHashCode();
+      hash ^= buffEffects_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -412,6 +456,8 @@ namespace ClientProtocol {
         output.WriteRawTag(88);
         output.WriteUInt64(PlayerId);
       }
+      troopSpawns_.WriteTo(output, _repeated_troopSpawns_codec);
+      buffEffects_.WriteTo(output, _repeated_buffEffects_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -466,6 +512,8 @@ namespace ClientProtocol {
         output.WriteRawTag(88);
         output.WriteUInt64(PlayerId);
       }
+      troopSpawns_.WriteTo(ref output, _repeated_troopSpawns_codec);
+      buffEffects_.WriteTo(ref output, _repeated_buffEffects_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -509,6 +557,8 @@ namespace ClientProtocol {
       if (PlayerId != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PlayerId);
       }
+      size += troopSpawns_.CalculateSize(_repeated_troopSpawns_codec);
+      size += buffEffects_.CalculateSize(_repeated_buffEffects_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -554,6 +604,8 @@ namespace ClientProtocol {
       if (other.PlayerId != 0UL) {
         PlayerId = other.PlayerId;
       }
+      troopSpawns_.Add(other.troopSpawns_);
+      buffEffects_.Add(other.buffEffects_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -617,6 +669,14 @@ namespace ClientProtocol {
             PlayerId = input.ReadUInt64();
             break;
           }
+          case 98: {
+            troopSpawns_.AddEntriesFrom(input, _repeated_troopSpawns_codec);
+            break;
+          }
+          case 106: {
+            buffEffects_.AddEntriesFrom(input, _repeated_buffEffects_codec);
+            break;
+          }
         }
       }
     #endif
@@ -678,6 +738,14 @@ namespace ClientProtocol {
           }
           case 88: {
             PlayerId = input.ReadUInt64();
+            break;
+          }
+          case 98: {
+            troopSpawns_.AddEntriesFrom(ref input, _repeated_troopSpawns_codec);
+            break;
+          }
+          case 106: {
+            buffEffects_.AddEntriesFrom(ref input, _repeated_buffEffects_codec);
             break;
           }
         }
@@ -1592,6 +1660,9 @@ namespace ClientProtocol {
         case PayloadOneofCase.BossAttack:
           BossAttack = other.BossAttack.Clone();
           break;
+        case PayloadOneofCase.CampBuffChanged:
+          CampBuffChanged = other.CampBuffChanged.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1891,6 +1962,18 @@ namespace ClientProtocol {
       }
     }
 
+    /// <summary>Field number for the "camp_buff_changed" field.</summary>
+    public const int CampBuffChangedFieldNumber = 28;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.CampBuffChangedSyncPayload CampBuffChanged {
+      get { return payloadCase_ == PayloadOneofCase.CampBuffChanged ? (global::ClientProtocol.CampBuffChangedSyncPayload) payload_ : null; }
+      set {
+        payload_ = value;
+        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.CampBuffChanged;
+      }
+    }
+
     private object payload_;
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
@@ -1903,6 +1986,7 @@ namespace ClientProtocol {
       Win = 25,
       End = 26,
       BossAttack = 27,
+      CampBuffChanged = 28,
     }
     private PayloadOneofCase payloadCase_ = PayloadOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1957,6 +2041,7 @@ namespace ClientProtocol {
       if (!object.Equals(Win, other.Win)) return false;
       if (!object.Equals(End, other.End)) return false;
       if (!object.Equals(BossAttack, other.BossAttack)) return false;
+      if (!object.Equals(CampBuffChanged, other.CampBuffChanged)) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1989,6 +2074,7 @@ namespace ClientProtocol {
       if (payloadCase_ == PayloadOneofCase.Win) hash ^= Win.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.End) hash ^= End.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.BossAttack) hash ^= BossAttack.GetHashCode();
+      if (payloadCase_ == PayloadOneofCase.CampBuffChanged) hash ^= CampBuffChanged.GetHashCode();
       hash ^= (int) payloadCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2104,6 +2190,10 @@ namespace ClientProtocol {
         output.WriteRawTag(218, 1);
         output.WriteMessage(BossAttack);
       }
+      if (payloadCase_ == PayloadOneofCase.CampBuffChanged) {
+        output.WriteRawTag(226, 1);
+        output.WriteMessage(CampBuffChanged);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2210,6 +2300,10 @@ namespace ClientProtocol {
         output.WriteRawTag(218, 1);
         output.WriteMessage(BossAttack);
       }
+      if (payloadCase_ == PayloadOneofCase.CampBuffChanged) {
+        output.WriteRawTag(226, 1);
+        output.WriteMessage(CampBuffChanged);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2291,6 +2385,9 @@ namespace ClientProtocol {
       }
       if (payloadCase_ == PayloadOneofCase.BossAttack) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(BossAttack);
+      }
+      if (payloadCase_ == PayloadOneofCase.CampBuffChanged) {
+        size += 2 + pb::CodedOutputStream.ComputeMessageSize(CampBuffChanged);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2400,6 +2497,12 @@ namespace ClientProtocol {
             BossAttack = new global::ClientProtocol.BossAttackSyncPayload();
           }
           BossAttack.MergeFrom(other.BossAttack);
+          break;
+        case PayloadOneofCase.CampBuffChanged:
+          if (CampBuffChanged == null) {
+            CampBuffChanged = new global::ClientProtocol.CampBuffChangedSyncPayload();
+          }
+          CampBuffChanged.MergeFrom(other.CampBuffChanged);
           break;
       }
 
@@ -2558,6 +2661,15 @@ namespace ClientProtocol {
             BossAttack = subBuilder;
             break;
           }
+          case 226: {
+            global::ClientProtocol.CampBuffChangedSyncPayload subBuilder = new global::ClientProtocol.CampBuffChangedSyncPayload();
+            if (payloadCase_ == PayloadOneofCase.CampBuffChanged) {
+              subBuilder.MergeFrom(CampBuffChanged);
+            }
+            input.ReadMessage(subBuilder);
+            CampBuffChanged = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -2713,6 +2825,15 @@ namespace ClientProtocol {
             BossAttack = subBuilder;
             break;
           }
+          case 226: {
+            global::ClientProtocol.CampBuffChangedSyncPayload subBuilder = new global::ClientProtocol.CampBuffChangedSyncPayload();
+            if (payloadCase_ == PayloadOneofCase.CampBuffChanged) {
+              subBuilder.MergeFrom(CampBuffChanged);
+            }
+            input.ReadMessage(subBuilder);
+            CampBuffChanged = subBuilder;
+            break;
+          }
         }
       }
     }
@@ -2769,6 +2890,8 @@ namespace ClientProtocol {
       status_ = other.status_;
       reason_ = other.reason_;
       playerId_ = other.playerId_;
+      troopSpawns_ = other.troopSpawns_.Clone();
+      buffChanges_ = other.buffChanges_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2946,6 +3069,34 @@ namespace ClientProtocol {
       }
     }
 
+    /// <summary>Field number for the "troop_spawns" field.</summary>
+    public const int TroopSpawnsFieldNumber = 15;
+    private static readonly pb::FieldCodec<global::PlayerProtocol.GiftTroopSpawnData> _repeated_troopSpawns_codec
+        = pb::FieldCodec.ForMessage(122, global::PlayerProtocol.GiftTroopSpawnData.Parser);
+    private readonly pbc::RepeatedField<global::PlayerProtocol.GiftTroopSpawnData> troopSpawns_ = new pbc::RepeatedField<global::PlayerProtocol.GiftTroopSpawnData>();
+    /// <summary>
+    /// 空列表表示本次礼物没有刷兵效果。
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::PlayerProtocol.GiftTroopSpawnData> TroopSpawns {
+      get { return troopSpawns_; }
+    }
+
+    /// <summary>Field number for the "buff_changes" field.</summary>
+    public const int BuffChangesFieldNumber = 16;
+    private static readonly pb::FieldCodec<global::ClientProtocol.CampBuffChange> _repeated_buffChanges_codec
+        = pb::FieldCodec.ForMessage(130, global::ClientProtocol.CampBuffChange.Parser);
+    private readonly pbc::RepeatedField<global::ClientProtocol.CampBuffChange> buffChanges_ = new pbc::RepeatedField<global::ClientProtocol.CampBuffChange>();
+    /// <summary>
+    /// 与本次礼物同一 EventId、Sequence 原子下发的 Buff 变化。
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ClientProtocol.CampBuffChange> BuffChanges {
+      get { return buffChanges_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2975,6 +3126,8 @@ namespace ClientProtocol {
       if (Status != other.Status) return false;
       if (Reason != other.Reason) return false;
       if (PlayerId != other.PlayerId) return false;
+      if(!troopSpawns_.Equals(other.troopSpawns_)) return false;
+      if(!buffChanges_.Equals(other.buffChanges_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2996,6 +3149,8 @@ namespace ClientProtocol {
       if (Status != global::ClientProtocol.PKSessionStatus.Created) hash ^= Status.GetHashCode();
       if (Reason.Length != 0) hash ^= Reason.GetHashCode();
       if (PlayerId != 0UL) hash ^= PlayerId.GetHashCode();
+      hash ^= troopSpawns_.GetHashCode();
+      hash ^= buffChanges_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3070,6 +3225,8 @@ namespace ClientProtocol {
         output.WriteRawTag(112);
         output.WriteUInt64(PlayerId);
       }
+      troopSpawns_.WriteTo(output, _repeated_troopSpawns_codec);
+      buffChanges_.WriteTo(output, _repeated_buffChanges_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3136,6 +3293,8 @@ namespace ClientProtocol {
         output.WriteRawTag(112);
         output.WriteUInt64(PlayerId);
       }
+      troopSpawns_.WriteTo(ref output, _repeated_troopSpawns_codec);
+      buffChanges_.WriteTo(ref output, _repeated_buffChanges_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3188,6 +3347,8 @@ namespace ClientProtocol {
       if (PlayerId != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PlayerId);
       }
+      size += troopSpawns_.CalculateSize(_repeated_troopSpawns_codec);
+      size += buffChanges_.CalculateSize(_repeated_buffChanges_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3242,6 +3403,8 @@ namespace ClientProtocol {
       if (other.PlayerId != 0UL) {
         PlayerId = other.PlayerId;
       }
+      troopSpawns_.Add(other.troopSpawns_);
+      buffChanges_.Add(other.buffChanges_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3317,6 +3480,14 @@ namespace ClientProtocol {
             PlayerId = input.ReadUInt64();
             break;
           }
+          case 122: {
+            troopSpawns_.AddEntriesFrom(input, _repeated_troopSpawns_codec);
+            break;
+          }
+          case 130: {
+            buffChanges_.AddEntriesFrom(input, _repeated_buffChanges_codec);
+            break;
+          }
         }
       }
     #endif
@@ -3390,6 +3561,14 @@ namespace ClientProtocol {
           }
           case 112: {
             PlayerId = input.ReadUInt64();
+            break;
+          }
+          case 122: {
+            troopSpawns_.AddEntriesFrom(ref input, _repeated_troopSpawns_codec);
+            break;
+          }
+          case 130: {
+            buffChanges_.AddEntriesFrom(ref input, _repeated_buffChanges_codec);
             break;
           }
         }
@@ -5919,6 +6098,196 @@ namespace ClientProtocol {
 
   }
 
+  /// <summary>
+  /// 定时过期等非礼物直接触发的阵营 Buff 变化。
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CampBuffChangedSyncPayload : pb::IMessage<CampBuffChangedSyncPayload>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CampBuffChangedSyncPayload> _parser = new pb::MessageParser<CampBuffChangedSyncPayload>(() => new CampBuffChangedSyncPayload());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CampBuffChangedSyncPayload> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ClientProtocol.PkEventsReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffChangedSyncPayload() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffChangedSyncPayload(CampBuffChangedSyncPayload other) : this() {
+      changes_ = other.changes_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffChangedSyncPayload Clone() {
+      return new CampBuffChangedSyncPayload(this);
+    }
+
+    /// <summary>Field number for the "changes" field.</summary>
+    public const int ChangesFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::ClientProtocol.CampBuffChange> _repeated_changes_codec
+        = pb::FieldCodec.ForMessage(10, global::ClientProtocol.CampBuffChange.Parser);
+    private readonly pbc::RepeatedField<global::ClientProtocol.CampBuffChange> changes_ = new pbc::RepeatedField<global::ClientProtocol.CampBuffChange>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ClientProtocol.CampBuffChange> Changes {
+      get { return changes_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CampBuffChangedSyncPayload);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CampBuffChangedSyncPayload other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!changes_.Equals(other.changes_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= changes_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      changes_.WriteTo(output, _repeated_changes_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      changes_.WriteTo(ref output, _repeated_changes_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += changes_.CalculateSize(_repeated_changes_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CampBuffChangedSyncPayload other) {
+      if (other == null) {
+        return;
+      }
+      changes_.Add(other.changes_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            changes_.AddEntriesFrom(input, _repeated_changes_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            changes_.AddEntriesFrom(ref input, _repeated_changes_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class BossAttackSyncPayload : pb::IMessage<BossAttackSyncPayload>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -5934,7 +6303,7 @@ namespace ClientProtocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::ClientProtocol.PkEventsReflection.Descriptor.MessageTypes[11]; }
+      get { return global::ClientProtocol.PkEventsReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

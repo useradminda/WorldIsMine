@@ -281,7 +281,62 @@ namespace WorldIsMine.Net.Runtime
 
         private void OnPkSyncCommand(SyncCommand command)
         {
+            if (logPkProtocolDetails &&
+                command?.PayloadCase == SyncCommand.PayloadOneofCase.Gift)
+            {
+                var gift = command.Gift;
+                Debug.Log(
+                    $"[Net][S->C][PK][Gift] EventId={command.EventId}, " +
+                    $"Sequence={command.Sequence}, SourceSide={gift.SourceSide}, " +
+                    $"SourceRoomId={gift.SourceRoomId}, PlayerId={gift.PlayerId}, " +
+                    $"GiftId={gift.GiftId}, GiftCount={gift.GiftCount}, " +
+                    $"GiftValue={gift.GiftValue}, ScoreDelta={gift.AddScore}, " +
+                    $"Score={gift.ScoreA}:{gift.ScoreB}, " +
+                    $"TroopSpawns={gift.TroopSpawns.Count}, " +
+                    $"BuffChanges={gift.BuffChanges.Count}");
+
+                foreach (var change in gift.BuffChanges)
+                    LogCampBuffChange(command.EventId, change);
+
+                if (gift.TroopSpawns.Count == 0)
+                {
+                    Debug.Log(
+                        $"[Net][S->C][PK][Gift] No troop spawn. " +
+                        $"EventId={command.EventId}, GiftId={gift.GiftId}");
+                }
+                else
+                {
+                    foreach (var spawn in gift.TroopSpawns)
+                    {
+                        Debug.Log(
+                            $"[Net][S->C][PK][TroopSpawn] EventId={command.EventId}, " +
+                            $"SourceSide={gift.SourceSide}, PlayerId={gift.PlayerId}, " +
+                            $"TroopId={spawn.TroopId}, TroopLevel={spawn.TroopLevel}, " +
+                            $"TroopCount={spawn.TroopCount}");
+                    }
+                }
+            }
+            else if (logPkProtocolDetails &&
+                     command?.PayloadCase == SyncCommand.PayloadOneofCase.CampBuffChanged)
+            {
+                foreach (var change in command.CampBuffChanged.Changes)
+                    LogCampBuffChange(command.EventId, change);
+            }
             PkSyncReceived?.Invoke(command);
+        }
+
+        private static void LogCampBuffChange(string eventId, CampBuffChange change)
+        {
+            CampBuffState buff = change?.Buff;
+            Debug.Log(
+                $"[Net][S->C][PK][CampBuff] EventId={eventId}, " +
+                $"Change={change?.ChangeType}, Reason={change?.Reason}, " +
+                $"InstanceId={buff?.InstanceId}, BuffId={buff?.BuffId}, " +
+                $"Name={buff?.BuffName}, Level={buff?.BuffLevel}, " +
+                $"TargetSide={buff?.TargetSide}, SourceSide={buff?.SourceSide}, " +
+                $"PlayerId={buff?.SourcePlayerId}, Stacks={buff?.StackCount}, Duration={buff?.DurationMs}, " +
+                $"Start={buff?.StartTimeMs}, Expire={buff?.ExpireTimeMs}, " +
+                $"Version={buff?.Version}, Effect={buff?.EffectType}:{buff?.EffectValue}");
         }
 
         public Task<long> TestPlayerEnterAsync(
@@ -398,11 +453,16 @@ namespace WorldIsMine.Net.Runtime
         {
             if (logPlayerProtocolDetails)
             {
+                var troopModule = notify.Modules?.Troop;
+                var troopText = troopModule == null
+                    ? "TroopModule=None"
+                    : $"TroopSchema={troopModule.SchemaVersion}, " +
+                      $"TroopTypes={troopModule.Troops.Count}";
                 Debug.Log(
                     $"[Net][S->C][Player] Enter RoomId={notify.RoomId}, " +
                     $"PlayerId={notify.Player?.PlayerId}, " +
                     $"Nickname={notify.Player?.Nickname}, FirstEnter={notify.FirstEnter}, " +
-                    $"Payload={notify}");
+                    $"{troopText}, Payload={notify}");
             }
             PlayerEntered?.Invoke(notify);
         }
@@ -435,16 +495,28 @@ namespace WorldIsMine.Net.Runtime
         {
             if (logPlayerProtocolDetails)
             {
-                var troopSpawn = notify.TroopSpawn;
-                var troopText = troopSpawn == null
-                    ? "TroopSpawn=None"
-                    : $"TroopId={troopSpawn.TroopId}, TroopLevel={troopSpawn.TroopLevel}, " +
-                      $"TroopCount={troopSpawn.TroopCount}";
                 Debug.Log(
-                    $"[Net][S->C][Player] Gift RoomId={notify.RoomId}, " +
+                    $"[Net][S->C][Gift] RoomId={notify.RoomId}, " +
                     $"PlayerId={notify.PlayerId}, GiftId={notify.GiftId}, " +
                     $"Count={notify.GiftCount}, Value={notify.GiftValue}, " +
-                    $"EventId={notify.EventId}, {troopText}, Payload={notify}");
+                    $"EventId={notify.EventId}, Payload={notify}");
+
+                var troopSpawn = notify.TroopSpawn;
+                if (troopSpawn == null)
+                {
+                    Debug.Log(
+                        $"[Net][S->C][Gift] No troop spawn. RoomId={notify.RoomId}, " +
+                        $"PlayerId={notify.PlayerId}, GiftId={notify.GiftId}, " +
+                        $"EventId={notify.EventId}");
+                }
+                else
+                {
+                    Debug.Log(
+                        $"[Net][S->C][TroopSpawn] RoomId={notify.RoomId}, " +
+                        $"PlayerId={notify.PlayerId}, TroopId={troopSpawn.TroopId}, " +
+                        $"TroopLevel={troopSpawn.TroopLevel}, " +
+                        $"TroopCount={troopSpawn.TroopCount}, EventId={notify.EventId}");
+                }
             }
             PlayerGifted?.Invoke(notify);
         }

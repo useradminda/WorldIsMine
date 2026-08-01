@@ -5,6 +5,7 @@ option csharp_namespace = "ClientProtocol";
 package xxp.client.v1;
 
 import "pk/pk_common.proto";
+import "player/player_troop.proto";
 
 message LiveGiftEvent {
   string event_id = 1;
@@ -18,6 +19,10 @@ message LiveGiftEvent {
   int64 gift_value = 9;
   int64 event_time_ms = 10;
   uint64 player_id = 11;
+  // 礼物可能不刷兵，也可能产生多条刷兵结果。
+  repeated skbz.player.GiftTroopSpawnData troop_spawns = 12;
+  // MainServer 从礼物配置解析出的 Buff；只有 PKBattleCore 可以落为运行态。
+  repeated GiftCampBuffEffect buff_effects = 13;
 }
 
 message RoleFightEvent {
@@ -67,6 +72,7 @@ message SyncCommand {
     WinSyncPayload win = 25;
     EndSyncPayload end = 26;
     BossAttackSyncPayload boss_attack = 27;
+    CampBuffChangedSyncPayload camp_buff_changed = 28;
   }
 }
 
@@ -85,6 +91,10 @@ message GiftSyncPayload {
   PKSessionStatus status = 12;
   string reason = 13;
   uint64 player_id = 14;
+  // 空列表表示本次礼物没有刷兵效果。
+  repeated skbz.player.GiftTroopSpawnData troop_spawns = 15;
+  // 与本次礼物同一 EventId、Sequence 原子下发的 Buff 变化。
+  repeated CampBuffChange buff_changes = 16;
 }
 
 message AttackSyncPayload {
@@ -145,6 +155,11 @@ message EndSyncPayload {
   int64 end_time_ms = 4;
   PKSessionStatus status = 5;
   string reason = 6;
+}
+
+// 定时过期等非礼物直接触发的阵营 Buff 变化。
+message CampBuffChangedSyncPayload {
+  repeated CampBuffChange changes = 1;
 }
 
 message BossAttackSyncPayload {

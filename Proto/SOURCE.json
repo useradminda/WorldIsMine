@@ -1,8 +1,8 @@
 ﻿{
     "sourceRepository":  "xxp-server-dy",
     "sourceBranch":  "pro_skbz",
-    "sourceCommit":  "6d3ddeb2bebc3a17058ac126c27d84612407c56a",
-    "sourceState":  "gift troop spawn protocol from the 2026-08-01 server working tree",
+    "sourceCommit":  "9d6ecd8a96598add947ba652b7669d175fbfc76e",
+    "sourceState":  "PKBattleCore camp-wide buff lifecycle and gift buff outcomes from the 2026-08-01 server working tree",
     "sourceDirectory":  "FuWuQiDuan/ClientProtocol/Protos",
     "protobufRuntime":  "Google.Protobuf 3.32.0",
     "runtimeDependencies":  {
@@ -10,12 +10,13 @@
                             },
     "generator":  "Grpc.Tools/protoc 2.71.0",
     "files":  {
-                  "client/client_base.proto":  "2017F410439429131962E88DA5AED4F5FFCFCE5EAD40E68DAD86440C0E5D6809",
+                  "client/client_base.proto":  "AA444C8233283AEFC143BE0FCA94C5D932B8262CED7A7111C4A9D7811A26E23C",
                   "client/pk_client.proto":  "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
-                  "pk/pk_common.proto":  "B25A0F78DC35018F8095E1647A71027B8271EC61012090F9286411E8FCBB1798",
-                  "pk/pk_events.proto":  "9BB00D3217871A5613A18CA1548873AF20D26D1CE2AE12276DDF9D45D6A9C3BC",
+                  "pk/pk_common.proto":  "97855608E1B25AA7A4017F1751B013E25518FE897F1865ED430981D024BF642E",
+                  "pk/pk_events.proto":  "2FE692A0F419C92A63AA3C2E2C50FF20ACE4D74B413E09BB8EA18BB04036A311",
                   "player/player_equipment.proto":  "C77D4322EB245ACAC589466E08A6705C76A943C3AA5F413BBB1FF8E9B85ECD02",
                   "player/player_equipment_api.proto":  "D5ADC9367AB1EB64FC07F75905F98D11A99E897DE3B82D989AF3C81137E532CF",
-                  "player/player_troop.proto":  "71B00CECC5EA35F816D701DCC6C450CC7A39B3CE063B5413E644C219ED0B3E5D"
+                  "player/player_troop.proto":  "71B00CECC5EA35F816D701DCC6C450CC7A39B3CE063B5413E644C219ED0B3E5D",
+                  "player/player_modules.proto":  "4C278E57C0FFCA7997171ED7E741EAD2F8732AA79C4E35D14E9D8A4264FE3AA8"
               }
 }

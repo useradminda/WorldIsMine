@@ -75,6 +75,38 @@ namespace WorldIsMine.Net.Tests
                 ActionCode.None,
                 2,
                 new SubmitGiftResponse { Accepted = true, SessionId = "pk-session-1" }.ToByteArray())));
+            var giftSync = new GiftSyncPayload
+            {
+                PlayerId = 42,
+                GiftId = "13585"
+            };
+            giftSync.TroopSpawns.Add(new GiftTroopSpawnData
+            {
+                TroopId = 10001,
+                TroopLevel = 3,
+                TroopCount = 2
+            });
+            giftSync.TroopSpawns.Add(new GiftTroopSpawnData
+            {
+                TroopId = 20001,
+                TroopLevel = 2,
+                TroopCount = 1
+            });
+            giftSync.BuffChanges.Add(new CampBuffChange
+            {
+                ChangeType = PKCampBuffChangeType.Applied,
+                Reason = "gift_buff_applied",
+                Buff = new CampBuffState
+                {
+                    InstanceId = "buff:pk-session-1:1:1001",
+                    BuffId = 1001,
+                    BuffLevel = 1,
+                    BuffName = "Battle Will",
+                    TargetSide = PKSide.A,
+                    StackCount = 1,
+                    ExpireTimeMs = 30_000
+                }
+            });
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPkSync,
                 ActionCode.None,
@@ -83,11 +115,7 @@ namespace WorldIsMine.Net.Tests
                 {
                     SessionId = "pk-session-1",
                     Sequence = 1,
-                    Gift = new GiftSyncPayload
-                    {
-                        PlayerId = 42,
-                        GiftId = "13585"
-                    }
+                    Gift = giftSync
                 }.ToByteArray())));
 
             Assert.AreEqual(3, mainThread.Drain());
@@ -95,6 +123,10 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual(1, endCount);
             Assert.AreEqual(1, syncCount);
             Assert.AreEqual((ulong)42, sync.Gift.PlayerId);
+            Assert.AreEqual(2, sync.Gift.TroopSpawns.Count);
+            Assert.AreEqual((uint)3, sync.Gift.TroopSpawns[0].TroopLevel);
+            Assert.AreEqual(1, sync.Gift.BuffChanges.Count);
+            Assert.AreEqual(PKCampBuffChangeType.Applied, sync.Gift.BuffChanges[0].ChangeType);
         }
     }
 
@@ -128,7 +160,23 @@ namespace WorldIsMine.Net.Tests
                         Platform = "dy",
                         Nickname = "Alice"
                     },
-                    FirstEnter = true
+                    FirstEnter = true,
+                    Modules = new PlayerModulesData
+                    {
+                        Troop = new TroopModuleData
+                        {
+                            SchemaVersion = 1,
+                            Troops =
+                            {
+                                new TroopData
+                                {
+                                    TroopId = 10001,
+                                    Level = 3,
+                                    Exp = 25
+                                }
+                            }
+                        }
+                    }
                 }.ToByteArray())));
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPlayerGift,
@@ -177,6 +225,10 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual(4, mainThread.Drain());
             Assert.AreEqual((ulong)42, entered.Player.PlayerId);
             Assert.AreEqual("Alice", entered.Player.Nickname);
+            Assert.NotNull(entered.Modules);
+            Assert.NotNull(entered.Modules.Troop);
+            Assert.AreEqual(1, entered.Modules.Troop.Troops.Count);
+            Assert.AreEqual((uint)3, entered.Modules.Troop.Troops[0].Level);
             Assert.AreEqual((ulong)42, left.PlayerId);
             Assert.AreEqual("viewer_leave", left.Reason);
             Assert.AreEqual(LivePlayerCamp.Red, selected.Camp);

@@ -56,11 +56,34 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // 创建单位
     public void CreateUnit(int id, ECampType campType, int count)
     {
+        if (!battleInit)
+        {
+            Debug.LogError(
+                $"[Battle][Spawn] BattleEngine is not initialized. Camp={campType}, " +
+                $"UnitConfigId={id}, Count={count}");
+            return;
+        }
+        if (count <= 0)
+        {
+            Debug.LogWarning(
+                $"[Battle][Spawn] Ignored non-positive count. Camp={campType}, " +
+                $"UnitConfigId={id}, Count={count}");
+            return;
+        }
+
+        Vector3 forward = BornConfigIns.GetForward(campType);
+        Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
+        Debug.Log(
+            $"[Battle][Spawn] Camp={campType}, UnitConfigId={id}, Count={count}, " +
+            $"BasePoint={baseBornPoint}, Forward={forward}");
+
         for (int i = 0; i < count; i++)
         {
-            Vector3 forward = BornConfigIns.GetForward(campType);
-            Vector3 bornPoint = BornConfigIns.GetBornPoint(campType);
-            bornPoint = getCreatePoint(bornPoint, forward, count);       
+            Vector3 bornPoint = GetCreatePoint(
+                baseBornPoint,
+                forward,
+                i,
+                count);
 
             UnitLogicBase unitLogic = UnitFactory.CreateUnit(id, bornPoint, forward, campType);
             UnitManager.Instance.AddUnit(unitLogic);
@@ -73,18 +96,24 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     }
 
     // 获取创建位置点
-    private Vector3 getCreatePoint(Vector3 bornPoint, Vector3 forward, int count)
+    private Vector3 GetCreatePoint(
+        Vector3 bornPoint,
+        Vector3 forward,
+        int unitIndex,
+        int totalCount)
     {
-        float soliderWithClipDis = BattleDefine.AreaTotalWith / BattleDefine.FootManWithCount;
-        int withLineIndex = count / BattleDefine.FootManWithCount;
-        float z = bornPoint.z + (-forward.z) * (withLineIndex - 1) * BattleDefine.FootManHeightSegDis;
+        int maxColumns = Mathf.Max(1, BattleDefine.FootManWithCount);
+        int columns = Mathf.Min(maxColumns, Mathf.Max(1, totalCount));
+        int row = unitIndex / columns;
+        int column = unitIndex % columns;
+        int unitsInRow = Mathf.Min(columns, totalCount - row * columns);
 
-        float x = 0;
-        int index = count / 2;
-        int leftOrRightFlagValue = count % 2;
-        int flagValue = leftOrRightFlagValue == 0 ? 1 : -1;   
-        x = bornPoint.x + flagValue * index * soliderWithClipDis;
-        return new Vector3(x, 0, z);        
+        float horizontalSpacing = BattleDefine.AreaTotalWith / maxColumns;
+        float centeredColumn = column - (unitsInRow - 1) * 0.5f;
+        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+        Vector3 rowOffset = -forward * row * BattleDefine.FootManHeightSegDis;
+        Vector3 columnOffset = right * centeredColumn * horizontalSpacing;
+        return bornPoint + rowOffset + columnOffset;
     }
 
     private bool initBattle()
@@ -93,7 +122,16 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         {
             Debug.LogError("没有出生位置信息");
             return false;
-        } 
+        }
+        if (!BornConfigIns.HasDistinctSpawnPoints(1f, out string spawnError))
+        {
+            Debug.LogError($"[Battle][Spawn] Invalid spawn configuration: {spawnError}");
+            return false;
+        }
+
+        Debug.Log(
+            $"[Battle][Spawn] Ready. Red={BornConfigIns.GetBornPoint(ECampType.Red)}, " +
+            $"Blue={BornConfigIns.GetBornPoint(ECampType.Blue)}");
 
         UnitManager.Instance.ManagerInit();
         KDTreeManager.Instance.ManagerInit();

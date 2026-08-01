@@ -26,30 +26,67 @@ namespace ClientProtocol {
           string.Concat(
             "ChJway9wa19jb21tb24ucHJvdG8SDXh4cC5jbGllbnQudjEiRQoMUEtBbmNo",
             "b3JJbmZvEhEKCWFuY2hvcl9pZBgBIAEoCRIPCgdyb29tX2lkGAIgASgJEhEK",
-            "CWNsaWVudF9pZBgDIAEoCSKTAgoPU2Vzc2lvblNuYXBzaG90EhIKCnNlc3Np",
+            "CWNsaWVudF9pZBgDIAEoCSLHAgoPU2Vzc2lvblNuYXBzaG90EhIKCnNlc3Np",
             "b25faWQYASABKAkSLQoIYW5jaG9yX2EYAiABKAsyGy54eHAuY2xpZW50LnYx",
             "LlBLQW5jaG9ySW5mbxItCghhbmNob3JfYhgDIAEoCzIbLnh4cC5jbGllbnQu",
             "djEuUEtBbmNob3JJbmZvEi4KBnN0YXR1cxgEIAEoDjIeLnh4cC5jbGllbnQu",
             "djEuUEtTZXNzaW9uU3RhdHVzEg8KB3Njb3JlX2EYBSABKAMSDwoHc2NvcmVf",
             "YhgGIAEoAxIQCghzZXF1ZW5jZRgHIAEoAxIVCg1zdGFydF90aW1lX21zGAgg",
-            "ASgDEhMKC2VuZF90aW1lX21zGAkgASgDKk0KBlBLU2lkZRITCg9QS19TSURF",
-            "X1VOS05PV04QABINCglQS19TSURFX0EQARINCglQS19TSURFX0IQAhIQCgxQ",
-            "S19TSURFX0RSQVcQAypsCg9QS1Nlc3Npb25TdGF0dXMSHQoZUEtfU0VTU0lP",
-            "Tl9TVEFUVVNfQ1JFQVRFRBAAEh0KGVBLX1NFU1NJT05fU1RBVFVTX1JVTk5J",
-            "TkcQARIbChdQS19TRVNTSU9OX1NUQVRVU19FTkRFRBACKs0CChFQS1N5bmND",
-            "b21tYW5kVHlwZRIgChxQS19TWU5DX0NPTU1BTkRfVFlQRV9VTktOT1dOEAAS",
-            "HQoZUEtfU1lOQ19DT01NQU5EX1RZUEVfR0lGVBABEh8KG1BLX1NZTkNfQ09N",
-            "TUFORF9UWVBFX0FUVEFDSxACEiYKIlBLX1NZTkNfQ09NTUFORF9UWVBFX01P",
-            "TlNURVJfU1BBV04QAxInCiNQS19TWU5DX0NPTU1BTkRfVFlQRV9NT05TVEVS",
-            "X0RBTUFHRRAEEiMKH1BLX1NZTkNfQ09NTUFORF9UWVBFX0JVRkZfQVBQTFkQ",
-            "BRIcChhQS19TWU5DX0NPTU1BTkRfVFlQRV9XSU4QBhIcChhQS19TWU5DX0NP",
-            "TU1BTkRfVFlQRV9FTkQQBxIkCiBQS19TWU5DX0NPTU1BTkRfVFlQRV9CT1NT",
-            "X0FUVEFDSxAIQhGqAg5DbGllbnRQcm90b2NvbGIGcHJvdG8z"));
+            "ASgDEhMKC2VuZF90aW1lX21zGAkgASgDEjIKDGFjdGl2ZV9idWZmcxgKIAMo",
+            "CzIcLnh4cC5jbGllbnQudjEuQ2FtcEJ1ZmZTdGF0ZSKpAgoSR2lmdENhbXBC",
+            "dWZmRWZmZWN0Eg8KB2J1ZmZfaWQYASABKAUSEgoKYnVmZl9sZXZlbBgCIAEo",
+            "BRIRCglidWZmX25hbWUYAyABKAkSEwoLZHVyYXRpb25fbXMYBCABKAMSOgoM",
+            "c3RhY2tfcG9saWN5GAUgASgOMiQueHhwLmNsaWVudC52MS5QS0NhbXBCdWZm",
+            "U3RhY2tQb2xpY3kSEgoKbWF4X3N0YWNrcxgGIAEoBRI4Cgt0YXJnZXRfcnVs",
+            "ZRgHIAEoDjIjLnh4cC5jbGllbnQudjEuUEtDYW1wQnVmZlRhcmdldFJ1bGUS",
+            "EQoJc3RhY2tfYWRkGAggASgFEhMKC2VmZmVjdF90eXBlGAkgASgJEhQKDGVm",
+            "ZmVjdF92YWx1ZRgKIAEoAyL8AgoNQ2FtcEJ1ZmZTdGF0ZRITCgtpbnN0YW5j",
+            "ZV9pZBgBIAEoCRIPCgdidWZmX2lkGAIgASgFEhIKCmJ1ZmZfbGV2ZWwYAyAB",
+            "KAUSEQoJYnVmZl9uYW1lGAQgASgJEioKC3RhcmdldF9zaWRlGAUgASgOMhUu",
+            "eHhwLmNsaWVudC52MS5QS1NpZGUSKgoLc291cmNlX3NpZGUYBiABKA4yFS54",
+            "eHAuY2xpZW50LnYxLlBLU2lkZRIYChBzb3VyY2VfcGxheWVyX2lkGAcgASgE",
+            "EhcKD3NvdXJjZV9ldmVudF9pZBgIIAEoCRITCgtzdGFja19jb3VudBgJIAEo",
+            "BRIVCg1zdGFydF90aW1lX21zGAogASgDEhYKDmV4cGlyZV90aW1lX21zGAsg",
+            "ASgDEg8KB3ZlcnNpb24YDCABKAMSEwoLZWZmZWN0X3R5cGUYDSABKAkSFAoM",
+            "ZWZmZWN0X3ZhbHVlGA4gASgDEhMKC2R1cmF0aW9uX21zGA8gASgDIoYBCg5D",
+            "YW1wQnVmZkNoYW5nZRI4CgtjaGFuZ2VfdHlwZRgBIAEoDjIjLnh4cC5jbGll",
+            "bnQudjEuUEtDYW1wQnVmZkNoYW5nZVR5cGUSKgoEYnVmZhgCIAEoCzIcLnh4",
+            "cC5jbGllbnQudjEuQ2FtcEJ1ZmZTdGF0ZRIOCgZyZWFzb24YAyABKAkqTQoG",
+            "UEtTaWRlEhMKD1BLX1NJREVfVU5LTk9XThAAEg0KCVBLX1NJREVfQRABEg0K",
+            "CVBLX1NJREVfQhACEhAKDFBLX1NJREVfRFJBVxADKmwKD1BLU2Vzc2lvblN0",
+            "YXR1cxIdChlQS19TRVNTSU9OX1NUQVRVU19DUkVBVEVEEAASHQoZUEtfU0VT",
+            "U0lPTl9TVEFUVVNfUlVOTklORxABEhsKF1BLX1NFU1NJT05fU1RBVFVTX0VO",
+            "REVEEAIq+QIKEVBLU3luY0NvbW1hbmRUeXBlEiAKHFBLX1NZTkNfQ09NTUFO",
+            "RF9UWVBFX1VOS05PV04QABIdChlQS19TWU5DX0NPTU1BTkRfVFlQRV9HSUZU",
+            "EAESHwobUEtfU1lOQ19DT01NQU5EX1RZUEVfQVRUQUNLEAISJgoiUEtfU1lO",
+            "Q19DT01NQU5EX1RZUEVfTU9OU1RFUl9TUEFXThADEicKI1BLX1NZTkNfQ09N",
+            "TUFORF9UWVBFX01PTlNURVJfREFNQUdFEAQSIwofUEtfU1lOQ19DT01NQU5E",
+            "X1RZUEVfQlVGRl9BUFBMWRAFEhwKGFBLX1NZTkNfQ09NTUFORF9UWVBFX1dJ",
+            "ThAGEhwKGFBLX1NZTkNfQ09NTUFORF9UWVBFX0VORBAHEiQKIFBLX1NZTkNf",
+            "Q09NTUFORF9UWVBFX0JPU1NfQVRUQUNLEAgSKgomUEtfU1lOQ19DT01NQU5E",
+            "X1RZUEVfQ0FNUF9CVUZGX0NIQU5HRUQQCSqfAQoVUEtDYW1wQnVmZlN0YWNr",
+            "UG9saWN5EiUKIVBLX0NBTVBfQlVGRl9TVEFDS19QT0xJQ1lfVU5LTk9XThAA",
+            "Ei4KKlBLX0NBTVBfQlVGRl9TVEFDS19QT0xJQ1lfUkVGUkVTSF9EVVJBVElP",
+            "ThABEi8KK1BLX0NBTVBfQlVGRl9TVEFDS19QT0xJQ1lfU1RBQ0tfQU5EX1JF",
+            "RlJFU0gQAiq7AQoUUEtDYW1wQnVmZlRhcmdldFJ1bGUSJAogUEtfQ0FNUF9C",
+            "VUZGX1RBUkdFVF9SVUxFX1VOS05PV04QABIoCiRQS19DQU1QX0JVRkZfVEFS",
+            "R0VUX1JVTEVfU09VUkNFX0NBTVAQARIqCiZQS19DQU1QX0JVRkZfVEFSR0VU",
+            "X1JVTEVfT1BQT05FTlRfQ0FNUBACEicKI1BLX0NBTVBfQlVGRl9UQVJHRVRf",
+            "UlVMRV9CT1RIX0NBTVBTEAMq/gEKFFBLQ2FtcEJ1ZmZDaGFuZ2VUeXBlEiQK",
+            "IFBLX0NBTVBfQlVGRl9DSEFOR0VfVFlQRV9VTktOT1dOEAASJAogUEtfQ0FN",
+            "UF9CVUZGX0NIQU5HRV9UWVBFX0FQUExJRUQQARImCiJQS19DQU1QX0JVRkZf",
+            "Q0hBTkdFX1RZUEVfUkVGUkVTSEVEEAISJAogUEtfQ0FNUF9CVUZGX0NIQU5H",
+            "RV9UWVBFX1NUQUNLRUQQAxIkCiBQS19DQU1QX0JVRkZfQ0hBTkdFX1RZUEVf",
+            "UkVNT1ZFRBAEEiYKIlBLX0NBTVBfQlVGRl9DSEFOR0VfVFlQRV9DTEVBUl9B",
+            "TEwQBUIRqgIOQ2xpZW50UHJvdG9jb2xiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ClientProtocol.PKSide), typeof(global::ClientProtocol.PKSessionStatus), typeof(global::ClientProtocol.PKSyncCommandType), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ClientProtocol.PKSide), typeof(global::ClientProtocol.PKSessionStatus), typeof(global::ClientProtocol.PKSyncCommandType), typeof(global::ClientProtocol.PKCampBuffStackPolicy), typeof(global::ClientProtocol.PKCampBuffTargetRule), typeof(global::ClientProtocol.PKCampBuffChangeType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.PKAnchorInfo), global::ClientProtocol.PKAnchorInfo.Parser, new[]{ "AnchorId", "RoomId", "ClientId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.SessionSnapshot), global::ClientProtocol.SessionSnapshot.Parser, new[]{ "SessionId", "AnchorA", "AnchorB", "Status", "ScoreA", "ScoreB", "Sequence", "StartTimeMs", "EndTimeMs" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.SessionSnapshot), global::ClientProtocol.SessionSnapshot.Parser, new[]{ "SessionId", "AnchorA", "AnchorB", "Status", "ScoreA", "ScoreB", "Sequence", "StartTimeMs", "EndTimeMs", "ActiveBuffs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.GiftCampBuffEffect), global::ClientProtocol.GiftCampBuffEffect.Parser, new[]{ "BuffId", "BuffLevel", "BuffName", "DurationMs", "StackPolicy", "MaxStacks", "TargetRule", "StackAdd", "EffectType", "EffectValue" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.CampBuffState), global::ClientProtocol.CampBuffState.Parser, new[]{ "InstanceId", "BuffId", "BuffLevel", "BuffName", "TargetSide", "SourceSide", "SourcePlayerId", "SourceEventId", "StackCount", "StartTimeMs", "ExpireTimeMs", "Version", "EffectType", "EffectValue", "DurationMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.CampBuffChange), global::ClientProtocol.CampBuffChange.Parser, new[]{ "ChangeType", "Buff", "Reason" }, null, null, null, null)
           }));
     }
     #endregion
@@ -79,6 +116,29 @@ namespace ClientProtocol {
     [pbr::OriginalName("PK_SYNC_COMMAND_TYPE_WIN")] Win = 6,
     [pbr::OriginalName("PK_SYNC_COMMAND_TYPE_END")] End = 7,
     [pbr::OriginalName("PK_SYNC_COMMAND_TYPE_BOSS_ATTACK")] BossAttack = 8,
+    [pbr::OriginalName("PK_SYNC_COMMAND_TYPE_CAMP_BUFF_CHANGED")] CampBuffChanged = 9,
+  }
+
+  public enum PKCampBuffStackPolicy {
+    [pbr::OriginalName("PK_CAMP_BUFF_STACK_POLICY_UNKNOWN")] Unknown = 0,
+    [pbr::OriginalName("PK_CAMP_BUFF_STACK_POLICY_REFRESH_DURATION")] RefreshDuration = 1,
+    [pbr::OriginalName("PK_CAMP_BUFF_STACK_POLICY_STACK_AND_REFRESH")] StackAndRefresh = 2,
+  }
+
+  public enum PKCampBuffTargetRule {
+    [pbr::OriginalName("PK_CAMP_BUFF_TARGET_RULE_UNKNOWN")] Unknown = 0,
+    [pbr::OriginalName("PK_CAMP_BUFF_TARGET_RULE_SOURCE_CAMP")] SourceCamp = 1,
+    [pbr::OriginalName("PK_CAMP_BUFF_TARGET_RULE_OPPONENT_CAMP")] OpponentCamp = 2,
+    [pbr::OriginalName("PK_CAMP_BUFF_TARGET_RULE_BOTH_CAMPS")] BothCamps = 3,
+  }
+
+  public enum PKCampBuffChangeType {
+    [pbr::OriginalName("PK_CAMP_BUFF_CHANGE_TYPE_UNKNOWN")] Unknown = 0,
+    [pbr::OriginalName("PK_CAMP_BUFF_CHANGE_TYPE_APPLIED")] Applied = 1,
+    [pbr::OriginalName("PK_CAMP_BUFF_CHANGE_TYPE_REFRESHED")] Refreshed = 2,
+    [pbr::OriginalName("PK_CAMP_BUFF_CHANGE_TYPE_STACKED")] Stacked = 3,
+    [pbr::OriginalName("PK_CAMP_BUFF_CHANGE_TYPE_REMOVED")] Removed = 4,
+    [pbr::OriginalName("PK_CAMP_BUFF_CHANGE_TYPE_CLEAR_ALL")] ClearAll = 5,
   }
 
   #endregion
@@ -400,6 +460,7 @@ namespace ClientProtocol {
       sequence_ = other.sequence_;
       startTimeMs_ = other.startTimeMs_;
       endTimeMs_ = other.endTimeMs_;
+      activeBuffs_ = other.activeBuffs_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -517,6 +578,20 @@ namespace ClientProtocol {
       }
     }
 
+    /// <summary>Field number for the "active_buffs" field.</summary>
+    public const int ActiveBuffsFieldNumber = 10;
+    private static readonly pb::FieldCodec<global::ClientProtocol.CampBuffState> _repeated_activeBuffs_codec
+        = pb::FieldCodec.ForMessage(82, global::ClientProtocol.CampBuffState.Parser);
+    private readonly pbc::RepeatedField<global::ClientProtocol.CampBuffState> activeBuffs_ = new pbc::RepeatedField<global::ClientProtocol.CampBuffState>();
+    /// <summary>
+    /// PKBattleCore 当前仍生效的阵营全局 Buff；重连以此快照为准。
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::ClientProtocol.CampBuffState> ActiveBuffs {
+      get { return activeBuffs_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -541,6 +616,7 @@ namespace ClientProtocol {
       if (Sequence != other.Sequence) return false;
       if (StartTimeMs != other.StartTimeMs) return false;
       if (EndTimeMs != other.EndTimeMs) return false;
+      if(!activeBuffs_.Equals(other.activeBuffs_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -557,6 +633,7 @@ namespace ClientProtocol {
       if (Sequence != 0L) hash ^= Sequence.GetHashCode();
       if (StartTimeMs != 0L) hash ^= StartTimeMs.GetHashCode();
       if (EndTimeMs != 0L) hash ^= EndTimeMs.GetHashCode();
+      hash ^= activeBuffs_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -611,6 +688,7 @@ namespace ClientProtocol {
         output.WriteRawTag(72);
         output.WriteInt64(EndTimeMs);
       }
+      activeBuffs_.WriteTo(output, _repeated_activeBuffs_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -657,6 +735,7 @@ namespace ClientProtocol {
         output.WriteRawTag(72);
         output.WriteInt64(EndTimeMs);
       }
+      activeBuffs_.WriteTo(ref output, _repeated_activeBuffs_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -694,6 +773,7 @@ namespace ClientProtocol {
       if (EndTimeMs != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(EndTimeMs);
       }
+      size += activeBuffs_.CalculateSize(_repeated_activeBuffs_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -739,6 +819,7 @@ namespace ClientProtocol {
       if (other.EndTimeMs != 0L) {
         EndTimeMs = other.EndTimeMs;
       }
+      activeBuffs_.Add(other.activeBuffs_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -800,6 +881,10 @@ namespace ClientProtocol {
             EndTimeMs = input.ReadInt64();
             break;
           }
+          case 82: {
+            activeBuffs_.AddEntriesFrom(input, _repeated_activeBuffs_codec);
+            break;
+          }
         }
       }
     #endif
@@ -859,6 +944,1541 @@ namespace ClientProtocol {
           }
           case 72: {
             EndTimeMs = input.ReadInt64();
+            break;
+          }
+          case 82: {
+            activeBuffs_.AddEntriesFrom(ref input, _repeated_activeBuffs_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// MainServer 根据礼物配置生成的权威 Buff 效果输入。
+  /// </summary>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class GiftCampBuffEffect : pb::IMessage<GiftCampBuffEffect>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GiftCampBuffEffect> _parser = new pb::MessageParser<GiftCampBuffEffect>(() => new GiftCampBuffEffect());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GiftCampBuffEffect> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ClientProtocol.PkCommonReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GiftCampBuffEffect() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GiftCampBuffEffect(GiftCampBuffEffect other) : this() {
+      buffId_ = other.buffId_;
+      buffLevel_ = other.buffLevel_;
+      buffName_ = other.buffName_;
+      durationMs_ = other.durationMs_;
+      stackPolicy_ = other.stackPolicy_;
+      maxStacks_ = other.maxStacks_;
+      targetRule_ = other.targetRule_;
+      stackAdd_ = other.stackAdd_;
+      effectType_ = other.effectType_;
+      effectValue_ = other.effectValue_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GiftCampBuffEffect Clone() {
+      return new GiftCampBuffEffect(this);
+    }
+
+    /// <summary>Field number for the "buff_id" field.</summary>
+    public const int BuffIdFieldNumber = 1;
+    private int buffId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int BuffId {
+      get { return buffId_; }
+      set {
+        buffId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buff_level" field.</summary>
+    public const int BuffLevelFieldNumber = 2;
+    private int buffLevel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int BuffLevel {
+      get { return buffLevel_; }
+      set {
+        buffLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buff_name" field.</summary>
+    public const int BuffNameFieldNumber = 3;
+    private string buffName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string BuffName {
+      get { return buffName_; }
+      set {
+        buffName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "duration_ms" field.</summary>
+    public const int DurationMsFieldNumber = 4;
+    private long durationMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long DurationMs {
+      get { return durationMs_; }
+      set {
+        durationMs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stack_policy" field.</summary>
+    public const int StackPolicyFieldNumber = 5;
+    private global::ClientProtocol.PKCampBuffStackPolicy stackPolicy_ = global::ClientProtocol.PKCampBuffStackPolicy.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.PKCampBuffStackPolicy StackPolicy {
+      get { return stackPolicy_; }
+      set {
+        stackPolicy_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "max_stacks" field.</summary>
+    public const int MaxStacksFieldNumber = 6;
+    private int maxStacks_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MaxStacks {
+      get { return maxStacks_; }
+      set {
+        maxStacks_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "target_rule" field.</summary>
+    public const int TargetRuleFieldNumber = 7;
+    private global::ClientProtocol.PKCampBuffTargetRule targetRule_ = global::ClientProtocol.PKCampBuffTargetRule.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.PKCampBuffTargetRule TargetRule {
+      get { return targetRule_; }
+      set {
+        targetRule_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "stack_add" field.</summary>
+    public const int StackAddFieldNumber = 8;
+    private int stackAdd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int StackAdd {
+      get { return stackAdd_; }
+      set {
+        stackAdd_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "effect_type" field.</summary>
+    public const int EffectTypeFieldNumber = 9;
+    private string effectType_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EffectType {
+      get { return effectType_; }
+      set {
+        effectType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "effect_value" field.</summary>
+    public const int EffectValueFieldNumber = 10;
+    private long effectValue_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long EffectValue {
+      get { return effectValue_; }
+      set {
+        effectValue_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GiftCampBuffEffect);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GiftCampBuffEffect other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (BuffId != other.BuffId) return false;
+      if (BuffLevel != other.BuffLevel) return false;
+      if (BuffName != other.BuffName) return false;
+      if (DurationMs != other.DurationMs) return false;
+      if (StackPolicy != other.StackPolicy) return false;
+      if (MaxStacks != other.MaxStacks) return false;
+      if (TargetRule != other.TargetRule) return false;
+      if (StackAdd != other.StackAdd) return false;
+      if (EffectType != other.EffectType) return false;
+      if (EffectValue != other.EffectValue) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (BuffId != 0) hash ^= BuffId.GetHashCode();
+      if (BuffLevel != 0) hash ^= BuffLevel.GetHashCode();
+      if (BuffName.Length != 0) hash ^= BuffName.GetHashCode();
+      if (DurationMs != 0L) hash ^= DurationMs.GetHashCode();
+      if (StackPolicy != global::ClientProtocol.PKCampBuffStackPolicy.Unknown) hash ^= StackPolicy.GetHashCode();
+      if (MaxStacks != 0) hash ^= MaxStacks.GetHashCode();
+      if (TargetRule != global::ClientProtocol.PKCampBuffTargetRule.Unknown) hash ^= TargetRule.GetHashCode();
+      if (StackAdd != 0) hash ^= StackAdd.GetHashCode();
+      if (EffectType.Length != 0) hash ^= EffectType.GetHashCode();
+      if (EffectValue != 0L) hash ^= EffectValue.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (BuffId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(BuffId);
+      }
+      if (BuffLevel != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(BuffLevel);
+      }
+      if (BuffName.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(BuffName);
+      }
+      if (DurationMs != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(DurationMs);
+      }
+      if (StackPolicy != global::ClientProtocol.PKCampBuffStackPolicy.Unknown) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) StackPolicy);
+      }
+      if (MaxStacks != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(MaxStacks);
+      }
+      if (TargetRule != global::ClientProtocol.PKCampBuffTargetRule.Unknown) {
+        output.WriteRawTag(56);
+        output.WriteEnum((int) TargetRule);
+      }
+      if (StackAdd != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(StackAdd);
+      }
+      if (EffectType.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(EffectType);
+      }
+      if (EffectValue != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(EffectValue);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (BuffId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(BuffId);
+      }
+      if (BuffLevel != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(BuffLevel);
+      }
+      if (BuffName.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(BuffName);
+      }
+      if (DurationMs != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(DurationMs);
+      }
+      if (StackPolicy != global::ClientProtocol.PKCampBuffStackPolicy.Unknown) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) StackPolicy);
+      }
+      if (MaxStacks != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(MaxStacks);
+      }
+      if (TargetRule != global::ClientProtocol.PKCampBuffTargetRule.Unknown) {
+        output.WriteRawTag(56);
+        output.WriteEnum((int) TargetRule);
+      }
+      if (StackAdd != 0) {
+        output.WriteRawTag(64);
+        output.WriteInt32(StackAdd);
+      }
+      if (EffectType.Length != 0) {
+        output.WriteRawTag(74);
+        output.WriteString(EffectType);
+      }
+      if (EffectValue != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(EffectValue);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (BuffId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BuffId);
+      }
+      if (BuffLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BuffLevel);
+      }
+      if (BuffName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BuffName);
+      }
+      if (DurationMs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(DurationMs);
+      }
+      if (StackPolicy != global::ClientProtocol.PKCampBuffStackPolicy.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) StackPolicy);
+      }
+      if (MaxStacks != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxStacks);
+      }
+      if (TargetRule != global::ClientProtocol.PKCampBuffTargetRule.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TargetRule);
+      }
+      if (StackAdd != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StackAdd);
+      }
+      if (EffectType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EffectType);
+      }
+      if (EffectValue != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(EffectValue);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GiftCampBuffEffect other) {
+      if (other == null) {
+        return;
+      }
+      if (other.BuffId != 0) {
+        BuffId = other.BuffId;
+      }
+      if (other.BuffLevel != 0) {
+        BuffLevel = other.BuffLevel;
+      }
+      if (other.BuffName.Length != 0) {
+        BuffName = other.BuffName;
+      }
+      if (other.DurationMs != 0L) {
+        DurationMs = other.DurationMs;
+      }
+      if (other.StackPolicy != global::ClientProtocol.PKCampBuffStackPolicy.Unknown) {
+        StackPolicy = other.StackPolicy;
+      }
+      if (other.MaxStacks != 0) {
+        MaxStacks = other.MaxStacks;
+      }
+      if (other.TargetRule != global::ClientProtocol.PKCampBuffTargetRule.Unknown) {
+        TargetRule = other.TargetRule;
+      }
+      if (other.StackAdd != 0) {
+        StackAdd = other.StackAdd;
+      }
+      if (other.EffectType.Length != 0) {
+        EffectType = other.EffectType;
+      }
+      if (other.EffectValue != 0L) {
+        EffectValue = other.EffectValue;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            BuffId = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            BuffLevel = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            BuffName = input.ReadString();
+            break;
+          }
+          case 32: {
+            DurationMs = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            StackPolicy = (global::ClientProtocol.PKCampBuffStackPolicy) input.ReadEnum();
+            break;
+          }
+          case 48: {
+            MaxStacks = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            TargetRule = (global::ClientProtocol.PKCampBuffTargetRule) input.ReadEnum();
+            break;
+          }
+          case 64: {
+            StackAdd = input.ReadInt32();
+            break;
+          }
+          case 74: {
+            EffectType = input.ReadString();
+            break;
+          }
+          case 80: {
+            EffectValue = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            BuffId = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            BuffLevel = input.ReadInt32();
+            break;
+          }
+          case 26: {
+            BuffName = input.ReadString();
+            break;
+          }
+          case 32: {
+            DurationMs = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            StackPolicy = (global::ClientProtocol.PKCampBuffStackPolicy) input.ReadEnum();
+            break;
+          }
+          case 48: {
+            MaxStacks = input.ReadInt32();
+            break;
+          }
+          case 56: {
+            TargetRule = (global::ClientProtocol.PKCampBuffTargetRule) input.ReadEnum();
+            break;
+          }
+          case 64: {
+            StackAdd = input.ReadInt32();
+            break;
+          }
+          case 74: {
+            EffectType = input.ReadString();
+            break;
+          }
+          case 80: {
+            EffectValue = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CampBuffState : pb::IMessage<CampBuffState>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CampBuffState> _parser = new pb::MessageParser<CampBuffState>(() => new CampBuffState());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CampBuffState> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ClientProtocol.PkCommonReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffState() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffState(CampBuffState other) : this() {
+      instanceId_ = other.instanceId_;
+      buffId_ = other.buffId_;
+      buffLevel_ = other.buffLevel_;
+      buffName_ = other.buffName_;
+      targetSide_ = other.targetSide_;
+      sourceSide_ = other.sourceSide_;
+      sourcePlayerId_ = other.sourcePlayerId_;
+      sourceEventId_ = other.sourceEventId_;
+      stackCount_ = other.stackCount_;
+      startTimeMs_ = other.startTimeMs_;
+      expireTimeMs_ = other.expireTimeMs_;
+      version_ = other.version_;
+      effectType_ = other.effectType_;
+      effectValue_ = other.effectValue_;
+      durationMs_ = other.durationMs_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffState Clone() {
+      return new CampBuffState(this);
+    }
+
+    /// <summary>Field number for the "instance_id" field.</summary>
+    public const int InstanceIdFieldNumber = 1;
+    private string instanceId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string InstanceId {
+      get { return instanceId_; }
+      set {
+        instanceId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "buff_id" field.</summary>
+    public const int BuffIdFieldNumber = 2;
+    private int buffId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int BuffId {
+      get { return buffId_; }
+      set {
+        buffId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buff_level" field.</summary>
+    public const int BuffLevelFieldNumber = 3;
+    private int buffLevel_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int BuffLevel {
+      get { return buffLevel_; }
+      set {
+        buffLevel_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buff_name" field.</summary>
+    public const int BuffNameFieldNumber = 4;
+    private string buffName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string BuffName {
+      get { return buffName_; }
+      set {
+        buffName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "target_side" field.</summary>
+    public const int TargetSideFieldNumber = 5;
+    private global::ClientProtocol.PKSide targetSide_ = global::ClientProtocol.PKSide.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.PKSide TargetSide {
+      get { return targetSide_; }
+      set {
+        targetSide_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "source_side" field.</summary>
+    public const int SourceSideFieldNumber = 6;
+    private global::ClientProtocol.PKSide sourceSide_ = global::ClientProtocol.PKSide.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.PKSide SourceSide {
+      get { return sourceSide_; }
+      set {
+        sourceSide_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "source_player_id" field.</summary>
+    public const int SourcePlayerIdFieldNumber = 7;
+    private ulong sourcePlayerId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong SourcePlayerId {
+      get { return sourcePlayerId_; }
+      set {
+        sourcePlayerId_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "source_event_id" field.</summary>
+    public const int SourceEventIdFieldNumber = 8;
+    private string sourceEventId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string SourceEventId {
+      get { return sourceEventId_; }
+      set {
+        sourceEventId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "stack_count" field.</summary>
+    public const int StackCountFieldNumber = 9;
+    private int stackCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int StackCount {
+      get { return stackCount_; }
+      set {
+        stackCount_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "start_time_ms" field.</summary>
+    public const int StartTimeMsFieldNumber = 10;
+    private long startTimeMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long StartTimeMs {
+      get { return startTimeMs_; }
+      set {
+        startTimeMs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "expire_time_ms" field.</summary>
+    public const int ExpireTimeMsFieldNumber = 11;
+    private long expireTimeMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long ExpireTimeMs {
+      get { return expireTimeMs_; }
+      set {
+        expireTimeMs_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "version" field.</summary>
+    public const int VersionFieldNumber = 12;
+    private long version_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Version {
+      get { return version_; }
+      set {
+        version_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "effect_type" field.</summary>
+    public const int EffectTypeFieldNumber = 13;
+    private string effectType_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string EffectType {
+      get { return effectType_; }
+      set {
+        effectType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "effect_value" field.</summary>
+    public const int EffectValueFieldNumber = 14;
+    private long effectValue_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long EffectValue {
+      get { return effectValue_; }
+      set {
+        effectValue_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "duration_ms" field.</summary>
+    public const int DurationMsFieldNumber = 15;
+    private long durationMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long DurationMs {
+      get { return durationMs_; }
+      set {
+        durationMs_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CampBuffState);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CampBuffState other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (InstanceId != other.InstanceId) return false;
+      if (BuffId != other.BuffId) return false;
+      if (BuffLevel != other.BuffLevel) return false;
+      if (BuffName != other.BuffName) return false;
+      if (TargetSide != other.TargetSide) return false;
+      if (SourceSide != other.SourceSide) return false;
+      if (SourcePlayerId != other.SourcePlayerId) return false;
+      if (SourceEventId != other.SourceEventId) return false;
+      if (StackCount != other.StackCount) return false;
+      if (StartTimeMs != other.StartTimeMs) return false;
+      if (ExpireTimeMs != other.ExpireTimeMs) return false;
+      if (Version != other.Version) return false;
+      if (EffectType != other.EffectType) return false;
+      if (EffectValue != other.EffectValue) return false;
+      if (DurationMs != other.DurationMs) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (InstanceId.Length != 0) hash ^= InstanceId.GetHashCode();
+      if (BuffId != 0) hash ^= BuffId.GetHashCode();
+      if (BuffLevel != 0) hash ^= BuffLevel.GetHashCode();
+      if (BuffName.Length != 0) hash ^= BuffName.GetHashCode();
+      if (TargetSide != global::ClientProtocol.PKSide.Unknown) hash ^= TargetSide.GetHashCode();
+      if (SourceSide != global::ClientProtocol.PKSide.Unknown) hash ^= SourceSide.GetHashCode();
+      if (SourcePlayerId != 0UL) hash ^= SourcePlayerId.GetHashCode();
+      if (SourceEventId.Length != 0) hash ^= SourceEventId.GetHashCode();
+      if (StackCount != 0) hash ^= StackCount.GetHashCode();
+      if (StartTimeMs != 0L) hash ^= StartTimeMs.GetHashCode();
+      if (ExpireTimeMs != 0L) hash ^= ExpireTimeMs.GetHashCode();
+      if (Version != 0L) hash ^= Version.GetHashCode();
+      if (EffectType.Length != 0) hash ^= EffectType.GetHashCode();
+      if (EffectValue != 0L) hash ^= EffectValue.GetHashCode();
+      if (DurationMs != 0L) hash ^= DurationMs.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (InstanceId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(InstanceId);
+      }
+      if (BuffId != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(BuffId);
+      }
+      if (BuffLevel != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(BuffLevel);
+      }
+      if (BuffName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(BuffName);
+      }
+      if (TargetSide != global::ClientProtocol.PKSide.Unknown) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) TargetSide);
+      }
+      if (SourceSide != global::ClientProtocol.PKSide.Unknown) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) SourceSide);
+      }
+      if (SourcePlayerId != 0UL) {
+        output.WriteRawTag(56);
+        output.WriteUInt64(SourcePlayerId);
+      }
+      if (SourceEventId.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(SourceEventId);
+      }
+      if (StackCount != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(StackCount);
+      }
+      if (StartTimeMs != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(StartTimeMs);
+      }
+      if (ExpireTimeMs != 0L) {
+        output.WriteRawTag(88);
+        output.WriteInt64(ExpireTimeMs);
+      }
+      if (Version != 0L) {
+        output.WriteRawTag(96);
+        output.WriteInt64(Version);
+      }
+      if (EffectType.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(EffectType);
+      }
+      if (EffectValue != 0L) {
+        output.WriteRawTag(112);
+        output.WriteInt64(EffectValue);
+      }
+      if (DurationMs != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(DurationMs);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (InstanceId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(InstanceId);
+      }
+      if (BuffId != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(BuffId);
+      }
+      if (BuffLevel != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(BuffLevel);
+      }
+      if (BuffName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(BuffName);
+      }
+      if (TargetSide != global::ClientProtocol.PKSide.Unknown) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) TargetSide);
+      }
+      if (SourceSide != global::ClientProtocol.PKSide.Unknown) {
+        output.WriteRawTag(48);
+        output.WriteEnum((int) SourceSide);
+      }
+      if (SourcePlayerId != 0UL) {
+        output.WriteRawTag(56);
+        output.WriteUInt64(SourcePlayerId);
+      }
+      if (SourceEventId.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(SourceEventId);
+      }
+      if (StackCount != 0) {
+        output.WriteRawTag(72);
+        output.WriteInt32(StackCount);
+      }
+      if (StartTimeMs != 0L) {
+        output.WriteRawTag(80);
+        output.WriteInt64(StartTimeMs);
+      }
+      if (ExpireTimeMs != 0L) {
+        output.WriteRawTag(88);
+        output.WriteInt64(ExpireTimeMs);
+      }
+      if (Version != 0L) {
+        output.WriteRawTag(96);
+        output.WriteInt64(Version);
+      }
+      if (EffectType.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(EffectType);
+      }
+      if (EffectValue != 0L) {
+        output.WriteRawTag(112);
+        output.WriteInt64(EffectValue);
+      }
+      if (DurationMs != 0L) {
+        output.WriteRawTag(120);
+        output.WriteInt64(DurationMs);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (InstanceId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(InstanceId);
+      }
+      if (BuffId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BuffId);
+      }
+      if (BuffLevel != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(BuffLevel);
+      }
+      if (BuffName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BuffName);
+      }
+      if (TargetSide != global::ClientProtocol.PKSide.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) TargetSide);
+      }
+      if (SourceSide != global::ClientProtocol.PKSide.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) SourceSide);
+      }
+      if (SourcePlayerId != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(SourcePlayerId);
+      }
+      if (SourceEventId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SourceEventId);
+      }
+      if (StackCount != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StackCount);
+      }
+      if (StartTimeMs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(StartTimeMs);
+      }
+      if (ExpireTimeMs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpireTimeMs);
+      }
+      if (Version != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Version);
+      }
+      if (EffectType.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(EffectType);
+      }
+      if (EffectValue != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(EffectValue);
+      }
+      if (DurationMs != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(DurationMs);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CampBuffState other) {
+      if (other == null) {
+        return;
+      }
+      if (other.InstanceId.Length != 0) {
+        InstanceId = other.InstanceId;
+      }
+      if (other.BuffId != 0) {
+        BuffId = other.BuffId;
+      }
+      if (other.BuffLevel != 0) {
+        BuffLevel = other.BuffLevel;
+      }
+      if (other.BuffName.Length != 0) {
+        BuffName = other.BuffName;
+      }
+      if (other.TargetSide != global::ClientProtocol.PKSide.Unknown) {
+        TargetSide = other.TargetSide;
+      }
+      if (other.SourceSide != global::ClientProtocol.PKSide.Unknown) {
+        SourceSide = other.SourceSide;
+      }
+      if (other.SourcePlayerId != 0UL) {
+        SourcePlayerId = other.SourcePlayerId;
+      }
+      if (other.SourceEventId.Length != 0) {
+        SourceEventId = other.SourceEventId;
+      }
+      if (other.StackCount != 0) {
+        StackCount = other.StackCount;
+      }
+      if (other.StartTimeMs != 0L) {
+        StartTimeMs = other.StartTimeMs;
+      }
+      if (other.ExpireTimeMs != 0L) {
+        ExpireTimeMs = other.ExpireTimeMs;
+      }
+      if (other.Version != 0L) {
+        Version = other.Version;
+      }
+      if (other.EffectType.Length != 0) {
+        EffectType = other.EffectType;
+      }
+      if (other.EffectValue != 0L) {
+        EffectValue = other.EffectValue;
+      }
+      if (other.DurationMs != 0L) {
+        DurationMs = other.DurationMs;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            InstanceId = input.ReadString();
+            break;
+          }
+          case 16: {
+            BuffId = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            BuffLevel = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            BuffName = input.ReadString();
+            break;
+          }
+          case 40: {
+            TargetSide = (global::ClientProtocol.PKSide) input.ReadEnum();
+            break;
+          }
+          case 48: {
+            SourceSide = (global::ClientProtocol.PKSide) input.ReadEnum();
+            break;
+          }
+          case 56: {
+            SourcePlayerId = input.ReadUInt64();
+            break;
+          }
+          case 66: {
+            SourceEventId = input.ReadString();
+            break;
+          }
+          case 72: {
+            StackCount = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            StartTimeMs = input.ReadInt64();
+            break;
+          }
+          case 88: {
+            ExpireTimeMs = input.ReadInt64();
+            break;
+          }
+          case 96: {
+            Version = input.ReadInt64();
+            break;
+          }
+          case 106: {
+            EffectType = input.ReadString();
+            break;
+          }
+          case 112: {
+            EffectValue = input.ReadInt64();
+            break;
+          }
+          case 120: {
+            DurationMs = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            InstanceId = input.ReadString();
+            break;
+          }
+          case 16: {
+            BuffId = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            BuffLevel = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            BuffName = input.ReadString();
+            break;
+          }
+          case 40: {
+            TargetSide = (global::ClientProtocol.PKSide) input.ReadEnum();
+            break;
+          }
+          case 48: {
+            SourceSide = (global::ClientProtocol.PKSide) input.ReadEnum();
+            break;
+          }
+          case 56: {
+            SourcePlayerId = input.ReadUInt64();
+            break;
+          }
+          case 66: {
+            SourceEventId = input.ReadString();
+            break;
+          }
+          case 72: {
+            StackCount = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            StartTimeMs = input.ReadInt64();
+            break;
+          }
+          case 88: {
+            ExpireTimeMs = input.ReadInt64();
+            break;
+          }
+          case 96: {
+            Version = input.ReadInt64();
+            break;
+          }
+          case 106: {
+            EffectType = input.ReadString();
+            break;
+          }
+          case 112: {
+            EffectValue = input.ReadInt64();
+            break;
+          }
+          case 120: {
+            DurationMs = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CampBuffChange : pb::IMessage<CampBuffChange>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CampBuffChange> _parser = new pb::MessageParser<CampBuffChange>(() => new CampBuffChange());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CampBuffChange> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::ClientProtocol.PkCommonReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffChange() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffChange(CampBuffChange other) : this() {
+      changeType_ = other.changeType_;
+      buff_ = other.buff_ != null ? other.buff_.Clone() : null;
+      reason_ = other.reason_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CampBuffChange Clone() {
+      return new CampBuffChange(this);
+    }
+
+    /// <summary>Field number for the "change_type" field.</summary>
+    public const int ChangeTypeFieldNumber = 1;
+    private global::ClientProtocol.PKCampBuffChangeType changeType_ = global::ClientProtocol.PKCampBuffChangeType.Unknown;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.PKCampBuffChangeType ChangeType {
+      get { return changeType_; }
+      set {
+        changeType_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buff" field.</summary>
+    public const int BuffFieldNumber = 2;
+    private global::ClientProtocol.CampBuffState buff_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::ClientProtocol.CampBuffState Buff {
+      get { return buff_; }
+      set {
+        buff_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "reason" field.</summary>
+    public const int ReasonFieldNumber = 3;
+    private string reason_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Reason {
+      get { return reason_; }
+      set {
+        reason_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CampBuffChange);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CampBuffChange other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ChangeType != other.ChangeType) return false;
+      if (!object.Equals(Buff, other.Buff)) return false;
+      if (Reason != other.Reason) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ChangeType != global::ClientProtocol.PKCampBuffChangeType.Unknown) hash ^= ChangeType.GetHashCode();
+      if (buff_ != null) hash ^= Buff.GetHashCode();
+      if (Reason.Length != 0) hash ^= Reason.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ChangeType != global::ClientProtocol.PKCampBuffChangeType.Unknown) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChangeType);
+      }
+      if (buff_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Buff);
+      }
+      if (Reason.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Reason);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ChangeType != global::ClientProtocol.PKCampBuffChangeType.Unknown) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChangeType);
+      }
+      if (buff_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Buff);
+      }
+      if (Reason.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Reason);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (ChangeType != global::ClientProtocol.PKCampBuffChangeType.Unknown) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChangeType);
+      }
+      if (buff_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Buff);
+      }
+      if (Reason.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Reason);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CampBuffChange other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ChangeType != global::ClientProtocol.PKCampBuffChangeType.Unknown) {
+        ChangeType = other.ChangeType;
+      }
+      if (other.buff_ != null) {
+        if (buff_ == null) {
+          Buff = new global::ClientProtocol.CampBuffState();
+        }
+        Buff.MergeFrom(other.Buff);
+      }
+      if (other.Reason.Length != 0) {
+        Reason = other.Reason;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ChangeType = (global::ClientProtocol.PKCampBuffChangeType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (buff_ == null) {
+              Buff = new global::ClientProtocol.CampBuffState();
+            }
+            input.ReadMessage(Buff);
+            break;
+          }
+          case 26: {
+            Reason = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+      if ((tag & 7) == 4) {
+        // Abort on any end group tag.
+        return;
+      }
+      switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ChangeType = (global::ClientProtocol.PKCampBuffChangeType) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (buff_ == null) {
+              Buff = new global::ClientProtocol.CampBuffState();
+            }
+            input.ReadMessage(Buff);
+            break;
+          }
+          case 26: {
+            Reason = input.ReadString();
             break;
           }
         }

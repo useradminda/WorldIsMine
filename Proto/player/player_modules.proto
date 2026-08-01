@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "PlayerProtocol";
+
+package skbz.player;
+
+import "player/player_troop.proto";
+
+// 玩家登录/进入直播间时下发的完整模块容器。
+// 后续装备、符文、任务等模块按新字段继续追加，不能复用已有字段号。
+message PlayerModulesData {
+  TroopModuleData troop = 1;
+}

@@ -5,6 +5,7 @@ option csharp_namespace = "ClientProtocol";
 package xxp.client.v1;
 
 import "player/player_troop.proto";
+import "player/player_modules.proto";
 
 message ClientBindRequest {
   string anchor_id = 1;
@@ -51,6 +52,7 @@ message LivePlayerEnterNotify {
   PlayerSnapshot player = 2;
   bool first_enter = 3;
   int64 server_time_ms = 4;
+  skbz.player.PlayerModulesData modules = 5;
 }
 
 message LivePlayerLeaveNotify {
