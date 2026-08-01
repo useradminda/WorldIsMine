@@ -1,0 +1,107 @@
+syntax = "proto3";
+
+option csharp_namespace = "PlayerProtocol";
+
+package skbz.player;
+
+import "player/player_equipment.proto";
+
+// 查询玩家完整装备模块。
+message C2SEquipmentQueryRequest {
+  uint64 player_id = 1;
+}
+
+message S2CEquipmentQueryResponse {
+  bool accepted = 1;
+  string reason = 2;
+  uint64 player_id = 3;
+  uint64 module_version = 4;
+  EquipmentModuleData module = 5;
+}
+
+// 创建装备仅用于受信任的测试、GM或服务器内部入口。
+// 正式客户端不能依靠该请求凭空创建装备。
+message C2SEquipmentCreateRequest {
+  string operation_id = 1;
+  uint64 player_id = 2;
+  uint32 equipment_id = 3;
+}
+
+message S2CEquipmentCreateResponse {
+  bool accepted = 1;
+  string reason = 2;
+  string operation_id = 3;
+  uint64 player_id = 4;
+  uint64 module_version = 5;
+  EquipmentData equipment = 6;
+}
+
+// 客户端只提交升级意图；等级、星级、品质和消耗由服务器计算。
+message C2SEquipmentUpgradeRequest {
+  string operation_id = 1;
+  uint64 player_id = 2;
+  uint64 equipment_uid = 3;
+}
+
+message S2CEquipmentUpgradeResponse {
+  bool accepted = 1;
+  string reason = 2;
+  string operation_id = 3;
+  uint64 player_id = 4;
+  uint64 module_version = 5;
+  EquipmentData equipment = 6;
+}
+
+// 穿戴装备。target_slot=0 非法，具体槽位值由游戏配置定义。
+message C2SEquipmentEquipRequest {
+  string operation_id = 1;
+  uint64 player_id = 2;
+  uint64 equipment_uid = 3;
+  uint32 target_slot = 4;
+}
+
+message S2CEquipmentEquipResponse {
+  bool accepted = 1;
+  string reason = 2;
+  string operation_id = 3;
+  uint64 player_id = 4;
+  uint64 module_version = 5;
+  EquipmentData equipment = 6;
+
+  // 同一槽位原来穿戴的装备；没有被替换的装备时不设置。
+  EquipmentData replaced_equipment = 7;
+}
+
+message C2SEquipmentUnequipRequest {
+  string operation_id = 1;
+  uint64 player_id = 2;
+  uint64 equipment_uid = 3;
+}
+
+message S2CEquipmentUnequipResponse {
+  bool accepted = 1;
+  string reason = 2;
+  string operation_id = 3;
+  uint64 player_id = 4;
+  uint64 module_version = 5;
+  EquipmentData equipment = 6;
+}
+
+enum EquipmentChangeType {
+  EQUIPMENT_CHANGE_TYPE_UNSPECIFIED = 0;
+  EQUIPMENT_CHANGE_TYPE_CREATED = 1;
+  EQUIPMENT_CHANGE_TYPE_UPGRADED = 2;
+  EQUIPMENT_CHANGE_TYPE_EQUIPPED = 3;
+  EQUIPMENT_CHANGE_TYPE_UNEQUIPPED = 4;
+}
+
+// 服务器主动产生装备变化时使用，例如任务奖励、GM发放或抖音事件奖励。
+message S2CEquipmentChangedNotify {
+  uint64 player_id = 1;
+  uint64 module_version = 2;
+  EquipmentChangeType change_type = 3;
+  EquipmentData equipment = 4;
+  EquipmentData replaced_equipment = 5;
+  string operation_id = 6;
+  string reason = 7;
+}

@@ -40,6 +40,7 @@ namespace WorldIsMine.Net.Runtime
             _transport = new TcpTransport();
             Player = new PlayerService(_router, MainThread);
             LiveTest = new LiveTestService(_transport, _router, MainThread);
+            Equipment = new EquipmentService(_transport, _router, MainThread);
             Bind = new BindService(_transport, _router, MainThread, _config.RequestTimeout);
             Pk = new PkService(_transport, _router, MainThread);
             Heartbeat = new HeartbeatService(
@@ -64,6 +65,7 @@ namespace WorldIsMine.Net.Runtime
         public MainThreadDispatcher MainThread { get; }
         public PlayerService Player { get; }
         public LiveTestService LiveTest { get; }
+        public EquipmentService Equipment { get; }
         public BindService Bind { get; }
         public PkService Pk { get; }
         public HeartbeatService Heartbeat { get; }

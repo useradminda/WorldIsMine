@@ -1,6 +1,7 @@
 using ClientProtocol;
 using Google.Protobuf;
 using NUnit.Framework;
+using PlayerProtocol;
 using WorldIsMine.Net.Protocol;
 using WorldIsMine.Net.Runtime;
 using WorldIsMine.Net.Services;
@@ -140,7 +141,13 @@ namespace WorldIsMine.Net.Tests
                     GiftId = "13585",
                     GiftCount = 2,
                     GiftValue = 20,
-                    EventId = "gift-event-1"
+                    EventId = "gift-event-1",
+                    TroopSpawn = new GiftTroopSpawnData
+                    {
+                        TroopId = 10001,
+                        TroopLevel = 3,
+                        TroopCount = 2
+                    }
                 }.ToByteArray())));
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPlayerCampSelected,
@@ -175,6 +182,10 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual(LivePlayerCamp.Red, selected.Camp);
             Assert.AreEqual((ulong)42, gifted.PlayerId);
             Assert.AreEqual("13585", gifted.GiftId);
+            Assert.NotNull(gifted.TroopSpawn);
+            Assert.AreEqual((uint)10001, gifted.TroopSpawn.TroopId);
+            Assert.AreEqual((uint)3, gifted.TroopSpawn.TroopLevel);
+            Assert.AreEqual(2, gifted.TroopSpawn.TroopCount);
         }
 
         [Test]
@@ -202,6 +213,124 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual(1, mainThread.Drain());
             Assert.AreEqual(LiveClientTestAction.Gift, received.Action);
             Assert.AreEqual("event-1", received.EventId);
+        }
+    }
+
+    public sealed class EquipmentServiceTests
+    {
+        [Test]
+        public void Router_DispatchesEveryEquipmentResponseOnMainThread()
+        {
+            using var transport = new TcpTransport();
+            var router = new MessageRouter();
+            var mainThread = new MainThreadDispatcher();
+            var service = new EquipmentService(transport, router, mainThread);
+
+            S2CEquipmentQueryResponse query = null;
+            S2CEquipmentCreateResponse create = null;
+            S2CEquipmentUpgradeResponse upgrade = null;
+            S2CEquipmentEquipResponse equip = null;
+            S2CEquipmentUnequipResponse unequip = null;
+            S2CEquipmentChangedNotify changed = null;
+            service.QueryResponseReceived += value => query = value;
+            service.CreateResponseReceived += value => create = value;
+            service.UpgradeResponseReceived += value => upgrade = value;
+            service.EquipResponseReceived += value => equip = value;
+            service.UnequipResponseReceived += value => unequip = value;
+            service.Changed += value => changed = value;
+
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CEquipmentQuery,
+                ActionCode.None,
+                30,
+                new S2CEquipmentQueryResponse
+                {
+                    Accepted = true,
+                    PlayerId = 42,
+                    ModuleVersion = 7,
+                    Module = new EquipmentModuleData()
+                }.ToByteArray())));
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CEquipmentCreate,
+                ActionCode.None,
+                31,
+                new S2CEquipmentCreateResponse
+                {
+                    Accepted = true,
+                    PlayerId = 42,
+                    Equipment = CreateEquipment(10001, 2001)
+                }.ToByteArray())));
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CEquipmentUpgrade,
+                ActionCode.None,
+                32,
+                new S2CEquipmentUpgradeResponse
+                {
+                    Accepted = true,
+                    PlayerId = 42,
+                    Equipment = CreateEquipment(10001, 2001, 2)
+                }.ToByteArray())));
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CEquipmentEquip,
+                ActionCode.None,
+                33,
+                new S2CEquipmentEquipResponse
+                {
+                    Accepted = true,
+                    PlayerId = 42,
+                    Equipment = CreateEquipment(10001, 2001, 2, 1)
+                }.ToByteArray())));
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CEquipmentUnequip,
+                ActionCode.None,
+                34,
+                new S2CEquipmentUnequipResponse
+                {
+                    Accepted = true,
+                    PlayerId = 42,
+                    Equipment = CreateEquipment(10001, 2001, 2)
+                }.ToByteArray())));
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CEquipmentChanged,
+                ActionCode.None,
+                35,
+                new S2CEquipmentChangedNotify
+                {
+                    PlayerId = 42,
+                    ChangeType = EquipmentChangeType.Upgraded,
+                    Equipment = CreateEquipment(10001, 2001, 3)
+                }.ToByteArray())));
+
+            Assert.IsNull(query);
+            Assert.IsNull(create);
+            Assert.IsNull(upgrade);
+            Assert.IsNull(equip);
+            Assert.IsNull(unequip);
+            Assert.IsNull(changed);
+            Assert.AreEqual(6, mainThread.Drain());
+            Assert.AreEqual((ulong)42, query.PlayerId);
+            Assert.AreEqual((ulong)10001, create.Equipment.EquipmentUid);
+            Assert.AreEqual((uint)2, upgrade.Equipment.Level);
+            Assert.AreEqual((uint)1, equip.Equipment.EquippedSlot);
+            Assert.AreEqual((uint)0, unequip.Equipment.EquippedSlot);
+            Assert.AreEqual(EquipmentChangeType.Upgraded, changed.ChangeType);
+        }
+
+        private static EquipmentData CreateEquipment(
+            ulong equipmentUid,
+            uint equipmentId,
+            uint level = 1,
+            uint equippedSlot = 0)
+        {
+            return new EquipmentData
+            {
+                EquipmentUid = equipmentUid,
+                EquipmentId = equipmentId,
+                Level = level,
+                Star = 1,
+                Quality = EquipmentQuality.Common,
+                EquippedSlot = equippedSlot
+            };
         }
     }
 }

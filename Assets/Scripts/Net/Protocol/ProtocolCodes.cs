@@ -25,7 +25,18 @@ namespace WorldIsMine.Net.Protocol
         S2CPlayerCampSelected = 21002,
         C2SLiveClientTest = 21003,
         S2CLiveClientTest = 21004,
-        S2CPlayerGift = 21005
+        S2CPlayerGift = 21005,
+        C2SEquipmentQuery = 21200,
+        S2CEquipmentQuery = 21201,
+        C2SEquipmentCreate = 21202,
+        S2CEquipmentCreate = 21203,
+        C2SEquipmentUpgrade = 21204,
+        S2CEquipmentUpgrade = 21205,
+        C2SEquipmentEquip = 21206,
+        S2CEquipmentEquip = 21207,
+        C2SEquipmentUnequip = 21208,
+        S2CEquipmentUnequip = 21209,
+        S2CEquipmentChanged = 21210
     }
 
     public enum ActionCode

@@ -1,18 +1,21 @@
-{
-  "sourceRepository": "xxp-server-dy",
-  "sourceBranch": "pro_skbz",
-  "sourceCommit": "561d82d6d1bd492a0ec35db6da32fbd465a17196",
-  "sourceState": "player identity and gift protocol from the 2026-07-30 server working tree",
-  "sourceDirectory": "FuWuQiDuan/ClientProtocol/Protos",
-  "protobufRuntime": "Google.Protobuf 3.32.0",
-  "runtimeDependencies": {
-    "System.Runtime.CompilerServices.Unsafe": "4.5.2"
-  },
-  "generator": "Grpc.Tools/protoc 2.71.0",
-  "files": {
-    "client/client_base.proto": "D2854B7842F0FB2BD48C9FEFAF80F391EB74A15D9274AFA14A33AE3B226F05DA",
-    "client/pk_client.proto": "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
-    "pk/pk_common.proto": "B25A0F78DC35018F8095E1647A71027B8271EC61012090F9286411E8FCBB1798",
-    "pk/pk_events.proto": "9BB00D3217871A5613A18CA1548873AF20D26D1CE2AE12276DDF9D45D6A9C3BC"
-  }
+﻿{
+    "sourceRepository":  "xxp-server-dy",
+    "sourceBranch":  "pro_skbz",
+    "sourceCommit":  "6d3ddeb2bebc3a17058ac126c27d84612407c56a",
+    "sourceState":  "gift troop spawn protocol from the 2026-08-01 server working tree",
+    "sourceDirectory":  "FuWuQiDuan/ClientProtocol/Protos",
+    "protobufRuntime":  "Google.Protobuf 3.32.0",
+    "runtimeDependencies":  {
+                                "System.Runtime.CompilerServices.Unsafe":  "4.5.2"
+                            },
+    "generator":  "Grpc.Tools/protoc 2.71.0",
+    "files":  {
+                  "client/client_base.proto":  "2017F410439429131962E88DA5AED4F5FFCFCE5EAD40E68DAD86440C0E5D6809",
+                  "client/pk_client.proto":  "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
+                  "pk/pk_common.proto":  "B25A0F78DC35018F8095E1647A71027B8271EC61012090F9286411E8FCBB1798",
+                  "pk/pk_events.proto":  "9BB00D3217871A5613A18CA1548873AF20D26D1CE2AE12276DDF9D45D6A9C3BC",
+                  "player/player_equipment.proto":  "C77D4322EB245ACAC589466E08A6705C76A943C3AA5F413BBB1FF8E9B85ECD02",
+                  "player/player_equipment_api.proto":  "D5ADC9367AB1EB64FC07F75905F98D11A99E897DE3B82D989AF3C81137E532CF",
+                  "player/player_troop.proto":  "71B00CECC5EA35F816D701DCC6C450CC7A39B3CE063B5413E644C219ED0B3E5D"
+              }
 }

@@ -24,50 +24,53 @@ namespace ClientProtocol {
     static ClientBaseReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChhjbGllbnQvY2xpZW50X2Jhc2UucHJvdG8SDXh4cC5jbGllbnQudjEiXgoR",
-            "Q2xpZW50QmluZFJlcXVlc3QSEQoJYW5jaG9yX2lkGAEgASgJEhMKC2FuY2hv",
-            "cl9uYW1lGAIgASgJEhAKCHBsYXRmb3JtGAMgASgJEg8KB3Jvb21faWQYBCAB",
-            "KAkigQEKEkNsaWVudEJpbmRSZXNwb25zZRIQCghhY2NlcHRlZBgBIAEoCBIO",
-            "CgZyZWFzb24YAiABKAkSEQoJYW5jaG9yX2lkGAMgASgJEhMKC2FuY2hvcl9u",
-            "YW1lGAQgASgJEhAKCHBsYXRmb3JtGAUgASgJEg8KB3Jvb21faWQYBiABKAki",
-            "cgoPQ2xpZW50SGVhcnRiZWF0EhEKCWNsaWVudF9pZBgBIAEoCRIPCgdyb29t",
-            "X2lkGAIgASgJEgsKA3RhZxgDIAEoCRIWCg5jbGllbnRfdGltZV9tcxgEIAEo",
-            "AxIWCg5zZXJ2ZXJfdGltZV9tcxgFIAEoAyIfCg9DbGllbnREZWJ1Z1RleHQS",
-            "DAoEdGV4dBgBIAEoCSKoAQoOUGxheWVyU25hcHNob3QSEQoJcGxheWVyX2lk",
-            "GAEgASgEEhAKCHBsYXRmb3JtGAIgASgJEhMKB29wZW5faWQYAyABKAlCAhgB",
-            "EhAKCG5pY2tuYW1lGAQgASgJEg4KBmF2YXRhchgFIAEoCRINCgVsZXZlbBgG",
-            "IAEoDRILCgNleHAYByABKAQSDQoFcG93ZXIYCCABKAQSDwoHdmVyc2lvbhgJ",
-            "IAEoBCKEAQoVTGl2ZVBsYXllckVudGVyTm90aWZ5Eg8KB3Jvb21faWQYASAB",
-            "KAkSLQoGcGxheWVyGAIgASgLMh0ueHhwLmNsaWVudC52MS5QbGF5ZXJTbmFw",
-            "c2hvdBITCgtmaXJzdF9lbnRlchgDIAEoCBIWCg5zZXJ2ZXJfdGltZV9tcxgE",
-            "IAEoAyJjChVMaXZlUGxheWVyTGVhdmVOb3RpZnkSDwoHcm9vbV9pZBgBIAEo",
-            "CRIRCglwbGF5ZXJfaWQYAiABKAQSDgoGcmVhc29uGAMgASgJEhYKDnNlcnZl",
-            "cl90aW1lX21zGAQgASgDIs4BChxMaXZlUGxheWVyQ2FtcFNlbGVjdGVkTm90",
-            "aWZ5Eg8KB3Jvb21faWQYASABKAkSEQoJcGxheWVyX2lkGAIgASgEEisKBGNh",
-            "bXAYAyABKA4yHS54eHAuY2xpZW50LnYxLkxpdmVQbGF5ZXJDYW1wEjQKDXBy",
-            "ZXZpb3VzX2NhbXAYBCABKA4yHS54eHAuY2xpZW50LnYxLkxpdmVQbGF5ZXJD",
-            "YW1wEg8KB2NoYW5nZWQYBSABKAgSFgoOc2VydmVyX3RpbWVfbXMYBiABKAMi",
-            "nQEKFExpdmVQbGF5ZXJHaWZ0Tm90aWZ5Eg8KB3Jvb21faWQYASABKAkSEQoJ",
-            "cGxheWVyX2lkGAIgASgEEg8KB2dpZnRfaWQYAyABKAkSEgoKZ2lmdF9jb3Vu",
-            "dBgEIAEoBRISCgpnaWZ0X3ZhbHVlGAUgASgDEhAKCGV2ZW50X2lkGAYgASgJ",
-            "EhYKDnNlcnZlcl90aW1lX21zGAcgASgDIuUBChVMaXZlQ2xpZW50VGVzdFJl",
-            "cXVlc3QSMwoGYWN0aW9uGAEgASgOMiMueHhwLmNsaWVudC52MS5MaXZlQ2xp",
-            "ZW50VGVzdEFjdGlvbhIPCgdvcGVuX2lkGAIgASgJEhAKCG5pY2tuYW1lGAMg",
-            "ASgJEg4KBmF2YXRhchgEIAEoCRIrCgRjYW1wGAUgASgOMh0ueHhwLmNsaWVu",
-            "dC52MS5MaXZlUGxheWVyQ2FtcBIPCgdnaWZ0X2lkGAYgASgJEhIKCmdpZnRf",
-            "Y291bnQYByABKAUSEgoKZ2lmdF92YWx1ZRgIIAEoBSKBAQoWTGl2ZUNsaWVu",
-            "dFRlc3RSZXNwb25zZRIQCghhY2NlcHRlZBgBIAEoCBIOCgZyZWFzb24YAiAB",
-            "KAkSMwoGYWN0aW9uGAMgASgOMiMueHhwLmNsaWVudC52MS5MaXZlQ2xpZW50",
-            "VGVzdEFjdGlvbhIQCghldmVudF9pZBgEIAEoCSpgCg5MaXZlUGxheWVyQ2Ft",
-            "cBIZChVMSVZFX1BMQVlFUl9DQU1QX05PTkUQABIYChRMSVZFX1BMQVlFUl9D",
-            "QU1QX1JFRBABEhkKFUxJVkVfUExBWUVSX0NBTVBfQkxVRRACKqYBChRMaXZl",
-            "Q2xpZW50VGVzdEFjdGlvbhIgChxMSVZFX0NMSUVOVF9URVNUX0FDVElPTl9O",
-            "T05FEAASIQodTElWRV9DTElFTlRfVEVTVF9BQ1RJT05fRU5URVIQARInCiNM",
-            "SVZFX0NMSUVOVF9URVNUX0FDVElPTl9TRUxFQ1RfQ0FNUBACEiAKHExJVkVf",
-            "Q0xJRU5UX1RFU1RfQUNUSU9OX0dJRlQQA0IRqgIOQ2xpZW50UHJvdG9jb2xi",
-            "BnByb3RvMw=="));
+            "ChhjbGllbnQvY2xpZW50X2Jhc2UucHJvdG8SDXh4cC5jbGllbnQudjEaGXBs",
+            "YXllci9wbGF5ZXJfdHJvb3AucHJvdG8iXgoRQ2xpZW50QmluZFJlcXVlc3QS",
+            "EQoJYW5jaG9yX2lkGAEgASgJEhMKC2FuY2hvcl9uYW1lGAIgASgJEhAKCHBs",
+            "YXRmb3JtGAMgASgJEg8KB3Jvb21faWQYBCABKAkigQEKEkNsaWVudEJpbmRS",
+            "ZXNwb25zZRIQCghhY2NlcHRlZBgBIAEoCBIOCgZyZWFzb24YAiABKAkSEQoJ",
+            "YW5jaG9yX2lkGAMgASgJEhMKC2FuY2hvcl9uYW1lGAQgASgJEhAKCHBsYXRm",
+            "b3JtGAUgASgJEg8KB3Jvb21faWQYBiABKAkicgoPQ2xpZW50SGVhcnRiZWF0",
+            "EhEKCWNsaWVudF9pZBgBIAEoCRIPCgdyb29tX2lkGAIgASgJEgsKA3RhZxgD",
+            "IAEoCRIWCg5jbGllbnRfdGltZV9tcxgEIAEoAxIWCg5zZXJ2ZXJfdGltZV9t",
+            "cxgFIAEoAyIfCg9DbGllbnREZWJ1Z1RleHQSDAoEdGV4dBgBIAEoCSKoAQoO",
+            "UGxheWVyU25hcHNob3QSEQoJcGxheWVyX2lkGAEgASgEEhAKCHBsYXRmb3Jt",
+            "GAIgASgJEhMKB29wZW5faWQYAyABKAlCAhgBEhAKCG5pY2tuYW1lGAQgASgJ",
+            "Eg4KBmF2YXRhchgFIAEoCRINCgVsZXZlbBgGIAEoDRILCgNleHAYByABKAQS",
+            "DQoFcG93ZXIYCCABKAQSDwoHdmVyc2lvbhgJIAEoBCKEAQoVTGl2ZVBsYXll",
+            "ckVudGVyTm90aWZ5Eg8KB3Jvb21faWQYASABKAkSLQoGcGxheWVyGAIgASgL",
+            "Mh0ueHhwLmNsaWVudC52MS5QbGF5ZXJTbmFwc2hvdBITCgtmaXJzdF9lbnRl",
+            "chgDIAEoCBIWCg5zZXJ2ZXJfdGltZV9tcxgEIAEoAyJjChVMaXZlUGxheWVy",
+            "TGVhdmVOb3RpZnkSDwoHcm9vbV9pZBgBIAEoCRIRCglwbGF5ZXJfaWQYAiAB",
+            "KAQSDgoGcmVhc29uGAMgASgJEhYKDnNlcnZlcl90aW1lX21zGAQgASgDIs4B",
+            "ChxMaXZlUGxheWVyQ2FtcFNlbGVjdGVkTm90aWZ5Eg8KB3Jvb21faWQYASAB",
+            "KAkSEQoJcGxheWVyX2lkGAIgASgEEisKBGNhbXAYAyABKA4yHS54eHAuY2xp",
+            "ZW50LnYxLkxpdmVQbGF5ZXJDYW1wEjQKDXByZXZpb3VzX2NhbXAYBCABKA4y",
+            "HS54eHAuY2xpZW50LnYxLkxpdmVQbGF5ZXJDYW1wEg8KB2NoYW5nZWQYBSAB",
+            "KAgSFgoOc2VydmVyX3RpbWVfbXMYBiABKAMilwIKFExpdmVQbGF5ZXJHaWZ0",
+            "Tm90aWZ5Eg8KB3Jvb21faWQYASABKAkSEQoJcGxheWVyX2lkGAIgASgEEg8K",
+            "B2dpZnRfaWQYAyABKAkSEgoKZ2lmdF9jb3VudBgEIAEoBRISCgpnaWZ0X3Zh",
+            "bHVlGAUgASgDEhAKCGV2ZW50X2lkGAYgASgJEhYKDnNlcnZlcl90aW1lX21z",
+            "GAcgASgDEjQKC3Ryb29wX3NwYXduGAsgASgLMh8uc2tiei5wbGF5ZXIuR2lm",
+            "dFRyb29wU3Bhd25EYXRhSgQICBAJSgQICRAKSgQIChALUgx0cm9vcF9tb2R1",
+            "bGVSDXNwYXduZWRfdHJvb3BSE3NwYXduZWRfdHJvb3BfY291bnQi5QEKFUxp",
+            "dmVDbGllbnRUZXN0UmVxdWVzdBIzCgZhY3Rpb24YASABKA4yIy54eHAuY2xp",
+            "ZW50LnYxLkxpdmVDbGllbnRUZXN0QWN0aW9uEg8KB29wZW5faWQYAiABKAkS",
+            "EAoIbmlja25hbWUYAyABKAkSDgoGYXZhdGFyGAQgASgJEisKBGNhbXAYBSAB",
+            "KA4yHS54eHAuY2xpZW50LnYxLkxpdmVQbGF5ZXJDYW1wEg8KB2dpZnRfaWQY",
+            "BiABKAkSEgoKZ2lmdF9jb3VudBgHIAEoBRISCgpnaWZ0X3ZhbHVlGAggASgF",
+            "IoEBChZMaXZlQ2xpZW50VGVzdFJlc3BvbnNlEhAKCGFjY2VwdGVkGAEgASgI",
+            "Eg4KBnJlYXNvbhgCIAEoCRIzCgZhY3Rpb24YAyABKA4yIy54eHAuY2xpZW50",
+            "LnYxLkxpdmVDbGllbnRUZXN0QWN0aW9uEhAKCGV2ZW50X2lkGAQgASgJKmAK",
+            "DkxpdmVQbGF5ZXJDYW1wEhkKFUxJVkVfUExBWUVSX0NBTVBfTk9ORRAAEhgK",
+            "FExJVkVfUExBWUVSX0NBTVBfUkVEEAESGQoVTElWRV9QTEFZRVJfQ0FNUF9C",
+            "TFVFEAIqpgEKFExpdmVDbGllbnRUZXN0QWN0aW9uEiAKHExJVkVfQ0xJRU5U",
+            "X1RFU1RfQUNUSU9OX05PTkUQABIhCh1MSVZFX0NMSUVOVF9URVNUX0FDVElP",
+            "Tl9FTlRFUhABEicKI0xJVkVfQ0xJRU5UX1RFU1RfQUNUSU9OX1NFTEVDVF9D",
+            "QU1QEAISIAocTElWRV9DTElFTlRfVEVTVF9BQ1RJT05fR0lGVBADQhGqAg5D",
+            "bGllbnRQcm90b2NvbGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::PlayerProtocol.PlayerTroopReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::ClientProtocol.LivePlayerCamp), typeof(global::ClientProtocol.LiveClientTestAction), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.ClientBindRequest), global::ClientProtocol.ClientBindRequest.Parser, new[]{ "AnchorId", "AnchorName", "Platform", "RoomId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.ClientBindResponse), global::ClientProtocol.ClientBindResponse.Parser, new[]{ "Accepted", "Reason", "AnchorId", "AnchorName", "Platform", "RoomId" }, null, null, null, null),
@@ -77,7 +80,7 @@ namespace ClientProtocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LivePlayerEnterNotify), global::ClientProtocol.LivePlayerEnterNotify.Parser, new[]{ "RoomId", "Player", "FirstEnter", "ServerTimeMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LivePlayerLeaveNotify), global::ClientProtocol.LivePlayerLeaveNotify.Parser, new[]{ "RoomId", "PlayerId", "Reason", "ServerTimeMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LivePlayerCampSelectedNotify), global::ClientProtocol.LivePlayerCampSelectedNotify.Parser, new[]{ "RoomId", "PlayerId", "Camp", "PreviousCamp", "Changed", "ServerTimeMs" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LivePlayerGiftNotify), global::ClientProtocol.LivePlayerGiftNotify.Parser, new[]{ "RoomId", "PlayerId", "GiftId", "GiftCount", "GiftValue", "EventId", "ServerTimeMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LivePlayerGiftNotify), global::ClientProtocol.LivePlayerGiftNotify.Parser, new[]{ "RoomId", "PlayerId", "GiftId", "GiftCount", "GiftValue", "EventId", "ServerTimeMs", "TroopSpawn" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LiveClientTestRequest), global::ClientProtocol.LiveClientTestRequest.Parser, new[]{ "Action", "OpenId", "Nickname", "Avatar", "Camp", "GiftId", "GiftCount", "GiftValue" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientProtocol.LiveClientTestResponse), global::ClientProtocol.LiveClientTestResponse.Parser, new[]{ "Accepted", "Reason", "Action", "EventId" }, null, null, null, null)
           }));
@@ -2885,6 +2888,7 @@ namespace ClientProtocol {
       giftValue_ = other.giftValue_;
       eventId_ = other.eventId_;
       serverTimeMs_ = other.serverTimeMs_;
+      troopSpawn_ = other.troopSpawn_ != null ? other.troopSpawn_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2978,6 +2982,18 @@ namespace ClientProtocol {
       }
     }
 
+    /// <summary>Field number for the "troop_spawn" field.</summary>
+    public const int TroopSpawnFieldNumber = 11;
+    private global::PlayerProtocol.GiftTroopSpawnData troopSpawn_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::PlayerProtocol.GiftTroopSpawnData TroopSpawn {
+      get { return troopSpawn_; }
+      set {
+        troopSpawn_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3000,6 +3016,7 @@ namespace ClientProtocol {
       if (GiftValue != other.GiftValue) return false;
       if (EventId != other.EventId) return false;
       if (ServerTimeMs != other.ServerTimeMs) return false;
+      if (!object.Equals(TroopSpawn, other.TroopSpawn)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3014,6 +3031,7 @@ namespace ClientProtocol {
       if (GiftValue != 0L) hash ^= GiftValue.GetHashCode();
       if (EventId.Length != 0) hash ^= EventId.GetHashCode();
       if (ServerTimeMs != 0L) hash ^= ServerTimeMs.GetHashCode();
+      if (troopSpawn_ != null) hash ^= TroopSpawn.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3060,6 +3078,10 @@ namespace ClientProtocol {
         output.WriteRawTag(56);
         output.WriteInt64(ServerTimeMs);
       }
+      if (troopSpawn_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(TroopSpawn);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3098,6 +3120,10 @@ namespace ClientProtocol {
         output.WriteRawTag(56);
         output.WriteInt64(ServerTimeMs);
       }
+      if (troopSpawn_ != null) {
+        output.WriteRawTag(90);
+        output.WriteMessage(TroopSpawn);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3128,6 +3154,9 @@ namespace ClientProtocol {
       }
       if (ServerTimeMs != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(ServerTimeMs);
+      }
+      if (troopSpawn_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TroopSpawn);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3161,6 +3190,12 @@ namespace ClientProtocol {
       }
       if (other.ServerTimeMs != 0L) {
         ServerTimeMs = other.ServerTimeMs;
+      }
+      if (other.troopSpawn_ != null) {
+        if (troopSpawn_ == null) {
+          TroopSpawn = new global::PlayerProtocol.GiftTroopSpawnData();
+        }
+        TroopSpawn.MergeFrom(other.TroopSpawn);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3209,6 +3244,13 @@ namespace ClientProtocol {
             ServerTimeMs = input.ReadInt64();
             break;
           }
+          case 90: {
+            if (troopSpawn_ == null) {
+              TroopSpawn = new global::PlayerProtocol.GiftTroopSpawnData();
+            }
+            input.ReadMessage(TroopSpawn);
+            break;
+          }
         }
       }
     #endif
@@ -3254,6 +3296,13 @@ namespace ClientProtocol {
           }
           case 56: {
             ServerTimeMs = input.ReadInt64();
+            break;
+          }
+          case 90: {
+            if (troopSpawn_ == null) {
+              TroopSpawn = new global::PlayerProtocol.GiftTroopSpawnData();
+            }
+            input.ReadMessage(TroopSpawn);
             break;
           }
         }

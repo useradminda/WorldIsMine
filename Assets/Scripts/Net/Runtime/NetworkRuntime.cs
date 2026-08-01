@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using ClientProtocol;
 using Google.Protobuf;
+using PlayerProtocol;
 using UnityEngine;
 using WorldIsMine.Net.Config;
 using WorldIsMine.Net.Protocol;
@@ -20,6 +21,7 @@ namespace WorldIsMine.Net.Runtime
         [SerializeField] private string testIdentityMarkdownPath = "TestData/dy-test-identity.md";
         [SerializeField] private bool connectOnStart = false;
         [SerializeField] private bool showLiveTestPanel = true;
+        [SerializeField] private bool showEquipmentGmPanel = true;
         [SerializeField] private bool showRuntimeLogPanel = true;
         [Header("PK")]
         [SerializeField] private bool autoMatchAfterBind = false;
@@ -27,6 +29,7 @@ namespace WorldIsMine.Net.Runtime
         [Header("Logging")]
         [SerializeField] private bool logPkProtocolDetails = true;
         [SerializeField] private bool logPlayerProtocolDetails = true;
+        [SerializeField] private bool logEquipmentProtocolDetails = true;
 
         private MainThreadDispatcher _mainThread;
 
@@ -47,6 +50,12 @@ namespace WorldIsMine.Net.Runtime
         public event Action<LivePlayerCampSelectedNotify> PlayerCampSelected;
         public event Action<LivePlayerGiftNotify> PlayerGifted;
         public event Action<LiveClientTestResponse> LiveTestResponseReceived;
+        public event Action<S2CEquipmentQueryResponse> EquipmentQueryResponseReceived;
+        public event Action<S2CEquipmentCreateResponse> EquipmentCreateResponseReceived;
+        public event Action<S2CEquipmentUpgradeResponse> EquipmentUpgradeResponseReceived;
+        public event Action<S2CEquipmentEquipResponse> EquipmentEquipResponseReceived;
+        public event Action<S2CEquipmentUnequipResponse> EquipmentUnequipResponseReceived;
+        public event Action<S2CEquipmentChangedNotify> EquipmentChanged;
 
         private void Awake()
         {
@@ -68,6 +77,12 @@ namespace WorldIsMine.Net.Runtime
             Client.Player.PlayerCampSelected += OnPlayerCampSelected;
             Client.Player.PlayerGifted += OnPlayerGifted;
             Client.LiveTest.ResponseReceived += OnLiveTestResponse;
+            Client.Equipment.QueryResponseReceived += OnEquipmentQueryResponse;
+            Client.Equipment.CreateResponseReceived += OnEquipmentCreateResponse;
+            Client.Equipment.UpgradeResponseReceived += OnEquipmentUpgradeResponse;
+            Client.Equipment.EquipResponseReceived += OnEquipmentEquipResponse;
+            Client.Equipment.UnequipResponseReceived += OnEquipmentUnequipResponse;
+            Client.Equipment.Changed += OnEquipmentChanged;
 
             if (testMode && showRuntimeLogPanel &&
                 GetComponent<RuntimeLogPanel>() == null)
@@ -80,6 +95,14 @@ namespace WorldIsMine.Net.Runtime
                 LiveTestPanel panel = GetComponent<LiveTestPanel>();
                 if (panel == null)
                     panel = gameObject.AddComponent<LiveTestPanel>();
+                panel.Initialize(this);
+            }
+
+            if (testMode && showEquipmentGmPanel)
+            {
+                EquipmentGmPanel panel = GetComponent<EquipmentGmPanel>();
+                if (panel == null)
+                    panel = gameObject.AddComponent<EquipmentGmPanel>();
                 panel.Initialize(this);
             }
         }
@@ -310,6 +333,67 @@ namespace WorldIsMine.Net.Runtime
             });
         }
 
+        public Task<long> GmQueryEquipmentAsync(ulong playerId)
+        {
+            EnsureEquipmentGmReady();
+            Debug.Log($"[Net][C->S][Equipment] Query PlayerId={playerId}");
+            return Client.Equipment.QueryAsync(playerId);
+        }
+
+        public Task<long> GmCreateEquipmentAsync(ulong playerId, uint equipmentId)
+        {
+            EnsureEquipmentGmReady();
+            string operationId = CreateOperationId();
+            Debug.Log(
+                $"[Net][C->S][Equipment] Create PlayerId={playerId}, " +
+                $"EquipmentId={equipmentId}, OperationId={operationId}");
+            return Client.Equipment.CreateAsync(operationId, playerId, equipmentId);
+        }
+
+        public Task<long> GmUpgradeEquipmentAsync(ulong playerId, ulong equipmentUid)
+        {
+            EnsureEquipmentGmReady();
+            string operationId = CreateOperationId();
+            Debug.Log(
+                $"[Net][C->S][Equipment] Upgrade PlayerId={playerId}, " +
+                $"EquipmentUid={equipmentUid}, OperationId={operationId}");
+            return Client.Equipment.UpgradeAsync(
+                operationId,
+                playerId,
+                equipmentUid);
+        }
+
+        public Task<long> GmEquipEquipmentAsync(
+            ulong playerId,
+            ulong equipmentUid,
+            uint targetSlot)
+        {
+            EnsureEquipmentGmReady();
+            string operationId = CreateOperationId();
+            Debug.Log(
+                $"[Net][C->S][Equipment] Equip PlayerId={playerId}, " +
+                $"EquipmentUid={equipmentUid}, TargetSlot={targetSlot}, " +
+                $"OperationId={operationId}");
+            return Client.Equipment.EquipAsync(
+                operationId,
+                playerId,
+                equipmentUid,
+                targetSlot);
+        }
+
+        public Task<long> GmUnequipEquipmentAsync(ulong playerId, ulong equipmentUid)
+        {
+            EnsureEquipmentGmReady();
+            string operationId = CreateOperationId();
+            Debug.Log(
+                $"[Net][C->S][Equipment] Unequip PlayerId={playerId}, " +
+                $"EquipmentUid={equipmentUid}, OperationId={operationId}");
+            return Client.Equipment.UnequipAsync(
+                operationId,
+                playerId,
+                equipmentUid);
+        }
+
         private void OnPlayerEntered(LivePlayerEnterNotify notify)
         {
             if (logPlayerProtocolDetails)
@@ -351,11 +435,16 @@ namespace WorldIsMine.Net.Runtime
         {
             if (logPlayerProtocolDetails)
             {
+                var troopSpawn = notify.TroopSpawn;
+                var troopText = troopSpawn == null
+                    ? "TroopSpawn=None"
+                    : $"TroopId={troopSpawn.TroopId}, TroopLevel={troopSpawn.TroopLevel}, " +
+                      $"TroopCount={troopSpawn.TroopCount}";
                 Debug.Log(
                     $"[Net][S->C][Player] Gift RoomId={notify.RoomId}, " +
                     $"PlayerId={notify.PlayerId}, GiftId={notify.GiftId}, " +
                     $"Count={notify.GiftCount}, Value={notify.GiftValue}, " +
-                    $"EventId={notify.EventId}, Payload={notify}");
+                    $"EventId={notify.EventId}, {troopText}, Payload={notify}");
             }
             PlayerGifted?.Invoke(notify);
         }
@@ -367,6 +456,60 @@ namespace WorldIsMine.Net.Runtime
                 $"Accepted={response.Accepted}, Reason={response.Reason}, " +
                 $"EventId={response.EventId}, Payload={response}");
             LiveTestResponseReceived?.Invoke(response);
+        }
+
+        private void OnEquipmentQueryResponse(S2CEquipmentQueryResponse response)
+        {
+            LogEquipmentDetail(
+                $"Query Accepted={response.Accepted}, Reason={response.Reason}, " +
+                $"PlayerId={response.PlayerId}, Version={response.ModuleVersion}, " +
+                $"Payload={response}");
+            EquipmentQueryResponseReceived?.Invoke(response);
+        }
+
+        private void OnEquipmentCreateResponse(S2CEquipmentCreateResponse response)
+        {
+            LogEquipmentDetail(
+                $"Create Accepted={response.Accepted}, Reason={response.Reason}, " +
+                $"PlayerId={response.PlayerId}, Version={response.ModuleVersion}, " +
+                $"OperationId={response.OperationId}, Payload={response}");
+            EquipmentCreateResponseReceived?.Invoke(response);
+        }
+
+        private void OnEquipmentUpgradeResponse(S2CEquipmentUpgradeResponse response)
+        {
+            LogEquipmentDetail(
+                $"Upgrade Accepted={response.Accepted}, Reason={response.Reason}, " +
+                $"PlayerId={response.PlayerId}, Version={response.ModuleVersion}, " +
+                $"OperationId={response.OperationId}, Payload={response}");
+            EquipmentUpgradeResponseReceived?.Invoke(response);
+        }
+
+        private void OnEquipmentEquipResponse(S2CEquipmentEquipResponse response)
+        {
+            LogEquipmentDetail(
+                $"Equip Accepted={response.Accepted}, Reason={response.Reason}, " +
+                $"PlayerId={response.PlayerId}, Version={response.ModuleVersion}, " +
+                $"OperationId={response.OperationId}, Payload={response}");
+            EquipmentEquipResponseReceived?.Invoke(response);
+        }
+
+        private void OnEquipmentUnequipResponse(S2CEquipmentUnequipResponse response)
+        {
+            LogEquipmentDetail(
+                $"Unequip Accepted={response.Accepted}, Reason={response.Reason}, " +
+                $"PlayerId={response.PlayerId}, Version={response.ModuleVersion}, " +
+                $"OperationId={response.OperationId}, Payload={response}");
+            EquipmentUnequipResponseReceived?.Invoke(response);
+        }
+
+        private void OnEquipmentChanged(S2CEquipmentChangedNotify notify)
+        {
+            LogEquipmentDetail(
+                $"Changed Type={notify.ChangeType}, PlayerId={notify.PlayerId}, " +
+                $"Version={notify.ModuleVersion}, OperationId={notify.OperationId}, " +
+                $"Reason={notify.Reason}, Payload={notify}");
+            EquipmentChanged?.Invoke(notify);
         }
 
         private Task<long> SendLiveTestAsync(LiveClientTestRequest request)
@@ -390,6 +533,30 @@ namespace WorldIsMine.Net.Runtime
                 throw new InvalidOperationException("Network client is not initialized.");
             if (LastStartResult?.Success != true)
                 throw new InvalidOperationException("Anchor session must be bound before using PK operations.");
+        }
+
+        private void EnsureEquipmentGmReady()
+        {
+            if (!testMode)
+                throw new InvalidOperationException("Equipment GM operations require TestMode.");
+            if (Client == null)
+                throw new InvalidOperationException("Network client is not initialized.");
+            if (LastStartResult?.Success != true)
+            {
+                throw new InvalidOperationException(
+                    "Bind the anchor session before using equipment GM operations.");
+            }
+        }
+
+        private void LogEquipmentDetail(string message)
+        {
+            if (logEquipmentProtocolDetails)
+                Debug.Log($"[Net][S->C][Equipment] {message}");
+        }
+
+        private static string CreateOperationId()
+        {
+            return Guid.NewGuid().ToString("N");
         }
 
         private long ResolvePkDurationMs()
@@ -1025,6 +1192,373 @@ namespace WorldIsMine.Net.Runtime
         {
             if (_runtime != null)
                 _runtime.LiveTestResponseReceived -= OnResponse;
+        }
+    }
+
+    public sealed class EquipmentGmPanel : MonoBehaviour
+    {
+        private const float ScreenMargin = 20f;
+        private const float PreferredWindowWidth = 560f;
+        private const float PreferredWindowHeight = 590f;
+
+        private NetworkRuntime _runtime;
+        private Rect _windowRect;
+        private Vector2 _scrollPosition;
+        private string _playerId = "1";
+        private string _equipmentId = "1001";
+        private string _equipmentUid = string.Empty;
+        private string _targetSlot = "1";
+        private string _status = "先填写指定玩家的 PlayerId";
+        private bool _sending;
+
+        private GUIStyle _windowStyle;
+        private GUIStyle _labelStyle;
+        private GUIStyle _textFieldStyle;
+        private GUIStyle _buttonStyle;
+        private GUIStyle _statusStyle;
+
+        public void Initialize(NetworkRuntime runtime)
+        {
+            if (_runtime == runtime)
+                return;
+
+            Unsubscribe();
+            _runtime = runtime;
+            if (_runtime == null)
+                return;
+
+            _runtime.EquipmentQueryResponseReceived += OnQueryResponse;
+            _runtime.EquipmentCreateResponseReceived += OnCreateResponse;
+            _runtime.EquipmentUpgradeResponseReceived += OnUpgradeResponse;
+            _runtime.EquipmentEquipResponseReceived += OnEquipResponse;
+            _runtime.EquipmentUnequipResponseReceived += OnUnequipResponse;
+            _runtime.EquipmentChanged += OnChanged;
+        }
+
+        private void OnGUI()
+        {
+            if (_runtime == null)
+                return;
+
+            EnsureStyles();
+            float availableWidth = Mathf.Max(320f, Screen.width - ScreenMargin * 2f);
+            float availableHeight = Mathf.Max(320f, Screen.height - ScreenMargin * 2f);
+            float windowWidth = Mathf.Min(PreferredWindowWidth, availableWidth);
+            float windowHeight = Mathf.Min(PreferredWindowHeight, availableHeight);
+
+            _windowRect = new Rect(
+                Mathf.Max(ScreenMargin, Screen.width - windowWidth - ScreenMargin),
+                Mathf.Max(ScreenMargin, Screen.height - windowHeight - ScreenMargin),
+                windowWidth,
+                windowHeight);
+            _windowRect = GUI.Window(
+                GetInstanceID(),
+                _windowRect,
+                DrawWindow,
+                "指定玩家装备 GM",
+                _windowStyle);
+        }
+
+        private void DrawWindow(int id)
+        {
+            _scrollPosition = GUILayout.BeginScrollView(
+                _scrollPosition,
+                false,
+                true);
+
+            GUILayout.Space(8f);
+            GUILayout.Label("玩家 PlayerId（必填，不是 OpenId）", _labelStyle);
+            _playerId = GUILayout.TextField(
+                _playerId,
+                _textFieldStyle,
+                GUILayout.Height(40f));
+            GUILayout.Space(8f);
+
+            bool previousEnabled = GUI.enabled;
+            GUI.enabled = previousEnabled && !_sending;
+            if (GUILayout.Button(
+                    "查询该玩家装备",
+                    _buttonStyle,
+                    GUILayout.Height(44f)))
+            {
+                RunRequest(
+                    () => _runtime.GmQueryEquipmentAsync(ParsePlayerId()),
+                    "查询");
+            }
+
+            GUILayout.Space(14f);
+            GUILayout.Label("装备配置 EquipmentId", _labelStyle);
+            _equipmentId = GUILayout.TextField(
+                _equipmentId,
+                _textFieldStyle,
+                GUILayout.Height(40f));
+            if (GUILayout.Button(
+                    "创建装备",
+                    _buttonStyle,
+                    GUILayout.Height(44f)))
+            {
+                RunRequest(
+                    () => _runtime.GmCreateEquipmentAsync(
+                        ParsePlayerId(),
+                        ParsePositiveUInt(_equipmentId, "EquipmentId")),
+                    "创建");
+            }
+
+            GUILayout.Space(14f);
+            GUILayout.Label("装备实例 EquipmentUid", _labelStyle);
+            _equipmentUid = GUILayout.TextField(
+                _equipmentUid,
+                _textFieldStyle,
+                GUILayout.Height(40f));
+            if (GUILayout.Button(
+                    "升级装备",
+                    _buttonStyle,
+                    GUILayout.Height(44f)))
+            {
+                RunRequest(
+                    () => _runtime.GmUpgradeEquipmentAsync(
+                        ParsePlayerId(),
+                        ParseEquipmentUid()),
+                    "升级");
+            }
+
+            GUILayout.Space(10f);
+            GUILayout.Label("目标槽位 TargetSlot", _labelStyle);
+            _targetSlot = GUILayout.TextField(
+                _targetSlot,
+                _textFieldStyle,
+                GUILayout.Height(40f));
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button(
+                    "穿戴装备",
+                    _buttonStyle,
+                    GUILayout.Height(44f)))
+            {
+                RunRequest(
+                    () => _runtime.GmEquipEquipmentAsync(
+                        ParsePlayerId(),
+                        ParseEquipmentUid(),
+                        ParsePositiveUInt(_targetSlot, "TargetSlot")),
+                    "穿戴");
+            }
+            if (GUILayout.Button(
+                    "脱下装备",
+                    _buttonStyle,
+                    GUILayout.Height(44f)))
+            {
+                RunRequest(
+                    () => _runtime.GmUnequipEquipmentAsync(
+                        ParsePlayerId(),
+                        ParseEquipmentUid()),
+                    "脱下");
+            }
+            GUILayout.EndHorizontal();
+            GUI.enabled = previousEnabled;
+
+            GUILayout.Space(14f);
+            GUILayout.Label($"状态：{_status}", _statusStyle);
+            GUILayout.EndScrollView();
+        }
+
+        private async void RunRequest(Func<Task<long>> send, string operation)
+        {
+            if (_sending)
+                return;
+
+            try
+            {
+                _sending = true;
+                long msgId = await send();
+                _status = $"{operation}请求已发送，MsgId={msgId}，等待服务器回包";
+            }
+            catch (Exception ex)
+            {
+                _status = $"{operation}请求失败：{ex.Message}";
+                Debug.LogException(ex);
+            }
+            finally
+            {
+                _sending = false;
+            }
+        }
+
+        private void OnQueryResponse(S2CEquipmentQueryResponse response)
+        {
+            if (response.PlayerId != 0)
+                _playerId = response.PlayerId.ToString();
+
+            int count = response.Module?.Equipments.Count ?? 0;
+            if (response.Accepted && count > 0)
+                _equipmentUid = response.Module.Equipments[0].EquipmentUid.ToString();
+
+            _status = response.Accepted
+                ? $"查询成功：{count} 件装备，版本={response.ModuleVersion}"
+                : $"查询失败：{response.Reason}";
+        }
+
+        private void OnCreateResponse(S2CEquipmentCreateResponse response)
+        {
+            UpdateIdentity(response.PlayerId, response.Equipment);
+            _status = FormatMutationResult(
+                "创建",
+                response.Accepted,
+                response.Reason,
+                response.ModuleVersion,
+                response.Equipment);
+        }
+
+        private void OnUpgradeResponse(S2CEquipmentUpgradeResponse response)
+        {
+            UpdateIdentity(response.PlayerId, response.Equipment);
+            _status = FormatMutationResult(
+                "升级",
+                response.Accepted,
+                response.Reason,
+                response.ModuleVersion,
+                response.Equipment);
+        }
+
+        private void OnEquipResponse(S2CEquipmentEquipResponse response)
+        {
+            UpdateIdentity(response.PlayerId, response.Equipment);
+            _status = FormatMutationResult(
+                "穿戴",
+                response.Accepted,
+                response.Reason,
+                response.ModuleVersion,
+                response.Equipment);
+        }
+
+        private void OnUnequipResponse(S2CEquipmentUnequipResponse response)
+        {
+            UpdateIdentity(response.PlayerId, response.Equipment);
+            _status = FormatMutationResult(
+                "脱下",
+                response.Accepted,
+                response.Reason,
+                response.ModuleVersion,
+                response.Equipment);
+        }
+
+        private void OnChanged(S2CEquipmentChangedNotify notify)
+        {
+            if (!ulong.TryParse(_playerId, out ulong selectedPlayerId) ||
+                selectedPlayerId != notify.PlayerId)
+            {
+                return;
+            }
+
+            UpdateIdentity(notify.PlayerId, notify.Equipment);
+            _status =
+                $"服务器推送：{notify.ChangeType}，版本={notify.ModuleVersion}，" +
+                FormatEquipment(notify.Equipment);
+        }
+
+        private void UpdateIdentity(ulong playerId, EquipmentData equipment)
+        {
+            if (playerId != 0)
+                _playerId = playerId.ToString();
+            if (equipment?.EquipmentUid > 0)
+                _equipmentUid = equipment.EquipmentUid.ToString();
+        }
+
+        private static string FormatMutationResult(
+            string operation,
+            bool accepted,
+            string reason,
+            ulong moduleVersion,
+            EquipmentData equipment)
+        {
+            return accepted
+                ? $"{operation}成功：版本={moduleVersion}，{FormatEquipment(equipment)}"
+                : $"{operation}失败：{reason}";
+        }
+
+        private static string FormatEquipment(EquipmentData equipment)
+        {
+            if (equipment == null)
+                return "无装备数据";
+
+            return
+                $"Uid={equipment.EquipmentUid}，Id={equipment.EquipmentId}，" +
+                $"等级={equipment.Level}，星级={equipment.Star}，" +
+                $"品质={equipment.Quality}，槽位={equipment.EquippedSlot}";
+        }
+
+        private ulong ParsePlayerId()
+        {
+            return ParsePositiveULong(_playerId, "PlayerId");
+        }
+
+        private ulong ParseEquipmentUid()
+        {
+            return ParsePositiveULong(_equipmentUid, "EquipmentUid");
+        }
+
+        private static ulong ParsePositiveULong(string text, string fieldName)
+        {
+            if (!ulong.TryParse(text, out ulong value) || value == 0)
+                throw new FormatException($"{fieldName} 必须是大于 0 的整数。");
+            return value;
+        }
+
+        private static uint ParsePositiveUInt(string text, string fieldName)
+        {
+            if (!uint.TryParse(text, out uint value) || value == 0)
+                throw new FormatException($"{fieldName} 必须是大于 0 的整数。");
+            return value;
+        }
+
+        private void EnsureStyles()
+        {
+            if (_windowStyle != null)
+                return;
+
+            int fontSize = Mathf.Clamp(Mathf.RoundToInt(Screen.height / 34f), 17, 23);
+            _windowStyle = new GUIStyle(GUI.skin.window)
+            {
+                fontSize = fontSize + 2,
+                padding = new RectOffset(18, 18, 28, 16)
+            };
+            _labelStyle = new GUIStyle(GUI.skin.label)
+            {
+                fontSize = fontSize,
+                alignment = TextAnchor.MiddleLeft
+            };
+            _textFieldStyle = new GUIStyle(GUI.skin.textField)
+            {
+                fontSize = fontSize,
+                alignment = TextAnchor.MiddleLeft,
+                padding = new RectOffset(10, 10, 6, 6)
+            };
+            _buttonStyle = new GUIStyle(GUI.skin.button)
+            {
+                fontSize = fontSize,
+                alignment = TextAnchor.MiddleCenter
+            };
+            _statusStyle = new GUIStyle(_labelStyle)
+            {
+                wordWrap = true
+            };
+        }
+
+        private void Unsubscribe()
+        {
+            if (_runtime == null)
+                return;
+
+            _runtime.EquipmentQueryResponseReceived -= OnQueryResponse;
+            _runtime.EquipmentCreateResponseReceived -= OnCreateResponse;
+            _runtime.EquipmentUpgradeResponseReceived -= OnUpgradeResponse;
+            _runtime.EquipmentEquipResponseReceived -= OnEquipResponse;
+            _runtime.EquipmentUnequipResponseReceived -= OnUnequipResponse;
+            _runtime.EquipmentChanged -= OnChanged;
+        }
+
+        private void OnDestroy()
+        {
+            Unsubscribe();
         }
     }
 }

@@ -4,6 +4,8 @@ option csharp_namespace = "ClientProtocol";
 
 package xxp.client.v1;
 
+import "player/player_troop.proto";
+
 message ClientBindRequest {
   string anchor_id = 1;
   string anchor_name = 2;
@@ -81,6 +83,9 @@ message LivePlayerGiftNotify {
   int64 gift_value = 5;
   string event_id = 6;
   int64 server_time_ms = 7;
+  reserved 8, 9, 10;
+  reserved "troop_module", "spawned_troop", "spawned_troop_count";
+  skbz.player.GiftTroopSpawnData troop_spawn = 11;
 }
 
 enum LiveClientTestAction {
