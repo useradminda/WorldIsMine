@@ -28,11 +28,14 @@ namespace WorldIsMine.Net.Tests
         [Test]
         public void SaveAndLoad_RoundTripsAnchorAndRoom()
         {
-            DyTestIdentityStore.Save(_path, new DyAnchorIdentity("anchor-100", "room-200"));
+            DyTestIdentityStore.Save(
+                _path,
+                new DyAnchorIdentity("anchor-100", "主播一号", "room-200"));
 
             DyAnchorIdentity identity = DyTestIdentityStore.Load(_path);
 
             Assert.AreEqual("anchor-100", identity.AnchorId);
+            Assert.AreEqual("主播一号", identity.AnchorName);
             Assert.AreEqual("room-200", identity.RoomId);
         }
 
@@ -46,6 +49,7 @@ namespace WorldIsMine.Net.Tests
             DyAnchorIdentity identity = DyTestIdentityStore.Load(_path);
 
             Assert.AreEqual("anchor-a", identity.AnchorId);
+            Assert.AreEqual("anchor-a", identity.AnchorName);
             Assert.AreEqual("room-b", identity.RoomId);
         }
 

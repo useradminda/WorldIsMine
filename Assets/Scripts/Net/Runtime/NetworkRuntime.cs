@@ -26,6 +26,7 @@ namespace WorldIsMine.Net.Runtime
         [Header("PK")]
         [SerializeField] private bool autoMatchAfterBind = false;
         [SerializeField] private int defaultPkDurationSeconds = 300;
+        [SerializeField] private bool showPkMatchBanner = true;
         [Header("Logging")]
         [SerializeField] private bool logPkProtocolDetails = true;
         [SerializeField] private bool logPlayerProtocolDetails = true;
@@ -105,6 +106,14 @@ namespace WorldIsMine.Net.Runtime
                     panel = gameObject.AddComponent<EquipmentGmPanel>();
                 panel.Initialize(this);
             }
+
+            if (showPkMatchBanner)
+            {
+                PkMatchBanner banner = GetComponent<PkMatchBanner>();
+                if (banner == null)
+                    banner = gameObject.AddComponent<PkMatchBanner>();
+                banner.Initialize(this);
+            }
         }
 
         private async void Start()
@@ -142,23 +151,34 @@ namespace WorldIsMine.Net.Runtime
             }
 
             DyAnchorIdentity identity = DyTestIdentityStore.Load(path);
-            return StartAnchorSessionAsync(identity.AnchorId, identity.RoomId);
+            return StartAnchorSessionAsync(
+                identity.AnchorId,
+                identity.AnchorName,
+                identity.RoomId);
+        }
+
+        public Task<AnchorSessionStartResult> StartAnchorSessionAsync(
+            string anchorId,
+            string roomId)
+        {
+            return StartAnchorSessionAsync(anchorId, anchorId, roomId);
         }
 
         public async Task<AnchorSessionStartResult> StartAnchorSessionAsync(
             string anchorId,
+            string anchorName,
             string roomId)
         {
             try
             {
                 Debug.Log(
                     $"[Net][Flow] Starting anchor session. Server={network.Host}:{network.Port}, " +
-                    $"AnchorId={anchorId}, RoomId={roomId}");
+                    $"AnchorId={anchorId}, AnchorName={anchorName}, RoomId={roomId}");
 
                 var bind = new BindOptions
                 {
                     AnchorId = anchorId,
-                    AnchorName = anchorId,
+                    AnchorName = string.IsNullOrWhiteSpace(anchorName) ? anchorId : anchorName,
                     Platform = "dy",
                     RoomId = roomId
                 };
@@ -194,14 +214,20 @@ namespace WorldIsMine.Net.Runtime
 
         public void SaveTestIdentity(string anchorId, string roomId)
         {
+            SaveTestIdentity(anchorId, anchorId, roomId);
+        }
+
+        public void SaveTestIdentity(string anchorId, string anchorName, string roomId)
+        {
             DyTestIdentityStore.Save(
                 ResolveTestIdentityPath(),
-                new DyAnchorIdentity(anchorId, roomId));
+                new DyAnchorIdentity(anchorId, anchorName, roomId));
         }
 
         public Task StopClientAsync()
         {
             Debug.Log("[Net][Flow] Stopping network client.");
+            GetComponent<PkMatchBanner>()?.Clear();
             return Client == null ? Task.CompletedTask : Client.StopAsync();
         }
 
@@ -742,6 +768,118 @@ namespace WorldIsMine.Net.Runtime
                 Application.persistentDataPath,
                 Path.GetFileName(testIdentityMarkdownPath));
 #endif
+        }
+    }
+
+    public sealed class PkMatchBanner : MonoBehaviour
+    {
+        private const float Margin = 12f;
+        private const float Height = 76f;
+        private const float MaxWidth = 1200f;
+
+        private NetworkRuntime _runtime;
+        private SessionSnapshot _snapshot;
+        private GUIStyle _boxStyle;
+        private GUIStyle _textStyle;
+
+        public void Initialize(NetworkRuntime runtime)
+        {
+            if (_runtime == runtime)
+                return;
+
+            Unsubscribe();
+            _runtime = runtime;
+            if (_runtime == null)
+                return;
+
+            _runtime.PkBattleStarted += OnBattleStarted;
+            _runtime.PkBattleEnded += OnBattleEnded;
+            _snapshot = _runtime.Client?.Pk.CurrentSession;
+        }
+
+        public static string Format(SessionSnapshot snapshot)
+        {
+            if (snapshot == null)
+                return string.Empty;
+
+            PKAnchorInfo anchorA = snapshot.AnchorA;
+            PKAnchorInfo anchorB = snapshot.AnchorB;
+            string nameA = ResolveAnchorName(anchorA);
+            string nameB = ResolveAnchorName(anchorB);
+            string roomA = anchorA?.RoomId ?? string.Empty;
+            string roomB = anchorB?.RoomId ?? string.Empty;
+            return $"{nameA}  VS  {nameB}\n房间A：{roomA}    房间B：{roomB}    PK：{snapshot.SessionId}";
+        }
+
+        public void Clear()
+        {
+            _snapshot = null;
+        }
+
+        private void OnBattleStarted(SessionSnapshot snapshot)
+        {
+            _snapshot = snapshot?.Clone();
+        }
+
+        private void OnBattleEnded(SubmitGiftResponse response)
+        {
+            if (response?.Accepted == true)
+                _snapshot = null;
+        }
+
+        private void OnDestroy()
+        {
+            Unsubscribe();
+        }
+
+        private void OnGUI()
+        {
+            string text = Format(_snapshot);
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            EnsureStyles();
+            int previousDepth = GUI.depth;
+            GUI.depth = -100;
+            float width = Mathf.Min(MaxWidth, Mathf.Max(320f, Screen.width - Margin * 2f));
+            var rect = new Rect((Screen.width - width) * 0.5f, Margin, width, Height);
+            GUI.Box(rect, GUIContent.none, _boxStyle);
+            GUI.Label(rect, text, _textStyle);
+            GUI.depth = previousDepth;
+        }
+
+        private void EnsureStyles()
+        {
+            if (_boxStyle != null)
+                return;
+
+            _boxStyle = new GUIStyle(GUI.skin.box);
+            _textStyle = new GUIStyle(GUI.skin.label)
+            {
+                alignment = TextAnchor.MiddleCenter,
+                fontSize = Mathf.Clamp(Screen.width / 55, 18, 30),
+                fontStyle = FontStyle.Bold,
+                normal = { textColor = Color.white }
+            };
+        }
+
+        private void Unsubscribe()
+        {
+            if (_runtime == null)
+                return;
+
+            _runtime.PkBattleStarted -= OnBattleStarted;
+            _runtime.PkBattleEnded -= OnBattleEnded;
+            _runtime = null;
+        }
+
+        private static string ResolveAnchorName(PKAnchorInfo anchor)
+        {
+            if (!string.IsNullOrWhiteSpace(anchor?.AnchorName))
+                return anchor.AnchorName;
+            if (!string.IsNullOrWhiteSpace(anchor?.AnchorId))
+                return anchor.AnchorId;
+            return "未知主播";
         }
     }
 

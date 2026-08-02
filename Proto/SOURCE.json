@@ -1,8 +1,8 @@
 ﻿{
     "sourceRepository":  "xxp-server-dy",
     "sourceBranch":  "pro_skbz",
-    "sourceCommit":  "9d6ecd8a96598add947ba652b7669d175fbfc76e",
-    "sourceState":  "PKBattleCore camp-wide buff lifecycle and gift buff outcomes from the 2026-08-01 server working tree",
+    "sourceCommit":  "90b12766b91ce6b96c72500690bfb76f1c5eae6e",
+    "sourceState":  "PK anchor display names and room identifiers from the 2026-08-02 server working tree",
     "sourceDirectory":  "FuWuQiDuan/ClientProtocol/Protos",
     "protobufRuntime":  "Google.Protobuf 3.32.0",
     "runtimeDependencies":  {
@@ -12,7 +12,7 @@
     "files":  {
                   "client/client_base.proto":  "AA444C8233283AEFC143BE0FCA94C5D932B8262CED7A7111C4A9D7811A26E23C",
                   "client/pk_client.proto":  "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
-                  "pk/pk_common.proto":  "97855608E1B25AA7A4017F1751B013E25518FE897F1865ED430981D024BF642E",
+                  "pk/pk_common.proto":  "42594852B49F9AD77D0D9DDFD1122BEDDB1BC30CDF898A0D697D67302E138071",
                   "pk/pk_events.proto":  "2FE692A0F419C92A63AA3C2E2C50FF20ACE4D74B413E09BB8EA18BB04036A311",
                   "player/player_equipment.proto":  "C77D4322EB245ACAC589466E08A6705C76A943C3AA5F413BBB1FF8E9B85ECD02",
                   "player/player_equipment_api.proto":  "D5ADC9367AB1EB64FC07F75905F98D11A99E897DE3B82D989AF3C81137E532CF",

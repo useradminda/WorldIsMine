@@ -28,8 +28,18 @@ namespace WorldIsMine.Net.Tests
                 Snapshot = new SessionSnapshot
                 {
                     SessionId = "pk-session-1",
-                    AnchorA = new PKAnchorInfo { AnchorId = "anchor-a", RoomId = "room-a" },
-                    AnchorB = new PKAnchorInfo { AnchorId = "anchor-b", RoomId = "room-b" }
+                    AnchorA = new PKAnchorInfo
+                    {
+                        AnchorId = "anchor-a",
+                        AnchorName = "主播甲",
+                        RoomId = "room-a"
+                    },
+                    AnchorB = new PKAnchorInfo
+                    {
+                        AnchorId = "anchor-b",
+                        AnchorName = "主播乙",
+                        RoomId = "room-b"
+                    }
                 }
             };
 
@@ -44,6 +54,9 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual(1, mainThread.Drain());
             Assert.AreEqual("pk-session-1", started.SessionId);
             Assert.AreEqual("pk-session-1", service.CurrentSession.SessionId);
+            Assert.AreEqual(
+                "主播甲  VS  主播乙\n房间A：room-a    房间B：room-b    PK：pk-session-1",
+                PkMatchBanner.Format(started));
         }
 
         [Test]

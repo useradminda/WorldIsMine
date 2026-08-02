@@ -7,17 +7,27 @@ namespace WorldIsMine.Net.Services
     public sealed class DyAnchorIdentity
     {
         public DyAnchorIdentity(string anchorId, string roomId)
+            : this(anchorId, anchorId, roomId)
+        {
+        }
+
+        public DyAnchorIdentity(string anchorId, string anchorName, string roomId)
         {
             AnchorId = anchorId?.Trim() ?? string.Empty;
+            AnchorName = string.IsNullOrWhiteSpace(anchorName)
+                ? AnchorId
+                : anchorName.Trim();
             RoomId = roomId?.Trim() ?? string.Empty;
         }
 
         public string AnchorId { get; }
+        public string AnchorName { get; }
         public string RoomId { get; }
 
         public void Validate()
         {
             ValidateValue(AnchorId, nameof(AnchorId));
+            ValidateValue(AnchorName, nameof(AnchorName));
             ValidateValue(RoomId, nameof(RoomId));
         }
 
@@ -33,6 +43,7 @@ namespace WorldIsMine.Net.Services
     public static class DyTestIdentityStore
     {
         private const string AnchorIdKey = "AnchorId";
+        private const string AnchorNameKey = "AnchorName";
         private const string RoomIdKey = "RoomId";
 
         public static DyAnchorIdentity Load(string path)
@@ -43,6 +54,7 @@ namespace WorldIsMine.Net.Services
                 throw new FileNotFoundException("DY test identity markdown was not found.", path);
 
             string anchorId = string.Empty;
+            string anchorName = string.Empty;
             string roomId = string.Empty;
             foreach (string sourceLine in File.ReadAllLines(path, Encoding.UTF8))
             {
@@ -55,11 +67,13 @@ namespace WorldIsMine.Net.Services
                 string value = NormalizeValue(line.Substring(separator + 1));
                 if (key.Equals(AnchorIdKey, StringComparison.OrdinalIgnoreCase))
                     anchorId = value;
+                else if (key.Equals(AnchorNameKey, StringComparison.OrdinalIgnoreCase))
+                    anchorName = value;
                 else if (key.Equals(RoomIdKey, StringComparison.OrdinalIgnoreCase))
                     roomId = value;
             }
 
-            var identity = new DyAnchorIdentity(anchorId, roomId);
+            var identity = new DyAnchorIdentity(anchorId, anchorName, roomId);
             identity.Validate();
             return identity;
         }
@@ -77,6 +91,7 @@ namespace WorldIsMine.Net.Services
                 "# DY Test Identity" + Environment.NewLine +
                 Environment.NewLine +
                 $"{AnchorIdKey}: `{identity.AnchorId}`" + Environment.NewLine +
+                $"{AnchorNameKey}: `{identity.AnchorName}`" + Environment.NewLine +
                 $"{RoomIdKey}: `{identity.RoomId}`" + Environment.NewLine;
             File.WriteAllText(path, markdown, new UTF8Encoding(false));
         }
@@ -93,6 +108,7 @@ namespace WorldIsMine.Net.Services
                 "> Test mode only. Fill both values before connecting." + Environment.NewLine +
                 Environment.NewLine +
                 $"{AnchorIdKey}: ``" + Environment.NewLine +
+                $"{AnchorNameKey}: ``" + Environment.NewLine +
                 $"{RoomIdKey}: ``" + Environment.NewLine;
             File.WriteAllText(path, markdown, new UTF8Encoding(false));
         }
