@@ -53,7 +53,7 @@ Material:
     - _Shadow_Rotated: 0
     m_Colors:
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
+    - _MainLightDir: {r: 1.63, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}
     - _Shadow_Color: {r: 0, g: 0, b: 0, a: 1}
     - _SlashColor: {r: 0, g: 0, b: 0, a: 1}

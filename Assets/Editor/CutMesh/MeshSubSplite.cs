@@ -188,6 +188,10 @@ public static class MeshSubMeshSplitter
 
         // 你这里可以改成 1024 / 2048 / 4096
         int atlasSize = 1024;
+        if (textures.Count > 2)
+        {
+            atlasSize = 2048;
+        }
         Texture2D atlas = new Texture2D(atlasSize, atlasSize, TextureFormat.RGBA32, false, true);
 
         int cursorX = 0;
