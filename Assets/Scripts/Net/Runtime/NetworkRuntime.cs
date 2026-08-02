@@ -9,6 +9,7 @@ using UnityEngine;
 using WorldIsMine.Net.Config;
 using WorldIsMine.Net.Protocol;
 using WorldIsMine.Net.Services;
+using WorldIsMine.Net.Transport;
 
 namespace WorldIsMine.Net.Runtime
 {
@@ -36,6 +37,8 @@ namespace WorldIsMine.Net.Runtime
 
         public NetworkClient Client { get; private set; }
         public AnchorSessionStartResult LastStartResult { get; private set; }
+        public bool IsAnchorSessionReady =>
+            Client?.State == TransportState.Connected && LastStartResult?.Success == true;
         public bool TestMode => testMode;
         public string TestIdentityPath => ResolveTestIdentityPath();
         public bool PkProtocolDetailsEnabled
@@ -614,8 +617,8 @@ namespace WorldIsMine.Net.Runtime
         {
             if (!testMode)
                 throw new InvalidOperationException("Live test actions require TestMode.");
-            if (LastStartResult?.Success != true)
-                throw new InvalidOperationException("Bind the anchor session before using the live test panel.");
+            if (!IsAnchorSessionReady)
+                throw new InvalidOperationException("主播未连接，请先点击“主播重新连接”。");
             if (string.IsNullOrWhiteSpace(request.OpenId))
                 throw new ArgumentException("OpenId is required.", nameof(request));
 
@@ -629,7 +632,7 @@ namespace WorldIsMine.Net.Runtime
         {
             if (Client == null)
                 throw new InvalidOperationException("Network client is not initialized.");
-            if (LastStartResult?.Success != true)
+            if (!IsAnchorSessionReady)
                 throw new InvalidOperationException("Anchor session must be bound before using PK operations.");
         }
 
@@ -639,7 +642,7 @@ namespace WorldIsMine.Net.Runtime
                 throw new InvalidOperationException("Equipment GM operations require TestMode.");
             if (Client == null)
                 throw new InvalidOperationException("Network client is not initialized.");
-            if (LastStartResult?.Success != true)
+            if (!IsAnchorSessionReady)
             {
                 throw new InvalidOperationException(
                     "Bind the anchor session before using equipment GM operations.");
@@ -1282,6 +1285,10 @@ namespace WorldIsMine.Net.Runtime
                 GUILayout.Height(40f));
             GUILayout.Space(10f);
 
+            bool actionEnabled = _runtime.IsAnchorSessionReady && !_reconnecting;
+            bool previousEnabled = GUI.enabled;
+            GUI.enabled = previousEnabled && actionEnabled;
+
             if (GUILayout.Button(
                     "1. 进入直播间",
                     _buttonStyle,
@@ -1334,8 +1341,9 @@ namespace WorldIsMine.Net.Runtime
                     GUILayout.Height(46f)))
                 SendGift();
 
+            GUI.enabled = previousEnabled;
+
             GUILayout.Space(12f);
-            bool previousEnabled = GUI.enabled;
             GUI.enabled = previousEnabled && !_reconnecting;
             if (GUILayout.Button(
                     _reconnecting ? "主播重新连接中..." : "主播重新连接",
@@ -1345,7 +1353,10 @@ namespace WorldIsMine.Net.Runtime
             GUI.enabled = previousEnabled;
 
             GUILayout.Space(12f);
-            GUILayout.Label($"状态：{_status}", _statusStyle);
+            string displayedStatus = actionEnabled
+                ? _status
+                : "主播未连接，请先点击“主播重新连接”。";
+            GUILayout.Label($"状态：{displayedStatus}", _statusStyle);
             GUILayout.EndScrollView();
         }
 
