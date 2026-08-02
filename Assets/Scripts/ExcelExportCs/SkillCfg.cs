@@ -26,7 +26,11 @@ public class SkillCfgConfig
 
     private void init()
     {
-        string json = File.ReadAllText(Application.streamingAssetsPath + "SkillCfg.json");
+        string path = Path.Combine(
+            Application.streamingAssetsPath,
+            "JsonData",
+            "SkillCfg.json");
+        string json = File.ReadAllText(path);
         dataList = JsonConvert.DeserializeObject<List<SkillCfg>>(json);
     }
 

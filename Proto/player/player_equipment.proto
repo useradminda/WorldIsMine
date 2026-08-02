@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "PlayerProtocol";
+
+package skbz.player;
+
+// 一名玩家的完整装备模块数据。
+message EquipmentModuleData {
+  uint32 schema_version = 1;
+  repeated EquipmentData equipments = 2;
+}
+
+// 一件玩家持有的装备。
+message EquipmentData {
+  // 装备实例唯一 ID；相同 equipment_id 的两件装备也必须使用不同 UID。
+  uint64 equipment_uid = 1;
+
+  // 装备配置表 ID。
+  uint32 equipment_id = 2;
+
+  uint32 level = 3;
+  uint32 star = 4;
+  EquipmentQuality quality = 5;
+
+  // 0 表示未穿戴；其他值由装备槽位配置定义。
+  uint32 equipped_slot = 6;
+}
+
+enum EquipmentQuality {
+  EQUIPMENT_QUALITY_UNSPECIFIED = 0;
+  EQUIPMENT_QUALITY_COMMON = 1;
+  EQUIPMENT_QUALITY_UNCOMMON = 2;
+  EQUIPMENT_QUALITY_RARE = 3;
+  EQUIPMENT_QUALITY_EPIC = 4;
+  EQUIPMENT_QUALITY_LEGENDARY = 5;
+  EQUIPMENT_QUALITY_MYTHIC = 6;
+}

@@ -2,6 +2,7 @@ using UnityEngine;
 using Unity.Mathematics;
 using static Unity.Mathematics.math;
 using System.Collections.Generic;
+using System;
 public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
@@ -10,7 +11,8 @@ public class UnitLogicBase
     private UnitProp prop;
     public UnitProp Prop => prop;
 
-    private float3 targetForward;
+    private float3 targetPoint;
+    public float3 TargetPoint => targetPoint;
 
     public ECampType CampType => campType;
     private ECampType campType;
@@ -30,12 +32,15 @@ public class UnitLogicBase
 
     public bool IsDead => Prop.Hp <= 0;
 
-    public UnitLogicBase(int id, ECampType campType, float3 targetForward)
+    public UnitLogicBase(int id, ECampType campType, float3 targetPoint)
     {
         stateMachine = new StateMachine(this);
         this.campType = campType;
-        this.targetForward = targetForward;
+        this.targetPoint = targetPoint;
         soliderCfg = SoliderCfgConfig.Ins.SearchById(id);
+        if (soliderCfg == null)
+            throw new InvalidOperationException($"Soldier config was not found. UnitId={id}");
+
         initProp();
         initSkills();
     }
@@ -57,9 +62,18 @@ public class UnitLogicBase
             Debug.LogError("当前单位的智能体是空的");
             return;
         }
-        float agentSpeed = Agenter.saveMaxSpeed;  
-        Agenter.maxSpeed = agentSpeed;     
-        Agenter.prefVelocity = normalize(this.targetForward) * agentSpeed;
+        float agentSpeed = Agenter.saveMaxSpeed;
+        Agenter.maxSpeed = agentSpeed;
+        float3 toTarget = targetPoint - Agenter.pos;
+        toTarget.y = 0f;
+        float arrivalDistance = max(0.5f, Prop.Radius);
+        if (lengthsq(toTarget) <= arrivalDistance * arrivalDistance)
+        {
+            Agenter.prefVelocity = new float3(0f, 0f, 0f);
+            return;
+        }
+
+        Agenter.prefVelocity = normalize(toTarget) * agentSpeed;
     }
 
     // 获取普工攻击范围
@@ -85,7 +99,15 @@ public class UnitLogicBase
     {
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
-            SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(i);
+            int skillId = soliderCfg.skill[i];
+            SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(skillId);
+            if (skillCfg == null)
+            {
+                Debug.LogError(
+                    $"技能配置不存在。UnitId={soliderCfg.id}, SkillId={skillId}");
+                continue;
+            }
+
             SkillLogicBase skill = new SkillLogicBase(this, skillCfg);
             if (skill.BNormalSkill)
             {

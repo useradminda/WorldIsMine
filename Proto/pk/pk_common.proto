@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+enum PKSide {
+  PK_SIDE_UNKNOWN = 0;
+  PK_SIDE_A = 1;
+  PK_SIDE_B = 2;
+  PK_SIDE_DRAW = 3;
+}
+
+enum PKSessionStatus {
+  PK_SESSION_STATUS_CREATED = 0;
+  PK_SESSION_STATUS_RUNNING = 1;
+  PK_SESSION_STATUS_ENDED = 2;
+}
+
+enum PKSyncCommandType {
+  PK_SYNC_COMMAND_TYPE_UNKNOWN = 0;
+  PK_SYNC_COMMAND_TYPE_GIFT = 1;
+  PK_SYNC_COMMAND_TYPE_ATTACK = 2;
+  PK_SYNC_COMMAND_TYPE_MONSTER_SPAWN = 3;
+  PK_SYNC_COMMAND_TYPE_MONSTER_DAMAGE = 4;
+  PK_SYNC_COMMAND_TYPE_BUFF_APPLY = 5;
+  PK_SYNC_COMMAND_TYPE_WIN = 6;
+  PK_SYNC_COMMAND_TYPE_END = 7;
+  PK_SYNC_COMMAND_TYPE_BOSS_ATTACK = 8;
+  PK_SYNC_COMMAND_TYPE_CAMP_BUFF_CHANGED = 9;
+}
+
+enum PKCampBuffStackPolicy {
+  PK_CAMP_BUFF_STACK_POLICY_UNKNOWN = 0;
+  PK_CAMP_BUFF_STACK_POLICY_REFRESH_DURATION = 1;
+  PK_CAMP_BUFF_STACK_POLICY_STACK_AND_REFRESH = 2;
+}
+
+enum PKCampBuffTargetRule {
+  PK_CAMP_BUFF_TARGET_RULE_UNKNOWN = 0;
+  PK_CAMP_BUFF_TARGET_RULE_SOURCE_CAMP = 1;
+  PK_CAMP_BUFF_TARGET_RULE_OPPONENT_CAMP = 2;
+  PK_CAMP_BUFF_TARGET_RULE_BOTH_CAMPS = 3;
+}
+
+enum PKCampBuffChangeType {
+  PK_CAMP_BUFF_CHANGE_TYPE_UNKNOWN = 0;
+  PK_CAMP_BUFF_CHANGE_TYPE_APPLIED = 1;
+  PK_CAMP_BUFF_CHANGE_TYPE_REFRESHED = 2;
+  PK_CAMP_BUFF_CHANGE_TYPE_STACKED = 3;
+  PK_CAMP_BUFF_CHANGE_TYPE_REMOVED = 4;
+  PK_CAMP_BUFF_CHANGE_TYPE_CLEAR_ALL = 5;
+}
+
+message PKAnchorInfo {
+  string anchor_id = 1;
+  string room_id = 2;
+  string client_id = 3;
+  string anchor_name = 4;
+}
+
+message SessionSnapshot {
+  string session_id = 1;
+  PKAnchorInfo anchor_a = 2;
+  PKAnchorInfo anchor_b = 3;
+  PKSessionStatus status = 4;
+  int64 score_a = 5;
+  int64 score_b = 6;
+  int64 sequence = 7;
+  int64 start_time_ms = 8;
+  int64 end_time_ms = 9;
+  // PKBattleCore 当前仍生效的阵营全局 Buff；重连以此快照为准。
+  repeated CampBuffState active_buffs = 10;
+}
+
+// MainServer 根据礼物配置生成的权威 Buff 效果输入。
+message GiftCampBuffEffect {
+  int32 buff_id = 1;
+  int32 buff_level = 2;
+  string buff_name = 3;
+  int64 duration_ms = 4;
+  PKCampBuffStackPolicy stack_policy = 5;
+  int32 max_stacks = 6;
+  PKCampBuffTargetRule target_rule = 7;
+  int32 stack_add = 8;
+  string effect_type = 9;
+  int64 effect_value = 10;
+}
+
+message CampBuffState {
+  string instance_id = 1;
+  int32 buff_id = 2;
+  int32 buff_level = 3;
+  string buff_name = 4;
+  PKSide target_side = 5;
+  PKSide source_side = 6;
+  uint64 source_player_id = 7;
+  string source_event_id = 8;
+  int32 stack_count = 9;
+  int64 start_time_ms = 10;
+  int64 expire_time_ms = 11;
+  int64 version = 12;
+  string effect_type = 13;
+  int64 effect_value = 14;
+  int64 duration_ms = 15;
+}
+
+message CampBuffChange {
+  PKCampBuffChangeType change_type = 1;
+  CampBuffState buff = 2;
+  string reason = 3;
+}

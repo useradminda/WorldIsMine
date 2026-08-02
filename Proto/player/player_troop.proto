@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "PlayerProtocol";
+
+package skbz.player;
+
+// 一名玩家的完整兵种模块数据。
+message TroopModuleData {
+  uint32 schema_version = 1;
+  repeated TroopData troops = 2;
+}
+
+// 一种玩家兵种的成长数据。经验在当前刷兵阶段只保存，不在送礼时结算。
+message TroopData {
+  uint32 troop_id = 1;
+  uint32 level = 2;
+  uint64 exp = 3;
+}
+
+// 一次礼物事件对应的刷兵增量，不携带完整兵种模块。
+message GiftTroopSpawnData {
+  uint32 troop_id = 1;
+  uint32 troop_level = 2;
+  int32 troop_count = 3;
+}

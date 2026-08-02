@@ -26,7 +26,11 @@ public class #ClassName#Config
 
     private void init()
     {
-        string json = File.ReadAllText(Application.streamingAssetsPath + "#ClassName#.json");
+        string path = Path.Combine(
+            Application.streamingAssetsPath,
+            "JsonData",
+            "#ClassName#.json");
+        string json = File.ReadAllText(path);
         dataList = JsonConvert.DeserializeObject<List<#ClassName#>>(json);
     }
 

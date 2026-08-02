@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+import "player/player_troop.proto";
+import "player/player_modules.proto";
+
+message ClientBindRequest {
+  string anchor_id = 1;
+  string anchor_name = 2;
+  string platform = 3;
+  string room_id = 4;
+}
+
+message ClientBindResponse {
+  bool accepted = 1;
+  string reason = 2;
+  string anchor_id = 3;
+  string anchor_name = 4;
+  string platform = 5;
+  string room_id = 6;
+}
+
+message ClientHeartbeat {
+  string client_id = 1;
+  string room_id = 2;
+  string tag = 3;
+  int64 client_time_ms = 4;
+  int64 server_time_ms = 5;
+}
+
+message ClientDebugText {
+  string text = 1;
+}
+
+message PlayerSnapshot {
+  uint64 player_id = 1;
+  string platform = 2;
+  string open_id = 3 [deprecated = true];
+  string nickname = 4;
+  string avatar = 5;
+  uint32 level = 6;
+  uint64 exp = 7;
+  uint64 power = 8;
+  uint64 version = 9;
+}
+
+message LivePlayerEnterNotify {
+  string room_id = 1;
+  PlayerSnapshot player = 2;
+  bool first_enter = 3;
+  int64 server_time_ms = 4;
+  skbz.player.PlayerModulesData modules = 5;
+}
+
+message LivePlayerLeaveNotify {
+  string room_id = 1;
+  uint64 player_id = 2;
+  string reason = 3;
+  int64 server_time_ms = 4;
+}
+
+enum LivePlayerCamp {
+  LIVE_PLAYER_CAMP_NONE = 0;
+  LIVE_PLAYER_CAMP_RED = 1;
+  LIVE_PLAYER_CAMP_BLUE = 2;
+}
+
+message LivePlayerCampSelectedNotify {
+  string room_id = 1;
+  uint64 player_id = 2;
+  LivePlayerCamp camp = 3;
+  LivePlayerCamp previous_camp = 4;
+  bool changed = 5;
+  int64 server_time_ms = 6;
+}
+
+message LivePlayerGiftNotify {
+  string room_id = 1;
+  uint64 player_id = 2;
+  string gift_id = 3;
+  int32 gift_count = 4;
+  int64 gift_value = 5;
+  string event_id = 6;
+  int64 server_time_ms = 7;
+  reserved 8, 9, 10;
+  reserved "troop_module", "spawned_troop", "spawned_troop_count";
+  skbz.player.GiftTroopSpawnData troop_spawn = 11;
+}
+
+enum LiveClientTestAction {
+  LIVE_CLIENT_TEST_ACTION_NONE = 0;
+  LIVE_CLIENT_TEST_ACTION_ENTER = 1;
+  LIVE_CLIENT_TEST_ACTION_SELECT_CAMP = 2;
+  LIVE_CLIENT_TEST_ACTION_GIFT = 3;
+}
+
+message LiveClientTestRequest {
+  LiveClientTestAction action = 1;
+  string open_id = 2;
+  string nickname = 3;
+  string avatar = 4;
+  LivePlayerCamp camp = 5;
+  string gift_id = 6;
+  int32 gift_count = 7;
+  int32 gift_value = 8;
+}
+
+message LiveClientTestResponse {
+  bool accepted = 1;
+  string reason = 2;
+  LiveClientTestAction action = 3;
+  string event_id = 4;
+}
