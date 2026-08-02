@@ -17,7 +17,7 @@ public class SkillLogicBase
     private float curCD;
 
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
-    protected List<UnitLogicBase> mTargetList => targetList;
+    public List<UnitLogicBase> TargetList => targetList;
 
     public SkillLogicBase(UnitLogicBase ulb, SkillCfg skillCfg)
     {
