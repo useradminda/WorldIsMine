@@ -26,6 +26,7 @@ namespace WorldIsMine.Net.Protocol
         C2SLiveClientTest = 21003,
         S2CLiveClientTest = 21004,
         S2CPlayerGift = 21005,
+        S2CGameConfig = 21100,
         C2SEquipmentQuery = 21200,
         S2CEquipmentQuery = 21201,
         C2SEquipmentCreate = 21202,

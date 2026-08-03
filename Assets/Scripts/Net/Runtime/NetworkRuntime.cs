@@ -39,6 +39,8 @@ namespace WorldIsMine.Net.Runtime
         public AnchorSessionStartResult LastStartResult { get; private set; }
         public bool IsAnchorSessionReady =>
             Client?.State == TransportState.Connected && LastStartResult?.Success == true;
+        public ClientGameConfigSnapshot GameConfig => Client?.GameConfig.Current;
+        public bool IsGameConfigReady => Client?.GameConfig.IsReady == true;
         public bool TestMode => testMode;
         public string TestIdentityPath => ResolveTestIdentityPath();
         public bool PkProtocolDetailsEnabled
@@ -54,6 +56,7 @@ namespace WorldIsMine.Net.Runtime
         public event Action<LivePlayerCampSelectedNotify> PlayerCampSelected;
         public event Action<LivePlayerGiftNotify> PlayerGifted;
         public event Action<LiveClientTestResponse> LiveTestResponseReceived;
+        public event Action<ClientGameConfigSnapshot> GameConfigUpdated;
         public event Action<S2CEquipmentQueryResponse> EquipmentQueryResponseReceived;
         public event Action<S2CEquipmentCreateResponse> EquipmentCreateResponseReceived;
         public event Action<S2CEquipmentUpgradeResponse> EquipmentUpgradeResponseReceived;
@@ -80,6 +83,7 @@ namespace WorldIsMine.Net.Runtime
             Client.Player.PlayerLeft += OnPlayerLeft;
             Client.Player.PlayerCampSelected += OnPlayerCampSelected;
             Client.Player.PlayerGifted += OnPlayerGifted;
+            Client.GameConfig.Updated += OnGameConfigUpdated;
             Client.LiveTest.ResponseReceived += OnLiveTestResponse;
             Client.Equipment.QueryResponseReceived += OnEquipmentQueryResponse;
             Client.Equipment.CreateResponseReceived += OnEquipmentCreateResponse;
@@ -403,8 +407,8 @@ namespace WorldIsMine.Net.Runtime
             string openId,
             string nickname,
             string giftId,
-            int giftCount = 1,
-            int giftValue = 10)
+            int giftCount,
+            int giftValue)
         {
             return SendLiveTestAsync(new LiveClientTestRequest
             {
@@ -476,6 +480,16 @@ namespace WorldIsMine.Net.Runtime
                 operationId,
                 playerId,
                 equipmentUid);
+        }
+
+        private void OnGameConfigUpdated(ClientGameConfigSnapshot config)
+        {
+            Debug.Log(
+                $"[Net][S->C][GameConfig] Version={config.Version}, " +
+                $"Gifts={config.Gifts.Count}, Equipments={config.Equipments.Count}, " +
+                $"Buffs={config.Buffs.Count}, FlyObjects={config.FlyObjects.Count}, " +
+                $"Skills={config.Skills.Count}, Soldiers={config.Soldiers.Count}");
+            GameConfigUpdated?.Invoke(config);
         }
 
         private void OnPlayerEntered(LivePlayerEnterNotify notify)
@@ -1186,13 +1200,9 @@ namespace WorldIsMine.Net.Runtime
         private const float CollapsedWindowHeight = 590f;
         private const float ExpandedWindowHeight = 750f;
 
-        private static readonly string[] GiftIds =
-        {
-            "13585", "11584", "12252", "5357", "11585",
-            "11586", "5361", "5363", "5364", "12721"
-        };
-
         private NetworkRuntime _runtime;
+        private IReadOnlyList<GameGiftConfig> _gifts = Array.Empty<GameGiftConfig>();
+        private string[] _giftLabels = Array.Empty<string>();
         private Rect _windowRect;
         private string _openId = "test-user-001";
         private string _nickname = "测试玩家";
@@ -1212,10 +1222,17 @@ namespace WorldIsMine.Net.Runtime
             if (_runtime == runtime)
                 return;
             if (_runtime != null)
+            {
                 _runtime.LiveTestResponseReceived -= OnResponse;
+                _runtime.GameConfigUpdated -= OnGameConfigUpdated;
+            }
             _runtime = runtime;
             if (_runtime != null)
+            {
                 _runtime.LiveTestResponseReceived += OnResponse;
+                _runtime.GameConfigUpdated += OnGameConfigUpdated;
+                ApplyGameConfig(_runtime.GameConfig);
+            }
         }
 
         private void OnGUI()
@@ -1286,6 +1303,11 @@ namespace WorldIsMine.Net.Runtime
             GUILayout.Space(10f);
 
             bool actionEnabled = _runtime.IsAnchorSessionReady && !_reconnecting;
+            bool giftEnabled = actionEnabled &&
+                               _runtime.IsGameConfigReady &&
+                               _gifts.Count > 0;
+            if (_gifts.Count > 0)
+                _giftIndex = Mathf.Clamp(_giftIndex, 0, _gifts.Count - 1);
             bool previousEnabled = GUI.enabled;
             GUI.enabled = previousEnabled && actionEnabled;
 
@@ -1312,18 +1334,21 @@ namespace WorldIsMine.Net.Runtime
 
             GUILayout.Space(10f);
             GUILayout.Label("3. 选择礼物", _labelStyle);
+            GUI.enabled = previousEnabled && giftEnabled;
             if (GUILayout.Button(
-                    $"礼物 ID：{GiftIds[_giftIndex]} ▼",
+                    giftEnabled
+                        ? $"礼物：{_giftLabels[_giftIndex]} ▼"
+                        : "等待服务器礼物配置...",
                     _buttonStyle,
                     GUILayout.Height(42f)))
                 _giftMenuOpen = !_giftMenuOpen;
 
-            if (_giftMenuOpen)
+            if (_giftMenuOpen && giftEnabled)
             {
                 GUILayout.Space(6f);
                 int selected = GUILayout.SelectionGrid(
                     _giftIndex,
-                    GiftIds,
+                    _giftLabels,
                     3,
                     _buttonStyle,
                     GUILayout.Height(130f));
@@ -1353,9 +1378,11 @@ namespace WorldIsMine.Net.Runtime
             GUI.enabled = previousEnabled;
 
             GUILayout.Space(12f);
-            string displayedStatus = actionEnabled
-                ? _status
-                : "主播未连接，请先点击“主播重新连接”。";
+            string displayedStatus = !actionEnabled
+                ? "主播未连接，请先点击“主播重新连接”。"
+                : !giftEnabled
+                    ? "主播已连接，等待服务器下发游戏配置。"
+                    : _status;
             GUILayout.Label($"状态：{displayedStatus}", _statusStyle);
             GUILayout.EndScrollView();
         }
@@ -1428,11 +1455,20 @@ namespace WorldIsMine.Net.Runtime
         {
             try
             {
+                if (!_runtime.IsGameConfigReady || _gifts.Count == 0)
+                    throw new InvalidOperationException("服务器礼物配置尚未就绪。");
+
+                _giftIndex = Mathf.Clamp(_giftIndex, 0, _gifts.Count - 1);
+                GameGiftConfig gift = _gifts[_giftIndex];
                 long msgId = await _runtime.TestPlayerGiftAsync(
                     _openId,
                     ResolveNickname(),
-                    GiftIds[_giftIndex]);
-                _status = $"送礼请求已发送，Gift={GiftIds[_giftIndex]}，MsgId={msgId}";
+                    gift.Id.ToString(),
+                    1,
+                    gift.GiftValue);
+                _status =
+                    $"送礼请求已发送，Gift={gift.Name}/{gift.Id}，" +
+                    $"Value={gift.GiftValue}，MsgId={msgId}";
             }
             catch (Exception ex)
             {
@@ -1482,7 +1518,33 @@ namespace WorldIsMine.Net.Runtime
         private void OnDestroy()
         {
             if (_runtime != null)
+            {
                 _runtime.LiveTestResponseReceived -= OnResponse;
+                _runtime.GameConfigUpdated -= OnGameConfigUpdated;
+            }
+        }
+
+        private void OnGameConfigUpdated(ClientGameConfigSnapshot config)
+        {
+            ApplyGameConfig(config);
+            _status = $"游戏配置已更新，Version={config.Version}，Gifts={config.Gifts.Count}";
+        }
+
+        private void ApplyGameConfig(ClientGameConfigSnapshot config)
+        {
+            _gifts = config?.Gifts ?? Array.Empty<GameGiftConfig>();
+            _giftLabels = new string[_gifts.Count];
+            for (int i = 0; i < _gifts.Count; i++)
+            {
+                GameGiftConfig gift = _gifts[i];
+                _giftLabels[i] = $"{gift.Name} / ID={gift.Id} / 值={gift.GiftValue}";
+            }
+
+            _giftIndex = _gifts.Count == 0
+                ? 0
+                : Mathf.Clamp(_giftIndex, 0, _gifts.Count - 1);
+            if (_gifts.Count == 0)
+                _giftMenuOpen = false;
         }
     }
 

@@ -38,6 +38,7 @@ namespace WorldIsMine.Net.Runtime
 
             _router = new MessageRouter();
             _transport = new TcpTransport();
+            GameConfig = new GameConfigService(_router, MainThread);
             Player = new PlayerService(_router, MainThread);
             LiveTest = new LiveTestService(_transport, _router, MainThread);
             Equipment = new EquipmentService(_transport, _router, MainThread);
@@ -64,6 +65,7 @@ namespace WorldIsMine.Net.Runtime
 
         public MainThreadDispatcher MainThread { get; }
         public PlayerService Player { get; }
+        public GameConfigService GameConfig { get; }
         public LiveTestService LiveTest { get; }
         public EquipmentService Equipment { get; }
         public BindService Bind { get; }
@@ -136,6 +138,7 @@ namespace WorldIsMine.Net.Runtime
             {
                 var exception = new IOException("Network connection was closed.");
                 Bind.FailPending(exception);
+                GameConfig.Reset();
                 Pk.Reset();
                 Heartbeat.Stop();
             }

@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+message GameGiftConfig {
+  int32 id = 1;
+  string name = 2;
+  string platform = 3;
+  float cost = 4;
+  string prefab = 5;
+  int32 gift_value = 6;
+}
+
+message GameEquipmentConfig {
+  int32 id = 1;
+  string name = 2;
+  string platform = 3;
+  float cost = 4;
+  string prefab = 5;
+}
+
+message GameBuffConfig {
+  int32 id = 1;
+  string name = 2;
+  string platform = 3;
+  float cost = 4;
+  string prefab = 5;
+}
+
+message GameFlyObjectConfig {
+  int32 id = 1;
+  string name = 2;
+  float speed = 3;
+  string fly_type = 4;
+  string prefab = 5;
+}
+
+message GameSkillConfig {
+  int32 id = 1;
+  string name = 2;
+  float search_range = 3;
+  float attack_range = 4;
+  float skill_area = 5;
+  int32 damage = 6;
+  float cooldown = 7;
+  int32 normal = 8;
+  int32 skill_type = 9;
+  int32 fly_object_id = 10;
+}
+
+message GameSoldierConfig {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  repeated int32 skill_ids = 4;
+  int32 hp = 5;
+  int32 attack = 6;
+  float move_speed = 7;
+  float radius = 8;
+  string prefab = 9;
+}
+
+// Bind成功后由服务器主动全量推送。当前不需要客户端ACK或增量更新。
+message S2CGameConfigPush {
+  string version = 1;
+  repeated GameGiftConfig gifts = 2;
+  repeated GameEquipmentConfig equipments = 3;
+  repeated GameBuffConfig buffs = 4;
+  repeated GameFlyObjectConfig fly_objects = 5;
+  repeated GameSkillConfig skills = 6;
+  repeated GameSoldierConfig soldiers = 7;
+}

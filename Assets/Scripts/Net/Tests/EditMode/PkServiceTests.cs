@@ -381,6 +381,50 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual(EquipmentChangeType.Upgraded, changed.ChangeType);
         }
 
+        [Test]
+        public void Router_DispatchesGameConfigAndPublishesValidatedSnapshot()
+        {
+            var router = new MessageRouter();
+            var mainThread = new MainThreadDispatcher();
+            var service = new GameConfigService(router, mainThread);
+            ClientGameConfigSnapshot updated = null;
+            service.Updated += value => updated = value;
+
+            var push = new S2CGameConfigPush { Version = "config-version-1" };
+            push.Gifts.Add(new GameGiftConfig
+            {
+                Id = 112,
+                Name = "仙女棒",
+                Platform = "dy",
+                GiftValue = 11
+            });
+            push.FlyObjects.Add(new GameFlyObjectConfig { Id = 1, Name = "箭" });
+            push.Skills.Add(new GameSkillConfig
+            {
+                Id = 1,
+                Name = "远程攻击",
+                FlyObjectId = 1
+            });
+            var soldier = new GameSoldierConfig { Id = 101, Name = "弓兵" };
+            soldier.SkillIds.Add(1);
+            push.Soldiers.Add(soldier);
+
+            Assert.AreEqual(21100, (int)RequestCode.S2CGameConfig);
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CGameConfig,
+                ActionCode.None,
+                40,
+                push.ToByteArray())));
+            Assert.IsFalse(service.IsReady);
+            Assert.IsNull(updated);
+
+            Assert.AreEqual(1, mainThread.Drain());
+            Assert.IsTrue(service.IsReady);
+            Assert.AreEqual("config-version-1", updated.Version);
+            Assert.IsTrue(updated.TryGetGift(112, out GameGiftConfig gift));
+            Assert.AreEqual(11, gift.GiftValue);
+        }
+
         private static EquipmentData CreateEquipment(
             ulong equipmentUid,
             uint equipmentId,
