@@ -13,6 +13,7 @@ public class UnitProp
 
     public UnitProp(int hp, float radius, float maxSpeed)
     {
+        this.hp = hp;
         this.radius = radius;
         this.maxSpeed = maxSpeed;
     }

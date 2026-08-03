@@ -12,7 +12,7 @@ public static class BattleLogicDamageTools
             int atkType = atkUnit.SoliderCfg.unitType;
             int beAtkType = beAtkedUnits[i].SoliderCfg.unitType;
             int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
-            beAtkedUnits[i].Prop.ChangeHp(finalDamage);
+           // beAtkedUnits[i].Prop.ChangeHp(finalDamage);
         }
     }
 

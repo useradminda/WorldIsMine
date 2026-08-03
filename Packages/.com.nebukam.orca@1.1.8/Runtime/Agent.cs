@@ -107,8 +107,6 @@ namespace Nebukam.ORCA
         /// </summary>
         bool collisionEnabled { get; set; }
 
-        UnityEngine.Transform transform { get; set; }
-
     }
 
     public class Agent : Vertex, IAgent
@@ -284,12 +282,6 @@ namespace Nebukam.ORCA
         {
             get { return m_collisionEnabled; }
             set { m_collisionEnabled = value; }
-        }
-
-        public UnityEngine.Transform transform
-        {
-            get { return m_transform; }
-            set { m_transform = value; }
         }
 
         public bool NeedDestory = false;

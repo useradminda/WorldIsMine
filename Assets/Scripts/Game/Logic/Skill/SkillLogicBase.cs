@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class SkillLogicBase
 {
@@ -19,8 +20,11 @@ public class SkillLogicBase
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
     public List<UnitLogicBase> TargetList => targetList;
 
+    public string skillGUID;
+
     public SkillLogicBase(UnitLogicBase ulb, SkillCfg skillCfg)
     {
+        skillGUID = System.Guid.NewGuid().ToString();
         unitLogic = ulb;
         this.skillCfg = skillCfg;
         SkillResetCD();
@@ -71,7 +75,18 @@ public class SkillLogicBase
     public List<UnitLogicBase> SkillSearchTarget()
     {
         targetList.Clear();
-        targetList = BattleLogicTools.SearchNotMyCampUnits(UnitLogic.Agenter.pos.x, UnitLogic.Agenter.pos.z, SkillSearchRange, UnitLogic.CampType, true);
+        targetList.AddRange(BattleLogicTools.SearchNotMyCampUnits(UnitLogic.CurPos.x, UnitLogic.CurPos.z, SkillSearchRange, UnitLogic.CampType, false));
+        targetList.Sort((UnitLogicBase a, UnitLogicBase b) =>
+        {
+            if((UnitLogic.CurPos - a.CurPos).magnitude < (UnitLogic.CurPos - b.CurPos).magnitude)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        });
         return targetList;
     }
 

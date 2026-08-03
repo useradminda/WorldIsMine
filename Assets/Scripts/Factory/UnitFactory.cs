@@ -32,6 +32,7 @@ public static class UnitFactory
         agent.timeHorizon = 0.1f;   // 距离其他代理检查
         agent.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         agent.saveMaxSpeed = maxSpeed;
+        agent.maxSpeed = maxSpeed;
         return agent;
     }
 

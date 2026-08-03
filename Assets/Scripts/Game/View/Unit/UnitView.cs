@@ -57,7 +57,8 @@ public class UnitView : IView
     {
         if (unitLogic != null)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(unitLogic.TargetForward), Time.deltaTime * 3);
+            Quaternion qua = Quaternion.LookRotation(unitLogic.TargetForward);
+            transform.rotation = Quaternion.Lerp(transform.rotation, qua, Time.deltaTime * 3);
         }
     }
 
@@ -72,7 +73,7 @@ public class UnitView : IView
                 {
                     if (state.StateType == EStateTyep.Move)
                     {
-                        ActionFlowComponent.PlayAction(EActionType.wait);
+                        ActionFlowComponent.PlayAction(EActionType.run);
                     }
                     else if (state.StateType == EStateTyep.Attack)
                     {

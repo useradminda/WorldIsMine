@@ -10,28 +10,37 @@ public class OperateManager : MonoSingleton<OperateManager>
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                BattleEngine.Instance.CreateUnit(1, ECampType.Red, 50);
+                BattleEngine.Instance.CreateUnit(101, ECampType.Red, 50);            
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                BattleEngine.Instance.CreateUnit(2, ECampType.Red, 50);
+                BattleEngine.Instance.CreateUnit(102, ECampType.Red, 50);
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
-                BattleEngine.Instance.CreateUnit(3, ECampType.Red, 50);
+                BattleEngine.Instance.CreateUnit(109, ECampType.Red, 50);
             }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                BattleEngine.Instance.CreateUnit(1001, ECampType.Red, 50);
+            }
+            return;
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            BattleEngine.Instance.CreateUnit(1, ECampType.Blue, 50);
+            BattleEngine.Instance.CreateUnit(201, ECampType.Blue, 50);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            BattleEngine.Instance.CreateUnit(2, ECampType.Blue, 50);
+            BattleEngine.Instance.CreateUnit(202, ECampType.Blue, 50);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            BattleEngine.Instance.CreateUnit(3, ECampType.Blue, 50);
+            BattleEngine.Instance.CreateUnit(204, ECampType.Blue, 50);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            BattleEngine.Instance.CreateUnit(2001, ECampType.Blue, 50);
         }
     }
 }

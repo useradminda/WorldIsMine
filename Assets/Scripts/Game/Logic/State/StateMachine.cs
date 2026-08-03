@@ -21,7 +21,7 @@ public class StateMachine
         states.Add(new IdleState(unitLogic));
         states.Add(new MoveState(unitLogic));
         states.Add(new AttackState(unitLogic));
-        currentState = states[0];
+        currentState = states[1];
     }
 
     public void ChangeState(EStateTyep enterStateType, params object[] objects)

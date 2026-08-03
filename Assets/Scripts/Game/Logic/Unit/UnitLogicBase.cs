@@ -14,9 +14,13 @@ public class UnitLogicBase
     {
         get
         {
-            if (NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
-            {
-                return Vector3.Normalize(NormalSkill.TargetList[0].CurPos - CurPos);
+            if (NormalSkill.TargetList.Count > 0 && NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
+            {                 
+                if (NormalSkill.TargetList[0].CampType ==  NormalSkill.UnitLogic.CampType)
+                {
+                    Debug.LogError("技能的目标和技能的释放对象是相同阵营");
+                }
+                return Vector3.Normalize(NormalSkill.TargetList[0].CurPos - NormalSkill.UnitLogic.CurPos);
             }
             return moveForward;
         }
@@ -71,7 +75,17 @@ public class UnitLogicBase
 
     public void MoveStop()
     {
+        Agenter.navigationEnabled = false;
+       // Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
+        Agenter.maxSpeed = 0;
+    }
+
+    public void MoveForward()
+    {
+        float agentSpeed = Agenter.saveMaxSpeed;
+        Agenter.maxSpeed = agentSpeed;
+        Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
     private void initProp()
@@ -83,7 +97,7 @@ public class UnitLogicBase
     {
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
-            SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(i);
+            SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
             SkillLogicBase skill = new SkillLogicBase(this, skillCfg);
             if (skill.BNormalSkill)
             {

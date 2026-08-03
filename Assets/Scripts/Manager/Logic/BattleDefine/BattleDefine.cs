@@ -1,8 +1,8 @@
 // 
 public class BattleDefine
 {
-    public const int FootManWithCount = 50;
-    public const float FootManHeightSegDis = 2f;
+    public const int FootManWithCount = 20;
+    public const float FootManHeightSegDis = 3f;
     public const float AreaTotalWith = 80f;
 }
 

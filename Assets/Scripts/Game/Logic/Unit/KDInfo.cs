@@ -8,7 +8,7 @@ public class KDInfo : IPositionProvider
     {
         get
         {
-            return new AillieoUtils.Vector2(UB.Agenter.pos.x, UB.Agenter.pos.y);
+            return new AillieoUtils.Vector2(UB.Agenter.pos.x, UB.Agenter.pos.z);
         }
     }
 

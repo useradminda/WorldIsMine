@@ -19,12 +19,12 @@ public class MoveState : StateBase
     public override void UpdateState(float dt)
     {
         searchTargetUnits();
+        updateMove();
     }
 
     public override void ExitState()
     {
-        updateMove();
-        searchTargetUnits();
+        
     }
 
     private void searchTargetUnits()
@@ -44,8 +44,6 @@ public class MoveState : StateBase
 
     private void updateMove()
     {
-        float agentSpeed = UnitLogic.Agenter.saveMaxSpeed;
-        UnitLogic.Agenter.maxSpeed = agentSpeed;
-        UnitLogic.Agenter.prefVelocity = UnitLogic.TargetForward;
+        UnitLogic.MoveForward();
     }
 }

@@ -8,11 +8,12 @@ public class AttackState : StateBase
 
     public AttackState(UnitLogicBase ulb) : base(ulb)
     {
-        UnitLogic.MoveStop();
+       
     }
 
     public override void EnterState(params object[] objects)
     {
+        UnitLogic.MoveStop();
         targetUnit = (UnitLogicBase)objects[0];
         useSkill = (SkillLogicBase)objects[1];
         useSkill.SkillEnter();
@@ -20,6 +21,7 @@ public class AttackState : StateBase
 
     public override void UpdateState(float dt)
     {
+       
         skillUpdate(dt);
         judgeTargetBeDead();
     }

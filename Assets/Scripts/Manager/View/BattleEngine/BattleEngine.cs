@@ -57,35 +57,22 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }
 
+    private void OnDestroy()
+    {
+        RvoManager.Instance.ManagerDestroy();
+    }
+
 
     // 创建单位
     public void CreateUnit(int id, ECampType campType, int count)
     {
-        if (!battleInit)
-        {
-            return;
-        }
-        if (count <= 0)
-        {       
-            return;
-        }
-
         Vector3 forward = BornConfigIns.GetForward(campType);
         Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
        
         for (int i = 0; i < count; i++)
         {
-            Vector3 bornPoint = GetCreatePoint(
-                baseBornPoint,
-                forward,
-                i,
-                count);
-
-            UnitLogicBase unitLogic = UnitFactory.CreateUnit(
-                id,
-                bornPoint,
-                forward,
-                campType);
+            Vector3 bornPoint = GetCreatePoint( baseBornPoint, forward, i, count);
+            UnitLogicBase unitLogic = UnitFactory.CreateUnit( id, bornPoint, forward, campType);
             UnitManager.Instance.AddUnit(unitLogic);
             RvoManager.Instance.AddAgent(unitLogic.Agenter);
             KDTreeManager.Instance.AddWaitingKDInfo(unitLogic);
@@ -122,17 +109,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         {
             Debug.LogError("没有出生位置信息");
             return false;
-        }
-        if (!BornConfigIns.HasDistinctSpawnPoints(1f, out string spawnError))
-        {
-            Debug.LogError($"[Battle][Spawn] Invalid spawn configuration: {spawnError}");
-            return false;
-        }
-
-        Debug.Log(
-            $"[Battle][Spawn] Ready. Red={BornConfigIns.GetBornPoint(ECampType.Red)}, " +
-            $"Blue={BornConfigIns.GetBornPoint(ECampType.Blue)}, " +
-            $"Target={BornConfigIns.GetTargetPoint()}");
+        } 
 
         UnitManager.Instance.ManagerInit();
         KDTreeManager.Instance.ManagerInit();
