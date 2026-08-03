@@ -33,4 +33,14 @@ public static class ToolView
         }
         return t;
     }
+
+    public static T GetOrAddComponentInChild<T>(this GameObject go) where T : Component
+    {
+        T t = go.transform.GetComponentInChildren<T>();
+        if (t == null)
+        {
+            t = go.GetOrAddComponent<T>();
+        }
+        return t;
+    }
 }

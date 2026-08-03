@@ -1,6 +1,6 @@
 
 using System.Collections.Generic;
-using UnityEngine;
+
 
 public class MoveState : StateBase
 {
@@ -23,7 +23,8 @@ public class MoveState : StateBase
 
     public override void ExitState()
     {
-
+        updateMove();
+        searchTargetUnits();
     }
 
     private void searchTargetUnits()
@@ -39,5 +40,12 @@ public class MoveState : StateBase
                 UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
             }
         }
+    }
+
+    private void updateMove()
+    {
+        float agentSpeed = UnitLogic.Agenter.saveMaxSpeed;
+        UnitLogic.Agenter.maxSpeed = agentSpeed;
+        UnitLogic.Agenter.prefVelocity = UnitLogic.TargetForward;
     }
 }

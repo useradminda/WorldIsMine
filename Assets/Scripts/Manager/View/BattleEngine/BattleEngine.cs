@@ -42,8 +42,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
 
-        if (enableLegacySpawnHotkeys)
-            OperateManager.Instance.UpdateInput();
+        OperateManager.Instance.UpdateInput();
     }
 
     private void LateUpdate()
@@ -64,26 +63,16 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         if (!battleInit)
         {
-            Debug.LogError(
-                $"[Battle][Spawn] BattleEngine is not initialized. Camp={campType}, " +
-                $"UnitConfigId={id}, Count={count}");
             return;
         }
         if (count <= 0)
-        {
-            Debug.LogWarning(
-                $"[Battle][Spawn] Ignored non-positive count. Camp={campType}, " +
-                $"UnitConfigId={id}, Count={count}");
+        {       
             return;
         }
 
         Vector3 forward = BornConfigIns.GetForward(campType);
         Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
-        Vector3 targetPoint = BornConfigIns.GetTargetPoint();
-        Debug.Log(
-            $"[Battle][Spawn] Camp={campType}, UnitConfigId={id}, Count={count}, " +
-            $"BasePoint={baseBornPoint}, TargetPoint={targetPoint}, Forward={forward}");
-
+       
         for (int i = 0; i < count; i++)
         {
             Vector3 bornPoint = GetCreatePoint(
@@ -95,7 +84,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             UnitLogicBase unitLogic = UnitFactory.CreateUnit(
                 id,
                 bornPoint,
-                targetPoint,
+                forward,
                 campType);
             UnitManager.Instance.AddUnit(unitLogic);
             RvoManager.Instance.AddAgent(unitLogic.Agenter);

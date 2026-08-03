@@ -5,6 +5,7 @@ public enum EStateTyep
     Idle,
     Move,
     Attack,
+    Die,
 }
 
 public abstract class StateBase

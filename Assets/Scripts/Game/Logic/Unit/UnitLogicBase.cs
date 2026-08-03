@@ -1,7 +1,6 @@
 using UnityEngine;
-
 using System.Collections.Generic;
-using Unity.Mathematics;
+
 public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
@@ -10,21 +9,21 @@ public class UnitLogicBase
     private UnitProp prop;
     public UnitProp Prop => prop;
 
-    private Vector3 targetForward;
-    public Vector3 MoveForward
+    private Vector3 moveForward;
+    public Vector3 TargetForward
     {
         get
         {
             if (NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
             {
-                targetForward = Vector3.Normalize(NormalSkill.TargetList[0].CurPos - CurPos);
+                return Vector3.Normalize(NormalSkill.TargetList[0].CurPos - CurPos);
             }
-            return targetForward;
+            return moveForward;
         }
     }
 
-    public ECampType CampType => campType;
     private ECampType campType;
+    public ECampType CampType => campType;
 
     private SoliderCfg soliderCfg;
     public SoliderCfg SoliderCfg => soliderCfg;
@@ -41,11 +40,11 @@ public class UnitLogicBase
 
     public bool IsDead => Prop.Hp <= 0;
 
-    public UnitLogicBase(int id, ECampType campType, Vector3 targetForward)
+    public UnitLogicBase(int id, ECampType campType, Vector3 moveForward)
     {
         stateMachine = new StateMachine(this);
         this.campType = campType;
-        this.targetForward = Vector3.Normalize(targetForward);
+        this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(id);
         initProp();
         initSkills();
@@ -59,32 +58,20 @@ public class UnitLogicBase
 
     public void UnitUpdate(float dt)
     {
+        if (Agenter == null)
+        {
+            Debug.LogError("严重错误当前单位的Agent智能体是空的");
+            return;
+        }
         if (stateMachine != null)
         {
             stateMachine.UpdateState(dt);
         }
-        if (Agenter == null)
-        {
-            Debug.LogError("当前单位的智能体是空的");
-            return;
-        }
-        float agentSpeed = Agenter.saveMaxSpeed;  
-        Agenter.maxSpeed = agentSpeed;     
-        Agenter.prefVelocity = MoveForward;
     }
 
-    // 获取普工攻击范围
-    public float GetNormalAttackRange()
+    public void MoveStop()
     {
-        return normalSkill.SkillRange;
-    }
-
-    public void BeAttack(UnitLogicBase damageFromUnit, int damgeValue)
-    {
-        if(IsDead == false)
-        {
-            prop.ChangeHp(damgeValue);
-        }
+        Agenter.prefVelocity = Vector3.zero;
     }
 
     private void initProp()

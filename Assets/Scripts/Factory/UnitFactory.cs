@@ -1,31 +1,26 @@
 using Nebukam;
 using Nebukam.ORCA;
 using System.Collections.Generic;
-using Unity.Mathematics;
+
 using UnityEngine;
 public static class UnitFactory
 {
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
         int id,
-        float3 bornPoint,
-        float3 targetPoint,
+        Vector3 bornPoint,
+        Vector3 moveForward,
         ECampType campType)
     {
-        float3 forward = targetPoint - bornPoint;
-        forward.y = 0f;
-        forward = math.lengthsq(forward) > 0.0001f
-            ? math.normalize(forward)
-            : new float3(0f, 0f, 1f);
-
-        UnitLogicBase unit = new UnitLogicBase(id, campType, targetPoint);
-        Agent agent = CreateAgent(bornPoint, forward, unit.Prop.Radius, unit.Prop.MaxSpeed);
+        moveForward.y = 0f;
+        UnitLogicBase unit = new UnitLogicBase(id, campType, moveForward);
+        Agent agent = CreateAgent(bornPoint, moveForward, unit.Prop.Radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;
     }
 
     // 创建一个RVO智能体
-    public static Agent CreateAgent(float3 bornPoint, float3 forward, float radius, float maxSpeed)
+    public static Agent CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed)
     {      
         Agent agent = Pool.Rent<Agent>();
         agent.pos = bornPoint;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SkillLogicBase
 {
-    public float SkillRange => SkillCfg.searchRange;
+    public float SkillSearchRange => SkillCfg.searchRange;
 
     private UnitLogicBase unitLogic;
     public UnitLogicBase UnitLogic => unitLogic;
@@ -21,8 +21,8 @@ public class SkillLogicBase
 
     public SkillLogicBase(UnitLogicBase ulb, SkillCfg skillCfg)
     {
-        unitLogic = ulb ?? throw new ArgumentNullException(nameof(ulb));
-        this.skillCfg = skillCfg ?? throw new ArgumentNullException(nameof(skillCfg));
+        unitLogic = ulb;
+        this.skillCfg = skillCfg;
         SkillResetCD();
     }
 
@@ -71,7 +71,9 @@ public class SkillLogicBase
     public List<UnitLogicBase> SkillSearchTarget()
     {
         targetList.Clear();
-        targetList = BattleLogicTools.SearchNotMyCampUnits(UnitLogic.Agenter.pos.x, UnitLogic.Agenter.pos.z, SkillRange, UnitLogic.CampType, true);
+        targetList = BattleLogicTools.SearchNotMyCampUnits(UnitLogic.Agenter.pos.x, UnitLogic.Agenter.pos.z, SkillSearchRange, UnitLogic.CampType, true);
         return targetList;
     }
+
+    
 }
