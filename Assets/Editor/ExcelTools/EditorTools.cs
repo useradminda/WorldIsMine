@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 
 public class EditorTools
 {
-    [MenuItem("µ¼³ö/ÖØĞÂµ¼³öËùÓĞ±í¸ñ")]
+    [MenuItem("å¯¼å‡º/é‡æ–°å¯¼å‡ºæ‰€æœ‰è¡¨æ ¼")]
     public static void Ex()
     {
         ExportExcel.ExportExcelData("", null);
+    }
+
+    [MenuItem("å¯¼å‡º/å¯¼å‡ºæœåŠ¡å™¨é…ç½®")]
+    public static void ExportServerConfig()
+    {
+        ServerConfigExporter.ExportAll();
+        EditorUtility.RevealInFinder(ServerConfigExporter.OutputRootPath);
     }
 }

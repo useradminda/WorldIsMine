@@ -36,6 +36,7 @@ public class ExportExcel
         }
         catch (Exception ex)
         {
+            Debug.LogException(ex);
         }
     }
 
@@ -58,6 +59,7 @@ public class ExportExcel
                 string jsonFilePath = ExportJsonPath + sheetName + ".json";
                 if (File.Exists(jsonFilePath))
                     File.Delete(jsonFilePath);
+
             }
             so.DelSoInfo(excelName);
         }
@@ -158,6 +160,15 @@ public class ExportExcel
     // 导出json
     private static void exportJson(string jsonName, List<object> propNameList, List<object> propTypeList, Dictionary<int, List<object>> valueDic)
     {
+        string json = buildJson(propNameList, propTypeList, valueDic);
+        string filePath = ExportJsonPath + jsonName + ".json";
+        if (File.Exists(filePath))
+            File.Delete(filePath);
+        File.WriteAllText(filePath, json);
+    }
+
+    private static string buildJson(List<object> propNameList, List<object> propTypeList, Dictionary<int, List<object>> valueDic)
+    {
         List<Dictionary<string, object>> jsonDataList = new List<Dictionary<string, object>>();
         for (int i = 0; i < valueDic.Count; i++)
         {
@@ -201,10 +212,6 @@ public class ExportExcel
             jsonDataList.Add(jsonDataDic);
         }
 
-        string json = JsonConvert.SerializeObject(jsonDataList);
-        string filePath = ExportJsonPath + jsonName + ".json";
-        if (File.Exists(filePath))
-            File.Delete(filePath);
-        File.WriteAllText(filePath, json);
+        return JsonConvert.SerializeObject(jsonDataList);
     }
 }

@@ -95,12 +95,6 @@ namespace Tiled2Unity
         }
 #endif
 
-        // In case this behaviour leaks out of an import and into the runtime, complain.
-        private void Update()
-        {
-            Debug.LogError(String.Format("ImportBehaviour {0} left in scene after importing. Check if import was successful and remove this object from scene {1}", this.ImportName, this.gameObject.name));
-        }
-
     }
 }
 #endif // if UNITY_WEBPLAYER

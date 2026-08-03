@@ -22,3 +22,8 @@ MonoBehaviour:
   - ExcelName: FlyObject.xlsx
     SheetNameList:
     - FlyObjectCfg
+  - ExcelName: cfg.xlsx
+    SheetNameList:
+    - cfg_gift
+    - cfg_buff
+    - cfg_equip
