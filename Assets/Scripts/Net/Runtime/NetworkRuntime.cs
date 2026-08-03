@@ -28,6 +28,7 @@ namespace WorldIsMine.Net.Runtime
         [SerializeField] private bool autoMatchAfterBind = false;
         [SerializeField] private int defaultPkDurationSeconds = 300;
         [SerializeField] private bool showPkMatchBanner = true;
+        [SerializeField] private bool showScoreRankPanel = true;
         [Header("Logging")]
         [SerializeField] private bool logPkProtocolDetails = true;
         [SerializeField] private bool logPlayerProtocolDetails = true;
@@ -49,6 +50,7 @@ namespace WorldIsMine.Net.Runtime
             set => logPkProtocolDetails = value;
         }
         public event Action<SessionSnapshot> PkBattleStarted;
+        public event Action<SessionSnapshot> PkBattleUpdated;
         public event Action<SubmitGiftResponse> PkBattleEnded;
         public event Action<SyncCommand> PkSyncReceived;
         public event Action<LivePlayerEnterNotify> PlayerEntered;
@@ -63,6 +65,7 @@ namespace WorldIsMine.Net.Runtime
         public event Action<S2CEquipmentEquipResponse> EquipmentEquipResponseReceived;
         public event Action<S2CEquipmentUnequipResponse> EquipmentUnequipResponseReceived;
         public event Action<S2CEquipmentChangedNotify> EquipmentChanged;
+        public event Action<S2CScoreRankQueryResponse> ScoreRankResponseReceived;
 
         private void Awake()
         {
@@ -77,6 +80,7 @@ namespace WorldIsMine.Net.Runtime
             Client.PacketReceived += packet => LogPacket("S->C", packet);
             Client.Pk.StartResponseReceived += OnPkStartResponse;
             Client.Pk.BattleStarted += OnPkBattleStarted;
+            Client.Pk.BattleUpdated += OnPkBattleUpdated;
             Client.Pk.BattleEnded += OnPkBattleEnded;
             Client.Pk.SyncCommandReceived += OnPkSyncCommand;
             Client.Player.PlayerEntered += OnPlayerEntered;
@@ -91,6 +95,7 @@ namespace WorldIsMine.Net.Runtime
             Client.Equipment.EquipResponseReceived += OnEquipmentEquipResponse;
             Client.Equipment.UnequipResponseReceived += OnEquipmentUnequipResponse;
             Client.Equipment.Changed += OnEquipmentChanged;
+            Client.ScoreRank.ResponseReceived += OnScoreRankResponse;
 
             if (testMode && showRuntimeLogPanel &&
                 GetComponent<RuntimeLogPanel>() == null)
@@ -120,6 +125,14 @@ namespace WorldIsMine.Net.Runtime
                 if (banner == null)
                     banner = gameObject.AddComponent<PkMatchBanner>();
                 banner.Initialize(this);
+            }
+
+            if (showScoreRankPanel)
+            {
+                ScoreRankPanel panel = GetComponent<ScoreRankPanel>();
+                if (panel == null)
+                    panel = gameObject.AddComponent<ScoreRankPanel>();
+                panel.Initialize(this);
             }
         }
 
@@ -286,6 +299,13 @@ namespace WorldIsMine.Net.Runtime
             return Client.Pk.EndAsync(sessionId);
         }
 
+        public Task<long> QueryScoreRankAsync(int limit = 10)
+        {
+            if (!IsAnchorSessionReady)
+                throw new InvalidOperationException("Anchor must be connected and bound before querying score rank.");
+            return Client.ScoreRank.QueryAsync(limit);
+        }
+
         private void OnPkStartResponse(PKStartClientResponse response)
         {
             string sessionId = response.Snapshot?.SessionId ?? string.Empty;
@@ -302,6 +322,16 @@ namespace WorldIsMine.Net.Runtime
                 $"RoomA={snapshot.AnchorA?.RoomId}, RoomB={snapshot.AnchorB?.RoomId}, " +
                 $"Score={snapshot.ScoreA}:{snapshot.ScoreB}");
             PkBattleStarted?.Invoke(snapshot);
+        }
+
+        private void OnPkBattleUpdated(SessionSnapshot snapshot)
+        {
+            PkBattleUpdated?.Invoke(snapshot);
+        }
+
+        private void OnScoreRankResponse(S2CScoreRankQueryResponse response)
+        {
+            ScoreRankResponseReceived?.Invoke(response);
         }
 
         private void OnPkBattleEnded(SubmitGiftResponse response)

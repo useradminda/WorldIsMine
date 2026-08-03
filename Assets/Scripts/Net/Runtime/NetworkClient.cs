@@ -42,6 +42,7 @@ namespace WorldIsMine.Net.Runtime
             Player = new PlayerService(_router, MainThread);
             LiveTest = new LiveTestService(_transport, _router, MainThread);
             Equipment = new EquipmentService(_transport, _router, MainThread);
+            ScoreRank = new ScoreRankService(_transport, _router, MainThread);
             Bind = new BindService(_transport, _router, MainThread, _config.RequestTimeout);
             Pk = new PkService(_transport, _router, MainThread);
             Heartbeat = new HeartbeatService(
@@ -68,6 +69,7 @@ namespace WorldIsMine.Net.Runtime
         public GameConfigService GameConfig { get; }
         public LiveTestService LiveTest { get; }
         public EquipmentService Equipment { get; }
+        public ScoreRankService ScoreRank { get; }
         public BindService Bind { get; }
         public PkService Pk { get; }
         public HeartbeatService Heartbeat { get; }

@@ -23,6 +23,7 @@ message LiveGiftEvent {
   repeated skbz.player.GiftTroopSpawnData troop_spawns = 12;
   // MainServer 从礼物配置解析出的 Buff；只有 PKBattleCore 可以落为运行态。
   repeated GiftCampBuffEffect buff_effects = 13;
+  string avatar = 14;
 }
 
 message RoleFightEvent {
@@ -95,6 +96,9 @@ message GiftSyncPayload {
   repeated skbz.player.GiftTroopSpawnData troop_spawns = 15;
   // 与本次礼物同一 EventId、Sequence 原子下发的 Buff 变化。
   repeated CampBuffChange buff_changes = 16;
+  repeated PlayerScoreRankEntry fight_rank = 17;
+  string platform = 18;
+  string avatar = 19;
 }
 
 message AttackSyncPayload {

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientProtocol";
+
+package xxp.client.v1;
+
+import "pk/pk_common.proto";
+
+message C2SScoreRankQueryRequest {
+  int32 limit = 1;
+}
+
+message S2CScoreRankQueryResponse {
+  bool accepted = 1;
+  string reason = 2;
+  repeated PlayerScoreRankEntry entries = 3;
+  int64 server_time_ms = 4;
+}

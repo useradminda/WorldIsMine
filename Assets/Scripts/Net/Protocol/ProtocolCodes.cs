@@ -2,7 +2,7 @@ using System;
 
 namespace WorldIsMine.Net.Protocol
 {
-    // Values are wire contracts copied from server pro_skbz@63c3219.
+    // Values are wire contracts synchronized from the server working tree based on pro_skbz@c069542.
     public enum RequestCode
     {
         None = 0,
@@ -37,7 +37,9 @@ namespace WorldIsMine.Net.Protocol
         S2CEquipmentEquip = 21207,
         C2SEquipmentUnequip = 21208,
         S2CEquipmentUnequip = 21209,
-        S2CEquipmentChanged = 21210
+        S2CEquipmentChanged = 21210,
+        C2SScoreRankQuery = 21300,
+        S2CScoreRankQuery = 21301
     }
 
     public enum ActionCode

@@ -1,8 +1,8 @@
 ﻿{
     "sourceRepository":  "xxp-server-dy",
     "sourceBranch":  "pro_skbz",
-    "sourceCommit":  "9cb29fefa85b6c173d68371c985c0423103bfbce",
-    "sourceState":  "S2C game config push added from the 2026-08-03 server working tree; unchanged entries retain their recorded hashes",
+    "sourceCommit":  "c0695425858cd0f6bbf526707b307593cc79e8df",
+    "sourceState":  "Score leaderboard protocol synchronized from the 2026-08-03 server working tree; unchanged entries retain their recorded hashes",
     "sourceDirectory":  "FuWuQiDuan/ClientProtocol/Protos",
     "protobufRuntime":  "Google.Protobuf 3.32.0",
     "runtimeDependencies":  {
@@ -12,9 +12,10 @@
     "files":  {
                   "client/client_base.proto":  "AA444C8233283AEFC143BE0FCA94C5D932B8262CED7A7111C4A9D7811A26E23C",
                   "client/game_config.proto":  "B1764AA821E0C6EC86B9DD2C6F1BF30A2B34B4E06DA0CE7E1DAC4AAD0F77C8CF",
+                  "client/score_rank.proto":  "7255523E6952C6B964ED926309F0F7B528E7CA9E3E0DFA9C23E6276A663DE370",
                   "client/pk_client.proto":  "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
-                  "pk/pk_common.proto":  "42594852B49F9AD77D0D9DDFD1122BEDDB1BC30CDF898A0D697D67302E138071",
-                  "pk/pk_events.proto":  "2FE692A0F419C92A63AA3C2E2C50FF20ACE4D74B413E09BB8EA18BB04036A311",
+                  "pk/pk_common.proto":  "BF6C97E141B34C838ADE746887FE9235377FE3668B68B5BD9D1E625758BADC6D",
+                  "pk/pk_events.proto":  "9740DE97E4D5680893AFA3C3475F29722B7EECC3A171186892648DDED9EBE379",
                   "player/player_equipment.proto":  "C77D4322EB245ACAC589466E08A6705C76A943C3AA5F413BBB1FF8E9B85ECD02",
                   "player/player_equipment_api.proto":  "D5ADC9367AB1EB64FC07F75905F98D11A99E897DE3B82D989AF3C81137E532CF",
                   "player/player_troop.proto":  "71B00CECC5EA35F816D701DCC6C450CC7A39B3CE063B5413E644C219ED0B3E5D",

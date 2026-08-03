@@ -51,6 +51,7 @@ namespace WorldIsMine.Net.Services
 
         public event Action<PKStartClientResponse> StartResponseReceived;
         public event Action<SessionSnapshot> BattleStarted;
+        public event Action<SessionSnapshot> BattleUpdated;
         public event Action<SubmitGiftResponse> BattleEnded;
         public event Action<SyncCommand> SyncCommandReceived;
 
@@ -237,7 +238,31 @@ namespace WorldIsMine.Net.Services
 
         private void OnSyncCommand(SyncCommand command, NetPacket packet)
         {
-            _mainThread.Post(() => SyncCommandReceived?.Invoke(command));
+            SessionSnapshot updated = null;
+            lock (_stateGate)
+            {
+                if (_currentSession != null &&
+                    string.Equals(_currentSession.SessionId, command.SessionId, StringComparison.Ordinal))
+                {
+                    _currentSession.ScoreA = command.ScoreA;
+                    _currentSession.ScoreB = command.ScoreB;
+                    _currentSession.Sequence = Math.Max(_currentSession.Sequence, command.Sequence);
+                    _currentSession.Status = command.Status;
+                    if (command.PayloadCase == SyncCommand.PayloadOneofCase.Gift)
+                    {
+                        _currentSession.FightRank.Clear();
+                        _currentSession.FightRank.Add(command.Gift.FightRank);
+                    }
+                    updated = _currentSession.Clone();
+                }
+            }
+
+            _mainThread.Post(() =>
+            {
+                if (updated != null)
+                    BattleUpdated?.Invoke(updated);
+                SyncCommandReceived?.Invoke(command);
+            });
         }
 
         private string RequireBoundRoom()
