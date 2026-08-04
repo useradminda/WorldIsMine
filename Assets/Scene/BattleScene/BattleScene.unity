@@ -4845,6 +4845,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 775067951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &807781913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807781915}
+  - component: {fileID: 807781914}
+  m_Layer: 0
+  m_Name: __temp_tiled2unity_import
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &807781914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807781913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6d7f8492faefe4ca919913c737a425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tiled2Unity.ImportBehaviour
+  ImportName: desert
+--- !u!4 &807781915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807781913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &809244307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11760,7 +11805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1363099614
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13387,6 +13432,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1655034665}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1663191394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1663191396}
+  - component: {fileID: 1663191395}
+  m_Layer: 0
+  m_Name: __temp_tiled2unity_import
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1663191395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663191394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a6d7f8492faefe4ca919913c737a425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tiled2Unity.ImportBehaviour
+  ImportName: isometric_grass_and_water
+--- !u!4 &1663191396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663191394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1682944777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14569,6 +14659,8 @@ MonoBehaviour:
   showRuntimeLogPanel: 1
   autoMatchAfterBind: 1
   defaultPkDurationSeconds: 300
+  showPkMatchBanner: 1
+  showScoreRankPanel: 1
   logPkProtocolDetails: 1
   logPlayerProtocolDetails: 1
   logEquipmentProtocolDetails: 1
@@ -17241,6 +17333,8 @@ Light:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 807781915}
+  - {fileID: 1663191396}
   - {fileID: 1363099616}
   - {fileID: 926934165}
   - {fileID: 87175882}

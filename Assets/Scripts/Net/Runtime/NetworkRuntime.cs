@@ -69,6 +69,8 @@ namespace WorldIsMine.Net.Runtime
 
         private void Awake()
         {
+            EnsureRuntimeUiCamera();
+
             _mainThread = new MainThreadDispatcher();
             Client = new NetworkClient(network, _mainThread);
             Client.Error += exception => Debug.LogException(exception);
@@ -134,6 +136,41 @@ namespace WorldIsMine.Net.Runtime
                     panel = gameObject.AddComponent<ScoreRankPanel>();
                 panel.Initialize(this);
             }
+
+            EnsureRuntimeDebugMenu();
+        }
+
+        private void EnsureRuntimeUiCamera()
+        {
+            if (Camera.allCamerasCount > 0)
+                return;
+
+            var cameraObject = new GameObject("Runtime UI Camera");
+            cameraObject.transform.SetParent(transform, false);
+
+            Camera uiCamera = cameraObject.AddComponent<Camera>();
+            uiCamera.clearFlags = CameraClearFlags.SolidColor;
+            uiCamera.backgroundColor = Color.black;
+            uiCamera.cullingMask = LayerMask.GetMask("UI");
+            uiCamera.orthographic = true;
+        }
+
+        private void EnsureRuntimeDebugMenu()
+        {
+            RuntimeLogPanel logPanel = GetComponent<RuntimeLogPanel>();
+            LiveTestPanel liveTestPanel = GetComponent<LiveTestPanel>();
+            EquipmentGmPanel equipmentPanel = GetComponent<EquipmentGmPanel>();
+            ScoreRankPanel scoreRankPanel = GetComponent<ScoreRankPanel>();
+            if (logPanel == null && liveTestPanel == null &&
+                equipmentPanel == null && scoreRankPanel == null)
+            {
+                return;
+            }
+
+            RuntimeDebugMenu menu = GetComponent<RuntimeDebugMenu>();
+            if (menu == null)
+                menu = gameObject.AddComponent<RuntimeDebugMenu>();
+            menu.Initialize(logPanel, liveTestPanel, equipmentPanel, scoreRankPanel);
         }
 
         private async void Start()
@@ -964,8 +1001,129 @@ namespace WorldIsMine.Net.Runtime
                     GUILayout.Width(width),
                     GUILayout.Height(height)))
             {
-                _collapsed = true;
+                RuntimeDebugMenu menu = GetComponent<RuntimeDebugMenu>();
+                if (menu != null)
+                    menu.ClosePanel(this);
+                else
+                    _collapsed = true;
             }
+        }
+    }
+
+    public sealed class RuntimeDebugMenu : MonoBehaviour
+    {
+        private const float Margin = 20f;
+        private readonly string[] _labels = { "日志", "玩家测试", "装备 GM", "排名" };
+        private CollapsibleRuntimePanel[] _panels = Array.Empty<CollapsibleRuntimePanel>();
+        private RuntimeLogPanel _logPanel;
+        private CollapsibleRuntimePanel _activePanel;
+        private bool _menuOpen;
+        private bool _hidden;
+        private GUIStyle _buttonStyle;
+
+        public void Initialize(
+            RuntimeLogPanel logPanel,
+            LiveTestPanel liveTestPanel,
+            EquipmentGmPanel equipmentPanel,
+            ScoreRankPanel scoreRankPanel)
+        {
+            _logPanel = logPanel;
+            _panels = new CollapsibleRuntimePanel[]
+            {
+                logPanel,
+                liveTestPanel,
+                equipmentPanel,
+                scoreRankPanel
+            };
+            SelectPanel(null);
+        }
+
+        public void ClosePanel(CollapsibleRuntimePanel panel)
+        {
+            if (_activePanel == panel)
+                SelectPanel(null);
+        }
+
+        private void Update()
+        {
+            if (!Input.GetKeyDown(KeyCode.F1))
+                return;
+
+            _hidden = !_hidden;
+            _menuOpen = false;
+            if (_hidden)
+                SelectPanel(null);
+        }
+
+        private void OnGUI()
+        {
+            if (_hidden || _activePanel != null)
+                return;
+
+            EnsureStyles();
+            var launcherRect = new Rect(Margin, Margin, 180f, 48f);
+            if (!_menuOpen)
+            {
+                if (GUI.Button(launcherRect, "调试 ▸  (F1)", _buttonStyle))
+                    _menuOpen = true;
+                return;
+            }
+
+            GUILayout.BeginArea(
+                new Rect(Margin, Margin, 260f, 330f),
+                "调试菜单",
+                GUI.skin.window);
+            GUILayout.Space(16f);
+
+            for (int i = 0; i < _panels.Length; i++)
+            {
+                if (_panels[i] == null)
+                    continue;
+
+                string label = _labels[i];
+                Color previousColor = GUI.contentColor;
+                if (_panels[i] == _logPanel)
+                {
+                    _logPanel.GetCounts(out int totalCount, out int errorCount);
+                    label = $"日志 ({totalCount})  错误 {errorCount}";
+                    if (errorCount > 0)
+                        GUI.contentColor = new Color(1f, 0.35f, 0.35f);
+                }
+
+                if (GUILayout.Button(label, _buttonStyle, GUILayout.Height(42f)))
+                {
+                    _menuOpen = false;
+                    SelectPanel(_panels[i]);
+                }
+                GUI.contentColor = previousColor;
+            }
+
+            if (GUILayout.Button("全部收起", _buttonStyle, GUILayout.Height(42f)))
+                _menuOpen = false;
+            GUILayout.EndArea();
+        }
+
+        private void SelectPanel(CollapsibleRuntimePanel panel)
+        {
+            _activePanel = panel;
+            for (int i = 0; i < _panels.Length; i++)
+            {
+                if (_panels[i] != null)
+                    _panels[i].enabled = _panels[i] == panel;
+            }
+        }
+
+        private void EnsureStyles()
+        {
+            if (_buttonStyle != null)
+                return;
+
+            int fontSize = Mathf.Clamp(Screen.height / 46, 16, 22);
+            _buttonStyle = new GUIStyle(GUI.skin.button)
+            {
+                fontSize = fontSize,
+                alignment = TextAnchor.MiddleLeft
+            };
         }
     }
 
@@ -1132,6 +1290,20 @@ namespace WorldIsMine.Net.Runtime
 
                 _snapshot = _entries.ToArray();
                 _snapshotVersion = _logVersion;
+            }
+        }
+
+        public void GetCounts(out int totalCount, out int errorCount)
+        {
+            lock (_syncRoot)
+            {
+                totalCount = _entries.Count;
+                errorCount = 0;
+                for (int i = 0; i < _entries.Count; i++)
+                {
+                    if (IsError(_entries[i].Type))
+                        errorCount++;
+                }
             }
         }
 
