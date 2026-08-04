@@ -1,11 +1,14 @@
 
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 public class UnitView : IView
 {
     private UnitLogicBase unitLogic;
 
     private ActionFlow actionFlow;
-    
+
+    private EStateTyep curStateType = EStateTyep.None;
+
     public ActionFlow ActionFlowComponent
     {
         get
@@ -28,11 +31,11 @@ public class UnitView : IView
 
     }
 
-    public override void ViewUpdate()
+    public override void ViewUpdate(float dt)
     {
-        updatePos();
-        updateRot();
-        updateState();
+        updatePos(dt);
+        updateRot(dt);
+
     }
 
     public override void ViewDestroy()
@@ -45,47 +48,67 @@ public class UnitView : IView
 
     }
 
-    private void updatePos()
-    {
-        if (unitLogic != null)
-        {
-            transform.position = Vector3.Lerp(transform.position, unitLogic.Agenter.pos, Time.deltaTime * 3);
-        }
-    }
-
-    private void updateRot()
-    {
-        if (unitLogic != null)
-        {
-            Quaternion qua = Quaternion.LookRotation(unitLogic.TargetForward);
-            transform.rotation = Quaternion.Lerp(transform.rotation, qua, Time.deltaTime * 3);
-        }
-    }
-
-    private void updateState()
+    public void EnterState(EStateTyep stateType)
     {
         if (unitLogic != null)
         {
             if (unitLogic.StateMachine.StateDirty)
             {
-                StateBase state = unitLogic.StateMachine.GetCurrentState();
-                if (state != null)
+                if (stateType == EStateTyep.Move)
                 {
-                    if (state.StateType == EStateTyep.Move)
-                    {
-                        ActionFlowComponent.PlayAction(EActionType.run);
-                    }
-                    else if (state.StateType == EStateTyep.Attack)
-                    {
-                        ActionFlowComponent.PlayAction(EActionType.attack);
-                    }
-                    else if (state.StateType == EStateTyep.Die)
-                    {
-                        ActionFlowComponent.PlayAction(EActionType.die);
-                    }
+                    ActionFlowComponent.PlayAction(EActionType.run);
+                }
+                else if (stateType == EStateTyep.Attack)
+                {
+                    ActionFlowComponent.PlayAction(EActionType.attack);
+                }
+                else if (stateType == EStateTyep.Die)
+                {
+                     ActionFlowComponent.PlayAction(EActionType.die);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }
+        }
+    }
+
+    private Vector3 tarPos;
+    private Vector3 transPos;
+    private void updatePos(float dt)
+    {
+        if (unitLogic.Agenter.DirtyPos == true)
+        {
+            tarPos = unitLogic.Agenter.pos;
+            unitLogic.Agenter.DirtyPos = false;
+            transPos = transform.position;
+        }
+        if (tarPos != transPos)
+        {
+            if ((tarPos - transform.position).sqrMagnitude < 0.0004f)
+            {
+                transform.position = tarPos;
+                transPos = transform.position;
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, unitLogic.Agenter.pos, dt * 3);
+                transPos = transform.position;
+            }
+        }
+    }
+    private Quaternion targetQ;
+    private Quaternion transQ;
+    private void updateRot(float dt)
+    {
+        if (unitLogic.DirtyForward == true)
+        {
+            targetQ = Quaternion.LookRotation(unitLogic.TargetForward);
+            unitLogic.DirtyForward = false;
+            transQ = transform.rotation;
+        }
+        if (targetQ != transQ)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, transQ, dt * 3);
+            transQ = transform.rotation;
         }
     }
 }

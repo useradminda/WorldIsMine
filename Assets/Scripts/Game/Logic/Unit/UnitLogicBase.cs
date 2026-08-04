@@ -10,19 +10,30 @@ public class UnitLogicBase
     public UnitProp Prop => prop;
 
     private Vector3 moveForward;
+
+    public bool DirtyForward = true;
+
+    private Vector3 catchForward;
     public Vector3 TargetForward
     {
         get
         {
+            Vector3 finalForward;
             if (NormalSkill.TargetList.Count > 0 && NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
-            {                 
-                if (NormalSkill.TargetList[0].CampType ==  NormalSkill.UnitLogic.CampType)
-                {
-                    Debug.LogError("技能的目标和技能的释放对象是相同阵营");
-                }
-                return Vector3.Normalize(NormalSkill.TargetList[0].CurPos - NormalSkill.UnitLogic.CurPos);
+            {
+                finalForward = Vector3.Normalize(NormalSkill.TargetList[0].CurPos - NormalSkill.UnitLogic.CurPos);
             }
-            return moveForward;
+            else
+            {
+                finalForward = moveForward;
+            }
+            if (catchForward != finalForward)
+            {
+                DirtyForward = true;
+
+                catchForward = finalForward;
+            }
+            return finalForward;
         }
     }
 
@@ -39,6 +50,8 @@ public class UnitLogicBase
 
     private StateMachine stateMachine;
     public StateMachine StateMachine => stateMachine;
+
+    public UnitView UnitView;
 
     public Vector3 CurPos => Agenter.pos;
 
@@ -58,6 +71,12 @@ public class UnitLogicBase
     public void BindAgent(Nebukam.ORCA.Agent agenter)
     {
         this.agenter = agenter;
+    }
+
+    // 绑一个表现
+    public void BindUnitView(UnitView unitView)
+    {
+        this.UnitView = unitView;
     }
 
     public void UnitUpdate(float dt)

@@ -14,6 +14,7 @@ public class AttackState : StateBase
     public override void EnterState(params object[] objects)
     {
         UnitLogic.MoveStop();
+        UnitLogic.UnitView.EnterState(EStateTyep.Attack);
         targetUnit = (UnitLogicBase)objects[0];
         useSkill = (SkillLogicBase)objects[1];
         useSkill.SkillEnter();

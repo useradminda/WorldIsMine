@@ -37,10 +37,20 @@ namespace Nebukam.Common
 
         protected internal float3 m_pos = float3(0f);
 
+        public bool DirtyPos = true;
+        private float3 posCatch = float3(0f);
+
         public float3 pos
         {
             get { return m_pos; }
-            set { m_pos = value; }
+            set { 
+                m_pos = value;
+                if (m_pos.x != posCatch.x || m_pos.y != posCatch.y || m_pos.z != posCatch.z)
+                {
+                    DirtyPos = true;
+                    posCatch = m_pos;
+                }
+            }
         }
         public float2 XY { get { return float2(m_pos.x, m_pos.y); } }
         public float2 XZ { get { return float2(m_pos.x, m_pos.z); } }

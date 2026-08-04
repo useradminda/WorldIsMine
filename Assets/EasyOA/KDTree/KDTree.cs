@@ -37,7 +37,7 @@ namespace AillieoUtils
         private Queue<T> poolAgent = new Queue<T>();
         public void initPool() 
         {
-            for (int i = 0;i<3000;i++)
+            for (int i = 0;i<10000;i++)
             {
                 var a = new T();
                 poolAgent.Enqueue(a);

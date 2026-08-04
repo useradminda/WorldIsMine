@@ -7535,7 +7535,7 @@ PrefabInstance:
     - target: {fileID: 441948892900178479, guid: cf275c5fb48bb1547aaca1fc98c049ba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -9416,7 +9416,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10000
   field of view: 45
   orthographic: 0
   orthographic size: 5
@@ -9442,14 +9442,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363099613}
-  m_LocalRotation: {x: 0.349806, y: -0.6145208, z: 0.349806, w: 0.6145208}
-  m_LocalPosition: {x: 72.7, y: 87, z: 23.7}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 8.8, y: 9000, z: 23.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 59.3, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
 --- !u!1001 &1385408354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10705,7 +10705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1619384198
 Transform:
   m_ObjectHideFlags: 0
@@ -12430,7 +12430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 916e2f27debb4cc4e84c8605b29c4ecf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 916e2f27debb4cc4e84c8605b29c4ecf, type: 3}
       propertyPath: m_StaticEditorFlags

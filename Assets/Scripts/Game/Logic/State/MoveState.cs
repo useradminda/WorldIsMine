@@ -13,7 +13,7 @@ public class MoveState : StateBase
 
     public override void EnterState(params object[] objects)
     {
-
+        UnitLogic.UnitView.EnterState(EStateTyep.Move);
     }
 
     public override void UpdateState(float dt)

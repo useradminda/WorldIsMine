@@ -13,9 +13,9 @@ public abstract class StateBase
     private UnitLogicBase ub;
     public UnitLogicBase UnitLogic => ub;
 
-    public StateBase(UnitLogicBase ub)
+    public StateBase(UnitLogicBase unitLogic)
     {
-        this.ub = ub;
+        this.ub = unitLogic;
     }
 
     public abstract EStateTyep StateType { get; }

@@ -30,7 +30,7 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
     {
         if (mKDTree != null)
         {
-            mKDTree.Rebuild();
+            //mKDTree.Rebuild();
         }
     }
 
