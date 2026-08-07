@@ -64,7 +64,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
 
     // 创建单位
-    public void CreateUnit(int id, ECampType campType, int count)
+    public void CreateUnit(int cfgId, ECampType campType, int count)
     {
         Vector3 forward = BornConfigIns.GetForward(campType);
         Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
@@ -72,7 +72,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         for (int i = 0; i < count; i++)
         {
             Vector3 bornPoint = GetCreatePoint( baseBornPoint, forward, i, count);
-            UnitLogicBase unitLogic = UnitFactory.CreateUnit( id, bornPoint, forward, campType);
+            UnitLogicBase unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType);
             UnitManager.Instance.AddUnit(unitLogic);
             RvoManager.Instance.AddAgent(unitLogic.Agenter);
             KDTreeManager.Instance.AddWaitingKDInfo(unitLogic);

@@ -1,0 +1,198 @@
+
+
+using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Jobs;
+using Unity.Mathematics;
+using UnityEditor.PackageManager.Requests;
+
+public class MapCellManager : IManager
+{
+    NativeArray<UnitData> units;
+    // key:
+    // cell编号
+    //
+    // value:
+    // unit id
+    NativeParallelMultiHashMap<int, int> cellMap;
+    public float cellSize = 10f;
+    public float invCellSize;
+    public int mapWidth = 200;
+
+    int curRequestCount;
+    NativeArray<SearchRequest> requests;
+    // 搜索结果
+    NativeArray<int> resultIndex;
+    NativeArray<int> resultCount;
+    const int MaxSearchRequest = 4096;
+    const int MaxResult = 128;
+    public void Init(int count)
+    {
+
+        invCellSize = 1f / cellSize;
+
+
+        units =
+        new NativeArray<UnitData>(
+            count,
+            Allocator.Persistent);
+
+
+        cellMap =
+        new NativeParallelMultiHashMap<int,int>(
+            count * 2,
+            Allocator.Persistent);
+
+
+        // 每个单位保存找到多少个目标
+        resultCount = new NativeArray<int>(MaxSearchRequest * MaxResult, Allocator.Persistent, NativeArrayOptions.ClearMemory);
+
+
+        // 每个单位最多 MaxResult 个目标
+        resultIndex = new NativeArray<int>( MaxSearchRequest * MaxResult, Allocator.Persistent, NativeArrayOptions.ClearMemory);
+
+        requests = new NativeList<SearchRequest>(MaxSearchRequest, Allocator.Persistent);
+
+    }
+
+    public void UpdateJob()
+    {
+        cellMap.Clear();
+
+        JobHandle buildHandle =
+         new BuildCellJob
+         {
+             units = units,
+             writer = cellMap.AsParallelWriter(),
+             invCellSize = invCellSize,
+             mapWidth = mapWidth
+         }
+         .Schedule(units.Length, 64);
+
+        buildHandle.Complete();
+    }
+
+   
+
+
+    public int RequestSearch(int unitIndex, float radius)
+    {
+        int id = curRequestCount;
+        requests[id] = new SearchRequest
+        {
+            UnitIndex = unitIndex,
+            Radius = radius,
+        };
+
+        curRequestCount++;
+
+        return id;
+    }
+
+    // 执行搜索
+    public void ExecuteSearch()
+    {
+        if (curRequestCount == 0)
+            return;
+
+        JobHandle handle =
+            new SearchJob
+            {
+                requests = requests,
+
+
+                units = units,
+
+                cellMap = cellMap,
+
+                resultIndex = resultIndex,
+
+                resultCount = resultCount,
+
+                maxResult = MaxResult,
+
+                invCellSize = invCellSize,
+
+                mapWidth = mapWidth
+            }
+            .Schedule(curRequestCount, 64);
+
+        handle.Complete();
+
+        curRequestCount = 0;
+    }
+
+    public void GetResult(
+    int requestId,
+    List<int> list)
+    {
+        int count =
+            resultCount[requestId];
+
+        int offset =
+            requestId * MaxResult;
+
+        for (int i = 0; i < count; i++)
+        {
+            list.Add(
+                resultIndex[offset + i]);
+        }
+    }
+
+
+
+    public void ManagerInit()
+    {
+      
+    }
+
+    public void ManagerUpdate(float dt)
+    {
+        UpdateJob();
+    }
+
+    public void ManagerLateUpdate(float dt)
+    {
+      
+    }
+
+    public void ManagerRefuse()
+    {
+      
+    }
+
+    public void ManagerDestroy()
+    {
+      
+    }
+
+    private void dispose()
+    {
+        units.Dispose();
+
+        cellMap.Dispose();
+        requests.Dispose();
+        resultIndex.Dispose();
+        resultCount.Dispose();
+    }
+}
+
+public struct UnitData
+{
+    public int id;
+
+    public float3 Position;
+
+    public float3 CatchPosition;
+
+    public int CellId;
+}
+
+public struct SearchRequest
+{
+    // 谁搜索
+    public int UnitIndex;
+
+    // 搜索半径
+    public float Radius;
+}

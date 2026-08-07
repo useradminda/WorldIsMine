@@ -57,12 +57,16 @@ public class UnitLogicBase
 
     public bool IsDead => Prop.Hp <= 0;
 
-    public UnitLogicBase(int id, ECampType campType, Vector3 moveForward)
+    private int unitId;
+    public int UnitID => unitId;
+
+    public UnitLogicBase(int cfgId, int unitId, ECampType campType, Vector3 moveForward)
     {
+        this.unitId = unitId;
         stateMachine = new StateMachine(this);
         this.campType = campType;
         this.moveForward = Vector3.Normalize(moveForward);
-        soliderCfg = SoliderCfgConfig.Ins.SearchById(id);
+        soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
     }

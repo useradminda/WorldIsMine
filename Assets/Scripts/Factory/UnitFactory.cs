@@ -5,15 +5,18 @@ using System.Collections.Generic;
 using UnityEngine;
 public static class UnitFactory
 {
+    private static int blueUnitId = 0;
+    private static int redUnitId = 0;
+
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
-        int id,
+        int cfgId,
         Vector3 bornPoint,
         Vector3 moveForward,
         ECampType campType)
     {
         moveForward.y = 0f;
-        UnitLogicBase unit = new UnitLogicBase(id, campType, moveForward);
+        UnitLogicBase unit = new UnitLogicBase(cfgId, getId(campType), campType, moveForward);
         Agent agent = CreateAgent(bornPoint, moveForward, unit.Prop.Radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;
@@ -52,5 +55,14 @@ public static class UnitFactory
         flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, skillLogic);
         FlyObjectManager.Instance.AddUnit(flyObjectLogic);
         return flyObjectLogic;
+    }
+
+    private static int getId(ECampType campType)
+    {
+        if(campType == ECampType.Red)
+        {
+            return ++redUnitId;
+        }
+        return ++blueUnitId;
     }
 }
