@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option csharp_namespace = "PlayerProtocol";
+
+package skbz.player;
+
+import "player/player_troop.proto";
+
+message C2STroopQueryRequest {
+  uint64 player_id = 1;
+}
+
+message S2CTroopQueryResponse {
+  bool accepted = 1;
+  string reason = 2;
+  uint64 player_id = 3;
+  uint64 module_version = 4;
+  TroopModuleData module = 5;
+}
+
+// 客户端只提交升级意图，等级和消耗由服务端配置与事务决定。
+message C2STroopUpgradeRequest {
+  string operation_id = 1;
+  uint64 player_id = 2;
+  uint32 troop_id = 3;
+}
+
+message S2CTroopUpgradeResponse {
+  bool accepted = 1;
+  bool duplicate = 2;
+  string reason = 3;
+  string operation_id = 4;
+  uint64 player_id = 5;
+  uint64 module_version = 6;
+  TroopData troop = 7;
+  int64 cost = 8;
+  string currency_code = 9;
+  int64 currency_balance = 10;
+}

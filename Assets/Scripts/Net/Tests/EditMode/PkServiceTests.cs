@@ -82,12 +82,21 @@ namespace WorldIsMine.Net.Tests
                 RequestCode.S2CPkStart,
                 ActionCode.None,
                 1,
-                new PKStartClientResponse { Accepted = true, Reason = "match_queued" }.ToByteArray())));
+                new PKStartClientResponse
+                {
+                    Accepted = true,
+                    Reason = "match_success",
+                    Snapshot = new SessionSnapshot
+                    {
+                        SessionId = "pk-session-1",
+                        Sequence = 0
+                    }
+                }.ToByteArray())));
             Assert.IsTrue(router.Dispatch(new NetPacket(
                 RequestCode.S2CPkEnd,
                 ActionCode.None,
                 2,
-                new SubmitGiftResponse { Accepted = true, SessionId = "pk-session-1" }.ToByteArray())));
+                new SubmitGiftResponse { Accepted = false, SessionId = "pk-session-1" }.ToByteArray())));
             var giftSync = new GiftSyncPayload
             {
                 PlayerId = 42,
@@ -140,6 +149,165 @@ namespace WorldIsMine.Net.Tests
             Assert.AreEqual((uint)3, sync.Gift.TroopSpawns[0].TroopLevel);
             Assert.AreEqual(1, sync.Gift.BuffChanges.Count);
             Assert.AreEqual(PKCampBuffChangeType.Applied, sync.Gift.BuffChanges[0].ChangeType);
+        }
+
+        [Test]
+        public void Router_DispatchesPkCommandAckOnMainThread()
+        {
+            using var transport = new TcpTransport();
+            var router = new MessageRouter();
+            var mainThread = new MainThreadDispatcher();
+            var service = new PkService(transport, router, mainThread);
+            PKCommandAck received = null;
+            service.CommandAckReceived += value => received = value;
+
+            Assert.AreEqual(20006, (int)RequestCode.S2CPkCommandAck);
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CPkCommandAck,
+                ActionCode.None,
+                4,
+                new PKCommandAck
+                {
+                    EventId = "fight-event-1",
+                    SessionId = "pk-session-1",
+                    CommandType = PKClientCommandType.RoleFight,
+                    Accepted = true,
+                    Duplicate = true,
+                    ServerTimeMs = 123456
+                }.ToByteArray())));
+
+            Assert.IsNull(received);
+            Assert.AreEqual(1, mainThread.Drain());
+            Assert.AreEqual("fight-event-1", received.EventId);
+            Assert.IsTrue(received.Accepted);
+            Assert.IsTrue(received.Duplicate);
+        }
+        [Test]
+        public void RecoveryArrivingBeforeBindContinuationIsAppliedAfterIdentity()
+        {
+            using var transport = new TcpTransport();
+            var router = new MessageRouter();
+            var mainThread = new MainThreadDispatcher();
+            var service = new PkService(transport, router, mainThread);
+            SessionSnapshot recovered = null;
+            service.BattleStarted += snapshot => recovered = snapshot;
+
+            Assert.IsTrue(router.Dispatch(new NetPacket(
+                RequestCode.S2CPkStart,
+                ActionCode.None,
+                5,
+                new PKStartClientResponse
+                {
+                    Accepted = true,
+                    Reason = "reconnect_recovered",
+                    Snapshot = new SessionSnapshot
+                    {
+                        SessionId = "pk-recovered",
+                        Sequence = 42,
+                        AnchorA = new PKAnchorInfo { AnchorId = "anchor-a", RoomId = "room-a" },
+                        AnchorB = new PKAnchorInfo { AnchorId = "anchor-b", RoomId = "room-b" }
+                    }
+                }.ToByteArray())));
+
+            Assert.IsNull(service.CurrentSession, "recovery must wait until Bind identity is installed");
+            SetIdentity(service, "anchor-a", "room-a");
+            Assert.AreEqual("pk-recovered", service.CurrentSession.SessionId);
+            Assert.AreEqual(42, service.CurrentSession.Sequence);
+            Assert.AreEqual(1, mainThread.Drain());
+            Assert.AreEqual("pk-recovered", recovered.SessionId);
+        }
+
+        [Test]
+        public void NoPkRecoveryClearsStaleSessionAndRaisesBattleCleared()
+        {
+            using var transport = new TcpTransport();
+            var router = new MessageRouter();
+            var mainThread = new MainThreadDispatcher();
+            var service = new PkService(transport, router, mainThread);
+            SetIdentity(service, "anchor-a", "room-a");
+            string clearReason = null;
+            service.BattleCleared += reason => clearReason = reason;
+
+            router.Dispatch(new NetPacket(
+                RequestCode.S2CPkStart,
+                ActionCode.None,
+                6,
+                new PKStartClientResponse
+                {
+                    Accepted = true,
+                    Reason = "reconnect_recovered",
+                    Snapshot = new SessionSnapshot
+                    {
+                        SessionId = "pk-old",
+                        Sequence = 10,
+                        AnchorA = new PKAnchorInfo { AnchorId = "anchor-a", RoomId = "room-a" },
+                        AnchorB = new PKAnchorInfo { AnchorId = "anchor-b", RoomId = "room-b" }
+                    }
+                }.ToByteArray()));
+            mainThread.Drain();
+            Assert.IsNotNull(service.CurrentSession);
+
+            router.Dispatch(new NetPacket(
+                RequestCode.S2CPkStart,
+                ActionCode.None,
+                7,
+                new PKStartClientResponse { Accepted = false, Reason = "room_not_in_pk" }.ToByteArray()));
+
+            Assert.IsNull(service.CurrentSession);
+            Assert.AreEqual(1, mainThread.Drain());
+            Assert.AreEqual("room_not_in_pk", clearReason);
+        }
+
+        [Test]
+        public void SyncDropsStaleSequenceAndDifferentSession()
+        {
+            using var transport = new TcpTransport();
+            var router = new MessageRouter();
+            var mainThread = new MainThreadDispatcher();
+            var service = new PkService(transport, router, mainThread);
+            SetIdentity(service, "anchor-a", "room-a");
+            router.Dispatch(new NetPacket(
+                RequestCode.S2CPkStart,
+                ActionCode.None,
+                8,
+                new PKStartClientResponse
+                {
+                    Accepted = true,
+                    Reason = "reconnect_recovered",
+                    Snapshot = new SessionSnapshot
+                    {
+                        SessionId = "pk-current",
+                        Sequence = 10,
+                        AnchorA = new PKAnchorInfo { AnchorId = "anchor-a", RoomId = "room-a" },
+                        AnchorB = new PKAnchorInfo { AnchorId = "anchor-b", RoomId = "room-b" }
+                    }
+                }.ToByteArray()));
+            mainThread.Drain();
+            int syncCount = 0;
+            service.SyncCommandReceived += _ => syncCount++;
+
+            router.Dispatch(new NetPacket(
+                RequestCode.S2CPkSync,
+                ActionCode.None,
+                9,
+                new SyncCommand { SessionId = "pk-current", Sequence = 10 }.ToByteArray()));
+            router.Dispatch(new NetPacket(
+                RequestCode.S2CPkSync,
+                ActionCode.None,
+                10,
+                new SyncCommand { SessionId = "pk-old", Sequence = 11 }.ToByteArray()));
+
+            Assert.AreEqual(0, mainThread.Drain());
+            Assert.AreEqual(0, syncCount);
+            Assert.AreEqual(10, service.CurrentSession.Sequence);
+        }
+
+        private static void SetIdentity(PkService service, string anchorId, string roomId)
+        {
+            typeof(PkService)
+                .GetMethod("SetIdentity", System.Reflection.BindingFlags.Instance |
+                                          System.Reflection.BindingFlags.NonPublic)
+                .Invoke(service, new object[] { anchorId, roomId });
         }
     }
 

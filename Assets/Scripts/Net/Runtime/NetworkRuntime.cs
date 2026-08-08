@@ -23,6 +23,7 @@ namespace WorldIsMine.Net.Runtime
         [SerializeField] private bool connectOnStart = false;
         [SerializeField] private bool showLiveTestPanel = true;
         [SerializeField] private bool showEquipmentGmPanel = true;
+        [SerializeField] private bool showTroopGrowthPanel = true;
         [SerializeField] private bool showRuntimeLogPanel = true;
         [Header("PK")]
         [SerializeField] private bool autoMatchAfterBind = false;
@@ -33,6 +34,7 @@ namespace WorldIsMine.Net.Runtime
         [SerializeField] private bool logPkProtocolDetails = true;
         [SerializeField] private bool logPlayerProtocolDetails = true;
         [SerializeField] private bool logEquipmentProtocolDetails = true;
+        [SerializeField] private bool logTroopGrowthProtocolDetails = true;
 
         private MainThreadDispatcher _mainThread;
 
@@ -52,7 +54,9 @@ namespace WorldIsMine.Net.Runtime
         public event Action<SessionSnapshot> PkBattleStarted;
         public event Action<SessionSnapshot> PkBattleUpdated;
         public event Action<SubmitGiftResponse> PkBattleEnded;
+        public event Action<string> PkBattleCleared;
         public event Action<SyncCommand> PkSyncReceived;
+        public event Action<PKCommandAck> PkCommandAckReceived;
         public event Action<LivePlayerEnterNotify> PlayerEntered;
         public event Action<LivePlayerLeaveNotify> PlayerLeft;
         public event Action<LivePlayerCampSelectedNotify> PlayerCampSelected;
@@ -65,6 +69,8 @@ namespace WorldIsMine.Net.Runtime
         public event Action<S2CEquipmentEquipResponse> EquipmentEquipResponseReceived;
         public event Action<S2CEquipmentUnequipResponse> EquipmentUnequipResponseReceived;
         public event Action<S2CEquipmentChangedNotify> EquipmentChanged;
+        public event Action<S2CTroopQueryResponse> TroopQueryResponseReceived;
+        public event Action<S2CTroopUpgradeResponse> TroopUpgradeResponseReceived;
         public event Action<S2CScoreRankQueryResponse> ScoreRankResponseReceived;
 
         private void Awake()
@@ -74,6 +80,7 @@ namespace WorldIsMine.Net.Runtime
             _mainThread = new MainThreadDispatcher();
             Client = new NetworkClient(network, _mainThread);
             Client.Error += exception => Debug.LogException(exception);
+            Client.SessionReplaced += OnSessionReplaced;
             Client.TransportStateChanged +=
                 state => Debug.Log($"[Net][State] Transport: {state}");
             Client.BindStarted += options => Debug.Log(
@@ -84,7 +91,9 @@ namespace WorldIsMine.Net.Runtime
             Client.Pk.BattleStarted += OnPkBattleStarted;
             Client.Pk.BattleUpdated += OnPkBattleUpdated;
             Client.Pk.BattleEnded += OnPkBattleEnded;
+            Client.Pk.BattleCleared += OnPkBattleCleared;
             Client.Pk.SyncCommandReceived += OnPkSyncCommand;
+            Client.Pk.CommandAckReceived += OnPkCommandAck;
             Client.Player.PlayerEntered += OnPlayerEntered;
             Client.Player.PlayerLeft += OnPlayerLeft;
             Client.Player.PlayerCampSelected += OnPlayerCampSelected;
@@ -97,6 +106,8 @@ namespace WorldIsMine.Net.Runtime
             Client.Equipment.EquipResponseReceived += OnEquipmentEquipResponse;
             Client.Equipment.UnequipResponseReceived += OnEquipmentUnequipResponse;
             Client.Equipment.Changed += OnEquipmentChanged;
+            Client.TroopGrowth.QueryResponseReceived += OnTroopQueryResponse;
+            Client.TroopGrowth.UpgradeResponseReceived += OnTroopUpgradeResponse;
             Client.ScoreRank.ResponseReceived += OnScoreRankResponse;
 
             if (testMode && showRuntimeLogPanel &&
@@ -118,6 +129,14 @@ namespace WorldIsMine.Net.Runtime
                 EquipmentGmPanel panel = GetComponent<EquipmentGmPanel>();
                 if (panel == null)
                     panel = gameObject.AddComponent<EquipmentGmPanel>();
+                panel.Initialize(this);
+            }
+
+            if (testMode && showTroopGrowthPanel)
+            {
+                TroopGrowthPanel panel = GetComponent<TroopGrowthPanel>();
+                if (panel == null)
+                    panel = gameObject.AddComponent<TroopGrowthPanel>();
                 panel.Initialize(this);
             }
 
@@ -160,9 +179,10 @@ namespace WorldIsMine.Net.Runtime
             RuntimeLogPanel logPanel = GetComponent<RuntimeLogPanel>();
             LiveTestPanel liveTestPanel = GetComponent<LiveTestPanel>();
             EquipmentGmPanel equipmentPanel = GetComponent<EquipmentGmPanel>();
+            TroopGrowthPanel troopGrowthPanel = GetComponent<TroopGrowthPanel>();
             ScoreRankPanel scoreRankPanel = GetComponent<ScoreRankPanel>();
             if (logPanel == null && liveTestPanel == null &&
-                equipmentPanel == null && scoreRankPanel == null)
+                equipmentPanel == null && troopGrowthPanel == null && scoreRankPanel == null)
             {
                 return;
             }
@@ -170,7 +190,12 @@ namespace WorldIsMine.Net.Runtime
             RuntimeDebugMenu menu = GetComponent<RuntimeDebugMenu>();
             if (menu == null)
                 menu = gameObject.AddComponent<RuntimeDebugMenu>();
-            menu.Initialize(logPanel, liveTestPanel, equipmentPanel, scoreRankPanel);
+            menu.Initialize(
+                logPanel,
+                liveTestPanel,
+                equipmentPanel,
+                troopGrowthPanel,
+                scoreRankPanel);
         }
 
         private async void Start()
@@ -218,13 +243,22 @@ namespace WorldIsMine.Net.Runtime
             string anchorId,
             string roomId)
         {
-            return StartAnchorSessionAsync(anchorId, anchorId, roomId);
+            return StartAnchorSessionAsync(anchorId, anchorId, roomId, string.Empty);
+        }
+
+        public Task<AnchorSessionStartResult> StartAnchorSessionAsync(
+            string anchorId,
+            string anchorName,
+            string roomId)
+        {
+            return StartAnchorSessionAsync(anchorId, anchorName, roomId, string.Empty);
         }
 
         public async Task<AnchorSessionStartResult> StartAnchorSessionAsync(
             string anchorId,
             string anchorName,
-            string roomId)
+            string roomId,
+            string authTicket)
         {
             try
             {
@@ -237,7 +271,8 @@ namespace WorldIsMine.Net.Runtime
                     AnchorId = anchorId,
                     AnchorName = string.IsNullOrWhiteSpace(anchorName) ? anchorId : anchorName,
                     Platform = "dy",
-                    RoomId = roomId
+                    RoomId = roomId,
+                    AuthTicket = authTicket ?? string.Empty
                 };
 
                 Debug.Log($"[Net][C->S] Connecting to {network.Host}:{network.Port}.");
@@ -352,6 +387,16 @@ namespace WorldIsMine.Net.Runtime
                 $"Reason={response.Reason}, SessionId={sessionId}");
         }
 
+        private void OnSessionReplaced(ClientBindResponse response)
+        {
+            LastStartResult = new AnchorSessionStartResult(response);
+            GetComponent<PkMatchBanner>()?.Clear();
+            Debug.LogError(
+                $"[Net][Auth] Session replaced by a newer login. " +
+                $"AnchorId={response.AnchorId}, RoomId={response.RoomId}, " +
+                $"Reason={response.Reason}");
+        }
+
         private void OnPkBattleStarted(SessionSnapshot snapshot)
         {
             Debug.Log(
@@ -377,6 +422,22 @@ namespace WorldIsMine.Net.Runtime
                 $"[Net][Flow] PK battle ended. Accepted={response.Accepted}, " +
                 $"Reason={response.Reason}, SessionId={response.SessionId}");
             PkBattleEnded?.Invoke(response);
+        }
+
+        private void OnPkBattleCleared(string reason)
+        {
+            Debug.Log($"[Net][Flow] PK authoritative state cleared. Reason={reason}");
+            PkBattleCleared?.Invoke(reason);
+        }
+
+        private void OnPkCommandAck(PKCommandAck ack)
+        {
+            LogPkDetail(
+                "S->C",
+                $"Command ACK. Type={ack.CommandType}, EventId={ack.EventId}, " +
+                $"SessionId={ack.SessionId}, Accepted={ack.Accepted}, " +
+                $"Duplicate={ack.Duplicate}, ErrorCode={ack.ErrorCode}");
+            PkCommandAckReceived?.Invoke(ack);
         }
 
         private void OnPkSyncCommand(SyncCommand command)
@@ -549,6 +610,23 @@ namespace WorldIsMine.Net.Runtime
                 equipmentUid);
         }
 
+        public Task<long> QueryTroopsAsync(ulong playerId)
+        {
+            EnsureTroopGrowthReady();
+            Debug.Log($"[Net][C->S][Troop] Query PlayerId={playerId}");
+            return Client.TroopGrowth.QueryAsync(playerId);
+        }
+
+        public Task<long> UpgradeTroopAsync(ulong playerId, uint troopId)
+        {
+            EnsureTroopGrowthReady();
+            string operationId = CreateOperationId();
+            Debug.Log(
+                $"[Net][C->S][Troop] Upgrade PlayerId={playerId}, " +
+                $"TroopId={troopId}, OperationId={operationId}");
+            return Client.TroopGrowth.UpgradeAsync(operationId, playerId, troopId);
+        }
+
         private void OnGameConfigUpdated(ClientGameConfigSnapshot config)
         {
             Debug.Log(
@@ -694,6 +772,25 @@ namespace WorldIsMine.Net.Runtime
             EquipmentChanged?.Invoke(notify);
         }
 
+        private void OnTroopQueryResponse(S2CTroopQueryResponse response)
+        {
+            LogTroopGrowthDetail(
+                $"Query Accepted={response.Accepted}, Reason={response.Reason}, " +
+                $"PlayerId={response.PlayerId}, Version={response.ModuleVersion}, " +
+                $"Payload={response}");
+            TroopQueryResponseReceived?.Invoke(response);
+        }
+
+        private void OnTroopUpgradeResponse(S2CTroopUpgradeResponse response)
+        {
+            LogTroopGrowthDetail(
+                $"Upgrade Accepted={response.Accepted}, Duplicate={response.Duplicate}, " +
+                $"Reason={response.Reason}, PlayerId={response.PlayerId}, " +
+                $"Version={response.ModuleVersion}, OperationId={response.OperationId}, " +
+                $"Payload={response}");
+            TroopUpgradeResponseReceived?.Invoke(response);
+        }
+
         private Task<long> SendLiveTestAsync(LiveClientTestRequest request)
         {
             if (!testMode)
@@ -730,10 +827,26 @@ namespace WorldIsMine.Net.Runtime
             }
         }
 
+        private void EnsureTroopGrowthReady()
+        {
+            if (!testMode)
+                throw new InvalidOperationException("Troop growth panel requires TestMode.");
+            if (Client == null)
+                throw new InvalidOperationException("Network client is not initialized.");
+            if (!IsAnchorSessionReady)
+                throw new InvalidOperationException("请先连接并绑定主播。");
+        }
+
         private void LogEquipmentDetail(string message)
         {
             if (logEquipmentProtocolDetails)
                 Debug.Log($"[Net][S->C][Equipment] {message}");
+        }
+
+        private void LogTroopGrowthDetail(string message)
+        {
+            if (logTroopGrowthProtocolDetails)
+                Debug.Log($"[Net][S->C][Troop] {message}");
         }
 
         private static string CreateOperationId()
@@ -791,7 +904,8 @@ namespace WorldIsMine.Net.Runtime
             return packet.RequestCode == RequestCode.C2SPkSession ||
                    packet.RequestCode == RequestCode.S2CPkStart ||
                    packet.RequestCode == RequestCode.S2CPkEnd ||
-                   packet.RequestCode == RequestCode.S2CPkSync;
+                   packet.RequestCode == RequestCode.S2CPkSync ||
+                   packet.RequestCode == RequestCode.S2CPkCommandAck;
         }
 
         private static IMessage ParsePkMessage(NetPacket packet, out string operation)
@@ -825,6 +939,10 @@ namespace WorldIsMine.Net.Runtime
                 case RequestCode.S2CPkSync:
                     operation = "Sync";
                     return SyncCommand.Parser.ParseFrom(packet.Body);
+
+                case RequestCode.S2CPkCommandAck:
+                    operation = "CommandAck";
+                    return PKCommandAck.Parser.ParseFrom(packet.Body);
 
                 default:
                     throw new InvalidOperationException(
@@ -878,6 +996,7 @@ namespace WorldIsMine.Net.Runtime
 
             _runtime.PkBattleStarted += OnBattleStarted;
             _runtime.PkBattleEnded += OnBattleEnded;
+            _runtime.PkBattleCleared += OnBattleCleared;
             _snapshot = _runtime.Client?.Pk.CurrentSession;
         }
 
@@ -909,6 +1028,11 @@ namespace WorldIsMine.Net.Runtime
         {
             if (response?.Accepted == true)
                 _snapshot = null;
+        }
+
+        private void OnBattleCleared(string reason)
+        {
+            _snapshot = null;
         }
 
         private void OnDestroy()
@@ -954,6 +1078,7 @@ namespace WorldIsMine.Net.Runtime
 
             _runtime.PkBattleStarted -= OnBattleStarted;
             _runtime.PkBattleEnded -= OnBattleEnded;
+            _runtime.PkBattleCleared -= OnBattleCleared;
             _runtime = null;
         }
 
@@ -1013,7 +1138,7 @@ namespace WorldIsMine.Net.Runtime
     public sealed class RuntimeDebugMenu : MonoBehaviour
     {
         private const float Margin = 20f;
-        private readonly string[] _labels = { "日志", "玩家测试", "装备 GM", "排名" };
+        private readonly string[] _labels = { "日志", "玩家测试", "装备 GM", "兵种成长", "排名" };
         private CollapsibleRuntimePanel[] _panels = Array.Empty<CollapsibleRuntimePanel>();
         private RuntimeLogPanel _logPanel;
         private CollapsibleRuntimePanel _activePanel;
@@ -1025,6 +1150,7 @@ namespace WorldIsMine.Net.Runtime
             RuntimeLogPanel logPanel,
             LiveTestPanel liveTestPanel,
             EquipmentGmPanel equipmentPanel,
+            TroopGrowthPanel troopGrowthPanel,
             ScoreRankPanel scoreRankPanel)
         {
             _logPanel = logPanel;
@@ -1033,6 +1159,7 @@ namespace WorldIsMine.Net.Runtime
                 logPanel,
                 liveTestPanel,
                 equipmentPanel,
+                troopGrowthPanel,
                 scoreRankPanel
             };
             SelectPanel(null);

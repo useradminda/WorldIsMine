@@ -49,7 +49,8 @@ namespace WorldIsMine.Net.Services
                 AnchorId = options.AnchorId,
                 AnchorName = options.AnchorName ?? string.Empty,
                 Platform = options.Platform ?? string.Empty,
-                RoomId = options.RoomId
+                RoomId = options.RoomId,
+                AuthTicket = options.AuthTicket ?? string.Empty
             };
 
             TaskCompletionSource<ClientBindResponse> pending = _response.Begin();

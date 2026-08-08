@@ -9,6 +9,7 @@ namespace WorldIsMine.Net.Services
         public string AnchorName = string.Empty;
         public string Platform = "dy";
         public string RoomId = string.Empty;
+        public string AuthTicket = string.Empty;
 
         public void Validate()
         {

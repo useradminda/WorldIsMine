@@ -38,6 +38,23 @@ message RoleFightEvent {
   int64 event_time_ms = 9;
 }
 
+enum PKClientCommandType {
+  PK_CLIENT_COMMAND_TYPE_UNSPECIFIED = 0;
+  PK_CLIENT_COMMAND_TYPE_GIFT = 1;
+  PK_CLIENT_COMMAND_TYPE_ROLE_FIGHT = 2;
+}
+
+// 客户端状态变更命令的独立确认。error_code 只允许稳定机器码。
+message PKCommandAck {
+  string event_id = 1;
+  string session_id = 2;
+  PKClientCommandType command_type = 3;
+  bool accepted = 4;
+  bool duplicate = 5;
+  string error_code = 6;
+  int64 server_time_ms = 7;
+}
+
 message SubmitGiftResponse {
   string session_id = 1;
   bool accepted = 2;

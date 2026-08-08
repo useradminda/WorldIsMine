@@ -32,6 +32,7 @@ namespace WorldIsMine.Net.Runtime
             _runtime.PkBattleStarted += OnFightStarted;
             _runtime.PkBattleUpdated += OnFightChanged;
             _runtime.PkBattleEnded += OnFightEnded;
+            _runtime.PkBattleCleared += OnFightCleared;
             _runtime.ScoreRankResponseReceived += OnTotalRank;
             _fight = _runtime.Client?.Pk.CurrentSession;
         }
@@ -133,6 +134,11 @@ namespace WorldIsMine.Net.Runtime
                 _fight = null;
         }
 
+        private void OnFightCleared(string reason)
+        {
+            _fight = null;
+        }
+
         private void OnTotalRank(S2CScoreRankQueryResponse response)
         {
             _total = response?.Clone();
@@ -172,6 +178,7 @@ namespace WorldIsMine.Net.Runtime
             _runtime.PkBattleStarted -= OnFightStarted;
             _runtime.PkBattleUpdated -= OnFightChanged;
             _runtime.PkBattleEnded -= OnFightEnded;
+            _runtime.PkBattleCleared -= OnFightCleared;
             _runtime.ScoreRankResponseReceived -= OnTotalRank;
             _runtime = null;
         }

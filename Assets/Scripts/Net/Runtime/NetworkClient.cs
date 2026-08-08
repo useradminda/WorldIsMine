@@ -42,8 +42,10 @@ namespace WorldIsMine.Net.Runtime
             Player = new PlayerService(_router, MainThread);
             LiveTest = new LiveTestService(_transport, _router, MainThread);
             Equipment = new EquipmentService(_transport, _router, MainThread);
+            TroopGrowth = new TroopGrowthService(_transport, _router, MainThread);
             ScoreRank = new ScoreRankService(_transport, _router, MainThread);
             Bind = new BindService(_transport, _router, MainThread, _config.RequestTimeout);
+            Bind.BindCompleted += OnBindCompleted;
             Pk = new PkService(_transport, _router, MainThread);
             Heartbeat = new HeartbeatService(
                 _transport,
@@ -63,12 +65,14 @@ namespace WorldIsMine.Net.Runtime
         public event Action<NetPacket> PacketReceived;
         public event Action<NetPacket> UnhandledPacket;
         public event Action<Exception> Error;
+        public event Action<ClientBindResponse> SessionReplaced;
 
         public MainThreadDispatcher MainThread { get; }
         public PlayerService Player { get; }
         public GameConfigService GameConfig { get; }
         public LiveTestService LiveTest { get; }
         public EquipmentService Equipment { get; }
+        public TroopGrowthService TroopGrowth { get; }
         public ScoreRankService ScoreRank { get; }
         public BindService Bind { get; }
         public PkService Pk { get; }
@@ -154,6 +158,19 @@ namespace WorldIsMine.Net.Runtime
             MainThread.Post(() => Error?.Invoke(exception));
         }
 
+        private void OnBindCompleted(ClientBindResponse response)
+        {
+            if (response == null || response.Accepted ||
+                !string.Equals(response.Reason, "session_replaced", StringComparison.Ordinal))
+            {
+                return;
+            }
+
+            Heartbeat.Stop();
+            Pk.Reset();
+            SessionReplaced?.Invoke(response);
+        }
+
         private void ThrowIfDisposed()
         {
             if (_disposed)
@@ -166,6 +183,7 @@ namespace WorldIsMine.Net.Runtime
                 return;
 
             Heartbeat.Dispose();
+            Bind.BindCompleted -= OnBindCompleted;
             _transport.Dispose();
             _disposed = true;
         }

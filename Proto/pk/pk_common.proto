@@ -73,6 +73,9 @@ message SessionSnapshot {
   repeated CampBuffState active_buffs = 10;
   // 本场 PK 的玩家送礼积分 Top 10，两个房间共享同一份快照。
   repeated PlayerScoreRankEntry fight_rank = 11;
+  // 当前公共 Boss 血量；重连必须以快照覆盖客户端本地值。
+  int64 boss_max_hp = 12;
+  int64 boss_hp = 13;
 }
 
 message PlayerScoreRankEntry {

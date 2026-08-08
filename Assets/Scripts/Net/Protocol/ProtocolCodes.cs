@@ -20,6 +20,7 @@ namespace WorldIsMine.Net.Protocol
         S2CPkEnd = 20003,
         C2SClientDebug = 20004,
         S2CClientDebug = 20005,
+        S2CPkCommandAck = 20006,
         S2CPlayerEnter = 21000,
         S2CPlayerLeave = 21001,
         S2CPlayerCampSelected = 21002,
@@ -39,7 +40,11 @@ namespace WorldIsMine.Net.Protocol
         S2CEquipmentUnequip = 21209,
         S2CEquipmentChanged = 21210,
         C2SScoreRankQuery = 21300,
-        S2CScoreRankQuery = 21301
+        S2CScoreRankQuery = 21301,
+        C2STroopQuery = 21400,
+        S2CTroopQuery = 21401,
+        C2STroopUpgrade = 21402,
+        S2CTroopUpgrade = 21403
     }
 
     public enum ActionCode

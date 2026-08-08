@@ -20,6 +20,7 @@ namespace WorldIsMine.Net.Services
         private string _anchorId = string.Empty;
         private string _roomId = string.Empty;
         private SessionSnapshot _currentSession;
+        private PKStartClientResponse _pendingRecovery;
         private bool _waitingForMatch;
 
         public PkService(
@@ -47,13 +48,20 @@ namespace WorldIsMine.Net.Services
                 ActionCode.None,
                 SyncCommand.Parser,
                 OnSyncCommand);
+            router.Register(
+                RequestCode.S2CPkCommandAck,
+                ActionCode.None,
+                PKCommandAck.Parser,
+                OnCommandAck);
         }
 
         public event Action<PKStartClientResponse> StartResponseReceived;
         public event Action<SessionSnapshot> BattleStarted;
         public event Action<SessionSnapshot> BattleUpdated;
         public event Action<SubmitGiftResponse> BattleEnded;
+        public event Action<string> BattleCleared;
         public event Action<SyncCommand> SyncCommandReceived;
+        public event Action<PKCommandAck> CommandAckReceived;
 
         public bool WaitingForMatch
         {
@@ -171,29 +179,59 @@ namespace WorldIsMine.Net.Services
 
         internal void SetIdentity(string anchorId, string roomId)
         {
+            PKStartClientResponse pendingRecovery;
             lock (_stateGate)
             {
                 _anchorId = anchorId ?? string.Empty;
                 _roomId = roomId ?? string.Empty;
                 _currentSession = null;
                 _waitingForMatch = false;
+                pendingRecovery = _pendingRecovery;
+                _pendingRecovery = null;
             }
+
+            if (pendingRecovery != null)
+                ApplyStartResponse(pendingRecovery);
         }
 
         internal void Reset()
         {
+            bool hadAuthoritativeState;
             lock (_stateGate)
             {
+                hadAuthoritativeState = _currentSession != null || _pendingRecovery != null;
                 _anchorId = string.Empty;
                 _roomId = string.Empty;
                 _currentSession = null;
+                _pendingRecovery = null;
                 _waitingForMatch = false;
             }
+
+            if (hadAuthoritativeState)
+                _mainThread.Post(() => BattleCleared?.Invoke("disconnected"));
         }
 
         private void OnStartResponse(PKStartClientResponse response, NetPacket packet)
         {
+            if (IsRecoveryResponse(response))
+            {
+                lock (_stateGate)
+                {
+                    if (string.IsNullOrWhiteSpace(_roomId))
+                    {
+                        _pendingRecovery = response.Clone();
+                        return;
+                    }
+                }
+            }
+
+            ApplyStartResponse(response);
+        }
+
+        private void ApplyStartResponse(PKStartClientResponse response)
+        {
             SessionSnapshot startedSession = null;
+            string clearReason = null;
             lock (_stateGate)
             {
                 if (response.Accepted && response.Snapshot != null)
@@ -211,6 +249,11 @@ namespace WorldIsMine.Net.Services
                 else
                 {
                     _waitingForMatch = false;
+                    if (string.Equals(response.Reason, "room_not_in_pk", StringComparison.Ordinal))
+                    {
+                        _currentSession = null;
+                        clearReason = response.Reason;
+                    }
                 }
             }
 
@@ -219,6 +262,8 @@ namespace WorldIsMine.Net.Services
                 StartResponseReceived?.Invoke(response);
                 if (startedSession != null)
                     BattleStarted?.Invoke(startedSession);
+                if (clearReason != null)
+                    BattleCleared?.Invoke(clearReason);
             });
         }
 
@@ -242,7 +287,8 @@ namespace WorldIsMine.Net.Services
             lock (_stateGate)
             {
                 if (_currentSession != null &&
-                    string.Equals(_currentSession.SessionId, command.SessionId, StringComparison.Ordinal))
+                    string.Equals(_currentSession.SessionId, command.SessionId, StringComparison.Ordinal) &&
+                    command.Sequence > _currentSession.Sequence)
                 {
                     _currentSession.ScoreA = command.ScoreA;
                     _currentSession.ScoreB = command.ScoreB;
@@ -257,13 +303,25 @@ namespace WorldIsMine.Net.Services
                 }
             }
 
+            if (updated == null)
+                return;
+
             _mainThread.Post(() =>
             {
-                if (updated != null)
-                    BattleUpdated?.Invoke(updated);
+                BattleUpdated?.Invoke(updated);
                 SyncCommandReceived?.Invoke(command);
             });
         }
+
+        private void OnCommandAck(PKCommandAck ack, NetPacket packet)
+        {
+            _mainThread.Post(() => CommandAckReceived?.Invoke(ack));
+        }
+
+        private static bool IsRecoveryResponse(PKStartClientResponse response) =>
+            string.Equals(response?.Reason, "reconnect_recovered", StringComparison.Ordinal) ||
+            string.Equals(response?.Reason, "room_not_in_pk", StringComparison.Ordinal) ||
+            string.Equals(response?.Reason, "server_unavailable", StringComparison.Ordinal);
 
         private string RequireBoundRoom()
         {

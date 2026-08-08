@@ -1,8 +1,8 @@
-﻿{
+{
     "sourceRepository":  "xxp-server-dy",
     "sourceBranch":  "pro_skbz",
-    "sourceCommit":  "c0695425858cd0f6bbf526707b307593cc79e8df",
-    "sourceState":  "Score leaderboard protocol synchronized from the 2026-08-03 server working tree; unchanged entries retain their recorded hashes",
+    "sourceCommit":  "a3bc6fbd4f7a77ae9d43ca814dbe16c5cca07685",
+    "sourceState":  "PK reconnect, troop growth, and Bind authentication protocols synchronized from the 2026-08-06 server working tree; unchanged entries retain their recorded hashes",
     "sourceDirectory":  "FuWuQiDuan/ClientProtocol/Protos",
     "protobufRuntime":  "Google.Protobuf 3.32.0",
     "runtimeDependencies":  {
@@ -10,15 +10,16 @@
                             },
     "generator":  "Grpc.Tools/protoc 2.71.0",
     "files":  {
-                  "client/client_base.proto":  "AA444C8233283AEFC143BE0FCA94C5D932B8262CED7A7111C4A9D7811A26E23C",
+                  "client/client_base.proto":  "5749FAB5B340BE0BE7B55D47AD313092C98ED74420BE9B861EED3F7ADB46B7E4",
                   "client/game_config.proto":  "B1764AA821E0C6EC86B9DD2C6F1BF30A2B34B4E06DA0CE7E1DAC4AAD0F77C8CF",
                   "client/score_rank.proto":  "7255523E6952C6B964ED926309F0F7B528E7CA9E3E0DFA9C23E6276A663DE370",
                   "client/pk_client.proto":  "14A10EE4879C88274545A8EA74CF670D72791F871A4F6A99F624D50A013FB2F1",
-                  "pk/pk_common.proto":  "BF6C97E141B34C838ADE746887FE9235377FE3668B68B5BD9D1E625758BADC6D",
-                  "pk/pk_events.proto":  "9740DE97E4D5680893AFA3C3475F29722B7EECC3A171186892648DDED9EBE379",
+                  "pk/pk_common.proto":  "CE2453E858884ED4B4A85BC311DA27EDC76CCB04C25BD03C6252039C5FF286DF",
+                  "pk/pk_events.proto":  "1A5DEE09D6C5F8F0BB143D8409B644B156E05A536B4A7BB0737E83844247E32F",
                   "player/player_equipment.proto":  "C77D4322EB245ACAC589466E08A6705C76A943C3AA5F413BBB1FF8E9B85ECD02",
                   "player/player_equipment_api.proto":  "D5ADC9367AB1EB64FC07F75905F98D11A99E897DE3B82D989AF3C81137E532CF",
                   "player/player_troop.proto":  "71B00CECC5EA35F816D701DCC6C450CC7A39B3CE063B5413E644C219ED0B3E5D",
-                  "player/player_modules.proto":  "4C278E57C0FFCA7997171ED7E741EAD2F8732AA79C4E35D14E9D8A4264FE3AA8"
+                  "player/player_modules.proto":  "4C278E57C0FFCA7997171ED7E741EAD2F8732AA79C4E35D14E9D8A4264FE3AA8",
+                  "player/player_troop_api.proto":  "AAE1C458C2C73B0D7187339A9FDE18E1EA1818F18E4F4EAC125D8350CB13F4D8"
               }
 }
