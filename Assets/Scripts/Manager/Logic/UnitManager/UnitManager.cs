@@ -33,9 +33,15 @@ public class UnitManager : Singleton<UnitManager>, IManager
     }
 
     // 增加一个Unit
-    public UnitLogicBase AddUnit(UnitLogicBase agent)
+    public UnitLogicBase AddUnit(UnitLogicBase unit)
     {
-        UnitList.Add(agent);
-        return agent;
+        UnitList.Add(unit);
+        return unit;
+    }
+
+    public UnitLogicBase AddUnitImmediately(UnitLogicBase unit)
+    {
+        UnitList.AddCurrent(unit);
+        return unit;
     }
 }

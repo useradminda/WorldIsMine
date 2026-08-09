@@ -38,7 +38,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
         FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
-        KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
+        MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
+       // KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
 
@@ -52,7 +53,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
         FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
-        KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        MapCellManager.Instance.ExecuteSearch();
+       // KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }
@@ -72,14 +75,16 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         for (int i = 0; i < count; i++)
         {
             Vector3 bornPoint = GetCreatePoint( baseBornPoint, forward, i, count);
-            UnitLogicBase unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType);
-            UnitManager.Instance.AddUnit(unitLogic);
-            RvoManager.Instance.AddAgent(unitLogic.Agenter);
-            KDTreeManager.Instance.AddWaitingKDInfo(unitLogic);
+            UnitLogicBase unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType, UnitManager.Instance.UnitList.Count);
+            UnitManager.Instance.AddUnitImmediately(unitLogic);
+            RvoManager.Instance.AddAgentImmediately(unitLogic.Agenter);
+            //KDTreeManager.Instance.AddKDInfoImmediately(unitLogic);
 
             UnitView unityView = UnitViewFactory.CreateUnitView(unitLogic.SoliderCfg.prefab, bornPoint, forward, unitLogic);
-            UnitViewManager.Instance.AddUnitView(unityView);
+            UnitViewManager.Instance.AddUnitView(unityView, true);
+            unitLogic.BindUnitView(unityView);
         }
+        MapCellManager.Instance.Init(count);
     }
 
     // 获取创建位置点
@@ -112,9 +117,11 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         } 
 
         UnitManager.Instance.ManagerInit();
-        KDTreeManager.Instance.ManagerInit();
-
+        //KDTreeManager.Instance.ManagerInit();
+       
         RvoManager.Instance.ManagerInit();
+
+       
         if (ObstacleConfigIns == null)
         {
             Debug.LogError("没有边界障碍信息");

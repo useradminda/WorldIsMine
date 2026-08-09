@@ -1,12 +1,12 @@
 
 
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
-using UnityEditor.PackageManager.Requests;
-
-public class MapCellManager : IManager
+using ZTools;
+public class MapCellManager : Singleton<MapCellManager>, IManager
 {
     NativeArray<UnitData> units;
     // key:
@@ -24,8 +24,10 @@ public class MapCellManager : IManager
     // 搜索结果
     NativeArray<int> resultIndex;
     NativeArray<int> resultCount;
-    const int MaxSearchRequest = 4096;
+    const int MaxSearchRequest = 8192;
     const int MaxResult = 128;
+
+    private bool initState = false;
     public void Init(int count)
     {
 
@@ -40,45 +42,36 @@ public class MapCellManager : IManager
 
         cellMap =
         new NativeParallelMultiHashMap<int,int>(
-            count * 2,
+            count * 4,
             Allocator.Persistent);
 
 
         // 每个单位保存找到多少个目标
-        resultCount = new NativeArray<int>(MaxSearchRequest * MaxResult, Allocator.Persistent, NativeArrayOptions.ClearMemory);
+        resultCount = new NativeArray<int>(MaxSearchRequest, Allocator.Persistent, NativeArrayOptions.ClearMemory);
 
 
         // 每个单位最多 MaxResult 个目标
-        resultIndex = new NativeArray<int>( MaxSearchRequest * MaxResult, Allocator.Persistent, NativeArrayOptions.ClearMemory);
+        resultIndex = new NativeArray<int>(MaxSearchRequest * MaxResult, Allocator.Persistent, NativeArrayOptions.ClearMemory);
 
-        requests = new NativeList<SearchRequest>(MaxSearchRequest, Allocator.Persistent);
+        requests = new NativeArray<SearchRequest>(MaxSearchRequest, Allocator.Persistent, NativeArrayOptions.ClearMemory);
 
+        initState = true;
     }
-
-    public void UpdateJob()
-    {
-        cellMap.Clear();
-
-        JobHandle buildHandle =
-         new BuildCellJob
-         {
-             units = units,
-             writer = cellMap.AsParallelWriter(),
-             invCellSize = invCellSize,
-             mapWidth = mapWidth
-         }
-         .Schedule(units.Length, 64);
-
-        buildHandle.Complete();
-    }
-
-   
-
 
     public int RequestSearch(int unitIndex, float radius)
     {
-        int id = curRequestCount;
-        requests[id] = new SearchRequest
+        if (initState == false)
+        {
+            return -1;
+        }
+        if (curRequestCount >= MaxSearchRequest)
+            return -1;
+
+        if (unitIndex < 0 || unitIndex >= units.Length)
+            return -1;
+
+        int reqId = curRequestCount;
+        requests[reqId] = new SearchRequest
         {
             UnitIndex = unitIndex,
             Radius = radius,
@@ -86,15 +79,21 @@ public class MapCellManager : IManager
 
         curRequestCount++;
 
-        return id;
+        return reqId;
     }
 
     // 执行搜索
     public void ExecuteSearch()
     {
-        if (curRequestCount == 0)
+
+        if (initState == false)
+        {
+            return;
+        }
+        if (curRequestCount <= 0)
             return;
 
+        int requsetCount = curRequestCount;
         JobHandle handle =
             new SearchJob
             {
@@ -115,27 +114,22 @@ public class MapCellManager : IManager
 
                 mapWidth = mapWidth
             }
-            .Schedule(curRequestCount, 64);
+            .Schedule(requsetCount, 64);
 
         handle.Complete();
 
         curRequestCount = 0;
     }
 
-    public void GetResult(
-    int requestId,
-    List<int> list)
+    public void GetResult(int requestId, List<int> list)
     {
-        int count =
-            resultCount[requestId];
+        int count = resultCount[requestId];
 
-        int offset =
-            requestId * MaxResult;
+        int offset = requestId * MaxResult;
 
         for (int i = 0; i < count; i++)
         {
-            list.Add(
-                resultIndex[offset + i]);
+            list.Add(resultIndex[offset + i]);
         }
     }
 
@@ -148,7 +142,7 @@ public class MapCellManager : IManager
 
     public void ManagerUpdate(float dt)
     {
-        UpdateJob();
+        updateJob();
     }
 
     public void ManagerLateUpdate(float dt)
@@ -163,8 +157,38 @@ public class MapCellManager : IManager
 
     public void ManagerDestroy()
     {
-      
+        dispose();
     }
+
+    private void updateJob()
+    {
+        if (initState == false)
+        {
+            return;
+        }
+        cellMap.Clear();
+
+        for (int i = 0; i < UnitManager.Instance.UnitList.Count; i++)
+        {
+            UnitData unitData = units[i];
+            unitData.Position = UnitManager.Instance.UnitList[i].CurPos;
+            unitData.UnitIndex = i;
+            units[i] = unitData;
+        }
+
+        JobHandle buildHandle =
+         new BuildCellJob
+         {
+             units = units,
+             writer = cellMap.AsParallelWriter(),
+             invCellSize = invCellSize,
+             mapWidth = mapWidth
+         }
+         .Schedule(units.Length, 64);
+
+        buildHandle.Complete();
+    }
+
 
     private void dispose()
     {
@@ -179,7 +203,7 @@ public class MapCellManager : IManager
 
 public struct UnitData
 {
-    public int id;
+    public int UnitIndex;
 
     public float3 Position;
 

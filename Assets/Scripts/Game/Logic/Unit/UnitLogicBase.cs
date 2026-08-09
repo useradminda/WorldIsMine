@@ -60,9 +60,13 @@ public class UnitLogicBase
     private int unitId;
     public int UnitID => unitId;
 
-    public UnitLogicBase(int cfgId, int unitId, ECampType campType, Vector3 moveForward)
+    private int index;
+    public int Index => index;
+
+    public UnitLogicBase(int cfgId, int unitId, ECampType campType, Vector3 moveForward, int index)
     {
         this.unitId = unitId;
+        this.index = index;
         stateMachine = new StateMachine(this);
         this.campType = campType;
         this.moveForward = Vector3.Normalize(moveForward);

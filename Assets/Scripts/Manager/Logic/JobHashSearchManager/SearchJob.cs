@@ -16,12 +16,14 @@ public struct SearchJob : IJobParallelFor
 
 
     [WriteOnly]
+    [NativeDisableParallelForRestriction]
     public NativeArray<int> resultIndex;
 
     [WriteOnly]
+    [NativeDisableParallelForRestriction]
     public NativeArray<int> resultCount;
 
-    [WriteOnly]
+    [ReadOnly]
     public NativeArray<SearchRequest> requests;
 
     //public int curRequestCount;
@@ -48,17 +50,11 @@ public struct SearchJob : IJobParallelFor
         float radiusSq = req.Radius * req.Radius;
 
 
-        int cx = (int)math.floor(
-            me.Position.x * invCellSize);
+        int cx = (int)math.floor(me.Position.x * invCellSize);
 
+        int cz = (int)math.floor(me.Position.z * invCellSize);
 
-        int cz = (int)math.floor(
-            me.Position.z * invCellSize);
-
-
-
-        int range = (int)math.ceil(
-             req.Radius * invCellSize);
+        int range = (int)math.ceil(req.Radius * invCellSize);
 
 
         for (int z = -range; z <= range; z++)
@@ -70,13 +66,11 @@ public struct SearchJob : IJobParallelFor
                 int cellZ = cz + z;
 
 
-                if (cellX < 0 ||
-                   cellX >= mapWidth)
+                if (cellX < 0 || cellX >= mapWidth)
                     continue;
 
 
-                int cell =
-                    cellZ * mapWidth + cellX;
+                int cell = cellZ * mapWidth + cellX;
 
                 NativeParallelMultiHashMapIterator<int> it;
 
@@ -90,7 +84,7 @@ public struct SearchJob : IJobParallelFor
                     do
                     {
 
-                        if (other == index)
+                        if (other == req.UnitIndex)
                             continue;
 
 

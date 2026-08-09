@@ -32,8 +32,14 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
 
     }
 
-    public void AddUnitView(UnitView unitView)
+    public void AddUnitView(UnitView unitView, bool immediately)
     {
+        if ( immediately)
+        {
+            UnitList.AddCurrent(unitView);
+            return;
+        }
         UnitList.Add(unitView);
     }
+
 }

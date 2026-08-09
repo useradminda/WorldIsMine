@@ -13,10 +13,10 @@ public static class UnitFactory
         int cfgId,
         Vector3 bornPoint,
         Vector3 moveForward,
-        ECampType campType)
+        ECampType campType, int index)
     {
         moveForward.y = 0f;
-        UnitLogicBase unit = new UnitLogicBase(cfgId, getId(campType), campType, moveForward);
+        UnitLogicBase unit = new UnitLogicBase(cfgId, getId(campType), campType, moveForward, index);
         Agent agent = CreateAgent(bornPoint, moveForward, unit.Prop.Radius, unit.Prop.MaxSpeed);
         unit.BindAgent(agent);
         return unit;

@@ -59,4 +59,11 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
         kdInfo.SetUnit(unit);
         KDInfoList.Add(kdInfo);
     }
+
+    public void AddKDInfoImmediately(UnitLogicBase unit)
+    {
+        KDInfo kdInfo = mKDTree.applyAgent();
+        kdInfo.SetUnit(unit);
+        KDInfoList.AddCurrent(kdInfo);
+    }
 }

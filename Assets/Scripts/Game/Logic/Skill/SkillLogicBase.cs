@@ -72,9 +72,12 @@ public class SkillLogicBase
         SkillResetCD();    
     }
 
-    public List<UnitLogicBase> SkillSearchTarget()
+    private int searchReqId = -1;
+    List<int> resultUnitIndexList = new List<int>();
+    public void SkillSearchTarget()
     {
         targetList.Clear();
+        searchReqId = MapCellManager.Instance.RequestSearch(unitLogic.Index, SkillSearchRange);
         //targetList.AddRange(BattleLogicTools.SearchNotMyCampUnits(UnitLogic.CurPos.x, UnitLogic.CurPos.z, SkillSearchRange, UnitLogic.CampType, false));
         //targetList.Sort((UnitLogicBase a, UnitLogicBase b) =>
         //{
@@ -87,8 +90,27 @@ public class SkillLogicBase
         //        return 1;
         //    }
         //});
+        //return targetList;
+    }
+
+    public List<UnitLogicBase> GetSkillSearchTargetResult()
+    {
+        targetList.Clear();
+        if (searchReqId < 0)
+            return targetList;
+        
+        resultUnitIndexList.Clear();
+        MapCellManager.Instance.GetResult(searchReqId, resultUnitIndexList);
+       
+        if (resultUnitIndexList.Count > 0)
+        {
+            int index = resultUnitIndexList[0];
+            targetList.Add(UnitManager.Instance.UnitList[index]);
+        }
         return targetList;
     }
+
+
 
     
 }

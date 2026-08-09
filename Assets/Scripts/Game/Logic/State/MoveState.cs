@@ -19,19 +19,38 @@ public class MoveState : StateBase
     public override void UpdateState(float dt)
     {
         searchTargetUnits();
+        getTargetUnits();
         updateMove();
+
     }
+
 
     public override void ExitState()
     {
         
     }
 
+    private List<UnitLogicBase> targetUnits = new List<UnitLogicBase>();
     private void searchTargetUnits()
     {
         SkillLogicBase normalSkill = UnitLogic.NormalSkill;
-        List<UnitLogicBase> targetUnits = normalSkill.SkillSearchTarget();
-        if (targetUnits != null && targetUnits.Count > 0)
+        normalSkill.SkillSearchTarget();
+        //if (targetUnits != null && targetUnits.Count > 0)
+        //{
+        //    UnitLogicBase ulb = targetUnits[0];
+        //    float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
+        //    if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
+        //    {
+        //        UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
+        //    }
+        //}
+    }
+
+    private void getTargetUnits()
+    {
+        targetUnits.Clear();
+        targetUnits.AddRange(UnitLogic.NormalSkill.GetSkillSearchTargetResult());
+        if (targetUnits.Count > 0)
         {
             UnitLogicBase ulb = targetUnits[0];
             float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;

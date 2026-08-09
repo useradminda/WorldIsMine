@@ -36,6 +36,12 @@ public class WaitListTemplate<T>
         return data;
     }
 
+    public T AddCurrent(T data)
+    {
+        dataList.Add(data);
+        return data;
+    }
+
     public T Remove(T data)
     {
         waitingRemoveList.Add(data);
