@@ -33,7 +33,6 @@ public struct SearchJob : IJobParallelFor
 
     public float invCellSize;
 
-    public int mapWidth;
 
     public void Execute(int index)
     {
@@ -63,8 +62,6 @@ public struct SearchJob : IJobParallelFor
 
         for (int z = -range; z <= range; z++)
         {
-            
-
             for (int x = -range; x <= range; x++)
             {
                 int cellX = cx + x;

@@ -9,15 +9,9 @@ using ZTools;
 public class MapCellManager : Singleton<MapCellManager>, IManager
 {
     NativeArray<UnitData> units;
-    // key:
-    // cell编号
-    //
-    // value:
-    // unit id
     NativeParallelMultiHashMap<long, int> cellMap;
     public float cellSize = 10f;
     public float invCellSize;
-    public int mapWidth = 100;
 
     int curRequestCount;
     NativeArray<SearchRequest> requests;
@@ -26,7 +20,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> resultCount;
 
     NativeArray<int> nearResultIndex;
-    const int MaxSearchRequest = 10000;
+    const int MaxSearchRequest = 5000;
     const int MaxResult = 128;
 
     private bool initState = false;
@@ -117,7 +111,6 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
                 invCellSize = invCellSize,
 
-                mapWidth = mapWidth
             }
             .Schedule(requsetCount, 64);
 
@@ -188,8 +181,6 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
              units = units,
              writer = cellMap.AsParallelWriter(),
              invCellSize = invCellSize,
-             //mapWidth = mapWidth,
-            // cellSize = cellSize,
          }
          .Schedule(units.Length, 64);
 
