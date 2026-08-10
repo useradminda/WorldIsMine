@@ -9,32 +9,30 @@ using Unity.Mathematics;
 public struct BuildCellJob : IJobParallelFor
 {
 
+    [ReadOnly]
     public NativeArray<UnitData> units;
 
-    public NativeParallelMultiHashMap<int, int>.ParallelWriter writer;
+    public NativeParallelMultiHashMap<long, int>.ParallelWriter writer;
 
     public float invCellSize;
 
-    public int mapWidth;
-
-    public int ExecuteCellID(float3 pos)
+    public static long GetCellKey(int x, int z)
     {
-        int x = (int)math.floor(pos.x * invCellSize);
-        int z = (int)math.floor(pos.z * invCellSize);
-
-        return z * mapWidth + x;
+        return ((long)x << 32) | (uint)z;
     }
 
     public void Execute(int index)
     {
         UnitData unit = units[index];
 
-        int cellId = ExecuteCellID(unit.Position);
+        int x = (int)math.floor(
+            unit.Position.x * invCellSize);
 
-        unit.CellId = cellId;
+        int z = (int)math.floor(
+            unit.Position.z * invCellSize);
 
-        units[index] = unit;
+        long cellKey = GetCellKey(x, z);
 
-        writer.Add(cellId, index);
+        writer.Add(cellKey, index);
     }
 }

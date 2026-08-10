@@ -14,7 +14,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     //
     // value:
     // unit id
-    NativeParallelMultiHashMap<int, int> cellMap;
+    NativeParallelMultiHashMap<long, int> cellMap;
     public float cellSize = 10f;
     public float invCellSize;
     public int mapWidth = 100;
@@ -43,7 +43,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
 
         cellMap =
-        new NativeParallelMultiHashMap<int,int>(
+        new NativeParallelMultiHashMap<long,int>(
             count * 5,
             Allocator.Persistent);
 
@@ -188,7 +188,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
              units = units,
              writer = cellMap.AsParallelWriter(),
              invCellSize = invCellSize,
-             mapWidth = mapWidth,
+             //mapWidth = mapWidth,
             // cellSize = cellSize,
          }
          .Schedule(units.Length, 64);

@@ -12,7 +12,7 @@ public struct SearchJob : IJobParallelFor
     public NativeArray<UnitData> units;
 
     [ReadOnly]
-    public NativeParallelMultiHashMap<int, int> cellMap;
+    public NativeParallelMultiHashMap<long, int> cellMap;
 
     [WriteOnly]
     [NativeDisableParallelForRestriction]
@@ -47,14 +47,12 @@ public struct SearchJob : IJobParallelFor
 
         float radiusSq = req.Radius * req.Radius;
 
-        // 当前单位所在 Cell
         int cx = (int)math.floor(
             me.Position.x * invCellSize);
 
         int cz = (int)math.floor(
             me.Position.z * invCellSize);
 
-        // 搜索多少圈 Cell
         int range = (int)math.ceil(
             req.Radius * invCellSize);
 
@@ -65,33 +63,23 @@ public struct SearchJob : IJobParallelFor
 
         for (int z = -range; z <= range; z++)
         {
-            int cellZ = cz + z;
-
-            if (cellZ < 0)
-                continue;
-
-            if (cellZ >= mapWidth)
-                continue;
+            
 
             for (int x = -range; x <= range; x++)
             {
                 int cellX = cx + x;
+                int cellZ = cz + z;
 
-                if (cellX < 0)
-                    continue;
+                long cellKey =
+                    ((long)cellX << 32) |
+                    (uint)cellZ;
 
-                if (cellX >= mapWidth)
-                    continue;
-
-                int cellId =
-                    cellZ * mapWidth + cellX;
-
-                NativeParallelMultiHashMapIterator<int> iterator;
+                NativeParallelMultiHashMapIterator<long> iterator;
 
                 int other;
 
                 if (!cellMap.TryGetFirstValue(
-                    cellId,
+                    cellKey,
                     out other,
                     out iterator))
                 {
