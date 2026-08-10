@@ -17,14 +17,16 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeParallelMultiHashMap<int, int> cellMap;
     public float cellSize = 10f;
     public float invCellSize;
-    public int mapWidth = 200;
+    public int mapWidth = 100;
 
     int curRequestCount;
     NativeArray<SearchRequest> requests;
     // 搜索结果
     NativeArray<int> resultIndex;
     NativeArray<int> resultCount;
-    const int MaxSearchRequest = 8192;
+
+    NativeArray<int> nearResultIndex;
+    const int MaxSearchRequest = 10000;
     const int MaxResult = 128;
 
     private bool initState = false;
@@ -42,13 +44,14 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
         cellMap =
         new NativeParallelMultiHashMap<int,int>(
-            count * 4,
+            count * 5,
             Allocator.Persistent);
 
 
         // 每个单位保存找到多少个目标
         resultCount = new NativeArray<int>(MaxSearchRequest, Allocator.Persistent, NativeArrayOptions.ClearMemory);
 
+        nearResultIndex = new NativeArray<int>(MaxSearchRequest, Allocator.Persistent, NativeArrayOptions.ClearMemory);
 
         // 每个单位最多 MaxResult 个目标
         resultIndex = new NativeArray<int>(MaxSearchRequest * MaxResult, Allocator.Persistent, NativeArrayOptions.ClearMemory);
@@ -108,6 +111,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
                 resultCount = resultCount,
 
+                nearResultIndex = nearResultIndex,
+
                 maxResult = MaxResult,
 
                 invCellSize = invCellSize,
@@ -121,7 +126,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         curRequestCount = 0;
     }
 
-    public void GetResult(int requestId, List<int> list)
+    public void GetResult(int requestId, List<int> list,ref int neastIndex)
     {
         int count = resultCount[requestId];
 
@@ -131,6 +136,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         {
             list.Add(resultIndex[offset + i]);
         }
+        neastIndex = nearResultIndex[requestId];
     }
 
 
@@ -182,7 +188,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
              units = units,
              writer = cellMap.AsParallelWriter(),
              invCellSize = invCellSize,
-             mapWidth = mapWidth
+             mapWidth = mapWidth,
+            // cellSize = cellSize,
          }
          .Schedule(units.Length, 64);
 

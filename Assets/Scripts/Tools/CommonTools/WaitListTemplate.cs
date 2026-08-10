@@ -39,6 +39,7 @@ public class WaitListTemplate<T>
     public T AddCurrent(T data)
     {
         dataList.Add(data);
+        AddCallBack?.Invoke(data);
         return data;
     }
 

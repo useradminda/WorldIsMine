@@ -8,7 +8,7 @@ using Unity.Mathematics;
 [BurstCompile]
 public struct BuildCellJob : IJobParallelFor
 {
-    [ReadOnly]
+
     public NativeArray<UnitData> units;
 
     public NativeParallelMultiHashMap<int, int>.ParallelWriter writer;
@@ -28,8 +28,13 @@ public struct BuildCellJob : IJobParallelFor
     public void Execute(int index)
     {
         UnitData unit = units[index];
-        int cellId = ExecuteCellID(index);
+
+        int cellId = ExecuteCellID(unit.Position);
+
         unit.CellId = cellId;
+
+        units[index] = unit;
+
         writer.Add(cellId, index);
     }
 }

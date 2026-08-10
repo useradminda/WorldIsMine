@@ -39,7 +39,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
-       // KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
+        //KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
 
@@ -55,7 +55,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
         MapCellManager.Instance.ExecuteSearch();
-       // KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        //KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }

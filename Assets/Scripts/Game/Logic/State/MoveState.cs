@@ -35,6 +35,7 @@ public class MoveState : StateBase
     {
         SkillLogicBase normalSkill = UnitLogic.NormalSkill;
         normalSkill.SkillSearchTarget();
+        //normalSkill.SkillSearchTargetBYKd();
         //if (targetUnits != null && targetUnits.Count > 0)
         //{
         //    UnitLogicBase ulb = targetUnits[0];
@@ -56,7 +57,7 @@ public class MoveState : StateBase
             float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
             if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
             {
-                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
+               // UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
             }
         }
     }
