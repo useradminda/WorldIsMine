@@ -22,7 +22,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> nearResultIndex;
 
     const int MaxSearchRequest = 10000;
-    const int MaxResult = 64;
+    const int MaxResult = 128;
 
     private int unitCount = 0;
 
