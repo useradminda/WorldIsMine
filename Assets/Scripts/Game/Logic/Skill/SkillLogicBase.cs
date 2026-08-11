@@ -77,7 +77,7 @@ public class SkillLogicBase
     public void SkillSearchTarget()
     {
         targetList.Clear();
-        searchReqId = MapCellManager.Instance.RequestSearch(unitLogic.Index, SkillSearchRange);
+        searchReqId = MapCellManager.Instance.RequestSearch(unitLogic.Index, SkillSearchRange, unitLogic.OtherCampTypeInt);
     }
 
     public List<UnitLogicBase> SkillSearchTargetBYKd()

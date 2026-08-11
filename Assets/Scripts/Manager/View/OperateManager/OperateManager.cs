@@ -10,7 +10,7 @@ public class OperateManager : MonoSingleton<OperateManager>
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                BattleEngine.Instance.CreateUnit(101, ECampType.Red, 2000);            
+                BattleEngine.Instance.CreateUnit(101, ECampType.Red, 3000);            
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
@@ -28,7 +28,8 @@ public class OperateManager : MonoSingleton<OperateManager>
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            BattleEngine.Instance.CreateUnit(201, ECampType.Blue, 5000);
+           
+            BattleEngine.Instance.CreateUnit(201, ECampType.Blue, 3000);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {

@@ -89,6 +89,10 @@ public struct SearchJob : IJobParallelFor
                     if (other == req.UnitIndex)
                         continue;
 
+                    // 阵营不符合
+                    if (units[other].CampType != req.SearchCamp)
+                        continue;
+
                     float distSq =
                         math.lengthsq(
                             units[other].Position -

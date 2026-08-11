@@ -40,6 +40,15 @@ public class UnitLogicBase
     private ECampType campType;
     public ECampType CampType => campType;
 
+    private int campTypeInt;
+    public int CampTypeInt => campTypeInt;
+
+    private int otherCampTypeInt = -1;
+
+    public int OtherCampTypeInt => otherCampTypeInt;
+   
+   
+
     private SoliderCfg soliderCfg;
     public SoliderCfg SoliderCfg => soliderCfg;
 
@@ -69,6 +78,8 @@ public class UnitLogicBase
         this.index = index;
         stateMachine = new StateMachine(this);
         this.campType = campType;
+        this.campTypeInt = (int)campType;
+        this.otherCampTypeInt = campType == ECampType.Blue ? (int)ECampType.Red : (int)ECampType.Blue;
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();

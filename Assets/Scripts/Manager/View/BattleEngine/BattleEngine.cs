@@ -1,8 +1,9 @@
+using Nebukam.ORCA;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Nebukam.ORCA;
 using Unity.Mathematics;
+using UnityEngine;
 using ZTools;
 // 战斗引擎
 public class BattleEngine : MonoSingleton<BattleEngine>
@@ -54,7 +55,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
-        MapCellManager.Instance.ExecuteSearch();
+       
         //KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
@@ -79,12 +80,14 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             UnitManager.Instance.AddUnitImmediately(unitLogic);
             RvoManager.Instance.AddAgentImmediately(unitLogic.Agenter);
             //KDTreeManager.Instance.AddKDInfoImmediately(unitLogic);
+            MapCellManager.Instance.AddUnit(unitLogic.Agenter.pos, unitLogic.CampTypeInt);
 
             UnitView unityView = UnitViewFactory.CreateUnitView(unitLogic.SoliderCfg.prefab, bornPoint, forward, unitLogic);
             UnitViewManager.Instance.AddUnitView(unityView, true);
             unitLogic.BindUnitView(unityView);
+           
         }
-        MapCellManager.Instance.Init(count);
+       
     }
 
     // 获取创建位置点
@@ -120,8 +123,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         //KDTreeManager.Instance.ManagerInit();
        
         RvoManager.Instance.ManagerInit();
+        MapCellManager.Instance.ManagerInit();
 
-       
+
         if (ObstacleConfigIns == null)
         {
             Debug.LogError("没有边界障碍信息");

@@ -25,11 +25,9 @@ public struct BuildCellJob : IJobParallelFor
     {
         UnitData unit = units[index];
 
-        int x = (int)math.floor(
-            unit.Position.x * invCellSize);
+        int x = (int)math.floor(unit.Position.x * invCellSize);
 
-        int z = (int)math.floor(
-            unit.Position.z * invCellSize);
+        int z = (int)math.floor(unit.Position.z * invCellSize);
 
         long cellKey = GetCellKey(x, z);
 

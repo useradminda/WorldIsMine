@@ -1,7 +1,7 @@
 
 
 using System.Collections.Generic;
-using System.Linq;
+
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -10,7 +10,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 {
     NativeArray<UnitData> units;
     NativeParallelMultiHashMap<long, int> cellMap;
-    public float cellSize = 10f;
+    public float cellSize = 20f;
     public float invCellSize;
 
     int curRequestCount;
@@ -20,28 +20,20 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> resultCount;
 
     NativeArray<int> nearResultIndex;
-    const int MaxSearchRequest = 5000;
-    const int MaxResult = 128;
+
+    const int MaxSearchRequest = 10000;
+    const int MaxResult = 64;
+
+    private int unitCount = 0;
 
     private bool initState = false;
-    public void Init(int count)
+    public void ManagerInit()
     {
 
         invCellSize = 1f / cellSize;
 
-
-        units =
-        new NativeArray<UnitData>(
-            count,
-            Allocator.Persistent);
-
-
-        cellMap =
-        new NativeParallelMultiHashMap<long,int>(
-            count * 5,
-            Allocator.Persistent);
-
-
+        units =  new NativeArray<UnitData>(MaxSearchRequest, Allocator.Persistent, NativeArrayOptions.ClearMemory);
+        cellMap = new NativeParallelMultiHashMap<long,int>(MaxSearchRequest * 2, Allocator.Persistent);
         // 每个单位保存找到多少个目标
         resultCount = new NativeArray<int>(MaxSearchRequest, Allocator.Persistent, NativeArrayOptions.ClearMemory);
 
@@ -55,7 +47,28 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         initState = true;
     }
 
-    public int RequestSearch(int unitIndex, float radius)
+    public int AddUnit(float3 position, int campType)
+    {
+        if (unitCount >= units.Length)
+        {
+            UnityEngine.Debug.LogError("units数量不够，需要扩容了");
+            return -1;
+        }
+        int index = unitCount;
+
+        units[index] = new UnitData
+        {
+            UnitIndex = index,
+            Position = position,
+            CampType = campType,
+        };
+
+        unitCount++;
+
+        return index;
+    }
+
+    public int RequestSearch(int unitIndex, float radius, int searchCampType)
     {
         if (initState == false)
         {
@@ -72,6 +85,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         {
             UnitIndex = unitIndex,
             Radius = radius,
+            SearchCamp = searchCampType,
         };
 
         curRequestCount++;
@@ -82,11 +96,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     // 执行搜索
     public void ExecuteSearch()
     {
-
         if (initState == false)
-        {
             return;
-        }
         if (curRequestCount <= 0)
             return;
 
@@ -132,13 +143,6 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         neastIndex = nearResultIndex[requestId];
     }
 
-
-
-    public void ManagerInit()
-    {
-      
-    }
-
     public void ManagerUpdate(float dt)
     {
         updateJob();
@@ -146,7 +150,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-      
+       ExecuteSearch();
     }
 
     public void ManagerRefuse()
@@ -162,16 +166,21 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     private void updateJob()
     {
         if (initState == false)
+            return;
+        
+        cellMap.Clear();
+
+        if (unitCount <= 0)
         {
             return;
         }
-        cellMap.Clear();
 
-        for (int i = 0; i < UnitManager.Instance.UnitList.Count; i++)
+        for (int i = 0; i < unitCount; i++)
         {
             UnitData unitData = units[i];
             unitData.Position = UnitManager.Instance.UnitList[i].CurPos;
             unitData.UnitIndex = i;
+            unitData.CampType = UnitManager.Instance.UnitList[i].CampTypeInt;
             units[i] = unitData;
         }
 
@@ -182,7 +191,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
              writer = cellMap.AsParallelWriter(),
              invCellSize = invCellSize,
          }
-         .Schedule(units.Length, 64);
+         .Schedule(unitCount, 64);
 
         buildHandle.Complete();
     }
@@ -207,14 +216,21 @@ public struct UnitData
 
     public float3 CatchPosition;
 
-    public int CellId;
+    // Camp
+    public int CampType;
+     
+    // solider type
+    public int UnitType;
 }
 
 public struct SearchRequest
 {
-    // 谁搜索
+    // 
     public int UnitIndex;
 
-    // 搜索半径
+    //
     public float Radius;
+
+    // 
+    public int SearchCamp;
 }
