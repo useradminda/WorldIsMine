@@ -136,7 +136,15 @@ public class UnitLogicBase
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
-            SkillLogicBase skill = new SkillLogicBase(this, skillCfg);
+            SkillLogicBase skill = null;// new SkillLogicBase(this, skillCfg);
+            if (skillCfg.skillType == 1)
+            {
+                skill = new SkillCloseSkill(this, skillCfg);
+            }
+            else if(skillCfg.skillType == 2)
+            {
+                skill = new SkillRemoteSkill(this, skillCfg); // new SkillRemoteSkill(this, skillCfg);
+            }
             if (skill.BNormalSkill)
             {
                 normalSkill = skill;

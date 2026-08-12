@@ -18,9 +18,5 @@ public class SkillRemoteSkill : SkillLogicBase
         Vector3 tarPos = TargetList[0].CurPos;
 
         FlyObjectLogicBase flyObjectLogic = UnitFactory.CreateFlyObjectLogic(flyId, oriPos, tarPos, UnitLogic, TargetList, this);
-
-       
-
-
     }
 }

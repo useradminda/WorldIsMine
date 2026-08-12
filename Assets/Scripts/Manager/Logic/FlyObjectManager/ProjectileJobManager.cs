@@ -152,7 +152,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             projectiles,
 
                 activeProjectileIds =
-            activeProjectileIds,
+            activeProjectileIds.AsArray(),
 
                 arrivedProjectileIds =
             arrivedProjectileIds.AsParallelWriter(),
@@ -388,9 +388,6 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
     private void setProjectileTransform(int projectileIndex, Transform transform)
     {
-        if (!initState)
-            return;
-
         if (projectileIndex < 0 || projectileIndex >= MaxProjectileCount)
             return;
         projectileTransforms[projectileIndex] = transform;

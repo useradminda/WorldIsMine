@@ -125,7 +125,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         //KDTreeManager.Instance.ManagerInit();
         RvoManager.Instance.ManagerInit();
         MapCellManager.Instance.ManagerInit();
-
+        ProjectileJobManager.Instance.ManagerInit();
 
         if (ObstacleConfigIns == null)
         {

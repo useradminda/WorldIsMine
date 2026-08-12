@@ -6,10 +6,11 @@ using Unity.Mathematics;
 [BurstCompile]
 public struct ProjectileMoveJob : IJobParallelFor
 {
+    [NativeDisableParallelForRestriction]
     public NativeArray<ProjectileData> projectiles;
 
     [ReadOnly]
-    public NativeList<int> activeProjectileIds;
+    public NativeArray<int> activeProjectileIds;
 
     public NativeList<int>.ParallelWriter arrivedProjectileIds;
 
