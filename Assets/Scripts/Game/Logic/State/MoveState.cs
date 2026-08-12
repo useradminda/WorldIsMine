@@ -21,9 +21,7 @@ public class MoveState : StateBase
         searchTargetUnits();
         getTargetUnits();
         updateMove();
-
     }
-
 
     public override void ExitState()
     {
@@ -57,7 +55,7 @@ public class MoveState : StateBase
             float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
             if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
             {
-               // UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
+                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
             }
         }
     }

@@ -12,10 +12,10 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerUpdate(float dt)
     {
-        for (int i = 0; i < flyObjectList.Count; i++)
-        {
-            flyObjectList[i].FlyObjectUpdate(dt);
-        }
+        //for (int i = 0; i < flyObjectList.Count; i++)
+        //{
+        //    flyObjectList[i].FlyObjectUpdate(dt);
+        //}
     }
 
     public void ManagerLateUpdate(float dt)
@@ -39,4 +39,11 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
         flyObjectList.Add(flyObjet);
         return flyObjet;
     }
+
+    public FlyObjectLogicBase AddUnitImmediately(FlyObjectLogicBase flyObjet)
+    {
+        flyObjectList.AddCurrent(flyObjet);
+        return flyObjet;
+    }
+
 }

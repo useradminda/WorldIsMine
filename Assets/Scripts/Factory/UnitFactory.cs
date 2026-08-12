@@ -53,7 +53,7 @@ public static class UnitFactory
             flyObjectLogic = new FlyObjectLogicBase();
         }
         flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, skillLogic);
-        FlyObjectManager.Instance.AddUnit(flyObjectLogic);
+        FlyObjectManager.Instance.AddUnitImmediately(flyObjectLogic);
         return flyObjectLogic;
     }
 

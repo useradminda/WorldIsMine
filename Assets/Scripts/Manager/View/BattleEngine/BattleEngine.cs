@@ -37,7 +37,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (battleInit == false)
             return;
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
-        FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
+        //FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
+        ProjectileJobManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
         //KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
@@ -52,7 +53,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (battleInit == false)
             return;
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
-        FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
+        //FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
+        ProjectileJobManager.Instance.ManagerLateUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
        
@@ -121,7 +123,6 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         UnitManager.Instance.ManagerInit();
         //KDTreeManager.Instance.ManagerInit();
-       
         RvoManager.Instance.ManagerInit();
         MapCellManager.Instance.ManagerInit();
 

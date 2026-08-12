@@ -1,1 +1,1 @@
-[{"id":1,"name":"箭","speed":5.0,"flyType":"arrow","prefab":"FlyObject/Arrow"}]
+[{"id":1,"name":"箭","speed":50.0,"flyType":"arrow","prefab":"FlyObject/Arrow"}]

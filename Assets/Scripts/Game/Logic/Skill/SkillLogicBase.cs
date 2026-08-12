@@ -80,23 +80,23 @@ public class SkillLogicBase
         searchReqId = MapCellManager.Instance.RequestSearch(unitLogic.Index, SkillSearchRange, unitLogic.OtherCampTypeInt);
     }
 
-    public List<UnitLogicBase> SkillSearchTargetBYKd()
-    {
-        targetList.Clear();
-        targetList.AddRange(BattleLogicTools.SearchNotMyCampUnits(UnitLogic.CurPos.x, UnitLogic.CurPos.z, SkillSearchRange, UnitLogic.CampType, false));
-        targetList.Sort((UnitLogicBase a, UnitLogicBase b) =>
-        {
-            if ((UnitLogic.CurPos - a.CurPos).sqrMagnitude < (UnitLogic.CurPos - b.CurPos).sqrMagnitude)
-            {
-                return 0;
-            }
-            else
-            {
-                return 1;
-            }
-        });
-        return targetList;
-    }
+    //public List<UnitLogicBase> SkillSearchTargetBYKd()
+    //{
+    //    targetList.Clear();
+    //    targetList.AddRange(BattleLogicTools.SearchNotMyCampUnits(UnitLogic.CurPos.x, UnitLogic.CurPos.z, SkillSearchRange, UnitLogic.CampType, false));
+    //    targetList.Sort((UnitLogicBase a, UnitLogicBase b) =>
+    //    {
+    //        if ((UnitLogic.CurPos - a.CurPos).sqrMagnitude < (UnitLogic.CurPos - b.CurPos).sqrMagnitude)
+    //        {
+    //            return 0;
+    //        }
+    //        else
+    //        {
+    //            return 1;
+    //        }
+    //    });
+    //    return targetList;
+    //}
 
     public List<UnitLogicBase> GetSkillSearchTargetResult()
     {
@@ -115,8 +115,4 @@ public class SkillLogicBase
         }
         return targetList;
     }
-
-
-
-    
 }
