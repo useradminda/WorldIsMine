@@ -24,5 +24,7 @@ public abstract class StateBase
 
     public abstract void UpdateState(float dt);
 
+
+
     public abstract void ExitState();
 }

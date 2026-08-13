@@ -1,61 +1,58 @@
-
-using System.Collections.Generic;
-
+using UnityEngine;
 
 public class MoveState : StateBase
 {
+
+    private int nextSearchFrame;
     public override EStateTyep StateType { get { return EStateTyep.Move; } }
 
     public MoveState(UnitLogicBase ulb):base(ulb)
     {
-
+        nextSearchFrame =
+        Time.frameCount +
+        (UnitLogic.Index % BattleDefine.SearchInterval);
     }
 
     public override void EnterState(params object[] objects)
     {
+        UnitLogic.TriggerMove();
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
+        nextSearchFrame =
+       Time.frameCount +
+       (UnitLogic.Index % BattleDefine.SearchInterval);
     }
 
     public override void UpdateState(float dt)
     {
-        searchTargetUnits();
-        getTargetUnits();
+        //if (Time.frameCount >= nextSearchFrame)
+        {
+            searchTargetUnits();
+            getTargetUnits();
+            nextSearchFrame = nextSearchFrame + BattleDefine.SearchInterval;
+        }
         updateMove();
     }
 
+
     public override void ExitState()
     {
-        
     }
 
-    private List<UnitLogicBase> targetUnits = new List<UnitLogicBase>();
     private void searchTargetUnits()
     {
         SkillLogicBase normalSkill = UnitLogic.NormalSkill;
         normalSkill.SkillSearchTarget();
-        //normalSkill.SkillSearchTargetBYKd();
-        //if (targetUnits != null && targetUnits.Count > 0)
-        //{
-        //    UnitLogicBase ulb = targetUnits[0];
-        //    float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
-        //    if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
-        //    {
-        //        UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
-        //    }
-        //}
     }
 
     private void getTargetUnits()
     {
-        targetUnits.Clear();
-        targetUnits.AddRange(UnitLogic.NormalSkill.GetSkillSearchTargetResult());
-        if (targetUnits.Count > 0)
+        UnitLogicBase ulb = UnitLogic.NormalSkill.GetSkillSearchTargetSingleResult();
+        if (ulb != null)
         {
-            UnitLogicBase ulb = targetUnits[0];
             float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
             if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
             {
-                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, targetUnits[0], UnitLogic.NormalSkill);
+                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, ulb, UnitLogic.NormalSkill);
             }
         }
     }

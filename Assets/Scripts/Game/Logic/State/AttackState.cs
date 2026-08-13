@@ -34,9 +34,19 @@ public class AttackState : StateBase
 
     private void judgeTargetBeDead()
     {
-        if (targetUnit != null && targetUnit.IsDead)
+        if (targetUnit != null)
         {
-            UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
+            if (targetUnit.IsDead)
+            {
+                UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
+                return;
+            }
+            float sqrDistance = (UnitLogic.CurPos - targetUnit.CurPos).sqrMagnitude;
+            if (sqrDistance > UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
+            {
+                UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
+                return;
+            }
         }
     }
 

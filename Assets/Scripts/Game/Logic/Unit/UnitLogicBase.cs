@@ -44,10 +44,7 @@ public class UnitLogicBase
     public int CampTypeInt => campTypeInt;
 
     private int otherCampTypeInt = -1;
-
     public int OtherCampTypeInt => otherCampTypeInt;
-   
-   
 
     private SoliderCfg soliderCfg;
     public SoliderCfg SoliderCfg => soliderCfg;
@@ -111,10 +108,31 @@ public class UnitLogicBase
         }
     }
 
+    public void ChangeHp(int damage)
+    {
+        Prop.ChangeHp(damage);
+        if (IsDead)
+            StateMachine.ChangeState(EStateTyep.Die);
+    }
+   
+
     public void MoveStop()
     {
         Agenter.navigationEnabled = false;
-       // Agenter.collisionEnabled = false;
+        Agenter.prefVelocity = Vector3.zero;
+        Agenter.maxSpeed = 0;
+    }
+
+    public void TriggerMove()
+    {
+        Agenter.navigationEnabled = true;
+        Agenter.collisionEnabled = true;
+    }
+
+    public void TriggerDie()
+    {
+        Agenter.navigationEnabled = false;
+        Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
         Agenter.maxSpeed = 0;
     }

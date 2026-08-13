@@ -21,6 +21,8 @@ public class StateMachine
         states.Add(new IdleState(unitLogic));
         states.Add(new MoveState(unitLogic));
         states.Add(new AttackState(unitLogic));
+        states.Add(new DieState(unitLogic));
+        //ChangeState(EStateTyep.Move);
         currentState = states[1];
     }
 
@@ -46,6 +48,8 @@ public class StateMachine
             currentState.UpdateState(dt);
         }
     }
+
+   
 
     public void ExitState()
     {

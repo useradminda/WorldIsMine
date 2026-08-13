@@ -12,8 +12,17 @@ public static class BattleLogicDamageTools
             int atkType = atkUnit.SoliderCfg.unitType;
             int beAtkType = beAtkedUnits[i].SoliderCfg.unitType;
             int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
-           // beAtkedUnits[i].Prop.ChangeHp(finalDamage);
+            beAtkedUnits[i].ChangeHp(finalDamage);
         }
+    }
+
+    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, SkillLogicBase useSkill)
+    {
+        int damage = -useSkill.SkillCfg.damage;   
+        int atkType = atkUnit.SoliderCfg.unitType;
+        int beAtkType = beAtkedUnit.SoliderCfg.unitType;
+        int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
+        beAtkedUnit.ChangeHp(finalDamage);
     }
 
     public static int CalcFinalDamage(int atkType, int beAtkType, int baseDamage)

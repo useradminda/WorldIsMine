@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 using Unity.Mathematics;
-using UnityEngine;
+
 [BurstCompile]
 public struct SearchJob : IJobParallelFor
 {
@@ -12,7 +10,8 @@ public struct SearchJob : IJobParallelFor
     public NativeArray<UnitData> units;
 
     [ReadOnly]
-    public NativeParallelMultiHashMap<long, int> cellMap;
+    public NativeParallelMultiHashMap<int, int> cellMap;
+
 
     [WriteOnly]
     [NativeDisableParallelForRestriction]
@@ -26,106 +25,210 @@ public struct SearchJob : IJobParallelFor
     [NativeDisableParallelForRestriction]
     public NativeArray<int> nearResultIndex;
 
+
     [ReadOnly]
     public NativeArray<SearchRequest> requests;
+
 
     public int maxResult;
 
     public float invCellSize;
 
+    public float minX;
+    public float minZ;
+
+    public int cellCountX;
+    public int cellCountZ;
+
+    public float cellSize;
+
+    public int campCount;
+
 
     public void Execute(int index)
     {
-        SearchRequest req = requests[index];
+        SearchRequest req =
+            requests[index];
 
-        UnitData me = units[req.UnitIndex];
 
-        int offset = index * maxResult;
+        UnitData me =
+            units[req.UnitIndex];
+
+
+        int offset =
+            index * maxResult;
+
 
         int count = 0;
 
-        float radiusSq = req.Radius * req.Radius;
 
-        int cx = (int)math.floor(
-            me.Position.x * invCellSize);
+        float radiusSq =
+            req.Radius * req.Radius;
 
-        int cz = (int)math.floor(
-            me.Position.z * invCellSize);
 
-        int range = (int)math.ceil(
-            req.Radius * invCellSize);
+        // -------------------------
+        // 自己所在 Cell
+        // -------------------------
 
-        // 最近单位
-        float minDistSq = float.MaxValue;
+        int cx =
+            (int)math.floor(
+                (me.Position.x - minX) *
+                invCellSize);
 
-        nearResultIndex[index] = -1;
 
-        for (int z = -range; z <= range; z++)
+        int cz =
+            (int)math.floor(
+                (me.Position.z - minZ) *
+                invCellSize);
+
+
+        int range =
+            (int)math.ceil(
+                req.Radius *
+                invCellSize);
+
+
+        float minDistSq =
+            float.MaxValue;
+
+
+        nearResultIndex[index] =
+            -1;
+
+
+        // -------------------------
+        // 遍历 Cell
+        // -------------------------
+
+        for (int z = -range;
+             z <= range;
+             z++)
         {
-            for (int x = -range; x <= range; x++)
+            int cellZ =
+                cz + z;
+
+
+            if (cellZ < 0 ||
+                cellZ >= cellCountZ)
             {
-                int cellX = cx + x;
-                int cellZ = cz + z;
+                continue;
+            }
 
-                long cellKey =
-                    ((long)cellX << 32) |
-                    (uint)cellZ;
 
-                NativeParallelMultiHashMapIterator<long> iterator;
+            for (int x = -range;
+                 x <= range;
+                 x++)
+            {
+                int cellX =
+                    cx + x;
 
-                int other;
 
-                if (!cellMap.TryGetFirstValue(
-                    cellKey,
-                    out other,
-                    out iterator))
+                if (cellX < 0 ||
+                    cellX >= cellCountX)
                 {
                     continue;
                 }
 
+
+                int cellId =
+                    cellZ * cellCountX +
+                    cellX;
+
+
+                // -------------------------
+                // Cell + Camp
+                // -------------------------
+
+                int key =
+                    cellId *
+                    campCount +
+                    req.SearchCamp;
+
+
+                NativeParallelMultiHashMapIterator<int>
+                    iterator;
+
+
+                int other;
+
+
+                if (!cellMap.TryGetFirstValue(
+                        key,
+                        out other,
+                        out iterator))
+                {
+                    continue;
+                }
+
+
+                // -------------------------
+                // 遍历这个 Cell 中
+                // 指定阵营的单位
+                // -------------------------
+
                 do
                 {
-                    // 自己排除
-                    if (other == req.UnitIndex)
+                    if (other ==
+                        req.UnitIndex)
+                    {
                         continue;
+                    }
 
-                    // 阵营不符合
-                    if (units[other].CampType != req.SearchCamp)
-                        continue;
 
                     float distSq =
                         math.lengthsq(
                             units[other].Position -
                             me.Position);
 
-                    if (distSq <= radiusSq)
+
+                    if (distSq >
+                        radiusSq)
                     {
-                        // 最近单位
-                        if (distSq < minDistSq)
-                        {
-                            minDistSq = distSq;
-
-                            nearResultIndex[index] = other;
-                        }
-
-                        // 普通搜索结果
-                        if (count < maxResult)
-                        {
-                            resultIndex[
-                                offset + count
-                            ] = other;
-
-                            count++;
-                        }
+                        continue;
                     }
 
-                } while (
+
+                    // -------------------------
+                    // 最近单位
+                    // -------------------------
+
+                    if (distSq <
+                        minDistSq)
+                    {
+                        minDistSq =
+                            distSq;
+
+
+                        nearResultIndex[index] =
+                            other;
+                    }
+
+
+                    // -------------------------
+                    // 普通结果
+                    // -------------------------
+
+                    if (count <
+                        maxResult)
+                    {
+                        resultIndex[
+                            offset + count] =
+                            other;
+
+
+                        count++;
+                    }
+
+                }
+                while (
                     cellMap.TryGetNextValue(
                         out other,
                         ref iterator));
             }
         }
 
-        resultCount[index] = count;
+
+        resultCount[index] =
+            count;
     }
 }

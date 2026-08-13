@@ -1,4 +1,6 @@
 
+using Unity.Mathematics;
+
 public class UnitProp
 {
     private float radius;
@@ -21,5 +23,6 @@ public class UnitProp
     public void ChangeHp(int value)
     {
         hp += value;
+        hp = math.max(0, hp);
     }
 }

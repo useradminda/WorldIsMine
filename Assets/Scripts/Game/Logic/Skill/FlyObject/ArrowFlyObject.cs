@@ -65,6 +65,6 @@ public class ArrowFlyObject : FlyObjectLogicBase
 
     public override void TouchTarUnit()
     {
-        //BattleLogicDamageTools.DoDamage(mAtkUnitLogic, mTargetLogicList, mSkillLogic);
+        BattleLogicDamageTools.DoDamage(mAtkUnitLogic, mTargetLogicList, mSkillLogic);
     }
 }

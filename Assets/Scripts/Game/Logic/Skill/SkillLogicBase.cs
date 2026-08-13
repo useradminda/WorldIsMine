@@ -1,7 +1,5 @@
 
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 public class SkillLogicBase
 {
@@ -19,6 +17,9 @@ public class SkillLogicBase
 
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
     public List<UnitLogicBase> TargetList => targetList;
+
+    private UnitLogicBase searchTarget;
+    public UnitLogicBase SearchTarget => searchTarget;
 
     public string skillGUID;
 
@@ -98,21 +99,42 @@ public class SkillLogicBase
     //    return targetList;
     //}
 
-    public List<UnitLogicBase> GetSkillSearchTargetResult()
+    //public List<UnitLogicBase> GetSkillSearchTargetResult()
+    //{
+    //    targetList.Clear();
+    //    if (searchReqId < 0)
+    //        return targetList;
+
+    //    resultUnitIndexList.Clear();
+    //    int neastIndex = -1;
+    //    MapCellManager.Instance.GetResult(searchReqId, resultUnitIndexList, ref neastIndex);
+
+    //    if (resultUnitIndexList.Count > 0)
+    //    {
+    //        int index = neastIndex;
+    //        targetList.Add(UnitManager.Instance.UnitList[index]);
+    //    }
+    //    return targetList;
+    //}
+
+    public UnitLogicBase GetSkillSearchTargetSingleResult()
     {
+        searchTarget = null;
         targetList.Clear();
         if (searchReqId < 0)
-            return targetList;
-        
+            return searchTarget;
+       
         resultUnitIndexList.Clear();
         int neastIndex = -1;
         MapCellManager.Instance.GetResult(searchReqId, resultUnitIndexList, ref neastIndex);
-       
         if (resultUnitIndexList.Count > 0)
         {
-            int index = neastIndex;//resultUnitIndexList[0];
-            targetList.Add(UnitManager.Instance.UnitList[index]);
+            targetList.Add(UnitManager.Instance.UnitList[neastIndex]);
+            searchTarget = targetList[0];
+            searchReqId = -1;
+            return searchTarget;
         }
-        return targetList;
+        searchReqId = -1;
+        return null;
     }
 }
