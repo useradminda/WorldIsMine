@@ -123,7 +123,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
             {
                 UnitIndex = index,
                 Position = position,
-                CampType = campType
+                CampType = campType,
+                DeadState = 0,
             };
 
 
