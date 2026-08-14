@@ -3,36 +3,27 @@ using UnityEngine;
 public class MoveState : StateBase
 {
 
-    private int nextSearchFrame;
+
     public override EStateTyep StateType { get { return EStateTyep.Move; } }
 
     public MoveState(UnitLogicBase ulb):base(ulb)
     {
-        nextSearchFrame =
-        Time.frameCount +
-        (UnitLogic.Index % BattleDefine.SearchInterval);
+        UnitLogic.TriggerMove();
     }
 
     public override void EnterState(params object[] objects)
     {
         UnitLogic.TriggerMove();
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
-        nextSearchFrame =
-       Time.frameCount +
-       (UnitLogic.Index % BattleDefine.SearchInterval);
+       
     }
 
     public override void UpdateState(float dt)
     {
-        //if (Time.frameCount >= nextSearchFrame)
-        {
-            searchTargetUnits();
-            getTargetUnits();
-            nextSearchFrame = nextSearchFrame + BattleDefine.SearchInterval;
-        }
+        searchTargetUnits();
+        getTargetUnits();
         updateMove();
     }
-
 
     public override void ExitState()
     {

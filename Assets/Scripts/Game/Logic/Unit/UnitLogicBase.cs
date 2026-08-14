@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class UnitLogicBase
+public class UnitLogicBase : IRecycle
 {
     private Nebukam.ORCA.Agent agenter;
     public Nebukam.ORCA.Agent Agenter => agenter;
@@ -71,12 +71,23 @@ public class UnitLogicBase
 
     public UnitLogicBase(int cfgId, int unitId, ECampType campType, Vector3 moveForward, int index)
     {
-        this.unitId = unitId;
         this.index = index;
+        this.unitId = unitId;
         stateMachine = new StateMachine(this);
         this.campType = campType;
         this.campTypeInt = (int)campType;
         this.otherCampTypeInt = campType == ECampType.Blue ? (int)ECampType.Red : (int)ECampType.Blue;
+        this.moveForward = Vector3.Normalize(moveForward);
+        soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
+        initProp();
+        initSkills();
+    }
+
+    // 回收使用
+    public void CycleUse(int cfgId, int unitId, Vector3 moveForward)
+    {
+        this.unitId = unitId;
+        stateMachine = new StateMachine(this);
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
@@ -144,6 +155,11 @@ public class UnitLogicBase
         Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
+    public override void Recycle()
+    {
+        isFree = true;
+    }
+
     private void initProp()
     {
         prop = new UnitProp(soliderCfg.hp, soliderCfg.radius, soliderCfg.moveSpeed);
@@ -154,7 +170,7 @@ public class UnitLogicBase
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
-            SkillLogicBase skill = null;// new SkillLogicBase(this, skillCfg);
+            SkillLogicBase skill = null;
             if (skillCfg.skillType == 1)
             {
                 skill = new SkillCloseSkill(this, skillCfg);

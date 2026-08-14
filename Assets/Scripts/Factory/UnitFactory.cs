@@ -1,8 +1,8 @@
 using Nebukam;
 using Nebukam.ORCA;
 using System.Collections.Generic;
-
 using UnityEngine;
+
 public static class UnitFactory
 {
     private static int blueUnitId = 0;
