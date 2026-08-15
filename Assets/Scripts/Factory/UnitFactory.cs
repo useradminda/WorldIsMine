@@ -8,6 +8,9 @@ public static class UnitFactory
     private static int blueUnitId = 0;
     private static int redUnitId = 0;
 
+    private static List<int> blueFreeIndexList = new List<int>();
+    private static List<int> redFreeIndexList = new List<int>();
+
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
         int cfgId,

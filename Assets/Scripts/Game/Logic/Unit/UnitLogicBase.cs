@@ -73,7 +73,7 @@ public class UnitLogicBase : IRecycle
     {
         this.index = index;
         this.unitId = unitId;
-        stateMachine = new StateMachine(this);
+       
         this.campType = campType;
         this.campTypeInt = (int)campType;
         this.otherCampTypeInt = campType == ECampType.Blue ? (int)ECampType.Red : (int)ECampType.Blue;
@@ -87,11 +87,15 @@ public class UnitLogicBase : IRecycle
     public void CycleUse(int cfgId, int unitId, Vector3 moveForward)
     {
         this.unitId = unitId;
-        stateMachine = new StateMachine(this);
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
+    }
+
+    public void InitStateMachine()
+    {
+        stateMachine = new StateMachine(this);
     }
 
     // 绑定一个agent
@@ -167,6 +171,7 @@ public class UnitLogicBase : IRecycle
 
     private void initSkills()
     {
+        skillList.Clear();
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);

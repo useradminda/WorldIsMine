@@ -87,9 +87,10 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             UnitView unityView = UnitViewFactory.CreateUnitView(unitLogic.SoliderCfg.prefab, bornPoint, forward, unitLogic);
             UnitViewManager.Instance.AddUnitView(unityView, true);
             unitLogic.BindUnitView(unityView);
-           
+
+            unitLogic.InitStateMachine();
+            unitLogic.StateMachine.ChangeState(EStateTyep.Move);
         }
-       
     }
 
     // 获取创建位置点

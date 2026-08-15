@@ -21,8 +21,7 @@ public class AttackState : StateBase
     }
 
     public override void UpdateState(float dt)
-    {
-       
+    {  
         skillUpdate(dt);
         judgeTargetBeDead();
     }
