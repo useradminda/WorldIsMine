@@ -15,6 +15,8 @@ public class SkillLogicBase
 
     private float curCD;
 
+    public float CurCD => curCD;
+
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
     public List<UnitLogicBase> TargetList => targetList;
 
@@ -48,8 +50,11 @@ public class SkillLogicBase
             {
                 if (BNormalSkill)
                 {
-                    SkillDoEffect();
-                    SkillResetCD();
+                    if (targetList.Count > 0 && targetList[0].IsDead == false)
+                    {
+                        SkillDoEffect();
+                        SkillResetCD();
+                    }
                 }
             }
         }

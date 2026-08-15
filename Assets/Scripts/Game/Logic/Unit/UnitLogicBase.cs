@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class UnitLogicBase : IRecycle
+public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
     public Nebukam.ORCA.Agent Agenter => agenter;
@@ -159,10 +159,7 @@ public class UnitLogicBase : IRecycle
         Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
-    public override void Recycle()
-    {
-        isFree = true;
-    }
+
 
     private void initProp()
     {
