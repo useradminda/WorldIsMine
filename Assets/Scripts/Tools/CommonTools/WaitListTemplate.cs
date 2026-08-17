@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.Collections;
 
 public class WaitListTemplate<T>
 {
@@ -29,24 +30,29 @@ public class WaitListTemplate<T>
         AddCallBack = addCallBack;
     }
 
-    // 增加一个Unit
-    public T Add(T data)
-    {
-        waitingAddList.Add(data);
-        return data;
-    }
+    //// 增加一个Unit
+    //public T Add(T data)
+    //{
+    //    waitingAddList.Add(data);
+    //    return data;
+    //}
 
-    public T AddCurrent(T data)
+    public T AddImmediately(T data)
     {
         dataList.Add(data);
         AddCallBack?.Invoke(data);
         return data;
     }
 
-    public T Remove(T data)
+    //public T Remove(T data)
+    //{
+    //    waitingRemoveList.Add(data);
+    //    return data;
+    //}
+
+    public void RemoveSwapBack(T data)
     {
-        waitingRemoveList.Add(data);
-        return data;
+        waitingRemoveList.RemoveSwapBack(data);
     }
 
     // 添加等待入队列表

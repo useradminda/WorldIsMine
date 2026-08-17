@@ -1,6 +1,6 @@
 
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
 public class UnitView : IView
 {
     private UnitLogicBase unitLogic;
@@ -8,6 +8,9 @@ public class UnitView : IView
     private ActionFlow actionFlow;
 
     private EStateTyep curStateType = EStateTyep.None;
+
+    private string prefabName;
+    public string PrefabName => prefabName;
 
     public ActionFlow ActionFlowComponent
     {
@@ -21,8 +24,9 @@ public class UnitView : IView
         }
     }
 
-    public void Init(UnitLogicBase unit)
+    public void Init(UnitLogicBase unit, string prefabName)
     {
+        this.prefabName = prefabName;
         this.unitLogic = unit;
     }
 
@@ -69,6 +73,11 @@ public class UnitView : IView
                 unitLogic.StateMachine.ClearStateDirty();
             }
         }
+    }
+
+    public float GetDieTime()
+    {
+        return ActionFlowComponent.GetAnimLen(EActionType.die);
     }
 
     private Vector3 tarPos;

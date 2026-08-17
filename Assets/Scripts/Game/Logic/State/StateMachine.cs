@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+
 public class StateMachine 
 {
     // 当前状态
@@ -16,13 +16,9 @@ public class StateMachine
     private bool stateDirty = true;
     public bool StateDirty => stateDirty;
 
-    private IdleState idleState;
-    private MoveState moveState;
-    private AttackState attackState;
-    private DieState dieState;
-
     public StateMachine(UnitLogicBase unitLogic)
     {
+        stateDirty = false;
         states = new List<StateBase>();
 
         statesByEState.Add(EStateTyep.Idle, new IdleState(unitLogic));

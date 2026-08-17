@@ -20,7 +20,7 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-        flyObjectList.AddWaitingList();
+        //flyObjectList.AddWaitingList();
     }
 
     public void ManagerRefuse()
@@ -36,13 +36,13 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
     // 增加一个Unit
     public FlyObjectLogicBase AddUnit(FlyObjectLogicBase flyObjet)
     {
-        flyObjectList.Add(flyObjet);
+        flyObjectList.AddImmediately(flyObjet);
         return flyObjet;
     }
 
     public FlyObjectLogicBase AddUnitImmediately(FlyObjectLogicBase flyObjet)
     {
-        flyObjectList.AddCurrent(flyObjet);
+        flyObjectList.AddImmediately(flyObjet);
         return flyObjet;
     }
 

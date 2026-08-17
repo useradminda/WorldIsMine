@@ -37,11 +37,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (battleInit == false)
             return;
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
-        //FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         ProjectileJobManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
-        //KDTreeManager.Instance.ManagerUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
 
@@ -53,12 +51,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (battleInit == false)
             return;
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
-        //FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         ProjectileJobManager.Instance.ManagerLateUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
-       
-        //KDTreeManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }
@@ -67,7 +62,6 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         RvoManager.Instance.ManagerDestroy();
     }
-
 
     // 创建单位
     public void CreateUnit(int cfgId, ECampType campType, int count)
@@ -78,14 +72,23 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         for (int i = 0; i < count; i++)
         {
             Vector3 bornPoint = GetCreatePoint( baseBornPoint, forward, i, count);
-            UnitLogicBase unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType, UnitManager.Instance.UnitList.Count);
-            UnitManager.Instance.AddUnitImmediately(unitLogic);
-            RvoManager.Instance.AddAgentImmediately(unitLogic.Agenter);
-            //KDTreeManager.Instance.AddKDInfoImmediately(unitLogic);
-            MapCellManager.Instance.AddUnit(unitLogic.Agenter.pos, unitLogic.CampTypeInt);
 
+            bool create = false;
+            UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType);
+
+            if(unitLogic == null)
+            { 
+                unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType, UnitManager.Instance.UnitList.Count);
+                Agent agent = UnitFactory.CreateAgent(bornPoint, forward, unitLogic.Prop.Radius, unitLogic.Prop.MaxSpeed);
+                unitLogic.BindAgent(agent);
+
+                UnitManager.Instance.AddUnitImmediately(unitLogic);
+                RvoManager.Instance.AddAgentImmediately(unitLogic.Agenter);
+                MapCellManager.Instance.AddUnit(unitLogic.Agenter.pos, unitLogic.CampTypeInt);
+            }
+           
             UnitView unityView = UnitViewFactory.CreateUnitView(unitLogic.SoliderCfg.prefab, bornPoint, forward, unitLogic);
-            UnitViewManager.Instance.AddUnitView(unityView, true);
+            UnitViewManager.Instance.AddUnitViewImmediately(unityView, true);
             unitLogic.BindUnitView(unityView);
 
             unitLogic.InitStateMachine();
@@ -123,7 +126,6 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         } 
 
         UnitManager.Instance.ManagerInit();
-        //KDTreeManager.Instance.ManagerInit();
         RvoManager.Instance.ManagerInit();
         MapCellManager.Instance.ManagerInit();
         ProjectileJobManager.Instance.ManagerInit();

@@ -63,16 +63,18 @@ public class UnitLogicBase
 
     public bool IsDead => Prop.Hp <= 0;
 
-    private int unitId;
-    public int UnitID => unitId;
+    private int uid;
+    public int UId => uid;
 
     private int index;
     public int Index => index;
 
-    public UnitLogicBase(int cfgId, int unitId, ECampType campType, Vector3 moveForward, int index)
+    private bool isFree = true;
+
+    public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
     {
         this.index = index;
-        this.unitId = unitId;
+        this.uid = uid;
        
         this.campType = campType;
         this.campTypeInt = (int)campType;
@@ -81,16 +83,18 @@ public class UnitLogicBase
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
+        isFree = false;
     }
 
     // 回收使用
-    public void CycleUse(int cfgId, int unitId, Vector3 moveForward)
+    public void CycleUse(int cfgId, int uid, Vector3 moveForward)
     {
-        this.unitId = unitId;
+        this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
+        isFree = false;
     }
 
     public void InitStateMachine()
@@ -112,6 +116,8 @@ public class UnitLogicBase
 
     public void UnitUpdate(float dt)
     {
+        if (isFree == true)
+            return;
         if (Agenter == null)
         {
             Debug.LogError("严重错误当前单位的Agent智能体是空的");
@@ -159,7 +165,10 @@ public class UnitLogicBase
         Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
-
+    public void Refuse()
+    {
+        isFree = true;
+    }
 
     private void initProp()
     {

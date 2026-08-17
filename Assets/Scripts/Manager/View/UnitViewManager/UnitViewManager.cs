@@ -20,7 +20,7 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-        UnitList.AddWaitingList();
+        //UnitList.AddWaitingList();
     }
 
     public void ManagerRefuse()
@@ -32,14 +32,18 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
 
     }
 
-    public void AddUnitView(UnitView unitView, bool immediately)
+    public void AddUnitViewImmediately(UnitView unitView, bool immediately)
     {
         if ( immediately)
         {
-            UnitList.AddCurrent(unitView);
+            UnitList.AddImmediately(unitView);
             return;
         }
-        UnitList.Add(unitView);
+        UnitList.AddImmediately(unitView);
     }
 
+    public void RemoveSwapBackUnitView(UnitView unitView)
+    {
+        UnitList.RemoveSwapBack(unitView);
+    }
 }

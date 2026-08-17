@@ -73,7 +73,7 @@ public class SkillLogicBase
     }
 
     // 清理
-    public void SkillRefuse()
+    public void Refuse()
     {
         SkillResetCD();    
     }

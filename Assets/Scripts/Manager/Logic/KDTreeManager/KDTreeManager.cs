@@ -1,5 +1,5 @@
 using AillieoUtils;
-using System.Collections.Generic;
+
 using ZTools;
 
 // KDTree 搜索性能优化
@@ -36,7 +36,7 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-        KDInfoList.AddWaitingList();
+        //KDInfoList.AddWaitingList();
     }
 
 
@@ -57,13 +57,13 @@ public class KDTreeManager : Singleton<KDTreeManager>, IManager
     {
         KDInfo kdInfo = mKDTree.applyAgent();
         kdInfo.SetUnit(unit);
-        KDInfoList.Add(kdInfo);
+        //KDInfoList.Add(kdInfo);
     }
 
     public void AddKDInfoImmediately(UnitLogicBase unit)
     {
         KDInfo kdInfo = mKDTree.applyAgent();
         kdInfo.SetUnit(unit);
-        KDInfoList.AddCurrent(kdInfo);
+        KDInfoList.AddImmediately(kdInfo);
     }
 }
