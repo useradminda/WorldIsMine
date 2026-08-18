@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class BattleLogicDamageTools
@@ -25,11 +23,11 @@ public static class BattleLogicDamageTools
         }
     }
 
-    public static int CalcFinalDamage(int atkType, int beAtkType, int baseDamage)
+    public static int CalcFinalDamage(int atkType, int beAtkType, int baseDamage, float restrainValue)
     {
         if (IsRestrain(atkType, beAtkType))
         {
-            return Mathf.RoundToInt(baseDamage * 1.5f);
+            return Mathf.RoundToInt(baseDamage * restrainValue);
         }
         return baseDamage;
     }
@@ -41,10 +39,11 @@ public static class BattleLogicDamageTools
         if (atkType == 11 || beAtkType == 11) return false;
         if (atkType == 101 || beAtkType == 101) return false;
 
-        // 1:刀, 2:枪, 3:骑
         if (atkType == 1 && beAtkType == 2) return true; // 刀克枪
         if (atkType == 2 && beAtkType == 3) return true; // 枪克骑
         if (atkType == 3 && beAtkType == 1) return true; // 骑克刀
+        if (atkType == 101) return true;
+        if (atkType == 11 && beAtkType == 1001) return true; // 攻城 克 墙
 
         return false;
     }
