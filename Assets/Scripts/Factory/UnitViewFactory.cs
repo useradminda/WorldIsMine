@@ -25,7 +25,8 @@ public class UnitViewFactory
             GameObject template = Resources.Load<GameObject>(prefab);
             Quaternion qua = Quaternion.LookRotation(initForward);
             unitGob = UnityEngine.Object.Instantiate(template, initPos, qua);
-         }
+        }
+        unitGob.name = prefab + "_" + unitBase.UId;
         UnitView unitView = unitGob.GetOrAddComponent<UnitView>();
         unitView.Init(unitBase, prefab);
         return unitView;

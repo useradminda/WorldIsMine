@@ -18,7 +18,16 @@ public class DieState : StateBase
 
     public override void UpdateState(float dt)
     {
-
+        if (dieActionTime > 0)
+        {
+            dieActionTime -= dt;
+        }
+        if (dieActionTime < 0)
+        { 
+            UnitFactory.RecycleId(UnitLogic.CampType, UnitLogic.Index);
+            UnitViewFactory.RemoveUnitView(UnitLogic.UnitView);
+            dieActionTime = 0;
+        }
     }
 
     public override void ExitState()

@@ -28,14 +28,14 @@ public class StateMachine
     }
 
     public void ChangeState(EStateTyep enterStateType, params object[] objects)
-    {
-        if (currentState != null)
-        {
-            currentState.ExitState();
-        }
+    {     
         StateBase enterState = GetState(enterStateType);
         if (enterState != currentState)
         {
+            if (currentState != null)
+            {
+                currentState.ExitState();
+            }
             stateDirty = true;
             currentState = enterState;
             currentState?.EnterState(objects);

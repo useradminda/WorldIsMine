@@ -71,7 +71,7 @@ public static class UnitFactory
     }
 
     // 创建一个飞行物逻辑
-    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, SkillLogicBase skillLogic)
+    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int damage)
     {
         FlyObjectLogicBase flyObjectLogic = null;
         FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
@@ -83,7 +83,7 @@ public static class UnitFactory
         {
             flyObjectLogic = new FlyObjectLogicBase();
         }
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, skillLogic);
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage);
         FlyObjectManager.Instance.AddUnitImmediately(flyObjectLogic);
         return flyObjectLogic;
     }
@@ -108,19 +108,25 @@ public static class UnitFactory
     {
         if (campType == ECampType.Red)
         {
-            int removeIndex = redFreeCount - 1;
-            int unitIndex = redFreeIndexList[removeIndex];
-            redFreeIndexList.RemoveAt(removeIndex);
-            redFreeCount = redFreeCount - 1;
-            return unitIndex;
+            if (redFreeCount > 0)
+            {
+                int removeIndex = redFreeCount - 1;
+                int unitIndex = redFreeIndexList[removeIndex];
+                redFreeIndexList.RemoveAt(removeIndex);
+                redFreeCount = redFreeCount - 1;
+                return unitIndex;
+            }
         }
-        else if(campType == ECampType.Blue)
+        else if (campType == ECampType.Blue)
         {
-            int removeIndex = blueFreeCount - 1;
-            int unitIndex = blueFreeIndexList[removeIndex];
-            blueFreeIndexList.RemoveAt(removeIndex);
-            blueFreeCount = blueFreeCount - 1;
-            return unitIndex;
+            if (blueFreeCount > 0)
+            {
+                int removeIndex = blueFreeCount - 1;
+                int unitIndex = blueFreeIndexList[removeIndex];
+                blueFreeIndexList.RemoveAt(removeIndex);
+                blueFreeCount = blueFreeCount - 1;
+                return unitIndex;
+            }
         }
         return -1;
     }

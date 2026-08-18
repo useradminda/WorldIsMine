@@ -42,7 +42,9 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
         float3 startPosition,
         float3 targetPosition,
         float speed,
-        float damage)
+        int tarUid,
+        int damage
+        )
     {
         if (!initState)
             return -1;
@@ -98,7 +100,9 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
                     State = StateFlying,
 
-                    ActiveListIndex = activeIndex
+                    ActiveListIndex = activeIndex,
+
+                    TargetUId = tarUid,
                 };
 
             // 激活视觉
@@ -200,7 +204,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             // 这里可以调用 Unity / UnitManager
             // --------------------------------
 
-            BattleLogicDamageTools.DoDamage(UnitManager.Instance.UnitList[projectile.OwnerUnitIndex], UnitManager.Instance.UnitList[projectile.TargetUnitIndex], UnitManager.Instance.UnitList[projectile.OwnerUnitIndex].NormalSkill);
+            BattleLogicDamageTools.DoDamage(UnitManager.Instance.UnitList[projectile.OwnerUnitIndex], UnitManager.Instance.UnitList[projectile.TargetUnitIndex], projectile.Damage, projectile.TargetUId, UnitManager.Instance.UnitList[projectile.OwnerUnitIndex].NormalSkill);
             //UnitManager.Instance.Damage(
             //    projectile.TargetUnitIndex,
             //    projectile.Damage);
@@ -419,6 +423,8 @@ public struct ProjectileData
 
     public int TargetUnitIndex;
 
+    public int TargetUId;
+
     public float3 Position;
 
     public float3 StartPosition;
@@ -429,7 +435,7 @@ public struct ProjectileData
 
     public float Speed;
 
-    public float Damage;
+    public int Damage;
 
     public byte State;
 

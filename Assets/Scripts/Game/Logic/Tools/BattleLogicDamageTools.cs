@@ -4,25 +4,25 @@ using UnityEngine;
 
 public static class BattleLogicDamageTools
 {
-    public static void DoDamage(UnitLogicBase atkUnit, List<UnitLogicBase> beAtkedUnits, SkillLogicBase useSkill)
-    {
-        int damage = -useSkill.SkillCfg.damage;
-        for (int i = 0; i < beAtkedUnits.Count; i++)
-        {
-            int atkType = atkUnit.SoliderCfg.unitType;
-            int beAtkType = beAtkedUnits[i].SoliderCfg.unitType;
-            int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
-            beAtkedUnits[i].ChangeHp(finalDamage);
-        }
-    }
+    //public static void DoDamage(UnitLogicBase atkUnit, List<UnitLogicBase> beAtkedUnits, SkillLogicBase useSkill)
+    //{
+    //    int damage = -useSkill.SkillCfg.damage;
+    //    for (int i = 0; i < beAtkedUnits.Count; i++)
+    //    {
+    //        int atkType = atkUnit.SoliderCfg.unitType;
+    //        int beAtkType = beAtkedUnits[i].SoliderCfg.unitType;
+    //        int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
+    //        beAtkedUnits[i].ChangeHp(finalDamage);
+    //    }
+    //}
 
-    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, SkillLogicBase useSkill)
+    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid, SkillLogicBase useSkill)
     {
-        int damage = -useSkill.SkillCfg.damage;   
-        int atkType = atkUnit.SoliderCfg.unitType;
-        int beAtkType = beAtkedUnit.SoliderCfg.unitType;
-        int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
-        beAtkedUnit.ChangeHp(finalDamage);
+        // uid 为了unitlogicbase可能会被替换
+        if (beAtkedUnit.UId == beAtkedUid)
+        {
+            beAtkedUnit.ChangeHp(finalDamage);
+        }
     }
 
     public static int CalcFinalDamage(int atkType, int beAtkType, int baseDamage)

@@ -14,7 +14,6 @@ public class SkillLogicBase
     public bool BNormalSkill => this.skillCfg.normal == 1;
 
     private float curCD;
-
     public float CurCD => curCD;
 
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
@@ -63,7 +62,8 @@ public class SkillLogicBase
     // 执行
     public virtual void SkillDoEffect()
     {
-        BattleLogicDamageTools.DoDamage(unitLogic, targetList, this);
+       
+        BattleLogicDamageTools.DoDamage(unitLogic, SearchTarget, GetDamage(), SearchTarget.UId, this);
     }
 
     // 重置CD
@@ -80,47 +80,12 @@ public class SkillLogicBase
 
     private int searchReqId = -1;
     List<int> resultUnitIndexList = new List<int>();
+    private int neastIndex = -1;
     public void SkillSearchTarget()
     {
         targetList.Clear();
         searchReqId = MapCellManager.Instance.RequestSearch(unitLogic.Index, SkillSearchRange, unitLogic.OtherCampTypeInt);
     }
-
-    //public List<UnitLogicBase> SkillSearchTargetBYKd()
-    //{
-    //    targetList.Clear();
-    //    targetList.AddRange(BattleLogicTools.SearchNotMyCampUnits(UnitLogic.CurPos.x, UnitLogic.CurPos.z, SkillSearchRange, UnitLogic.CampType, false));
-    //    targetList.Sort((UnitLogicBase a, UnitLogicBase b) =>
-    //    {
-    //        if ((UnitLogic.CurPos - a.CurPos).sqrMagnitude < (UnitLogic.CurPos - b.CurPos).sqrMagnitude)
-    //        {
-    //            return 0;
-    //        }
-    //        else
-    //        {
-    //            return 1;
-    //        }
-    //    });
-    //    return targetList;
-    //}
-
-    //public List<UnitLogicBase> GetSkillSearchTargetResult()
-    //{
-    //    targetList.Clear();
-    //    if (searchReqId < 0)
-    //        return targetList;
-
-    //    resultUnitIndexList.Clear();
-    //    int neastIndex = -1;
-    //    MapCellManager.Instance.GetResult(searchReqId, resultUnitIndexList, ref neastIndex);
-
-    //    if (resultUnitIndexList.Count > 0)
-    //    {
-    //        int index = neastIndex;
-    //        targetList.Add(UnitManager.Instance.UnitList[index]);
-    //    }
-    //    return targetList;
-    //}
 
     public UnitLogicBase GetSkillSearchTargetSingleResult()
     {
@@ -130,16 +95,26 @@ public class SkillLogicBase
             return searchTarget;
        
         resultUnitIndexList.Clear();
-        int neastIndex = -1;
+        neastIndex = -1;
         MapCellManager.Instance.GetResult(searchReqId, resultUnitIndexList, ref neastIndex);
         if (resultUnitIndexList.Count > 0)
         {
-            targetList.Add(UnitManager.Instance.UnitList[neastIndex]);
-            searchTarget = targetList[0];
+            for (int i = 0; i < resultUnitIndexList.Count; i++)
+            {
+                int unitIndex = resultUnitIndexList[i];
+                targetList.Add(UnitManager.Instance.UnitList[unitIndex]);
+            }
+            searchTarget = UnitManager.Instance.UnitList[neastIndex];// targetList[0];
             searchReqId = -1;
             return searchTarget;
         }
         searchReqId = -1;
         return null;
+    }
+
+    public int GetDamage()
+    {
+        int damage = -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, SearchTarget.SoliderCfg.unitType, SkillCfg.damage);
+        return damage;
     }
 }

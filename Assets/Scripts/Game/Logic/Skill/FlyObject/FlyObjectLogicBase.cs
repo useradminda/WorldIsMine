@@ -12,36 +12,41 @@ public class FlyObjectLogicBase
 
     protected UnitLogicBase mAtkUnitLogic;
     protected List<UnitLogicBase> mTargetLogicList;
+    protected UnitLogicBase mSearchTargetUnitLogic;
 
     protected SkillLogicBase mSkillLogic;
 
     private FlyObjectCfg flyObjectCfg;
     protected FlyObjectCfg mFlyObjectCfg => flyObjectCfg;
 
+    protected int mDamage;
+
     public FlyObjectLogicBase()
     {
         
     }
 
-    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, SkillLogicBase skillLogic)
+    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnitLogic, SkillLogicBase skillLogic, int damage)
     {
         this.flyObjectCfg = flyObjectCfg;
         this.mOriPos = oriPos;
         this.mTarPos = tarPos;
         this.mAtkUnitLogic = atkUnitLogic;
         this.mTargetLogicList = targetLogicList;
+        this.mSearchTargetUnitLogic = searchTargetUnitLogic;
         this.mSkillLogic = skillLogic;
+        mDamage = damage;
     }
 
-    public virtual void FlyObjectUpdate(float dt)
-    {
+    //public virtual void FlyObjectUpdate(float dt)
+    //{
 
-    }
+    //}
 
-    public virtual void TouchTarUnit()
-    {
+    //public virtual void TouchTarUnit()
+    //{
 
-    }
+    //}
 
     public void Reset()
     {
