@@ -79,13 +79,23 @@ public static class UnitFactory
         {
             flyObjectLogic = new ArrowFlyObject();
         }
+        else if (flyObjectCfg.flyType == "area")
+        {
+            flyObjectLogic = new AreaFlyObject();
+            FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+        }
         else
         {
             flyObjectLogic = new FlyObjectLogicBase();
+            FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
         }
         flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage);
-        FlyObjectManager.Instance.AddUnitImmediately(flyObjectLogic);
         return flyObjectLogic;
+    }
+
+    public static void RemoveFlyObjectLogic(FlyObjectLogicBase flyObjectLogic)
+    {
+        FlyObjectManager.Instance.RemoveFlyUnitImmediately(flyObjectLogic);
     }
 
     // 回收UnitIndex

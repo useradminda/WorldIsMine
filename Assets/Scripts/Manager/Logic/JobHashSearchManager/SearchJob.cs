@@ -50,9 +50,9 @@ public struct SearchJob : IJobParallelFor
         SearchRequest req =
             requests[index];
 
-
-        UnitData me =
-            units[req.UnitIndex];
+        float3 searchPos = req.SearchPos;
+        //UnitData me =
+        //    units[req.UnitIndex];
 
 
         int offset =
@@ -72,13 +72,13 @@ public struct SearchJob : IJobParallelFor
 
         int cx =
             (int)math.floor(
-                (me.Position.x - minX) *
+                (searchPos.x - minX) *
                 invCellSize);
 
 
         int cz =
             (int)math.floor(
-                (me.Position.z - minZ) *
+                (searchPos.z - minZ) *
                 invCellSize);
 
 
@@ -168,17 +168,17 @@ public struct SearchJob : IJobParallelFor
 
                 do
                 {
-                    if (other ==
-                        req.UnitIndex)
-                    {
-                        continue;
-                    }
+                    //if (other ==
+                    //    req.UnitIndex)
+                    //{
+                    //    continue;
+                    //}
 
 
                     float distSq =
                         math.lengthsq(
                             units[other].Position -
-                            me.Position);
+                            searchPos);
 
 
                     if (distSq >

@@ -7,6 +7,15 @@ public class UnitViewFactory
 
     public static UnitView CreateUnitView(string prefab, Vector3 initPos, Vector3 initForward, UnitLogicBase unitBase)
     {
+        GameObject unitGob = CreateGob(prefab, initPos, initForward);
+        unitGob.name = prefab + "_" + unitBase.UId;
+        UnitView unitView = unitGob.GetOrAddComponent<UnitView>();
+        unitView.Init(unitBase, prefab);
+        return unitView;
+    }
+
+    public static GameObject CreateGob(string prefab, Vector3 initPos, Vector3 initForward)
+    {
         GameObject unitGob = null;
         if (catchGob.ContainsKey(prefab))
         {
@@ -20,36 +29,30 @@ public class UnitViewFactory
                 unitGob.transform.rotation = qua;
             }
         }
-        if (unitGob == null)
+        else
         {
             GameObject template = Resources.Load<GameObject>(prefab);
             Quaternion qua = Quaternion.LookRotation(initForward);
             unitGob = UnityEngine.Object.Instantiate(template, initPos, qua);
         }
-        unitGob.name = prefab + "_" + unitBase.UId;
-        UnitView unitView = unitGob.GetOrAddComponent<UnitView>();
-        unitView.Init(unitBase, prefab);
-        return unitView;
+        return unitGob;
     }
 
-    public static GameObject CreateGob(string prefab, Vector3 initPos, Vector3 initForward)
+    public static void RemoveGob(string prefabName, GameObject gob)
     {
-        GameObject template = Resources.Load<GameObject>(prefab);
-        Quaternion qua = Quaternion.LookRotation(initForward);
-        GameObject unitGob = UnityEngine.Object.Instantiate(template, initPos, qua);
-        return unitGob;
+        gob.transform.position = new Vector3(0, 1000, 0);
+        gob.transform.gameObject.SetActive(false);
+        if (!catchGob.ContainsKey(prefabName))
+        {
+            catchGob.Add(prefabName, new List<GameObject>());
+        }
+        catchGob[prefabName].Add(gob);
     }
 
     // 移除unitView
     public static void RemoveUnitView(UnitView unitView)
     {
         UnitViewManager.Instance.RemoveSwapBackUnitView(unitView);
-        unitView.transform.position = new Vector3(0, 1000, 0);
-        unitView.transform.gameObject.SetActive(false);
-        if(!catchGob.ContainsKey(unitView.PrefabName))
-        {
-            catchGob.Add(unitView.PrefabName, new List<GameObject>());
-        }
-        catchGob[unitView.PrefabName].Add(unitView.transform.gameObject);
+        RemoveGob(unitView.PrefabName, unitView.gameObject);
     }
 }

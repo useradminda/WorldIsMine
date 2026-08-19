@@ -204,7 +204,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             // 这里可以调用 Unity / UnitManager
             // --------------------------------
 
-            BattleLogicDamageTools.DoDamage(UnitManager.Instance.UnitList[projectile.OwnerUnitIndex], UnitManager.Instance.UnitList[projectile.TargetUnitIndex], projectile.Damage, projectile.TargetUId, UnitManager.Instance.UnitList[projectile.OwnerUnitIndex].NormalSkill);
+            BattleLogicDamageTools.DoDamage(UnitManager.Instance.UnitList[projectile.OwnerUnitIndex], UnitManager.Instance.UnitList[projectile.TargetUnitIndex], projectile.Damage, projectile.TargetUId);
             //UnitManager.Instance.Damage(
             //    projectile.TargetUnitIndex,
             //    projectile.Damage);

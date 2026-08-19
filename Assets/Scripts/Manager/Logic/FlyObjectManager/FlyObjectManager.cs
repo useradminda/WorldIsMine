@@ -33,10 +33,15 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     }
 
-    public FlyObjectLogicBase AddUnitImmediately(FlyObjectLogicBase flyObjet)
+    public FlyObjectLogicBase AddFlyUnitImmediately(FlyObjectLogicBase flyObjet)
     {
         flyObjectList.AddImmediately(flyObjet);
         return flyObjet;
+    }
+
+    public void RemoveFlyUnitImmediately(FlyObjectLogicBase flyObject)
+    {
+        flyObjectList.RemoveImmediately(flyObject);
     }
 
 }

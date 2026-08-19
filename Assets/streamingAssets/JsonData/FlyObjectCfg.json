@@ -1,1 +1,1 @@
-[{"id":1,"name":"箭","speed":100.0,"flyType":"arrow","prefab":"FlyObject/Arrow"}]
+[{"id":1,"name":"箭","speed":100.0,"flyType":"arrow","prefab":"FlyObject/Arrow","damClipTime":0.0,"liveTime":0.0},{"id":2,"name":"冰霜","speed":0.0,"flyType":"area","prefab":"Effect/IceArea","damClipTime":0.0,"liveTime":10.0}]

@@ -36,7 +36,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> resultCount;
     NativeArray<int> nearResultIndex;
 
-    const int MaxSearchRequest = 10000;
+    const int MaxSearchRequest = 20000;
     const int MaxResult = 32;
 
     private int unitCount = 0;
@@ -135,7 +135,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
 
     public int RequestSearch(
-        int unitIndex,
+        float3 searchPos,
         float radius,
         int searchCampType)
     {
@@ -147,19 +147,14 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
             return -1;
 
 
-        if (unitIndex < 0 ||
-            unitIndex >= unitCount)
-            return -1;
-
-
-        int reqId =
+        int searchReqIndex =
             curRequestCount;
 
 
-        requests[reqId] =
+        requests[searchReqIndex] =
             new SearchRequest
             {
-                UnitIndex = unitIndex,
+                SearchPos = searchPos,
                 Radius = radius,
                 SearchCamp = searchCampType
             };
@@ -168,7 +163,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         curRequestCount++;
 
 
-        return reqId;
+        return searchReqIndex;
     }
 
 
@@ -397,8 +392,9 @@ public struct UnitData
 
 public struct SearchRequest
 {
+    public float3 SearchPos;
     // 谁搜索
-    public int UnitIndex;
+    //public int UnitIndex;
 
     // 搜索半径
     public float Radius;

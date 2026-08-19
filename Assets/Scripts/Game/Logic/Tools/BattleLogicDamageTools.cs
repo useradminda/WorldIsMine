@@ -14,7 +14,7 @@ public static class BattleLogicDamageTools
     //    }
     //}
 
-    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid, SkillLogicBase useSkill)
+    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid)
     {
         // uid 为了unitlogicbase可能会被替换
         if (beAtkedUnit.UId == beAtkedUid)

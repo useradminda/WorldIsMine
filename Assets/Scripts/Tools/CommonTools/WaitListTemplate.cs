@@ -65,4 +65,9 @@ public class WaitListTemplate<T>
         }
         waitingAddList.Clear();
     }
+
+    public void RemoveImmediately(T data)
+    {
+        dataList.Remove(data);
+    }
 }

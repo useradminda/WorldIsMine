@@ -62,8 +62,7 @@ public class SkillLogicBase
     // 执行
     public virtual void SkillDoEffect()
     {
-       
-        BattleLogicDamageTools.DoDamage(unitLogic, SearchTarget, GetDamage(), SearchTarget.UId, this);
+        BattleLogicDamageTools.DoDamage(unitLogic, SearchTarget, GetDamage(), SearchTarget.UId);
     }
 
     // 重置CD
@@ -78,25 +77,25 @@ public class SkillLogicBase
         SkillResetCD();    
     }
 
-    private int searchReqId = -1;
+    private int searchReqIndex = -1;
     List<int> resultUnitIndexList = new List<int>();
     private int neastIndex = -1;
     public void SkillSearchTarget()
     {
         targetList.Clear();
-        searchReqId = MapCellManager.Instance.RequestSearch(unitLogic.Index, SkillSearchRange, unitLogic.OtherCampTypeInt);
+        searchReqIndex = MapCellManager.Instance.RequestSearch(unitLogic.CurPos, SkillSearchRange, unitLogic.OtherCampTypeInt);
     }
 
     public UnitLogicBase GetSkillSearchTargetSingleResult()
     {
         searchTarget = null;
         targetList.Clear();
-        if (searchReqId < 0)
+        if (searchReqIndex < 0)
             return searchTarget;
        
         resultUnitIndexList.Clear();
         neastIndex = -1;
-        MapCellManager.Instance.GetResult(searchReqId, resultUnitIndexList, ref neastIndex);
+        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex);
         if (resultUnitIndexList.Count > 0)
         {
             for (int i = 0; i < resultUnitIndexList.Count; i++)
@@ -105,10 +104,10 @@ public class SkillLogicBase
                 targetList.Add(UnitManager.Instance.UnitList[unitIndex]);
             }
             searchTarget = UnitManager.Instance.UnitList[neastIndex];// targetList[0];
-            searchReqId = -1;
+            searchReqIndex = -1;
             return searchTarget;
         }
-        searchReqId = -1;
+        searchReqIndex = -1;
         return null;
     }
 
