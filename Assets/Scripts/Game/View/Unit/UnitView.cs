@@ -5,13 +5,10 @@ public class UnitView : IView
 {
     private UnitLogicBase unitLogic;
 
-    private ActionFlow actionFlow;
-
-    private EStateTyep curStateType = EStateTyep.None;
-
     private string prefabName;
     public string PrefabName => prefabName;
 
+    private ActionFlow actionFlow;
     public ActionFlow ActionFlowComponent
     {
         get
@@ -24,10 +21,33 @@ public class UnitView : IView
         }
     }
 
+    private SlashComponent slashComp;
+    public SlashComponent SlachComp
+    {
+        get
+        {
+            if(slashComp == null)
+                slashComp = gameObject.GetOrAddComponent<SlashComponent>();
+            return slashComp;
+        }
+    }
+
+    private FreezeComponent freezeComp;
+    public FreezeComponent FreezeComp
+    {
+        get
+        {
+            if (freezeComp == null)
+                freezeComp = gameObject.GetOrAddComponent<FreezeComponent>();
+            return freezeComp;
+        }
+    }
+
     public void Init(UnitLogicBase unit, string prefabName)
     {
         this.prefabName = prefabName;
         this.unitLogic = unit;
+        SlachComp.ExitSlash();
     }
 
     public override void ViewInit()
@@ -52,6 +72,11 @@ public class UnitView : IView
 
     }
 
+    public void BeHitSlash()
+    {
+        SlachComp.SetSlash();
+    }
+
     public void EnterState(EStateTyep stateType)
     {
         if (unitLogic != null)
@@ -68,7 +93,7 @@ public class UnitView : IView
                 }
                 else if (stateType == EStateTyep.Die)
                 {
-                     ActionFlowComponent.PlayAction(EActionType.die);
+                    ActionFlowComponent.PlayAction(EActionType.die);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }

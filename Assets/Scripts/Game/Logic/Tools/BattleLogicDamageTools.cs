@@ -19,6 +19,7 @@ public static class BattleLogicDamageTools
         // uid 为了unitlogicbase可能会被替换
         if (beAtkedUnit.UId == beAtkedUid)
         {
+            beAtkedUnit.UnitView.BeHitSlash();
             beAtkedUnit.ChangeHp(finalDamage);
         }
     }

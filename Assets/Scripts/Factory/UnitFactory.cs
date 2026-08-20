@@ -75,6 +75,7 @@ public static class UnitFactory
     {
         FlyObjectLogicBase flyObjectLogic = null;
         FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
+        int uIndex = -1;
         if (flyObjectCfg.flyType == "arrow")
         {
             flyObjectLogic = new ArrowFlyObject();
@@ -82,17 +83,22 @@ public static class UnitFactory
         else if (flyObjectCfg.flyType == "area")
         {
             flyObjectLogic = new AreaFlyObject();
-            FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+            uIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+        }
+        else if (flyObjectCfg.flyType == "stone")
+        {
+
         }
         else
         {
             flyObjectLogic = new FlyObjectLogicBase();
-            FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+            uIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
         }
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage);
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage, uIndex);
         return flyObjectLogic;
     }
 
+    // 移除
     public static void RemoveFlyObjectLogic(FlyObjectLogicBase flyObjectLogic)
     {
         FlyObjectManager.Instance.RemoveFlyUnitImmediately(flyObjectLogic);
