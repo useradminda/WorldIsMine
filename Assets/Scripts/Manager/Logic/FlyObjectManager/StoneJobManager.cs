@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using ZTools;
 
-public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
+public class StoneJobManager : Singleton<StoneJobManager>, IManager
 {
     // 最大箭数量
     private const int MaxProjectileCount = 10000;
@@ -68,7 +68,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
             float totalTime = distance / speed;
 
-            float arcHeight = math.clamp( distance * 0.2f, 2f, 10f);
+            float arcHeight = math.clamp(distance * 0.2f, 2f, 10f);
 
             activeProjectileIds.Add(i);
 
@@ -113,7 +113,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             if (math.lengthsq(direction) > 0.0001f)
             {
                 flyTrans.rotation = Quaternion.LookRotation(direction);
-            }      
+            }
             return i;
         }
 
@@ -375,7 +375,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
 public struct ProjectileData
 {
-  
+
     public int Index;
 
     public int OwnerUnitIndex;

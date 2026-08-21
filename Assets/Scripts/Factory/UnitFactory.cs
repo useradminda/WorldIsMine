@@ -70,12 +70,12 @@ public static class UnitFactory
         return agent;
     }
 
-    // 创建一个飞行物逻辑
+
     public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int damage)
     {
         FlyObjectLogicBase flyObjectLogic = null;
         FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
-        int uIndex = -1;
+        int flyUIndex = -1;
         if (flyObjectCfg.flyType == "arrow")
         {
             flyObjectLogic = new ArrowFlyObject();
@@ -83,7 +83,7 @@ public static class UnitFactory
         else if (flyObjectCfg.flyType == "area")
         {
             flyObjectLogic = new AreaFlyObject();
-            uIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+           
         }
         else if (flyObjectCfg.flyType == "stone")
         {
@@ -91,10 +91,10 @@ public static class UnitFactory
         }
         else
         {
-            flyObjectLogic = new FlyObjectLogicBase();
-            uIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+            flyObjectLogic = new FlyObjectLogicBase();  
         }
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage, uIndex);
+        flyUIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage, flyUIndex);
         return flyObjectLogic;
     }
 

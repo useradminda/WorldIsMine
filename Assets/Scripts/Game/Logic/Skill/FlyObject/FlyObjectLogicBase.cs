@@ -21,15 +21,15 @@ public class FlyObjectLogicBase
     protected GameObject mFlyObjectGob;
 
     // 唯一下标
-    private int uIndex;
-    public int UIdex => uIndex; 
+    private int flyUIndex;
+    public int FlyUIndex => flyUIndex; 
 
     public FlyObjectLogicBase()
     {
         
     }
 
-    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnitLogic, SkillLogicBase skillLogic, int damage, int uIndex)
+    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnitLogic, SkillLogicBase skillLogic, int damage, int flyUIndex)
     {
         this.mFlyObjectCfg = flyObjectCfg;
         this.mOriPos = oriPos;
@@ -38,7 +38,7 @@ public class FlyObjectLogicBase
         this.mTargetLogicList = targetLogicList;
         this.mSearchTargetUnitLogic = searchTargetUnitLogic;
         this.mSkillLogic = skillLogic;
-        this.uIndex = uIndex;
+        this.flyUIndex = flyUIndex;
         mDamage = damage;
     }
 
@@ -47,7 +47,7 @@ public class FlyObjectLogicBase
 
     }
 
-    public virtual void TouchTarUnit()
+    public virtual void ArriveTarPos()
     {
 
     }

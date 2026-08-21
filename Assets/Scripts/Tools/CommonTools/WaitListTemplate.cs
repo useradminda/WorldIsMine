@@ -55,7 +55,6 @@ public class WaitListTemplate<T>
         waitingRemoveList.RemoveSwapBack(data);
     }
 
-    // 添加等待入队列表
     public void AddWaitingList()
     {
         for (int i = 0; i < waitingAddList.Count; i++)

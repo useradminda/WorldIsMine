@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ZTools;
 public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 {
-    private int uIndex = 0;
+    private int flyUIndex = 0;
     public WaitListTemplate<FlyObjectLogicBase> FlyObjectList = new WaitListTemplate<FlyObjectLogicBase>(null);
 
     public Dictionary<int, FlyObjectLogicBase> FlyObjectDic = new Dictionary<int, FlyObjectLogicBase>();
@@ -38,23 +38,23 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
     public int AddFlyUnitImmediately(FlyObjectLogicBase flyObjet)
     {
         FlyObjectList.AddImmediately(flyObjet);
-        ++uIndex;
-        FlyObjectDic.Add(uIndex, flyObjet);
-        return uIndex;
+        ++flyUIndex;
+        FlyObjectDic.Add(flyUIndex, flyObjet);
+        return flyUIndex;
     }
 
     public void RemoveFlyUnitImmediately(FlyObjectLogicBase flyObject)
     {
         FlyObjectList.RemoveImmediately(flyObject);
-        if (FlyObjectDic.ContainsKey(flyObject.UIdex))
-            FlyObjectDic.Remove(flyObject.UIdex);
+        if (FlyObjectDic.ContainsKey(flyObject.FlyUIndex))
+            FlyObjectDic.Remove(flyObject.FlyUIndex);
     }
 
-    public FlyObjectLogicBase SearchByUIndex(int uIndex)
+    public FlyObjectLogicBase SearchByFlyUIndex(int flyUIndex)
     {
-        if (FlyObjectDic.ContainsKey(uIndex))
+        if (FlyObjectDic.ContainsKey(flyUIndex))
         {
-            return FlyObjectDic[uIndex];
+            return FlyObjectDic[flyUIndex];
         }
         return null;
     }
