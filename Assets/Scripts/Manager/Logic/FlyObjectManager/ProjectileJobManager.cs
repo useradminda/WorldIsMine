@@ -44,7 +44,8 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
         int tarUid,
         int damage,
         int flyUIndex,
-        Transform flyTrans
+        Transform flyTrans,
+        string flyType
         )
     {
         if (!initState)
@@ -68,7 +69,17 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
             float totalTime = distance / speed;
 
-            float arcHeight = math.clamp( distance * 0.2f, 2f, 10f);
+
+            float arcHeight = 1;
+
+            if (flyType == "arrow")
+            { 
+               arcHeight = math.clamp(distance * 0.2f, 2f, 10f);
+            }
+            else if(flyType == "stone")
+            {
+                arcHeight = math.clamp(distance * 0.3f, 4f, 15f);
+            }
 
             activeProjectileIds.Add(i);
 

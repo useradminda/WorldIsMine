@@ -11,7 +11,7 @@ public class ArrowFlyObject : FlyObjectLogicBase
         base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, flyUIndex);
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, tarPos, Vector3.zero);
         targetUid = searchTargetUnit.UId;
-        ProjectileJobManager.Instance.SpawnProjectile(atkUnitLogic.Index, searchTargetUnit.Index, oriPos, tarPos, mFlyObjectCfg.speed, searchTargetUnit.UId, damage, flyUIndex, mFlyObjectGob.transform);
+        ProjectileJobManager.Instance.SpawnProjectile(atkUnitLogic.Index, searchTargetUnit.Index, oriPos, tarPos, mFlyObjectCfg.speed, targetUid, damage, flyUIndex, mFlyObjectGob.transform, flyObjectCfg.flyType);
     }
 
     public override void ArriveTarPos()
