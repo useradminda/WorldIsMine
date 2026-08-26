@@ -9,7 +9,7 @@ public class UnitViewFactory
     {
         GameObject unitGob = CreateGob(prefab, initPos, initForward);
         unitGob.name = prefab + "_" + unitBase.UId;
-        UnitView unitView = unitGob.GetOrAddComponent<UnitView>();
+        UnitView unitView = unitGob.transform.GetChild(0).GetOrAddComponent<UnitView>();
         unitView.Init(unitBase, prefab);
         return unitView;
     }
@@ -25,22 +25,21 @@ public class UnitViewFactory
                 unitGob = catchGobList[catchGobList.Count - 1];
                 catchGobList.RemoveAt(catchGobList.Count - 1);
                 unitGob.transform.position = initPos;
-                Quaternion qua = Quaternion.LookRotation(initForward);
-                unitGob.transform.rotation = qua;
+                Quaternion qua1 = Quaternion.LookRotation(initForward);
+                unitGob.transform.rotation = qua1;
+                unitGob.gameObject.SetActive(true);
+                return unitGob;
             }
-        }
-        else
-        {
-            GameObject template = Resources.Load<GameObject>(prefab);
-            Quaternion qua = Quaternion.LookRotation(initForward);
-            unitGob = UnityEngine.Object.Instantiate(template, initPos, qua);
-        }
+        }   
+        GameObject template = Resources.Load<GameObject>(prefab);
+        Quaternion qua = Quaternion.LookRotation(initForward);
+        unitGob = UnityEngine.Object.Instantiate(template, initPos, qua);
         return unitGob;
     }
 
     public static void RemoveGob(string prefabName, GameObject gob)
     {
-        gob.transform.position = new Vector3(0, 1000, 0);
+        //  gob.transform.position = new Vector3(0, 1000, 0);
         gob.transform.gameObject.SetActive(false);
         if (!catchGob.ContainsKey(prefabName))
         {

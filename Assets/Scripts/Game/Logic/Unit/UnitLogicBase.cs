@@ -19,9 +19,9 @@ public class UnitLogicBase
         get
         {
             Vector3 finalForward;
-            if (NormalSkill.TargetList.Count > 0 && NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
+            if (NormalSkill.SearchTarget != null && NormalSkill.SearchTarget.IsDead == false)
             {
-                finalForward = Vector3.Normalize(NormalSkill.TargetList[0].CurPos - NormalSkill.UnitLogic.CurPos);
+                finalForward = Vector3.Normalize(NormalSkill.SearchTarget.CurPos - NormalSkill.UnitLogic.CurPos);
             }
             else
             {

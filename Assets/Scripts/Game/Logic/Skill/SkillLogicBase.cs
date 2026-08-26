@@ -49,7 +49,7 @@ public class SkillLogicBase
             {
                 if (BNormalSkill)
                 {
-                    if (targetList.Count > 0 && targetList[0].IsDead == false)
+                    if (SearchTarget != null && SearchTarget.IsDead == false)
                     {
                         SkillDoEffect();
                         SkillResetCD();
@@ -103,7 +103,12 @@ public class SkillLogicBase
                 int unitIndex = resultUnitIndexList[i];
                 targetList.Add(UnitManager.Instance.UnitList[unitIndex]);
             }
-            searchTarget = UnitManager.Instance.UnitList[neastIndex];// targetList[0];
+            searchTarget = UnitManager.Instance.UnitList[neastIndex];
+            if (searchTarget == UnitLogic)
+            {
+                UnityEngine.Debug.LogError("严重错误搜索到自己了!!");
+                searchTarget = null;
+            }
             searchReqIndex = -1;
             return searchTarget;
         }

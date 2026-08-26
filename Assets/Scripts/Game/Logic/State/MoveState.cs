@@ -31,14 +31,13 @@ public class MoveState : StateBase
 
     private void searchTargetUnits()
     {
-        SkillLogicBase normalSkill = UnitLogic.NormalSkill;
-        normalSkill.SkillSearchTarget();
+        UnitLogic.NormalSkill.SkillSearchTarget();
     }
 
     private void getTargetUnits()
     {
         UnitLogicBase ulb = UnitLogic.NormalSkill.GetSkillSearchTargetSingleResult();
-        if (ulb != null)
+        if (ulb != null && ulb.IsDead == false)
         {
             float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
             if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
