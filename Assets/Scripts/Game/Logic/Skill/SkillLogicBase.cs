@@ -40,7 +40,7 @@ public class SkillLogicBase
     }
 
     // 更新
-    public void SkillDoEffectUpdate(float dt)
+    public void SkillUpdate(float dt)
     {
         if (curCD > 0)
         {

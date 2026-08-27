@@ -13,7 +13,7 @@ public class AttackState : StateBase
 
     public override void EnterState(params object[] objects)
     {
-        UnitLogic.MoveStop();
+        UnitLogic.TriggerMoveStop();
         UnitLogic.UnitView.EnterState(EStateTyep.Attack);
         targetUnit = (UnitLogicBase)objects[0];
         useSkill = (SkillLogicBase)objects[1];
@@ -54,6 +54,6 @@ public class AttackState : StateBase
 
     private void skillUpdate(float dt)
     {
-        useSkill.SkillDoEffectUpdate(dt);
+        useSkill.SkillUpdate(dt);
     }
 }
