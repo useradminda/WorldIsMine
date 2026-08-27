@@ -26,6 +26,7 @@ public class StoneFlyObject : FlyObjectLogicBase
     private int searchReqIndex = -1;
     List<int> resultUnitIndexList = new List<int>();
     private int neastIndex = -1;
+    private int randomIndex = -1;
     private void reqSearchTar()
     {
         searchReqIndex = MapCellManager.Instance.RequestSearch(mTarPos, mSkillLogic.SkillCfg.skillArea, mAtkUnitLogic.OtherCampTypeInt);
@@ -33,7 +34,7 @@ public class StoneFlyObject : FlyObjectLogicBase
 
     private void setSearchTar()
     {
-        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex);
+        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
     }
 
     private void damage()

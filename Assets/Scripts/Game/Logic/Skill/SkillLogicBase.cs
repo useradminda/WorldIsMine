@@ -80,6 +80,7 @@ public class SkillLogicBase
     private int searchReqIndex = -1;
     List<int> resultUnitIndexList = new List<int>();
     private int neastIndex = -1;
+    private int randomIndex = -1;
     public void SkillSearchTarget()
     {
         targetList.Clear();
@@ -95,7 +96,7 @@ public class SkillLogicBase
        
         resultUnitIndexList.Clear();
         neastIndex = -1;
-        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex);
+        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
         if (resultUnitIndexList.Count > 0)
         {
             for (int i = 0; i < resultUnitIndexList.Count; i++)

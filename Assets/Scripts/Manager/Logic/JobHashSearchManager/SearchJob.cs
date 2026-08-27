@@ -25,6 +25,10 @@ public struct SearchJob : IJobParallelFor
     [NativeDisableParallelForRestriction]
     public NativeArray<int> nearResultIndex;
 
+    [WriteOnly]
+    [NativeDisableParallelForRestriction]
+    public NativeArray<int> randomResultIndex;
+
 
     [ReadOnly]
     public NativeArray<SearchRequest> requests;
@@ -88,12 +92,12 @@ public struct SearchJob : IJobParallelFor
                 invCellSize);
 
 
-        float minDistSq =
-            float.MaxValue;
+        float minDistSq = float.MaxValue;
 
 
-        nearResultIndex[index] =
-            -1;
+        nearResultIndex[index] = -1;
+
+        randomResultIndex[index] = -1;
 
 
         // -------------------------
@@ -230,5 +234,29 @@ public struct SearchJob : IJobParallelFor
 
         resultCount[index] =
             count;
+
+        // -------------------------
+        // 随机选择一个目标
+        // -------------------------
+
+        if (count > 0)
+        {
+            uint seed =
+                req.RandomSeed;
+
+            // Random 的 Seed 不能为 0
+            if (seed == 0)
+                seed = 1;
+
+            Random random =
+                new Random(seed);
+
+            int randomIndex =
+                random.NextInt(count);
+
+            randomResultIndex[index] =
+                resultIndex[
+                    offset + randomIndex];
+        }
     }
 }
