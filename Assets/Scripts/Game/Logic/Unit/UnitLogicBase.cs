@@ -57,6 +57,9 @@ public class UnitLogicBase
     private StateMachine stateMachine;
     public StateMachine StateMachine => stateMachine;
 
+    private BuffLogicMachine buffLogicMachine = new BuffLogicMachine();
+    public BuffLogicMachine BuffLogicMachine => buffLogicMachine;
+
     public UnitView UnitView;
 
     public Vector3 CurPos => Agenter.pos;
@@ -127,6 +130,10 @@ public class UnitLogicBase
         {
             stateMachine.UpdateState(dt);
         }
+        if (buffLogicMachine != null)
+        {
+            buffLogicMachine.UpdateBuffMachine(dt);
+        }
     }
 
     public void ChangeHp(int damage)
@@ -136,8 +143,7 @@ public class UnitLogicBase
             StateMachine.ChangeState(EStateTyep.Die);
     }
    
-
-    public void MoveStop()
+    public void TriggerMoveStop()
     {
         Agenter.navigationEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
@@ -152,6 +158,7 @@ public class UnitLogicBase
 
     public void TriggerDie()
     {
+        buffLogicMachine.Die();
         Agenter.navigationEnabled = false;
         Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
@@ -165,9 +172,10 @@ public class UnitLogicBase
         Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
-    public void Refuse()
+    public void AddBuff(int buffCfgId)
     {
-        isFree = true;
+        BuffLogicBase buffLogic = null;
+        buffLogicMachine.AddBuff(buffLogic);
     }
 
     private void initProp()

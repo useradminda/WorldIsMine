@@ -36,6 +36,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> resultCount;
     NativeArray<int> nearResultIndex;
 
+    NativeArray<int> randomResultIndex;
+
     const int MaxSearchRequest = 20000;
     const int MaxResult = 32;
 
@@ -43,7 +45,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
     private bool initState = false;
 
-
+    private uint randomSeed = 1;
     public void ManagerInit()
     {
         invCellSize = 1f / cellSize;
@@ -82,6 +84,12 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
                 MaxSearchRequest,
                 Allocator.Persistent,
                 NativeArrayOptions.ClearMemory);
+
+        randomResultIndex =
+        new NativeArray<int>(
+            MaxSearchRequest,
+            Allocator.Persistent,
+            NativeArrayOptions.UninitializedMemory);
 
 
         resultIndex =
@@ -133,6 +141,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         return index;
     }
 
+   
 
     public int RequestSearch(
         float3 searchPos,
@@ -150,13 +159,18 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         int searchReqIndex =
             curRequestCount;
 
+        randomSeed++;
+
+        if (randomSeed == 0)
+            randomSeed = 1;
 
         requests[searchReqIndex] =
             new SearchRequest
             {
                 SearchPos = searchPos,
                 Radius = radius,
-                SearchCamp = searchCampType
+                SearchCamp = searchCampType,
+                RandomSeed = randomSeed
             };
 
 
@@ -197,6 +211,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
                 nearResultIndex = nearResultIndex,
 
+                randomResultIndex  = randomResultIndex,
+
                 maxResult = MaxResult,
 
                 invCellSize = invCellSize,
@@ -229,7 +245,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     public void GetResult(
         int requestId,
         List<int> list,
-        ref int nearestIndex)
+        ref int nearestIndex,
+        ref int randomIndex)
     {
         int count =
             resultCount[requestId];
@@ -246,8 +263,10 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         }
 
 
-        nearestIndex =
-            nearResultIndex[requestId];
+        nearestIndex = nearResultIndex[requestId];
+
+        randomIndex = randomResultIndex[requestId];
+
     }
 
 
@@ -365,6 +384,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         resultIndex.Dispose();
         resultCount.Dispose();
         nearResultIndex.Dispose();
+        randomResultIndex.Dispose();
 
 
         initState = false;
@@ -401,4 +421,7 @@ public struct SearchRequest
 
     // 搜索哪个阵营
     public int SearchCamp;
+
+    // 本次搜索的随机种子
+    public uint RandomSeed;
 }

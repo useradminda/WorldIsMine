@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class MoveState : StateBase
 {
-
-
     public override EStateTyep StateType { get { return EStateTyep.Move; } }
 
     public MoveState(UnitLogicBase ulb):base(ulb)
