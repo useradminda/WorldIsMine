@@ -72,7 +72,6 @@ public class UnitLogicBase
     private int index;
     public int Index => index;
 
-    private bool isFree = true;
 
     public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
     {
@@ -86,7 +85,6 @@ public class UnitLogicBase
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
-        isFree = false;
     }
 
     // 回收使用
@@ -97,7 +95,6 @@ public class UnitLogicBase
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
-        isFree = false;
     }
 
     public void InitStateMachine()
@@ -119,8 +116,6 @@ public class UnitLogicBase
 
     public void UnitUpdate(float dt)
     {
-        if (isFree == true)
-            return;
         if (Agenter == null)
         {
             Debug.LogError("严重错误当前单位的Agent智能体是空的");

@@ -1,9 +1,4 @@
-
-using Google.Protobuf.WellKnownTypes;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class UnitView : IView
 {
@@ -164,8 +159,8 @@ public class UnitView : IView
     private Vector3 backwardDirection;
     private float startTime;
     private float duration;
-    private float backwardDistance = 2;
-    private float maxHeight = 0.5f;
+    private float backwardDistance = 5;
+    private float maxHeight = 3f;
     private bool playingDie;
     // 进入
     private void enterDieState(float duration)
@@ -193,6 +188,4 @@ public class UnitView : IView
             return;
         }
     }
-
-
 }

@@ -19,7 +19,7 @@ public class SkillLogicBase
     private List<UnitLogicBase> targetList = new List<UnitLogicBase>();
     public List<UnitLogicBase> TargetList => targetList;
 
-    private UnitLogicBase searchTarget;
+    protected UnitLogicBase searchTarget;
     public UnitLogicBase SearchTarget => searchTarget;
 
     public string skillGUID;
@@ -77,33 +77,36 @@ public class SkillLogicBase
         SkillResetCD();    
     }
 
-    private int searchReqIndex = -1;
-    List<int> resultUnitIndexList = new List<int>();
-    private int neastIndex = -1;
-    private int randomIndex = -1;
+    protected int searchReqIndex = -1;
+    protected int neastIndex = -1;
+    protected int randomIndex = -1;
+    protected List<int> resultUnitIndexList = new List<int>();
+    
     public void SkillSearchTarget()
     {
-        targetList.Clear();
+        //targetList.Clear();
         searchReqIndex = MapCellManager.Instance.RequestSearch(unitLogic.CurPos, SkillSearchRange, unitLogic.OtherCampTypeInt);
     }
 
-    public UnitLogicBase GetSkillSearchTargetSingleResult()
+    public virtual UnitLogicBase GetSkillSearchTargetSingleResult()
     {
         searchTarget = null;
-        targetList.Clear();
+        //targetList.Clear();
         if (searchReqIndex < 0)
             return searchTarget;
        
         resultUnitIndexList.Clear();
         neastIndex = -1;
+        randomIndex = -1;
+
         MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
         if (resultUnitIndexList.Count > 0)
         {
-            for (int i = 0; i < resultUnitIndexList.Count; i++)
-            {
-                int unitIndex = resultUnitIndexList[i];
-                targetList.Add(UnitManager.Instance.UnitList[unitIndex]);
-            }
+            //for (int i = 0; i < resultUnitIndexList.Count; i++)
+            //{
+            //    int unitIndex = resultUnitIndexList[i];
+            //    //targetList.Add(UnitManager.Instance.UnitList[unitIndex]);
+            //}
             searchTarget = UnitManager.Instance.UnitList[neastIndex];
             if (searchTarget == UnitLogic)
             {
@@ -113,6 +116,7 @@ public class SkillLogicBase
             searchReqIndex = -1;
             return searchTarget;
         }
+        searchTarget = null;
         searchReqIndex = -1;
         return null;
     }

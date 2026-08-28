@@ -13,7 +13,6 @@ public struct SearchJob : IJobParallelFor
     public NativeParallelMultiHashMap<int, int> cellMap;
 
 
-    [WriteOnly]
     [NativeDisableParallelForRestriction]
     public NativeArray<int> resultIndex;
 
