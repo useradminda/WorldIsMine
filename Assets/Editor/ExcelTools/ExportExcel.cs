@@ -125,7 +125,8 @@ public class ExportExcel
                 if (propValue == null)
                 {
                     Debug.LogError(string.Format("第{0}行第{1}列为空", i, j));
-                    return;
+                    propValue = "";
+                    // return;
                 }
                 valueList.Add(propValue);             
             }

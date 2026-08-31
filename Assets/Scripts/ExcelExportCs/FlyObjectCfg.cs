@@ -56,5 +56,6 @@ public class FlyObjectCfg
 	public string prefab;
 	public float damClipTime;
 	public float liveTime;
+	public string arrivePrefab;
 	
 }
