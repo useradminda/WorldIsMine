@@ -102,9 +102,16 @@ public class UnitView : IView
         }
     }
 
+    // get dead time
     public float GetDieTime()
     {
         return ActionFlowComponent.GetAnimLen(EActionType.die);
+    }
+
+    public void PlayEffect(string prefabName, Vector3 pos, Vector3 forward, float time)
+    {
+        GameObject go = UnitViewFactory.CreateGob(prefabName, pos, forward);
+        go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }
 
     private Vector3 tarPos;

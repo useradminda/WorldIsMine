@@ -37,6 +37,7 @@ public class SkillLogicBase
     {
         SkillDoEffect();
         SkillResetCD();
+        playStartEffect();
     }
 
     // 更新
@@ -53,6 +54,7 @@ public class SkillLogicBase
                     {
                         SkillDoEffect();
                         SkillResetCD();
+                        playStartEffect();
                     }
                 }
             }
@@ -125,5 +127,10 @@ public class SkillLogicBase
     {
         int damage = -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, SearchTarget.SoliderCfg.unitType, SkillCfg.damage, unitLogic.SoliderCfg.restrainValue);
         return damage;
+    }
+
+    private void playStartEffect()
+    {
+        UnitLogic.UnitView.PlayEffect(skillCfg.startEffect, UnitLogic.CurPos, new UnityEngine.Vector3(0, 0, 1), 1);
     }
 }
