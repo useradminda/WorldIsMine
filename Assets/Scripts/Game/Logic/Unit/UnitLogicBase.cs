@@ -72,6 +72,19 @@ public class UnitLogicBase
     private int index;
     public int Index => index;
 
+    private int logicRatio = 100;
+    public int LogicRatio
+    {
+        get
+        {
+            if (logicRatio > 100)
+                return 100;
+            if (logicRatio < 0)
+                return 10;
+            return logicRatio;
+        }
+    }
+
 
     public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
     {
@@ -171,6 +184,19 @@ public class UnitLogicBase
     {
         BuffLogicBase buffLogic = null;
         buffLogicMachine.AddBuff(buffLogic);
+    }
+
+    public void SetLogicRatio(int addValue)
+    {
+        logicRatio += addValue;
+        if (logicRatio < 100)
+        {
+            UnitView.FreezeComp.SetFreeze(LogicRatio / 100f);
+        }
+        else
+        {
+            UnitView.FreezeComp.ExitFreeze();
+        }
     }
 
     private void initProp()

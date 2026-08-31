@@ -6,7 +6,6 @@ using UnityEngine.Events;
 // ±ù¶³×é¼þ
 public class FreezeComponent : MonoBehaviour
 {
-
     private RenderComponent renderComponenter;
     protected RenderComponent RenderComponenter
     {
@@ -28,9 +27,9 @@ public class FreezeComponent : MonoBehaviour
         }
     }
 
-    public void SetFreeze()
+    public void SetFreeze(float ratio)
     {
-        mActionFlow.ActionFreeze(0.001f);
+        mActionFlow.ActionFreeze(ratio);
         RenderComponenter.SetPropertyBlockFloat("_ICEState", 1);
     }
 

@@ -116,7 +116,7 @@ public class ActionFlow : MonoBehaviour
     // 进入冰冻
     public void ActionFreeze(float slowAnimSpeedRatio)
     {
-        animPlaySpeedValue = 1f / slowAnimSpeedRatio;
+        animPlaySpeedValue = slowAnimSpeedRatio;
         setActionAnimLenth(currentActionData);
     }
 
