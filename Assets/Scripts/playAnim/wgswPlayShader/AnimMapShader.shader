@@ -9,6 +9,9 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_AnimMap ("AnimMap", 2D) ="white" {}
+
+         _RampTex("Toon Ramp", 2D) = "white" {}
+
         _ICETex("Texture", 2D) = "white" {}
         _Mask("Texture", 2D) = "White" {}
         _MaskColor("MaskColor", Color) = (0, 0, 0, 1)
@@ -75,7 +78,7 @@ Shader "chenjd/BuiltIn/AnimMapShader"
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
                 float3 worldNormal : TEXCOORD1;
-                float2 objectNormal:TEXCOORD2;
+                float3 objectNormal:TEXCOORD2;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -87,6 +90,8 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 
             sampler2D _AnimMap;
             float4 _AnimMap_TexelSize;//x == 1/width
+
+            sampler2D _RampTex;
 
             sampler2D _ICETex;
 
@@ -208,8 +213,8 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 
                 
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.worldNormal = mul(unity_ObjectToWorld, v.normal);
-                o.objectNormal = v.normal;
+                o.worldNormal = mul(unity_ObjectToWorld, v.normal).xyz;
+                o.objectNormal = v.normal.xyz;
                 return o;
             }
             
@@ -219,14 +224,40 @@ Shader "chenjd/BuiltIn/AnimMapShader"
                
                 fixed4 col = tex2D(_MainTex, i.uv);      
 
-                // float3 lDir = normalize(_WorldSpaceLightPos0.xyz); // 获取真实光源
-                float3 lDir = normalize(_MainLightDir.xyz);// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
-                //光照渐变 i.objectNormal => i.worldNormal 灯光不变 ，模型阴影变     i.objectNormal 跟着模型走，不管模型旋转方向
-                float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;// saturate(dot(tangentNormal, tangentLight)) * 0.5 + _HalfLambertValue;// saturate(dot(i.worldNormal, _MainLightDir)) * 0.5 + _HalfLambertValue;//dot(mainLight.direction, i.normalWS) * 0.5 + _HalfLambertValue; //  
-                col.rgb *= Ramp_light * _LightColor * _LightScale;//Ramp_light * mainLight.color;
+                // // // float3 lDir = normalize(_WorldSpaceLightPos0.xyz); // 获取真实光源
+                // // float3 lDir = normalize(_MainLightDir.xyz);// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
+                // // //光照渐变 i.objectNormal => i.worldNormal 灯光不变 ，模型阴影变     i.objectNormal 跟着模型走，不管模型旋转方向
+                // // float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;// saturate(dot(tangentNormal, tangentLight)) * 0.5 + _HalfLambertValue;// saturate(dot(i.worldNormal, _MainLightDir)) * 0.5 + _HalfLambertValue;//dot(mainLight.direction, i.normalWS) * 0.5 + _HalfLambertValue; //  
+                // // col.rgb *= Ramp_light * _LightColor * _LightScale;//Ramp_light * mainLight.color;
+
+                float3 normal = normalize(i.objectNormal);
+                float3 lDir = normalize(_MainLightDir.xyz);
+                 // 计算 NdotL
+                float NdotL = dot(normal, lDir);
+                // Half Lambert
+                // -1 ~ 1
+                // 转换成
+                // 0 ~ 1
+                float lightValue = saturate(NdotL * 0.5 + 0.5);
+
+                // 采样 Ramp
+                float3 rampColor =
+                    tex2D(
+                        _RampTex,
+                        float2(lightValue, 0.5)
+                    ).rgb;
+
+                // 应用卡通光照
+                col.rgb *= rampColor;
+
+                // 保留你原来的主光颜色和强度
+                col.rgb *= _LightColor.rgb * _LightScale;
+
+
+
+
                 clip(col.a - 0.5);
 
-               float high_light = saturate(dot(i.objectNormal, normalize(lDir)));
                //col.rgb *= Ramp_light * Ramp_light * _HighLightValue;//Ramp_light * mainLight.color;
                col.rgb *= _HighLightValue;
 
