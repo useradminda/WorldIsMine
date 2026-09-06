@@ -110,6 +110,8 @@ public class UnitView : IView
 
     public void PlayEffect(string prefabName, Vector3 pos, Vector3 forward, float time)
     {
+        if (prefabName == "")
+            return;
         GameObject go = UnitViewFactory.CreateGob(prefabName, pos, forward);
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }

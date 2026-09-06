@@ -10,7 +10,7 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 		_MainTex ("Texture", 2D) = "white" {}
 		_AnimMap ("AnimMap", 2D) ="white" {}
 
-         _RampTex("Toon Ramp", 2D) = "white" {}
+        // _RampTex("Toon Ramp", 2D) = "white" {}
 
         _ICETex("Texture", 2D) = "white" {}
         _Mask("Texture", 2D) = "White" {}
@@ -91,7 +91,7 @@ Shader "chenjd/BuiltIn/AnimMapShader"
             sampler2D _AnimMap;
             float4 _AnimMap_TexelSize;//x == 1/width
 
-            sampler2D _RampTex;
+            //sampler2D _RampTex;
 
             sampler2D _ICETex;
 
