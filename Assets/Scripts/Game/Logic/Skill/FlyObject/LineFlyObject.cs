@@ -1,16 +1,20 @@
 
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 // Area Object
-public class AreaFlyObject : FlyObjectLogicBase
+public class LineFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;
     private float damageClipTime = 0;
-
+    private Vector3 moveForward = Vector3.zero;
+    private Vector3 curPos = Vector3.zero;
     public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damage, int uIndex)
     {
         base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, uIndex);
-        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, tarPos, Vector3.zero);
+        curPos = oriPos;
+        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, curPos, Vector3.zero);
+        moveForward = (tarPos - oriPos).normalized;
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
     }
@@ -27,6 +31,8 @@ public class AreaFlyObject : FlyObjectLogicBase
             damageClipTime = mFlyObjectCfg.damClipTime;
         }
 
+        updateMoveForward(dt);
+
         liveTime -= dt;
         if (liveTime < 0)
             die();
@@ -38,12 +44,18 @@ public class AreaFlyObject : FlyObjectLogicBase
     private int randomIndex = -1;
     private void reqSearchTar()
     {
-        searchReqIndex = MapCellManager.Instance.RequestSearch(mTarPos, mSkillLogic.SkillCfg.skillArea, mAtkUnitLogic.OtherCampTypeInt);
+        searchReqIndex = MapCellManager.Instance.RequestSearch(curPos, mSkillLogic.SkillCfg.skillArea, mAtkUnitLogic.OtherCampTypeInt);
     }
 
     private void setSearchTar()
     {
         MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
+    }
+
+    private void updateMoveForward(float dt)
+    {
+        curPos = curPos + moveForward * dt * mFlyObjectCfg.speed;
+        mFlyObjectGob.transform.position = Vector3.Lerp(mFlyObjectGob.transform.position, curPos, dt * 3);
     }
 
     private void damage()

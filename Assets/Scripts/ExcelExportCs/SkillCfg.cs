@@ -61,5 +61,7 @@ public class SkillCfg
 	public int normal;
 	public int skillType;
 	public int flyObjectId;
+	public int[] buffId;
+	public string dieType;
 	
 }

@@ -248,18 +248,16 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         ref int nearestIndex,
         ref int randomIndex)
     {
-        int count =
-            resultCount[requestId];
+        list.Clear();
+        nearestIndex = -1;
+        randomIndex = -1;
 
-
-        int offset =
-            requestId * MaxResult;
-
+        int count = resultCount[requestId];
+        int offset = requestId * MaxResult;
 
         for (int i = 0; i < count; i++)
         {
-            list.Add(
-                resultIndex[offset + i]);
+            list.Add(resultIndex[offset + i]);
         }
 
 

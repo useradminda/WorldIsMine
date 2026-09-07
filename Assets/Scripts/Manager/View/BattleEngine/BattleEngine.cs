@@ -40,6 +40,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         ProjectileJobManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
+        FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
 
@@ -129,6 +130,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         RvoManager.Instance.ManagerInit();
         MapCellManager.Instance.ManagerInit();
         ProjectileJobManager.Instance.ManagerInit();
+        FlyObjectManager.Instance.ManagerInit();
 
         if (ObstacleConfigIns == null)
         {

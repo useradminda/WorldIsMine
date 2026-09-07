@@ -33,6 +33,17 @@ public class UnitView : IView
         }
     }
 
+    private ShakeComponent shakeComp;
+    public ShakeComponent ShakeComp
+    {
+        get
+        {
+            if (shakeComp == null)
+                shakeComp = gameObject.GetOrAddComponent<ShakeComponent>();
+            return shakeComp;
+        }
+    }
+
     private FreezeComponent freezeComp;
     public FreezeComponent FreezeComp
     {
@@ -74,7 +85,11 @@ public class UnitView : IView
 
     public void BeHitSlash()
     {
-        SlachComp.SetSlash();
+        if (stateType != EStateTyep.Die)
+        {
+            SlachComp.SetSlash();
+            ShakeComp.SetShake();
+        }
     }
 
     public void EnterState(EStateTyep stateType, params object[] paramsInfo)
@@ -94,8 +109,8 @@ public class UnitView : IView
                 }
                 else if (stateType == EStateTyep.Die)
                 {
-                    enterDieState(System.Convert.ToSingle(paramsInfo[0]));
-                    ActionFlowComponent.PlayAction(EActionType.die);
+                    string dieType = paramsInfo[0].ToString();
+                    enterDie(dieType);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }
@@ -121,10 +136,7 @@ public class UnitView : IView
     private void updatePos(float dt)
     {
         if (stateType == EStateTyep.Die)
-        {
-            updateDiePos(dt);
             return;
-        }
         if (unitLogic.Agenter.DirtyPos == true)
         {
             tarPos = unitLogic.Agenter.pos;
@@ -164,37 +176,13 @@ public class UnitView : IView
         }
     }
 
-    private Vector3 startPosition;
-    private Vector3 backwardDirection;
-    private float startTime;
-    private float duration;
-    private float backwardDistance = 5;
-    private float maxHeight = 3f;
-    private bool playingDie;
-    // 进入
-    private void enterDieState(float duration)
+    private void enterDie(string dieType)
     {
-        this.duration = duration;
-        startPosition = transform.position;
-        backwardDirection = -transform.forward;
-        startTime = Time.time;
-        playingDie = true;
-    }
-
-    private void updateDiePos(float dt)
-    {
-        if (!playingDie || transform == null)
-            return;
-        float t = Mathf.Clamp01((Time.time - startTime) / duration);
-        Vector3 horizontalOffset = backwardDirection * backwardDistance * t;
-        float height = 4f * maxHeight * t * (1f - t);
-        transform.position = startPosition + horizontalOffset + Vector3.up * height;
-
-        if (t >= 1f)
+        DieBaseComponent dieComp;
+        if (dieType == "" || dieType == "Normal")
         {
-            transform.position = startPosition + backwardDirection * backwardDistance;
-            playingDie = false;
-            return;
+            dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
         }
     }
 }

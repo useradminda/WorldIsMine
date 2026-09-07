@@ -87,7 +87,11 @@ public static class UnitFactory
         }
         else if (flyObjectCfg.flyType == "stone")
         {
-
+            flyObjectLogic = new StoneFlyObject();
+        }
+        else if (flyObjectCfg.flyType == "line")
+        {
+            flyObjectLogic = new LineFlyObject();
         }
         else
         {

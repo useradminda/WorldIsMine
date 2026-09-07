@@ -12,8 +12,11 @@ public class DieState : StateBase
     public override void EnterState(params object[] objects)
     {
         UnitLogic.TriggerDie();
-        dieActionTime = UnitLogic.UnitView.GetDieTime();
-        UnitLogic.UnitView.EnterState(EStateTyep.Die, dieActionTime);
+        UnitFactory.RecycleId(UnitLogic.CampType, UnitLogic.Index);
+
+
+       
+        UnitLogic.UnitView.EnterState(EStateTyep.Die, objects);
     }
 
     public override void UpdateState(float dt)
@@ -24,7 +27,6 @@ public class DieState : StateBase
         }
         if (dieActionTime < 0)
         { 
-            UnitFactory.RecycleId(UnitLogic.CampType, UnitLogic.Index);
             UnitViewFactory.RemoveUnitView(UnitLogic.UnitView);
             dieActionTime = 0;
         }

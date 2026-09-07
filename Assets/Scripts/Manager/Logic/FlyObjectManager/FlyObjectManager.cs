@@ -14,10 +14,10 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerUpdate(float dt)
     {
-        //for (int i = 0; i < flyObjectList.Count; i++)
-        //{
-        //    flyObjectList[i].FlyObjectUpdate(dt);
-        //}
+        for (int i = 0; i < FlyObjectList.Count; i++)
+        {
+            FlyObjectList[i].FlyObjectUpdate(dt);
+        }
     }
 
     public void ManagerLateUpdate(float dt)

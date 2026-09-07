@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class FlyObjectLogicBase
 {
-    private bool useState = false;
-    public bool UseState => useState;
-
+    protected FlyObjectCfg mFlyObjectCfg;
     protected Vector3 mOriPos;
     protected Vector3 mTarPos;
 
@@ -14,8 +12,7 @@ public class FlyObjectLogicBase
     protected List<UnitLogicBase> mTargetLogicList;
     protected UnitLogicBase mSearchTargetUnitLogic;
     protected SkillLogicBase mSkillLogic;
-    protected FlyObjectCfg mFlyObjectCfg;
-
+   
     protected int mDamage;
 
     protected GameObject mFlyObjectGob;
@@ -52,8 +49,4 @@ public class FlyObjectLogicBase
 
     }
 
-    public void Reset()
-    {
-        useState = false;
-    }
 }

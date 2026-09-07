@@ -14,13 +14,13 @@ public static class BattleLogicDamageTools
     //    }
     //}
 
-    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid)
+    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid, string dieTyp)
     {
         // uid 为了unitlogicbase可能会被替换
         if (beAtkedUnit.UId == beAtkedUid)
         {
+            beAtkedUnit.ChangeHp(finalDamage, dieTyp);
             beAtkedUnit.UnitView.BeHitSlash();
-            beAtkedUnit.ChangeHp(finalDamage);
         }
     }
 
