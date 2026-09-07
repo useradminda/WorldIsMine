@@ -8,8 +8,8 @@ public class NormalDieComponent : DieBaseComponent
     private Vector3 backwardDirection;
     private float startTime;
     private float duration;
-    private float backwardDistance = 5;
-    private float maxHeight = 2f;
+    private float backwardDistance = 10;
+    private float maxHeight = 5f;
     private bool playingDie;
     // 进入
     protected override void EnterDieState()
