@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class ExplosionDieComponent : DieBaseComponent
 {
+    [Header("爆炸点")]
+    [SerializeField] private Vector3 explosionPoint;
+
     [Header("爆开距离")]
     [SerializeField] private float explosionDistance = 2f;
 
@@ -13,12 +16,9 @@ public class ExplosionDieComponent : DieBaseComponent
     [SerializeField] private float rotateSpeed = 720f;
 
     [Header("随机方向")]
-    [SerializeField] private float randomAngle = 30f;
-
-    private Transform childTrans;
+    [SerializeField] private float randomAngle = 10f;
 
     private Vector3 startPosition;
-
     private Vector3 explosionDirection;
 
     private float time;
@@ -28,30 +28,63 @@ public class ExplosionDieComponent : DieBaseComponent
 
     private bool playing;
 
+    public void SetExplosionPoint(Vector3 explosionPoint)
+    {
+        this.explosionPoint = explosionPoint;
+    }
 
     protected override void EnterDieState()
     {
-        childTrans = transform; //transform.GetChild(0);
-
-        startPosition = childTrans.position;
+        startPosition = transform.position;
 
         time = 0f;
 
-        duration = mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die);
+        duration =
+            mUnitView.ActionFlowComponent.GetAnimLen(
+                EActionType.die
+            );
 
-        // 随机一个水平爆炸方向
-        float angle = Random.Range(0f, 360f);
+        // 爆炸点 -> 当前单位
+        explosionDirection = transform.position - explosionPoint;
 
-        float rad = angle * Mathf.Deg2Rad;
+        // 只计算水平爆炸方向
+        explosionDirection.y = 0f;
 
-        explosionDirection = new Vector3(
-            Mathf.Cos(rad),
-            0f,
-            Mathf.Sin(rad)
-        );
+        // 防止单位刚好在爆炸中心
+        if (explosionDirection.sqrMagnitude < 0.0001f)
+        {
+            float angle = Random.Range(0f, 360f);
+
+            float rad = angle * Mathf.Deg2Rad;
+
+            explosionDirection = new Vector3(
+                Mathf.Cos(rad),
+                0f,
+                Mathf.Sin(rad)
+            );
+        }
+        else
+        {
+            explosionDirection.Normalize();
+
+            // 在爆炸方向基础上增加一点随机偏转
+            if (randomAngle > 0f)
+            {
+                float angle =
+                    Random.Range(-randomAngle, randomAngle);
+
+                explosionDirection =
+                    Quaternion.Euler(
+                        0f,
+                        angle,
+                        0f
+                    ) * explosionDirection;
+            }
+        }
 
         // 随机旋转方向
-        randomRotate = Random.value > 0.5f ? 1f : -1f;
+        randomRotate =
+            Random.value > 0.5f ? 1f : -1f;
 
         playing = true;
     }
@@ -59,42 +92,39 @@ public class ExplosionDieComponent : DieBaseComponent
 
     protected override void UpdateDie(float dt)
     {
-        if (!playing || childTrans == null)
+        if (!playing)
             return;
 
         time += dt;
 
-        float t = Mathf.Clamp01(time / duration);
+        float t =
+            Mathf.Clamp01(time / duration);
 
-        /*
-         * 爆炸效果：
-         *
-         * 开始很快
-         * 后面逐渐减速
-         *
-         * 0 -> 1
-         */
-        float explosionT = 1f - Mathf.Pow(1f - t, 3f);
+        // 爆炸初期速度快，后面减速
+        float explosionT =
+            1f - Mathf.Pow(1f - t, 3f);
 
         Vector3 horizontalOffset =
             explosionDirection *
             explosionDistance *
             explosionT;
 
-        // 上升
+        // 抛物线
         float height =
             upwardHeight *
             Mathf.Sin(t * Mathf.PI);
 
-        childTrans.position =
+        transform.position =
             startPosition +
             horizontalOffset +
             Vector3.up * height;
 
-        // 自己旋转
-        childTrans.Rotate(
+        // 自身旋转
+        transform.Rotate(
             Vector3.up,
-            rotateSpeed * randomRotate * dt,
+            rotateSpeed *
+            randomRotate *
+            dt,
             Space.Self
         );
 
@@ -103,54 +133,12 @@ public class ExplosionDieComponent : DieBaseComponent
         {
             playing = false;
 
-            childTrans.position =
+            transform.position =
                 startPosition +
-                explosionDirection * explosionDistance;
+                explosionDirection *
+                explosionDistance;
 
             CycleUnitView();
         }
     }
 }
-
-//### 这个 ExplosionDie 的轨迹
-
-//例如一个角色随机到了右前方：
-
-//```text
-//             起点
-//               ●
-//              ↗
-//            ↗
-//          ↗
-//        ↗
-//      ●
-
-//        ↑
-//       先向上
-//       再落回去
-//```
-
-//实际上是：
-
-//```text
-//       ●
-//      / \
-//     /   \
-//    /     \
-//   ●       ●
-//```
-
-//但是**没有真正的爆炸中心**。
-
-//每一个角色：
-
-//```text
-//自己的当前位置
-//       ↓
-//      ●
-//      \
-//       \
-//        ●
-//```
-
-//---

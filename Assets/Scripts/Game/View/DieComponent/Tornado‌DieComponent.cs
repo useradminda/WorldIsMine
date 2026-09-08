@@ -26,12 +26,12 @@ public class TornadoDieComponent : DieBaseComponent
     private bool dieState = false;
     private float dieTime = 1f;
 
-    private Transform childTrans;
+
 
     // 进入死亡状态
     protected override void EnterDieState()
     {
-        childTrans = transform.GetChild(0);
+
         center = transform.position;// childTrans.localPosition;
         //oriAng = childTrans.localEulerAngles;
         angle = Random.Range(0f, 360f);

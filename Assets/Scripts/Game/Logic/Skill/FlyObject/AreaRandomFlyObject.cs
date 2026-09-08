@@ -6,11 +6,12 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;
     private float damageClipTime = 0;
+    private List<GameObject> flyObjectGobList = new List<GameObject>();
 
-    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damage, int uIndex)
+    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damageValue, int uIndex)
     {
-        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, uIndex);
-        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, tarPos, Vector3.zero);
+        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damageValue, uIndex);
+        flyObjectGobList.Clear();
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
     }
@@ -23,9 +24,9 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
         damageClipTime -= dt;
         if (damageClipTime < 0)
         {
-            damage();
-            damageClipTime = mFlyObjectCfg.damClipTime;
             setRandomPos();
+            damage();
+            damageClipTime = mFlyObjectCfg.damClipTime;   
         }
 
         liveTime -= dt;
@@ -58,7 +59,7 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
             {
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType);
+                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
             }
         }
     }
@@ -66,13 +67,18 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
     private void die()
     {
         UnitFactory.RemoveFlyObjectLogic(this);
-        UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);
+        for (int i = 0; i < flyObjectGobList.Count; i++)
+        {
+            UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, flyObjectGobList[i]);
+        }
+        flyObjectGobList.Clear();
     }
 
     private void setRandomPos()
     {
         mTarPos = getRandomPos();
-        mFlyObjectGob.transform.position = mTarPos;
+        GameObject flyObject = UnitViewFactory.CreateGob(mFlyObjectCfg.prefab, mTarPos, Vector3.zero);
+        flyObjectGobList.Add(flyObject);
     }
 
     private Vector3 getRandomPos()

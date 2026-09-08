@@ -22,7 +22,7 @@ public class ArrowFlyObject : FlyObjectLogicBase
 
     private void damage()
     {        
-         BattleLogicDamageTools.DoDamage(mAtkUnitLogic, mSearchTargetUnitLogic, mDamage, targetUid, mSkillLogic.SkillCfg.dieType);     
+         BattleLogicDamageTools.DoDamage(mAtkUnitLogic, mSearchTargetUnitLogic, mDamage, targetUid, mSkillLogic.SkillCfg.dieType, mTarPos);     
     }
 
     private void die()

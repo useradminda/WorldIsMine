@@ -64,7 +64,7 @@ public class SkillLogicBase
     // 执行
     public virtual void SkillDoEffect()
     {
-       BattleLogicDamageTools.DoDamage(unitLogic, SearchTarget, GetDamage(), SearchTarget.UId, SkillCfg.dieType);
+       BattleLogicDamageTools.DoDamage(unitLogic, SearchTarget, GetDamage(), SearchTarget.UId, SkillCfg.dieType, UnityEngine.Vector3.zero);
     }
 
     // 重置CD

@@ -110,7 +110,7 @@ public class UnitView : IView
                 else if (stateType == EStateTyep.Die)
                 {
                     string dieType = paramsInfo[0].ToString();
-                    enterDie(dieType);
+                    enterDie(dieType, (Vector3)paramsInfo[1]);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }
@@ -176,12 +176,18 @@ public class UnitView : IView
         }
     }
 
-    private void enterDie(string dieType)
+    private void enterDie(string dieType, Vector3 beHitPoint)
     {
         DieBaseComponent dieComp;
         if (dieType == "" || dieType == "Normal")
         {
             dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if(dieType == "Explosion")
+        {
+            dieComp = gameObject.GetOrAddComponent<ExplosionDieComponent>();
+            ((ExplosionDieComponent)dieComp).SetExplosionPoint(beHitPoint);
             dieComp.SetUnitView(this);
         }
     }

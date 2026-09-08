@@ -144,11 +144,12 @@ public class UnitLogicBase
         }
     }
 
-    public void ChangeHp(int damage, string dieType)
+    public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
     {
         Prop.ChangeHp(damage);
         if (IsDead)
-            StateMachine.ChangeState(EStateTyep.Die, dieType);
+            StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
+        UnitView.BeHitSlash();
     }
    
     public void TriggerMoveStop()
