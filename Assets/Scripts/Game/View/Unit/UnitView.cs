@@ -1,14 +1,15 @@
-
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
 public class UnitView : IView
 {
     private UnitLogicBase unitLogic;
 
+    private string prefabName;
+    public string PrefabName => prefabName;
+
+    private EStateTyep stateType;
+
     private ActionFlow actionFlow;
-
-    private EStateTyep curStateType = EStateTyep.None;
-
     public ActionFlow ActionFlowComponent
     {
         get
@@ -21,9 +22,44 @@ public class UnitView : IView
         }
     }
 
-    public void Init(UnitLogicBase unit)
+    private SlashComponent slashComp;
+    public SlashComponent SlachComp
     {
+        get
+        {
+            if(slashComp == null)
+                slashComp = gameObject.GetOrAddComponent<SlashComponent>();
+            return slashComp;
+        }
+    }
+
+    private ShakeComponent shakeComp;
+    public ShakeComponent ShakeComp
+    {
+        get
+        {
+            if (shakeComp == null)
+                shakeComp = gameObject.GetOrAddComponent<ShakeComponent>();
+            return shakeComp;
+        }
+    }
+
+    private FreezeComponent freezeComp;
+    public FreezeComponent FreezeComp
+    {
+        get
+        {
+            if (freezeComp == null)
+                freezeComp = gameObject.GetOrAddComponent<FreezeComponent>();
+            return freezeComp;
+        }
+    }
+
+    public void Init(UnitLogicBase unit, string prefabName)
+    {
+        this.prefabName = prefabName;
         this.unitLogic = unit;
+        SlachComp.ExitSlash();
     }
 
     public override void ViewInit()
@@ -35,7 +71,6 @@ public class UnitView : IView
     {
         updatePos(dt);
         updateRot(dt);
-
     }
 
     public override void ViewDestroy()
@@ -48,12 +83,22 @@ public class UnitView : IView
 
     }
 
-    public void EnterState(EStateTyep stateType)
+    public void BeHitSlash()
+    {
+        if (stateType != EStateTyep.Die)
+        {
+            SlachComp.SetSlash();
+            ShakeComp.SetShake();
+        }
+    }
+
+    public void EnterState(EStateTyep stateType, params object[] paramsInfo)
     {
         if (unitLogic != null)
         {
             if (unitLogic.StateMachine.StateDirty)
             {
+                this.stateType = stateType;
                 if (stateType == EStateTyep.Move)
                 {
                     ActionFlowComponent.PlayAction(EActionType.run);
@@ -64,17 +109,34 @@ public class UnitView : IView
                 }
                 else if (stateType == EStateTyep.Die)
                 {
-                     ActionFlowComponent.PlayAction(EActionType.die);
+                    string dieType = paramsInfo[0].ToString();
+                    enterDie(dieType, (Vector3)paramsInfo[1]);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }
         }
     }
 
+    // get dead time
+    public float GetDieTime()
+    {
+        return ActionFlowComponent.GetAnimLen(EActionType.die);
+    }
+
+    public void PlayEffect(string prefabName, Vector3 pos, Vector3 forward, float time)
+    {
+        if (prefabName == "")
+            return;
+        GameObject go = UnitViewFactory.CreateGob(prefabName, pos, forward);
+        go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
+    }
+
     private Vector3 tarPos;
     private Vector3 transPos;
     private void updatePos(float dt)
     {
+        if (stateType == EStateTyep.Die)
+            return;
         if (unitLogic.Agenter.DirtyPos == true)
         {
             tarPos = unitLogic.Agenter.pos;
@@ -99,6 +161,8 @@ public class UnitView : IView
     private Quaternion transQ;
     private void updateRot(float dt)
     {
+        if (stateType == EStateTyep.Die)
+            return;
         if (unitLogic.DirtyForward == true)
         {
             targetQ = Quaternion.LookRotation(unitLogic.TargetForward);
@@ -109,6 +173,22 @@ public class UnitView : IView
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, transQ, dt * 3);
             transQ = transform.rotation;
+        }
+    }
+
+    private void enterDie(string dieType, Vector3 beHitPoint)
+    {
+        DieBaseComponent dieComp;
+        if (dieType == "" || dieType == "Normal")
+        {
+            dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if(dieType == "Explosion")
+        {
+            dieComp = gameObject.GetOrAddComponent<ExplosionDieComponent>();
+            ((ExplosionDieComponent)dieComp).SetExplosionPoint(beHitPoint);
+            dieComp.SetUnitView(this);
         }
     }
 }

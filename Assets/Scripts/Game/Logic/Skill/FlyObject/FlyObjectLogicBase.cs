@@ -4,33 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 public class FlyObjectLogicBase
 {
-    private bool useState = false;
-    public bool UseState => useState;
-
+    protected FlyObjectCfg mFlyObjectCfg;
     protected Vector3 mOriPos;
     protected Vector3 mTarPos;
 
     protected UnitLogicBase mAtkUnitLogic;
     protected List<UnitLogicBase> mTargetLogicList;
-
+    protected UnitLogicBase mSearchTargetUnitLogic;
     protected SkillLogicBase mSkillLogic;
+   
+    protected int mDamage;
 
-    private FlyObjectCfg flyObjectCfg;
-    protected FlyObjectCfg mFlyObjectCfg => flyObjectCfg;
+    protected GameObject mFlyObjectGob;
+
+    // 唯一下标
+    private int flyUIndex;
+    public int FlyUIndex => flyUIndex; 
 
     public FlyObjectLogicBase()
     {
         
     }
 
-    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, SkillLogicBase skillLogic)
+    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnitLogic, SkillLogicBase skillLogic, int damage, int flyUIndex)
     {
-        this.flyObjectCfg = flyObjectCfg;
+        this.mFlyObjectCfg = flyObjectCfg;
         this.mOriPos = oriPos;
         this.mTarPos = tarPos;
         this.mAtkUnitLogic = atkUnitLogic;
         this.mTargetLogicList = targetLogicList;
+        this.mSearchTargetUnitLogic = searchTargetUnitLogic;
         this.mSkillLogic = skillLogic;
+        this.flyUIndex = flyUIndex;
+        mDamage = damage;
     }
 
     public virtual void FlyObjectUpdate(float dt)
@@ -38,13 +44,9 @@ public class FlyObjectLogicBase
 
     }
 
-    public virtual void TouchTarUnit()
+    public virtual void ArriveTarPos()
     {
 
     }
 
-    public void Reset()
-    {
-        useState = false;
-    }
 }

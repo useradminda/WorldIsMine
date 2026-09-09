@@ -19,9 +19,9 @@ public class UnitLogicBase
         get
         {
             Vector3 finalForward;
-            if (NormalSkill.TargetList.Count > 0 && NormalSkill.TargetList[0] != null && NormalSkill.TargetList[0].IsDead == false)
+            if (NormalSkill.SearchTarget != null && NormalSkill.SearchTarget.IsDead == false)
             {
-                finalForward = Vector3.Normalize(NormalSkill.TargetList[0].CurPos - NormalSkill.UnitLogic.CurPos);
+                finalForward = Vector3.Normalize(NormalSkill.SearchTarget.CurPos - NormalSkill.UnitLogic.CurPos);
             }
             else
             {
@@ -57,23 +57,40 @@ public class UnitLogicBase
     private StateMachine stateMachine;
     public StateMachine StateMachine => stateMachine;
 
+    private BuffLogicMachine buffLogicMachine = new BuffLogicMachine();
+    public BuffLogicMachine BuffLogicMachine => buffLogicMachine;
+
     public UnitView UnitView;
 
     public Vector3 CurPos => Agenter.pos;
 
     public bool IsDead => Prop.Hp <= 0;
 
-    private int unitId;
-    public int UnitID => unitId;
+    private int uid;
+    public int UId => uid;
 
     private int index;
     public int Index => index;
 
-    public UnitLogicBase(int cfgId, int unitId, ECampType campType, Vector3 moveForward, int index)
+    private int logicRatio = 100;
+    public int LogicRatio
     {
-        this.unitId = unitId;
+        get
+        {
+            if (logicRatio > 100)
+                return 100;
+            if (logicRatio < 0)
+                return 10;
+            return logicRatio;
+        }
+    }
+
+
+    public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
+    {
         this.index = index;
-        stateMachine = new StateMachine(this);
+        this.uid = uid;
+       
         this.campType = campType;
         this.campTypeInt = (int)campType;
         this.otherCampTypeInt = campType == ECampType.Blue ? (int)ECampType.Red : (int)ECampType.Blue;
@@ -81,6 +98,21 @@ public class UnitLogicBase
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
+    }
+
+    // 回收使用
+    public void CycleUse(int cfgId, int uid, Vector3 moveForward)
+    {
+        this.uid = uid;
+        this.moveForward = Vector3.Normalize(moveForward);
+        soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
+        initProp();
+        initSkills();
+    }
+
+    public void InitStateMachine()
+    {
+        stateMachine = new StateMachine(this);
     }
 
     // 绑定一个agent
@@ -106,17 +138,21 @@ public class UnitLogicBase
         {
             stateMachine.UpdateState(dt);
         }
+        if (buffLogicMachine != null)
+        {
+            buffLogicMachine.UpdateBuffMachine(dt);
+        }
     }
 
-    public void ChangeHp(int damage)
+    public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
     {
         Prop.ChangeHp(damage);
         if (IsDead)
-            StateMachine.ChangeState(EStateTyep.Die);
+            StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
+        UnitView.BeHitSlash();
     }
    
-
-    public void MoveStop()
+    public void TriggerMoveStop()
     {
         Agenter.navigationEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
@@ -131,6 +167,7 @@ public class UnitLogicBase
 
     public void TriggerDie()
     {
+        buffLogicMachine.Die();
         Agenter.navigationEnabled = false;
         Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
@@ -144,6 +181,25 @@ public class UnitLogicBase
         Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
+    public void AddBuff(int buffCfgId)
+    {
+        BuffLogicBase buffLogic = null;
+        buffLogicMachine.AddBuff(buffLogic);
+    }
+
+    public void SetLogicRatio(int addValue)
+    {
+        logicRatio += addValue;
+        if (logicRatio < 100)
+        {
+            UnitView.FreezeComp.SetFreeze(LogicRatio / 100f);
+        }
+        else
+        {
+            UnitView.FreezeComp.ExitFreeze();
+        }
+    }
+
     private void initProp()
     {
         prop = new UnitProp(soliderCfg.hp, soliderCfg.radius, soliderCfg.moveSpeed);
@@ -151,10 +207,11 @@ public class UnitLogicBase
 
     private void initSkills()
     {
+        skillList.Clear();
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
-            SkillLogicBase skill = null;// new SkillLogicBase(this, skillCfg);
+            SkillLogicBase skill = null;
             if (skillCfg.skillType == 1)
             {
                 skill = new SkillCloseSkill(this, skillCfg);

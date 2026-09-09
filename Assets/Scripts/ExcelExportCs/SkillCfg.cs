@@ -51,6 +51,8 @@ public class SkillCfg
 {
 	public int id;
 	public string name;
+	public string des;
+	public string startEffect;
 	public float searchRange;
 	public float atkRange;
 	public float skillArea;
@@ -59,5 +61,7 @@ public class SkillCfg
 	public int normal;
 	public int skillType;
 	public int flyObjectId;
+	public int[] buffId;
+	public string dieType;
 	
 }

@@ -13,7 +13,7 @@ public class AttackState : StateBase
 
     public override void EnterState(params object[] objects)
     {
-        UnitLogic.MoveStop();
+        UnitLogic.TriggerMoveStop();
         UnitLogic.UnitView.EnterState(EStateTyep.Attack);
         targetUnit = (UnitLogicBase)objects[0];
         useSkill = (SkillLogicBase)objects[1];
@@ -21,8 +21,7 @@ public class AttackState : StateBase
     }
 
     public override void UpdateState(float dt)
-    {
-       
+    {  
         skillUpdate(dt);
         judgeTargetBeDead();
     }
@@ -38,8 +37,11 @@ public class AttackState : StateBase
         {
             if (targetUnit.IsDead)
             {
-                UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
-                return;
+                if (UnitLogic.NormalSkill.CurCD <= 0)
+                {
+                    UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
+                    return;
+                }
             }
             float sqrDistance = (UnitLogic.CurPos - targetUnit.CurPos).sqrMagnitude;
             if (sqrDistance > UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
@@ -52,6 +54,6 @@ public class AttackState : StateBase
 
     private void skillUpdate(float dt)
     {
-        useSkill.SkillDoEffectUpdate(dt);
+        useSkill.SkillUpdate(dt);
     }
 }

@@ -20,7 +20,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-        UnitList.AddWaitingList();
+        //UnitList.AddWaitingList();
     }
 
     public void ManagerRefuse()
@@ -32,16 +32,16 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     }
 
-    // 增加一个Unit
-    public UnitLogicBase AddUnit(UnitLogicBase unit)
-    {
-        UnitList.Add(unit);
-        return unit;
-    }
+    //// 增加一个Unit
+    //public UnitLogicBase AddUnit(UnitLogicBase unit)
+    //{
+    //    UnitList.Add(unit);
+    //    return unit;
+    //}
 
     public UnitLogicBase AddUnitImmediately(UnitLogicBase unit)
     {
-        UnitList.AddCurrent(unit);
+        UnitList.AddImmediately(unit);
         return unit;
     }
 }

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using ZTools;
 public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 {
-    public WaitListTemplate<FlyObjectLogicBase> flyObjectList = new WaitListTemplate<FlyObjectLogicBase>(null);
+    private int flyUIndex = 0;
+    public WaitListTemplate<FlyObjectLogicBase> FlyObjectList = new WaitListTemplate<FlyObjectLogicBase>(null);
 
+    public Dictionary<int, FlyObjectLogicBase> FlyObjectDic = new Dictionary<int, FlyObjectLogicBase>();
     public void ManagerInit()
     {
        
@@ -12,15 +14,15 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerUpdate(float dt)
     {
-        //for (int i = 0; i < flyObjectList.Count; i++)
-        //{
-        //    flyObjectList[i].FlyObjectUpdate(dt);
-        //}
+        for (int i = 0; i < FlyObjectList.Count; i++)
+        {
+            FlyObjectList[i].FlyObjectUpdate(dt);
+        }
     }
 
     public void ManagerLateUpdate(float dt)
     {
-        flyObjectList.AddWaitingList();
+        //flyObjectList.AddWaitingList();
     }
 
     public void ManagerRefuse()
@@ -33,17 +35,28 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     }
 
-    // 增加一个Unit
-    public FlyObjectLogicBase AddUnit(FlyObjectLogicBase flyObjet)
+    public int AddFlyUnitImmediately(FlyObjectLogicBase flyObjet)
     {
-        flyObjectList.Add(flyObjet);
-        return flyObjet;
+        FlyObjectList.AddImmediately(flyObjet);
+        ++flyUIndex;
+        FlyObjectDic.Add(flyUIndex, flyObjet);
+        return flyUIndex;
     }
 
-    public FlyObjectLogicBase AddUnitImmediately(FlyObjectLogicBase flyObjet)
+    public void RemoveFlyUnitImmediately(FlyObjectLogicBase flyObject)
     {
-        flyObjectList.AddCurrent(flyObjet);
-        return flyObjet;
+        FlyObjectList.RemoveImmediately(flyObject);
+        if (FlyObjectDic.ContainsKey(flyObject.FlyUIndex))
+            FlyObjectDic.Remove(flyObject.FlyUIndex);
+    }
+
+    public FlyObjectLogicBase SearchByFlyUIndex(int flyUIndex)
+    {
+        if (FlyObjectDic.ContainsKey(flyUIndex))
+        {
+            return FlyObjectDic[flyUIndex];
+        }
+        return null;
     }
 
 }

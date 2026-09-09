@@ -12,7 +12,7 @@ public class SlashComponent : MonoBehaviour
         get
         {
             if(renderComponenter == null)
-                renderComponenter = this.gameObject.GetComponent<RenderComponent>();
+                renderComponenter = this.gameObject.GetOrAddComponent<RenderComponent>();
             return renderComponenter;
         }
     }
@@ -22,7 +22,7 @@ public class SlashComponent : MonoBehaviour
         if (slashState == true)
             return;
         RenderComponenter.SetPropertyBlockColor("_SlashColor", new Color(159/ 255f, 153/ 255f, 82/255f, 1f));
-        currentTime = 0.1f;
+        currentTime = 0.05f;
         slashState = true;
     }
 

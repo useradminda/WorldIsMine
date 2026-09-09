@@ -13,7 +13,6 @@ public struct SearchJob : IJobParallelFor
     public NativeParallelMultiHashMap<int, int> cellMap;
 
 
-    [WriteOnly]
     [NativeDisableParallelForRestriction]
     public NativeArray<int> resultIndex;
 
@@ -24,6 +23,10 @@ public struct SearchJob : IJobParallelFor
     [WriteOnly]
     [NativeDisableParallelForRestriction]
     public NativeArray<int> nearResultIndex;
+
+    [WriteOnly]
+    [NativeDisableParallelForRestriction]
+    public NativeArray<int> randomResultIndex;
 
 
     [ReadOnly]
@@ -50,9 +53,9 @@ public struct SearchJob : IJobParallelFor
         SearchRequest req =
             requests[index];
 
-
-        UnitData me =
-            units[req.UnitIndex];
+        float3 searchPos = req.SearchPos;
+        //UnitData me =
+        //    units[req.UnitIndex];
 
 
         int offset =
@@ -72,13 +75,13 @@ public struct SearchJob : IJobParallelFor
 
         int cx =
             (int)math.floor(
-                (me.Position.x - minX) *
+                (searchPos.x - minX) *
                 invCellSize);
 
 
         int cz =
             (int)math.floor(
-                (me.Position.z - minZ) *
+                (searchPos.z - minZ) *
                 invCellSize);
 
 
@@ -88,12 +91,12 @@ public struct SearchJob : IJobParallelFor
                 invCellSize);
 
 
-        float minDistSq =
-            float.MaxValue;
+        float minDistSq = float.MaxValue;
 
 
-        nearResultIndex[index] =
-            -1;
+        nearResultIndex[index] = -1;
+
+        randomResultIndex[index] = -1;
 
 
         // -------------------------
@@ -168,17 +171,17 @@ public struct SearchJob : IJobParallelFor
 
                 do
                 {
-                    if (other ==
-                        req.UnitIndex)
-                    {
-                        continue;
-                    }
+                    //if (other ==
+                    //    req.UnitIndex)
+                    //{
+                    //    continue;
+                    //}
 
 
                     float distSq =
                         math.lengthsq(
                             units[other].Position -
-                            me.Position);
+                            searchPos);
 
 
                     if (distSq >
@@ -230,5 +233,29 @@ public struct SearchJob : IJobParallelFor
 
         resultCount[index] =
             count;
+
+        // -------------------------
+        // 随机选择一个目标
+        // -------------------------
+
+        if (count > 0)
+        {
+            uint seed =
+                req.RandomSeed;
+
+            // Random 的 Seed 不能为 0
+            if (seed == 0)
+                seed = 1;
+
+            Random random =
+                new Random(seed);
+
+            int randomIndex =
+                random.NextInt(count);
+
+            randomResultIndex[index] =
+                resultIndex[
+                    offset + randomIndex];
+        }
     }
 }

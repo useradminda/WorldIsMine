@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+
 public class StateMachine 
 {
     // 当前状态
@@ -8,33 +8,34 @@ public class StateMachine
     // 所有状态
     private List<StateBase> states;
 
+    private Dictionary<EStateTyep, StateBase> statesByEState = new Dictionary<EStateTyep, StateBase>();
+
     /// <summary>
     ///  状态切换脏标记
     /// </summary>
     private bool stateDirty = true;
     public bool StateDirty => stateDirty;
 
-
     public StateMachine(UnitLogicBase unitLogic)
     {
+        stateDirty = false;
         states = new List<StateBase>();
-        states.Add(new IdleState(unitLogic));
-        states.Add(new MoveState(unitLogic));
-        states.Add(new AttackState(unitLogic));
-        states.Add(new DieState(unitLogic));
-        //ChangeState(EStateTyep.Move);
-        currentState = states[1];
+
+        statesByEState.Add(EStateTyep.Idle, new IdleState(unitLogic));
+        statesByEState.Add(EStateTyep.Move, new MoveState(unitLogic));
+        statesByEState.Add(EStateTyep.Attack, new AttackState(unitLogic));
+        statesByEState.Add(EStateTyep.Die, new DieState(unitLogic));
     }
 
     public void ChangeState(EStateTyep enterStateType, params object[] objects)
-    {
-        if (currentState != null)
-        {
-            currentState.ExitState();
-        }
+    {     
         StateBase enterState = GetState(enterStateType);
         if (enterState != currentState)
         {
+            if (currentState != null)
+            {
+                currentState.ExitState();
+            }
             stateDirty = true;
             currentState = enterState;
             currentState?.EnterState(objects);
@@ -66,7 +67,8 @@ public class StateMachine
 
     public StateBase GetState(EStateTyep stateType)
     {
-        return states.Find(state => state.StateType == stateType);
+        return statesByEState[stateType];
+        //return states.Find(state => state.StateType == stateType);
     }
 
     public void ClearStateDirty()

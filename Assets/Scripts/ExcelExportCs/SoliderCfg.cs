@@ -58,6 +58,7 @@ public class SoliderCfg
 	public float moveSpeed;
 	public float radius;
 	public int unitType;
+	public float restrainValue;
 	public string prefab;
 	
 }

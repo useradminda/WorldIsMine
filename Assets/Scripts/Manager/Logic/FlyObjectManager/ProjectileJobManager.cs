@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Jobs;
@@ -9,7 +8,7 @@ using ZTools;
 public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 {
     // 最大箭数量
-    private const int MaxProjectileCount = 6000;
+    private const int MaxProjectileCount = 10000;
 
     // 状态
     private const byte StateFree = 0;
@@ -27,7 +26,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
     // Job产生的到达箭列表
     private NativeList<int> arrivedProjectileIds;
 
-    private Transform[] projectileTransforms;
+    private Dictionary<int, Transform> projectileTransformsDic = new Dictionary<int, Transform>();
 
     private bool initState;
 
@@ -42,7 +41,12 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
         float3 startPosition,
         float3 targetPosition,
         float speed,
-        float damage)
+        int tarUid,
+        int damage,
+        int flyUIndex,
+        Transform flyTrans,
+        string flyType
+        )
     {
         if (!initState)
             return -1;
@@ -65,7 +69,17 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
             float totalTime = distance / speed;
 
-            float arcHeight = math.clamp( distance * 0.2f, 2f, 10f);
+
+            float arcHeight = 1;
+
+            if (flyType == "arrow")
+            { 
+               arcHeight = math.clamp(distance * 0.2f, 2f, 10f);
+            }
+            else if(flyType == "stone")
+            {
+                arcHeight = math.clamp(distance * 0.3f, 4f, 15f);
+            }
 
             activeProjectileIds.Add(i);
 
@@ -98,27 +112,19 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
                     State = StateFlying,
 
-                    ActiveListIndex = activeIndex
+                    ActiveListIndex = activeIndex,
+
+                    TargetUId = tarUid,
+
+                    FlyUIndex = flyUIndex,
                 };
 
-            // 激活视觉
-            Transform t = projectileTransforms[i];
-
-            if (t != null)
+            projectileTransformsDic.Add(flyUIndex, flyTrans);
+            flyTrans.position = targetPosition;
+            if (math.lengthsq(direction) > 0.0001f)
             {
-                t.position =
-                    startPosition;
-
-                if (math.lengthsq(direction) > 0.0001f)
-                {
-                    t.rotation =
-                        Quaternion.LookRotation(
-                            direction);
-                }
-
-                t.gameObject.SetActive(true);
-            }
-
+                flyTrans.rotation = Quaternion.LookRotation(direction);
+            }      
             return i;
         }
 
@@ -199,24 +205,9 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             // 主线程
             // 这里可以调用 Unity / UnitManager
             // --------------------------------
-
-            BattleLogicDamageTools.DoDamage(UnitManager.Instance.UnitList[projectile.OwnerUnitIndex], UnitManager.Instance.UnitList[projectile.TargetUnitIndex], UnitManager.Instance.UnitList[projectile.OwnerUnitIndex].NormalSkill);
-            //UnitManager.Instance.Damage(
-            //    projectile.TargetUnitIndex,
-            //    projectile.Damage);
-
-            // --------------------------------
-            // 隐藏视觉
-            // --------------------------------
-
-            Transform t =
-                projectileTransforms[
-                    projectileIndex];
-
-            if (t != null)
-            {
-                t.gameObject.SetActive(false);
-            }
+            FlyObjectLogicBase flyLogic = FlyObjectManager.Instance.SearchByFlyUIndex(projectile.FlyUIndex);
+            if (flyLogic != null)
+                flyLogic.ArriveTarPos();
 
             // --------------------------------
             // 从活跃列表移除
@@ -234,6 +225,8 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
             projectiles[projectileIndex] =
                 projectile;
+
+            projectileTransformsDic[projectile.FlyUIndex] = null;
         }
     }
 
@@ -297,9 +290,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             ProjectileData projectile =
                 projectiles[projectileIndex];
 
-            Transform t =
-                projectileTransforms[
-                    projectileIndex];
+            Transform t = projectileTransformsDic[projectile.FlyUIndex];
 
             if (t == null)
                 continue;
@@ -362,9 +353,6 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
                 MaxProjectileCount,
                 Allocator.Persistent);
 
-        projectileTransforms =
-            new Transform[MaxProjectileCount];
-
         // 初始化所有箭
         for (int i = 0;
              i < MaxProjectileCount;
@@ -378,21 +366,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
                 };
         }
 
-        for (int i = 0; i < MaxProjectileCount; i++)
-        {
-            GameObject arrowGo = UnitViewFactory.CreateGob("FlyObject/Arrow", new Vector3(0, 10000, 0), Vector3.forward);
-            setProjectileTransform(i, arrowGo.transform);
-        }
-
         initState = true;
-    }
-
-    private void setProjectileTransform(int projectileIndex, Transform transform)
-    {
-        if (projectileIndex < 0 || projectileIndex >= MaxProjectileCount)
-            return;
-        projectileTransforms[projectileIndex] = transform;
-        transform.gameObject.SetActive(false);
     }
 
     private void dispose()
@@ -419,6 +393,8 @@ public struct ProjectileData
 
     public int TargetUnitIndex;
 
+    public int TargetUId;
+
     public float3 Position;
 
     public float3 StartPosition;
@@ -429,7 +405,7 @@ public struct ProjectileData
 
     public float Speed;
 
-    public float Damage;
+    public int Damage;
 
     public byte State;
 
@@ -440,4 +416,6 @@ public struct ProjectileData
     public int ActiveListIndex;
 
     public float TotalTime;
+
+    public int FlyUIndex;
 }

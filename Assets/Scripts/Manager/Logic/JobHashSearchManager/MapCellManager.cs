@@ -36,14 +36,16 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> resultCount;
     NativeArray<int> nearResultIndex;
 
-    const int MaxSearchRequest = 10000;
+    NativeArray<int> randomResultIndex;
+
+    const int MaxSearchRequest = 20000;
     const int MaxResult = 32;
 
     private int unitCount = 0;
 
     private bool initState = false;
 
-
+    private uint randomSeed = 1;
     public void ManagerInit()
     {
         invCellSize = 1f / cellSize;
@@ -82,6 +84,12 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
                 MaxSearchRequest,
                 Allocator.Persistent,
                 NativeArrayOptions.ClearMemory);
+
+        randomResultIndex =
+        new NativeArray<int>(
+            MaxSearchRequest,
+            Allocator.Persistent,
+            NativeArrayOptions.UninitializedMemory);
 
 
         resultIndex =
@@ -123,7 +131,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
             {
                 UnitIndex = index,
                 Position = position,
-                CampType = campType
+                CampType = campType,
+                DeadState = 0,
             };
 
 
@@ -132,9 +141,10 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         return index;
     }
 
+   
 
     public int RequestSearch(
-        int unitIndex,
+        float3 searchPos,
         float radius,
         int searchCampType)
     {
@@ -146,28 +156,28 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
             return -1;
 
 
-        if (unitIndex < 0 ||
-            unitIndex >= unitCount)
-            return -1;
-
-
-        int reqId =
+        int searchReqIndex =
             curRequestCount;
 
+        randomSeed++;
 
-        requests[reqId] =
+        if (randomSeed == 0)
+            randomSeed = 1;
+
+        requests[searchReqIndex] =
             new SearchRequest
             {
-                UnitIndex = unitIndex,
+                SearchPos = searchPos,
                 Radius = radius,
-                SearchCamp = searchCampType
+                SearchCamp = searchCampType,
+                RandomSeed = randomSeed
             };
 
 
         curRequestCount++;
 
 
-        return reqId;
+        return searchReqIndex;
     }
 
 
@@ -201,6 +211,8 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
                 nearResultIndex = nearResultIndex,
 
+                randomResultIndex  = randomResultIndex,
+
                 maxResult = MaxResult,
 
                 invCellSize = invCellSize,
@@ -233,25 +245,26 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     public void GetResult(
         int requestId,
         List<int> list,
-        ref int nearestIndex)
+        ref int nearestIndex,
+        ref int randomIndex)
     {
-        int count =
-            resultCount[requestId];
+        list.Clear();
+        nearestIndex = -1;
+        randomIndex = -1;
 
-
-        int offset =
-            requestId * MaxResult;
-
+        int count = resultCount[requestId];
+        int offset = requestId * MaxResult;
 
         for (int i = 0; i < count; i++)
         {
-            list.Add(
-                resultIndex[offset + i]);
+            list.Add(resultIndex[offset + i]);
         }
 
 
-        nearestIndex =
-            nearResultIndex[requestId];
+        nearestIndex = nearResultIndex[requestId];
+
+        randomIndex = randomResultIndex[requestId];
+
     }
 
 
@@ -369,6 +382,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         resultIndex.Dispose();
         resultCount.Dispose();
         nearResultIndex.Dispose();
+        randomResultIndex.Dispose();
 
 
         initState = false;
@@ -396,12 +410,16 @@ public struct UnitData
 
 public struct SearchRequest
 {
+    public float3 SearchPos;
     // 谁搜索
-    public int UnitIndex;
+    //public int UnitIndex;
 
     // 搜索半径
     public float Radius;
 
     // 搜索哪个阵营
     public int SearchCamp;
+
+    // 本次搜索的随机种子
+    public uint RandomSeed;
 }
