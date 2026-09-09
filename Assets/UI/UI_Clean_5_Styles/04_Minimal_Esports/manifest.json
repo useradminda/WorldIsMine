@@ -1,0 +1,266 @@
+{
+  "style": "极简竞技",
+  "files": [
+    {
+      "file": "header_panel.png",
+      "label": "顶部空白面板",
+      "width": 317,
+      "height": 209,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        0,
+        0,
+        309,
+        201
+      ]
+    },
+    {
+      "file": "ranking_panel.png",
+      "label": "贡献榜空白底板",
+      "width": 270,
+      "height": 202,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        341,
+        60,
+        603,
+        254
+      ]
+    },
+    {
+      "file": "notification_panel.png",
+      "label": "事件提示空白底板",
+      "width": 310,
+      "height": 83,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        630,
+        126,
+        932,
+        201
+      ]
+    },
+    {
+      "file": "timer_panel.png",
+      "label": "计时器空白底板",
+      "width": 290,
+      "height": 228,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        972,
+        0,
+        1254,
+        220
+      ]
+    },
+    {
+      "file": "join_blue.png",
+      "label": "蓝方空白按钮",
+      "width": 285,
+      "height": 101,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        27,
+        410,
+        304,
+        503
+      ]
+    },
+    {
+      "file": "join_red.png",
+      "label": "红方空白按钮",
+      "width": 285,
+      "height": 103,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        334,
+        410,
+        611,
+        505
+      ]
+    },
+    {
+      "file": "avatar_frame.png",
+      "label": "头像镂空框",
+      "width": 202,
+      "height": 193,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        684,
+        360,
+        878,
+        545
+      ]
+    },
+    {
+      "file": "health_frame.png",
+      "label": "血条镂空框",
+      "width": 295,
+      "height": 71,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        950,
+        421,
+        1237,
+        484
+      ]
+    },
+    {
+      "file": "health_strip_blue_decorated.png",
+      "label": "蓝色装饰血条",
+      "width": 282,
+      "height": 55,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        29,
+        734,
+        303,
+        781
+      ]
+    },
+    {
+      "file": "health_strip_red_decorated.png",
+      "label": "红色装饰血条",
+      "width": 274,
+      "height": 58,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        339,
+        734,
+        605,
+        784
+      ]
+    },
+    {
+      "file": "medal_gold.png",
+      "label": "空白金奖章",
+      "width": 217,
+      "height": 218,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        675,
+        655,
+        884,
+        865
+      ]
+    },
+    {
+      "file": "medal_silver.png",
+      "label": "空白银奖章",
+      "width": 218,
+      "height": 218,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        986,
+        655,
+        1196,
+        865
+      ]
+    },
+    {
+      "file": "medal_bronze.png",
+      "label": "空白铜奖章",
+      "width": 278,
+      "height": 308,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        0,
+        954,
+        270,
+        1254
+      ]
+    },
+    {
+      "file": "faction_blue.png",
+      "label": "蓝方阵营图标",
+      "width": 199,
+      "height": 241,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        372,
+        938,
+        563,
+        1171
+      ]
+    },
+    {
+      "file": "faction_red.png",
+      "label": "红方阵营图标",
+      "width": 232,
+      "height": 325,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        685,
+        937,
+        909,
+        1254
+      ]
+    },
+    {
+      "file": "list_row.png",
+      "label": "空白列表行",
+      "width": 312,
+      "height": 248,
+      "padding": 4,
+      "text_baked": false,
+      "source_rect": [
+        950,
+        1014,
+        1254,
+        1254
+      ]
+    },
+    {
+      "file": "health_fill_blue.png",
+      "label": "blue纯血量填充，无边框",
+      "width": 512,
+      "height": 32,
+      "usage": "Image Filled / Horizontal / Origin Left; put below health_frame and inside its hole"
+    },
+    {
+      "file": "health_fill_red.png",
+      "label": "red纯血量填充，无边框",
+      "width": 512,
+      "height": 32,
+      "usage": "Image Filled / Horizontal / Origin Left; put below health_frame and inside its hole"
+    },
+    {
+      "file": "health_track.png",
+      "width": 64,
+      "height": 16,
+      "label": "血槽底色，可调色"
+    },
+    {
+      "file": "avatar_mask.png",
+      "width": 202,
+      "height": 193,
+      "label": "头像遮罩，与头像框同尺寸"
+    }
+  ],
+  "format": "RGBA PNG",
+  "text": "All runtime text and numbers must be added by code",
+  "resolution_note": "Native generated sprite resolution; no artificial upscale. See individual pixel sizes.",
+  "setup": {
+    "texture_type": "Sprite (2D and UI)",
+    "sprite_mode": "Single",
+    "alpha_is_transparency": true,
+    "mipmaps": false,
+    "recommended_image_type": "Simple, preserve aspect; fills use Filled Horizontal",
+    "note": "No validated 9-slice borders supplied. Do not stretch ornamental frames arbitrarily."
+  }
+}
