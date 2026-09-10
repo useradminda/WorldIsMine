@@ -1,0 +1,554 @@
+fileFormatVersion: 2
+guid: 5cb46120065bb52469047bc55edf725a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: avatar_frame
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 1068
+        width: 216
+        height: 208
+      alignment: 9
+      pivot: {x: 0.5023148, y: 0.50240386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4505490a54f124543ad5a41a8471e5ea
+      internalID: -910473954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: avatar_mask
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1798
+        width: 171
+        height: 181
+      alignment: 9
+      pivot: {x: 0.50584793, y: 0.4834254}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331b042b1c815aa418544938ed0204b6
+      internalID: -41912947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: faction_blue
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 1278
+        width: 262
+        height: 311
+      alignment: 9
+      pivot: {x: 0.5019084, y: 0.49839228}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a948ad50e1b711a41a678ac69aed2e87
+      internalID: 983731696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: faction_red
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 833
+        width: 260
+        height: 366
+      alignment: 9
+      pivot: {x: 0.50384617, y: 0.49726775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ada628ebe180a4db02482129781b80
+      internalID: -352366488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: header_panel
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 1773
+        width: 366
+        height: 274
+      alignment: 9
+      pivot: {x: 0.49726775, y: 0.5018248}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72f8c26b0af0af4eb0369e8d4c80f7f
+      internalID: 828639135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_fill_blue
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2015
+        width: 512
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0240df0a07816419be54cb95efe2b4
+      internalID: 1953682097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_fill_red
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1981
+        width: 512
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38e176a6e8580cf4db2d076cc776b7fc
+      internalID: -545367052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_frame
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1701
+        width: 310
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49285713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a9961c44e742944b64d8cb3a9fc96b
+      internalID: 552482559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_strip_blue_decorated
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1555
+        width: 283
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90d7e15f2ef4dd4d809ed5d84d14cbd
+      internalID: 1341402565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_strip_red_decorated
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1506
+        width: 280
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5964632d8cdaddc4599ee5a3c84aff04
+      internalID: -1430888100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_track
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 2031
+        width: 64
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81825b98c5ca6a49ab663790a9ac10a
+      internalID: 1241224361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: join_blue
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1665
+        width: 311
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81825823e9d87084da4f5088f970a55e
+      internalID: 571832568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: join_red
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1591
+        width: 299
+        height: 108
+      alignment: 9
+      pivot: {x: 0.50167227, y: 0.5046296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fbbbe326211d7246b00e8a2d510da3e
+      internalID: 789650731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: list_row
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1604
+        width: 333
+        height: 266
+      alignment: 9
+      pivot: {x: 0.5045045, y: 0.4943609}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea851d2c1d5c2446b699ada4ad75095
+      internalID: 1262264174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: medal_bronze
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1343
+        width: 298
+        height: 320
+      alignment: 9
+      pivot: {x: 0.5, y: 0.496875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300cd451ed67b65468c3d1f047011c19
+      internalID: -661173453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: medal_gold
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1051
+        width: 257
+        height: 225
+      alignment: 9
+      pivot: {x: 0.50389105, y: 0.49333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bac75db8f652674dbe0f1f7d80eeb0b
+      internalID: 1673304421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: medal_silver
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1110
+        width: 262
+        height: 231
+      alignment: 9
+      pivot: {x: 0.5019084, y: 0.4978355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aeeb027749cddb4e95c439615a3d054
+      internalID: -1171650975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: notification_panel
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1872
+        width: 339
+        height: 107
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5046729}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca98aa5a5783ee840bad38111631f3c5
+      internalID: -1188889440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ranking_panel
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 826
+        width: 253
+        height: 282
+      alignment: 9
+      pivot: {x: 0.49802372, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2a373089a357b46b6f5837bfe8f23f
+      internalID: -1985094720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_panel
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1201
+        width: 270
+        height: 303
+      alignment: 9
+      pivot: {x: 0.5037037, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93b08a4cab53cc489320174be67f510
+      internalID: 574858088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 35df6a48b87e7564d896f12c7f070966
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      avatar_frame: -910473954
+      avatar_mask: -41912947
+      faction_blue: 983731696
+      faction_red: -352366488
+      header_panel: 828639135
+      health_fill_blue: 1953682097
+      health_fill_red: -545367052
+      health_frame: 552482559
+      health_strip_blue_decorated: 1341402565
+      health_strip_red_decorated: -1430888100
+      health_track: 1241224361
+      join_blue: 571832568
+      join_red: 789650731
+      list_row: 1262264174
+      medal_bronze: -661173453
+      medal_gold: 1673304421
+      medal_silver: -1171650975
+      notification_panel: -1188889440
+      ranking_panel: -1985094720
+      timer_panel: 574858088
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
