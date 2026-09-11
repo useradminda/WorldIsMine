@@ -13,15 +13,18 @@ public class UnitLogicBase
 
     public bool DirtyForward = true;
 
+    private UnitLogicBase searchTarget;
+    private int searchTargetUId;
+
     private Vector3 catchForward;
     public Vector3 TargetForward
     {
         get
         {
             Vector3 finalForward;
-            if (NormalSkill.SearchTarget != null && NormalSkill.SearchTarget.IsDead == false)
+            if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
             {
-                finalForward = Vector3.Normalize(NormalSkill.SearchTarget.CurPos - NormalSkill.UnitLogic.CurPos);
+                finalForward = Vector3.Normalize(searchTarget.CurPos - CurPos);
             }
             else
             {
@@ -30,7 +33,6 @@ public class UnitLogicBase
             if (catchForward != finalForward)
             {
                 DirtyForward = true;
-
                 catchForward = finalForward;
             }
             return finalForward;
@@ -53,6 +55,8 @@ public class UnitLogicBase
     public SkillLogicBase NormalSkill => normalSkill;
 
     private List<SkillLogicBase> skillList = new List<SkillLogicBase>();
+
+    public List<SkillLogicBase> SkillList => skillList;
 
     private StateMachine stateMachine;
     public StateMachine StateMachine => stateMachine;
@@ -142,6 +146,13 @@ public class UnitLogicBase
         {
             buffLogicMachine.UpdateBuffMachine(dt);
         }
+        if (skillList.Count > 0)
+        {
+            for(int i = 0; i < skillList.Count; i++)
+            {
+                skillList[i].SkillUpdate(dt);
+            }
+        }
     }
 
     public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
@@ -198,6 +209,75 @@ public class UnitLogicBase
         {
             UnitView.FreezeComp.ExitFreeze();
         }
+    }
+
+    // normal
+    public SkillLogicBase GetNormalSkillBySearchTarget()
+    {
+        if (NormalSkill != null)
+        {
+            NormalSkill.SearchTargetFunc();
+            UnitLogicBase skillTar = NormalSkill.GetSkillSearchTargetSingleResult();
+            if (skillTar != null && skillTar.IsDead == false)
+            {
+                return NormalSkill;
+            }
+        }
+        return null;
+    }
+
+    // not normal
+    public SkillLogicBase GetSuperSkillBySearchTarget()
+    {
+        if (skillList.Count > 1)
+        {
+            for (int i = 1; i < skillList.Count; i++)
+            {
+                if (skillList[i].CurCD <= 0)
+                {
+                    skillList[i].SearchTargetFunc();
+                    UnitLogicBase skillTar = skillList[i].GetSkillSearchTargetSingleResult();
+                    if (skillTar != null && skillTar.IsDead == false)
+                    {
+                        return skillList[i];
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    // 
+    public SkillLogicBase GetUseSkillBySearchTarget()
+    {
+        if (skillList.Count > 1)
+        {
+            for (int i = 1; i < skillList.Count; i++)
+            {
+                skillList[i].SearchTargetFunc();
+                UnitLogicBase skillTar = skillList[i].GetSkillSearchTargetSingleResult();
+                if (skillTar != null && skillTar.IsDead == false)
+                {                  
+                    return skillList[i];
+                }
+            }
+        }
+        NormalSkill.SearchTargetFunc();
+        UnitLogicBase ulb = NormalSkill.GetSkillSearchTargetSingleResult();
+        if (ulb != null && ulb.IsDead == false)
+        {
+            return NormalSkill;
+        }
+        return null;
+    }
+
+    public void SetSearchTarget(UnitLogicBase logic)
+    {
+        searchTarget = logic;
+        if (logic == null)
+            searchTargetUId = -1;
+        else
+            searchTargetUId = logic.UId;
     }
 
     private void initProp()

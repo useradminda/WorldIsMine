@@ -105,7 +105,7 @@ public class UnitView : IView
                 }
                 else if (stateType == EStateTyep.Attack)
                 {
-                    ActionFlowComponent.PlayAction(EActionType.attack);
+                   
                 }
                 else if (stateType == EStateTyep.Die)
                 {

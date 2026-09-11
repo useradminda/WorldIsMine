@@ -6,7 +6,7 @@ public class SkillRemoteSkill : SkillLogicBase
     {
     }
 
-    public override void SkillDoEffect()
+    public override void OnSkillDoEffect()
     {
         createFlyObject();
     }
@@ -15,39 +15,29 @@ public class SkillRemoteSkill : SkillLogicBase
     {
         int flyCfgId = SkillCfg.flyObjectId;
         Vector3 oriPos = UnitLogic.CurPos;
-        Vector3 tarPos = SearchTarget.CurPos;
-        UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, SearchTarget, this, GetDamage());
+        Vector3 tarPos = SkillSearchTarget.CurPos;
+        UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, SkillSearchTarget, this, GetDamage());
     }
 
     public override UnitLogicBase GetSkillSearchTargetSingleResult()
     {
-        searchTarget = null;
-        //targetList.Clear();
+        skillSearchTarget = null;
         if (searchReqIndex < 0)
-            return searchTarget;
-
-        resultUnitIndexList.Clear();
-        neastIndex = -1;
-        randomIndex = -1;
+            return skillSearchTarget;
 
         MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
         if (resultUnitIndexList.Count > 0)
         {
-            //for (int i = 0; i < resultUnitIndexList.Count; i++)
-            //{
-            //    int unitIndex = resultUnitIndexList[i];
-            //    //targetList.Add(UnitManager.Instance.UnitList[unitIndex]);
-            //}
-            searchTarget = UnitManager.Instance.UnitList[randomIndex];
-            if (searchTarget == UnitLogic)
+            skillSearchTarget = UnitManager.Instance.UnitList[randomIndex];
+            if (skillSearchTarget == UnitLogic)
             {
                 Debug.LogError("严重错误搜索到自己了!!");
-                searchTarget = null;
+                skillSearchTarget = null;
             }
             searchReqIndex = -1;
-            return searchTarget;
+            return skillSearchTarget;
         }
-        searchTarget = null;
+        skillSearchTarget = null;
         searchReqIndex = -1;
         return null;
     }
