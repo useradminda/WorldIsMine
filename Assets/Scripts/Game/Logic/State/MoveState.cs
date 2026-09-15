@@ -15,9 +15,9 @@ public class MoveState : StateBase
     }
 
     public override void UpdateState(float dt)
-    {
-        getTargetUnits();
+    { 
         updateMove();
+        getTargetUnits();
     }
 
     public override void ExitState()
@@ -30,10 +30,11 @@ public class MoveState : StateBase
         if (skillLogic != null)
         {
             UnitLogic.SetSearchTarget(skillLogic.SkillSearchTarget);
-            float sqrDistance = (UnitLogic.CurPos - skillLogic.SkillSearchTarget.CurPos).sqrMagnitude;
+            float sqrDistance = (UnitLogic.CurPos - skillLogic.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos)).sqrMagnitude;
             if (sqrDistance <= skillLogic.SkillCfg.atkRange * skillLogic.SkillCfg.atkRange)
             {
                 UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, skillLogic.SkillSearchTarget, skillLogic);
+                return;
             }
         }
         else

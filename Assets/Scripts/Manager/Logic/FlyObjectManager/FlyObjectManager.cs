@@ -14,7 +14,7 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerUpdate(float dt)
     {
-        for (int i = 0; i < FlyObjectList.Count; i++)
+        for (int i = FlyObjectList.Count - 1; i >= 0; i--)
         {
             FlyObjectList[i].FlyObjectUpdate(dt);
         }

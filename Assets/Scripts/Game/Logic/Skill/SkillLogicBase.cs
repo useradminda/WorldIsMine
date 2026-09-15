@@ -38,21 +38,11 @@ public class SkillLogicBase
     // 更新
     public void SkillUpdate(float dt)
     {
+        if (unitLogic.IsDead == true)
+            return;
         if (curCD > 0)
         {
             curCD -= dt;
-            //if (curCD < 0)
-            //{
-            //    if (BNormalSkill)
-            //    {
-            //        if (SearchTarget != null && SearchTarget.IsDead == false)
-            //        {
-            //            SkillDoEffect();
-            //            SkillResetCD();
-            //            playStartEffect();
-            //        }
-            //    }
-            //}
         }
     }
 
@@ -61,6 +51,17 @@ public class SkillLogicBase
         playStartEffect();
         SkillResetCD();
         OnSkillDoEffect();
+    }
+
+    /// <summary>结束当前技能流程，清理本次搜索结果和待处理状态。</summary>
+    public void SkillRelease()
+    {
+        skillSearchTarget = null;
+        searchReqIndex = -1;
+        neastIndex = -1;
+        randomIndex = -1;
+        resultUnitIndexList.Clear();
+        targetList.Clear();
     }
 
     // 执行
@@ -82,7 +83,7 @@ public class SkillLogicBase
 
     public void SearchTargetFunc()
     {
-        if (curCD < 0)
+        if (curCD <= 0)
         {
             searchReqIndex = MapCellManager.Instance.RequestSearch(unitLogic.CurPos, SkillSearchRange, unitLogic.OtherCampTypeInt);
         }
@@ -115,6 +116,11 @@ public class SkillLogicBase
     {
         int damage = -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, SkillSearchTarget.SoliderCfg.unitType, SkillCfg.damage, unitLogic.SoliderCfg.restrainValue);
         return damage;
+    }
+
+    public void SetSkillSearchTarget(UnitLogicBase target)
+    {
+        skillSearchTarget = target;
     }
 
     private void playStartEffect()

@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public class AttackState : StateBase
 {
@@ -23,7 +24,13 @@ public class AttackState : StateBase
 
     public override void UpdateState(float dt)
     {  
+        if (UnitLogic.IsDead)
+            return;
+
         judgeTargetBeDead();
+        if (UnitLogic.StateMachine.GetCurrentState() != this)
+            return;
+
         updateSuprerSkill();
         if (attackTime > 0)
         {
@@ -46,7 +53,18 @@ public class AttackState : StateBase
 
     public override void ExitState()
     {
+        if (useSkill != null)
+            useSkill.SkillRelease();
+        if (superSkill != null && superSkill != useSkill)
+            superSkill.SkillRelease();
+        attackTime = 0;
+        useSkill = null;
+        superSkill = null;
 
+        if (UnitLogic.IsDead)
+        {
+            UnitLogic.SetSearchTarget(null);
+        }
     }
 
     private void judgeTargetBeDead()
@@ -63,7 +81,7 @@ public class AttackState : StateBase
                         return;
                     }
                 }
-                float sqrDistance = (UnitLogic.CurPos - useSkill.SkillSearchTarget.CurPos).sqrMagnitude;
+                float sqrDistance = (UnitLogic.CurPos - useSkill.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos)).sqrMagnitude;
                 if (sqrDistance > UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
                 {
                     UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
@@ -76,21 +94,25 @@ public class AttackState : StateBase
     private void updateSuprerSkill()
     {
         superSkill = UnitLogic.GetSuperSkillBySearchTarget();
-        
     }
 
     private void useSkillPlay()
     {
+        if (UnitLogic.IsDead || useSkill == null)
+            return;
+
         if (useSkill.BNormalSkill == true)
         {
             UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.attack);
-            attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.attack);
+            attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.attack);         
         }
         else
         {
             UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.skill);
             attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.skill);
         }
+        Vector3 atkDir =  useSkill.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
+        UnitLogic.UnitView.SetForwardForce(atkDir);
         useSkill.SkillDoEffect();
     }
 }

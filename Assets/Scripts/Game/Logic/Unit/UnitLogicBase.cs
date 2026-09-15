@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical;
 
 public class UnitLogicBase
 {
@@ -24,7 +25,7 @@ public class UnitLogicBase
             Vector3 finalForward;
             if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
             {
-                finalForward = Vector3.Normalize(searchTarget.CurPos - CurPos);
+                finalForward = Vector3.Normalize(searchTarget.GetClosestPoint(CurPos) - CurPos);
             }
             else
             {
@@ -66,7 +67,17 @@ public class UnitLogicBase
 
     public UnitView UnitView;
 
-    public Vector3 CurPos => Agenter.pos;
+    public Vector3 CurPos
+    {
+        get
+        {
+            if(UnitType == EUnitType.Wall)
+            {
+                return UnitManager.Instance.GetWallCenter(CampType);
+            }
+            return Agenter.pos;
+        }
+    }
 
     public bool IsDead => Prop.Hp <= 0;
 
@@ -89,6 +100,8 @@ public class UnitLogicBase
         }
     }
 
+    private EUnitType eUnitType = EUnitType.Solider;
+    public EUnitType UnitType => eUnitType;
 
     public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
     {
@@ -133,24 +146,27 @@ public class UnitLogicBase
 
     public void UnitUpdate(float dt)
     {
-        if (Agenter == null)
+        if (UnitType == EUnitType.Solider)
         {
-            Debug.LogError("严重错误当前单位的Agent智能体是空的");
-            return;
-        }
-        if (stateMachine != null)
-        {
-            stateMachine.UpdateState(dt);
-        }
-        if (buffLogicMachine != null)
-        {
-            buffLogicMachine.UpdateBuffMachine(dt);
-        }
-        if (skillList.Count > 0)
-        {
-            for(int i = 0; i < skillList.Count; i++)
+            if (Agenter == null)
             {
-                skillList[i].SkillUpdate(dt);
+                Debug.LogError("严重错误当前单位的Agent智能体是空的");
+                return;
+            }
+            if (stateMachine != null)
+            {
+                stateMachine.UpdateState(dt);
+            }
+            if (buffLogicMachine != null)
+            {
+                buffLogicMachine.UpdateBuffMachine(dt);
+            }
+            if (skillList.Count > 0)
+            {
+                for(int i = 0; i < skillList.Count; i++)
+                {
+                    skillList[i].SkillUpdate(dt);
+                }
             }
         }
     }
@@ -218,6 +234,11 @@ public class UnitLogicBase
         {
             NormalSkill.SearchTargetFunc();
             UnitLogicBase skillTar = NormalSkill.GetSkillSearchTargetSingleResult();
+            if (skillTar == null || skillTar.IsDead)
+            {
+                skillTar = UnitManager.Instance.GetOtherWallLogic(CampType);
+                NormalSkill.SetSkillSearchTarget(skillTar);
+            }
             if (skillTar != null && skillTar.IsDead == false)
             {
                 return NormalSkill;
@@ -247,30 +268,6 @@ public class UnitLogicBase
         return null;
     }
 
-    // 
-    public SkillLogicBase GetUseSkillBySearchTarget()
-    {
-        if (skillList.Count > 1)
-        {
-            for (int i = 1; i < skillList.Count; i++)
-            {
-                skillList[i].SearchTargetFunc();
-                UnitLogicBase skillTar = skillList[i].GetSkillSearchTargetSingleResult();
-                if (skillTar != null && skillTar.IsDead == false)
-                {                  
-                    return skillList[i];
-                }
-            }
-        }
-        NormalSkill.SearchTargetFunc();
-        UnitLogicBase ulb = NormalSkill.GetSkillSearchTargetSingleResult();
-        if (ulb != null && ulb.IsDead == false)
-        {
-            return NormalSkill;
-        }
-        return null;
-    }
-
     public void SetSearchTarget(UnitLogicBase logic)
     {
         searchTarget = logic;
@@ -278,6 +275,37 @@ public class UnitLogicBase
             searchTargetUId = -1;
         else
             searchTargetUId = logic.UId;
+    }
+
+    // 设置类型
+    public void SetUnitType(EUnitType unitType)
+    {
+        eUnitType = unitType;
+    }
+
+    // 获取判断最近的点
+    public Vector3 GetClosestPoint(Vector3 attackerPosition)
+    {
+        if (UnitType != EUnitType.Wall)
+        {
+            return CurPos;
+        }
+        Vector3 wallCenter = UnitManager.Instance.GetWallCenter(CampType);
+        Vector3 wallSize = UnitManager.Instance.GetWallSize();
+        return new Vector3
+        (
+            Mathf.Clamp(
+                attackerPosition.x,
+                wallCenter.x - wallSize.x * 0.5f,
+                wallCenter.x + wallSize.x * 0.5f
+            ),
+            attackerPosition.y,
+            Mathf.Clamp(
+                attackerPosition.z,
+                wallCenter.z - wallSize.z * 0.5f,
+                wallCenter.z + wallSize.z * 0.5f
+            )
+        );
     }
 
     private void initProp()

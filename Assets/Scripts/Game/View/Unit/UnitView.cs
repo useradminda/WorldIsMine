@@ -131,6 +131,11 @@ public class UnitView : IView
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }
 
+    public void SetForwardForce(Vector3 foward)
+    {
+        transform.forward = foward;
+    }
+
     private Vector3 tarPos;
     private Vector3 transPos;
     private void updatePos(float dt)
@@ -182,6 +187,16 @@ public class UnitView : IView
         if (dieType == "" || dieType == "Normal")
         {
             dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Bounce")
+        {
+            dieComp = gameObject.GetOrAddComponent<BounceDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "GroundSmash")
+        {
+            dieComp = gameObject.GetOrAddComponent<GroundSmashDieComponent>();
             dieComp.SetUnitView(this);
         }
         else if(dieType == "Explosion")

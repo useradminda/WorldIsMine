@@ -15,7 +15,7 @@ public class SkillRemoteSkill : SkillLogicBase
     {
         int flyCfgId = SkillCfg.flyObjectId;
         Vector3 oriPos = UnitLogic.CurPos;
-        Vector3 tarPos = SkillSearchTarget.CurPos;
+        Vector3 tarPos = SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos);
         UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, SkillSearchTarget, this, GetDamage());
     }
 
