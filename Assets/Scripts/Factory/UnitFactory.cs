@@ -3,9 +3,11 @@ using Nebukam;
 using Nebukam.ORCA;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public static class UnitFactory
 {
+    public const int MaxActiveUnitCountPerCamp = 3000;
     private static int blueUId = 0;
     private static int redUId = 0;
 
@@ -14,6 +16,24 @@ public static class UnitFactory
 
     private static int blueFreeCount = 0;
     private static List<int> blueFreeIndexList = new List<int>();
+
+    private static int redActiveCount = 0;
+    private static int blueActiveCount = 0;
+
+    public static int GetActiveCount(ECampType campType)
+    {
+        return campType == ECampType.Red ? redActiveCount : blueActiveCount;
+    }
+
+    public static bool CanCreateUnit(ECampType campType)
+    {
+        return GetActiveCount(campType) < MaxActiveUnitCountPerCamp;
+    }
+
+    public static bool CanCreateUnitGroup(ECampType campType, int count)
+    {
+        return count > 0 && GetActiveCount(campType) + count <= MaxActiveUnitCountPerCamp;
+    }
     
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
@@ -22,6 +42,12 @@ public static class UnitFactory
         Vector3 moveForward,
         ECampType campType, int index)
     {
+        if (!CanCreateUnit(campType))
+        {
+            return null;
+        }
+
+        AddActiveCount(campType);
         UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index);
         return unit;
     }
@@ -32,6 +58,11 @@ public static class UnitFactory
         Vector3 moveForward,
         ECampType campType)
     {
+        if (!CanCreateUnit(campType))
+        {
+            return null;
+        }
+
         int unitIndex = GetRecycleId(campType);
         if (unitIndex == -1)
         {
@@ -39,6 +70,7 @@ public static class UnitFactory
             
         }
         UnitLogicBase unit = UnitManager.Instance.UnitList[unitIndex];
+        AddActiveCount(campType);
         unit.CycleUse(cfgId, getUId(campType), moveForward);
         unit.Agenter.pos = bornPoint;
         unit.Agenter.prefVelocity = moveForward;
@@ -70,6 +102,20 @@ public static class UnitFactory
         return agent;
     }
 
+    public static UnitLogicBase CreateWall(ECampType campType)
+    {
+        int wallCfgId = 10001;
+        int uid = 999999;
+        int index = uid;
+        if(campType == ECampType.Blue)
+        {
+            uid -= 1;
+            index = uid;
+        }
+        UnitLogicBase unit = new UnitLogicBase(wallCfgId, uid, campType, Vector3.zero, index);
+        unit.SetUnitType(EUnitType.Wall);
+        return unit;
+    }
 
     public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int damage)
     {
@@ -111,6 +157,7 @@ public static class UnitFactory
     // 回收UnitIndex
     public static void RecycleId(ECampType campType, int recycleUnitIndex)
     {
+        RemoveActiveCount(campType);
         if (campType == ECampType.Red)
         {
             redFreeCount = redFreeCount + 1;
@@ -158,5 +205,29 @@ public static class UnitFactory
             return ++redUId;
         }
         return ++blueUId;
+    }
+
+    private static void AddActiveCount(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            redActiveCount++;
+        }
+        else
+        {
+            blueActiveCount++;
+        }
+    }
+
+    private static void RemoveActiveCount(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            redActiveCount = Mathf.Max(0, redActiveCount - 1);
+        }
+        else
+        {
+            blueActiveCount = Mathf.Max(0, blueActiveCount - 1);
+        }
     }
 }

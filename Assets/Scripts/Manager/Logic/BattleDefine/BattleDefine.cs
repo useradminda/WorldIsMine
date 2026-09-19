@@ -15,3 +15,8 @@ public enum ECampType
     Blue = 1,   // 蓝
 }
 
+public enum EUnitType
+{
+    Solider,
+    Wall
+}

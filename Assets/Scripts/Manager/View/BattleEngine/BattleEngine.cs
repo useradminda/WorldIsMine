@@ -23,6 +23,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     private void Awake()
     {
         battleInit = initBattle();
+        UnitManager.Instance.SetSpawnHandler(CreateAvailableUnits);
     }
 
     // Start is called before the first frame update
@@ -64,22 +65,58 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         RvoManager.Instance.ManagerDestroy();
     }
 
+    public void CreateWall()
+    {
+        
+    }
+
     // 创建单位
     public void CreateUnit(int cfgId, ECampType campType, int count)
     {
+        if (count <= 0)
+        {
+            return;
+        }
+
+        if (UnitManager.Instance.HasWaitingRequest(campType))
+        {
+            UnitManager.Instance.EnqueueSpawn(cfgId, campType, count);
+            return;
+        }
+
+        if (!UnitFactory.CanCreateUnitGroup(campType, count))
+        {
+            UnitManager.Instance.EnqueueSpawn(cfgId, campType, count);
+            return;
+        }
+
+        CreateAvailableUnits(cfgId, campType, count);
+    }
+
+    private int CreateAvailableUnits(int cfgId, ECampType campType, int count)
+    {
+        int creatableCount = Mathf.Min(count, UnitFactory.MaxActiveUnitCountPerCamp - UnitFactory.GetActiveCount(campType));
+        if (creatableCount <= 0)
+        {
+            return 0;
+        }
+
         Vector3 forward = BornConfigIns.GetForward(campType);
         Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
        
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < creatableCount; i++)
         {
             Vector3 bornPoint = GetCreatePoint( baseBornPoint, forward, i, count);
 
-            bool create = false;
             UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType);
 
             if(unitLogic == null)
             { 
                 unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType, UnitManager.Instance.UnitList.Count);
+                if (unitLogic == null)
+                {
+                    return i;
+                }
                 Agent agent = UnitFactory.CreateAgent(bornPoint, forward, unitLogic.Prop.Radius, unitLogic.Prop.MaxSpeed);
                 unitLogic.BindAgent(agent);
 
@@ -95,6 +132,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             unitLogic.InitStateMachine();
             unitLogic.StateMachine.ChangeState(EStateTyep.Move);
         }
+
+        return creatableCount;
     }
 
     // 获取创建位置点

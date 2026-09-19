@@ -105,7 +105,7 @@ public class UnitView : IView
                 }
                 else if (stateType == EStateTyep.Attack)
                 {
-                    ActionFlowComponent.PlayAction(EActionType.attack);
+                   
                 }
                 else if (stateType == EStateTyep.Die)
                 {
@@ -129,6 +129,11 @@ public class UnitView : IView
             return;
         GameObject go = UnitViewFactory.CreateGob(prefabName, pos, forward);
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
+    }
+
+    public void SetForwardForce(Vector3 foward)
+    {
+        transform.forward = foward;
     }
 
     private Vector3 tarPos;
@@ -182,6 +187,16 @@ public class UnitView : IView
         if (dieType == "" || dieType == "Normal")
         {
             dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Bounce")
+        {
+            dieComp = gameObject.GetOrAddComponent<BounceDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "GroundSmash")
+        {
+            dieComp = gameObject.GetOrAddComponent<GroundSmashDieComponent>();
             dieComp.SetUnitView(this);
         }
         else if(dieType == "Explosion")
