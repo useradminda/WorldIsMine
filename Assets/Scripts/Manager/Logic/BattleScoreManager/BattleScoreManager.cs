@@ -60,14 +60,19 @@ public class BattleScoreManager : Singleton<BattleScoreManager>
     }
 
     /// <summary>尝试消耗胜点释放全局技能。</summary>
-    public bool TryCastGlobalSkill(int cost, Action skill)
+    public bool TryCastGlobalSkill(int cost, Func<bool> skill)
     {
         if (cost < 0 || VictoryPoint < cost || skill == null)
         {
             return false;
         }
+
+        if (!skill.Invoke())
+        {
+            return false;
+        }
+
         VictoryPoint -= cost;
-        skill.Invoke();
         Changed?.Invoke(Score, VictoryPoint);
         return true;
     }

@@ -13,6 +13,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     private UnitLogicBase redWallLogic;
     private UnitLogicBase blueWallLogic;
+    public event Action<ECampType> WallDestroyed;
 
     private class UnitSpawnRequest
     {
@@ -88,6 +89,11 @@ public class UnitManager : Singleton<UnitManager>, IManager
     public Vector3 GetWallSize()
     {
         return Vector3.zero;
+    }
+
+    public void NotifyWallDestroyed(ECampType campType)
+    {
+        WallDestroyed?.Invoke(campType);
     }
 
     private void ProcessWaitingRequests(ECampType campType)

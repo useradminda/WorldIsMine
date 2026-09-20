@@ -87,6 +87,9 @@ public class UnitLogicBase
     private int index;
     public int Index => index;
 
+    private int attackBuffValue;
+    public int AttackBuffValue => attackBuffValue;
+
     private int logicRatio = 100;
     public int LogicRatio
     {
@@ -120,9 +123,12 @@ public class UnitLogicBase
     // 回收使用
     public void CycleUse(int cfgId, int uid, Vector3 moveForward)
     {
+        buffLogicMachine.Die();
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
+        logicRatio = 100;
+        attackBuffValue = 0;
         initProp();
         initSkills();
     }
@@ -173,10 +179,28 @@ public class UnitLogicBase
 
     public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
     {
-        Prop.ChangeHp(damage);
         if (IsDead)
+        {
+            return;
+        }
+
+        Prop.ChangeHp(damage);
+        if (UnitType == EUnitType.Wall)
+        {
+            if (IsDead)
+            {
+                UnitManager.Instance.NotifyWallDestroyed(CampType);
+            }
+
+            return;
+        }
+
+        if (IsDead && StateMachine != null)
             StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
-        UnitView.BeHitSlash();
+        if (UnitView != null)
+        {
+            UnitView.BeHitSlash();
+        }
     }
    
     public void TriggerMoveStop()
@@ -208,15 +232,25 @@ public class UnitLogicBase
         Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
     }
 
-    public void AddBuff(int buffCfgId)
+    /// <summary>根据配置ID创建并添加Buff。</summary>
+    public bool AddBuff(int buffCfgId, float duration = -1f)
     {
-        BuffLogicBase buffLogic = null;
-        buffLogicMachine.AddBuff(buffLogic);
+        BuffLogicBase buffLogic = BuffLogicFactory.Create(
+            buffCfgId,
+            this,
+            buffLogicMachine);
+        return buffLogicMachine.AddBuff(buffLogic, duration);
     }
 
+    /// <summary>修改单位逻辑速度百分比。</summary>
     public void SetLogicRatio(int addValue)
     {
         logicRatio += addValue;
+        if (UnitView == null)
+        {
+            return;
+        }
+
         if (logicRatio < 100)
         {
             UnitView.FreezeComp.SetFreeze(LogicRatio / 100f);
@@ -225,6 +259,19 @@ public class UnitLogicBase
         {
             UnitView.FreezeComp.ExitFreeze();
         }
+    }
+
+    /// <summary>Buff生效或退出时修改累计攻击增量，保留负值以支持减攻击Buff的正确恢复。</summary>
+    public void ChangeAttackBuffValue(int value)
+    {
+        attackBuffValue += value;
+    }
+
+    /// <summary>根据单位基础攻击力、累计攻击增量和技能倍率计算技能基础伤害。</summary>
+    public int GetAttackDamage(int skillDamageRate)
+    {
+        int finalAttack = Mathf.Max(0, SoliderCfg.atk + attackBuffValue);
+        return Mathf.Max(0, finalAttack * skillDamageRate);
     }
 
     // normal
@@ -319,20 +366,23 @@ public class UnitLogicBase
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
-            SkillLogicBase skill = null;
-            if (skillCfg.skillType == 1)
+            if (skillCfg != null)
             {
-                skill = new SkillCloseSkill(this, skillCfg);
+                SkillLogicBase skill = null;
+                if (skillCfg.skillType == 1)
+                {
+                    skill = new SkillCloseSkill(this, skillCfg);
+                }
+                else if(skillCfg.skillType == 2)
+                {
+                    skill = new SkillRemoteSkill(this, skillCfg); // new SkillRemoteSkill(this, skillCfg);
+                }
+                if (skill.BNormalSkill)
+                {
+                    normalSkill = skill;
+                }
+                skillList.Add(skill);
             }
-            else if(skillCfg.skillType == 2)
-            {
-                skill = new SkillRemoteSkill(this, skillCfg); // new SkillRemoteSkill(this, skillCfg);
-            }
-            if (skill.BNormalSkill)
-            {
-                normalSkill = skill;
-            }
-            skillList.Add(skill);
         }
     }
 }

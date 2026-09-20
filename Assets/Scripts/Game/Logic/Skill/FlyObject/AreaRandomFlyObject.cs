@@ -60,6 +60,7 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
                 BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
+                mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }
     }

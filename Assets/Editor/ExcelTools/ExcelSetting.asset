@@ -22,3 +22,6 @@ MonoBehaviour:
   - ExcelName: Skill.xlsx
     SheetNameList:
     - SkillCfg
+  - ExcelName: "Skill - \u526F\u672C.xlsx"
+    SheetNameList:
+    - SkillCfg

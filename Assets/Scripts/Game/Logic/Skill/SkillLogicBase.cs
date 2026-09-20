@@ -68,6 +68,25 @@ public class SkillLogicBase
     public virtual void OnSkillDoEffect()
     {
        BattleLogicDamageTools.DoDamage(unitLogic, SkillSearchTarget, GetDamage(), SkillSearchTarget.UId, SkillCfg.dieType, UnityEngine.Vector3.zero);
+       ApplyBuffs(SkillSearchTarget);
+    }
+
+    /// <summary>把当前技能配置携带的Buff添加到命中目标。</summary>
+    public void ApplyBuffs(UnitLogicBase targetUnit)
+    {
+        if (targetUnit == null || targetUnit.IsDead || SkillCfg.buffId == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < SkillCfg.buffId.Length; i++)
+        {
+            int buffId = SkillCfg.buffId[i];
+            if (buffId > 0)
+            {
+                targetUnit.AddBuff(buffId);
+            }
+        }
     }
 
     // 重置CD
@@ -114,7 +133,8 @@ public class SkillLogicBase
 
     public int GetDamage()
     {
-        int damage = -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, SkillSearchTarget.SoliderCfg.unitType, SkillCfg.damage, unitLogic.SoliderCfg.restrainValue);
+        int attackDamage = unitLogic.GetAttackDamage(SkillCfg.damage);
+        int damage = -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, SkillSearchTarget.SoliderCfg.unitType, attackDamage, unitLogic.SoliderCfg.restrainValue);
         return damage;
     }
 

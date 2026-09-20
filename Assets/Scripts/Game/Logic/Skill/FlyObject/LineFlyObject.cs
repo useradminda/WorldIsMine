@@ -67,6 +67,7 @@ public class LineFlyObject : FlyObjectLogicBase
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
                 BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, curPos);           
+                mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }
     }

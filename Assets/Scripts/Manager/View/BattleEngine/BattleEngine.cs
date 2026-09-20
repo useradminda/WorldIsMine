@@ -2,6 +2,7 @@ using Nebukam.ORCA;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using ZTools;
@@ -13,23 +14,21 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // 出生位置
     public BornConfig BornConfigIns;
 
+    [Header("交战示意特效")]
+    public BattleClashEffectSettings ClashEffects = new BattleClashEffectSettings();
+
     [Header("Legacy Debug")]
     [SerializeField]
     [Tooltip("旧数字键刷兵：1=红方100个，2=蓝方100个。正常联调必须关闭。")]
     private bool enableLegacySpawnHotkeys = false;
 
     private bool battleInit = false;
+    private bool battleFinished = false;
+    public event Action<ECampType> BattleFinishedFunction;
 
     private void Awake()
     {
         battleInit = initBattle();
-        UnitManager.Instance.SetSpawnHandler(CreateAvailableUnits);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -37,14 +36,18 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         if (battleInit == false)
             return;
+        if (battleFinished)
+            return;
+       
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
         ProjectileJobManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
         FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
+        GlobalSkillManager.Instance.ManagerUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerUpdate(Time.deltaTime);
-
+        BattleClashEffectManager.Instance.ManagerUpdate(Time.deltaTime);  
         OperateManager.Instance.UpdateInput();
     }
 
@@ -52,17 +55,39 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         if (battleInit == false)
             return;
+        if (battleFinished)
+            return;
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
         ProjectileJobManager.Instance.ManagerLateUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        BattleClashEffectManager.Instance.ManagerLateUpdate(Time.deltaTime);
     }
 
     private void OnDestroy()
     {
+        BattleClashEffectManager.Instance.ManagerDestroy();
+        UnitManager.Instance.WallDestroyed -= OnWallDestroyed;
+        GlobalSkillManager.Instance.ManagerDestroy();
         RvoManager.Instance.ManagerDestroy();
+    }
+
+    private void OnWallDestroyed(ECampType destroyedWallCamp)
+    {
+        if (battleFinished)
+        {
+            return;
+        }
+
+        battleFinished = true;
+        BattleClashEffectManager.Instance.ManagerDestroy();
+        ECampType winnerCamp = destroyedWallCamp == ECampType.Red
+            ? ECampType.Blue
+            : ECampType.Red;
+        BattleFinishedFunction?.Invoke(winnerCamp);
+        Debug.Log($"Battle finished. DestroyedWall={destroyedWallCamp}, Winner={winnerCamp}");
     }
 
     public void CreateWall()
@@ -73,6 +98,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // 创建单位
     public void CreateUnit(int cfgId, ECampType campType, int count)
     {
+        if (battleFinished == true)
+            return;
         if (count <= 0)
         {
             return;
@@ -171,6 +198,13 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         ProjectileJobManager.Instance.ManagerInit();
         FlyObjectManager.Instance.ManagerInit();
 
+        GlobalSkillManager.Instance.ManagerInit();
+        GlobalSkillManager.Instance.SetBornConfig(BornConfigIns);
+
+        
+        UnitManager.Instance.SetSpawnHandler(CreateAvailableUnits);
+        UnitManager.Instance.WallDestroyed += OnWallDestroyed;
+
         if (ObstacleConfigIns == null)
         {
             Debug.LogError("没有边界障碍信息");
@@ -179,6 +213,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         {
             RvoManager.Instance.SetBorderInfo(ObstacleConfigIns.GetComponent<ObstacleConfig>().BorderList);
         }
+
+        BattleClashEffectManager.Instance.SetSettings(ClashEffects);
+        BattleClashEffectManager.Instance.ManagerInit();
 
         UnitViewManager.Instance.ManagerInit();
 
