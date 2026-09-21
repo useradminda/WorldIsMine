@@ -135,7 +135,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
     }
     public void ManagerDestroy()
     {
-
+        ClearWaiting();
     }
 
     //// 增加一个Unit
@@ -149,5 +149,11 @@ public class UnitManager : Singleton<UnitManager>, IManager
     {
         UnitList.AddImmediately(unit);
         return unit;
+    }
+
+    public void ClearWaiting()
+    {
+        redWaitingRequests.Clear();
+        blueWaitingRequests.Clear();
     }
 }

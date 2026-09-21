@@ -28,6 +28,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     private void Awake()
     {
+        gameObject.GetOrAddComponent<UIOperateManager>();
         battleInit = initBattle();
     }
 
@@ -82,6 +83,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         }
 
         battleFinished = true;
+        RvoManager.Instance.ManagerDestroy();
+        UnitManager.Instance.ManagerDestroy();
         BattleClashEffectManager.Instance.ManagerDestroy();
         ECampType winnerCamp = destroyedWallCamp == ECampType.Red
             ? ECampType.Blue
