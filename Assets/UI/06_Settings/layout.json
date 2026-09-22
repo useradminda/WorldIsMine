@@ -1,0 +1,929 @@
+{
+  "screen": "06_Settings",
+  "title": "设置",
+  "variant": "default",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "coordinate_system": "top-left pixels; ordered back to front",
+  "layers": [
+    {
+      "type": "image",
+      "asset": "bg_battle_preview",
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "rendered_rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "fit": "cover",
+      "opacity": 1,
+      "preview_only": true,
+      "tag": null
+    },
+    {
+      "type": "engine_overlay",
+      "color": "#08141c",
+      "opacity": 0.52,
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ]
+    },
+    {
+      "type": "image",
+      "asset": "panel_scroll_large",
+      "rect": [
+        45,
+        345,
+        990,
+        1340
+      ],
+      "rendered_rect": [
+        48,
+        345,
+        984,
+        1340
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "notification_panel",
+      "rect": [
+        240.0,
+        365,
+        600,
+        172
+      ],
+      "rendered_rect": [
+        260,
+        365,
+        561,
+        172
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "战场设置",
+      "position": [
+        540,
+        448
+      ],
+      "font_size": 43,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        454,
+        429,
+        626,
+        471
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "icon_close",
+      "rect": [
+        931,
+        386,
+        70,
+        70
+      ],
+      "rendered_rect": [
+        931,
+        386,
+        70,
+        69
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_blue",
+      "rect": [
+        329,
+        557,
+        423,
+        108
+      ],
+      "rendered_rect": [
+        372,
+        557,
+        337,
+        108
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "添加玩法贴纸",
+      "position": [
+        540.5,
+        611
+      ],
+      "font_size": 34,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        438.5,
+        597,
+        642.5,
+        631
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "背景音乐",
+      "position": [
+        182,
+        766
+      ],
+      "font_size": 29,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "bold",
+      "bbox": [
+        182,
+        754,
+        298,
+        783
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "health_track",
+      "rect": [
+        440,
+        753,
+        348,
+        22
+      ],
+      "rendered_rect": [
+        440,
+        753,
+        348,
+        22
+      ],
+      "fit": "stretch",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "health_fill_blue",
+      "rect": [
+        440,
+        753,
+        242,
+        22
+      ],
+      "rendered_rect": [
+        440,
+        753,
+        242,
+        22
+      ],
+      "fit": "stretch",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "slider_thumb",
+      "rect": [
+        651,
+        731,
+        64,
+        64
+      ],
+      "rendered_rect": [
+        651,
+        732,
+        64,
+        62
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "70%",
+      "position": [
+        854,
+        766
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        827,
+        757,
+        880,
+        777
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        852,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        852,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "死亡表现",
+      "position": [
+        214,
+        898
+      ],
+      "font_size": 30,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "bold",
+      "bbox": [
+        214,
+        886,
+        334,
+        914
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        623,
+        872,
+        53,
+        53
+      ],
+      "rendered_rect": [
+        623,
+        874,
+        53,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "checkmark",
+      "rect": [
+        627,
+        876,
+        45,
+        45
+      ],
+      "rendered_rect": [
+        627,
+        878,
+        45,
+        40
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "开",
+      "position": [
+        706,
+        898
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        693,
+        889,
+        719,
+        912
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        783,
+        872,
+        53,
+        53
+      ],
+      "rendered_rect": [
+        783,
+        874,
+        53,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "关",
+      "position": [
+        866,
+        898
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        853,
+        888,
+        879,
+        912
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        978,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        978,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "技能展示",
+      "position": [
+        214,
+        1024
+      ],
+      "font_size": 30,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "bold",
+      "bbox": [
+        214,
+        1012,
+        334,
+        1041
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        623,
+        998,
+        53,
+        53
+      ],
+      "rendered_rect": [
+        623,
+        1000,
+        53,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "checkmark",
+      "rect": [
+        627,
+        1002,
+        45,
+        45
+      ],
+      "rendered_rect": [
+        627,
+        1004,
+        45,
+        40
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "开",
+      "position": [
+        706,
+        1024
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        693,
+        1015,
+        719,
+        1038
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        783,
+        998,
+        53,
+        53
+      ],
+      "rendered_rect": [
+        783,
+        1000,
+        53,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "关",
+      "position": [
+        866,
+        1024
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        853,
+        1014,
+        879,
+        1038
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        1104,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        1104,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "保存设置",
+      "position": [
+        214,
+        1150
+      ],
+      "font_size": 30,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "bold",
+      "bbox": [
+        214,
+        1138,
+        334,
+        1166
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        623,
+        1124,
+        53,
+        53
+      ],
+      "rendered_rect": [
+        623,
+        1126,
+        53,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "checkmark",
+      "rect": [
+        627,
+        1128,
+        45,
+        45
+      ],
+      "rendered_rect": [
+        627,
+        1130,
+        45,
+        40
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "开",
+      "position": [
+        706,
+        1150
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        693,
+        1141,
+        719,
+        1164
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        783,
+        1124,
+        53,
+        53
+      ],
+      "rendered_rect": [
+        783,
+        1126,
+        53,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "关",
+      "position": [
+        866,
+        1150
+      ],
+      "font_size": 26,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        853,
+        1140,
+        879,
+        1164
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "战场地图",
+      "position": [
+        182,
+        1317
+      ],
+      "font_size": 29,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "bold",
+      "bbox": [
+        182,
+        1305,
+        298,
+        1334
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        171,
+        1370,
+        48,
+        48
+      ],
+      "rendered_rect": [
+        171,
+        1372,
+        48,
+        45
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "checkmark",
+      "rect": [
+        175,
+        1374,
+        40,
+        40
+      ],
+      "rendered_rect": [
+        175,
+        1376,
+        40,
+        35
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "随机",
+      "position": [
+        257,
+        1394
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        232,
+        1383,
+        282,
+        1408
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        361,
+        1370,
+        48,
+        48
+      ],
+      "rendered_rect": [
+        361,
+        1372,
+        48,
+        45
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "沙场",
+      "position": [
+        447,
+        1394
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        422,
+        1383,
+        472,
+        1407
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        551,
+        1370,
+        48,
+        48
+      ],
+      "rendered_rect": [
+        551,
+        1372,
+        48,
+        45
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "桃园",
+      "position": [
+        637,
+        1394
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        612,
+        1383,
+        662,
+        1407
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "keycap",
+      "rect": [
+        741,
+        1370,
+        48,
+        48
+      ],
+      "rendered_rect": [
+        741,
+        1372,
+        48,
+        45
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "竹林",
+      "position": [
+        827,
+        1394
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        802,
+        1383,
+        852,
+        1407
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "btn_primary_gold",
+      "rect": [
+        320,
+        1520,
+        440,
+        108
+      ],
+      "rendered_rect": [
+        320,
+        1522,
+        440,
+        104
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "保存设置",
+      "position": [
+        540.0,
+        1574
+      ],
+      "font_size": 34,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        472.0,
+        1560,
+        608.0,
+        1594
+      ],
+      "runtime_text": true,
+      "tag": null
+    }
+  ],
+  "notes": [
+    "Text and numbers are runtime data; sample strings are proof-only.",
+    "bg_battle_preview is a scenic assembly aid; use the actual Unity world camera at runtime.",
+    "Simple sprites preserve aspect. Fill strips/track alone stretch horizontally. No nine-slice.",
+    "Pointer states: normal=(1,1,1,1), pressed tint=(0.82,0.82,0.82,1), disabled alpha=0.45."
+  ]
+}

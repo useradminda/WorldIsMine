@@ -1,0 +1,184 @@
+{
+  "screen": "02_Controls",
+  "title": "操作说明",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "assets": [
+    {
+      "id": "btn_primary_gold",
+      "source": "work\\ui_art_20260922\\source_art\\btn_primary_gold.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2172,
+        724
+      ],
+      "crop_xyxy": [
+        15,
+        98,
+        2158,
+        604
+      ],
+      "size": [
+        2143,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/btn_primary_gold.png"
+    },
+    {
+      "id": "icon_close",
+      "source": "work\\ui_art_20260922\\source_art\\icon_close.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        131,
+        136,
+        1121,
+        1105
+      ],
+      "size": [
+        990,
+        969
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_close.png"
+    },
+    {
+      "id": "icon_mouse",
+      "source": "work\\ui_art_20260922\\source_art\\icon_mouse.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        248,
+        64,
+        1006,
+        1197
+      ],
+      "size": [
+        758,
+        1133
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_mouse.png"
+    },
+    {
+      "id": "keycap",
+      "source": "work\\ui_art_20260922\\source_art\\keycap.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        42,
+        78,
+        1211,
+        1185
+      ],
+      "size": [
+        1169,
+        1107
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/keycap.png"
+    },
+    {
+      "id": "notification_panel",
+      "source": "work\\ui_art_20260922\\source_art\\notification_panel.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2149,
+        731
+      ],
+      "crop_xyxy": [
+        29,
+        36,
+        2120,
+        677
+      ],
+      "size": [
+        2091,
+        641
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/notification_panel.png"
+    },
+    {
+      "id": "panel_scroll_large",
+      "source": "work\\ui_art_20260922\\source_art\\panel_scroll_large.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        13,
+        1,
+        1074,
+        1446
+      ],
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/panel_scroll_large.png"
+    }
+  ],
+  "previews": [
+    "Preview.png"
+  ],
+  "reference_screenshots": [
+    "微信图片_20260919202152_14484_25.png"
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "screen": "01_Loading",
+  "title": "加载界面",
+  "variant": "default",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "coordinate_system": "top-left pixels; ordered back to front",
+  "layers": [
+    {
+      "type": "image",
+      "asset": "bg_loading",
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "rendered_rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "fit": "cover",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "logo_title",
+      "rect": [
+        190,
+        120,
+        700,
+        390
+      ],
+      "rendered_rect": [
+        206,
+        120,
+        668,
+        390
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "群雄逐鹿 · 一战定天下",
+      "position": [
+        540,
+        505
+      ],
+      "font_size": 30,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        392,
+        492,
+        687,
+        521
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "health_track",
+      "rect": [
+        248,
+        1683,
+        584,
+        58
+      ],
+      "rendered_rect": [
+        248,
+        1683,
+        584,
+        58
+      ],
+      "fit": "stretch",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "health_fill_blue",
+      "rect": [
+        248,
+        1683,
+        421,
+        58
+      ],
+      "rendered_rect": [
+        248,
+        1683,
+        421,
+        58
+      ],
+      "fit": "stretch",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": "progress_fill"
+    },
+    {
+      "type": "image",
+      "asset": "health_frame",
+      "rect": [
+        164,
+        1632,
+        752,
+        162
+      ],
+      "rendered_rect": [
+        164,
+        1632,
+        752,
+        161
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "正在整备军阵…  72%",
+      "position": [
+        540,
+        1793
+      ],
+      "font_size": 27,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        412,
+        1781,
+        668,
+        1807
+      ],
+      "runtime_text": true,
+      "tag": "loading_progress"
+    }
+  ],
+  "notes": [
+    "Text and numbers are runtime data; sample strings are proof-only.",
+    "bg_battle_preview is a scenic assembly aid; use the actual Unity world camera at runtime.",
+    "Simple sprites preserve aspect. Fill strips/track alone stretch horizontally. No nine-slice.",
+    "Pointer states: normal=(1,1,1,1), pressed tint=(0.82,0.82,0.82,1), disabled alpha=0.45."
+  ]
+}

@@ -1,0 +1,449 @@
+{
+  "screen": "03_ModeSelect",
+  "title": "模式选择",
+  "variant": "default",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "coordinate_system": "top-left pixels; ordered back to front",
+  "layers": [
+    {
+      "type": "image",
+      "asset": "bg_battle_preview",
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "rendered_rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "fit": "cover",
+      "opacity": 1,
+      "preview_only": true,
+      "tag": null
+    },
+    {
+      "type": "engine_overlay",
+      "color": "#08141c",
+      "opacity": 0.52,
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ]
+    },
+    {
+      "type": "image",
+      "asset": "panel_scroll_large",
+      "rect": [
+        45,
+        345,
+        990,
+        1340
+      ],
+      "rendered_rect": [
+        48,
+        345,
+        984,
+        1340
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "notification_panel",
+      "rect": [
+        240.0,
+        365,
+        600,
+        172
+      ],
+      "rendered_rect": [
+        260,
+        365,
+        561,
+        172
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "选择对局模式",
+      "position": [
+        540,
+        448
+      ],
+      "font_size": 43,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        411,
+        430,
+        669,
+        471
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "icon_close",
+      "rect": [
+        931,
+        386,
+        70,
+        70
+      ],
+      "rendered_rect": [
+        931,
+        386,
+        70,
+        69
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "调兵遣将，选择你的战场",
+      "position": [
+        540,
+        578
+      ],
+      "font_size": 28,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        386,
+        566,
+        694,
+        594
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_blue",
+      "rect": [
+        137,
+        657,
+        806,
+        245
+      ],
+      "rendered_rect": [
+        158,
+        657,
+        764,
+        245
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "hero_blue",
+      "rect": [
+        164,
+        611,
+        230,
+        282
+      ],
+      "rendered_rect": [
+        172,
+        611,
+        213,
+        282
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "经典战场",
+      "position": [
+        636,
+        729
+      ],
+      "font_size": 39,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        558,
+        712,
+        714,
+        751
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "20 分钟  ·  城防 100,000",
+      "position": [
+        636,
+        790
+      ],
+      "font_size": 25,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        499,
+        779,
+        773,
+        804
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "checkmark",
+      "rect": [
+        865,
+        737,
+        46,
+        46
+      ],
+      "rendered_rect": [
+        865,
+        740,
+        46,
+        41
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_red",
+      "rect": [
+        137,
+        927,
+        806,
+        245
+      ],
+      "rendered_rect": [
+        137,
+        930,
+        806,
+        239
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "hero_green",
+      "rect": [
+        164,
+        881,
+        230,
+        282
+      ],
+      "rendered_rect": [
+        181,
+        881,
+        196,
+        282
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "进阶战场",
+      "position": [
+        636,
+        999
+      ],
+      "font_size": 39,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        558,
+        982,
+        714,
+        1021
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "30 分钟  ·  城防 250,000",
+      "position": [
+        636,
+        1060
+      ],
+      "font_size": 25,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        499,
+        1049,
+        773,
+        1074
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_blue",
+      "rect": [
+        137,
+        1197,
+        806,
+        245
+      ],
+      "rendered_rect": [
+        158,
+        1197,
+        764,
+        245
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "hero_red",
+      "rect": [
+        164,
+        1151,
+        230,
+        282
+      ],
+      "rendered_rect": [
+        176,
+        1151,
+        206,
+        282
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "巅峰对决",
+      "position": [
+        636,
+        1269
+      ],
+      "font_size": 39,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        558,
+        1252,
+        714,
+        1291
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "60 分钟  ·  城防 400,000",
+      "position": [
+        636,
+        1330
+      ],
+      "font_size": 25,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        499,
+        1319,
+        773,
+        1344
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "btn_primary_gold",
+      "rect": [
+        320,
+        1514,
+        440,
+        108
+      ],
+      "rendered_rect": [
+        320,
+        1516,
+        440,
+        104
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "确认选择",
+      "position": [
+        540.0,
+        1568
+      ],
+      "font_size": 34,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        472.0,
+        1554,
+        608.0,
+        1588
+      ],
+      "runtime_text": true,
+      "tag": null
+    }
+  ],
+  "notes": [
+    "Text and numbers are runtime data; sample strings are proof-only.",
+    "bg_battle_preview is a scenic assembly aid; use the actual Unity world camera at runtime.",
+    "Simple sprites preserve aspect. Fill strips/track alone stretch horizontally. No nine-slice.",
+    "Pointer states: normal=(1,1,1,1), pressed tint=(0.82,0.82,0.82,1), disabled alpha=0.45."
+  ]
+}

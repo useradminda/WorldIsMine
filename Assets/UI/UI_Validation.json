@@ -1,0 +1,10 @@
+{
+  "asset_files_checked": 184,
+  "page_folders": 12,
+  "previews": 17,
+  "reference_screenshots": 21,
+  "errors": [],
+  "text_overlaps": [],
+  "pass": true,
+  "scope": "Files, alpha, layout references, canvas bounds, text overlap and importer metadata; no Unity runtime execution."
+}

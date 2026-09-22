@@ -1,0 +1,297 @@
+{
+  "screen": "03_ModeSelect",
+  "title": "模式选择",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "assets": [
+    {
+      "id": "btn_primary_gold",
+      "source": "work\\ui_art_20260922\\source_art\\btn_primary_gold.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2172,
+        724
+      ],
+      "crop_xyxy": [
+        15,
+        98,
+        2158,
+        604
+      ],
+      "size": [
+        2143,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/btn_primary_gold.png"
+    },
+    {
+      "id": "checkmark",
+      "source": "work\\ui_art_20260922\\source_art\\checkmark.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        60,
+        132,
+        1204,
+        1141
+      ],
+      "size": [
+        1144,
+        1009
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/checkmark.png"
+    },
+    {
+      "id": "hero_blue",
+      "source": "work\\ui_art_20260922\\source_art\\hero_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        4,
+        25,
+        1081,
+        1448
+      ],
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": "UI portrait with deliberate lower-body cutoff; cover the lower edge with the summon banner or card.",
+      "alignment_group": null,
+      "file": "Sprites/hero_blue.png"
+    },
+    {
+      "id": "hero_green",
+      "source": "work\\ui_art_20260922\\source_art\\hero_green.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        89,
+        42,
+        1068,
+        1448
+      ],
+      "size": [
+        979,
+        1406
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": "UI portrait with deliberate lower-body cutoff; cover the lower edge with the summon banner or card.",
+      "alignment_group": null,
+      "file": "Sprites/hero_green.png"
+    },
+    {
+      "id": "hero_red",
+      "source": "work\\ui_art_20260922\\source_art\\hero_red.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        45,
+        25,
+        1086,
+        1448
+      ],
+      "size": [
+        1041,
+        1423
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": "UI portrait with deliberate lower-body cutoff; cover the lower edge with the summon banner or card.",
+      "alignment_group": null,
+      "file": "Sprites/hero_red.png"
+    },
+    {
+      "id": "icon_close",
+      "source": "work\\ui_art_20260922\\source_art\\icon_close.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        131,
+        136,
+        1121,
+        1105
+      ],
+      "size": [
+        990,
+        969
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_close.png"
+    },
+    {
+      "id": "join_blue",
+      "source": "work\\ui_art_20260922\\source_art\\join_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2185,
+        720
+      ],
+      "crop_xyxy": [
+        17,
+        16,
+        2168,
+        706
+      ],
+      "size": [
+        2151,
+        690
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_blue.png"
+    },
+    {
+      "id": "join_red",
+      "source": "work\\ui_art_20260922\\source_art\\join_red.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2187,
+        719
+      ],
+      "crop_xyxy": [
+        15,
+        19,
+        2172,
+        658
+      ],
+      "size": [
+        2157,
+        639
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_red.png"
+    },
+    {
+      "id": "notification_panel",
+      "source": "work\\ui_art_20260922\\source_art\\notification_panel.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2149,
+        731
+      ],
+      "crop_xyxy": [
+        29,
+        36,
+        2120,
+        677
+      ],
+      "size": [
+        2091,
+        641
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/notification_panel.png"
+    },
+    {
+      "id": "panel_scroll_large",
+      "source": "work\\ui_art_20260922\\source_art\\panel_scroll_large.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        13,
+        1,
+        1074,
+        1446
+      ],
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/panel_scroll_large.png"
+    }
+  ],
+  "previews": [
+    "Preview.png"
+  ],
+  "reference_screenshots": [
+    "微信图片_20260919202159_14485_25.png",
+    "微信图片_20260919204932_14504_25.png"
+  ]
+}

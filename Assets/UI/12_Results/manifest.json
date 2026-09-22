@@ -1,0 +1,467 @@
+{
+  "screen": "12_Results",
+  "title": "对局结算",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "assets": [
+    {
+      "id": "avatar_frame",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\avatar_frame.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        219,
+        213
+      ],
+      "crop_xyxy": [
+        6,
+        5,
+        212,
+        207
+      ],
+      "size": [
+        206,
+        202
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": "avatar_frame_mask",
+      "file": "Sprites/avatar_frame.png"
+    },
+    {
+      "id": "avatar_mask",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\avatar_mask.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        219,
+        213
+      ],
+      "crop_xyxy": [
+        6,
+        5,
+        212,
+        207
+      ],
+      "size": [
+        206,
+        202
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": "avatar_frame_mask",
+      "file": "Sprites/avatar_mask.png"
+    },
+    {
+      "id": "btn_primary_gold",
+      "source": "work\\ui_art_20260922\\source_art\\btn_primary_gold.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2172,
+        724
+      ],
+      "crop_xyxy": [
+        15,
+        98,
+        2158,
+        604
+      ],
+      "size": [
+        2143,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/btn_primary_gold.png"
+    },
+    {
+      "id": "checkmark",
+      "source": "work\\ui_art_20260922\\source_art\\checkmark.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        60,
+        132,
+        1204,
+        1141
+      ],
+      "size": [
+        1144,
+        1009
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/checkmark.png"
+    },
+    {
+      "id": "icon_stats",
+      "source": "work\\ui_art_20260922\\source_art\\icon_stats.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        9,
+        8,
+        1245,
+        1242
+      ],
+      "size": [
+        1236,
+        1234
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_stats.png"
+    },
+    {
+      "id": "join_blue",
+      "source": "work\\ui_art_20260922\\source_art\\join_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2185,
+        720
+      ],
+      "crop_xyxy": [
+        17,
+        16,
+        2168,
+        706
+      ],
+      "size": [
+        2151,
+        690
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_blue.png"
+    },
+    {
+      "id": "join_red",
+      "source": "work\\ui_art_20260922\\source_art\\join_red.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2187,
+        719
+      ],
+      "crop_xyxy": [
+        15,
+        19,
+        2172,
+        658
+      ],
+      "size": [
+        2157,
+        639
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_red.png"
+    },
+    {
+      "id": "medal_bronze",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\medal_bronze.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        304,
+        324
+      ],
+      "crop_xyxy": [
+        49,
+        5,
+        300,
+        229
+      ],
+      "size": [
+        251,
+        224
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/medal_bronze.png"
+    },
+    {
+      "id": "medal_gold",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\medal_gold.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        261,
+        228
+      ],
+      "crop_xyxy": [
+        6,
+        6,
+        255,
+        223
+      ],
+      "size": [
+        249,
+        217
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/medal_gold.png"
+    },
+    {
+      "id": "medal_silver",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\medal_silver.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        263,
+        232
+      ],
+      "crop_xyxy": [
+        6,
+        6,
+        256,
+        228
+      ],
+      "size": [
+        250,
+        222
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/medal_silver.png"
+    },
+    {
+      "id": "panel_row",
+      "source": "work\\ui_art_20260922\\source_art\\panel_row.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2172,
+        724
+      ],
+      "crop_xyxy": [
+        47,
+        215,
+        2125,
+        483
+      ],
+      "size": [
+        2078,
+        268
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/panel_row.png"
+    },
+    {
+      "id": "panel_scroll_large",
+      "source": "work\\ui_art_20260922\\source_art\\panel_scroll_large.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        13,
+        1,
+        1074,
+        1446
+      ],
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/panel_scroll_large.png"
+    },
+    {
+      "id": "unit_bow",
+      "source": "work\\ui_art_20260922\\source_art\\unit_bow.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        37,
+        15,
+        1221,
+        1222
+      ],
+      "size": [
+        1184,
+        1207
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/unit_bow.png"
+    },
+    {
+      "id": "unit_shield",
+      "source": "work\\ui_art_20260922\\source_art\\unit_shield.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        250,
+        9,
+        1005,
+        1239
+      ],
+      "size": [
+        755,
+        1230
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/unit_shield.png"
+    },
+    {
+      "id": "unit_sword",
+      "source": "work\\ui_art_20260922\\source_art\\unit_sword.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        37,
+        44,
+        1231,
+        1239
+      ],
+      "size": [
+        1194,
+        1195
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/unit_sword.png"
+    },
+    {
+      "id": "victory_blue",
+      "source": "work\\ui_art_20260922\\source_art\\victory_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1457,
+        1079
+      ],
+      "crop_xyxy": [
+        18,
+        20,
+        1439,
+        1060
+      ],
+      "size": [
+        1421,
+        1040
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/victory_blue.png"
+    }
+  ],
+  "previews": [
+    "Preview.png",
+    "Preview_halfmonth.png"
+  ],
+  "reference_screenshots": [
+    "微信图片_20260919204932_14501_25.png",
+    "微信图片_20260919204932_14502_25.png",
+    "微信图片_20260919204932_14503_25.png"
+  ]
+}

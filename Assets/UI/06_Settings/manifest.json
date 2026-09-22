@@ -1,0 +1,324 @@
+{
+  "screen": "06_Settings",
+  "title": "设置",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "assets": [
+    {
+      "id": "btn_primary_gold",
+      "source": "work\\ui_art_20260922\\source_art\\btn_primary_gold.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2172,
+        724
+      ],
+      "crop_xyxy": [
+        15,
+        98,
+        2158,
+        604
+      ],
+      "size": [
+        2143,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/btn_primary_gold.png"
+    },
+    {
+      "id": "checkmark",
+      "source": "work\\ui_art_20260922\\source_art\\checkmark.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        60,
+        132,
+        1204,
+        1141
+      ],
+      "size": [
+        1144,
+        1009
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/checkmark.png"
+    },
+    {
+      "id": "health_fill_blue",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_fill_blue.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        512,
+        32
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        32
+      ],
+      "size": [
+        512,
+        32
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_fill_blue.png"
+    },
+    {
+      "id": "health_track",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_track.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        64,
+        16
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        64,
+        16
+      ],
+      "size": [
+        64,
+        16
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_track.png"
+    },
+    {
+      "id": "icon_close",
+      "source": "work\\ui_art_20260922\\source_art\\icon_close.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        131,
+        136,
+        1121,
+        1105
+      ],
+      "size": [
+        990,
+        969
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_close.png"
+    },
+    {
+      "id": "join_blue",
+      "source": "work\\ui_art_20260922\\source_art\\join_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2185,
+        720
+      ],
+      "crop_xyxy": [
+        17,
+        16,
+        2168,
+        706
+      ],
+      "size": [
+        2151,
+        690
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_blue.png"
+    },
+    {
+      "id": "keycap",
+      "source": "work\\ui_art_20260922\\source_art\\keycap.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        42,
+        78,
+        1211,
+        1185
+      ],
+      "size": [
+        1169,
+        1107
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/keycap.png"
+    },
+    {
+      "id": "notification_panel",
+      "source": "work\\ui_art_20260922\\source_art\\notification_panel.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2149,
+        731
+      ],
+      "crop_xyxy": [
+        29,
+        36,
+        2120,
+        677
+      ],
+      "size": [
+        2091,
+        641
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/notification_panel.png"
+    },
+    {
+      "id": "panel_row",
+      "source": "work\\ui_art_20260922\\source_art\\panel_row.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2172,
+        724
+      ],
+      "crop_xyxy": [
+        47,
+        215,
+        2125,
+        483
+      ],
+      "size": [
+        2078,
+        268
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/panel_row.png"
+    },
+    {
+      "id": "panel_scroll_large",
+      "source": "work\\ui_art_20260922\\source_art\\panel_scroll_large.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        13,
+        1,
+        1074,
+        1446
+      ],
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/panel_scroll_large.png"
+    },
+    {
+      "id": "slider_thumb",
+      "source": "work\\ui_art_20260922\\source_art\\slider_thumb.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        36,
+        34,
+        1216,
+        1174
+      ],
+      "size": [
+        1180,
+        1140
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/slider_thumb.png"
+    }
+  ],
+  "previews": [
+    "Preview.png"
+  ],
+  "reference_screenshots": [
+    "微信图片_20260919202224_14488_25.png"
+  ]
+}

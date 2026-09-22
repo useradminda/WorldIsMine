@@ -1,0 +1,156 @@
+{
+  "screen": "01_Loading",
+  "title": "加载界面",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "assets": [
+    {
+      "id": "bg_loading",
+      "source": "work\\ui_art_20260922\\source_art\\bg_loading.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        941,
+        1672
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        941,
+        1672
+      ],
+      "size": [
+        941,
+        1672
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/bg_loading.png"
+    },
+    {
+      "id": "health_fill_blue",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_fill_blue.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        512,
+        32
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        32
+      ],
+      "size": [
+        512,
+        32
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_fill_blue.png"
+    },
+    {
+      "id": "health_frame",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_frame.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        312,
+        75
+      ],
+      "crop_xyxy": [
+        4,
+        5,
+        307,
+        70
+      ],
+      "size": [
+        303,
+        65
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_frame.png"
+    },
+    {
+      "id": "health_track",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_track.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        64,
+        16
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        64,
+        16
+      ],
+      "size": [
+        64,
+        16
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_track.png"
+    },
+    {
+      "id": "logo_title",
+      "source": "work\\ui_art_20260922\\source_art\\logo_title.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "crop_xyxy": [
+        4,
+        55,
+        1529,
+        945
+      ],
+      "size": [
+        1525,
+        890
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "text_baked": true,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/logo_title.png"
+    }
+  ],
+  "previews": [
+    "Preview.png"
+  ],
+  "reference_screenshots": [
+    "微信图片_20260919202146_14483_25.png"
+  ]
+}

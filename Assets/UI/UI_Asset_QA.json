@@ -1,0 +1,2584 @@
+{
+  "asset_files": 184,
+  "unique_assets": 46,
+  "checks": [
+    {
+      "path": "01_Loading/Sprites/bg_loading.png",
+      "size": [
+        941,
+        1672
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "759ffb6679ac459c14a47f03b5bf59c0c350847202ea4f8a9b4978b45b9faa72"
+    },
+    {
+      "path": "01_Loading/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "01_Loading/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "01_Loading/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "01_Loading/Sprites/logo_title.png",
+      "size": [
+        1525,
+        890
+      ],
+      "alpha": [
+        0,
+        254
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d444d06e028566537ec83973a5385e8af4d15f1a1613b5a7ad20c7d2521dce95"
+    },
+    {
+      "path": "02_Controls/Sprites/btn_primary_gold.png",
+      "size": [
+        2143,
+        506
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b5ecf10cc7c794e3e5157b7007a1de4d1ff19f3c9045ce30664711a944215a26"
+    },
+    {
+      "path": "02_Controls/Sprites/icon_close.png",
+      "size": [
+        990,
+        969
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "278cb7d8f71f9a1eecde2050833c3f4629b59d6037a28a499669ef8e4f6c08ef"
+    },
+    {
+      "path": "02_Controls/Sprites/icon_mouse.png",
+      "size": [
+        758,
+        1133
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "30ec49ae137f197c82d6102cfad8720b07e8f1418ac2d544803ae24a5bb63c06"
+    },
+    {
+      "path": "02_Controls/Sprites/keycap.png",
+      "size": [
+        1169,
+        1107
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "98884b02940c7f5cabac9f97917fb7df9842dd160a65de8033bd12fe55f25dc7"
+    },
+    {
+      "path": "02_Controls/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "02_Controls/Sprites/panel_scroll_large.png",
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4dcafd46adce079fba72b833ed28d91eb95e9bf46373918eb7c982f1e994e9e1"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/btn_primary_gold.png",
+      "size": [
+        2143,
+        506
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b5ecf10cc7c794e3e5157b7007a1de4d1ff19f3c9045ce30664711a944215a26"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/checkmark.png",
+      "size": [
+        1144,
+        1009
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d20c415802976fd6ae895f337a27136ffcdfa31d90a5b69f8d007898d9cf496c"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/hero_blue.png",
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c6da4a93a0e45696977d0ce12e7ca9421ed5fcdf671529c29d52e1f03e7e2238"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/hero_green.png",
+      "size": [
+        979,
+        1406
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "7c42349d8d878471579bccf2dcf500c259a2586171d95a4b3db9a868d9fa2124"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/hero_red.png",
+      "size": [
+        1041,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b697680f8da7cc499497d5bf96b336fe5ba97fc6f79d0c4ce1822d8b9e557a6e"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/icon_close.png",
+      "size": [
+        990,
+        969
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "278cb7d8f71f9a1eecde2050833c3f4629b59d6037a28a499669ef8e4f6c08ef"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "03_ModeSelect/Sprites/panel_scroll_large.png",
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4dcafd46adce079fba72b833ed28d91eb95e9bf46373918eb7c982f1e994e9e1"
+    },
+    {
+      "path": "04_Lobby/Sprites/btn_primary_gold.png",
+      "size": [
+        2143,
+        506
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b5ecf10cc7c794e3e5157b7007a1de4d1ff19f3c9045ce30664711a944215a26"
+    },
+    {
+      "path": "04_Lobby/Sprites/faction_blue.png",
+      "size": [
+        254,
+        303
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbc0bab9014c51ca87559d94275c64212ad1635b18c8b1e4c064dcf4942b3933"
+    },
+    {
+      "path": "04_Lobby/Sprites/faction_red.png",
+      "size": [
+        254,
+        306
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d62f862732b12cf2f2a1d608ef5abf9b8f09b2095c68a92d80fd9e89a8ae2e17"
+    },
+    {
+      "path": "04_Lobby/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "04_Lobby/Sprites/health_fill_red.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c5a45d583296641d36904dbdf763db8f3a1c0a6e2279e389ca91c237c9b0e48e"
+    },
+    {
+      "path": "04_Lobby/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "04_Lobby/Sprites/health_strip_blue_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "605d4131ca0a4199b5609213f5a368f10487f7c1477550b4ac3e7cbdde36fd33"
+    },
+    {
+      "path": "04_Lobby/Sprites/health_strip_red_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cc7dc01ecd2f0ad1b149d4a12d1dec6dcc0c8ffc889c60d3ed541b61e339a16f"
+    },
+    {
+      "path": "04_Lobby/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "04_Lobby/Sprites/hero_blue.png",
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c6da4a93a0e45696977d0ce12e7ca9421ed5fcdf671529c29d52e1f03e7e2238"
+    },
+    {
+      "path": "04_Lobby/Sprites/icon_rank.png",
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0229cf0a647232ed735ac79ac09a56075503dc390d19c7172471490ea0eaba48"
+    },
+    {
+      "path": "04_Lobby/Sprites/icon_settings.png",
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0d566bd5944ccfa40bf7e02d9fec479b29f82a5fd4a4716b3a5fa0b695febf5c"
+    },
+    {
+      "path": "04_Lobby/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "04_Lobby/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "04_Lobby/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "04_Lobby/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "04_Lobby/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "04_Lobby/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "04_Lobby/Sprites/ranking_panel.png",
+      "size": [
+        244,
+        274
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a147cdc8f32b9ee2c102a17e9a38406478cd590eb0250807544a4345dbac0472"
+    },
+    {
+      "path": "04_Lobby/Sprites/timer_panel.png",
+      "size": [
+        235,
+        242
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "03108443b0ce2f64a9e7bc43786a57afc18e20c1389254983f2db45d750d71b5"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/avatar_frame.png",
+      "size": [
+        206,
+        202
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "aea7429f19ebfd45a124b5bc67282dd20b86330162bc74d96420aa6dfb8bcc9f"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/avatar_mask.png",
+      "size": [
+        206,
+        202
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": false,
+      "pass": true,
+      "sha256": "c029dfcdb17baf2877bb7451da22f723b90441520e257ec5b861cd1dfdd4cba0"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/btn_primary_gold.png",
+      "size": [
+        2143,
+        506
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b5ecf10cc7c794e3e5157b7007a1de4d1ff19f3c9045ce30664711a944215a26"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/icon_close.png",
+      "size": [
+        990,
+        969
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "278cb7d8f71f9a1eecde2050833c3f4629b59d6037a28a499669ef8e4f6c08ef"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/panel_row.png",
+      "size": [
+        2078,
+        268
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "675e5aec82170c5462749f4b01cd1287e5589ad1e37a01d077252ec298acaabb"
+    },
+    {
+      "path": "05_Leaderboard/Sprites/panel_scroll_large.png",
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4dcafd46adce079fba72b833ed28d91eb95e9bf46373918eb7c982f1e994e9e1"
+    },
+    {
+      "path": "06_Settings/Sprites/btn_primary_gold.png",
+      "size": [
+        2143,
+        506
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b5ecf10cc7c794e3e5157b7007a1de4d1ff19f3c9045ce30664711a944215a26"
+    },
+    {
+      "path": "06_Settings/Sprites/checkmark.png",
+      "size": [
+        1144,
+        1009
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d20c415802976fd6ae895f337a27136ffcdfa31d90a5b69f8d007898d9cf496c"
+    },
+    {
+      "path": "06_Settings/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "06_Settings/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "06_Settings/Sprites/icon_close.png",
+      "size": [
+        990,
+        969
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "278cb7d8f71f9a1eecde2050833c3f4629b59d6037a28a499669ef8e4f6c08ef"
+    },
+    {
+      "path": "06_Settings/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "06_Settings/Sprites/keycap.png",
+      "size": [
+        1169,
+        1107
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "98884b02940c7f5cabac9f97917fb7df9842dd160a65de8033bd12fe55f25dc7"
+    },
+    {
+      "path": "06_Settings/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "06_Settings/Sprites/panel_row.png",
+      "size": [
+        2078,
+        268
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "675e5aec82170c5462749f4b01cd1287e5589ad1e37a01d077252ec298acaabb"
+    },
+    {
+      "path": "06_Settings/Sprites/panel_scroll_large.png",
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4dcafd46adce079fba72b833ed28d91eb95e9bf46373918eb7c982f1e994e9e1"
+    },
+    {
+      "path": "06_Settings/Sprites/slider_thumb.png",
+      "size": [
+        1180,
+        1140
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "634eabe913760cd682003c467e5b829ae426524b09d79fb6bda7548367a68438"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/faction_blue.png",
+      "size": [
+        254,
+        303
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbc0bab9014c51ca87559d94275c64212ad1635b18c8b1e4c064dcf4942b3933"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/faction_red.png",
+      "size": [
+        254,
+        306
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d62f862732b12cf2f2a1d608ef5abf9b8f09b2095c68a92d80fd9e89a8ae2e17"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/health_fill_red.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c5a45d583296641d36904dbdf763db8f3a1c0a6e2279e389ca91c237c9b0e48e"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/health_strip_blue_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "605d4131ca0a4199b5609213f5a368f10487f7c1477550b4ac3e7cbdde36fd33"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/health_strip_red_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cc7dc01ecd2f0ad1b149d4a12d1dec6dcc0c8ffc889c60d3ed541b61e339a16f"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/hero_blue.png",
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c6da4a93a0e45696977d0ce12e7ca9421ed5fcdf671529c29d52e1f03e7e2238"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/hero_green.png",
+      "size": [
+        979,
+        1406
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "7c42349d8d878471579bccf2dcf500c259a2586171d95a4b3db9a868d9fa2124"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/hero_red.png",
+      "size": [
+        1041,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b697680f8da7cc499497d5bf96b336fe5ba97fc6f79d0c4ce1822d8b9e557a6e"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/icon_rank.png",
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0229cf0a647232ed735ac79ac09a56075503dc390d19c7172471490ea0eaba48"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/icon_settings.png",
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0d566bd5944ccfa40bf7e02d9fec479b29f82a5fd4a4716b3a5fa0b695febf5c"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/panel_scroll_large.png",
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4dcafd46adce079fba72b833ed28d91eb95e9bf46373918eb7c982f1e994e9e1"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/ranking_panel.png",
+      "size": [
+        244,
+        274
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a147cdc8f32b9ee2c102a17e9a38406478cd590eb0250807544a4345dbac0472"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/timer_panel.png",
+      "size": [
+        235,
+        242
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "03108443b0ce2f64a9e7bc43786a57afc18e20c1389254983f2db45d750d71b5"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_bow.png",
+      "size": [
+        1184,
+        1207
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "aafffd460b79cecb067221ae9b05b6c572232a68ff84fb5ba2ed74ca7e8635fb"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_catapult.png",
+      "size": [
+        1154,
+        1204
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "3477b895e6a34a08473df86f3cdf55ff7b541b7c09804ab6ea4185b66379ce7e"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_command.png",
+      "size": [
+        1198,
+        992
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a0fc731b9a8189fd2c48f599cdd6c59487326ad046fc923779c29852de9c385a"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_elite.png",
+      "size": [
+        1228,
+        1155
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cd84d4b016572a07158b6ea872fc7bcfc887d4dbe7b796a3f0d589c01406e30d"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_fan.png",
+      "size": [
+        850,
+        1240
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d2da81621db534bd5c0f7f8a97c78c7d1509e5f4ebe3cd406f551bb75f893673"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_horse.png",
+      "size": [
+        1162,
+        1227
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "631157f4895310d5bd5ec6fddedc57b5cdcfe44fc67765fb7377e256e847c3bd"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_shield.png",
+      "size": [
+        755,
+        1230
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "79999a8b386b2d0a61ad6112e1f08784af7632fe1698e2ab98d13d55a7d0b1d2"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_spear.png",
+      "size": [
+        1139,
+        1187
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "8e30b952666f9160f5544db45e68821eb7266faa7c743166ea7762e335caba86"
+    },
+    {
+      "path": "07_LiveGuide/Sprites/unit_sword.png",
+      "size": [
+        1194,
+        1195
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "eba42e59c7180e80dafaa2ebaa8dd3876f80173015c7ee7ebcac02d162a6c471"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/faction_blue.png",
+      "size": [
+        254,
+        303
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbc0bab9014c51ca87559d94275c64212ad1635b18c8b1e4c064dcf4942b3933"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/faction_red.png",
+      "size": [
+        254,
+        306
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d62f862732b12cf2f2a1d608ef5abf9b8f09b2095c68a92d80fd9e89a8ae2e17"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/health_fill_red.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c5a45d583296641d36904dbdf763db8f3a1c0a6e2279e389ca91c237c9b0e48e"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/health_strip_blue_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "605d4131ca0a4199b5609213f5a368f10487f7c1477550b4ac3e7cbdde36fd33"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/health_strip_red_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cc7dc01ecd2f0ad1b149d4a12d1dec6dcc0c8ffc889c60d3ed541b61e339a16f"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/hero_blue.png",
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c6da4a93a0e45696977d0ce12e7ca9421ed5fcdf671529c29d52e1f03e7e2238"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/icon_rank.png",
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0229cf0a647232ed735ac79ac09a56075503dc390d19c7172471490ea0eaba48"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/icon_settings.png",
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0d566bd5944ccfa40bf7e02d9fec479b29f82a5fd4a4716b3a5fa0b695febf5c"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/ranking_panel.png",
+      "size": [
+        244,
+        274
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a147cdc8f32b9ee2c102a17e9a38406478cd590eb0250807544a4345dbac0472"
+    },
+    {
+      "path": "08_BattleHUD/Sprites/timer_panel.png",
+      "size": [
+        235,
+        242
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "03108443b0ce2f64a9e7bc43786a57afc18e20c1389254983f2db45d750d71b5"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/faction_blue.png",
+      "size": [
+        254,
+        303
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbc0bab9014c51ca87559d94275c64212ad1635b18c8b1e4c064dcf4942b3933"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/faction_red.png",
+      "size": [
+        254,
+        306
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d62f862732b12cf2f2a1d608ef5abf9b8f09b2095c68a92d80fd9e89a8ae2e17"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/health_fill_red.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c5a45d583296641d36904dbdf763db8f3a1c0a6e2279e389ca91c237c9b0e48e"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/health_strip_blue_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "605d4131ca0a4199b5609213f5a368f10487f7c1477550b4ac3e7cbdde36fd33"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/health_strip_red_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cc7dc01ecd2f0ad1b149d4a12d1dec6dcc0c8ffc889c60d3ed541b61e339a16f"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/hero_blue.png",
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c6da4a93a0e45696977d0ce12e7ca9421ed5fcdf671529c29d52e1f03e7e2238"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/icon_rank.png",
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0229cf0a647232ed735ac79ac09a56075503dc390d19c7172471490ea0eaba48"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/icon_settings.png",
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0d566bd5944ccfa40bf7e02d9fec479b29f82a5fd4a4716b3a5fa0b695febf5c"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/ranking_panel.png",
+      "size": [
+        244,
+        274
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a147cdc8f32b9ee2c102a17e9a38406478cd590eb0250807544a4345dbac0472"
+    },
+    {
+      "path": "09_HeroSummon/Sprites/timer_panel.png",
+      "size": [
+        235,
+        242
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "03108443b0ce2f64a9e7bc43786a57afc18e20c1389254983f2db45d750d71b5"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/faction_blue.png",
+      "size": [
+        254,
+        303
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbc0bab9014c51ca87559d94275c64212ad1635b18c8b1e4c064dcf4942b3933"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/faction_red.png",
+      "size": [
+        254,
+        306
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d62f862732b12cf2f2a1d608ef5abf9b8f09b2095c68a92d80fd9e89a8ae2e17"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/health_fill_red.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c5a45d583296641d36904dbdf763db8f3a1c0a6e2279e389ca91c237c9b0e48e"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/health_strip_blue_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "605d4131ca0a4199b5609213f5a368f10487f7c1477550b4ac3e7cbdde36fd33"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/health_strip_red_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cc7dc01ecd2f0ad1b149d4a12d1dec6dcc0c8ffc889c60d3ed541b61e339a16f"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/icon_rank.png",
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0229cf0a647232ed735ac79ac09a56075503dc390d19c7172471490ea0eaba48"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/icon_settings.png",
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0d566bd5944ccfa40bf7e02d9fec479b29f82a5fd4a4716b3a5fa0b695febf5c"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/notification_panel.png",
+      "size": [
+        2091,
+        641
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "720d8cbc0078ae0896ae78be1446b8ec4ac6468e897107788096684bb22c14f7"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/ranking_panel.png",
+      "size": [
+        244,
+        274
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a147cdc8f32b9ee2c102a17e9a38406478cd590eb0250807544a4345dbac0472"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/soldier_shield.png",
+      "size": [
+        1048,
+        1413
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "9aca0e95ca8a1776fb2f23341d9a433b9ef86e6ada324a5261276e2bca9b4283"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/timer_panel.png",
+      "size": [
+        235,
+        242
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "03108443b0ce2f64a9e7bc43786a57afc18e20c1389254983f2db45d750d71b5"
+    },
+    {
+      "path": "10_TroopSummon/Sprites/unit_shield.png",
+      "size": [
+        755,
+        1230
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "79999a8b386b2d0a61ad6112e1f08784af7632fe1698e2ab98d13d55a7d0b1d2"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/faction_blue.png",
+      "size": [
+        254,
+        303
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbc0bab9014c51ca87559d94275c64212ad1635b18c8b1e4c064dcf4942b3933"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/faction_red.png",
+      "size": [
+        254,
+        306
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d62f862732b12cf2f2a1d608ef5abf9b8f09b2095c68a92d80fd9e89a8ae2e17"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/health_fill_blue.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c29ec842b4b4014caa63b9ed92e1acba2b8c7eaf494b9a4e223392ce3c6d00eb"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/health_fill_red.png",
+      "size": [
+        512,
+        32
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "c5a45d583296641d36904dbdf763db8f3a1c0a6e2279e389ca91c237c9b0e48e"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/health_frame.png",
+      "size": [
+        303,
+        65
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4c77f71edb4d911bf116ae7065091cd99772935176b52213099fe0147e8bb8e1"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/health_strip_blue_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "605d4131ca0a4199b5609213f5a368f10487f7c1477550b4ac3e7cbdde36fd33"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/health_strip_red_decorated.png",
+      "size": [
+        277,
+        42
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cc7dc01ecd2f0ad1b149d4a12d1dec6dcc0c8ffc889c60d3ed541b61e339a16f"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/health_track.png",
+      "size": [
+        64,
+        16
+      ],
+      "alpha": [
+        255,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "fbe3ad0d107d6b6a1792e459e0ca02d9148a107832a4c06d07f6cd0ef6f7a62d"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/icon_rank.png",
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0229cf0a647232ed735ac79ac09a56075503dc390d19c7172471490ea0eaba48"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/icon_settings.png",
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "0d566bd5944ccfa40bf7e02d9fec479b29f82a5fd4a4716b3a5fa0b695febf5c"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/ranking_panel.png",
+      "size": [
+        244,
+        274
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "a147cdc8f32b9ee2c102a17e9a38406478cd590eb0250807544a4345dbac0472"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/timer_panel.png",
+      "size": [
+        235,
+        242
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "03108443b0ce2f64a9e7bc43786a57afc18e20c1389254983f2db45d750d71b5"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/victory_blue.png",
+      "size": [
+        1421,
+        1040
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "f784e98196431094e4b5e3fcdb74d2f8e6d46a7f8b2d31bb89d8fc7801e8a384"
+    },
+    {
+      "path": "11_BattleAnnouncements/Sprites/victory_red.png",
+      "size": [
+        1447,
+        1046
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "1e1c34afcd6249cf4da7ab849b2a9c4b8b4e7d267757a3eb5227c9dbda5d50eb"
+    },
+    {
+      "path": "12_Results/Sprites/avatar_frame.png",
+      "size": [
+        206,
+        202
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "aea7429f19ebfd45a124b5bc67282dd20b86330162bc74d96420aa6dfb8bcc9f"
+    },
+    {
+      "path": "12_Results/Sprites/avatar_mask.png",
+      "size": [
+        206,
+        202
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": false,
+      "pass": true,
+      "sha256": "c029dfcdb17baf2877bb7451da22f723b90441520e257ec5b861cd1dfdd4cba0"
+    },
+    {
+      "path": "12_Results/Sprites/btn_primary_gold.png",
+      "size": [
+        2143,
+        506
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "b5ecf10cc7c794e3e5157b7007a1de4d1ff19f3c9045ce30664711a944215a26"
+    },
+    {
+      "path": "12_Results/Sprites/checkmark.png",
+      "size": [
+        1144,
+        1009
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "d20c415802976fd6ae895f337a27136ffcdfa31d90a5b69f8d007898d9cf496c"
+    },
+    {
+      "path": "12_Results/Sprites/icon_stats.png",
+      "size": [
+        1236,
+        1234
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "577defe8e42613db236501e359153341c4d8fd2f4819da012d66e269bac89126"
+    },
+    {
+      "path": "12_Results/Sprites/join_blue.png",
+      "size": [
+        2151,
+        690
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "dda0c35b79426bd9d5ddb34d69acc9a2c6bea2dd4cc160b390ffd1c88fcd72f4"
+    },
+    {
+      "path": "12_Results/Sprites/join_red.png",
+      "size": [
+        2157,
+        639
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "cde0b9575f5e4126a74bb44765b2e92c4fec0d48505de044da1286e811d1cde1"
+    },
+    {
+      "path": "12_Results/Sprites/medal_bronze.png",
+      "size": [
+        251,
+        224
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "00285248b07532cb6f792c8d4c240fdb02640e19f2edc4c10f57dcee3f398724"
+    },
+    {
+      "path": "12_Results/Sprites/medal_gold.png",
+      "size": [
+        249,
+        217
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "36f743908064078dc211684cb6851d38ae15a25b60c44f8926f7e81bf792a78d"
+    },
+    {
+      "path": "12_Results/Sprites/medal_silver.png",
+      "size": [
+        250,
+        222
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "725b98675aed3803e1801fe18e2c2872560a956c17a5c0083a9a795d275c4c2b"
+    },
+    {
+      "path": "12_Results/Sprites/panel_row.png",
+      "size": [
+        2078,
+        268
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "675e5aec82170c5462749f4b01cd1287e5589ad1e37a01d077252ec298acaabb"
+    },
+    {
+      "path": "12_Results/Sprites/panel_scroll_large.png",
+      "size": [
+        1061,
+        1445
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "4dcafd46adce079fba72b833ed28d91eb95e9bf46373918eb7c982f1e994e9e1"
+    },
+    {
+      "path": "12_Results/Sprites/unit_bow.png",
+      "size": [
+        1184,
+        1207
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "aafffd460b79cecb067221ae9b05b6c572232a68ff84fb5ba2ed74ca7e8635fb"
+    },
+    {
+      "path": "12_Results/Sprites/unit_shield.png",
+      "size": [
+        755,
+        1230
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "79999a8b386b2d0a61ad6112e1f08784af7632fe1698e2ab98d13d55a7d0b1d2"
+    },
+    {
+      "path": "12_Results/Sprites/unit_sword.png",
+      "size": [
+        1194,
+        1195
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "eba42e59c7180e80dafaa2ebaa8dd3876f80173015c7ee7ebcac02d162a6c471"
+    },
+    {
+      "path": "12_Results/Sprites/victory_blue.png",
+      "size": [
+        1421,
+        1040
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "tight_bbox": true,
+      "pass": true,
+      "sha256": "f784e98196431094e4b5e3fcdb74d2f8e6d46a7f8b2d31bb89d8fc7801e8a384"
+    }
+  ],
+  "pass": true,
+  "unity_runtime_verified": false
+}

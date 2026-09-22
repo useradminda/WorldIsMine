@@ -1,0 +1,520 @@
+{
+  "screen": "09_HeroSummon",
+  "title": "武将召唤播报",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "assets": [
+    {
+      "id": "faction_blue",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\faction_blue.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        263,
+        312
+      ],
+      "crop_xyxy": [
+        5,
+        4,
+        259,
+        307
+      ],
+      "size": [
+        254,
+        303
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/faction_blue.png"
+    },
+    {
+      "id": "faction_red",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\faction_red.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        264,
+        370
+      ],
+      "crop_xyxy": [
+        5,
+        4,
+        259,
+        310
+      ],
+      "size": [
+        254,
+        306
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/faction_red.png"
+    },
+    {
+      "id": "health_fill_blue",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_fill_blue.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        512,
+        32
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        32
+      ],
+      "size": [
+        512,
+        32
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_fill_blue.png"
+    },
+    {
+      "id": "health_fill_red",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_fill_red.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        512,
+        32
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        32
+      ],
+      "size": [
+        512,
+        32
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_fill_red.png"
+    },
+    {
+      "id": "health_frame",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_frame.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        312,
+        75
+      ],
+      "crop_xyxy": [
+        4,
+        5,
+        307,
+        70
+      ],
+      "size": [
+        303,
+        65
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_frame.png"
+    },
+    {
+      "id": "health_strip_blue_decorated",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_strip_blue_decorated.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        289,
+        53
+      ],
+      "crop_xyxy": [
+        5,
+        5,
+        282,
+        47
+      ],
+      "size": [
+        277,
+        42
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_strip_blue_decorated.png"
+    },
+    {
+      "id": "health_strip_red_decorated",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_strip_red_decorated.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        286,
+        53
+      ],
+      "crop_xyxy": [
+        4,
+        5,
+        281,
+        47
+      ],
+      "size": [
+        277,
+        42
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_strip_red_decorated.png"
+    },
+    {
+      "id": "health_track",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\health_track.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        64,
+        16
+      ],
+      "crop_xyxy": [
+        0,
+        0,
+        64,
+        16
+      ],
+      "size": [
+        64,
+        16
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/health_track.png"
+    },
+    {
+      "id": "hero_blue",
+      "source": "work\\ui_art_20260922\\source_art\\hero_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1086,
+        1448
+      ],
+      "crop_xyxy": [
+        4,
+        25,
+        1081,
+        1448
+      ],
+      "size": [
+        1077,
+        1423
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": "UI portrait with deliberate lower-body cutoff; cover the lower edge with the summon banner or card.",
+      "alignment_group": null,
+      "file": "Sprites/hero_blue.png"
+    },
+    {
+      "id": "icon_rank",
+      "source": "work\\ui_art_20260922\\source_art\\icon_rank.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        46,
+        46,
+        1208,
+        1182
+      ],
+      "size": [
+        1162,
+        1136
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_rank.png"
+    },
+    {
+      "id": "icon_settings",
+      "source": "work\\ui_art_20260922\\source_art\\icon_settings.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "crop_xyxy": [
+        53,
+        60,
+        1198,
+        1178
+      ],
+      "size": [
+        1145,
+        1118
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/icon_settings.png"
+    },
+    {
+      "id": "join_blue",
+      "source": "work\\ui_art_20260922\\source_art\\join_blue.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2185,
+        720
+      ],
+      "crop_xyxy": [
+        17,
+        16,
+        2168,
+        706
+      ],
+      "size": [
+        2151,
+        690
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_blue.png"
+    },
+    {
+      "id": "join_red",
+      "source": "work\\ui_art_20260922\\source_art\\join_red.png",
+      "provenance": "builtin_imagegen",
+      "source_size": [
+        2187,
+        719
+      ],
+      "crop_xyxy": [
+        15,
+        19,
+        2172,
+        658
+      ],
+      "size": [
+        2157,
+        639
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/join_red.png"
+    },
+    {
+      "id": "medal_bronze",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\medal_bronze.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        304,
+        324
+      ],
+      "crop_xyxy": [
+        49,
+        5,
+        300,
+        229
+      ],
+      "size": [
+        251,
+        224
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/medal_bronze.png"
+    },
+    {
+      "id": "medal_gold",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\medal_gold.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        261,
+        228
+      ],
+      "crop_xyxy": [
+        6,
+        6,
+        255,
+        223
+      ],
+      "size": [
+        249,
+        217
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/medal_gold.png"
+    },
+    {
+      "id": "medal_silver",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\medal_silver.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        263,
+        232
+      ],
+      "crop_xyxy": [
+        6,
+        6,
+        256,
+        228
+      ],
+      "size": [
+        250,
+        222
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/medal_silver.png"
+    },
+    {
+      "id": "ranking_panel",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\ranking_panel.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        254,
+        284
+      ],
+      "crop_xyxy": [
+        4,
+        5,
+        248,
+        279
+      ],
+      "size": [
+        244,
+        274
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/ranking_panel.png"
+    },
+    {
+      "id": "timer_panel",
+      "source": "Assets\\UI\\UI_Clean_5_Styles\\01_War_Banners\\timer_panel.png",
+      "provenance": "existing_war_banners",
+      "source_size": [
+        274,
+        309
+      ],
+      "crop_xyxy": [
+        5,
+        62,
+        240,
+        304
+      ],
+      "size": [
+        235,
+        242
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "text_baked": false,
+      "preserve_aspect": true,
+      "usage_note": null,
+      "alignment_group": null,
+      "file": "Sprites/timer_panel.png"
+    }
+  ],
+  "previews": [
+    "Preview.png"
+  ],
+  "reference_screenshots": [
+    "微信图片_20260919202409_14491_25.png"
+  ]
+}
