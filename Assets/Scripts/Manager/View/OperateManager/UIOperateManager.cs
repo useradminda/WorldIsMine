@@ -72,8 +72,8 @@ public class UIOperateManager : MonoBehaviour
         }
         else
         {
-            DrawCampMenu("红色阵营", ECampType.Red, redSoldiers, ref redScrollPosition, Color.red);
-            DrawCampMenu("蓝色阵营", ECampType.Blue, blueSoldiers, ref blueScrollPosition, new Color(0.25f, 0.65f, 1f));
+            DrawCampMenu("红色阵营", ECampType.Red, redSoldiers, ref redScrollPosition, Color.white);
+            DrawCampMenu("蓝色阵营", ECampType.Blue, blueSoldiers, ref blueScrollPosition, Color.white);
         }
 
         if (!string.IsNullOrEmpty(operationTip))
