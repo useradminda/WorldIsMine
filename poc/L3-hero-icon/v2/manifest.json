@@ -1,0 +1,1710 @@
+{
+  "expected": 68,
+  "completed": 68,
+  "pending": [],
+  "failed_file_checks": [],
+  "file_checks_pass": true,
+  "all_delivered": true,
+  "assets": [
+    {
+      "file": "Hero1_1.png",
+      "input": "poc/hero-icon/Hero1_1.png",
+      "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+      "output_sha256": "9a63824c6f7f0d0c0948244c946347b5e6ad0d00899ec22058f73c6b68ef99b4",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        130,
+        48,
+        894,
+        974
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero1_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Create a NEW v2 redesign of the reference character, a mature imposing warlord on a warhorse, premium L3 fantasy strategy game painted key art. Reference image defines red-orange plate armor with silver edging, purple helmet plume, navy undergarments, sword and chestnut mount, NOT proportions or rendering. CHANGE the baby/chibi anatomy into heroic ADULT anatomy: rider has normal small head, 7.5-head adult body proportions, broad armored shoulders, long powerful limbs, angular weathered 35-45-year-old masculine face, deep-set SMALL stern eyes, prominent nose, square jaw, stubble, commanding battle-hardened expression. A powerful realistically proportioned muscular warhorse with long legs, small natural equine eyes and heavy red/silver tack; never a cute pony. Dramatic dignified charging three-quarter pose, entire rider AND horse visible. High-end semi-realistic hand-painted fantasy illustration, sculptural anatomy, intricately layered plate and chainmail, engraved brushed metal, controlled warm red palette, deep cinematic contrast, sharp cold rim lighting confined inside silhouette, slight battle wear, imposing silhouette. Keep weapon held compactly so all extremities fit. One isolated complete mounted unit centered, entire plume sword tail and all hooves INSIDE square with 6 percent empty margins. True transparent alpha exterior, opaque subject. NO chibi, no doll face, no oversized eyes or head, no toy, no plush, no baby face, no cute smile, no pedestal, ground, environment, smoke, external glow, background or cast shadow, no typography or watermark. 1024x1024 PNG."
+    },
+    {
+      "file": "Hero2_1.png",
+      "input": "poc/hero-icon/Hero2_1.png",
+      "input_sha256": "ea51672604c3bb0d3d7afbccb2929d36676f6de626365183cab39a4069dbddd2",
+      "output_sha256": "6cb05816ca2c61b36ebb6d355a9c71546668a2428459fb7dc2fa699aa38466d9",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        109,
+        49,
+        916,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero2_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Slender mature adult swordsman with dark teal high muscular warhorsetail and side bangs, vivid green tunic, yellow scarf, silver shoulder armor and short sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero3_1.png",
+      "input": "poc/hero-icon/Hero3_1.png",
+      "input_sha256": "745826d89cb3d0031bba5f90cf3e017946a7042c14cb47b1a7c43e76c4491353",
+      "output_sha256": "c920fa54c7503c43a35425180b2b0a2fe3f75343f12ef34dec4d2e551048540e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        87,
+        48,
+        937,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero3_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult noble male strategist, brown hair in high bun with small gold crown, red and gold robe, open white folding fan decorated with delicate dark ink branches. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero4_1.png",
+      "input": "poc/hero-icon/Hero4_1.png",
+      "input_sha256": "a6e81baa5b8cc588b3c45ee2a0378ddce0bcbfeba4788effa6c6b89c13a0b5ea",
+      "output_sha256": "83cba45c0a6e905415890348200e744f2660dd8f1b0b07ca2ee1378823a930e3",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        69,
+        49,
+        955,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero4_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female support hero, brown hair in high bun, turquoise and blue dress with pale sleeves, gold belt, short staff tipped with a pink flower bud. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero5_1.png",
+      "input": "poc/hero-icon/Hero5_1.png",
+      "input_sha256": "5b2d66140424bcd9d0bfdf3311826dbbb824501fb39ca899c119c87e049ccfdd",
+      "output_sha256": "296b48d33af933b785b4ddeccd9b6b346d14a73ceb4c58f21cd9a91682d5dc46",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        78,
+        49,
+        947,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero5_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Rugged muscular male warrior with brown beard and moustache, red headband, sleeveless brown and steel armor, red wrist wraps, holding a powerful crossbow across chest. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero6_1.png",
+      "input": "poc/hero-icon/Hero6_1.png",
+      "input_sha256": "682d81283fd38cca74db3ca7eea7dca29b8fb3bd7824c1b8d929eef0b435f5c3",
+      "output_sha256": "87209dac912b9b5736750d69452573f6a217304ae45628d9ff200f338187706c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        114,
+        49,
+        911,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero6_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female dancer strategist, auburn high-bun hair, red and gold outfit, broad open red-and-ivory folding fan. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero7_1.png",
+      "input": "poc/hero-icon/Hero7_1.png",
+      "input_sha256": "e5bddbbc15aa6ce6beaf2be0a317d92d99f2c3731cee4ff4de6ad4c7ac08adf4",
+      "output_sha256": "5a416bb44c87ce60847a4008e373c056d39851bc71abf3c3a63cdfe5ac6de739",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        103,
+        49,
+        919,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero7_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stout moustached veteran, gold-trimmed silver helmet with red plume, silver lamellar armor, golden shoulder plates, broad short sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero8_1.png",
+      "input": "poc/hero-icon/Hero8_1.png",
+      "input_sha256": "684c2e563b0a542d03970010b8bf7237e3ea2aae81dfa89a0a5185e0463245a3",
+      "output_sha256": "83ab19d0e0f74f276ca6e6c05de0e96b93aea3baa3bbf9877eb87a6c01379c97",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        87,
+        48,
+        936,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero8_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female agile swordswoman, short straight violet hair, vivid cyan-blue outfit, pale shoulder wrap, short silver blade and blue boots. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero9_1.png",
+      "input": "poc/hero-icon/Hero9_1.png",
+      "input_sha256": "7d22cfeb4688413e489980ea34ee07a0af2e1764198e137121beff29b8a1964c",
+      "output_sha256": "2bf573e3b9b5b1686c9b4ec7054b6cc8ac2bb0d4b00556e00f68c207caad26ba",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        80,
+        48,
+        943,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero9_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult male ceremonial musician, long dark side hair, broad horizontal gold headpiece, red and black robes, gold shoulder armor, round red-rimmed hand drum with pale face at side. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero10_1.png",
+      "input": "poc/hero-icon/Hero10_1.png",
+      "input_sha256": "af77647cda00f06bf74c8598444176d3c9c24b0ba79542f6fcc3d4c2fea3c60b",
+      "output_sha256": "48f6840d47c482b25c1306ce82e699b33f202bdbb8d30144fc719aa20b02b059",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        86,
+        49,
+        937,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero10_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: precise-object-edit. Polish THIS mature turquoise-and-gold royal female spellcaster on horseback. Remove ONLY the sword including its blade, hilt and pommel from her extended right hand on image left. Replace gripping hand with an anatomically correct relaxed open casting gesture, fingers elegantly extended; no magic effects or new props. Keep exact mature adult face, proud expression, normal adult proportions, black hair and tall turquoise/gold crown, ornate turquoise and gold robe with ivory lining, horse, tack, pose, material rendering and every other feature. One complete mounted unit, no cropping of crown tail hooves or cloth, centered with 6 percent safety margins. Preserve true transparent alpha exterior, no background ground shadows glow text frame or watermark. 1024x1024 PNG."
+    },
+    {
+      "file": "Hero11_1.png",
+      "input": "poc/hero-icon/Hero11_1.png",
+      "input_sha256": "c32d31e6d2604f8327f72a6914864f1dfad644c3cef951f94487bb2307da1727",
+      "output_sha256": "789448532cd068abf32a19660a09647081c32ae9caf831afdeea14a833f0b8d4",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        57,
+        48,
+        966,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero11_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Long-bearded stern male guandao general, tall green and gold cap, emerald green robe and armor with gold pauldrons, silver crescent guandao polearm. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero12_1.png",
+      "input": "poc/hero-icon/Hero12_1.png",
+      "input_sha256": "b048619138f0ed7085f5804e068663559f1ce4b25549394aa9420f482ddfa28d",
+      "output_sha256": "286cbbea9cd40a469bc8c1fb796230ba805455d113762ea230eb58e49ca90b2a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        63,
+        49,
+        960,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero12_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Powerful male warrior, dark bushy beard and high topknot, emerald and gold armor, crimson scarf, silver broad-pointed polearm. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero13_1.png",
+      "input": "poc/hero-icon/Hero13_1.png",
+      "input_sha256": "611e0d9ebc9c2c0069fa501665d8e9fedb0add918f73c49094f2ab8be1fefa37",
+      "output_sha256": "2c9165610329dff19cea4c3dfab3df3be0141e32c893119fffe86151be6ebc2d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        121,
+        49,
+        903,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero13_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult male silver knight, ornate pale-blue and silver armor, closed-cheek helmet with white plume, blue cloth, slim silver blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero14_1.png",
+      "input": "poc/hero-icon/Hero14_1.png",
+      "input_sha256": "67dcef30bf549a936b70bc53f61f30804b6206879c7553fcec4aa64e833e8eab",
+      "output_sha256": "9f3091e14903af34612ff85640547a63b1077491a53bad83b14c14b554ff6163",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        81,
+        50,
+        942,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero14_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female swordswoman, chestnut side-swept hair and bun adorned with yellow flower, bright emerald and gold outfit, short curved blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero15_1.png",
+      "input": "poc/hero-icon/Hero15_1.png",
+      "input_sha256": "7c53753c5269c2a105cd301d7fde62266ade6df25e2c00c4c0fad2a109347574",
+      "output_sha256": "7ff1d61c936f649d31b2469256739aceeaddb5aad3ee633072733615b947e4ef",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        56,
+        48,
+        968,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero15_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Mature male imperial warlord, pointed black beard, swept black-and-silver hair, tall small gold crown, purple and gold robes with angular gold shoulders, curved silver sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero16_1.png",
+      "input": "poc/hero-icon/Hero16_1.png",
+      "input_sha256": "e755e2cac775223e2ea2307538a87b4fe060fbf3914412c3b141b897c527e849",
+      "output_sha256": "9303c856ac583ce71b1dd091a6574550decd4e9013e6d26a46736a77f0416b61",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        73,
+        50,
+        952,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero16_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Burly adult male berserker, reddish-brown hair and topknot, fierce beard, bare chest with leather and gold armor straps, enormous gold pauldrons, round blue spiked shield. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero17_1.png",
+      "input": "poc/hero-icon/Hero17_1.png",
+      "input_sha256": "02955347f84c70080118305d3418c33d136a0b7958d34cc29dace40404193488",
+      "output_sha256": "e75b1bed82f7be8b5537310a9622022bc8f77b8239f26e2d8f2437af6ea891ae",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        70,
+        48,
+        954,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero17_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female noble warrior, vivid purple hair, ornate gold bun ornament, purple and gold dress with ivory collar, elegant curved short blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero18_1.png",
+      "input": "poc/hero-icon/Hero18_1.png",
+      "input_sha256": "a272ee2a6b6c810788fc08dd703ddf3beda06b96f98e8c0c64acb0c96ee1aa20",
+      "output_sha256": "9393a8fdc5e6e61b2569eb42ea7662c6ab437d0892bbf64f8e858a7120e2c369",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        95,
+        48,
+        929,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero18_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult male red-and-gold armored commander, auburn topknot with swept horizontal gold headpiece, gold dragon-like shoulder detail, short silver dao. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero19_1.png",
+      "input": "poc/hero-icon/Hero19_1.png",
+      "input_sha256": "56252b28ce864cfeb490103f8e8173ea3ba68ae9aadb573a3c94ddad139decd8",
+      "output_sha256": "8a4e14f5470569d842874e45b142f4c3135a95f62018155911ad487e3e603b6d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        94,
+        49,
+        929,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero19_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female fire dancer, vivid red hair in high bun with pink flower ornament, rich red and magenta outfit trimmed gold, small red-gold baton. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero20_1.png",
+      "input": "poc/hero-icon/Hero20_1.png",
+      "input_sha256": "7c7680b277ebd3d7acf7dc7d9613424051ca9909aad0d1345f2f194e5afd389c",
+      "output_sha256": "410fe902d969a86490e4f1821ee3e6a9ddc0c56d2eb53930e74b14cc649c7d30",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        90,
+        49,
+        932,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero20_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female forest dancer, light brown high-bun hair with pink flower, emerald and gold outfit, short green-gold baton. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero21_1.png",
+      "input": "poc/hero-icon/Hero21_1.png",
+      "input_sha256": "f5544057cd69a29fabed5570ce10873a96d807d4dd6283bae03a92111a025eeb",
+      "output_sha256": "9946945a3a7f7bcd61f26ddcc98d94171fd2fa872e3adcfae5ecfe2799345a02",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        92,
+        48,
+        933,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero21_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult athletic male dual-stick martial hero, auburn topknot, emerald tunic with yellow scarf, silver shoulder plates, two matching short gold batons, one in each hand. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero22_1.png",
+      "input": "poc/hero-icon/Hero22_1.png",
+      "input_sha256": "14546a026fc2a8ce2a36f2b8fd84a89b242ad5fd7dee05164e9aeb71e4c349aa",
+      "output_sha256": "9e18a03d43bd1987010d3d53cf813853f873d8c30641d57712a05a4ee6e72bdd",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        52,
+        976,
+        973
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero22_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Adult male halberd warlord, black hair and sharp features, tall gold crown with two very long curved crimson pheasant feathers, dark steel and gold armor, ornate halberd. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero23_1.png",
+      "input": "poc/hero-icon/Hero23_1.png",
+      "input_sha256": "c44cdbbbedf9610288905e98364e5bf721aed22fea9484478b5ac0e61c94bca2",
+      "output_sha256": "690f8919d27005907216e6018c5e1c04acbe6feb66ad31b4b840c07e6efbf7ab",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        102,
+        48,
+        923,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero23_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female musician, brown side-swept bob beneath gold ornament, pink and cream outfit, holding a pale-gold pear-shaped Chinese pipa lute with neck upward. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero24_1.png",
+      "input": "poc/hero-icon/Hero24_1.png",
+      "input_sha256": "260e8996a217727610e4c9f8c356dcf8bb6d9a51c502bf696fc7c2bd40915509",
+      "output_sha256": "2bde7ed5f79c91916591fcf70c2f9ede100cfdf1e927f63f33285bbfc1b9209d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        105,
+        48,
+        918,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero24_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female red-and-white armored archer, brown high muscular warhorsetail, red-and-white tall head ornament, fitted red armor and a gold bow. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero25_1.png",
+      "input": "poc/hero-icon/Hero25_1.png",
+      "input_sha256": "cde2f674d4b62435a02d1599e03d4dd2f57f5792ed04f7e6b38e57f1d11dd94a",
+      "output_sha256": "41ac17595b7f0e4004da2013f66cffba8a8b6f9af049d09dff75a73b01f24307",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        127,
+        49,
+        897,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero25_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult male pale-silver armored mounted archer, silver helmet and white plume, purple undercloth and sash, wooden bow held beside body. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero26_1.png",
+      "input": "poc/hero-icon/Hero26_1.png",
+      "input_sha256": "37de36ce5e9c4c0621e0055b04b1578725433d64c14f39b377feca43876e97ea",
+      "output_sha256": "d5835bb867bea5eb7c5fb56195bb0524421ff385697d940ec549616fb450aa5a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        76,
+        49,
+        947,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero26_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky ginger-bearded male bombardier knight, pale silver and bright blue armor, blue helmet with red plume, large powerful single-barrel gray hand cannon. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero27_1.png",
+      "input": "poc/hero-icon/Hero27_1.png",
+      "input_sha256": "5be4ae51a3c7c6fd828426b1842d6bb7530504cb302f0c328ff145fd3d679454",
+      "output_sha256": "e84d162665489b0c18f09653ee09ecc4300cdd3c453c6bc0143b05aabcf73bf0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        60,
+        49,
+        964,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero27_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Male curved-sword commander, ornate gold-and-magenta pointed helmet, purple and crimson outfit with broad gold borders and shoulders, wide curved silver blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero28_1.png",
+      "input": "poc/hero-icon/Hero28_1.png",
+      "input_sha256": "d83419a27aead8e8fd0d07922a38c0eab91af7a22339664461499cb4797417a1",
+      "output_sha256": "09e15f112eac1e12ad042b456a92bf26692925962352f675692a409ea54abd27",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        50,
+        50,
+        973,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero28_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Dark-bearded male lancer, dark navy and silver plate armor, silver helmet with purple plume, long dark-shafted silver spear. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero29_1.png",
+      "input": "poc/hero-icon/Hero29_1.png",
+      "input_sha256": "f335cccfab8e57987ec6d7ab833f577580363f8ce4acb081562c0f494e676aaa",
+      "output_sha256": "31b832fb03cb284fe80e0e146f79c3a15eeba0211cdd0710b36506771caf4671",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        81,
+        49,
+        944,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero29_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Elderly male sage, long pale cyan-white beard and eyebrows, pale-blue hair in high topknot, flowing cobalt and icy-blue robes with pale borders. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero30_1.png",
+      "input": "poc/hero-icon/Hero30_1.png",
+      "input_sha256": "cf996dd3617f9c15dc9865d193d69a06f0e0ff7e1ac3a96e5003a489c8cf8e40",
+      "output_sha256": "84f2adee5c7545d062fa809d39b70c5dc1fd301387f7b41dd9635c39ab6bdd61",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        99,
+        49,
+        924,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero30_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Male scholarly strategist, very tall emerald-and-gold ceremonial cap, cream robe with green sleeves, broad open ivory folding fan. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero31_1.png",
+      "input": "poc/hero-icon/Hero31_1.png",
+      "input_sha256": "6c725404d18192cd72ee8606c20a36ec7e2f2ab42e081335f37223f36045d80c",
+      "output_sha256": "9225baccda55e772ba63c5138728cc3da5bf8d8434f8215ca85315dfb46f0a5f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        83,
+        49,
+        940,
+        974
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero31_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female knight, auburn high muscular warhorsetail with silver headband, red undercloth and fitted silver shoulder armor, slim steel sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero32_1.png",
+      "input": "poc/hero-icon/Hero32_1.png",
+      "input_sha256": "aa8654160d4e544a72cdf0f528e11f142cb02c1bb468ed7a0020e7584fbf60ab",
+      "output_sha256": "b8a8f22a09d33da064b2399ec5260c98d5fe0ca481f709ec901c37941fe6bdd1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        64,
+        49,
+        961,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero32_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Burly mature adult male noble fighter, brown high-bun hair with short gold crown, vivid magenta and red robe, wide gold belt, enormous broad gray jagged war blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero33_1.png",
+      "input": "poc/hero-icon/Hero33_1.png",
+      "input_sha256": "43bab10b74a7e3a2831738efc7ad382795872d1a57de6090632c1a53a869ebb6",
+      "output_sha256": "bcd43cc8a2f0702fae96ca87938f48bd7adaff2254819cd2f1626f1700f74c79",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        69,
+        49,
+        955,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero33_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Bearded male purple-armored heavy knight, angular gold and purple helmet, gold pauldrons over deep-purple armor, broad silver curved sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero34_1.png",
+      "input": "poc/hero-icon/Hero34_1.png",
+      "input_sha256": "4e55a5d8fd888106eed660314cbc723026c23acfded43a9bd731c5934ddc8eff",
+      "output_sha256": "b0f3c4b4bf445adef01647b67cf7756beea9c98fe59d42499eb137303c08ad5c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        71,
+        975,
+        952
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero34_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Athletic adult male warrior, swept dark blue hair without helmet, navy clothes, pale metallic collar and bracers, partly bare upper arms, long forked silver polearm. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero35_1.png",
+      "input": "poc/hero-icon/Hero35_1.png",
+      "input_sha256": "183dbae19c5b68fd6b7a897e58930a6f7dab551f4de32c4dc51549df00b0f3fc",
+      "output_sha256": "bc056f8fffff99e9ba685562bbad976a88f14910cae8a86ec69afe4b9a3c7eaf",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        63,
+        49,
+        962,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero35_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Moustached adult male royal knight, black topknot and small gold crown, deep blue-violet robes, ornate gold shoulder armor and bracers, short blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero36_1.png",
+      "input": "poc/hero-icon/Hero36_1.png",
+      "input_sha256": "cd0a53209fde95e0f58b80ac5bcc7fa57677eb7068bb5cf3091ffe486e3f40c8",
+      "output_sha256": "d3ea7fa3415731274e33e52f712e224ab8ac8921e4466a1823bccbc6104c5ea5",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        82,
+        48,
+        943,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero36_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Broad dark-bearded male emperor bombardier, purple and gold tall crown, deep-purple and gold robe with crimson sash, huge dark octagonal-barrel hand cannon. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero37_1.png",
+      "input": "poc/hero-icon/Hero37_1.png",
+      "input_sha256": "3993db88bec154fb6a2e7a209f99216e6de7a0b3307983ddc3845a99e270ef1e",
+      "output_sha256": "b3403cab9017f8989fd57e821a5fa4f545c0ef7d91e193b4a7a122ac1faaee65",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        119,
+        48,
+        905,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero37_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Elderly male archer with long white beard, red and gold helmet with white plume, red-gold armor and yellow shoulders, wooden bow and arrows. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero38_1.png",
+      "input": "poc/hero-icon/Hero38_1.png",
+      "input_sha256": "f10da07552ac3dac94d3dfd23a5d07af005ffd6cbc32303d4c90288a7d122134",
+      "output_sha256": "f2aaefcd916918ea61f8e2d2d86ce5e3bda0770dcb1e70e9762c0139b7c509d7",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        72,
+        48,
+        951,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero38_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult male royal silver-and-red knight, long white helmet plume, white silver crown-helmet with red center, red tunic, enormous gold shoulders, slim silver sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero39_1.png",
+      "input": "poc/hero-icon/Hero39_1.png",
+      "input_sha256": "d724c423947f4af9c7494c0c118f20e6e997fdff94a345346b72e60beb312214",
+      "output_sha256": "b4fc6fa4021a61b892888d74d838a1e14e178f60fb10aa6c360d366629bdee1d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        99,
+        49,
+        926,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero39_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Elderly white-haired moustached bombardier, lavender-white high muscular warhorsetail, purple and blue outfit with gold pauldrons, enormous dark gray single-barrel cannon. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero40_1.png",
+      "input": "poc/hero-icon/Hero40_1.png",
+      "input_sha256": "54868affbc5ccb7c2ae729d9652c92f94e22c072bbcfa31088e5b5e0d07403f5",
+      "output_sha256": "3502276e9cef22c4aa0b306c6670f4e4a7e7dcfb3f96dba97099d0a541c0ad58",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        67,
+        49,
+        958,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero40_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Elderly white-haired noble knight with long straight white hair and beard, small gold crown, green-white-gold outfit, curved silver blade. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero41_1.png",
+      "input": "poc/hero-icon/Hero41_1.png",
+      "input_sha256": "7ba7516e7843de6c9e745b88cba140292076a4f34a9a59349042cafdfa66d8d4",
+      "output_sha256": "8edecba4c48e2d8b75b726a0df226aa4c841ed41eafa359a0fbf52633b08605e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        107,
+        49,
+        915,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero41_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Long-black-bearded male ritual sage, black high bun with gold headband, yellow and black robes, short dark staff with a pink rose-like flower head. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero42_1.png",
+      "input": "poc/hero-icon/Hero42_1.png",
+      "input_sha256": "911ef28df5ddec52dc338d32c11b55a74953a020f6f46612d74ff6ed86ff2972",
+      "output_sha256": "2b0142e6416e8ce78ec1c25d3051fce3e9bce0c2facf39b3304c06909215bf98",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        85,
+        49,
+        940,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero42_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult athletic male wild swordsman, spiky dark auburn hair with pale feather ornament, orange-red shoulder cloth, gold one-sided pauldron, open chest armor, straight silver sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero43_1.png",
+      "input": "poc/hero-icon/Hero43_1.png",
+      "input_sha256": "66d693c54461fd96e9a7133efb47d4603fd9d83d7a73d1edd94a776df993beb0",
+      "output_sha256": "a2e6c645fa4415aa4a645a3eee4e23f9fc6dee1687f7ec7af01f7a84aaeec7de",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        65,
+        49,
+        960,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero43_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult female royal swordswoman, shoulder-length dark-magenta hair and high gold ornament, red and gold armor with purple cloth, slim curved sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero44_1.png",
+      "input": "poc/hero-icon/Hero44_1.png",
+      "input_sha256": "94214134e5dbfc1eba67c5e2fc008b0a698de75e29b68471797108fa49c2109e",
+      "output_sha256": "e80141da0448ea71a72c9f583dc9bb88b9aaa0cd73838413c9f41789bb37be86",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        90,
+        49,
+        936,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero44_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Elderly male purple-robed court mage, long pale beard, very tall conical purple hat with silver ornament, lavender robes and pale trim, long staff-like accessory. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Hero45_1.png",
+      "input": "poc/hero-icon/Hero45_1.png",
+      "input_sha256": "d92d0dca78b20b967f9dc2fbb364154748787cc06f9e9ae0e8b540273c6e0114",
+      "output_sha256": "8650e95d32921bfa9f55a9cbabb3354b4cc713669337b6f27179f59f24ff759e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        80,
+        50,
+        944,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Hero45_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: mature adult adult male green-teal armored ranger, dark high muscular warhorsetail, blue-and-gold headband, emerald scarf, turquoise armor with gold edges, short silver sword. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier1_1.png",
+      "input": "poc/hero-icon/Soldier1_1.png",
+      "input_sha256": "85b9204c61a15fed00562c1f03cef28e9e18043e4943d3f63388195a5f383f8a",
+      "output_sha256": "3f3d1764a38716fff21d91d56a2cb875e983f01bbdb024eb07f57dce940af006",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        69,
+        49,
+        956,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier1_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult infantryman, gold pointed helmet, gold segmented armor, bright green scarf and cloth, short sword and large angular silver-blue shield. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier1_2_qin.png",
+      "input": "poc/hero-icon/Soldier1_2_qin.png",
+      "input_sha256": "6d621afe68720a24f9e68dbf8cb327ab4770b7b6cea7270e7fe0589055429a4e",
+      "output_sha256": "af3810eb45f6eee1c2aeebefe169c11db381bba488769dc1e2eac15aa8386b45",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        152,
+        49,
+        872,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier1_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: powerful adult blue-and-silver armored knight, fully closed silver visor with straight narrow vertical vents, tall blue plume, brown trousers, straight silver sword and blue-white shield. Retain the simple Western-fantasy knight identity of THIS reference. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier2_1.png",
+      "input": "poc/hero-icon/Soldier2_1.png",
+      "input_sha256": "0f89b80c564b9ddf7bc492b9b39e4e59eaa6fb1c97dbb2d9cfdc3be5484ec92e",
+      "output_sha256": "73a8682af745716122e7b68753ec90659e220583f87d772b9773c26ce458cf09",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        66,
+        49,
+        956,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier2_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult archer, pointed teal helmet, layered turquoise armor and scarf, wooden bow held diagonally across body. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier2_2_qin.png",
+      "input": "poc/hero-icon/Soldier2_2_qin.png",
+      "input_sha256": "92688b57693ceb567b36160870fba847058daf6dfb2b7cfff903700bde9ab4de",
+      "output_sha256": "5ce23ae54eb39930abdb18806b2813470424a44e239e380309e5587e526c4947",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        110,
+        49,
+        912,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier2_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: precise-object-edit. Refine this exact mature blue-hooded fantasy foot archer asset. Keep adult stern face, muscular adult natural proportions, blue hood/cape, brown leather armor, gray trousers, boots, drawn bow and single nocked arrow. Correct framing: REDUCE the overall unit scale to occupy only 82% of the square, reconstruct a complete curved upper bow tip so it is fully visible and not touching canvas edge, maintain 9% clear transparent margin around all sides including bow tips, arrow point, cape and soles. No mount. Preserve strong semi-realistic painted war-game art, metallic/leather details and commanding expression. True transparent alpha background; no scenery, floor, cast shadow, smoke, glow, writing or border. Full intact character and full intact bow, 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier3_1.png",
+      "input": "poc/hero-icon/Soldier3_1.png",
+      "input_sha256": "6609d193116ff8fe35ecf58ce7fd82aa120c94fe5a09aac52fb499a18bd36453",
+      "output_sha256": "517e80fe64c5412cc9d2cf76e67324a43d001ac7caeeb228f34914e90ea9fd24",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        112,
+        48,
+        911,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier3_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult red-and-brown armored heavy infantryman, pointed bronze helmet, red scarf and sleeves, large dark metal hammer carried over one shoulder. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier3_2_qin.png",
+      "input": "poc/hero-icon/Soldier3_2_qin.png",
+      "input_sha256": "495986c8abcde773b4e0d8e3943e80326c76fa542a22461aa5bff00d2c5c2a6e",
+      "output_sha256": "df69869d075f882253dc920ddd67789ca2b167b016e93d36ec8e694d9e49313d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        77,
+        48,
+        947,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier3_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Brawny adult bare-armed axe infantryman, horned closed silver helmet with T-shaped dark face opening, brown leather torso straps and kilt, blue arm bands, broad silver battle axe on long wooden handle. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier4_1.png",
+      "input": "poc/hero-icon/Soldier4_1.png",
+      "input_sha256": "746a14431f022f11628659b53228a2938b95eb6e62bc5b4bd4c829e6a73bceed",
+      "output_sha256": "5a6ef95a656847bdc735080847c2360008543dd1670185d47caf7960259ad9bf",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        115,
+        48,
+        908,
+        975
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier4_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult turquoise-armored bombardier, pointed teal helmet and blue scarf, large dark gray single-barrel shoulder cannon. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier5_1.png",
+      "input": "poc/hero-icon/Soldier5_1.png",
+      "input_sha256": "e39f3828b346cb91079a2bee50fef06a2a1bb8d4d1dd1a94b9091db1fd440b2f",
+      "output_sha256": "0f6dfd898280af822734a65643a1637ff3c86b82d131dd62f16182ab2175381b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        129,
+        49,
+        894,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier5_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky elderly fantasy woodland dwarf with enormous white beard, green cap and sleeveless green vest, exposed round belly, dark-green trousers, huge bronze-gold gauntlets. Preserve this unusual dwarf, do not replace with regular armored soldier. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier6_1.png",
+      "input": "poc/hero-icon/Soldier6_1.png",
+      "input_sha256": "dda716feaaf7de7eb4f8cd49c755eec93861d4c2c67b24b0d27539c2454bd45b",
+      "output_sha256": "b8ee21141ae1e2e4199369807822e224139b0cb5dc7ec91b463af5f96f31a7af",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        57,
+        48,
+        966,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier6_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult gold-and-green armored heavy infantryman, pointed gold helmet and emerald scarf, enormous square iron war hammer held horizontally, metal angular decorative faces. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier7_1.png",
+      "input": "poc/hero-icon/Soldier7_1.png",
+      "input_sha256": "08ab196c9984655610e129c46ddc242cb83a4605ebc949af7ade196bee8f3f97",
+      "output_sha256": "a96edae3c40bbc23696bf7c503742bda207e83d29a079e9a3a7f0d82327a9539",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        152,
+        48,
+        871,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier7_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult turquoise armored crossbowman, pointed teal helmet and blue scarf, large wood-and-steel crossbow held across both hands. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier8_1.png",
+      "input": "poc/hero-icon/Soldier8_1.png",
+      "input_sha256": "407ae775e4154f58012015a588f92114da9024cc6671c13d1b6dea4ff84ac7ef",
+      "output_sha256": "fbad5b6c2029eb11adb44340116e4e0071a98ec10388e4ac89e47caa41027d6e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        50,
+        975,
+        974
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier8_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult red-and-brown armored spearman, bronze pointed helmet and red scarf, long horizontal wooden spear with a large angular silver spearhead. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier8_2_qin.png",
+      "input": "poc/hero-icon/Soldier8_2_qin.png",
+      "input_sha256": "b385ffa06f9bfd0643a1f3f677921fdcf1dbc6e38c1c51985436312d67ecdaa6",
+      "output_sha256": "26e742967369914d6b1afdb09abd48f3c9bc4777cd93dbe681913f8b6a7d492d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        227,
+        49,
+        797,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier8_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: powerful adult fantasy spearman, horned closed silver T-visor helmet, exposed arms and brown leather kilt with blue arm wraps, long upright silver-tipped spear. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier9_1.png",
+      "input": "poc/hero-icon/Soldier9_1.png",
+      "input_sha256": "a70522a678960048ee52bb1da79e8bb917999a5c8dcfba369f5c2bf0309058b6",
+      "output_sha256": "47991ba5ce33ed9be67fae14931a9f45e2afd0d54ae60ca04e8e68ef83a8f127",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        75,
+        976,
+        949
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier9_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky adult gold-and-green heavy lancer, pointed gold helmet and green scarf, long dark polearm held horizontally, broad turquoise-silver crescent spearhead. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier10_1.png",
+      "input": "poc/hero-icon/Soldier10_1.png",
+      "input_sha256": "785904e50fbb3bebdf34999ae630877dc96f6e4d934abd2acbe3d0e974830cb6",
+      "output_sha256": "23182e90d4b465e00efc2220337d60ea913161ba44d13414d60641b0b18bd731",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        199,
+        975,
+        824
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier10_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: A single wooden repeating BALLISTA siege cart, warm reddish-brown carved timber, four small wheels with iron rims, a large horizontal crossbow assembly on top loaded with bolts, front rectangular reinforced wooden shield. Keep the ballista mechanism; NOT a catapult, no character. ONE unmanned siege engine, no humans, no horse. Real functional mechanical proportions, massive seasoned oak, tensioned ropes, reinforced iron, weighty threatening battlefield construction. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier10_2_qin.png",
+      "input": "poc/hero-icon/Soldier10_2_qin.png",
+      "input_sha256": "bb6dfaf0001a52a4ff491a048ac9442fa7dc38df73ea36e8c9a0de46a7c5a0c1",
+      "output_sha256": "413507365b693d1ccf3e4b7481624d33c203fc279ae03e1c658d7c44f197fcf7",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        162,
+        976,
+        861
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier10_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: A single powerful blue-and-white fantasy BALLISTA siege cart, pale oak frame and chunky wood wheels, blue cloth rectangular front shield with white edging and small silver studs, horizontal crossbow beam on top. Keep ballista identity and blue-white palette. No character. ONE unmanned siege engine, no humans, no horse. Real functional mechanical proportions, massive seasoned oak, tensioned ropes, reinforced iron, weighty threatening battlefield construction. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier11_1.png",
+      "input": "poc/hero-icon/Soldier11_1.png",
+      "input_sha256": "b287457af953147cf7450aa62e41b996b90fe77b238fdc7007f115820e1af252",
+      "output_sha256": "2e020feec4502898357b1ca3ecc2e86a63502797cfc6058f638b12b2429acdad",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        66,
+        48,
+        959,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier11_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: precise-object-edit. Polish this exact mature bronze-armored red-scarf cavalry spearman and chestnut warhorse. Keep anatomy, face, equipment, pose, spear and opaque materials. Frame the WHOLE mounted unit smaller: occupy 82 percent of square with 9 percent clear transparent space on every side. Reconstruct complete pointed bronze helmet finial with its apex INSIDE canvas, no touching or clipping the top. The spear tip, butt, horse tail, all hooves and cloth must be entirely visible too. Shorten the decorative white helmet plume into a small practical white tuft so this reads as regular cavalry, not a unique hero. Keep stern adult mature face and imposing semi-realistic fantasy painted style. True transparent alpha exterior. No scenery floor cast shadow smoke glow text UI borders or checkerboard. 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier11_2_qin.png",
+      "input": "poc/hero-icon/Soldier11_2_qin.png",
+      "input_sha256": "bb5b21a4f3f87df4e0d715766d047bb61e1f7ef1fc7c697e529eaa257588bbd2",
+      "output_sha256": "1b948a267c2f5abbb77668bd5b018af4c14b695e7fed2e1203fd1be9f5865fe9",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        142,
+        48,
+        883,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier11_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Adult closed-visored silver knight with blue helmet plume, blue-and-white tabard, mounted on a chestnut muscular warhorse with blue-white tack, very long upright blue lance. Western fantasy cavalry matching this input. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier12_1.png",
+      "input": "poc/hero-icon/Soldier12_1.png",
+      "input_sha256": "831c8983a4a94f71528a22529c683deeb6a7940d7fa3d899ec8b9458d3292f01",
+      "output_sha256": "93bed680896e227d32068c7867a7d85f3ee4dffbf2550c59b0fb775f8b0d8975",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        52,
+        49,
+        972,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier12_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: One hulking fantasy ice troll / yeti, pale icy-blue thick hair and enormous beard, muscular blue-gray long arms and huge blue hands, heavy bent-legged stance, rough brown fur-and-leather loincloth and belt, fierce and intimidating face. Nonhuman giant, no horse, no weapon. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier13_1.png",
+      "input": "poc/hero-icon/Soldier13_1.png",
+      "input_sha256": "c3300ea91846904d347ec053d4bf56e1fad7ea81f1220de47292fc91e6b18dbf",
+      "output_sha256": "ae9a81fc9782879810d826e06eab27e739f98ddcab98129c6741ee429d215770",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        123,
+        976,
+        900
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier13_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: A single large wooden CATAPULT siege engine, reddish timber triangular frame with gray iron fittings and small iron-rimmed wheels, hinged throwing arm with dark stone cup, strong rope windlass, no character. ONE unmanned siege engine, no humans, no horse. Real functional mechanical proportions, massive seasoned oak, tensioned ropes, reinforced iron, weighty threatening battlefield construction. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier13_2_qin.png",
+      "input": "poc/hero-icon/Soldier13_2_qin.png",
+      "input_sha256": "aebb5c78976f15f59a8ff0ed40c5cdff2dc0bc2aa3b4117be50a40ea6951be1a",
+      "output_sha256": "9defabe59ec0ad240986df634936f215010e2e89810277e3c935e89b39b673d0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        125,
+        976,
+        898
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier13_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: A single powerful blue-and-white fantasy CATAPULT siege engine, pale oak A-frame with white metal braces, chunky wooden wheels, visible yellow rope windlass, broad blue side shield trimmed white with silver studs. Throwing arm, no character. ONE unmanned siege engine, no humans, no horse. Real functional mechanical proportions, massive seasoned oak, tensioned ropes, reinforced iron, weighty threatening battlefield construction. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier14_1.png",
+      "input": "poc/hero-icon/Soldier14_1.png",
+      "input_sha256": "000a13cccb67aaa3fc7789d4f5d9bbf25930aa692bcd9036d15fdf6c3e79aa66",
+      "output_sha256": "b07dfa3aa8d8db88701f3e6d1c8a66f3708d5632cf7b24f53e82f92047d71869",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        170,
+        48,
+        854,
+        976
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier14_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: One large burly adult ogre-like executioner infantryman, shaggy dark brown hair and beard, broad mostly bare muscular brown-tan torso, rugged brown leather skirt, huge double-sided gray metal axe carried over shoulder, large boots. Heavy brutish silhouette, no horse. ONE foot unit, NO horse or mount. Full body from head to soles, powerful grounded battle-ready stance. Preserve species; dwarves remain muscular mature dwarves, monsters massive intimidating monsters. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier15_1.png",
+      "input": "poc/hero-icon/Soldier15_1.png",
+      "input_sha256": "abdc07fc8d774a13677934ead3d9f9971cb62d231626b18c3900efab506df515",
+      "output_sha256": "19a325bf825a56b06ae24546d08f0ab0f2c65c5601a9c794f3c04d37a361c0a3",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        180,
+        976,
+        845
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier15_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: A single heavy wooden battering / crushing siege cart with reddish timber box body, gray iron reinforcements, four chunky wooden wheels, enormous forward metal-banded spiked roller / ram mechanism with angular blades. Preserve the unusual low horizontal mechanical silhouette, no character. ONE unmanned siege engine, no humans, no horse. Real functional mechanical proportions, massive seasoned oak, tensioned ropes, reinforced iron, weighty threatening battlefield construction. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    },
+    {
+      "file": "Soldier15_2_qin.png",
+      "input": "poc/hero-icon/Soldier15_2_qin.png",
+      "input_sha256": "8a69d87b65036012d6683cd1060a7af74e2b1d25f9e324c093c7d1ab694b2505",
+      "output_sha256": "83d042932eb5d2dcc9c4b44975590959c13766f97fb62ce8387185fc89e8b260",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        139,
+        973,
+        885
+      ],
+      "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier15_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: A single powerful blue-and-white fantasy BATTERING RAM cart, pale oak wooden wheels and arched wooden canopy with blue roof tiles, suspended thick cylindrical ram beam with a large silver cap protruding forward. Complete machinery, no character. ONE unmanned siege engine, no humans, no horse. Real functional mechanical proportions, massive seasoned oak, tensioned ropes, reinforced iron, weighty threatening battlefield construction. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+    }
+  ]
+}
