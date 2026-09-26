@@ -36,8 +36,11 @@ public class RvoManager : Singleton<RvoManager>, IManager
     }
 
     public void ManagerLateUpdate(float dt)
-    { 
-       
+    {
+        if (simulation != null && simulation.TryComplete())
+        {
+           
+        }
     }
 
     public void ManagerRefuse()
