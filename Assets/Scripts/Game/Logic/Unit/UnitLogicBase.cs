@@ -23,11 +23,11 @@ public class UnitLogicBase
         get
         {
             Vector3 finalForward;
-            if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
-            {
-                finalForward = Vector3.Normalize(searchTarget.GetClosestPoint(CurPos) - CurPos);
-            }
-            else
+            //if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
+            //{
+            //    finalForward = Vector3.Normalize(searchTarget.GetClosestPoint(CurPos) - CurPos);
+            //}
+            //else
             {
                 finalForward = moveForward;
             }
@@ -339,7 +339,7 @@ public class UnitLogicBase
         }
         Vector3 wallCenter = UnitManager.Instance.GetWallCenter(CampType);
         Vector3 wallSize = UnitManager.Instance.GetWallSize();
-        return new Vector3
+        Vector3 point = new Vector3
         (
             Mathf.Clamp(
                 attackerPosition.x,
@@ -353,6 +353,7 @@ public class UnitLogicBase
                 wallCenter.z + wallSize.z * 0.5f
             )
         );
+        return point;
     }
 
     private void initProp()

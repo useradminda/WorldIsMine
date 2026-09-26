@@ -13,7 +13,12 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     private UnitLogicBase redWallLogic;
     private UnitLogicBase blueWallLogic;
+    private BornConfig bornConfig;
+    private Vector3 redWallCenter;
+    private Vector3 blueWallCenter;
     public event Action<ECampType> WallDestroyed;
+
+    private static readonly Vector3 WallSize = new Vector3(10f, 1f, 1f);
 
     private class UnitSpawnRequest
     {
@@ -25,6 +30,25 @@ public class UnitManager : Singleton<UnitManager>, IManager
     {
         redWallLogic = UnitFactory.CreateWall(ECampType.Red);
         blueWallLogic = UnitFactory.CreateWall(ECampType.Blue);
+    }
+
+    /// <summary>
+    /// 设置出生点配置，用于计算红蓝双方城墙位置。
+    /// </summary>
+    public void SetBornConfig(BornConfig config)
+    {
+        bornConfig = config;
+        if (bornConfig == null)
+        {
+            redWallCenter = Vector3.zero;
+            blueWallCenter = Vector3.zero;
+            return;
+        }
+
+        redWallCenter = bornConfig.GetBornPoint(ECampType.Red)
+            + bornConfig.GetForward(ECampType.Red);
+        blueWallCenter = bornConfig.GetBornPoint(ECampType.Blue)
+            + bornConfig.GetForward(ECampType.Blue);
     }
 
     public void ManagerUpdate(float dt)
@@ -83,12 +107,17 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     public Vector3 GetWallCenter(ECampType campType)
     {
-        return Vector3.zero;
+        if (campType == ECampType.Red)
+        {
+            return redWallCenter;
+        }
+
+        return blueWallCenter;
     }
 
     public Vector3 GetWallSize()
     {
-        return Vector3.zero;
+        return WallSize;
     }
 
     public void NotifyWallDestroyed(ECampType campType)
