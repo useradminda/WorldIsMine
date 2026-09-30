@@ -195,6 +195,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return false;
         } 
 
+        UnitManager.Instance.SetBornConfig(BornConfigIns);
         UnitManager.Instance.ManagerInit();
         RvoManager.Instance.ManagerInit();
         MapCellManager.Instance.ManagerInit();

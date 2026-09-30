@@ -19,7 +19,7 @@ public class ShakeComponent : MonoBehaviour
 
     private void Awake()
     {
-        shakeBody = transform.GetChild(0);
+        shakeBody = transform;
         originalPos = shakeBody.localPosition;
     }
 
