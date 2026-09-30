@@ -1,0 +1,24 @@
+{
+  "expected": 68,
+  "completed": 61,
+  "pending": [
+    "Soldier11_1.png",
+    "Soldier12_1.png",
+    "Soldier13_1.png",
+    "Soldier13_2_qin.png",
+    "Soldier14_1.png",
+    "Soldier15_1.png",
+    "Soldier15_2_qin.png"
+  ],
+  "file_checks_pass": true,
+  "previous_files_changed": [],
+  "raw_edges_to_review": [
+    "Hero14_1.png",
+    "Hero15_1.png",
+    "Soldier8_2_qin.png",
+    "Soldier10_1.png",
+    "Soldier11_2_qin.png"
+  ],
+  "unique_images": 61,
+  "all_delivered": false
+}

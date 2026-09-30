@@ -1,0 +1,25 @@
+{
+  "file": "Soldier8_2_qin.png",
+  "input": "poc/hero-icon/Soldier8_2_qin.png",
+  "input_sha256": "b385ffa06f9bfd0643a1f3f677921fdcf1dbc6e38c1c51985436312d67ecdaa6",
+  "output_sha256": "5ef8dd2921f77e2ef9b4df8028d197a698a5823d60d7ab966c1ea55c6ab316ec",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    225,
+    48,
+    799,
+    976
+  ],
+  "raw_source": "work/hero_icons_v4_20260923/source_art/Soldier8_2_qin.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE new V4 Korean fantasy action-RPG / manhwa character-card cutout. Image 1 is the ONLY identity reference for gender, species, role, original dominant colors, headgear, costume and distinctive weapon; image 2 is ONLY the V4 rendering reference. Do NOT transfer its red armor, sword, purple plume or horse to other subjects. Subject: Compact adult fantasy spearman, horned closed silver T-visor helmet, exposed arms and brown leather kilt with blue arm wraps, long upright silver-tipped spear. One full-body standing adult infantry character; NO rider, horse or mount. Retain its characteristic weapon and colors. Graceful Korean manhwa facial design, mature adult angular attractive features, focused natural small eyes, body about 7-7.5 heads tall, dynamic long-limbed pose; gender and age faithful to reference. Art style: high-budget South Korean fantasy game illustration, graceful fashion-forward fantasy silhouette, crisp controlled fine outlines, bold clean cel-painted light and shadow, smooth selective painterly blending, precise metal reflections, jewel and silk detailing, restrained luminous cool rim-light on the silhouette. Korean historical-fantasy-inspired layered collars, overcoat, embroidered ribbons and subtle dancheong geometry where the subject's design permits; keep unit's own palette, gender, species and tool. Polished 2.5D illustration, small-icon readability with rich close-up detail, clearly DIFFERENT from Q-version chibi, western realistic heavy painting, and Chinese brush-texture guofeng. One whole subject centered in square with >=6% true transparent margin on all four sides; reconstruct and keep whole plume, weapon tips, hands, feet, horse legs, tail, machine parts and wheels. True transparent alpha exterior, fully opaque solid forms. No cropped extremities, floating effects, ground, scenery, paper wash, pedestal, cast shadow, outside glow, typography, seal, UI frame, watermark, duplicate subject, extra limbs or checkerboard. Exactly 1024x1024 PNG."
+}

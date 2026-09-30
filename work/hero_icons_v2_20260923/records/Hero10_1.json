@@ -1,0 +1,25 @@
+{
+  "file": "Hero10_1.png",
+  "input": "poc/hero-icon/Hero10_1.png",
+  "input_sha256": "af77647cda00f06bf74c8598444176d3c9c24b0ba79542f6fcc3d4c2fea3c60b",
+  "output_sha256": "48f6840d47c482b25c1306ce82e699b33f202bdbb8d30144fc719aa20b02b059",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    86,
+    49,
+    937,
+    975
+  ],
+  "raw_source": "work/hero_icons_v2_20260923/source_art/Hero10_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: precise-object-edit. Polish THIS mature turquoise-and-gold royal female spellcaster on horseback. Remove ONLY the sword including its blade, hilt and pommel from her extended right hand on image left. Replace gripping hand with an anatomically correct relaxed open casting gesture, fingers elegantly extended; no magic effects or new props. Keep exact mature adult face, proud expression, normal adult proportions, black hair and tall turquoise/gold crown, ornate turquoise and gold robe with ivory lining, horse, tack, pose, material rendering and every other feature. One complete mounted unit, no cropping of crown tail hooves or cloth, centered with 6 percent safety margins. Preserve true transparent alpha exterior, no background ground shadows glow text frame or watermark. 1024x1024 PNG."
+}

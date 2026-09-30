@@ -1,0 +1,25 @@
+{
+  "file": "Hero1_1.png",
+  "input": "poc/hero-icon/Hero1_1.png",
+  "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+  "output_sha256": "fa604fa13347809c2e4f09f6fd0635bd7606c5f93de269b2c06a774b83476f3d",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    75,
+    48,
+    949,
+    975
+  ],
+  "raw_source": "work/hero_icons_v4_20260923/source_art/Hero1_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Image 1 is the character identity reference: the same red-orange armored adult male cavalryman, silver-edged helmet with upright purple plume, navy sleeves, short sword, mounted on one chestnut horse. Create a NEW V4 high-end KOREAN FANTASY ACTION RPG / MANHWA character cutout, visibly distinct from colorful Chinese gongbi ink art, chibi 3D, and Western semi-realistic painting. Style: refined Korean 2.5D game splash illustration, elegant slim heroic adult anatomy about 7.5 heads, mature angular attractive face with natural small eyes and focused command, long dynamic limbs and decisive pose; sharp confident clean line art, bold sculptural cel-painted lighting planes, selectively polished gradients and precise jewel-like highlights, rich but disciplined saturation. Give battle-ready armor a Korean historical fantasy interpretation: layered crimson lacquer and gunmetal plates, silver ornamental edges, Joseon-inspired crossed collar and split overcoat, fine embroidered geometric dancheong trim, long indigo fabric ribbons and a plum-violet plume. Keep the recognizable red/navy/violet palette, short sword and cavalry role. The chestnut horse must be anatomically convincing, dynamic yet fully visible with four legs, a flowing mane, tack and long tail; not a cute pony. The visual energy should come from pose and clean flowing cloth, with luminous cool edge lighting CONFINED INSIDE THE SUBJECT. One full rider and one full horse only, centered and fully within square with >=6% genuinely transparent empty margin at all edges. Complete plume, blade, ribbons, tail and hooves. GENUINE TRANSPARENT ALPHA exterior. No background image, no flat paper wash, no scenery, ground, pedestal, shadow, floating ink or particles, halo, frame, text, emblem, signature or watermark. No chibi, baby face, huge eyes, western greasy photorealism, Chinese brushstroke texture, raw 3D, extra characters or limbs. L3 polished character card asset, 1024x1024 PNG."
+}

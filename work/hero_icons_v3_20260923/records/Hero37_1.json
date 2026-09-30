@@ -1,0 +1,25 @@
+{
+  "file": "Hero37_1.png",
+  "input": "poc/hero-icon/Hero37_1.png",
+  "input_sha256": "3993db88bec154fb6a2e7a209f99216e6de7a0b3307983ddc3845a99e270ef1e",
+  "output_sha256": "bf30decdeeea255f7c776ea81c071a84b6b523b5705e48e179743386e7085eaa",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    78,
+    50,
+    946,
+    976
+  ],
+  "raw_source": "work/hero_icons_v3_20260923/source_art/Hero37_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Elderly male archer with long white beard, red and gold helmet with white plume, red-gold armor and yellow shoulders, wooden bow and arrows. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+}

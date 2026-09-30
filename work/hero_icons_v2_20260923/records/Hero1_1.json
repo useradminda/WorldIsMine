@@ -1,0 +1,25 @@
+{
+  "file": "Hero1_1.png",
+  "input": "poc/hero-icon/Hero1_1.png",
+  "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+  "output_sha256": "9a63824c6f7f0d0c0948244c946347b5e6ad0d00899ec22058f73c6b68ef99b4",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    130,
+    48,
+    894,
+    974
+  ],
+  "raw_source": "work/hero_icons_v2_20260923/source_art/Hero1_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Create a NEW v2 redesign of the reference character, a mature imposing warlord on a warhorse, premium L3 fantasy strategy game painted key art. Reference image defines red-orange plate armor with silver edging, purple helmet plume, navy undergarments, sword and chestnut mount, NOT proportions or rendering. CHANGE the baby/chibi anatomy into heroic ADULT anatomy: rider has normal small head, 7.5-head adult body proportions, broad armored shoulders, long powerful limbs, angular weathered 35-45-year-old masculine face, deep-set SMALL stern eyes, prominent nose, square jaw, stubble, commanding battle-hardened expression. A powerful realistically proportioned muscular warhorse with long legs, small natural equine eyes and heavy red/silver tack; never a cute pony. Dramatic dignified charging three-quarter pose, entire rider AND horse visible. High-end semi-realistic hand-painted fantasy illustration, sculptural anatomy, intricately layered plate and chainmail, engraved brushed metal, controlled warm red palette, deep cinematic contrast, sharp cold rim lighting confined inside silhouette, slight battle wear, imposing silhouette. Keep weapon held compactly so all extremities fit. One isolated complete mounted unit centered, entire plume sword tail and all hooves INSIDE square with 6 percent empty margins. True transparent alpha exterior, opaque subject. NO chibi, no doll face, no oversized eyes or head, no toy, no plush, no baby face, no cute smile, no pedestal, ground, environment, smoke, external glow, background or cast shadow, no typography or watermark. 1024x1024 PNG."
+}

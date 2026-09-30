@@ -1,0 +1,25 @@
+{
+  "file": "Soldier13_2_qin.png",
+  "input": "poc/hero-icon/Soldier13_2_qin.png",
+  "input_sha256": "aebb5c78976f15f59a8ff0ed40c5cdff2dc0bc2aa3b4117be50a40ea6951be1a",
+  "output_sha256": "ec86ed61fff2f867941ed4133acb8c0531994d914b726dfd07e41f22822ed7c1",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    48,
+    115,
+    975,
+    910
+  ],
+  "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier13_2_qin.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single compact blue-and-white fantasy CATAPULT siege engine, pale oak A-frame with white metal braces, chunky wooden wheels, visible yellow rope windlass, broad blue side shield trimmed white with silver studs. Throwing arm, no character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+}

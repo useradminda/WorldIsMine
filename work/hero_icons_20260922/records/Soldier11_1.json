@@ -1,0 +1,25 @@
+{
+  "file": "Soldier11_1.png",
+  "input": "poc/hero-icon/Soldier11_1.png",
+  "input_sha256": "b287457af953147cf7450aa62e41b996b90fe77b238fdc7007f115820e1af252",
+  "output_sha256": "f07cddb0a545f5a35900fb0696100909b52414f849c100d54b8ca8e705413aa1",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    68,
+    49,
+    955,
+    976
+  ],
+  "raw_source": "work/hero_icons_20260922/source_art/Soldier11_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Adult red-and-brown armored cavalry spearman, bronze pointed helmet and red scarf, mounted on a chestnut pony, long wooden spear held across the body with a broad steel tip.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props. Refinement for final cutout quality: the polearm has one sharply defined DARK STEEL spearhead with a subtle cool silver bevel, fully opaque, crisp clean geometry without white glow, chalky highlights bleeding outside the blade, wispy borders or any floating white patches. Keep the spearhead clearly separated from the horse's face and rider's body, no bright fabric behind it. Crisp opaque shapes and perfectly clear transparent negative spaces. The full polearm including both tips and the entire horse fit with generous transparent margins. No external rim glow or particle effects."
+}
