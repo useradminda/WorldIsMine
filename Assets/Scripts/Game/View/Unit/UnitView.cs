@@ -39,7 +39,15 @@ public class UnitView : IView
         get
         {
             if (shakeComp == null)
-                shakeComp = gameObject.GetOrAddComponent<ShakeComponent>();
+            {
+                GameObject shakeObject = gameObject;
+                if (transform.childCount > 0)
+                {
+                    shakeObject = transform.GetChild(0).gameObject;
+                }
+
+                shakeComp = shakeObject.GetOrAddComponent<ShakeComponent>();
+            }
             return shakeComp;
         }
     }
@@ -133,7 +141,15 @@ public class UnitView : IView
 
     public void SetForwardForce(Vector3 foward)
     {
-        transform.forward = foward;
+        if (foward.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        Quaternion forceRotation = Quaternion.LookRotation(foward);
+        transform.rotation = forceRotation;
+        targetQ = forceRotation;
+        transQ = forceRotation;
     }
 
     private Vector3 tarPos;
@@ -150,14 +166,14 @@ public class UnitView : IView
         }
         if (tarPos != transPos)
         {
-            if ((tarPos - transform.position).sqrMagnitude < 0.0004f)
+            //if ((tarPos - transform.position).sqrMagnitude < 0.0004f)
+            //{
+            //    transform.position = tarPos;
+            //    transPos = transform.position;
+            //}
+            //else
             {
-                transform.position = tarPos;
-                transPos = transform.position;
-            }
-            else
-            {
-                transform.position = Vector3.Lerp(transform.position, unitLogic.Agenter.pos, dt * 3);
+                transform.position = Vector3.Lerp(transform.position, unitLogic.Agenter.pos, dt * 10);
                 transPos = transform.position;
             }
         }
@@ -168,16 +184,21 @@ public class UnitView : IView
     {
         if (stateType == EStateTyep.Die)
             return;
-        if (unitLogic.DirtyForward == true)
+
+        if (unitLogic.DirtyForward)
         {
-            targetQ = Quaternion.LookRotation(unitLogic.TargetForward);
-            unitLogic.DirtyForward = false;
-            transQ = transform.rotation;
+            Vector3 targetForward = unitLogic.TargetForward;
+            if (targetForward.sqrMagnitude > 0.0001f)
+            {
+                targetQ = Quaternion.LookRotation(targetForward);
+                unitLogic.DirtyForward = false;
+            }
         }
-        if (targetQ != transQ)
+
+        if (Mathf.Abs(Quaternion.Dot(transform.rotation, targetQ)) < 0.9999f)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, transQ, dt * 3);
-            transQ = transform.rotation;
+            transQ = Quaternion.Slerp(transform.rotation, targetQ, dt * 3f);
+            transform.rotation = transQ;
         }
     }
 

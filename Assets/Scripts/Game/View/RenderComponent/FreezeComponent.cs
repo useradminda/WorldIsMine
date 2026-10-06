@@ -12,7 +12,7 @@ public class FreezeComponent : MonoBehaviour
         get
         {
             if (renderComponenter == null)
-                renderComponenter = gameObject.GetOrAddComponent<RenderComponent>();
+                renderComponenter = gameObject.GetOrAddComponentInChild<RenderComponent>();
             return renderComponenter;
         }
     }
@@ -22,7 +22,7 @@ public class FreezeComponent : MonoBehaviour
         get
         {
             if(actionFlower == null)
-                actionFlower = gameObject.GetOrAddComponent<ActionFlow>();
+                actionFlower = gameObject.GetOrAddComponentInChild<ActionFlow>();
             return actionFlower;
         }
     }

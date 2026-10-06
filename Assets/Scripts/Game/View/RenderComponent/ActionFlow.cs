@@ -13,7 +13,7 @@ public class ActionFlow : MonoBehaviour
     {
         get
         {
-            renderComponenter = gameObject.GetOrAddComponent<RenderComponent>();
+            renderComponenter = gameObject.GetOrAddComponentInChild<RenderComponent>();
             return renderComponenter;
         }
     }
@@ -73,6 +73,8 @@ public class ActionFlow : MonoBehaviour
     // 播放一个动画
     public void PlayAction(EActionType _actionType)
     {
+        if (currentActionData != null && currentActionData.ActionType == _actionType)
+            return;
         if(ActionDataDic != null && ActionDataDic.ContainsKey(_actionType))
         {
             ActionData _actionData = ActionDataDic[_actionType];        

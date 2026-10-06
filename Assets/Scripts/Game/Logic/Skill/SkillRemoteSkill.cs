@@ -29,7 +29,8 @@ public class SkillRemoteSkill : SkillLogicBase
         if (resultUnitIndexList.Count > 0)
         {
             skillSearchTarget = UnitManager.Instance.UnitList[randomIndex];
-            if (skillSearchTarget == UnitLogic)
+            if (skillSearchTarget == UnitLogic ||
+                skillSearchTarget.CampType == UnitLogic.CampType)
             {
                 Debug.LogError("严重错误搜索到自己了!!");
                 skillSearchTarget = null;

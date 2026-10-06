@@ -95,6 +95,14 @@ public class SkillLogicBase
         curCD = skillCfg.cd;
     }
 
+    /// <summary>
+    /// 清除当前技能冷却，使技能可以立即重新搜索并释放。
+    /// </summary>
+    public void SkillClearCD()
+    {
+        curCD = 0f;
+    }
+
     protected int searchReqIndex = -1;
     protected int neastIndex = -1;
     protected int randomIndex = -1;
@@ -102,9 +110,12 @@ public class SkillLogicBase
 
     public void SearchTargetFunc()
     {
-        if (curCD <= 0)
+        if (curCD <= 0f)
         {
-            searchReqIndex = MapCellManager.Instance.RequestSearch(unitLogic.CurPos, SkillSearchRange, unitLogic.OtherCampTypeInt);
+            searchReqIndex = MapCellManager.Instance.RequestSearch(
+                unitLogic.CurPos,
+                SkillSearchRange,
+                unitLogic.OtherCampTypeInt);
         }
     }
 
@@ -118,7 +129,8 @@ public class SkillLogicBase
         if (resultUnitIndexList.Count > 0)
         {
             skillSearchTarget = UnitManager.Instance.UnitList[neastIndex];
-            if (skillSearchTarget == UnitLogic)
+            if (skillSearchTarget == UnitLogic ||
+                skillSearchTarget.CampType == UnitLogic.CampType)
             {
                 UnityEngine.Debug.LogError("严重错误搜索到自己了!!");
                 skillSearchTarget = null;

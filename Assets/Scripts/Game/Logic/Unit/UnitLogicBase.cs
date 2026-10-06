@@ -23,11 +23,11 @@ public class UnitLogicBase
         get
         {
             Vector3 finalForward;
-            //if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
-            //{
-            //    finalForward = Vector3.Normalize(searchTarget.GetClosestPoint(CurPos) - CurPos);
-            //}
-            //else
+            if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
+            {
+                finalForward = Vector3.Normalize(searchTarget.GetClosestPoint(CurPos) - CurPos);
+            }
+            else
             {
                 finalForward = moveForward;
             }
@@ -206,6 +206,7 @@ public class UnitLogicBase
     public void TriggerMoveStop()
     {
         Agenter.navigationEnabled = false;
+        Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
         Agenter.maxSpeed = 0;
     }

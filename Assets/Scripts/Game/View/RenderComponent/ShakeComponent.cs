@@ -5,8 +5,8 @@ public class ShakeComponent : MonoBehaviour
     private Transform shakeBody;
 
     [Header("抖动")]
-    [SerializeField] private float shakeDuration = 0.18f;
-    [SerializeField] private float shakeAmount = 0.05f;
+    [SerializeField] private float shakeDuration = 0.4f;
+    [SerializeField] private float shakeAmount = 0.06f;
     [SerializeField] private float shakeFrequency = 20f;
 
     private Vector3 originalPos;

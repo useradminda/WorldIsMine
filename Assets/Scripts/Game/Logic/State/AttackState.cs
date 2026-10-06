@@ -75,15 +75,17 @@ public class AttackState : StateBase
             {
                 if (useSkill.SkillSearchTarget.IsDead)
                 {
-                    if (UnitLogic.NormalSkill.CurCD <= 0)
+                    if (attackTime <= 0f)
                     {
+                        UnitLogic.NormalSkill.SkillClearCD();
                         UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
-                        return;
                     }
+                    return;
                 }
                 float sqrDistance = (UnitLogic.CurPos - useSkill.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos)).sqrMagnitude;
                 if (sqrDistance > UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
                 {
+                    UnitLogic.NormalSkill.SkillClearCD();
                     UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
                     return;
                 }
@@ -98,7 +100,11 @@ public class AttackState : StateBase
 
     private void useSkillPlay()
     {
-        if (UnitLogic.IsDead || useSkill == null)
+        if (UnitLogic.IsDead || useSkill == null || useSkill.SkillSearchTarget == null)
+            return;
+
+        // 攻击动画结束后可能早于技能冷却结束，冷却期间不能重复释放技能。
+        if (useSkill.CurCD > 0f)
             return;
 
         if (useSkill.BNormalSkill == true)
