@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AttackState : StateBase
 {
+    private const float AttackExitRangeBuffer = 0.3f;
+
     public override EStateTyep StateType { get { return EStateTyep.Attack; } }
 
     private SkillLogicBase useSkill;
@@ -82,8 +84,10 @@ public class AttackState : StateBase
                     }
                     return;
                 }
-                float sqrDistance = (UnitLogic.CurPos - useSkill.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos)).sqrMagnitude;
-                if (sqrDistance > UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
+                if (!UnitLogic.IsTargetInAttackRange(
+                        useSkill.SkillSearchTarget,
+                        UnitLogic.NormalSkill.SkillCfg.atkRange,
+                        AttackExitRangeBuffer))
                 {
                     UnitLogic.NormalSkill.SkillClearCD();
                     UnitLogic.StateMachine.ChangeState(EStateTyep.Move);

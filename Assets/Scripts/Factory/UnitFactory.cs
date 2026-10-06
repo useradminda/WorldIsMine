@@ -128,8 +128,7 @@ public static class UnitFactory
         }
         else if (flyObjectCfg.flyType == "area")
         {
-            flyObjectLogic = new AreaFlyObject();
-           
+            flyObjectLogic = new AreaFlyObject();      
         }
         else if (flyObjectCfg.flyType == "stone")
         {

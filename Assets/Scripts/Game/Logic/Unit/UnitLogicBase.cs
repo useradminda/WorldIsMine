@@ -206,7 +206,7 @@ public class UnitLogicBase
     public void TriggerMoveStop()
     {
         Agenter.navigationEnabled = false;
-        Agenter.collisionEnabled = false;
+       // Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
         Agenter.maxSpeed = 0;
     }
@@ -278,20 +278,35 @@ public class UnitLogicBase
     // normal
     public SkillLogicBase GetNormalSkillBySearchTarget()
     {
-        if (NormalSkill != null)
+        if (NormalSkill == null)
         {
-            NormalSkill.SearchTargetFunc();
-            UnitLogicBase skillTar = NormalSkill.GetSkillSearchTargetSingleResult();
-            if (skillTar == null || skillTar.IsDead)
-            {
-                skillTar = UnitManager.Instance.GetOtherWallLogic(CampType);
-                NormalSkill.SetSkillSearchTarget(skillTar);
-            }
-            if (skillTar != null && skillTar.IsDead == false)
-            {
-                return NormalSkill;
-            }
+            return null;
         }
+
+        UnitLogicBase currentTarget = NormalSkill.SkillSearchTarget;
+        bool lockRemoteTarget = NormalSkill is SkillRemoteSkill;
+        if (lockRemoteTarget &&
+            currentTarget != null &&
+            currentTarget.IsDead == false &&
+            currentTarget.UnitType != EUnitType.Wall &&
+            currentTarget.CampType != CampType)
+        {
+            return NormalSkill;
+        }
+
+        NormalSkill.SearchTargetFunc();
+        UnitLogicBase skillTarget = NormalSkill.GetSkillSearchTargetSingleResult();
+        if (skillTarget == null || skillTarget.IsDead)
+        {
+            skillTarget = UnitManager.Instance.GetOtherWallLogic(CampType);
+            NormalSkill.SetSkillSearchTarget(skillTarget);
+        }
+
+        if (skillTarget != null && skillTarget.IsDead == false)
+        {
+            return NormalSkill;
+        }
+
         return null;
     }
 
@@ -355,6 +370,35 @@ public class UnitLogicBase
             )
         );
         return point;
+    }
+
+    /// <summary>
+    /// 判断目标是否在攻击范围内。普通单位按双方圆形半径计算，城墙按墙面最近点计算。
+    /// </summary>
+    public bool IsTargetInAttackRange(
+        UnitLogicBase target,
+        float attackRange,
+        float extraRange = 0f)
+    {
+        if (target == null || target.IsDead)
+        {
+            return false;
+        }
+
+        Vector3 targetPoint = target.GetClosestPoint(CurPos);
+        Vector3 offset = targetPoint - CurPos;
+        offset.y = 0f;
+
+        float effectiveRange = Mathf.Max(0f, attackRange)
+            + Mathf.Max(0f, Prop.Radius)
+            + Mathf.Max(0f, extraRange);
+
+        if (target.UnitType != EUnitType.Wall)
+        {
+            effectiveRange += Mathf.Max(0f, target.Prop.Radius);
+        }
+
+        return offset.sqrMagnitude <= effectiveRange * effectiveRange;
     }
 
     private void initProp()

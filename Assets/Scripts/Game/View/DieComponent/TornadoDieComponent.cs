@@ -11,8 +11,8 @@ public class TornadoDieComponent : DieBaseComponent
    
 
     [Header("扩散")]
-    public float startRadius = 0.5f;
-    public float radiusSpeed = 0.8f;
+    public float startRadius = 0.8f;
+    public float radiusSpeed = 1.5f;
 
     [Header("上升")]
     public float riseSpeed = 3f;
@@ -24,7 +24,7 @@ public class TornadoDieComponent : DieBaseComponent
     private float radius;
 
     private bool dieState = false;
-    private float dieTime = 1f;
+    private float dieTime = 2f;
 
 
 

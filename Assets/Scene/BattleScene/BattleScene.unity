@@ -9703,7 +9703,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10000
-  field of view: 38.5
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -9730,7 +9730,7 @@ Transform:
   m_GameObject: {fileID: 1363099613}
   serializedVersion: 2
   m_LocalRotation: {x: 0.32787314, y: -0.62649757, z: 0.32787314, w: 0.62649757}
-  m_LocalPosition: {x: 86.3, y: 120, z: -20.3}
+  m_LocalPosition: {x: 85.95, y: 120, z: -17.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10479,37 +10479,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1505722834}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1514006439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1514006440}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1514006440
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514006439}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.603236, y: 0.018570319, z: -1.6861393}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1517618478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11910,7 +11879,7 @@ MonoBehaviour:
   ObstacleConfigIns: {fileID: 2007356432}
   BornConfigIns: {fileID: 1944465874}
   ClashEffects:
-    Prefab: {fileID: 0}
+    Prefab: {fileID: 443787417736643983, guid: 921c29e6535e2114889b873850b70ace, type: 3}
     MaxCount: 8
     SpawnChance: 0.1
     EffectLifetime: 3
@@ -15112,7 +15081,6 @@ SceneRoots:
   - {fileID: 1064055053}
   - {fileID: 1619384198}
   - {fileID: 1734573412}
-  - {fileID: 1514006440}
   - {fileID: 1485950967}
   - {fileID: 1363099616}
   - {fileID: 1148333165}

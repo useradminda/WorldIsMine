@@ -18,7 +18,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
     private Vector3 blueWallCenter;
     public event Action<ECampType> WallDestroyed;
 
-    private static readonly Vector3 WallSize = new Vector3(10f, 1f, 1f);
+    private static readonly Vector3 WallSize = new Vector3(BattleDefine.AreaTotalWith, 1f, 1f);
 
     private class UnitSpawnRequest
     {

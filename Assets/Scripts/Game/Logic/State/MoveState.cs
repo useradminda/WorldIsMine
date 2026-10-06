@@ -30,8 +30,9 @@ public class MoveState : StateBase
         if (skillLogic != null)
         {
             UnitLogic.SetSearchTarget(skillLogic.SkillSearchTarget);
-            float sqrDistance = (UnitLogic.CurPos - skillLogic.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos)).sqrMagnitude;
-            if (sqrDistance <= skillLogic.SkillCfg.atkRange * skillLogic.SkillCfg.atkRange)
+            if (UnitLogic.IsTargetInAttackRange(
+                    skillLogic.SkillSearchTarget,
+                    skillLogic.SkillCfg.atkRange))
             {
                 UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, skillLogic.SkillSearchTarget, skillLogic);
                 return;

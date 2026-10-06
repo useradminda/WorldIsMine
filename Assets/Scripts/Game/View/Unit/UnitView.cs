@@ -185,32 +185,31 @@ public class UnitView : IView
         if (stateType == EStateTyep.Die)
             return;
 
-        if (unitLogic.DirtyForward)
+        Vector3 targetForward = unitLogic.TargetForward;
+        if (targetForward.sqrMagnitude <= 0.0001f)
         {
-            Vector3 targetForward = unitLogic.TargetForward;
-            if (targetForward.sqrMagnitude > 0.0001f)
-            {
-                targetQ = Quaternion.LookRotation(targetForward);
-                unitLogic.DirtyForward = false;
-            }
+            return;
         }
 
-        if (Mathf.Abs(Quaternion.Dot(transform.rotation, targetQ)) < 0.9999f)
+        targetQ = Quaternion.LookRotation(targetForward);
+
+        float rotationDot = Mathf.Abs(Quaternion.Dot(transform.rotation, targetQ));
+        if (rotationDot >= 0.9995f)
         {
-            transQ = Quaternion.Slerp(transform.rotation, targetQ, dt * 3f);
-            transform.rotation = transQ;
+            transform.rotation = targetQ;
+            transQ = targetQ;
+            return;
         }
+
+        float rotateFactor = Mathf.Clamp01(dt * 3f);
+        transQ = Quaternion.Slerp(transform.rotation, targetQ, rotateFactor);
+        transform.rotation = transQ;
     }
 
     private void enterDie(string dieType, Vector3 beHitPoint)
     {
         DieBaseComponent dieComp;
-        if (dieType == "" || dieType == "Normal")
-        {
-            dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
-            dieComp.SetUnitView(this);
-        }
-        else if (dieType == "Bounce")
+         if (dieType == "Bounce")
         {
             dieComp = gameObject.GetOrAddComponent<BounceDieComponent>();
             dieComp.SetUnitView(this);
@@ -220,10 +219,30 @@ public class UnitView : IView
             dieComp = gameObject.GetOrAddComponent<GroundSmashDieComponent>();
             dieComp.SetUnitView(this);
         }
+        else if (dieType == "Tornado")
+        {
+            dieComp = gameObject.GetOrAddComponent<TornadoDieComponent>();
+            dieComp.SetUnitView(this);
+        }
         else if(dieType == "Explosion")
         {
             dieComp = gameObject.GetOrAddComponent<ExplosionDieComponent>();
             ((ExplosionDieComponent)dieComp).SetExplosionPoint(beHitPoint);
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Normal")
+        {
+            dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "RollDie")
+        {
+            dieComp = gameObject.GetOrAddComponent<RollDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else
+        {
+            dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
             dieComp.SetUnitView(this);
         }
     }

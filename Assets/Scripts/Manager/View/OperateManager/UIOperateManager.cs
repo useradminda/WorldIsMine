@@ -13,10 +13,11 @@ public class UIOperateManager : MonoBehaviour
     private readonly List<SoldierMenuData> redSoldiers = new List<SoldierMenuData>();
     private readonly List<SoldierMenuData> blueSoldiers = new List<SoldierMenuData>();
 
-    private Rect windowRect = new Rect(20f, 70f, 760f, 300f);
+    private Rect windowRect = new Rect(20f, 70f, 760f, 340f);
     private Vector2 redScrollPosition;
     private Vector2 blueScrollPosition;
-    private string spawnCountText = "100";
+    private string redSpawnCountText = "100";
+    private string blueSpawnCountText = "100";
     private string operationTip = string.Empty;
     private bool isMenuOpen;
     private bool configLoaded;
@@ -64,7 +65,7 @@ public class UIOperateManager : MonoBehaviour
     private void DrawSpawnWindow(int windowId)
     {
         GUILayout.BeginVertical();
-        DrawSpawnCountInput();
+        DrawSpawnCountInput("红方出兵数量", ref redSpawnCountText);
 
         if (!configLoaded)
         {
@@ -73,8 +74,11 @@ public class UIOperateManager : MonoBehaviour
         else
         {
             DrawCampMenu("红色阵营", ECampType.Red, redSoldiers, ref redScrollPosition, Color.white);
+            DrawSpawnCountInput("蓝方出兵数量", ref blueSpawnCountText);
             DrawCampMenu("蓝色阵营", ECampType.Blue, blueSoldiers, ref blueScrollPosition, Color.white);
         }
+
+        DrawCloseButton();
 
         if (!string.IsNullOrEmpty(operationTip))
         {
@@ -88,13 +92,9 @@ public class UIOperateManager : MonoBehaviour
     /// <summary>
     /// 绘制并校验单次创建数量输入框。
     /// </summary>
-    private void DrawSpawnCountInput()
+    private void DrawCloseButton()
     {
         GUILayout.BeginHorizontal();
-        GUILayout.Label("生成数量：", GUILayout.Width(75f));
-        spawnCountText = GUILayout.TextField(spawnCountText, 5, GUILayout.Width(90f));
-        GUILayout.Label($"允许范围 {MinSpawnCount}-{MaxSpawnCount}");
-
         GUILayout.FlexibleSpace();
         if (GUILayout.Button("关闭", GUILayout.Width(70f)))
         {
@@ -102,7 +102,17 @@ public class UIOperateManager : MonoBehaviour
         }
         GUILayout.EndHorizontal();
     }
-
+    /// <summary>
+    /// 绘制指定阵营的出兵数量输入框。
+    /// </summary>
+    private void DrawSpawnCountInput(string label, ref string countText)
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(label, GUILayout.Width(100f));
+        countText = GUILayout.TextField(countText, 5, GUILayout.Width(90f));
+        GUILayout.Label($"范围 {MinSpawnCount}-{MaxSpawnCount}");
+        GUILayout.EndHorizontal();
+    }
     /// <summary>
     /// 绘制一个阵营的横向士兵列表。
     /// </summary>
@@ -146,10 +156,23 @@ public class UIOperateManager : MonoBehaviour
     /// </summary>
     private void SpawnSoldier(int configId, string displayName, ECampType campType)
     {
-        if (!TryGetSpawnCount(out int spawnCount))
+        string countText = campType == ECampType.Red
+            ? redSpawnCountText
+            : blueSpawnCountText;
+
+        if (!TryGetSpawnCount(ref countText, out int spawnCount))
         {
             operationTip = $"数量必须是 {MinSpawnCount}-{MaxSpawnCount} 之间的整数。";
             return;
+        }
+
+        if (campType == ECampType.Red)
+        {
+            redSpawnCountText = countText;
+        }
+        else
+        {
+            blueSpawnCountText = countText;
         }
 
         BattleEngine.Instance.CreateUnit(configId, campType, spawnCount);
@@ -157,22 +180,21 @@ public class UIOperateManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 解析数量输入，并将超出范围的数值限制到有效范围。
+    /// 解析指定阵营的出兵数量，并限制到有效范围。
     /// </summary>
-    private bool TryGetSpawnCount(out int spawnCount)
+    private bool TryGetSpawnCount(ref string countText, out int spawnCount)
     {
-        if (!int.TryParse(spawnCountText, out spawnCount))
+        if (!int.TryParse(countText, out spawnCount))
         {
             return false;
         }
 
         spawnCount = Mathf.Clamp(spawnCount, MinSpawnCount, MaxSpawnCount);
-        spawnCountText = spawnCount.ToString();
+        countText = spawnCount.ToString();
         return true;
     }
-
     /// <summary>
-    /// 从 SoliderCfg.json 对应的配置单例中建立红蓝双方菜单数据。
+    /// 从 SoliderCfg 配置中建立红蓝双方的士兵菜单。
     /// </summary>
     private void LoadSoldierConfigs()
     {
