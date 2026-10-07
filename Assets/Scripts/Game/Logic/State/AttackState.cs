@@ -17,6 +17,7 @@ public class AttackState : StateBase
 
     public override void EnterState(params object[] objects)
     {
+        resultUnitIndexList.Clear();
         UnitLogic.TriggerMoveStop();
         UnitLogic.UnitView.EnterState(EStateTyep.Attack);
         useSkill = UnitLogic.NormalSkill;
@@ -70,6 +71,7 @@ public class AttackState : StateBase
         {
             UnitLogic.SetSearchTarget(null);
         }
+        resultUnitIndexList.Clear();
     }
 
     private void judgeTargetBeDead()

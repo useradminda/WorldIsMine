@@ -75,12 +75,12 @@ public class SkillLogicBase
         int attackDamage = GetAttackDamageSnapshot();
         BattleLogicDamageTools.DoDamage(unitLogic, target, GetFinalDamage(attackDamage, target), target.UId, SkillCfg.dieType, UnityEngine.Vector3.zero);
         ApplyBuffs(target);
-        if (SkillCfg.skillArea > 0)
+        if (SkillCfg.skillArea > 0 && resultUnitIndexList != null)
         {
             for (int i = 0; i < resultUnitIndexList.Count; i++)
             {
                 int unitIndex = resultUnitIndexList[i];
-                if (unitIndex != target.Index)
+                if (unitIndex >= 0 && unitIndex < UnitManager.Instance.UnitList.Count && unitIndex != target.Index)
                 {
                     UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
                     if (tarUnitLogic == null || tarUnitLogic.IsDead || tarUnitLogic.CampTypeInt == unitLogic.CampTypeInt)
@@ -92,7 +92,6 @@ public class SkillLogicBase
                 }
             }
         }
-
     }
 
     /// <summary>把当前技能配置携带的Buff添加到命中目标。</summary>
