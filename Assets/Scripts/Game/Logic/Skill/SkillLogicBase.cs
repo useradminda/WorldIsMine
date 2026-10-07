@@ -46,11 +46,11 @@ public class SkillLogicBase
         }
     }
 
-    public void SkillDoEffect()
+    public void SkillDoEffect(List<int> resultUnitIndexList)
     {
         playStartEffect();
         SkillResetCD();
-        OnSkillDoEffect();
+        OnSkillDoEffect(resultUnitIndexList);
     }
 
     /// <summary>结束当前技能流程，清理本次搜索结果和待处理状态。</summary>
@@ -65,10 +65,34 @@ public class SkillLogicBase
     }
 
     // 执行
-    public virtual void OnSkillDoEffect()
+    public virtual void OnSkillDoEffect(List<int> resultUnitIndexList)
     {
-       BattleLogicDamageTools.DoDamage(unitLogic, SkillSearchTarget, GetDamage(), SkillSearchTarget.UId, SkillCfg.dieType, UnityEngine.Vector3.zero);
-       ApplyBuffs(SkillSearchTarget);
+        UnitLogicBase target = SkillSearchTarget;
+        if (unitLogic == null || unitLogic.IsDead || target == null || target.IsDead)
+        {
+            return;
+        }
+        int attackDamage = GetAttackDamageSnapshot();
+        BattleLogicDamageTools.DoDamage(unitLogic, target, GetFinalDamage(attackDamage, target), target.UId, SkillCfg.dieType, UnityEngine.Vector3.zero);
+        ApplyBuffs(target);
+        if (SkillCfg.skillArea > 0)
+        {
+            for (int i = 0; i < resultUnitIndexList.Count; i++)
+            {
+                int unitIndex = resultUnitIndexList[i];
+                if (unitIndex != target.Index)
+                {
+                    UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
+                    if (tarUnitLogic == null || tarUnitLogic.IsDead || tarUnitLogic.CampTypeInt == unitLogic.CampTypeInt)
+                    {
+                        continue;
+                    }
+                    BattleLogicDamageTools.DoDamage(unitLogic, tarUnitLogic, GetFinalDamage(attackDamage, tarUnitLogic), tarUnitLogic.UId, SkillCfg.dieType, UnityEngine.Vector3.zero);
+                    ApplyBuffs(tarUnitLogic);
+                }
+            }
+        }
+
     }
 
     /// <summary>把当前技能配置携带的Buff添加到命中目标。</summary>
@@ -143,11 +167,14 @@ public class SkillLogicBase
         return null;
     }
 
-    public int GetDamage()
+    public int GetAttackDamageSnapshot()
     {
-        int attackDamage = unitLogic.GetAttackDamage(SkillCfg.damage);
-        int damage = -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, SkillSearchTarget.SoliderCfg.unitType, attackDamage, unitLogic.SoliderCfg.restrainValue);
-        return damage;
+        return unitLogic.GetAttackDamage(SkillCfg.damage);
+    }
+
+    private int GetFinalDamage(int attackDamage, UnitLogicBase target)
+    {
+        return -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, target.SoliderCfg.unitType, attackDamage, unitLogic.SoliderCfg.restrainValue);
     }
 
     public void SetSkillSearchTarget(UnitLogicBase target)

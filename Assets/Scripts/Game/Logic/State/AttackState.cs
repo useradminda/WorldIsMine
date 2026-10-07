@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class AttackState : StateBase
 {
     private const float AttackExitRangeBuffer = 0.3f;
@@ -32,6 +32,9 @@ public class AttackState : StateBase
         judgeTargetBeDead();
         if (UnitLogic.StateMachine.GetCurrentState() != this)
             return;
+
+        reqSearchTar();
+        setSearchTar();
 
         updateSuprerSkill();
         if (attackTime > 0)
@@ -123,6 +126,25 @@ public class AttackState : StateBase
         }
         Vector3 atkDir =  useSkill.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
         UnitLogic.UnitView.SetForwardForce(atkDir);
-        useSkill.SkillDoEffect();
+        useSkill.SkillDoEffect(resultUnitIndexList);
     }
+
+    private int searchReqIndex = -1;
+    List<int> resultUnitIndexList = new List<int>();
+    private int neastIndex = -1;
+    private int randomIndex = -1;
+    private void reqSearchTar()
+    {
+        if (UnitLogic.IsDead || useSkill == null || useSkill.BNormalSkill == false || useSkill.SkillCfg.skillArea == 0)
+            return;
+        searchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, useSkill.SkillCfg.skillArea, UnitLogic.OtherCampTypeInt);
+    }
+
+    private void setSearchTar()
+    { 
+        if (UnitLogic.IsDead || useSkill == null || useSkill.BNormalSkill == false || useSkill.SkillCfg.skillArea == 0)
+            return;
+        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
+    }
+
 }

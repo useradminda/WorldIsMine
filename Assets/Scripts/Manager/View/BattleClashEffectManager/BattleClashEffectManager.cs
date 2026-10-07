@@ -70,7 +70,7 @@ public class BattleClashEffectManager : Singleton<BattleClashEffectManager>, IMa
     }
 
     /// <summary>有空位时按概率接受当前交战点，满员直接忽略，不保存候选点。</summary>
-    public void ReportContact(Vector3 position)
+    public void ReportHit(Vector3 position)
     {
         if (root == null || freeSlots.Count == 0)
         {

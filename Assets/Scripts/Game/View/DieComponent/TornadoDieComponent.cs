@@ -12,10 +12,10 @@ public class TornadoDieComponent : DieBaseComponent
 
     [Header("扩散")]
     public float startRadius = 0.8f;
-    public float radiusSpeed = 1.5f;
+    //public float radiusSpeed = 1.5f;
 
     [Header("上升")]
-    public float riseSpeed = 3f;
+    public float riseSpeed = 7.5f;
 
     private Vector3 center;
    // private Vector3 oriAng;
@@ -49,7 +49,7 @@ public class TornadoDieComponent : DieBaseComponent
         dieTime -= dt;
         angle += rotateSpeed * dt;
         height += riseSpeed * dt;
-        radius = startRadius + height * height * 0.15f;
+        radius = startRadius + height * height * 0.05f;
         float rad = angle * Mathf.Deg2Rad;
         Vector3 offset = new Vector3(
             Mathf.Cos(rad) * radius,

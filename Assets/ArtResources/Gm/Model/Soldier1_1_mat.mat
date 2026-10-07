@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Soldier1_1
+  m_Name: Soldier1_1_mat
   m_Shader: {fileID: 4800000, guid: e12313fe88e4a8c4aaf47f734fdd11ec, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b75168ea98f53e4428d684dc795c7b7e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5f185c5e099d5ea448f5919295fc8c06, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

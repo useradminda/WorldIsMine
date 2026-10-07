@@ -93,6 +93,8 @@ public class UnitView : IView
 
     public void BeHitSlash()
     {
+        BattleClashEffectManager.Instance.ReportHit(transform.position);
+
         if (stateType != EStateTyep.Die)
         {
             SlachComp.SetSlash();

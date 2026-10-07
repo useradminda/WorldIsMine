@@ -19,9 +19,9 @@ public class AnimMapBakerWindow : EditorWindow {
 
     #region FIELDS
 
-    private const string BuiltInShader = "chenjd/BuiltIn/AnimMapShader";
-    private const string URPShader = "chenjd/URP/AnimMapShader";
-    private const string ShadowShader = "chenjd/BuiltIn/AnimMapWithShadowShader";
+    private const string BuiltInShader = "zxf/BuiltIn/AnimMapShader";
+    private const string URPShader = "zxf/URP/AnimMapShader";
+    private const string ShadowShader = "zxf/BuiltIn/AnimMapWithShadowShader";
     private static List<GameObject> _targetGoList = new List<GameObject>() {};
     private static GameObject _targetGo;
     private static AnimMapBaker _baker;
@@ -118,7 +118,7 @@ public class AnimMapBakerWindow : EditorWindow {
 #else
             var renderPipelineAsset = GraphicsSettings.renderPipelineAsset;
 #endif
-            var shaderName = renderPipelineAsset != null ? URPShader : BuiltInShader;
+            var shaderName = renderPipelineAsset != null ? BuiltInShader : BuiltInShader;
             _animMapShader = Shader.Find(shaderName);
 
             // 存在之前的则删除
@@ -179,7 +179,7 @@ public class AnimMapBakerWindow : EditorWindow {
             actionFlow.SetActionData(key, value.AnimLen, value.Mat);
         }   
         string preafbPath = _prefabFolderPath + "/" + preafabName + ".prefab";
-        string resourcesPath =  "Assets/" + "Resources/Soliders/" + preafabName + ".prefab";
+        string resourcesPath =  "Assets/" + "Resources/Soldier/" + preafabName + ".prefab";
         PrefabUtility.SaveAsPrefabAsset(go, preafbPath);
         PrefabUtility.SaveAsPrefabAsset(go, resourcesPath);
         AssetDatabase.SaveAssets();

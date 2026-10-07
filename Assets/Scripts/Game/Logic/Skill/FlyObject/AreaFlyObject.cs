@@ -7,9 +7,9 @@ public class AreaFlyObject : FlyObjectLogicBase
     private float liveTime = 0;
     private float damageClipTime = 0;
 
-    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damage, int uIndex)
+    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int uIndex)
     {
-        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, uIndex);
+        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, uIndex);
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, tarPos, Vector3.zero);
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
@@ -54,7 +54,7 @@ public class AreaFlyObject : FlyObjectLogicBase
             {
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);           
+                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
                 mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }

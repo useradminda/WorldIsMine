@@ -117,7 +117,7 @@ public static class UnitFactory
         return unit;
     }
 
-    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int damage)
+    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int attackDamage)
     {
         FlyObjectLogicBase flyObjectLogic = null;
         FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
@@ -143,7 +143,7 @@ public static class UnitFactory
             flyObjectLogic = new FlyObjectLogicBase();  
         }
         flyUIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage, flyUIndex);
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, attackDamage, flyUIndex);
         return flyObjectLogic;
     }
 

@@ -1,12 +1,12 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class SkillRemoteSkill : SkillLogicBase
 {
     public SkillRemoteSkill(UnitLogicBase ulb, SkillCfg skillCfg) : base(ulb, skillCfg)
     {
     }
 
-    public override void OnSkillDoEffect()
+    public override void OnSkillDoEffect(List<int> resultUnitIndexList)
     {
         createFlyObject();
     }
@@ -16,7 +16,7 @@ public class SkillRemoteSkill : SkillLogicBase
         int flyCfgId = SkillCfg.flyObjectId;
         Vector3 oriPos = UnitLogic.CurPos;
         Vector3 tarPos = SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos);
-        UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, SkillSearchTarget, this, GetDamage());
+        UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, SkillSearchTarget, this, GetAttackDamageSnapshot());
     }
 
     public override UnitLogicBase GetSkillSearchTargetSingleResult()

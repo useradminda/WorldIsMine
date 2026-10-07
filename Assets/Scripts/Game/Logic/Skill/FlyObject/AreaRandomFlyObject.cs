@@ -8,9 +8,9 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
     private float damageClipTime = 0;
     private List<GameObject> flyObjectGobList = new List<GameObject>();
 
-    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damageValue, int uIndex)
+    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int uIndex)
     {
-        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damageValue, uIndex);
+        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, uIndex);
         flyObjectGobList.Clear();
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
@@ -59,7 +59,7 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
             {
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
+                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
                 mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }

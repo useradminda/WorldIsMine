@@ -3,7 +3,7 @@ Created by jiadong chen
 https://jiadong-chen.medium.com/
 */
 
-Shader "chenjd/BuiltIn/AnimMapShader"
+Shader "zxf/BuiltIn/AnimMapShader"
 {
 	Properties
 	{

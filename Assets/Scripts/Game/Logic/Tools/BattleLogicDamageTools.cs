@@ -4,7 +4,7 @@ public static class BattleLogicDamageTools
 {
     public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid, string dieTyp, Vector3 beHitPoint)
     {
-        if (atkUnit == null || beAtkedUnit == null || atkUnit.CampType == beAtkedUnit.CampType)
+        if (beAtkedUnit == null || (atkUnit != null && atkUnit.CampType == beAtkedUnit.CampType))
         {
             return;
         }

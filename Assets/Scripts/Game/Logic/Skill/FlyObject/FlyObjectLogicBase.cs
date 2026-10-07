@@ -13,7 +13,9 @@ public class FlyObjectLogicBase
     protected UnitLogicBase mSearchTargetUnitLogic;
     protected SkillLogicBase mSkillLogic;
    
-    protected int mDamage;
+    protected int mAttackDamage;
+    protected int mAttackUnitType;
+    protected float mRestrainValue;
 
     protected GameObject mFlyObjectGob;
 
@@ -26,7 +28,7 @@ public class FlyObjectLogicBase
         
     }
 
-    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnitLogic, SkillLogicBase skillLogic, int damage, int flyUIndex)
+    public virtual void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnitLogic, SkillLogicBase skillLogic, int attackDamage, int flyUIndex)
     {
         this.mFlyObjectCfg = flyObjectCfg;
         this.mOriPos = oriPos;
@@ -36,7 +38,9 @@ public class FlyObjectLogicBase
         this.mSearchTargetUnitLogic = searchTargetUnitLogic;
         this.mSkillLogic = skillLogic;
         this.flyUIndex = flyUIndex;
-        mDamage = damage;
+        mAttackDamage = attackDamage;
+        mAttackUnitType = atkUnitLogic.SoliderCfg.unitType;
+        mRestrainValue = atkUnitLogic.SoliderCfg.restrainValue;
     }
 
     public virtual void FlyObjectUpdate(float dt)
@@ -47,6 +51,11 @@ public class FlyObjectLogicBase
     public virtual void ArriveTarPos()
     {
 
+    }
+
+    protected int GetFinalDamage(UnitLogicBase target)
+    {
+        return -BattleLogicDamageTools.CalcFinalDamage(mAttackUnitType, target.SoliderCfg.unitType, mAttackDamage, mRestrainValue);
     }
 
 }

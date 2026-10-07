@@ -5,13 +5,13 @@ public class ArrowFlyObject : FlyObjectLogicBase
 {
     private int targetUid;
 
-    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damage, int flyUIndex)
+    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int flyUIndex)
     {
         oriPos = oriPos + new Vector3(0, 0.5f, 0);
-        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, flyUIndex);
+        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, flyUIndex);
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, tarPos, Vector3.zero);
         targetUid = searchTargetUnit.UId;
-        ProjectileJobManager.Instance.SpawnProjectile(atkUnitLogic.Index, searchTargetUnit.Index, oriPos, tarPos, mFlyObjectCfg.speed, targetUid, damage, flyUIndex, mFlyObjectGob.transform, flyObjectCfg.flyType);
+        ProjectileJobManager.Instance.SpawnProjectile(atkUnitLogic.Index, searchTargetUnit.Index, oriPos, tarPos, mFlyObjectCfg.speed, targetUid, attackDamage, flyUIndex, mFlyObjectGob.transform, flyObjectCfg.flyType);
     }
 
     public override void ArriveTarPos()
@@ -21,8 +21,8 @@ public class ArrowFlyObject : FlyObjectLogicBase
     }
 
     private void damage()
-    {        
-         BattleLogicDamageTools.DoDamage(mAtkUnitLogic, mSearchTargetUnitLogic, mDamage, targetUid, mSkillLogic.SkillCfg.dieType, mTarPos);     
+    {
+         BattleLogicDamageTools.DoDamage(mAtkUnitLogic, mSearchTargetUnitLogic, GetFinalDamage(mSearchTargetUnitLogic), targetUid, mSkillLogic.SkillCfg.dieType, mTarPos);
          mSkillLogic.ApplyBuffs(mSearchTargetUnitLogic);
     }
 

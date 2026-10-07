@@ -9,9 +9,9 @@ public class LineFlyObject : FlyObjectLogicBase
     private float damageClipTime = 0;
     private Vector3 moveForward = Vector3.zero;
     private Vector3 curPos = Vector3.zero;
-    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damage, int uIndex)
+    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int uIndex)
     {
-        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, uIndex);
+        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, uIndex);
         curPos = oriPos;
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, curPos, Vector3.zero);
         moveForward = (tarPos - oriPos).normalized;
@@ -66,7 +66,7 @@ public class LineFlyObject : FlyObjectLogicBase
             {
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, curPos);           
+                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, curPos);
                 mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }
