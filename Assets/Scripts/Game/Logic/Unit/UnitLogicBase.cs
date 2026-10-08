@@ -252,9 +252,9 @@ public class UnitLogicBase
             return;
         }
 
-        if (logicRatio < 100)
+        if (logicRatio < 1)
         {
-            UnitView.FreezeComp.SetFreeze(LogicRatio / 100f);
+            UnitView.FreezeComp.SetFreeze(LogicRatio);
         }
         else
         {
