@@ -147,7 +147,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
                 {
                     return i;
                 }
-                Agent agent = UnitFactory.CreateAgent(bornPoint, forward, unitLogic.Prop.Radius, unitLogic.Prop.MaxSpeed);
+                Agent agent = UnitFactory.CreateAgent(bornPoint, forward, unitLogic.Prop.Radius, unitLogic.Prop.MaxSpeed, unitLogic.SoliderCfg.myLayer, unitLogic.SoliderCfg.ignoreLayer);
                 unitLogic.BindAgent(agent);
 
                 UnitManager.Instance.AddUnitImmediately(unitLogic);

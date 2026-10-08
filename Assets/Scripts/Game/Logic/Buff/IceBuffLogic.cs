@@ -1,7 +1,7 @@
 
 public class IceBuffLogic : BuffLogicBase
 {
-    private int value = 0;
+    private float value = 0;
 
     public IceBuffLogic(UnitLogicBase unitLoigc, BuffLogicMachine buffLogicMachie, int cfgId) : base(unitLoigc, buffLogicMachie, cfgId)
     {
@@ -10,7 +10,7 @@ public class IceBuffLogic : BuffLogicBase
     /// <summary>按照配置百分比降低单位逻辑速度。</summary>
     public override void Enter()
     {
-        value = UnityEngine.Mathf.Clamp(BuffCfg.value, 0, 90);
+        value = UnityEngine.Mathf.Clamp(BuffCfg.value, 0, 0.9f);
         mUnitLogic.SetLogicRatio(-value);
     }
 

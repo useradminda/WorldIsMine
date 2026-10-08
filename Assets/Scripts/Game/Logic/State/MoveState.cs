@@ -46,6 +46,6 @@ public class MoveState : StateBase
 
     private void updateMove()
     {
-        UnitLogic.MoveForward();
+        UnitLogic.AgentMoveForward();
     }
 }

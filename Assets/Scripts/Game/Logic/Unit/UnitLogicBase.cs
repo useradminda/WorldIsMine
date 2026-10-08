@@ -90,15 +90,15 @@ public class UnitLogicBase
     private int attackBuffValue;
     public int AttackBuffValue => attackBuffValue;
 
-    private int logicRatio = 100;
-    public int LogicRatio
+    private float logicRatio = 1;
+    public float LogicRatio
     {
         get
         {
-            if (logicRatio > 100)
-                return 100;
+            if (logicRatio > 1)
+                return 1;
             if (logicRatio < 0)
-                return 10;
+                return 0.1f;
             return logicRatio;
         }
     }
@@ -226,7 +226,7 @@ public class UnitLogicBase
         Agenter.maxSpeed = 0;
     }
 
-    public void MoveForward()
+    public void AgentMoveForward()
     {
         float agentSpeed = Agenter.saveMaxSpeed;
         Agenter.maxSpeed = agentSpeed;
@@ -244,7 +244,7 @@ public class UnitLogicBase
     }
 
     /// <summary>修改单位逻辑速度百分比。</summary>
-    public void SetLogicRatio(int addValue)
+    public void SetLogicRatio(float addValue)
     {
         logicRatio += addValue;
         if (UnitView == null)
@@ -269,10 +269,10 @@ public class UnitLogicBase
     }
 
     /// <summary>根据单位基础攻击力、累计攻击增量和技能倍率计算技能基础伤害。</summary>
-    public int GetAttackDamage(int skillDamageRate)
+    public int GetAttackDamage(float skillDamageRate)
     {
         int finalAttack = Mathf.Max(0, SoliderCfg.atk + attackBuffValue);
-        return Mathf.Max(0, finalAttack * skillDamageRate);
+        return System.Convert.ToInt32(Mathf.Max(0, finalAttack * skillDamageRate));
     }
 
     // normal

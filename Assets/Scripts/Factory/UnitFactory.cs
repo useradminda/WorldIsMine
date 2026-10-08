@@ -82,11 +82,12 @@ public static class UnitFactory
         unit.Agenter.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         unit.Agenter.saveMaxSpeed = unit.Prop.MaxSpeed;
         unit.Agenter.maxSpeed = unit.Prop.MaxSpeed;
+        SetAgentLayers(unit.Agenter, unit.SoliderCfg.myLayer, unit.SoliderCfg.ignoreLayer);
         return unit;
     }
 
     // 创建一个RVO智能体
-    public static Agent CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed)
+    public static Agent CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int ignoreLayer)
     {        
         Agent agent = Pool.Rent<Agent>();   
         agent.pos = bornPoint;
@@ -99,7 +100,26 @@ public static class UnitFactory
         agent.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         agent.saveMaxSpeed = maxSpeed;
         agent.maxSpeed = maxSpeed;
+        SetAgentLayers(agent, myLayer, ignoreLayer);
         return agent;
+    }
+
+    // 根据单位配置设置RVO占用层和忽略层，忽略层为0时不忽略任何层。
+    private static void SetAgentLayers(Agent agent, int myLayer, int ignoreLayer)
+    {
+        agent.layerOccupation = ConvertConfigLayer(myLayer);
+        agent.layerIgnore = ConvertConfigLayer(ignoreLayer);
+    }
+
+    // 表格使用从1开始的层编号，转换成ORCA需要的位掩码；0表示不占用或不忽略任何层。
+    private static ORCALayer ConvertConfigLayer(int configLayer)
+    {
+        if (configLayer <= 0 || configLayer > 31)
+        {
+            return ORCALayer.NONE;
+        }
+
+        return (ORCALayer)(1 << (configLayer - 1));
     }
 
     public static UnitLogicBase CreateWall(ECampType campType)

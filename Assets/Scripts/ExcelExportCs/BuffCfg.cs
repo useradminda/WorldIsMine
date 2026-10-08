@@ -54,6 +54,6 @@ public class BuffCfg
 	public string des;
 	public int tyep;
 	public float time;
-	public int value;
+	public float value;
 	
 }

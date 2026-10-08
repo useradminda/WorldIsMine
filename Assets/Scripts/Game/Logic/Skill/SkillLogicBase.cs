@@ -168,7 +168,7 @@ public class SkillLogicBase
 
     public int GetAttackDamageSnapshot()
     {
-        return unitLogic.GetAttackDamage(SkillCfg.damage);
+        return unitLogic.GetAttackDamage(SkillCfg.skillDamageRate);
     }
 
     private int GetFinalDamage(int attackDamage, UnitLogicBase target)

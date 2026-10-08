@@ -12,10 +12,13 @@ public class TornadoDieComponent : DieBaseComponent
 
     [Header("扩散")]
     public float startRadius = 0.8f;
-    //public float radiusSpeed = 1.5f;
+    public float radiusSpeed = 1.5f;
 
     [Header("上升")]
     public float riseSpeed = 7.5f;
+
+    [Header("持续时间")]
+    public float dieDuration = 2f;
 
     private Vector3 center;
    // private Vector3 oriAng;
@@ -24,7 +27,7 @@ public class TornadoDieComponent : DieBaseComponent
     private float radius;
 
     private bool dieState = false;
-    private float dieTime = 2f;
+    private float dieTime;
 
 
 
@@ -37,6 +40,7 @@ public class TornadoDieComponent : DieBaseComponent
         angle = Random.Range(0f, 360f);
         height = 0f;
         radius = startRadius;
+        dieTime = dieDuration;
 
         dieState = true;
     }
@@ -49,7 +53,7 @@ public class TornadoDieComponent : DieBaseComponent
         dieTime -= dt;
         angle += rotateSpeed * dt;
         height += riseSpeed * dt;
-        radius = startRadius + height * height * 0.05f;
+        radius += radiusSpeed * dt;
         float rad = angle * Mathf.Deg2Rad;
         Vector3 offset = new Vector3(
             Mathf.Cos(rad) * radius,
