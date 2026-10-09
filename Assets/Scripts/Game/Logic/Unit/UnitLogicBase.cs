@@ -88,16 +88,13 @@ public class UnitLogicBase
     public int Index => index;
 
     private int attackBuffValue;
-    public int AttackBuffValue => attackBuffValue;
 
     private float logicRatio = 1;
     public float LogicRatio
     {
         get
         {
-            if (logicRatio > 1)
-                return 1;
-            if (logicRatio < 0)
+            if (logicRatio <= 0f)
                 return 0.1f;
             return logicRatio;
         }
@@ -127,7 +124,7 @@ public class UnitLogicBase
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
-        logicRatio = 100;
+        logicRatio = 1f;
         attackBuffValue = 0;
         initProp();
         initSkills();
@@ -148,6 +145,7 @@ public class UnitLogicBase
     public void BindUnitView(UnitView unitView)
     {
         this.UnitView = unitView;
+        RefreshLogicRatioView();
     }
 
     public void UnitUpdate(float dt)
@@ -228,14 +226,19 @@ public class UnitLogicBase
 
     public void AgentMoveForward()
     {
-        float agentSpeed = Agenter.saveMaxSpeed;
+        float agentSpeed = Agenter.saveMaxSpeed * LogicRatio;
         Agenter.maxSpeed = agentSpeed;
-        Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
+        Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed * LogicRatio;
     }
 
     /// <summary>根据配置ID创建并添加Buff。</summary>
     public bool AddBuff(int buffCfgId, float duration = -1f)
     {
+        if (IsDead || UnitType != EUnitType.Solider)
+        {
+            return false;
+        }
+
         BuffLogicBase buffLogic = BuffLogicFactory.Create(
             buffCfgId,
             this,
@@ -244,15 +247,21 @@ public class UnitLogicBase
     }
 
     /// <summary>修改单位逻辑速度百分比。</summary>
-    public void SetLogicRatio(float addValue)
+    public void ChangeLogicRatio(float addValue)
     {
         logicRatio += addValue;
+        RefreshLogicRatioView();
+    }
+
+    /// <summary>刷新动画和材质上的冰冻表现。</summary>
+    private void RefreshLogicRatioView()
+    {
         if (UnitView == null)
         {
             return;
         }
 
-        if (logicRatio < 1)
+        if (LogicRatio < 1f)
         {
             UnitView.FreezeComp.SetFreeze(LogicRatio);
         }

@@ -3,7 +3,6 @@ using UnityEngine;
 public class AttackBuffLogic : BuffLogicBase
 {
     private int attackValue;
-    public int AttackValue => attackValue;
 
     public AttackBuffLogic(
         UnitLogicBase unitLogic,
@@ -23,7 +22,7 @@ public class AttackBuffLogic : BuffLogicBase
         }
 
         attackValue = Mathf.RoundToInt(
-            mUnitLogic.SoliderCfg.atk * BuffCfg.value / 1000f);
+            mUnitLogic.SoliderCfg.atk * BuffCfg.value);
         mUnitLogic.ChangeAttackBuffValue(attackValue);
     }
 

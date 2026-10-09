@@ -1,7 +1,7 @@
 
 public class IceBuffLogic : BuffLogicBase
 {
-    private float value = 0;
+    private float speedDelta;
 
     public IceBuffLogic(UnitLogicBase unitLoigc, BuffLogicMachine buffLogicMachie, int cfgId) : base(unitLoigc, buffLogicMachie, cfgId)
     {
@@ -10,13 +10,14 @@ public class IceBuffLogic : BuffLogicBase
     /// <summary>按照配置百分比降低单位逻辑速度。</summary>
     public override void Enter()
     {
-        value = UnityEngine.Mathf.Clamp(BuffCfg.value, 0, 0.9f);
-        mUnitLogic.SetLogicRatio(-value);
+        speedDelta = BuffCfg.value;
+        mUnitLogic.ChangeLogicRatio(speedDelta);
     }
 
     /// <summary>移除冰冻时恢复本Buff降低的逻辑速度。</summary>
     public override void Exit()
     {
-        mUnitLogic.SetLogicRatio(value);
+        mUnitLogic.ChangeLogicRatio(-speedDelta);
+        speedDelta = 0f;
     }
 }

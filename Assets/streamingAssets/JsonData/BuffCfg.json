@@ -1,1 +1,1 @@
-[{"id":1,"name":"冰冻","des":"冰冻","tyep":1,"time":3.0,"value":0.0},{"id":2,"name":"攻击增加","des":"攻击增加","tyep":2,"time":3.0,"value":0.3}]
+[{"id":1,"name":"冰冻","des":"冰冻","tyep":1,"time":3.0,"value":-0.3},{"id":2,"name":"攻击增加","des":"攻击增加","tyep":2,"time":3.0,"value":0.3}]

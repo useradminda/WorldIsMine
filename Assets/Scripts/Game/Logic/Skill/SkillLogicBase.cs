@@ -42,7 +42,7 @@ public class SkillLogicBase
             return;
         if (curCD > 0)
         {
-            curCD -= dt;
+            curCD -= dt * unitLogic.LogicRatio;
         }
     }
 

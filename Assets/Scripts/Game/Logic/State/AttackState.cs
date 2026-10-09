@@ -40,7 +40,7 @@ public class AttackState : StateBase
         updateSuprerSkill();
         if (attackTime > 0)
         {
-            attackTime -= dt;
+            attackTime -= dt * UnitLogic.LogicRatio;
         }
         else
         {
