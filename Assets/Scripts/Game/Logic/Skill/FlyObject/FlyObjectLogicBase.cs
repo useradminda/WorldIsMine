@@ -58,4 +58,12 @@ public class FlyObjectLogicBase
         return -BattleLogicDamageTools.CalcFinalDamage(mAttackUnitType, target.SoliderCfg.unitType, mAttackDamage, mRestrainValue);
     }
 
+    protected void CreateArriveEffect(Vector3 createPos)
+    {
+      if (mFlyObjectCfg.arrivePrefab == "")
+          return;
+       GameObject effect = UnitViewFactory.CreateGob(mFlyObjectCfg.arrivePrefab, createPos, Vector3.zero);
+       effect.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(2f, mFlyObjectCfg.arrivePrefab);
+    }
+
 }

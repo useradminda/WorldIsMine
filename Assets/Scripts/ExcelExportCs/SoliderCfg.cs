@@ -62,5 +62,6 @@ public class SoliderCfg
 	public string prefab;
 	public int myLayer;
 	public int ignoreLayer;
+	public string aroundEffect;
 	
 }

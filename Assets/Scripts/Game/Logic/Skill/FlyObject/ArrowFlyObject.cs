@@ -16,6 +16,7 @@ public class ArrowFlyObject : FlyObjectLogicBase
 
     public override void ArriveTarPos()
     {
+        CreateArriveEffect(mTarPos);
         damage();
         die();
     }

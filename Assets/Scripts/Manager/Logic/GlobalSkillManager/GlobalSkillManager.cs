@@ -25,6 +25,18 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         public float RemainTime;
     }
 
+    private class GlobalStoneState
+    {
+        public ECampType CampType;
+        public int FlyObjectCfgId;
+        public SkillLogicBase SkillLogic;
+        public UnitLogicBase Attacker;
+        public int Damage;
+        public int FiredCount;
+        public float TargetDepth;
+        public bool HasTargetDepth;
+    }
+
     /// <summary>初始化全局技能管理器。</summary>
     public void ManagerInit()
     {
@@ -166,6 +178,52 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         return true;
     }
 
+    /// <summary>消耗胜点并同时释放三发全局火球。</summary>
+    public bool TryCastGlobalStone(ECampType casterCamp, int flyObjectCfgId, int skillCfgId, int damage, int victoryPointCost)
+    {
+        return BattleScoreManager.Instance.TryCastGlobalSkill(
+            victoryPointCost,
+            () => ApplyGlobalStone(casterCamp, flyObjectCfgId, skillCfgId, damage));
+    }
+
+    /// <summary>创建全局火球批次，并同时发射三发火球。</summary>
+    public bool ApplyGlobalStone(ECampType casterCamp, int flyObjectCfgId, int skillCfgId, int damage)
+    {
+        if (bornConfig == null || damage <= 0)
+        {
+            return false;
+        }
+
+        FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
+        SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(skillCfgId);
+        UnitLogicBase attacker = UnitManager.Instance.GetPlayerLogic(casterCamp);
+        if (flyObjectCfg == null || flyObjectCfg.flyType != "globalStone" || attacker == null || skillCfg == null)
+        {
+            Debug.LogError($"全局火球配置不存在或缺少攻击者，FlyObjectCfgId={flyObjectCfgId}，SkillCfgId={skillCfgId}");
+            return false;
+        }
+
+        GlobalStoneState state = new GlobalStoneState
+        {
+            CampType = casterCamp,
+            FlyObjectCfgId = flyObjectCfgId,
+            SkillLogic = new SkillLogicBase(attacker, skillCfg),
+            Attacker = attacker,
+            Damage = damage,
+            FiredCount = 0,
+        };
+        int firedCount = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            if (SpawnGlobalStone(state))
+            {
+                firedCount++;
+            }
+        }
+
+        return firedCount > 0;
+    }
+
     /// <summary>一次遍历结算圆形范围内所有存活敌兵，每个敌人只受伤一次。</summary>
     private void ApplyArrowRainDamage(
         ECampType casterCamp, Vector3 center, float radius, int damage, string dieType)
@@ -239,6 +297,48 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
                 arrowRainStateList.RemoveAt(i);
             }
         }
+    }
+
+    /// <summary>
+    /// 创建一发火球，并让其从本方出生线飞向敌方随机落点。
+    /// 三发火球使用相同的前进方向，因此轨迹保持平行。
+    /// </summary>
+    private bool SpawnGlobalStone(GlobalStoneState state)
+    {
+        UnitLogicBase enemy = GetRandomEnemy(state.CampType);
+        if (enemy == null)
+        {
+            return false;
+        }
+
+        Vector3 forward = bornConfig.GetForward(state.CampType).normalized;
+        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+        float segmentWidth = BattleDefine.AreaTotalWith / 3f;
+        float segmentCenter = -BattleDefine.AreaTotalWith * 0.5f + segmentWidth * (state.FiredCount + 0.5f);
+        float randomWidthOffset = Random.Range(segmentCenter - segmentWidth * 0.5f, segmentCenter + segmentWidth * 0.5f);
+        Vector3 origin = bornConfig.GetBornPoint(state.CampType) + right * randomWidthOffset;
+        Vector3 target = enemy.CurPos;
+        target.x = origin.x;
+        if (state.HasTargetDepth == false)
+        {
+            state.TargetDepth = enemy.CurPos.z;
+            state.HasTargetDepth = true;
+        }
+        target.z = state.TargetDepth;
+        target.y = enemy.CurPos.y;
+
+        UnitFactory.CreateFlyObjectLogic(
+            state.FlyObjectCfgId,
+            origin,
+            target,
+            state.Attacker,
+            null,
+            enemy,
+            state.SkillLogic,
+            state.Damage);
+
+        state.FiredCount++;
+        return true;
     }
 
     /// <summary>清空粒子并归还整体箭雨特效到现有对象缓存。</summary>

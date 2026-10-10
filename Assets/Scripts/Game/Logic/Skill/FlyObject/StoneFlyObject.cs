@@ -19,6 +19,7 @@ public class StoneFlyObject : FlyObjectLogicBase
 
     public override void ArriveTarPos()
     {
+        CreateArriveEffect(mTarPos);
         damage();
         die();
     }

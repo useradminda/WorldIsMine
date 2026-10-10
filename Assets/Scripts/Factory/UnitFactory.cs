@@ -87,7 +87,7 @@ public static class UnitFactory
     }
 
     // 创建一个RVO智能体
-    public static Agent CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int ignoreLayer)
+    public static Agent  CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int ignoreLayer)
     {        
         Agent agent = Pool.Rent<Agent>();   
         agent.pos = bornPoint;
@@ -137,6 +137,17 @@ public static class UnitFactory
         return unit;
     }
 
+    /// <summary>
+    /// 创建阵营玩家逻辑对象。玩家逻辑不计入士兵数量，也不加入Agent和地图搜索。
+    /// </summary>
+    public static UnitLogicBase CreatePlayerLogic(ECampType campType)
+    {
+        int cfgId = campType == ECampType.Red ? 30001 : 30002;
+        int uid = campType == ECampType.Red ? 30001 : 30002;
+        int index = campType == ECampType.Red ? -1 : -2;
+        return new UnitLogicBase(cfgId, uid, campType, Vector3.zero, index);
+    }
+
     public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int attackDamage)
     {
         FlyObjectLogicBase flyObjectLogic = null;
@@ -157,6 +168,14 @@ public static class UnitFactory
         else if (flyObjectCfg.flyType == "line")
         {
             flyObjectLogic = new LineFlyObject();
+        }
+        else if (flyObjectCfg.flyType == "jumpArrow")
+        {
+            flyObjectLogic = new JumpArrowFlyObject();
+        }
+        else if (flyObjectCfg.flyType == "globalStone")
+        {
+            flyObjectLogic = new GlobalStoneFlyObject();
         }
         else
         {

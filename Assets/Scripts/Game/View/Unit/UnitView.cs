@@ -7,6 +7,8 @@ public class UnitView : IView
     private string prefabName;
     public string PrefabName => prefabName;
 
+    private GameObject aroundEffectObject;
+
     private EStateTyep stateType;
 
     private ActionFlow actionFlow;
@@ -68,6 +70,7 @@ public class UnitView : IView
         this.prefabName = prefabName;
         this.unitLogic = unit;
         SlachComp.ExitSlash();
+        InitAroundEffect(unit.SoliderCfg.aroundEffect);
     }
 
     public override void ViewInit()
@@ -248,4 +251,37 @@ public class UnitView : IView
             dieComp.SetUnitView(this);
         }
     }
+
+
+    /// <summary>创建或重新启用角色周身特效，模型缓存复用时不会重复创建。</summary>
+    private void InitAroundEffect(string effectPath)
+    {
+        if (string.IsNullOrEmpty(effectPath))
+        {
+            if (aroundEffectObject != null)
+            {
+                aroundEffectObject.SetActive(false);
+            }
+            return;
+        }
+
+        if (aroundEffectObject != null)
+        {
+            aroundEffectObject.SetActive(false);
+            aroundEffectObject.SetActive(true);
+            return;
+        }
+
+        GameObject effectTemplate = Resources.Load<GameObject>(effectPath);
+        if (effectTemplate == null)
+        {
+            Debug.LogError($"周身特效不存在，路径={effectPath}");
+            return;
+        }
+
+        aroundEffectObject = Instantiate(effectTemplate, transform, false);
+        aroundEffectObject.transform.localPosition = Vector3.zero;
+        aroundEffectObject.transform.localRotation = Quaternion.identity;
+    }
+
 }

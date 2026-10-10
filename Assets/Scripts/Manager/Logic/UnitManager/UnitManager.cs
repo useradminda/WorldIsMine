@@ -13,6 +13,8 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     private UnitLogicBase redWallLogic;
     private UnitLogicBase blueWallLogic;
+    private UnitLogicBase redPlayerLogic;
+    private UnitLogicBase bluePlayerLogic;
     private BornConfig bornConfig;
     private Vector3 redWallCenter;
     private Vector3 blueWallCenter;
@@ -30,6 +32,8 @@ public class UnitManager : Singleton<UnitManager>, IManager
     {
         redWallLogic = UnitFactory.CreateWall(ECampType.Red);
         blueWallLogic = UnitFactory.CreateWall(ECampType.Blue);
+        redPlayerLogic = UnitFactory.CreatePlayerLogic(ECampType.Red);
+        bluePlayerLogic = UnitFactory.CreatePlayerLogic(ECampType.Blue);
     }
 
     /// <summary>
@@ -105,6 +109,19 @@ public class UnitManager : Singleton<UnitManager>, IManager
         return redWallLogic;
     }
 
+    /// <summary>
+    /// 获取指定阵营的玩家逻辑对象，用作全局技能的攻击来源。
+    /// </summary>
+    public UnitLogicBase GetPlayerLogic(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            return redPlayerLogic;
+        }
+
+        return bluePlayerLogic;
+    }
+
     public Vector3 GetWallCenter(ECampType campType)
     {
         if (campType == ECampType.Red)
@@ -165,6 +182,8 @@ public class UnitManager : Singleton<UnitManager>, IManager
     public void ManagerDestroy()
     {
         ClearWaiting();
+        redPlayerLogic = null;
+        bluePlayerLogic = null;
     }
 
     //// 增加一个Unit
