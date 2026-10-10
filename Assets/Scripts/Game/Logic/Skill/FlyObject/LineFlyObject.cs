@@ -7,6 +7,7 @@ public class LineFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;
     private float damageClipTime = 0;
+    private int triggeredDamageCount;
     private Vector3 moveForward = Vector3.zero;
     private Vector3 curPos = Vector3.zero;
     public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int uIndex)
@@ -17,18 +18,23 @@ public class LineFlyObject : FlyObjectLogicBase
         moveForward = (tarPos - oriPos).normalized;
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
+        triggeredDamageCount = 0;
     }
 
     public override void FlyObjectUpdate(float dt)
     {
-        reqSearchTar();
-        setSearchTar();
-
-        damageClipTime -= dt;
-        if (damageClipTime < 0)
+        if (CanTriggerDamage())
         {
-            damage();
-            damageClipTime = mFlyObjectCfg.damClipTime;
+            reqSearchTar();
+            setSearchTar();
+
+            damageClipTime -= dt;
+            if (damageClipTime < 0)
+            {
+                damage();
+                triggeredDamageCount++;
+                damageClipTime = mFlyObjectCfg.damClipTime;
+            }
         }
 
         updateMoveForward(dt);
@@ -36,6 +42,14 @@ public class LineFlyObject : FlyObjectLogicBase
         liveTime -= dt;
         if (liveTime < 0)
             die();
+    }
+
+    /// <summary>
+    /// 判断直线范围伤害是否还可以继续触发，负数表示不限制次数。
+    /// </summary>
+    private bool CanTriggerDamage()
+    {
+        return mFlyObjectCfg.triggerDamageCount < 0 || triggeredDamageCount < mFlyObjectCfg.triggerDamageCount;
     }
 
     private int searchReqIndex = -1;

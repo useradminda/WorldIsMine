@@ -177,6 +177,10 @@ public static class UnitFactory
         {
             flyObjectLogic = new GlobalStoneFlyObject();
         }
+        else if (flyObjectCfg.flyType == "areaRandom")
+        {
+            flyObjectLogic = new AreaRandomFlyObject();
+        }
         else
         {
             flyObjectLogic = new FlyObjectLogicBase();  

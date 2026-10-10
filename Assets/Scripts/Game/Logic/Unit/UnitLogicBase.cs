@@ -95,7 +95,7 @@ public class UnitLogicBase
         get
         {
             if (logicRatio <= 0f)
-                return 0.1f;
+                return 0f;
             return logicRatio;
         }
     }
@@ -145,7 +145,6 @@ public class UnitLogicBase
     public void BindUnitView(UnitView unitView)
     {
         this.UnitView = unitView;
-        RefreshLogicRatioView();
     }
 
     public void UnitUpdate(float dt)
@@ -250,25 +249,6 @@ public class UnitLogicBase
     public void ChangeLogicRatio(float addValue)
     {
         logicRatio += addValue;
-        RefreshLogicRatioView();
-    }
-
-    /// <summary>刷新动画和材质上的冰冻表现。</summary>
-    private void RefreshLogicRatioView()
-    {
-        if (UnitView == null)
-        {
-            return;
-        }
-
-        if (LogicRatio < 1f)
-        {
-            UnitView.FreezeComp.SetFreeze(LogicRatio);
-        }
-        else
-        {
-            UnitView.FreezeComp.ExitFreeze();
-        }
     }
 
     /// <summary>Buff生效或退出时修改累计攻击增量，保留负值以支持减攻击Buff的正确恢复。</summary>

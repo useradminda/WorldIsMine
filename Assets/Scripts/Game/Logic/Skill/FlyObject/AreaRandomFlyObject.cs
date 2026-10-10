@@ -6,6 +6,7 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;
     private float damageClipTime = 0;
+    private int triggeredDamageCount;
     private List<GameObject> flyObjectGobList = new List<GameObject>();
 
     public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int uIndex)
@@ -14,24 +15,37 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
         flyObjectGobList.Clear();
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
+        triggeredDamageCount = 0;
     }
 
     public override void FlyObjectUpdate(float dt)
     {
-        reqSearchTar();
-        setSearchTar();
-
-        damageClipTime -= dt;
-        if (damageClipTime < 0)
+        if (CanTriggerDamage())
         {
-            setRandomPos();
-            damage();
-            damageClipTime = mFlyObjectCfg.damClipTime;   
+            reqSearchTar();
+            setSearchTar();
+
+            damageClipTime -= dt;
+            if (damageClipTime < 0)
+            {
+                setRandomPos();
+                damage();
+                triggeredDamageCount++;
+                damageClipTime = mFlyObjectCfg.damClipTime;
+            }
         }
 
         liveTime -= dt;
         if (liveTime < 0)
             die();
+    }
+
+    /// <summary>
+    /// 判断随机区域伤害是否还可以继续触发，负数表示不限制次数。
+    /// </summary>
+    private bool CanTriggerDamage()
+    {
+        return mFlyObjectCfg.triggerDamageCount < 0 || triggeredDamageCount < mFlyObjectCfg.triggerDamageCount;
     }
 
     private int searchReqIndex = -1;

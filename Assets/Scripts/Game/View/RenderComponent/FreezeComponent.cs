@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-// ±ù¶³×é¼þ
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class FreezeComponent : MonoBehaviour
 {
     private RenderComponent renderComponenter;
@@ -29,13 +29,13 @@ public class FreezeComponent : MonoBehaviour
 
     public void SetFreeze(float ratio)
     {
-        mActionFlow.ActionFreeze(ratio);
+        mActionFlow.SetAnimationSpeed(ratio);
         RenderComponenter.SetPropertyBlockFloat("_ICEState", 1);
     }
 
-    public void ExitFreeze()
+    public void ExitFreeze(float ratio)
     {
-        mActionFlow.ActionExitFreeze();
+        mActionFlow.SetAnimationSpeed(ratio);
         RenderComponenter.SetPropertyBlockFloat("_ICEState", 0);
     }
 }

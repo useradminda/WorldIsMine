@@ -5,5 +5,6 @@ public class BuffDefine
         None = 0,
         Freeze = 1,
         AddAtk = 2,
+        Paralysis = 3,
     }
 }

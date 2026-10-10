@@ -9,11 +9,13 @@ public class UIOperateManager : MonoBehaviour
 {
     private const int MinSpawnCount = 1;
     private const int MaxSpawnCount = 3000;
+    private const int GlobalStoneFlyObjectCfgId = 1001;
+    private const int GlobalStoneSkillCfgId = 1001;
 
     private readonly List<SoldierMenuData> redSoldiers = new List<SoldierMenuData>();
     private readonly List<SoldierMenuData> blueSoldiers = new List<SoldierMenuData>();
 
-    private Rect windowRect = new Rect(20f, 70f, 760f, 340f);
+    private Rect windowRect = new Rect(20f, 70f, 760f, 385f);
     private Vector2 redScrollPosition;
     private Vector2 blueScrollPosition;
     private string redSpawnCountText = "100";
@@ -78,6 +80,7 @@ public class UIOperateManager : MonoBehaviour
             DrawCampMenu("蓝色阵营", ECampType.Blue, blueSoldiers, ref blueScrollPosition, Color.white);
         }
 
+        DrawGlobalStoneButtons();
         DrawCloseButton();
 
         if (!string.IsNullOrEmpty(operationTip))
@@ -102,6 +105,46 @@ public class UIOperateManager : MonoBehaviour
         }
         GUILayout.EndHorizontal();
     }
+
+    /// <summary>
+    /// 绘制红蓝双方的全局火球释放按钮。
+    /// </summary>
+    private void DrawGlobalStoneButtons()
+    {
+        GUILayout.Space(4f);
+        GUILayout.Label("全局技能", campTitleStyle);
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("红方释放全局火球", GUILayout.Height(32f)))
+        {
+            CastGlobalStone(ECampType.Red);
+        }
+        if (GUILayout.Button("蓝方释放全局火球", GUILayout.Height(32f)))
+        {
+            CastGlobalStone(ECampType.Blue);
+        }
+        GUILayout.EndHorizontal();
+    }
+
+    /// <summary>
+    /// 使用对应阵营玩家配置的攻击力释放全局火球。
+    /// </summary>
+    private void CastGlobalStone(ECampType campType)
+    {
+        UnitLogicBase playerLogic = UnitManager.Instance.GetPlayerLogic(campType);
+        if (playerLogic == null)
+        {
+            operationTip = $"{campType}玩家逻辑尚未创建。";
+            return;
+        }
+
+        int damage = playerLogic.SoliderCfg.atk;
+        bool castSuccess = GlobalSkillManager.Instance.ApplyGlobalStone(campType, GlobalStoneFlyObjectCfgId, GlobalStoneSkillCfgId, damage);
+        string campName = campType == ECampType.Red ? "红方" : "蓝方";
+        operationTip = castSuccess
+            ? $"{campName}已释放全局火球，单发基础伤害：{damage}。"
+            : $"{campName}全局火球释放失败。";
+    }
+
     /// <summary>
     /// 绘制指定阵营的出兵数量输入框。
     /// </summary>

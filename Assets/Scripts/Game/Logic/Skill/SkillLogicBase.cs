@@ -183,6 +183,6 @@ public class SkillLogicBase
 
     private void playStartEffect()
     {
-        UnitLogic.UnitView.PlayEffect(skillCfg.startEffect, UnitLogic.CurPos, new UnityEngine.Vector3(0, 0, 1), 1);
+        UnitLogic.UnitView.PlayEffect(skillCfg.startEffect, UnitLogic.CurPos, UnityEngine.Vector3.forward, 5);
     }
 }

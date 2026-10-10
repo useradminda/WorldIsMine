@@ -1,23 +1,27 @@
 
 public class IceBuffLogic : BuffLogicBase
 {
-    private float speedDelta;
-
     public IceBuffLogic(UnitLogicBase unitLoigc, BuffLogicMachine buffLogicMachie, int cfgId) : base(unitLoigc, buffLogicMachie, cfgId)
     {
     }
 
-    /// <summary>按照配置百分比降低单位逻辑速度。</summary>
+    /// <summary>进入冰冻Buff时直接启用单位的冰冻表现。</summary>
     public override void Enter()
     {
-        speedDelta = BuffCfg.value;
-        mUnitLogic.ChangeLogicRatio(speedDelta);
+        mUnitLogic.ChangeLogicRatio(BuffCfg.value);
+        if (mUnitLogic.UnitView != null)
+        {
+            mUnitLogic.UnitView.FreezeComp.SetFreeze(mUnitLogic.LogicRatio);
+        }
     }
 
-    /// <summary>移除冰冻时恢复本Buff降低的逻辑速度。</summary>
+    /// <summary>退出冰冻Buff时恢复单位的正常表现。</summary>
     public override void Exit()
     {
-        mUnitLogic.ChangeLogicRatio(-speedDelta);
-        speedDelta = 0f;
+        mUnitLogic.ChangeLogicRatio(-BuffCfg.value);
+        if (mUnitLogic.UnitView != null)
+        {
+            mUnitLogic.UnitView.FreezeComp.ExitFreeze(mUnitLogic.LogicRatio);
+        }
     }
 }

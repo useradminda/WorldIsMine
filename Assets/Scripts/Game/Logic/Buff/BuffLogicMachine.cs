@@ -21,9 +21,9 @@ public class BuffLogicMachine
             }
         }
 
+        buffList.Add(buffLogic);
         buffLogic.Refresh(duration);
         buffLogic.Enter();
-        buffList.Add(buffLogic);
         return true;
     }
 
@@ -35,8 +35,8 @@ public class BuffLogicMachine
             return;
         }
 
-        buffLogic.Exit();
         buffList.Remove(buffLogic);
+        buffLogic.Exit();
     }
 
     /// <summary>更新全部Buff，并安全移除到期Buff。</summary>
@@ -48,8 +48,8 @@ public class BuffLogicMachine
             buffLogic.Update(dt);
             if (buffLogic.IsExpired)
             {
-                buffLogic.Exit();
                 buffList.RemoveAt(i);
+                buffLogic.Exit();
             }
         }
     }
@@ -59,8 +59,11 @@ public class BuffLogicMachine
     {
         for (int i = buffList.Count - 1; i >= 0; i--)
         {
-            buffList[i].Exit();
+            BuffLogicBase buffLogic = buffList[i];
+            buffList.RemoveAt(i);
+            buffLogic.Exit();
         }
         buffList.Clear();
     }
+
 }

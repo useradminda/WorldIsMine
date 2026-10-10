@@ -93,10 +93,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
             return;
         }
 
-        searchReqIndex = MapCellManager.Instance.RequestSearch(
-            mTarPos,
-            mSkillLogic.SkillCfg.skillArea,
-            mAtkUnitLogic.OtherCampTypeInt);
+        searchReqIndex = MapCellManager.Instance.RequestSearch(mTarPos, mSkillLogic.SkillCfg.skillArea, mAtkUnitLogic.OtherCampTypeInt);
         MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
     }
 
@@ -124,13 +121,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
                 continue;
             }
 
-            BattleLogicDamageTools.DoDamage(
-                mAtkUnitLogic,
-                target,
-                GetFinalDamage(target),
-                target.UId,
-                mSkillLogic.SkillCfg.dieType,
-                mTarPos);
+            BattleLogicDamageTools.DoDamage(mAtkUnitLogic, target, GetFinalDamage(target), target.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
             mSkillLogic.ApplyBuffs(target);
         }
     }

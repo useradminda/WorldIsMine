@@ -22,6 +22,8 @@ public static class BuffLogicFactory
                 return new IceBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             case BuffDefine.EBuffType.AddAtk:
                 return new AttackBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
+            case BuffDefine.EBuffType.Paralysis:
+                return new ParalysisBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             default:
                 Debug.LogError($"未实现的Buff类型，BuffId={buffCfgId}，Type={buffCfg.tyep}");
                 return null;

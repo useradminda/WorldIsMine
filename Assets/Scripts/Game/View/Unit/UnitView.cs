@@ -65,6 +65,19 @@ public class UnitView : IView
         }
     }
 
+    private ParalysisComponent paralysisComp;
+    public ParalysisComponent ParalysisComp
+    {
+        get
+        {
+            if (paralysisComp == null)
+            {
+                paralysisComp = gameObject.GetOrAddComponent<ParalysisComponent>();
+            }
+            return paralysisComp;
+        }
+    }
+
     public void Init(UnitLogicBase unit, string prefabName)
     {
         this.prefabName = prefabName;
