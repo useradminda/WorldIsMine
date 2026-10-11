@@ -9,7 +9,7 @@ using ZTools;
 public class BattleClashEffectSettings
 {
     public GameObject Prefab;
-    [Range(1, 10)] public int MaxCount = 10;
+    [Range(1, 20)] public int MaxCount = 10;
     [Range(0f, 1f)] public float SpawnChance = 0.1f;
     [FormerlySerializedAs("ContactLifetime")]
     [Min(0.1f)] public float EffectLifetime = 3f;

@@ -11911,8 +11911,8 @@ MonoBehaviour:
   BornConfigIns: {fileID: 1944465874}
   ClashEffects:
     Prefab: {fileID: 443787417736643983, guid: 921c29e6535e2114889b873850b70ace, type: 3}
-    MaxCount: 8
-    SpawnChance: 0.1
+    MaxCount: 10
+    SpawnChance: 0.503
     EffectLifetime: 3
     HeightOffset: 0.5
   enableLegacySpawnHotkeys: 0
