@@ -1,0 +1,750 @@
+[
+  {
+    "file": "Hero1_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero2_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero3_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero4_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero5_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero6_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero7_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero8_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero9_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero10_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero11_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero12_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero13_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero14_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero15_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero16_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero17_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero18_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero19_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero20_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero21_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero22_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero23_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero24_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero25_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero26_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero27_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero28_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero29_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero30_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero31_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero32_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero33_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero34_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero35_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero36_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero37_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero38_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero39_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero40_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero41_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero42_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero43_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero44_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Hero45_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier1_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier1_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier2_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier2_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier3_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier3_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier4_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier5_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier6_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier7_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier8_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier8_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier9_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier10_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier10_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier11_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier11_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier12_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier13_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier13_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier14_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier15_1.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  },
+  {
+    "file": "Soldier15_2_qin.png",
+    "size": [
+      512,
+      512
+    ],
+    "alpha": [
+      0,
+      255
+    ]
+  }
+]

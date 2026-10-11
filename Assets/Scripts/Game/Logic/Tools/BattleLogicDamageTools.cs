@@ -2,25 +2,24 @@ using UnityEngine;
 
 public static class BattleLogicDamageTools
 {
-    //public static void DoDamage(UnitLogicBase atkUnit, List<UnitLogicBase> beAtkedUnits, SkillLogicBase useSkill)
-    //{
-    //    int damage = -useSkill.SkillCfg.damage;
-    //    for (int i = 0; i < beAtkedUnits.Count; i++)
-    //    {
-    //        int atkType = atkUnit.SoliderCfg.unitType;
-    //        int beAtkType = beAtkedUnits[i].SoliderCfg.unitType;
-    //        int finalDamage = CalcFinalDamage(atkType, beAtkType, damage);
-    //        beAtkedUnits[i].ChangeHp(finalDamage);
-    //    }
-    //}
-
-    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid, string dieTyp)
+    public static void DoDamage(UnitLogicBase atkUnit, UnitLogicBase beAtkedUnit, int finalDamage, int beAtkedUid, string dieTyp, Vector3 beHitPoint)
     {
+        if (beAtkedUnit == null || (atkUnit != null && atkUnit.CampType == beAtkedUnit.CampType))
+        {
+            return;
+        }
+
         // uid 为了unitlogicbase可能会被替换
         if (beAtkedUnit.UId == beAtkedUid)
         {
-            beAtkedUnit.ChangeHp(finalDamage, dieTyp);
-            beAtkedUnit.UnitView.BeHitSlash();
+            bool wasAlive = !beAtkedUnit.IsDead;
+            beAtkedUnit.ChangeHp(finalDamage, dieTyp, beHitPoint);
+            int damage = Mathf.Max(0, -finalDamage);
+            BattleScoreManager.Instance.AddDamageReward(damage);
+            if (wasAlive && beAtkedUnit.IsDead)
+            {
+                BattleScoreManager.Instance.AddKillReward(1, damage);
+            }
         }
     }
 

@@ -1,0 +1,25 @@
+{
+  "file": "Hero1_1.png",
+  "input": "poc/hero-icon/Hero1_1.png",
+  "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+  "output_sha256": "70e5ed4a09001e69ffcae80c20e643370f032daf5e95313177839f0ced8028bf",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    72,
+    49,
+    953,
+    975
+  ],
+  "raw_source": "work/hero_icons_v3_20260923/source_art/Hero1_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Image 1 is the identity reference: same red-orange armored male cavalryman, silver-edged helmet with purple horsehair crest, navy sleeves, short sword, chestnut horse. Reimagine him as a premium THREE KINGDOMS CHINESE GUOFENG game character illustration, painterly colorful gongbi + expressive ink-brush aesthetic. The V3 style must be distinctly DIFFERENT from glossy 3D/chibi V1 and cinematic Western semi-realistic V2: graceful ink-and-mineral-pigment texture, confident hand-brushed dark contours, softly feathered watercolor shadow INSIDE the subject only, intricate but disciplined historic Han/Three-Kingdoms lamellar cuirass, red lacquer, aged bronze fittings, subtle engraved cloud-scroll motifs, woven silk sash, Eastern saber (dao) and Chinese cavalry tack. Heroic adult proportions around 6.5-7 heads, resolute angular adult face with natural small eyes, not baby-face. Powerful historically inspired chestnut warhorse, dynamic three-quarter movement, visually joined with rider. Palette: cinnabar red, indigo/navy, muted antique gold, controlled purple plume, warm parchment undertones ONLY WITHIN opaque character forms. The external background MUST BE ACTUAL FULLY TRANSPARENT ALPHA; no parchment rectangle, no ink splashes floating outside silhouette, no scenery, no circle, no paper texture outside figure. One complete rider and one complete horse only, entire plume, saber, tail and four hooves within square with at least 6% clear transparent margins. L3 commercial-quality collectible strategy-game character art, clean small-icon readability and lavish close-up painted details. 1024x1024 PNG. No text, no stamp, no watermark, no UI frame, no ground plane, no shadow."
+}

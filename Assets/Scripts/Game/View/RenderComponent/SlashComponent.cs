@@ -12,7 +12,7 @@ public class SlashComponent : MonoBehaviour
         get
         {
             if(renderComponenter == null)
-                renderComponenter = this.gameObject.GetOrAddComponent<RenderComponent>();
+                renderComponenter = this.gameObject.GetOrAddComponentInChild<RenderComponent>();
             return renderComponenter;
         }
     }

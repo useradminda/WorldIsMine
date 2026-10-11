@@ -3,7 +3,8 @@ public class BuffDefine
     public enum EBuffType
     {
         None = 0,
-        AddAtk = 1,
-        Freeze = 2,
+        Freeze = 1,
+        AddAtk = 2,
+        Paralysis = 3,
     }
 }

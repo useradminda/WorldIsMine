@@ -1,0 +1,1710 @@
+{
+  "expected": 68,
+  "completed": 68,
+  "pending": [],
+  "failed_file_checks": [],
+  "file_checks_pass": true,
+  "all_delivered": true,
+  "assets": [
+    {
+      "file": "Hero1_1.png",
+      "input": "poc/hero-icon/Hero1_1.png",
+      "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+      "output_sha256": "70e5ed4a09001e69ffcae80c20e643370f032daf5e95313177839f0ced8028bf",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        72,
+        49,
+        953,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero1_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Image 1 is the identity reference: same red-orange armored male cavalryman, silver-edged helmet with purple horsehair crest, navy sleeves, short sword, chestnut horse. Reimagine him as a premium THREE KINGDOMS CHINESE GUOFENG game character illustration, painterly colorful gongbi + expressive ink-brush aesthetic. The V3 style must be distinctly DIFFERENT from glossy 3D/chibi V1 and cinematic Western semi-realistic V2: graceful ink-and-mineral-pigment texture, confident hand-brushed dark contours, softly feathered watercolor shadow INSIDE the subject only, intricate but disciplined historic Han/Three-Kingdoms lamellar cuirass, red lacquer, aged bronze fittings, subtle engraved cloud-scroll motifs, woven silk sash, Eastern saber (dao) and Chinese cavalry tack. Heroic adult proportions around 6.5-7 heads, resolute angular adult face with natural small eyes, not baby-face. Powerful historically inspired chestnut warhorse, dynamic three-quarter movement, visually joined with rider. Palette: cinnabar red, indigo/navy, muted antique gold, controlled purple plume, warm parchment undertones ONLY WITHIN opaque character forms. The external background MUST BE ACTUAL FULLY TRANSPARENT ALPHA; no parchment rectangle, no ink splashes floating outside silhouette, no scenery, no circle, no paper texture outside figure. One complete rider and one complete horse only, entire plume, saber, tail and four hooves within square with at least 6% clear transparent margins. L3 commercial-quality collectible strategy-game character art, clean small-icon readability and lavish close-up painted details. 1024x1024 PNG. No text, no stamp, no watermark, no UI frame, no ground plane, no shadow."
+    },
+    {
+      "file": "Hero2_1.png",
+      "input": "poc/hero-icon/Hero2_1.png",
+      "input_sha256": "ea51672604c3bb0d3d7afbccb2929d36676f6de626365183cab39a4069dbddd2",
+      "output_sha256": "026ad5fcc94688f01a658e42609c722e6545a17433c2e51f844914f1ffb40ed8",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        56,
+        48,
+        968,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero2_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Slender youthful adult swordsman with dark teal high ponytail and side bangs, vivid green tunic, yellow scarf, silver shoulder armor and short sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero3_1.png",
+      "input": "poc/hero-icon/Hero3_1.png",
+      "input_sha256": "745826d89cb3d0031bba5f90cf3e017946a7042c14cb47b1a7c43e76c4491353",
+      "output_sha256": "31cf63f47e255e1c8c5d9c603d19efdab999a69ac67449fd4cc5e1ec5ba95162",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        52,
+        49,
+        971,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero3_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Young noble male strategist, brown hair in high bun with small gold crown, red and gold robe, open white folding fan decorated with delicate dark ink branches. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero4_1.png",
+      "input": "poc/hero-icon/Hero4_1.png",
+      "input_sha256": "a6e81baa5b8cc588b3c45ee2a0378ddce0bcbfeba4788effa6c6b89c13a0b5ea",
+      "output_sha256": "d93887724d816c972a87f4cf8058ce9141091ac9dce09fa6f31bb5afa3e6c2b1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        69,
+        49,
+        953,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero4_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female support hero, brown hair in high bun, turquoise and blue dress with pale sleeves, gold belt, short staff tipped with a pink flower bud. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero5_1.png",
+      "input": "poc/hero-icon/Hero5_1.png",
+      "input_sha256": "5b2d66140424bcd9d0bfdf3311826dbbb824501fb39ca899c119c87e049ccfdd",
+      "output_sha256": "22e6d6befd417812040f6dd80b8f9301a040f6f031887a339108c82f32bafd65",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        75,
+        49,
+        949,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero5_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Rugged muscular male warrior with brown beard and moustache, red headband, sleeveless brown and steel armor, red wrist wraps, holding a compact crossbow across chest. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero6_1.png",
+      "input": "poc/hero-icon/Hero6_1.png",
+      "input_sha256": "682d81283fd38cca74db3ca7eea7dca29b8fb3bd7824c1b8d929eef0b435f5c3",
+      "output_sha256": "fb0df4352d7437a13d755a7609ed6ebb394ccb24d91a13ba5bf1da7716ebd748",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        53,
+        49,
+        970,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero6_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female dancer strategist, auburn high-bun hair, red and gold outfit, broad open red-and-ivory folding fan. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero7_1.png",
+      "input": "poc/hero-icon/Hero7_1.png",
+      "input_sha256": "e5bddbbc15aa6ce6beaf2be0a317d92d99f2c3731cee4ff4de6ad4c7ac08adf4",
+      "output_sha256": "89e419aaed4be80afbcc24287dfae6a7ea7cf29e251f1da540f0aa18746fc982",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        52,
+        48,
+        971,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero7_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Stout moustached veteran, gold-trimmed silver helmet with red plume, silver lamellar armor, golden shoulder plates, broad short sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero8_1.png",
+      "input": "poc/hero-icon/Hero8_1.png",
+      "input_sha256": "684c2e563b0a542d03970010b8bf7237e3ea2aae81dfa89a0a5185e0463245a3",
+      "output_sha256": "9432fb87eedade75f670b8d413464b1b9e7a475ed22037e80814d4b1af8b87e3",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        56,
+        975,
+        967
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero8_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female agile swordswoman, short straight violet hair, vivid cyan-blue outfit, pale shoulder wrap, short silver blade and blue boots. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero9_1.png",
+      "input": "poc/hero-icon/Hero9_1.png",
+      "input_sha256": "7d22cfeb4688413e489980ea34ee07a0af2e1764198e137121beff29b8a1964c",
+      "output_sha256": "fa34c980110324fccb3eea972b28d5ffeacbc310afb2074cb078b2becdd9206f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        55,
+        48,
+        969,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero9_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male ceremonial musician, long dark side hair, broad horizontal gold headpiece, red and black robes, gold shoulder armor, round red-rimmed hand drum with pale face at side. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero10_1.png",
+      "input": "poc/hero-icon/Hero10_1.png",
+      "input_sha256": "af77647cda00f06bf74c8598444176d3c9c24b0ba79542f6fcc3d4c2fea3c60b",
+      "output_sha256": "214c42b40dd2097b95c86d4343e27b3c4d5e61ad64d81b871e2f27e7fe14d2ac",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        59,
+        48,
+        965,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero10_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female royal spellcaster, black high bun under ornate turquoise-and-gold headpiece, long turquoise robe with gold edges, ornate broad sleeves. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero11_1.png",
+      "input": "poc/hero-icon/Hero11_1.png",
+      "input_sha256": "c32d31e6d2604f8327f72a6914864f1dfad644c3cef951f94487bb2307da1727",
+      "output_sha256": "82506e6b9b9855070cfff28b9e5751ad3dadebf96a2b52cdb100181a8a8d010d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        70,
+        976,
+        953
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero11_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Long-bearded stern male guandao general, tall green and gold cap, emerald green robe and armor with gold pauldrons, silver crescent guandao polearm. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero12_1.png",
+      "input": "poc/hero-icon/Hero12_1.png",
+      "input_sha256": "b048619138f0ed7085f5804e068663559f1ce4b25549394aa9420f482ddfa28d",
+      "output_sha256": "65f97c08dc1116b85b915241fc9cbb41f92c36f94505feee3bd958a2f041f49e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        64,
+        976,
+        959
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero12_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Powerful male warrior, dark bushy beard and high topknot, emerald and gold armor, crimson scarf, silver broad-pointed polearm. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero13_1.png",
+      "input": "poc/hero-icon/Hero13_1.png",
+      "input_sha256": "611e0d9ebc9c2c0069fa501665d8e9fedb0add918f73c49094f2ab8be1fefa37",
+      "output_sha256": "b2ab7e286773a7444f1c7196ba35744cb2df5ee9de496c3350eecf1e76526f1e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        57,
+        49,
+        967,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero13_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male silver knight, ornate pale-blue and silver armor, closed-cheek helmet with white plume, blue cloth, slim silver blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero14_1.png",
+      "input": "poc/hero-icon/Hero14_1.png",
+      "input_sha256": "67dcef30bf549a936b70bc53f61f30804b6206879c7553fcec4aa64e833e8eab",
+      "output_sha256": "9f39d5ead837b68ce5bc9ebc3623198d5ae24a71dc9f298e66db31ef5883baa2",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        57,
+        48,
+        968,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero14_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female swordswoman, chestnut side-swept hair and bun adorned with yellow flower, bright emerald and gold outfit, short curved blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero15_1.png",
+      "input": "poc/hero-icon/Hero15_1.png",
+      "input_sha256": "7c53753c5269c2a105cd301d7fde62266ade6df25e2c00c4c0fad2a109347574",
+      "output_sha256": "67e62b68da22c46ac7ef7ee81cb75a3cfa937a5039d5e9dddaf925de5c7bc980",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        53,
+        976,
+        970
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero15_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Mature male imperial warlord, pointed black beard, swept black-and-silver hair, tall small gold crown, purple and gold robes with angular gold shoulders, curved silver sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero16_1.png",
+      "input": "poc/hero-icon/Hero16_1.png",
+      "input_sha256": "e755e2cac775223e2ea2307538a87b4fe060fbf3914412c3b141b897c527e849",
+      "output_sha256": "22d1f90603044136677c8f87cc4d2977073edbbf022e82e0996d0f32974e086e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        65,
+        49,
+        960,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero16_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Burly adult male berserker, reddish-brown hair and topknot, fierce beard, bare chest with leather and gold armor straps, enormous gold pauldrons, round blue spiked shield. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero17_1.png",
+      "input": "poc/hero-icon/Hero17_1.png",
+      "input_sha256": "02955347f84c70080118305d3418c33d136a0b7958d34cc29dace40404193488",
+      "output_sha256": "ef11215dbdc042c11e8f19c6c165a78be6f2f84f3ccc1f37b0d5de94c6a2c68c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        58,
+        48,
+        966,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero17_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female noble warrior, vivid purple hair, ornate gold bun ornament, purple and gold dress with ivory collar, elegant curved short blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero18_1.png",
+      "input": "poc/hero-icon/Hero18_1.png",
+      "input_sha256": "a272ee2a6b6c810788fc08dd703ddf3beda06b96f98e8c0c64acb0c96ee1aa20",
+      "output_sha256": "e9f5b72d8c1c1cec69816e337435ee787293faa5b490f43080325017a7592df0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        55,
+        48,
+        968,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero18_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male red-and-gold armored commander, auburn topknot with swept horizontal gold headpiece, gold dragon-like shoulder detail, short silver dao. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero19_1.png",
+      "input": "poc/hero-icon/Hero19_1.png",
+      "input_sha256": "56252b28ce864cfeb490103f8e8173ea3ba68ae9aadb573a3c94ddad139decd8",
+      "output_sha256": "65c5448d2070c700515cd408a2298a481c11fe1e73f921433b55895cc929400c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        56,
+        976,
+        966
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero19_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female fire dancer, vivid red hair in high bun with pink flower ornament, rich red and magenta outfit trimmed gold, small red-gold baton. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero20_1.png",
+      "input": "poc/hero-icon/Hero20_1.png",
+      "input_sha256": "7c7680b277ebd3d7acf7dc7d9613424051ca9909aad0d1345f2f194e5afd389c",
+      "output_sha256": "a2890ab9fc090ebac79fa89d397245eab77ce4f568cedf9745f2ed5437635d66",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        53,
+        48,
+        970,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero20_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female forest dancer, light brown high-bun hair with pink flower, emerald and gold outfit, short green-gold baton. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero21_1.png",
+      "input": "poc/hero-icon/Hero21_1.png",
+      "input_sha256": "f5544057cd69a29fabed5570ce10873a96d807d4dd6283bae03a92111a025eeb",
+      "output_sha256": "3799ea6d78b76f8e021a8041ff96386b30aa2e23fb1d3641c76acaee9394011a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        66,
+        48,
+        957,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero21_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Athletic adult male dual-stick martial hero, auburn topknot, emerald tunic with yellow scarf, silver shoulder plates, two matching short gold batons, one in each hand. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero22_1.png",
+      "input": "poc/hero-icon/Hero22_1.png",
+      "input_sha256": "14546a026fc2a8ce2a36f2b8fd84a89b242ad5fd7dee05164e9aeb71e4c349aa",
+      "output_sha256": "e5d0cc6a5146c327bb35c81ab56ef0b69b9e22aefa53e1ee5a6d23fdbfe1eeef",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        51,
+        49,
+        973,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero22_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male halberd warlord, black hair and sharp features, tall gold crown with two very long curved crimson pheasant feathers, dark steel and gold armor, ornate halberd. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero23_1.png",
+      "input": "poc/hero-icon/Hero23_1.png",
+      "input_sha256": "c44cdbbbedf9610288905e98364e5bf721aed22fea9484478b5ac0e61c94bca2",
+      "output_sha256": "bc4449fe446e04604075b7d9d5afd6894c4fa2a873f6b2809a7d7357ab626690",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        61,
+        48,
+        962,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero23_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female musician, brown side-swept bob beneath gold ornament, pink and cream outfit, holding a pale-gold pear-shaped Chinese pipa lute with neck upward. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero24_1.png",
+      "input": "poc/hero-icon/Hero24_1.png",
+      "input_sha256": "260e8996a217727610e4c9f8c356dcf8bb6d9a51c502bf696fc7c2bd40915509",
+      "output_sha256": "04997c3ca59945d7b8d270253d9627f9a728564ddd4a0ffd649ce1c72916cd13",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        90,
+        48,
+        934,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero24_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female red-and-white armored archer, brown high ponytail, red-and-white tall head ornament, fitted red armor and a gold bow. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero25_1.png",
+      "input": "poc/hero-icon/Hero25_1.png",
+      "input_sha256": "cde2f674d4b62435a02d1599e03d4dd2f57f5792ed04f7e6b38e57f1d11dd94a",
+      "output_sha256": "50f49b581f7d3d26f6ff0b62c2d8efdd5bc36e717f0680673b384388c399ab82",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        90,
+        48,
+        934,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero25_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male pale-silver armored mounted archer, silver helmet and white plume, purple undercloth and sash, wooden bow held beside body. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero26_1.png",
+      "input": "poc/hero-icon/Hero26_1.png",
+      "input_sha256": "37de36ce5e9c4c0621e0055b04b1578725433d64c14f39b377feca43876e97ea",
+      "output_sha256": "9ff2f1a41eea6437adaf33fdc8ea0b2b33701b259e90b875304c60b48d62f0f0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        65,
+        49,
+        959,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero26_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Stocky ginger-bearded male bombardier knight, pale silver and bright blue armor, blue helmet with red plume, large compact single-barrel gray hand cannon. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero27_1.png",
+      "input": "poc/hero-icon/Hero27_1.png",
+      "input_sha256": "5be4ae51a3c7c6fd828426b1842d6bb7530504cb302f0c328ff145fd3d679454",
+      "output_sha256": "5f08a2390a5ad20f752c9156d2e2ecf7b33fe08079a491b4f90ae8e08e1fb5c7",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        57,
+        975,
+        967
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero27_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Male curved-sword commander, ornate gold-and-magenta pointed helmet, purple and crimson outfit with broad gold borders and shoulders, wide curved silver blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero28_1.png",
+      "input": "poc/hero-icon/Hero28_1.png",
+      "input_sha256": "d83419a27aead8e8fd0d07922a38c0eab91af7a22339664461499cb4797417a1",
+      "output_sha256": "4a0df12ae940c915bd209094c30c5923e1aa5c95048652e2359fe7de218cf832",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        59,
+        976,
+        965
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero28_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Dark-bearded male lancer, dark navy and silver plate armor, silver helmet with purple plume, long dark-shafted silver spear. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero29_1.png",
+      "input": "poc/hero-icon/Hero29_1.png",
+      "input_sha256": "f335cccfab8e57987ec6d7ab833f577580363f8ce4acb081562c0f494e676aaa",
+      "output_sha256": "3b66ad66879091b39677233e6ce547d81f166c9f1ead779790f986a3489091dc",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        71,
+        48,
+        952,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero29_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Elderly male sage, long pale cyan-white beard and eyebrows, pale-blue hair in high topknot, flowing cobalt and icy-blue robes with pale borders. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero30_1.png",
+      "input": "poc/hero-icon/Hero30_1.png",
+      "input_sha256": "cf996dd3617f9c15dc9865d193d69a06f0e0ff7e1ac3a96e5003a489c8cf8e40",
+      "output_sha256": "e94e1262bc57cff9585c1d620032d07f2ef69dcac97871661b458e6090bb41d0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        59,
+        48,
+        964,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero30_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Male scholarly strategist, very tall emerald-and-gold ceremonial cap, cream robe with green sleeves, broad open ivory folding fan. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero31_1.png",
+      "input": "poc/hero-icon/Hero31_1.png",
+      "input_sha256": "6c725404d18192cd72ee8606c20a36ec7e2f2ab42e081335f37223f36045d80c",
+      "output_sha256": "9d6a1f1e13961f8305322de41fce9af0d54dc5985cc53ecd5f1b0c9f43e47ad6",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        70,
+        976,
+        954
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero31_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female knight, auburn high ponytail with silver headband, red undercloth and fitted silver shoulder armor, slim steel sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero32_1.png",
+      "input": "poc/hero-icon/Hero32_1.png",
+      "input_sha256": "aa8654160d4e544a72cdf0f528e11f142cb02c1bb468ed7a0020e7584fbf60ab",
+      "output_sha256": "06d7a56b62fc4fcd666dbc642a31a86853d6ebd7a7255393b6b2dd184e42575a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        64,
+        976,
+        960
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero32_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Burly Adult male noble fighter, brown high-bun hair with short gold crown, vivid magenta and red robe, wide gold belt, enormous broad gray jagged war blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero33_1.png",
+      "input": "poc/hero-icon/Hero33_1.png",
+      "input_sha256": "43bab10b74a7e3a2831738efc7ad382795872d1a57de6090632c1a53a869ebb6",
+      "output_sha256": "bb65e55c15191c5e38d780e549984b37a50ebc42f75ec98c92e593f6e196e59e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        51,
+        48,
+        972,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero33_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Bearded male purple-armored heavy knight, angular gold and purple helmet, gold pauldrons over deep-purple armor, broad silver curved sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero34_1.png",
+      "input": "poc/hero-icon/Hero34_1.png",
+      "input_sha256": "4e55a5d8fd888106eed660314cbc723026c23acfded43a9bd731c5934ddc8eff",
+      "output_sha256": "ff244aec11fb633cd19348b015dd4c450f92be0d2769c128ee362646de125674",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        66,
+        975,
+        958
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero34_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Athletic adult male warrior, swept dark blue hair without helmet, navy clothes, pale metallic collar and bracers, partly bare upper arms, long forked silver polearm. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero35_1.png",
+      "input": "poc/hero-icon/Hero35_1.png",
+      "input_sha256": "183dbae19c5b68fd6b7a897e58930a6f7dab551f4de32c4dc51549df00b0f3fc",
+      "output_sha256": "d7ad91cd500f9e2b57fc58b4b44f037028b191df8fce104ee8d19872dc2c5cb8",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        48,
+        974,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero35_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Moustached adult male royal knight, black topknot and small gold crown, deep blue-violet robes, ornate gold shoulder armor and bracers, short blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero36_1.png",
+      "input": "poc/hero-icon/Hero36_1.png",
+      "input_sha256": "cd0a53209fde95e0f58b80ac5bcc7fa57677eb7068bb5cf3091ffe486e3f40c8",
+      "output_sha256": "df2ba541f4452e5e690e2fcc7922df69f2c4c5271662265622e7205315fdb6bd",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        58,
+        976,
+        965
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero36_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Broad dark-bearded male emperor bombardier, purple and gold tall crown, deep-purple and gold robe with crimson sash, huge dark octagonal-barrel hand cannon. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero37_1.png",
+      "input": "poc/hero-icon/Hero37_1.png",
+      "input_sha256": "3993db88bec154fb6a2e7a209f99216e6de7a0b3307983ddc3845a99e270ef1e",
+      "output_sha256": "bf30decdeeea255f7c776ea81c071a84b6b523b5705e48e179743386e7085eaa",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        78,
+        50,
+        946,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero37_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Elderly male archer with long white beard, red and gold helmet with white plume, red-gold armor and yellow shoulders, wooden bow and arrows. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero38_1.png",
+      "input": "poc/hero-icon/Hero38_1.png",
+      "input_sha256": "f10da07552ac3dac94d3dfd23a5d07af005ffd6cbc32303d4c90288a7d122134",
+      "output_sha256": "059b0ee424a2be313078a43aace4974ee78fc7df81e51ad82329c2a80eabc587",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        56,
+        975,
+        968
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero38_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male royal silver-and-red knight, long white helmet plume, white silver crown-helmet with red center, red tunic, enormous gold shoulders, slim silver sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero39_1.png",
+      "input": "poc/hero-icon/Hero39_1.png",
+      "input_sha256": "d724c423947f4af9c7494c0c118f20e6e997fdff94a345346b72e60beb312214",
+      "output_sha256": "f19c2958f6e0f77cb1a8b61d3ffd5d62ba1f6dbdf0a808f85e0270e3c7e7abfc",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        59,
+        49,
+        966,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero39_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Elderly white-haired moustached bombardier, lavender-white high ponytail, purple and blue outfit with gold pauldrons, enormous dark gray single-barrel cannon. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero40_1.png",
+      "input": "poc/hero-icon/Hero40_1.png",
+      "input_sha256": "54868affbc5ccb7c2ae729d9652c92f94e22c072bbcfa31088e5b5e0d07403f5",
+      "output_sha256": "747cf6558106671b39741705dc69fa23c502a442425e901253e36370bc190775",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        75,
+        976,
+        949
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero40_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Elderly white-haired noble knight with long straight white hair and beard, small gold crown, green-white-gold outfit, curved silver blade. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero41_1.png",
+      "input": "poc/hero-icon/Hero41_1.png",
+      "input_sha256": "7ba7516e7843de6c9e745b88cba140292076a4f34a9a59349042cafdfa66d8d4",
+      "output_sha256": "f0a75ebf9f71929b5900aa0c872da9a11ef6fed152a20ab38d4efdb106e15553",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        61,
+        48,
+        962,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero41_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Long-black-bearded male ritual sage, black high bun with gold headband, yellow and black robes, short dark staff with a pink rose-like flower head. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero42_1.png",
+      "input": "poc/hero-icon/Hero42_1.png",
+      "input_sha256": "911ef28df5ddec52dc338d32c11b55a74953a020f6f46612d74ff6ed86ff2972",
+      "output_sha256": "005498d373512e41db3571424ffa1e8615d231de5d6dde70d4e21e7156833e09",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        50,
+        59,
+        976,
+        967
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero42_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Athletic adult male wild swordsman, spiky dark auburn hair with pale feather ornament, orange-red shoulder cloth, gold one-sided pauldron, open chest armor, straight silver sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero43_1.png",
+      "input": "poc/hero-icon/Hero43_1.png",
+      "input_sha256": "66d693c54461fd96e9a7133efb47d4603fd9d83d7a73d1edd94a776df993beb0",
+      "output_sha256": "8e12363204af125a8a6b4e179fa00f04b68b1729aa350308c2c163e641944106",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        60,
+        48,
+        963,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero43_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult female royal swordswoman, shoulder-length dark-magenta hair and high gold ornament, red and gold armor with purple cloth, slim curved sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero44_1.png",
+      "input": "poc/hero-icon/Hero44_1.png",
+      "input_sha256": "94214134e5dbfc1eba67c5e2fc008b0a698de75e29b68471797108fa49c2109e",
+      "output_sha256": "52e40c321ba87507d4e681b2c2dfd8c083105d6be82587505b379e5dbaeef81c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        52,
+        975,
+        973
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero44_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Elderly male purple-robed court mage, long pale beard, very tall conical purple hat with silver ornament, lavender robes and pale trim, long staff-like accessory. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Hero45_1.png",
+      "input": "poc/hero-icon/Hero45_1.png",
+      "input_sha256": "d92d0dca78b20b967f9dc2fbb364154748787cc06f9e9ae0e8b540273c6e0114",
+      "output_sha256": "2bfdad7fc3db3bbb935fc01b01fd787d93ef26eb77374f460ca527f3282ee931",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        68,
+        49,
+        955,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Hero45_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult male green-teal armored ranger, dark high ponytail, blue-and-gold headband, emerald scarf, turquoise armor with gold edges, short silver sword. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier1_1.png",
+      "input": "poc/hero-icon/Soldier1_1.png",
+      "input_sha256": "85b9204c61a15fed00562c1f03cef28e9e18043e4943d3f63388195a5f383f8a",
+      "output_sha256": "237779737780e8ff7de697d1de68508330a92577dd407e6e59d73b635d100651",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        61,
+        48,
+        963,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier1_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult infantryman, gold pointed helmet, gold segmented armor, bright green scarf and cloth, short sword and large angular silver-blue shield. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier1_2_qin.png",
+      "input": "poc/hero-icon/Soldier1_2_qin.png",
+      "input_sha256": "6d621afe68720a24f9e68dbf8cb327ab4770b7b6cea7270e7fe0589055429a4e",
+      "output_sha256": "1406793515435eb41aa9a4c6ee384b62c2acadc28ce9d17d340ce3767d9b670d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        90,
+        48,
+        935,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier1_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult blue-and-silver armored knight, fully closed silver visor with straight narrow vertical vents, tall blue plume, brown trousers, straight silver sword and blue-white shield. Retain the simple Western-fantasy knight identity of THIS reference. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier2_1.png",
+      "input": "poc/hero-icon/Soldier2_1.png",
+      "input_sha256": "0f89b80c564b9ddf7bc492b9b39e4e59eaa6fb1c97dbb2d9cfdc3be5484ec92e",
+      "output_sha256": "d4a97041d0bac53c6d8c788e1aec276de1107d17681ee24a4063b8324282bf0f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        69,
+        48,
+        954,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier2_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult archer, pointed teal helmet, layered turquoise armor and scarf, wooden bow held diagonally across body. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier2_2_qin.png",
+      "input": "poc/hero-icon/Soldier2_2_qin.png",
+      "input_sha256": "92688b57693ceb567b36160870fba847058daf6dfb2b7cfff903700bde9ab4de",
+      "output_sha256": "bc1d9ef5a150652024fc0cb1bb5f0a2f56115ba1022a6386a4201ce0d0546925",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        81,
+        49,
+        944,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier2_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult compact hooded archer, vivid blue hood and shoulder cape, brown leather tunic with blue straps, gray trousers, curved wooden bow. No helmet. Western fantasy look matching this input. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier3_1.png",
+      "input": "poc/hero-icon/Soldier3_1.png",
+      "input_sha256": "6609d193116ff8fe35ecf58ce7fd82aa120c94fe5a09aac52fb499a18bd36453",
+      "output_sha256": "6218c47acbe80a32dd05381cb623b32eb5adb5fac979c202bff3bc70909939ad",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        89,
+        48,
+        934,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier3_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult red-and-brown armored heavy infantryman, pointed bronze helmet, red scarf and sleeves, large dark metal hammer carried over one shoulder. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier3_2_qin.png",
+      "input": "poc/hero-icon/Soldier3_2_qin.png",
+      "input_sha256": "495986c8abcde773b4e0d8e3943e80326c76fa542a22461aa5bff00d2c5c2a6e",
+      "output_sha256": "85cebd9986b456c333a6d0a9fab94a30cfe113332fe7be5a2f4f6bd4bd6244c5",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        69,
+        49,
+        956,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier3_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Brawny adult bare-armed axe infantryman, horned closed silver helmet with T-shaped dark face opening, brown leather torso straps and kilt, blue arm bands, broad silver battle axe on long wooden handle. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier4_1.png",
+      "input": "poc/hero-icon/Soldier4_1.png",
+      "input_sha256": "746a14431f022f11628659b53228a2938b95eb6e62bc5b4bd4c829e6a73bceed",
+      "output_sha256": "7a5fb4fa6647068737f44197b88efec82a91f53d67b5f87c9285789770d57940",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        120,
+        49,
+        904,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier4_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult turquoise-armored bombardier, pointed teal helmet and blue scarf, large dark gray single-barrel shoulder cannon. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier5_1.png",
+      "input": "poc/hero-icon/Soldier5_1.png",
+      "input_sha256": "e39f3828b346cb91079a2bee50fef06a2a1bb8d4d1dd1a94b9091db1fd440b2f",
+      "output_sha256": "d547b8bffb515bf4590f4aaca9345e086e0bb551ac6d699bc7171c1ad389afc6",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        62,
+        976,
+        962
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier5_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Stocky elderly fantasy woodland dwarf with enormous white beard, green cap and sleeveless green vest, exposed round belly, dark-green trousers, huge bronze-gold gauntlets. Preserve this unusual dwarf, do not replace with regular armored soldier. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Preserve this special creature's species, distinctive anatomy and costume; evoke a mighty mountain spirit from Chinese fantasy, rather than changing it into a human soldier. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier6_1.png",
+      "input": "poc/hero-icon/Soldier6_1.png",
+      "input_sha256": "dda716feaaf7de7eb4f8cd49c755eec93861d4c2c67b24b0d27539c2454bd45b",
+      "output_sha256": "413f05f90f84b70779fca8719e2fe201ec2c9cb4d2e92866cd7bcf2437133b1c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        68,
+        976,
+        956
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier6_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult gold-and-green armored heavy infantryman, pointed gold helmet and emerald scarf, enormous square iron war hammer held horizontally, metal angular decorative faces. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier7_1.png",
+      "input": "poc/hero-icon/Soldier7_1.png",
+      "input_sha256": "08ab196c9984655610e129c46ddc242cb83a4605ebc949af7ade196bee8f3f97",
+      "output_sha256": "3bc498bc666a957b88062912d990eeb21fe7a6688e6af976bbddc4a8e2ee122c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        106,
+        48,
+        918,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier7_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult turquoise armored crossbowman, pointed teal helmet and blue scarf, large wood-and-steel crossbow held across both hands. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier8_1.png",
+      "input": "poc/hero-icon/Soldier8_1.png",
+      "input_sha256": "407ae775e4154f58012015a588f92114da9024cc6671c13d1b6dea4ff84ac7ef",
+      "output_sha256": "aa1154c3fed2b063ddfda3d6e09f3287b059b58c1c250c8821939ecad9006427",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        57,
+        50,
+        965,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier8_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult red-and-brown armored spearman, bronze pointed helmet and red scarf, long horizontal wooden spear with a large angular silver spearhead. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier8_2_qin.png",
+      "input": "poc/hero-icon/Soldier8_2_qin.png",
+      "input_sha256": "b385ffa06f9bfd0643a1f3f677921fdcf1dbc6e38c1c51985436312d67ecdaa6",
+      "output_sha256": "6a59f07ffbac78e664fd2f2d4244464fed57932dc1bfb45990f64f322d824b3d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        188,
+        49,
+        836,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier8_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult fantasy spearman, horned closed silver T-visor helmet, exposed arms and brown leather kilt with blue arm wraps, long upright silver-tipped spear. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier9_1.png",
+      "input": "poc/hero-icon/Soldier9_1.png",
+      "input_sha256": "a70522a678960048ee52bb1da79e8bb917999a5c8dcfba369f5c2bf0309058b6",
+      "output_sha256": "3f8858fd9cd570db8f68ddec42d2d9c3fa9013b03932768c9220a05590cc3fa4",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        53,
+        975,
+        971
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier9_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult gold-and-green heavy lancer, pointed gold helmet and green scarf, long dark polearm held horizontally, broad turquoise-silver crescent spearhead. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier10_1.png",
+      "input": "poc/hero-icon/Soldier10_1.png",
+      "input_sha256": "785904e50fbb3bebdf34999ae630877dc96f6e4d934abd2acbe3d0e974830cb6",
+      "output_sha256": "ee54ed013493ce7f7243cf317fd9098bd00799ce864840a1c35a7cb3cb479a1f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        234,
+        976,
+        789
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier10_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single wooden repeating BALLISTA siege cart, warm reddish-brown carved timber, four small wheels with iron rims, a large horizontal crossbow assembly on top loaded with bolts, front rectangular reinforced wooden shield. Keep the ballista mechanism; NOT a catapult, no character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier10_2_qin.png",
+      "input": "poc/hero-icon/Soldier10_2_qin.png",
+      "input_sha256": "bb6dfaf0001a52a4ff491a048ac9442fa7dc38df73ea36e8c9a0de46a7c5a0c1",
+      "output_sha256": "5fce9b14e144c95e309ba732d3f37785e89ab5f02c085574700dda13863252b2",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        170,
+        975,
+        853
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier10_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single compact blue-and-white fantasy BALLISTA siege cart, pale oak frame and chunky wood wheels, blue cloth rectangular front shield with white edging and small silver studs, horizontal crossbow beam on top. Keep ballista identity and blue-white palette. No character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier11_1.png",
+      "input": "poc/hero-icon/Soldier11_1.png",
+      "input_sha256": "b287457af953147cf7450aa62e41b996b90fe77b238fdc7007f115820e1af252",
+      "output_sha256": "33e4796718810b9e24fd34828c46712502f5a724ec14a98e5fc7c0af50fe6071",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        56,
+        976,
+        968
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier11_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult red-and-brown armored cavalry spearman, bronze pointed helmet and red scarf, mounted on a chestnut pony, long wooden spear held across the body with a broad steel tip. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier11_2_qin.png",
+      "input": "poc/hero-icon/Soldier11_2_qin.png",
+      "input_sha256": "bb5b21a4f3f87df4e0d715766d047bb61e1f7ef1fc7c697e529eaa257588bbd2",
+      "output_sha256": "48b9b2da528bdac841ab20d3c9a62afcdb41616db248df36bf29f4823c27193a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        114,
+        49,
+        909,
+        976
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier11_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: Adult closed-visored silver knight with blue helmet plume, blue-and-white tabard, mounted on a chestnut pony with blue-white tack, very long upright blue lance. Western fantasy cavalry matching this input. One complete rider on one complete powerful chestnut warhorse; Chinese cavalry tack with subtle woven reins, never a pony. Entire weapon, horse tail and all four hooves visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Adult heroic anatomy about 6.5-7 heads, resolved facial planes and natural-sized eyes; gender appropriate and commanding, not doll-like. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier12_1.png",
+      "input": "poc/hero-icon/Soldier12_1.png",
+      "input_sha256": "831c8983a4a94f71528a22529c683deeb6a7940d7fa3d899ec8b9458d3292f01",
+      "output_sha256": "afb7e3af49229d616aacc7a8606eb180cbf96c950d9058be5ac1dac7255e9c0f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        52,
+        975,
+        972
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier12_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: One hulking fantasy ice troll / yeti, pale icy-blue thick hair and enormous beard, muscular blue-gray long arms and huge blue hands, heavy bent-legged stance, rough brown fur-and-leather loincloth and belt, fierce but charming face. Nonhuman giant, no horse, no weapon. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Preserve this special creature's species, distinctive anatomy and costume; evoke a mighty mountain spirit from Chinese fantasy, rather than changing it into a human soldier. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier13_1.png",
+      "input": "poc/hero-icon/Soldier13_1.png",
+      "input_sha256": "c3300ea91846904d347ec053d4bf56e1fad7ea81f1220de47292fc91e6b18dbf",
+      "output_sha256": "eba30262104ede642b3eaefb502d13c6b055a91028e20f2168ebd021fee39dbc",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        151,
+        975,
+        873
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier13_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single large wooden CATAPULT siege engine, reddish timber triangular frame with gray iron fittings and small iron-rimmed wheels, hinged throwing arm with dark stone cup, strong rope windlass, no character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier13_2_qin.png",
+      "input": "poc/hero-icon/Soldier13_2_qin.png",
+      "input_sha256": "aebb5c78976f15f59a8ff0ed40c5cdff2dc0bc2aa3b4117be50a40ea6951be1a",
+      "output_sha256": "ec86ed61fff2f867941ed4133acb8c0531994d914b726dfd07e41f22822ed7c1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        115,
+        975,
+        910
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier13_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single compact blue-and-white fantasy CATAPULT siege engine, pale oak A-frame with white metal braces, chunky wooden wheels, visible yellow rope windlass, broad blue side shield trimmed white with silver studs. Throwing arm, no character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier14_1.png",
+      "input": "poc/hero-icon/Soldier14_1.png",
+      "input_sha256": "000a13cccb67aaa3fc7789d4f5d9bbf25930aa692bcd9036d15fdf6c3e79aa66",
+      "output_sha256": "9741b64eb45f7e2d1a1c7e114abee834eb16da249bbf59e62c756a4080a9f081",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        145,
+        49,
+        878,
+        975
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier14_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: One large burly adult ogre-like executioner infantryman, shaggy dark brown hair and beard, broad mostly bare muscular brown-tan torso, rugged brown leather skirt, huge double-sided gray metal axe carried over shoulder, large boots. Heavy brutish silhouette, no horse. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Preserve this special creature's species, distinctive anatomy and costume; evoke a mighty mountain spirit from Chinese fantasy, rather than changing it into a human soldier. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier15_1.png",
+      "input": "poc/hero-icon/Soldier15_1.png",
+      "input_sha256": "abdc07fc8d774a13677934ead3d9f9971cb62d231626b18c3900efab506df515",
+      "output_sha256": "d7905c9c75717fc5bff626fa748038a2810ce1c0024ad71ed539fd7c99f91795",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        236,
+        975,
+        788
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier15_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single heavy wooden battering / crushing siege cart with reddish timber box body, gray iron reinforcements, four chunky wooden wheels, enormous forward metal-banded spiked roller / ram mechanism with angular blades. Preserve the unusual low horizontal mechanical silhouette, no character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    },
+    {
+      "file": "Soldier15_2_qin.png",
+      "input": "poc/hero-icon/Soldier15_2_qin.png",
+      "input_sha256": "8a69d87b65036012d6683cd1060a7af74e2b1d25f9e324c093c7d1ab694b2505",
+      "output_sha256": "353fd87d8beaf249a7e132d53336256c45482f5fb5d5e8b00e30cd2cbb62674e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        182,
+        976,
+        841
+      ],
+      "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier15_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: A single compact blue-and-white fantasy BATTERING RAM cart, pale oak wooden wheels and arched wooden canopy with blue roof tiles, suspended thick cylindrical ram beam with a large silver cap protruding forward. Complete machinery, no character. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Real mechanically convincing historic Chinese timber construction with mortise joinery, iron hoops and woven rope; preserve exact ballista/catapult/ram mechanism from reference; no human, animal or extra weapons. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+    }
+  ]
+}

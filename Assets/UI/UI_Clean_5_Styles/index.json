@@ -1,0 +1,27 @@
+[
+  {
+    "folder": "01_War_Banners",
+    "style": "国风战旗",
+    "sprites": 20
+  },
+  {
+    "folder": "02_Jade_Gold",
+    "style": "玉石鎏金",
+    "sprites": 20
+  },
+  {
+    "folder": "03_Pop_Comic",
+    "style": "潮玩漫画",
+    "sprites": 20
+  },
+  {
+    "folder": "04_Minimal_Esports",
+    "style": "极简竞技",
+    "sprites": 20
+  },
+  {
+    "folder": "05_Obsidian_Gold",
+    "style": "暗金史诗",
+    "sprites": 20
+  }
+]

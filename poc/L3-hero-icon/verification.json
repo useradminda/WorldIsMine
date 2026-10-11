@@ -1,0 +1,1102 @@
+{
+  "expected": 68,
+  "completed": 68,
+  "missing": [],
+  "unexpected": [],
+  "changed_inputs": [],
+  "failed_checks": [],
+  "raw_border_review": [
+    "Soldier15_2_qin.png"
+  ],
+  "all_delivered": true,
+  "assets": [
+    {
+      "file": "Hero10_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 9
+    },
+    {
+      "file": "Hero11_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 11
+    },
+    {
+      "file": "Hero12_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 9
+    },
+    {
+      "file": "Hero13_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 12
+    },
+    {
+      "file": "Hero14_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 18
+    },
+    {
+      "file": "Hero15_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 16
+    },
+    {
+      "file": "Hero16_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 16
+    },
+    {
+      "file": "Hero17_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 15
+    },
+    {
+      "file": "Hero18_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 13
+    },
+    {
+      "file": "Hero19_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 9
+    },
+    {
+      "file": "Hero1_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Hero20_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 11
+    },
+    {
+      "file": "Hero21_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 12
+    },
+    {
+      "file": "Hero22_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 10
+    },
+    {
+      "file": "Hero23_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 18
+    },
+    {
+      "file": "Hero24_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 7
+    },
+    {
+      "file": "Hero25_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 13
+    },
+    {
+      "file": "Hero26_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 16
+    },
+    {
+      "file": "Hero27_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 19
+    },
+    {
+      "file": "Hero28_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 15
+    },
+    {
+      "file": "Hero29_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 11
+    },
+    {
+      "file": "Hero2_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 9
+    },
+    {
+      "file": "Hero30_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 12
+    },
+    {
+      "file": "Hero31_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 11
+    },
+    {
+      "file": "Hero32_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Hero33_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 19
+    },
+    {
+      "file": "Hero34_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 12
+    },
+    {
+      "file": "Hero35_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 7
+    },
+    {
+      "file": "Hero36_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 13
+    },
+    {
+      "file": "Hero37_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 16
+    },
+    {
+      "file": "Hero38_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 21
+    },
+    {
+      "file": "Hero39_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Hero3_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 7
+    },
+    {
+      "file": "Hero40_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 11
+    },
+    {
+      "file": "Hero41_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 10
+    },
+    {
+      "file": "Hero42_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 4
+    },
+    {
+      "file": "Hero43_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 20
+    },
+    {
+      "file": "Hero44_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 13
+    },
+    {
+      "file": "Hero45_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 7
+    },
+    {
+      "file": "Hero4_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Hero5_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 26
+    },
+    {
+      "file": "Hero6_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 18
+    },
+    {
+      "file": "Hero7_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 20
+    },
+    {
+      "file": "Hero8_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 11
+    },
+    {
+      "file": "Hero9_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 17
+    },
+    {
+      "file": "Soldier10_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 22
+    },
+    {
+      "file": "Soldier10_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 17
+    },
+    {
+      "file": "Soldier11_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 13
+    },
+    {
+      "file": "Soldier11_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 4
+    },
+    {
+      "file": "Soldier12_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 17
+    },
+    {
+      "file": "Soldier13_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 38
+    },
+    {
+      "file": "Soldier13_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Soldier14_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Soldier15_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 12
+    },
+    {
+      "file": "Soldier15_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 3
+    },
+    {
+      "file": "Soldier1_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 17
+    },
+    {
+      "file": "Soldier1_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 16
+    },
+    {
+      "file": "Soldier2_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 18
+    },
+    {
+      "file": "Soldier2_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 26
+    },
+    {
+      "file": "Soldier3_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Soldier3_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 17
+    },
+    {
+      "file": "Soldier4_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 10
+    },
+    {
+      "file": "Soldier5_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 33
+    },
+    {
+      "file": "Soldier6_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 5
+    },
+    {
+      "file": "Soldier7_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 10
+    },
+    {
+      "file": "Soldier8_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 14
+    },
+    {
+      "file": "Soldier8_2_qin.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 7
+    },
+    {
+      "file": "Soldier9_1.png",
+      "checks": {
+        "dimensions": true,
+        "transparent_exterior": true,
+        "opaque_body": true,
+        "safe_margin": true,
+        "output_hash": true,
+        "source_hash": true
+      },
+      "raw_size": [
+        1254,
+        1254
+      ],
+      "raw_visible_margin": 9
+    }
+  ]
+}

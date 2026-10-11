@@ -1,0 +1,22 @@
+{
+  "expected": 68,
+  "completed": 68,
+  "pending": [],
+  "file_checks_pass": true,
+  "previous_files_changed": [],
+  "raw_edges_to_review": [
+    "Hero36_1.png",
+    "Hero38_1.png",
+    "Soldier6_1.png",
+    "Soldier11_2_qin.png"
+  ],
+  "unique_images": 68,
+  "all_delivered": true,
+  "exact_inventory_pass": true,
+  "manifest_hashes_pass": true,
+  "preview_links_pass": true,
+  "preview_images": 68,
+  "review_sheets": 6,
+  "protected_old_files": 294,
+  "visual_review_pass": true
+}

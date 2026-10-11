@@ -9,7 +9,7 @@ public class UnitViewFactory
     {
         GameObject unitGob = CreateGob(prefab, initPos, initForward);
         unitGob.name = prefab + "_" + unitBase.UId;
-        UnitView unitView = unitGob.transform.GetChild(0).GetOrAddComponent<UnitView>();
+        UnitView unitView = unitGob.transform.GetOrAddComponent<UnitView>();
         unitView.Init(unitBase, prefab);
         return unitView;
     }

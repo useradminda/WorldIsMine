@@ -1,13 +1,58 @@
 
 using ZTools;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class UnitManager : Singleton<UnitManager>, IManager
 {
     public WaitListTemplate<UnitLogicBase> UnitList = new WaitListTemplate<UnitLogicBase>(null);
+    private readonly Queue<UnitSpawnRequest> redWaitingRequests = new Queue<UnitSpawnRequest>();
+    private readonly Queue<UnitSpawnRequest> blueWaitingRequests = new Queue<UnitSpawnRequest>();
+    private Func<int, ECampType, int, int> spawnHandler;
+
+    private UnitLogicBase redWallLogic;
+    private UnitLogicBase blueWallLogic;
+    private UnitLogicBase redPlayerLogic;
+    private UnitLogicBase bluePlayerLogic;
+    private BornConfig bornConfig;
+    private Vector3 redWallCenter;
+    private Vector3 blueWallCenter;
+    public event Action<ECampType> WallDestroyed;
+
+    private static readonly Vector3 WallSize = new Vector3(BattleDefine.AreaTotalWith, 1f, 1f);
+
+    private class UnitSpawnRequest
+    {
+        public int CfgId;
+        public int Count;
+    }
   
     public void ManagerInit()
     {
+        redWallLogic = UnitFactory.CreateWall(ECampType.Red);
+        blueWallLogic = UnitFactory.CreateWall(ECampType.Blue);
+        redPlayerLogic = UnitFactory.CreatePlayerLogic(ECampType.Red);
+        bluePlayerLogic = UnitFactory.CreatePlayerLogic(ECampType.Blue);
+    }
 
+    /// <summary>
+    /// 设置出生点配置，用于计算红蓝双方城墙位置。
+    /// </summary>
+    public void SetBornConfig(BornConfig config)
+    {
+        bornConfig = config;
+        if (bornConfig == null)
+        {
+            redWallCenter = Vector3.zero;
+            blueWallCenter = Vector3.zero;
+            return;
+        }
+
+        redWallCenter = bornConfig.GetBornPoint(ECampType.Red)
+            + bornConfig.GetForward(ECampType.Red);
+        blueWallCenter = bornConfig.GetBornPoint(ECampType.Blue)
+            + bornConfig.GetForward(ECampType.Blue);
     }
 
     public void ManagerUpdate(float dt)
@@ -16,6 +61,113 @@ public class UnitManager : Singleton<UnitManager>, IManager
         {
             UnitList[i].UnitUpdate(dt);
         }
+
+        ProcessWaitingRequests(ECampType.Red);
+        ProcessWaitingRequests(ECampType.Blue);
+    }
+
+    public void SetSpawnHandler(Func<int, ECampType, int, int> handler)
+    {
+        spawnHandler = handler;
+    }
+
+    public bool HasWaitingRequest(ECampType campType)
+    {
+        return GetWaitingQueue(campType).Count > 0;
+    }
+
+    public int GetWaitingUnitCount(ECampType campType)
+    {
+        int count = 0;
+        Queue<UnitSpawnRequest> queue = GetWaitingQueue(campType);
+        foreach (UnitSpawnRequest request in queue)
+        {
+            count += request.Count;
+        }
+
+        return count;
+    }
+
+    public void EnqueueSpawn(int cfgId, ECampType campType, int count)
+    {
+        if (count <= 0)
+        {
+            return;
+        }
+
+        GetWaitingQueue(campType).Enqueue(new UnitSpawnRequest
+        {
+            CfgId = cfgId,
+            Count = count
+        });
+    }
+
+    public UnitLogicBase GetOtherWallLogic(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+            return blueWallLogic;
+        return redWallLogic;
+    }
+
+    /// <summary>
+    /// 获取指定阵营的玩家逻辑对象，用作全局技能的攻击来源。
+    /// </summary>
+    public UnitLogicBase GetPlayerLogic(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            return redPlayerLogic;
+        }
+
+        return bluePlayerLogic;
+    }
+
+    public Vector3 GetWallCenter(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            return redWallCenter;
+        }
+
+        return blueWallCenter;
+    }
+
+    public Vector3 GetWallSize()
+    {
+        return WallSize;
+    }
+
+    public void NotifyWallDestroyed(ECampType campType)
+    {
+        WallDestroyed?.Invoke(campType);
+    }
+
+    private void ProcessWaitingRequests(ECampType campType)
+    {
+        if (spawnHandler == null)
+        {
+            return;
+        }
+
+        Queue<UnitSpawnRequest> queue = GetWaitingQueue(campType);
+        if (queue.Count == 0)
+        {
+            return;
+        }
+
+        UnitSpawnRequest request = queue.Peek();
+        if (!UnitFactory.CanCreateUnitGroup(campType, request.Count))
+        {
+            return;
+        }
+
+        spawnHandler(request.CfgId, campType, request.Count);
+        queue.Dequeue();
+    }
+
+    private Queue<UnitSpawnRequest> GetWaitingQueue(ECampType campType)
+    {
+        return campType == ECampType.Red ? redWaitingRequests : blueWaitingRequests;
     }
 
     public void ManagerLateUpdate(float dt)
@@ -29,7 +181,9 @@ public class UnitManager : Singleton<UnitManager>, IManager
     }
     public void ManagerDestroy()
     {
-
+        ClearWaiting();
+        redPlayerLogic = null;
+        bluePlayerLogic = null;
     }
 
     //// 增加一个Unit
@@ -43,5 +197,11 @@ public class UnitManager : Singleton<UnitManager>, IManager
     {
         UnitList.AddImmediately(unit);
         return unit;
+    }
+
+    public void ClearWaiting()
+    {
+        redWaitingRequests.Clear();
+        blueWaitingRequests.Clear();
     }
 }

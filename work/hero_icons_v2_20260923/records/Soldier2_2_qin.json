@@ -1,0 +1,25 @@
+{
+  "file": "Soldier2_2_qin.png",
+  "input": "poc/hero-icon/Soldier2_2_qin.png",
+  "input_sha256": "92688b57693ceb567b36160870fba847058daf6dfb2b7cfff903700bde9ab4de",
+  "output_sha256": "5ce23ae54eb39930abdb18806b2813470424a44e239e380309e5587e526c4947",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    110,
+    49,
+    912,
+    976
+  ],
+  "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier2_2_qin.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: precise-object-edit. Refine this exact mature blue-hooded fantasy foot archer asset. Keep adult stern face, muscular adult natural proportions, blue hood/cape, brown leather armor, gray trousers, boots, drawn bow and single nocked arrow. Correct framing: REDUCE the overall unit scale to occupy only 82% of the square, reconstruct a complete curved upper bow tip so it is fully visible and not touching canvas edge, maintain 9% clear transparent margin around all sides including bow tips, arrow point, cape and soles. No mount. Preserve strong semi-realistic painted war-game art, metallic/leather details and commanding expression. True transparent alpha background; no scenery, floor, cast shadow, smoke, glow, writing or border. Full intact character and full intact bow, 1024x1024 PNG."
+}

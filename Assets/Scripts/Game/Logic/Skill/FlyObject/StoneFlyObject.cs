@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StoneFlyObject : FlyObjectLogicBase
 {
-    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int damage, int flyUIndex)
+    public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int flyUIndex)
     {
-        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, damage, flyUIndex);
+        base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, flyUIndex);
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, tarPos, Vector3.zero);
-        ProjectileJobManager.Instance.SpawnProjectile(atkUnitLogic.Index, searchTargetUnit.Index, oriPos, tarPos, mFlyObjectCfg.speed, searchTargetUnit.UId, damage, flyUIndex, mFlyObjectGob.transform, flyObjectCfg.flyType);
+        ProjectileJobManager.Instance.SpawnProjectile(atkUnitLogic.Index, searchTargetUnit.Index, oriPos, tarPos, mFlyObjectCfg.speed, searchTargetUnit.UId, attackDamage, flyUIndex, mFlyObjectGob.transform, flyObjectCfg.flyType);
     }
 
     public override void FlyObjectUpdate(float dt)
@@ -19,6 +19,7 @@ public class StoneFlyObject : FlyObjectLogicBase
 
     public override void ArriveTarPos()
     {
+        CreateArriveEffect(mTarPos);
         damage();
         die();
     }
@@ -45,7 +46,8 @@ public class StoneFlyObject : FlyObjectLogicBase
             {
                 int unitIndex = resultUnitIndexList[i];
                 UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, mDamage, tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType);
+                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
+                mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }
     }

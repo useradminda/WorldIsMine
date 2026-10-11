@@ -7,6 +7,8 @@ public class UnitView : IView
     private string prefabName;
     public string PrefabName => prefabName;
 
+    private GameObject aroundEffectObject;
+
     private EStateTyep stateType;
 
     private ActionFlow actionFlow;
@@ -39,7 +41,15 @@ public class UnitView : IView
         get
         {
             if (shakeComp == null)
-                shakeComp = gameObject.GetOrAddComponent<ShakeComponent>();
+            {
+                GameObject shakeObject = gameObject;
+                if (transform.childCount > 0)
+                {
+                    shakeObject = transform.GetChild(0).gameObject;
+                }
+
+                shakeComp = shakeObject.GetOrAddComponent<ShakeComponent>();
+            }
             return shakeComp;
         }
     }
@@ -55,11 +65,25 @@ public class UnitView : IView
         }
     }
 
+    private ParalysisComponent paralysisComp;
+    public ParalysisComponent ParalysisComp
+    {
+        get
+        {
+            if (paralysisComp == null)
+            {
+                paralysisComp = gameObject.GetOrAddComponent<ParalysisComponent>();
+            }
+            return paralysisComp;
+        }
+    }
+
     public void Init(UnitLogicBase unit, string prefabName)
     {
         this.prefabName = prefabName;
         this.unitLogic = unit;
         SlachComp.ExitSlash();
+        InitAroundEffect(unit.SoliderCfg.aroundEffect);
     }
 
     public override void ViewInit()
@@ -85,6 +109,8 @@ public class UnitView : IView
 
     public void BeHitSlash()
     {
+        BattleClashEffectManager.Instance.ReportHit(transform.position);
+
         if (stateType != EStateTyep.Die)
         {
             SlachComp.SetSlash();
@@ -105,12 +131,12 @@ public class UnitView : IView
                 }
                 else if (stateType == EStateTyep.Attack)
                 {
-                    ActionFlowComponent.PlayAction(EActionType.attack);
+                   
                 }
                 else if (stateType == EStateTyep.Die)
                 {
                     string dieType = paramsInfo[0].ToString();
-                    enterDie(dieType);
+                    enterDie(dieType, (Vector3)paramsInfo[1]);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }
@@ -131,6 +157,19 @@ public class UnitView : IView
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }
 
+    public void SetForwardForce(Vector3 foward)
+    {
+        if (foward.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        Quaternion forceRotation = Quaternion.LookRotation(foward);
+        transform.rotation = forceRotation;
+        targetQ = forceRotation;
+        transQ = forceRotation;
+    }
+
     private Vector3 tarPos;
     private Vector3 transPos;
     private void updatePos(float dt)
@@ -145,14 +184,14 @@ public class UnitView : IView
         }
         if (tarPos != transPos)
         {
-            if ((tarPos - transform.position).sqrMagnitude < 0.0004f)
+            //if ((tarPos - transform.position).sqrMagnitude < 0.0004f)
+            //{
+            //    transform.position = tarPos;
+            //    transPos = transform.position;
+            //}
+            //else
             {
-                transform.position = tarPos;
-                transPos = transform.position;
-            }
-            else
-            {
-                transform.position = Vector3.Lerp(transform.position, unitLogic.Agenter.pos, dt * 3);
+                transform.position = Vector3.Lerp(transform.position, unitLogic.Agenter.pos, dt * 10);
                 transPos = transform.position;
             }
         }
@@ -163,26 +202,99 @@ public class UnitView : IView
     {
         if (stateType == EStateTyep.Die)
             return;
-        if (unitLogic.DirtyForward == true)
+
+        Vector3 targetForward = unitLogic.TargetForward;
+        if (targetForward.sqrMagnitude <= 0.0001f)
         {
-            targetQ = Quaternion.LookRotation(unitLogic.TargetForward);
-            unitLogic.DirtyForward = false;
-            transQ = transform.rotation;
+            return;
         }
-        if (targetQ != transQ)
+
+        targetQ = Quaternion.LookRotation(targetForward);
+
+        float rotationDot = Mathf.Abs(Quaternion.Dot(transform.rotation, targetQ));
+        if (rotationDot >= 0.9995f)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, transQ, dt * 3);
-            transQ = transform.rotation;
+            transform.rotation = targetQ;
+            transQ = targetQ;
+            return;
         }
+
+        float rotateFactor = Mathf.Clamp01(dt * 3f);
+        transQ = Quaternion.Slerp(transform.rotation, targetQ, rotateFactor);
+        transform.rotation = transQ;
     }
 
-    private void enterDie(string dieType)
+    private void enterDie(string dieType, Vector3 beHitPoint)
     {
         DieBaseComponent dieComp;
-        if (dieType == "" || dieType == "Normal")
+         if (dieType == "Bounce")
+        {
+            dieComp = gameObject.GetOrAddComponent<BounceDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "GroundSmash")
+        {
+            dieComp = gameObject.GetOrAddComponent<GroundSmashDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Tornado")
+        {
+            dieComp = gameObject.GetOrAddComponent<TornadoDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if(dieType == "Explosion")
+        {
+            dieComp = gameObject.GetOrAddComponent<ExplosionDieComponent>();
+            ((ExplosionDieComponent)dieComp).SetExplosionPoint(beHitPoint);
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Normal")
+        {
+            dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "RollDie")
+        {
+            dieComp = gameObject.GetOrAddComponent<RollDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else
         {
             dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
             dieComp.SetUnitView(this);
         }
     }
+
+
+    /// <summary>创建或重新启用角色周身特效，模型缓存复用时不会重复创建。</summary>
+    private void InitAroundEffect(string effectPath)
+    {
+        if (string.IsNullOrEmpty(effectPath))
+        {
+            if (aroundEffectObject != null)
+            {
+                aroundEffectObject.SetActive(false);
+            }
+            return;
+        }
+
+        if (aroundEffectObject != null)
+        {
+            aroundEffectObject.SetActive(false);
+            aroundEffectObject.SetActive(true);
+            return;
+        }
+
+        GameObject effectTemplate = Resources.Load<GameObject>(effectPath);
+        if (effectTemplate == null)
+        {
+            Debug.LogError($"周身特效不存在，路径={effectPath}");
+            return;
+        }
+
+        aroundEffectObject = Instantiate(effectTemplate, transform, false);
+        aroundEffectObject.transform.localPosition = Vector3.zero;
+        aroundEffectObject.transform.localRotation = Quaternion.identity;
+    }
+
 }

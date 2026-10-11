@@ -56,7 +56,7 @@ public class SkillCfg
 	public float searchRange;
 	public float atkRange;
 	public float skillArea;
-	public int damage;
+	public float skillDamageRate;
 	public float cd;
 	public int normal;
 	public int skillType;

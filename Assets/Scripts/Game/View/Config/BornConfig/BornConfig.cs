@@ -6,7 +6,7 @@ public class BornConfig : MonoBehaviour
 {
     // 红方出生点
     public Transform RedPoint;
-    // 蓝方
+
     public Transform BluePoint;
 
     public Vector3 GetBornPoint(ECampType campType)

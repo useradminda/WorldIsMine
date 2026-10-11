@@ -198,6 +198,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             int projectileIndex =
                 arrivedProjectileIds[i];
 
+
             ProjectileData projectile =
                 projectiles[projectileIndex];
 

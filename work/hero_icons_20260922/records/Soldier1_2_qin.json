@@ -1,0 +1,25 @@
+{
+  "file": "Soldier1_2_qin.png",
+  "input": "poc/hero-icon/Soldier1_2_qin.png",
+  "input_sha256": "6d621afe68720a24f9e68dbf8cb327ab4770b7b6cea7270e7fe0589055429a4e",
+  "output_sha256": "47f40cd6865acf3624162eee823283e4b7e8419b91c9882a6b5c41a140b67d9f",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    199,
+    48,
+    825,
+    976
+  ],
+  "raw_source": "work/hero_icons_20260922/source_art/Soldier1_2_qin.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Compact adult blue-and-silver armored knight, fully closed silver visor with straight narrow vertical vents, tall blue plume, brown trousers, straight silver sword and blue-white shield. Retain the simple Western-fantasy knight identity of THIS reference.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+}

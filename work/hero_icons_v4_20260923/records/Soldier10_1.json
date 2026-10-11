@@ -1,0 +1,25 @@
+{
+  "file": "Soldier10_1.png",
+  "input": "poc/hero-icon/Soldier10_1.png",
+  "input_sha256": "785904e50fbb3bebdf34999ae630877dc96f6e4d934abd2acbe3d0e974830cb6",
+  "output_sha256": "ebf1f402dc6940c1efe5f87e26d0fd8d22fc2430d6af8e2ebecdc624b10ff406",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    50,
+    203,
+    975,
+    820
+  ],
+  "raw_source": "work/hero_icons_v4_20260923/source_art/Soldier10_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE new V4 Korean fantasy action-RPG / manhwa character-card cutout. Image 1 is the ONLY identity reference for gender, species, role, original dominant colors, headgear, costume and distinctive weapon; image 2 is ONLY the V4 rendering reference. Do NOT transfer its red armor, sword, purple plume or horse to other subjects. Subject: A single wooden repeating BALLISTA siege cart, warm reddish-brown carved timber, four small wheels with iron rims, a large horizontal crossbow assembly on top loaded with bolts, front rectangular reinforced wooden shield. Keep the ballista mechanism; NOT a catapult, no character. One unmanned battlefield machine. Preserve EXACT catapult, ballista or ram function from Image 1 with believable wood joinery, rope tension, metal fittings and complete wheels. Use subtle Korean dancheong wood-paint motifs. NO humans or horse. No character or animal. Distinct mechanical silhouette with clear readable operation. Art style: high-budget South Korean fantasy game illustration, graceful fashion-forward fantasy silhouette, crisp controlled fine outlines, bold clean cel-painted light and shadow, smooth selective painterly blending, precise metal reflections, jewel and silk detailing, restrained luminous cool rim-light on the silhouette. Korean historical-fantasy-inspired layered collars, overcoat, embroidered ribbons and subtle dancheong geometry where the subject's design permits; keep unit's own palette, gender, species and tool. Polished 2.5D illustration, small-icon readability with rich close-up detail, clearly DIFFERENT from Q-version chibi, western realistic heavy painting, and Chinese brush-texture guofeng. One whole subject centered in square with >=6% true transparent margin on all four sides; reconstruct and keep whole plume, weapon tips, hands, feet, horse legs, tail, machine parts and wheels. True transparent alpha exterior, fully opaque solid forms. No cropped extremities, floating effects, ground, scenery, paper wash, pedestal, cast shadow, outside glow, typography, seal, UI frame, watermark, duplicate subject, extra limbs or checkerboard. Exactly 1024x1024 PNG."
+}

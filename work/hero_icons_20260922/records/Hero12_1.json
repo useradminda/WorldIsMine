@@ -1,0 +1,25 @@
+{
+  "file": "Hero12_1.png",
+  "input": "poc/hero-icon/Hero12_1.png",
+  "input_sha256": "b048619138f0ed7085f5804e068663559f1ce4b25549394aa9420f482ddfa28d",
+  "output_sha256": "76e3ef8254ce63969c7d45e335d33a7c6531736d47752032763a509d23f950e0",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    122,
+    48,
+    902,
+    976
+  ],
+  "raw_source": "work/hero_icons_20260922/source_art/Hero12_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Powerful male warrior, dark bushy beard and high topknot, emerald and gold armor, crimson scarf, silver broad-pointed polearm. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+}

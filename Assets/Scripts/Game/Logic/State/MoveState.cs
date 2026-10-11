@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class MoveState : StateBase
 {
     public override EStateTyep StateType { get { return EStateTyep.Move; } }
@@ -17,36 +15,37 @@ public class MoveState : StateBase
     }
 
     public override void UpdateState(float dt)
-    {
-        searchTargetUnits();
-        getTargetUnits();
+    { 
         updateMove();
+        getTargetUnits();
     }
 
     public override void ExitState()
     {
     }
 
-    private void searchTargetUnits()
-    {
-        UnitLogic.NormalSkill.SkillSearchTarget();
-    }
-
     private void getTargetUnits()
     {
-        UnitLogicBase ulb = UnitLogic.NormalSkill.GetSkillSearchTargetSingleResult();
-        if (ulb != null && ulb.IsDead == false)
+        SkillLogicBase skillLogic = UnitLogic.GetNormalSkillBySearchTarget();
+        if (skillLogic != null)
         {
-            float sqrDistance = (UnitLogic.CurPos - ulb.CurPos).sqrMagnitude;
-            if (sqrDistance <= UnitLogic.NormalSkill.SkillCfg.atkRange * UnitLogic.NormalSkill.SkillCfg.atkRange)
+            UnitLogic.SetSearchTarget(skillLogic.SkillSearchTarget);
+            if (UnitLogic.IsTargetInAttackRange(
+                    skillLogic.SkillSearchTarget,
+                    skillLogic.SkillCfg.atkRange))
             {
-                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, ulb, UnitLogic.NormalSkill);
+                UnitLogic.StateMachine.ChangeState(EStateTyep.Attack, skillLogic.SkillSearchTarget, skillLogic);
+                return;
             }
+        }
+        else
+        {
+            UnitLogic.SetSearchTarget(null);
         }
     }
 
     private void updateMove()
     {
-        UnitLogic.MoveForward();
+        UnitLogic.AgentMoveForward();
     }
 }

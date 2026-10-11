@@ -1,0 +1,19 @@
+{
+  "reviewed_assets": 68,
+  "review_method": "Viewed every generated asset and the six final contact sheets on alternating dark and light backgrounds.",
+  "checked": [
+    "Recognizable source palette, costume, headgear, unit type and equipment",
+    "Mounted heroes remain mounted; foot soldiers and machines retain their respective unit types",
+    "Complete primary silhouette and readable face, equipment and pose",
+    "Consistent polished chibi rendering and square framing",
+    "Transparent-background appearance on light and dark review backgrounds"
+  ],
+  "refinements": [
+    {"file": "Hero40_1.png", "change": "Recomposed the sword and cape to remove the detached white patch beside the blade; selected the rebuilt version."},
+    {"file": "Soldier11_1.png", "change": "Refined the spearhead to a darker steel surface with clearer edges; selected the rebuilt version."}
+  ],
+  "raw_border_reviews": [
+    {"file": "Soldier15_2_qin.png", "status": "reviewed", "finding": "Raw silhouette approaches the right edge; the visible timber, wheels and ram remain complete. Final normalized asset has transparent safety margins."}
+  ],
+  "status": "visual_review_complete"
+}

@@ -1,0 +1,25 @@
+{
+  "file": "Soldier12_1.png",
+  "input": "poc/hero-icon/Soldier12_1.png",
+  "input_sha256": "831c8983a4a94f71528a22529c683deeb6a7940d7fa3d899ec8b9458d3292f01",
+  "output_sha256": "afb7e3af49229d616aacc7a8606eb180cbf96c950d9058be5ac1dac7255e9c0f",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    49,
+    52,
+    975,
+    972
+  ],
+  "raw_source": "work/hero_icons_v3_20260923/source_art/Soldier12_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. Make ONE new L3 Guofeng fantasy-strategy game cutout derived from Image 1. Image 1 is the ONLY unit identity reference; preserve its gender, species, main palette, distinctive costume/helmet, exact weapon or machine category, and unit role. Image 2 is ONLY a V3 art-style reference for Chinese colorful gongbi-and-ink painterly rendering; never copy its red armor, sword, rider or horse to other units. Subject: One hulking fantasy ice troll / yeti, pale icy-blue thick hair and enormous beard, muscular blue-gray long arms and huge blue hands, heavy bent-legged stance, rough brown fur-and-leather loincloth and belt, fierce but charming face. Nonhuman giant, no horse, no weapon. One complete standing infantry/fantasy creature; NO horse or rider. Entire headgear, hands, weapon and feet visible. Art direction: premium Chinese Three-Kingdoms / Han-inspired fantasy illustration, bold controlled calligraphic ink contours, mineral-pigment color, deliberate brush-textured shadows INSIDE the subject, silk and brocade, engraved bronze, lacquered lamellar armor, cloud-scroll and traditional auspicious motifs sparingly. Graceful fluid sleeve, plume and cloth rhythm, dynamic but readable three-quarter combat pose. Rich color and linework consistent with the red/blue Three-Kingdoms game UI. Preserve this special creature's species, distinctive anatomy and costume; evoke a mighty mountain spirit from Chinese fantasy, rather than changing it into a human soldier. Medium must feel hand-painted and distinctly Chinese, not western shiny concept art or glossy 3D. FULLY opaque solid subject on GENUINE TRANSPARENT ALPHA exterior. Complete silhouette centered within square and >=6% transparent breathing room on every edge, no clipped feather, blade, staff, ears, tail, wheels or hoof. No floating detached ink fragments, no free-standing paper texture, no background wash, scenery, mountain, floor, shadow, glow, poster or parchment square. NO chibi proportions, baby face, exaggerated eyes, low-poly toy, duplicate unit, extra limbs, text, seal, logo, UI border, watermark or checkerboard. Final 1024x1024 PNG."
+}

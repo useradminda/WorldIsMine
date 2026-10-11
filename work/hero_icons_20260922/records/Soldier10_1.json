@@ -1,0 +1,25 @@
+{
+  "file": "Soldier10_1.png",
+  "input": "poc/hero-icon/Soldier10_1.png",
+  "input_sha256": "785904e50fbb3bebdf34999ae630877dc96f6e4d934abd2acbe3d0e974830cb6",
+  "output_sha256": "52174c3e80a90125111c4d2df753eb367a8e36b26a25b4427e76cb276e05f3cc",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    50,
+    197,
+    976,
+    825
+  ],
+  "raw_source": "work/hero_icons_20260922/source_art/Soldier10_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single wooden repeating BALLISTA siege cart, warm reddish-brown carved timber, four small wheels with iron rims, a large horizontal crossbow assembly on top loaded with bolts, front rectangular reinforced wooden shield. Keep the ballista mechanism; NOT a catapult, no character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+}

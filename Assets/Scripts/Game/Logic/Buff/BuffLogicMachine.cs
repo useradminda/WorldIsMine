@@ -1,36 +1,69 @@
 
 using System.Collections.Generic;
-using Unity.Collections;
 public class BuffLogicMachine
 {
     private List<BuffLogicBase> buffList = new List<BuffLogicBase>();
 
-    public void AddBuff(BuffLogicBase buffLogic)
+    /// <summary>添加Buff；同配置Buff已存在时只刷新持续时间。</summary>
+    public bool AddBuff(BuffLogicBase buffLogic, float duration = -1f)
     {
-        buffLogic.Enter();
-        buffList.Add(buffLogic);
-    }
+        if (buffLogic == null)
+        {
+            return false;
+        }
 
-    public void ExitBuff(BuffLogicBase buffLogic)
-    {
-        buffLogic.Exit();
-        buffList.RemoveSwapBack(buffLogic);
-    }
-
-    public void UpdateBuffMachine(float dt)
-    {
         for (int i = 0; i < buffList.Count; i++)
         {
-            buffList[i].Update(dt);
+            if (buffList[i].CfgId == buffLogic.CfgId)
+            {
+                buffList[i].Refresh(duration);
+                return true;
+            }
+        }
+
+        buffList.Add(buffLogic);
+        buffLogic.Refresh(duration);
+        buffLogic.Enter();
+        return true;
+    }
+
+    /// <summary>立即移除指定Buff。</summary>
+    public void ExitBuff(BuffLogicBase buffLogic)
+    {
+        if (buffLogic == null || !buffList.Contains(buffLogic))
+        {
+            return;
+        }
+
+        buffList.Remove(buffLogic);
+        buffLogic.Exit();
+    }
+
+    /// <summary>更新全部Buff，并安全移除到期Buff。</summary>
+    public void UpdateBuffMachine(float dt)
+    {
+        for (int i = buffList.Count - 1; i >= 0; i--)
+        {
+            BuffLogicBase buffLogic = buffList[i];
+            buffLogic.Update(dt);
+            if (buffLogic.IsExpired)
+            {
+                buffList.RemoveAt(i);
+                buffLogic.Exit();
+            }
         }
     }
 
+    /// <summary>单位死亡或被复用时清理全部Buff。</summary>
     public void Die()
     {
-        for (int i = 0; i < buffList.Count; i++)
+        for (int i = buffList.Count - 1; i >= 0; i--)
         {
-            buffList[i].Exit();
+            BuffLogicBase buffLogic = buffList[i];
+            buffList.RemoveAt(i);
+            buffLogic.Exit();
         }
         buffList.Clear();
     }
+
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class UnitLogicBase
 {
     private Nebukam.ORCA.Agent agenter;
@@ -13,15 +14,18 @@ public class UnitLogicBase
 
     public bool DirtyForward = true;
 
+    private UnitLogicBase searchTarget;
+    private int searchTargetUId;
+
     private Vector3 catchForward;
     public Vector3 TargetForward
     {
         get
         {
             Vector3 finalForward;
-            if (NormalSkill.SearchTarget != null && NormalSkill.SearchTarget.IsDead == false)
+            if (searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId)
             {
-                finalForward = Vector3.Normalize(NormalSkill.SearchTarget.CurPos - NormalSkill.UnitLogic.CurPos);
+                finalForward = Vector3.Normalize(searchTarget.GetClosestPoint(CurPos) - CurPos);
             }
             else
             {
@@ -30,7 +34,6 @@ public class UnitLogicBase
             if (catchForward != finalForward)
             {
                 DirtyForward = true;
-
                 catchForward = finalForward;
             }
             return finalForward;
@@ -54,6 +57,8 @@ public class UnitLogicBase
 
     private List<SkillLogicBase> skillList = new List<SkillLogicBase>();
 
+    public List<SkillLogicBase> SkillList => skillList;
+
     private StateMachine stateMachine;
     public StateMachine StateMachine => stateMachine;
 
@@ -62,7 +67,17 @@ public class UnitLogicBase
 
     public UnitView UnitView;
 
-    public Vector3 CurPos => Agenter.pos;
+    public Vector3 CurPos
+    {
+        get
+        {
+            if(UnitType == EUnitType.Wall)
+            {
+                return UnitManager.Instance.GetWallCenter(CampType);
+            }
+            return Agenter.pos;
+        }
+    }
 
     public bool IsDead => Prop.Hp <= 0;
 
@@ -72,19 +87,21 @@ public class UnitLogicBase
     private int index;
     public int Index => index;
 
-    private int logicRatio = 100;
-    public int LogicRatio
+    private int attackBuffValue;
+
+    private float logicRatio = 1;
+    public float LogicRatio
     {
         get
         {
-            if (logicRatio > 100)
-                return 100;
-            if (logicRatio < 0)
-                return 10;
+            if (logicRatio <= 0f)
+                return 0f;
             return logicRatio;
         }
     }
 
+    private EUnitType eUnitType = EUnitType.Solider;
+    public EUnitType UnitType => eUnitType;
 
     public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
     {
@@ -103,9 +120,12 @@ public class UnitLogicBase
     // 回收使用
     public void CycleUse(int cfgId, int uid, Vector3 moveForward)
     {
+        buffLogicMachine.Die();
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
+        logicRatio = 1f;
+        attackBuffValue = 0;
         initProp();
         initSkills();
     }
@@ -129,31 +149,61 @@ public class UnitLogicBase
 
     public void UnitUpdate(float dt)
     {
-        if (Agenter == null)
+        if (UnitType == EUnitType.Solider)
         {
-            Debug.LogError("严重错误当前单位的Agent智能体是空的");
-            return;
-        }
-        if (stateMachine != null)
-        {
-            stateMachine.UpdateState(dt);
-        }
-        if (buffLogicMachine != null)
-        {
-            buffLogicMachine.UpdateBuffMachine(dt);
+            if (Agenter == null)
+            {
+                Debug.LogError("严重错误当前单位的Agent智能体是空的");
+                return;
+            }
+            if (stateMachine != null)
+            {
+                stateMachine.UpdateState(dt);
+            }
+            if (buffLogicMachine != null)
+            {
+                buffLogicMachine.UpdateBuffMachine(dt);
+            }
+            if (skillList.Count > 0)
+            {
+                for(int i = 0; i < skillList.Count; i++)
+                {
+                    skillList[i].SkillUpdate(dt);
+                }
+            }
         }
     }
 
-    public void ChangeHp(int damage, string dieType)
+    public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
     {
-        Prop.ChangeHp(damage);
         if (IsDead)
-            StateMachine.ChangeState(EStateTyep.Die, dieType);
+        {
+            return;
+        }
+
+        Prop.ChangeHp(damage);
+        if (UnitType == EUnitType.Wall)
+        {
+            if (IsDead)
+            {
+                UnitManager.Instance.NotifyWallDestroyed(CampType);
+            }
+
+            return;
+        }
+
+        if (IsDead && StateMachine != null)
+            StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
+        if (UnitView != null)
+        {
+            UnitView.BeHitSlash();
+        }
     }
    
     public void TriggerMoveStop()
     {
         Agenter.navigationEnabled = false;
+       // Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
         Agenter.maxSpeed = 0;
     }
@@ -173,30 +223,171 @@ public class UnitLogicBase
         Agenter.maxSpeed = 0;
     }
 
-    public void MoveForward()
+    public void AgentMoveForward()
     {
-        float agentSpeed = Agenter.saveMaxSpeed;
+        float agentSpeed = Agenter.saveMaxSpeed * LogicRatio;
         Agenter.maxSpeed = agentSpeed;
-        Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed;
+        Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed * LogicRatio;
     }
 
-    public void AddBuff(int buffCfgId)
+    /// <summary>根据配置ID创建并添加Buff。</summary>
+    public bool AddBuff(int buffCfgId, float duration = -1f)
     {
-        BuffLogicBase buffLogic = null;
-        buffLogicMachine.AddBuff(buffLogic);
+        if (IsDead || UnitType != EUnitType.Solider)
+        {
+            return false;
+        }
+
+        BuffLogicBase buffLogic = BuffLogicFactory.Create(
+            buffCfgId,
+            this,
+            buffLogicMachine);
+        return buffLogicMachine.AddBuff(buffLogic, duration);
     }
 
-    public void SetLogicRatio(int addValue)
+    /// <summary>修改单位逻辑速度百分比。</summary>
+    public void ChangeLogicRatio(float addValue)
     {
         logicRatio += addValue;
-        if (logicRatio < 100)
+    }
+
+    /// <summary>Buff生效或退出时修改累计攻击增量，保留负值以支持减攻击Buff的正确恢复。</summary>
+    public void ChangeAttackBuffValue(int value)
+    {
+        attackBuffValue += value;
+    }
+
+    /// <summary>根据单位基础攻击力、累计攻击增量和技能倍率计算技能基础伤害。</summary>
+    public int GetAttackDamage(float skillDamageRate)
+    {
+        int finalAttack = Mathf.Max(0, SoliderCfg.atk + attackBuffValue);
+        return System.Convert.ToInt32(Mathf.Max(0, finalAttack * skillDamageRate));
+    }
+
+    // normal
+    public SkillLogicBase GetNormalSkillBySearchTarget()
+    {
+        if (NormalSkill == null)
         {
-            UnitView.FreezeComp.SetFreeze(LogicRatio / 100f);
+            return null;
         }
+
+        UnitLogicBase currentTarget = NormalSkill.SkillSearchTarget;
+        bool lockRemoteTarget = NormalSkill is SkillRemoteSkill;
+        if (lockRemoteTarget &&
+            currentTarget != null &&
+            currentTarget.IsDead == false &&
+            currentTarget.UnitType != EUnitType.Wall &&
+            currentTarget.CampType != CampType)
+        {
+            return NormalSkill;
+        }
+
+        NormalSkill.SearchTargetFunc();
+        UnitLogicBase skillTarget = NormalSkill.GetSkillSearchTargetSingleResult();
+        if (skillTarget == null || skillTarget.IsDead)
+        {
+            skillTarget = UnitManager.Instance.GetOtherWallLogic(CampType);
+            NormalSkill.SetSkillSearchTarget(skillTarget);
+        }
+
+        if (skillTarget != null && skillTarget.IsDead == false)
+        {
+            return NormalSkill;
+        }
+
+        return null;
+    }
+
+    // not normal
+    public SkillLogicBase GetSuperSkillBySearchTarget()
+    {
+        if (skillList.Count > 1)
+        {
+            for (int i = 1; i < skillList.Count; i++)
+            {
+                if (skillList[i].CurCD <= 0)
+                {
+                    skillList[i].SearchTargetFunc();
+                    UnitLogicBase skillTar = skillList[i].GetSkillSearchTargetSingleResult();
+                    if (skillTar != null && skillTar.IsDead == false)
+                    {
+                        return skillList[i];
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public void SetSearchTarget(UnitLogicBase logic)
+    {
+        searchTarget = logic;
+        if (logic == null)
+            searchTargetUId = -1;
         else
+            searchTargetUId = logic.UId;
+    }
+
+    // 设置类型
+    public void SetUnitType(EUnitType unitType)
+    {
+        eUnitType = unitType;
+    }
+
+    // 获取判断最近的点
+    public Vector3 GetClosestPoint(Vector3 attackerPosition)
+    {
+        if (UnitType != EUnitType.Wall)
         {
-            UnitView.FreezeComp.ExitFreeze();
+            return CurPos;
         }
+        Vector3 wallCenter = UnitManager.Instance.GetWallCenter(CampType);
+        Vector3 wallSize = UnitManager.Instance.GetWallSize();
+        Vector3 point = new Vector3
+        (
+            Mathf.Clamp(
+                attackerPosition.x,
+                wallCenter.x - wallSize.x * 0.5f,
+                wallCenter.x + wallSize.x * 0.5f
+            ),
+            attackerPosition.y,
+            Mathf.Clamp(
+                attackerPosition.z,
+                wallCenter.z - wallSize.z * 0.5f,
+                wallCenter.z + wallSize.z * 0.5f
+            )
+        );
+        return point;
+    }
+
+    /// <summary>
+    /// 判断目标是否在攻击范围内。普通单位按双方圆形半径计算，城墙按墙面最近点计算。
+    /// </summary>
+    public bool IsTargetInAttackRange(
+        UnitLogicBase target,
+        float attackRange,
+        float extraRange = 0f)
+    {
+        if (target == null || target.IsDead)
+        {
+            return false;
+        }
+
+        Vector3 targetPoint = target.GetClosestPoint(CurPos);
+        Vector3 offset = targetPoint - CurPos;
+        offset.y = 0f;
+
+        float effectiveRange = Mathf.Max(0f, attackRange)
+            + Mathf.Max(0f, Prop.Radius)
+            + Mathf.Max(0f, extraRange);
+
+        if (target.UnitType != EUnitType.Wall)
+        {
+            effectiveRange += Mathf.Max(0f, target.Prop.Radius);
+        }
+
+        return offset.sqrMagnitude <= effectiveRange * effectiveRange;
     }
 
     private void initProp()
@@ -210,20 +401,23 @@ public class UnitLogicBase
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
-            SkillLogicBase skill = null;
-            if (skillCfg.skillType == 1)
+            if (skillCfg != null)
             {
-                skill = new SkillCloseSkill(this, skillCfg);
+                SkillLogicBase skill = null;
+                if (skillCfg.skillType == 1)
+                {
+                    skill = new SkillCloseSkill(this, skillCfg);
+                }
+                else if(skillCfg.skillType == 2)
+                {
+                    skill = new SkillRemoteSkill(this, skillCfg); // new SkillRemoteSkill(this, skillCfg);
+                }
+                if (skill.BNormalSkill)
+                {
+                    normalSkill = skill;
+                }
+                skillList.Add(skill);
             }
-            else if(skillCfg.skillType == 2)
-            {
-                skill = new SkillRemoteSkill(this, skillCfg); // new SkillRemoteSkill(this, skillCfg);
-            }
-            if (skill.BNormalSkill)
-            {
-                normalSkill = skill;
-            }
-            skillList.Add(skill);
         }
     }
 }

@@ -1,0 +1,1809 @@
+{
+  "screen": "12_Results",
+  "title": "对局结算",
+  "variant": "default",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "coordinate_system": "top-left pixels; ordered back to front",
+  "layers": [
+    {
+      "type": "image",
+      "asset": "bg_battle_preview",
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "rendered_rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "fit": "cover",
+      "opacity": 1,
+      "preview_only": true,
+      "tag": null
+    },
+    {
+      "type": "engine_overlay",
+      "color": "#08141c",
+      "opacity": 0.52,
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ]
+    },
+    {
+      "type": "image",
+      "asset": "panel_scroll_large",
+      "rect": [
+        36,
+        317,
+        1008,
+        1370
+      ],
+      "rendered_rect": [
+        37,
+        317,
+        1006,
+        1370
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "victory_blue",
+      "rect": [
+        334,
+        224,
+        412,
+        325
+      ],
+      "rendered_rect": [
+        334,
+        236,
+        412,
+        302
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "蓝方胜利",
+      "position": [
+        540,
+        459
+      ],
+      "font_size": 29,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        482,
+        447,
+        598,
+        475
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "icon_stats",
+      "rect": [
+        179,
+        584,
+        70,
+        70
+      ],
+      "rendered_rect": [
+        179,
+        584,
+        70,
+        70
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "兵团统计",
+      "position": [
+        214,
+        690
+      ],
+      "font_size": 20,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        174,
+        681,
+        254,
+        700
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_blue",
+      "rect": [
+        256,
+        558,
+        332,
+        130
+      ],
+      "rendered_rect": [
+        256,
+        570,
+        332,
+        106
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "本局战报",
+      "position": [
+        422,
+        617
+      ],
+      "font_size": 27,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        368,
+        606,
+        476,
+        634
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_red",
+      "rect": [
+        612,
+        558,
+        332,
+        130
+      ],
+      "rendered_rect": [
+        612,
+        574,
+        332,
+        98
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "半月排行",
+      "position": [
+        778,
+        617
+      ],
+      "font_size": 27,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        724,
+        606,
+        832,
+        633
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "checkmark",
+      "rect": [
+        391,
+        685,
+        62,
+        49
+      ],
+      "rendered_rect": [
+        394,
+        685,
+        56,
+        49
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "名次",
+      "position": [
+        205,
+        767
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        182,
+        757,
+        228,
+        779
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "玩家",
+      "position": [
+        353,
+        767
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        330,
+        757,
+        376,
+        779
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "本局积分",
+      "position": [
+        514,
+        767
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        468,
+        757,
+        560,
+        779
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "荣耀",
+      "position": [
+        652,
+        767
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        629,
+        757,
+        675,
+        779
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "月排行",
+      "position": [
+        766,
+        767
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        731,
+        757,
+        800,
+        780
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "掉落",
+      "position": [
+        868,
+        767
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        845,
+        757,
+        891,
+        779
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        790,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        790,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "medal_gold",
+      "rect": [
+        179,
+        809,
+        52,
+        54
+      ],
+      "rendered_rect": [
+        179,
+        814,
+        52,
+        45
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "1",
+      "position": [
+        205,
+        837
+      ],
+      "font_size": 22,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        198,
+        829,
+        212,
+        846
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "avatar_frame",
+      "rect": [
+        253,
+        807,
+        58,
+        58
+      ],
+      "rendered_rect": [
+        253,
+        808,
+        58,
+        57
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "阿",
+      "position": [
+        282,
+        836
+      ],
+      "font_size": 21,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        271,
+        828,
+        292,
+        848
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "阿青",
+      "position": [
+        359,
+        823
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        334,
+        812,
+        384,
+        838
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "胜点 +3",
+      "position": [
+        359,
+        858
+      ],
+      "font_size": 17,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        328,
+        851,
+        390,
+        868
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "12,800",
+      "position": [
+        514,
+        823
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        475,
+        815,
+        552,
+        835
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "+320 加成",
+      "position": [
+        514,
+        858
+      ],
+      "font_size": 17,
+      "color": "#367c56",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        473,
+        851,
+        555,
+        867
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "88",
+      "position": [
+        652,
+        836
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        637,
+        827,
+        667,
+        846
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "128 ↑",
+      "position": [
+        766,
+        836
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        737,
+        826,
+        795,
+        846
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "unit_sword",
+      "rect": [
+        843,
+        811,
+        50,
+        50
+      ],
+      "rendered_rect": [
+        843,
+        811,
+        50,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        902,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        902,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "medal_silver",
+      "rect": [
+        179,
+        921,
+        52,
+        54
+      ],
+      "rendered_rect": [
+        179,
+        925,
+        52,
+        46
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "2",
+      "position": [
+        205,
+        949
+      ],
+      "font_size": 22,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        198,
+        941,
+        212,
+        958
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "avatar_frame",
+      "rect": [
+        253,
+        919,
+        58,
+        58
+      ],
+      "rendered_rect": [
+        253,
+        920,
+        58,
+        57
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "小",
+      "position": [
+        282,
+        948
+      ],
+      "font_size": 21,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        271,
+        939,
+        292,
+        961
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "小北",
+      "position": [
+        359,
+        935
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        334,
+        924,
+        384,
+        950
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "胜点 +1",
+      "position": [
+        359,
+        970
+      ],
+      "font_size": 17,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        328,
+        963,
+        390,
+        980
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "9,600",
+      "position": [
+        514,
+        935
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        482,
+        927,
+        545,
+        947
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "+285 加成",
+      "position": [
+        514,
+        970
+      ],
+      "font_size": 17,
+      "color": "#367c56",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        473,
+        963,
+        555,
+        979
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "79",
+      "position": [
+        652,
+        948
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        637,
+        939,
+        667,
+        958
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "301 ↑",
+      "position": [
+        766,
+        948
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        737,
+        938,
+        795,
+        958
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "unit_shield",
+      "rect": [
+        843,
+        923,
+        50,
+        50
+      ],
+      "rendered_rect": [
+        852,
+        923,
+        31,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        1014,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        1014,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "medal_bronze",
+      "rect": [
+        179,
+        1033,
+        52,
+        54
+      ],
+      "rendered_rect": [
+        179,
+        1037,
+        52,
+        46
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "3",
+      "position": [
+        205,
+        1061
+      ],
+      "font_size": 22,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        198,
+        1053,
+        212,
+        1070
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "avatar_frame",
+      "rect": [
+        253,
+        1031,
+        58,
+        58
+      ],
+      "rendered_rect": [
+        253,
+        1032,
+        58,
+        57
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "大",
+      "position": [
+        282,
+        1060
+      ],
+      "font_size": 21,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        271,
+        1051,
+        292,
+        1072
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "大山",
+      "position": [
+        359,
+        1047
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        334,
+        1036,
+        384,
+        1061
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "胜点 +1",
+      "position": [
+        359,
+        1082
+      ],
+      "font_size": 17,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        328,
+        1075,
+        390,
+        1092
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "8,200",
+      "position": [
+        514,
+        1047
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        482,
+        1039,
+        545,
+        1059
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "+250 加成",
+      "position": [
+        514,
+        1082
+      ],
+      "font_size": 17,
+      "color": "#367c56",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        473,
+        1075,
+        555,
+        1091
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "70",
+      "position": [
+        652,
+        1060
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        637,
+        1051,
+        667,
+        1070
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "474 ↑",
+      "position": [
+        766,
+        1060
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        737,
+        1050,
+        795,
+        1070
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "unit_bow",
+      "rect": [
+        843,
+        1035,
+        50,
+        50
+      ],
+      "rendered_rect": [
+        844,
+        1035,
+        49,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        1126,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        1126,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "4",
+      "position": [
+        205,
+        1173
+      ],
+      "font_size": 22,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        198,
+        1165,
+        212,
+        1182
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "avatar_frame",
+      "rect": [
+        253,
+        1143,
+        58,
+        58
+      ],
+      "rendered_rect": [
+        253,
+        1144,
+        58,
+        57
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "长",
+      "position": [
+        282,
+        1172
+      ],
+      "font_size": 21,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        271,
+        1163,
+        292,
+        1184
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "长风",
+      "position": [
+        359,
+        1159
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        334,
+        1148,
+        384,
+        1174
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "胜点 +1",
+      "position": [
+        359,
+        1194
+      ],
+      "font_size": 17,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        328,
+        1187,
+        390,
+        1204
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "7,200",
+      "position": [
+        514,
+        1159
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        482,
+        1151,
+        545,
+        1171
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "+215 加成",
+      "position": [
+        514,
+        1194
+      ],
+      "font_size": 17,
+      "color": "#367c56",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        473,
+        1187,
+        555,
+        1203
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "61",
+      "position": [
+        652,
+        1172
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        637,
+        1163,
+        667,
+        1182
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "647 ↑",
+      "position": [
+        766,
+        1172
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        737,
+        1162,
+        795,
+        1182
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "unit_sword",
+      "rect": [
+        843,
+        1147,
+        50,
+        50
+      ],
+      "rendered_rect": [
+        843,
+        1147,
+        50,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        1238,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        1238,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "5",
+      "position": [
+        205,
+        1285
+      ],
+      "font_size": 22,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        198,
+        1277,
+        212,
+        1294
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "avatar_frame",
+      "rect": [
+        253,
+        1255,
+        58,
+        58
+      ],
+      "rendered_rect": [
+        253,
+        1256,
+        58,
+        57
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "青",
+      "position": [
+        282,
+        1284
+      ],
+      "font_size": 21,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        271,
+        1275,
+        292,
+        1297
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "青衫",
+      "position": [
+        359,
+        1271
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        334,
+        1260,
+        384,
+        1286
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "胜点 +1",
+      "position": [
+        359,
+        1306
+      ],
+      "font_size": 17,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        328,
+        1299,
+        390,
+        1316
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "6,400",
+      "position": [
+        514,
+        1271
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        482,
+        1263,
+        545,
+        1283
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "+180 加成",
+      "position": [
+        514,
+        1306
+      ],
+      "font_size": 17,
+      "color": "#367c56",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        473,
+        1299,
+        555,
+        1315
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "52",
+      "position": [
+        652,
+        1284
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        637,
+        1275,
+        667,
+        1294
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "820 ↑",
+      "position": [
+        766,
+        1284
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        737,
+        1274,
+        795,
+        1294
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "unit_shield",
+      "rect": [
+        843,
+        1259,
+        50,
+        50
+      ],
+      "rendered_rect": [
+        852,
+        1259,
+        31,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "panel_row",
+      "rect": [
+        172,
+        1350,
+        736,
+        96
+      ],
+      "rendered_rect": [
+        172,
+        1350,
+        736,
+        95
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "6",
+      "position": [
+        205,
+        1397
+      ],
+      "font_size": 22,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        198,
+        1389,
+        212,
+        1406
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "avatar_frame",
+      "rect": [
+        253,
+        1367,
+        58,
+        58
+      ],
+      "rendered_rect": [
+        253,
+        1368,
+        58,
+        57
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "山",
+      "position": [
+        282,
+        1396
+      ],
+      "font_size": 21,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        271,
+        1387,
+        292,
+        1407
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "山河",
+      "position": [
+        359,
+        1383
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        334,
+        1372,
+        384,
+        1398
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "胜点 +1",
+      "position": [
+        359,
+        1418
+      ],
+      "font_size": 17,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        328,
+        1411,
+        390,
+        1428
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "5,800",
+      "position": [
+        514,
+        1383
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        482,
+        1375,
+        545,
+        1395
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "+145 加成",
+      "position": [
+        514,
+        1418
+      ],
+      "font_size": 17,
+      "color": "#367c56",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        473,
+        1411,
+        555,
+        1427
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "43",
+      "position": [
+        652,
+        1396
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        637,
+        1387,
+        667,
+        1406
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "993 ↑",
+      "position": [
+        766,
+        1396
+      ],
+      "font_size": 23,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        737,
+        1386,
+        795,
+        1406
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "unit_bow",
+      "rect": [
+        843,
+        1371,
+        50,
+        50
+      ],
+      "rendered_rect": [
+        844,
+        1371,
+        49,
+        50
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "军功已记录 · 感谢每一位将士",
+      "position": [
+        540,
+        1490
+      ],
+      "font_size": 25,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        380,
+        1479,
+        700,
+        1503
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "btn_primary_gold",
+      "rect": [
+        320,
+        1550,
+        440,
+        108
+      ],
+      "rendered_rect": [
+        320,
+        1552,
+        440,
+        104
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "继续征战",
+      "position": [
+        540.0,
+        1604
+      ],
+      "font_size": 34,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        472.0,
+        1589,
+        608.0,
+        1624
+      ],
+      "runtime_text": true,
+      "tag": null
+    }
+  ],
+  "notes": [
+    "Text and numbers are runtime data; sample strings are proof-only.",
+    "bg_battle_preview is a scenic assembly aid; use the actual Unity world camera at runtime.",
+    "Simple sprites preserve aspect. Fill strips/track alone stretch horizontally. No nine-slice.",
+    "Pointer states: normal=(1,1,1,1), pressed tint=(0.82,0.82,0.82,1), disabled alpha=0.45."
+  ]
+}

@@ -13,7 +13,7 @@ public class ActionFlow : MonoBehaviour
     {
         get
         {
-            renderComponenter = gameObject.GetOrAddComponent<RenderComponent>();
+            renderComponenter = gameObject.GetOrAddComponentInChild<RenderComponent>();
             return renderComponenter;
         }
     }
@@ -73,6 +73,8 @@ public class ActionFlow : MonoBehaviour
     // 播放一个动画
     public void PlayAction(EActionType _actionType)
     {
+        if (currentActionData != null && currentActionData.ActionType == _actionType)
+            return;
         if(ActionDataDic != null && ActionDataDic.ContainsKey(_actionType))
         {
             ActionData _actionData = ActionDataDic[_actionType];        
@@ -112,19 +114,14 @@ public class ActionFlow : MonoBehaviour
         }
         return 1;
     }
-
-    // 进入冰冻
-    public void ActionFreeze(float slowAnimSpeedRatio)
+    /// <summary>设置当前动作播放速度，负数会按零处理。</summary>
+    public void SetAnimationSpeed(float speedRatio)
     {
-        animPlaySpeedValue = slowAnimSpeedRatio;
-        setActionAnimLenth(currentActionData);
-    }
-
-    // 退出冰冻
-    public void ActionExitFreeze()
-    {
-        animPlaySpeedValue = 1;
-        setActionAnimLenth(currentActionData);
+        animPlaySpeedValue = Mathf.Max(0f, speedRatio);
+        if (currentActionData != null)
+        {
+            setActionAnimLenth(currentActionData);
+        }
     }
 
     // 设置动画时长

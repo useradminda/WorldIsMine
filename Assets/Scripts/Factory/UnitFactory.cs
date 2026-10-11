@@ -3,9 +3,11 @@ using Nebukam;
 using Nebukam.ORCA;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public static class UnitFactory
 {
+    public const int MaxActiveUnitCountPerCamp = 3000;
     private static int blueUId = 0;
     private static int redUId = 0;
 
@@ -14,6 +16,24 @@ public static class UnitFactory
 
     private static int blueFreeCount = 0;
     private static List<int> blueFreeIndexList = new List<int>();
+
+    private static int redActiveCount = 0;
+    private static int blueActiveCount = 0;
+
+    public static int GetActiveCount(ECampType campType)
+    {
+        return campType == ECampType.Red ? redActiveCount : blueActiveCount;
+    }
+
+    public static bool CanCreateUnit(ECampType campType)
+    {
+        return GetActiveCount(campType) < MaxActiveUnitCountPerCamp;
+    }
+
+    public static bool CanCreateUnitGroup(ECampType campType, int count)
+    {
+        return count > 0 && GetActiveCount(campType) + count <= MaxActiveUnitCountPerCamp;
+    }
     
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
@@ -22,6 +42,12 @@ public static class UnitFactory
         Vector3 moveForward,
         ECampType campType, int index)
     {
+        if (!CanCreateUnit(campType))
+        {
+            return null;
+        }
+
+        AddActiveCount(campType);
         UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index);
         return unit;
     }
@@ -32,6 +58,11 @@ public static class UnitFactory
         Vector3 moveForward,
         ECampType campType)
     {
+        if (!CanCreateUnit(campType))
+        {
+            return null;
+        }
+
         int unitIndex = GetRecycleId(campType);
         if (unitIndex == -1)
         {
@@ -39,6 +70,7 @@ public static class UnitFactory
             
         }
         UnitLogicBase unit = UnitManager.Instance.UnitList[unitIndex];
+        AddActiveCount(campType);
         unit.CycleUse(cfgId, getUId(campType), moveForward);
         unit.Agenter.pos = bornPoint;
         unit.Agenter.prefVelocity = moveForward;
@@ -50,11 +82,12 @@ public static class UnitFactory
         unit.Agenter.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         unit.Agenter.saveMaxSpeed = unit.Prop.MaxSpeed;
         unit.Agenter.maxSpeed = unit.Prop.MaxSpeed;
+        SetAgentLayers(unit.Agenter, unit.SoliderCfg.myLayer, unit.SoliderCfg.ignoreLayer);
         return unit;
     }
 
     // 创建一个RVO智能体
-    public static Agent CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed)
+    public static Agent  CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int ignoreLayer)
     {        
         Agent agent = Pool.Rent<Agent>();   
         agent.pos = bornPoint;
@@ -67,11 +100,55 @@ public static class UnitFactory
         agent.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         agent.saveMaxSpeed = maxSpeed;
         agent.maxSpeed = maxSpeed;
+        SetAgentLayers(agent, myLayer, ignoreLayer);
         return agent;
     }
 
+    // 根据单位配置设置RVO占用层和忽略层，忽略层为0时不忽略任何层。
+    private static void SetAgentLayers(Agent agent, int myLayer, int ignoreLayer)
+    {
+        agent.layerOccupation = ConvertConfigLayer(myLayer);
+        agent.layerIgnore = ConvertConfigLayer(ignoreLayer);
+    }
 
-    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int damage)
+    // 表格使用从1开始的层编号，转换成ORCA需要的位掩码；0表示不占用或不忽略任何层。
+    private static ORCALayer ConvertConfigLayer(int configLayer)
+    {
+        if (configLayer <= 0 || configLayer > 31)
+        {
+            return ORCALayer.NONE;
+        }
+
+        return (ORCALayer)(1 << (configLayer - 1));
+    }
+
+    public static UnitLogicBase CreateWall(ECampType campType)
+    {
+        int wallCfgId = 10001;
+        int uid = 999999;
+        int index = uid;
+        if(campType == ECampType.Blue)
+        {
+            uid -= 1;
+            index = uid;
+        }
+        UnitLogicBase unit = new UnitLogicBase(wallCfgId, uid, campType, Vector3.zero, index);
+        unit.SetUnitType(EUnitType.Wall);
+        return unit;
+    }
+
+    /// <summary>
+    /// 创建阵营玩家逻辑对象。玩家逻辑不计入士兵数量，也不加入Agent和地图搜索。
+    /// </summary>
+    public static UnitLogicBase CreatePlayerLogic(ECampType campType)
+    {
+        int cfgId = campType == ECampType.Red ? 30001 : 30002;
+        int uid = campType == ECampType.Red ? 30001 : 30002;
+        int index = campType == ECampType.Red ? -1 : -2;
+        return new UnitLogicBase(cfgId, uid, campType, Vector3.zero, index);
+    }
+
+    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int attackDamage)
     {
         FlyObjectLogicBase flyObjectLogic = null;
         FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
@@ -82,8 +159,7 @@ public static class UnitFactory
         }
         else if (flyObjectCfg.flyType == "area")
         {
-            flyObjectLogic = new AreaFlyObject();
-           
+            flyObjectLogic = new AreaFlyObject();      
         }
         else if (flyObjectCfg.flyType == "stone")
         {
@@ -93,12 +169,24 @@ public static class UnitFactory
         {
             flyObjectLogic = new LineFlyObject();
         }
+        else if (flyObjectCfg.flyType == "jumpArrow")
+        {
+            flyObjectLogic = new JumpArrowFlyObject();
+        }
+        else if (flyObjectCfg.flyType == "globalStone")
+        {
+            flyObjectLogic = new GlobalStoneFlyObject();
+        }
+        else if (flyObjectCfg.flyType == "areaRandom")
+        {
+            flyObjectLogic = new AreaRandomFlyObject();
+        }
         else
         {
             flyObjectLogic = new FlyObjectLogicBase();  
         }
         flyUIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, damage, flyUIndex);
+        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, attackDamage, flyUIndex);
         return flyObjectLogic;
     }
 
@@ -111,6 +199,7 @@ public static class UnitFactory
     // 回收UnitIndex
     public static void RecycleId(ECampType campType, int recycleUnitIndex)
     {
+        RemoveActiveCount(campType);
         if (campType == ECampType.Red)
         {
             redFreeCount = redFreeCount + 1;
@@ -158,5 +247,29 @@ public static class UnitFactory
             return ++redUId;
         }
         return ++blueUId;
+    }
+
+    private static void AddActiveCount(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            redActiveCount++;
+        }
+        else
+        {
+            blueActiveCount++;
+        }
+    }
+
+    private static void RemoveActiveCount(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            redActiveCount = Mathf.Max(0, redActiveCount - 1);
+        }
+        else
+        {
+            blueActiveCount = Mathf.Max(0, blueActiveCount - 1);
+        }
     }
 }

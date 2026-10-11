@@ -1,0 +1,170 @@
+[
+  {
+    "reference": "微信图片_20260919202146_14483_25.png",
+    "screen": "01_Loading",
+    "supplemental_screen": null,
+    "sha256": "06b97ac95579fbc55bf76dc6dec89dd88ac9efb022cd78ab25450d24b8313645",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202152_14484_25.png",
+    "screen": "02_Controls",
+    "supplemental_screen": null,
+    "sha256": "0860ed4c8e5fdb798831170343f73132bd0612f6163e922a2acb4d0d9206e676",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202159_14485_25.png",
+    "screen": "03_ModeSelect",
+    "supplemental_screen": null,
+    "sha256": "78f4d4d9d3b821e1df38e3e663ab1b244a52d08f68a8d748fb7eb24ef5b8d09c",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202205_14486_25.png",
+    "screen": "04_Lobby",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "adc6ab0eb51f6cec8f55759d01af0a2f88d1d3ed9bd6e4f70f8d7295d8cc4bac",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202217_14487_25.png",
+    "screen": "05_Leaderboard",
+    "supplemental_screen": null,
+    "sha256": "c0f8d42f1544657074b32f1ce87774c72040740bed29b9add76b61406f532514",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202224_14488_25.png",
+    "screen": "06_Settings",
+    "supplemental_screen": null,
+    "sha256": "69b46086109d468d43b85dab11e36e131abf4e705b561b5d5c5c7be499540a85",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202238_14489_25.png",
+    "screen": "04_Lobby",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "63bf7efc46f8399a4e429e921db10dde82f78b901a5f4ca95bf3a84be34393a9",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202252_14490_25.png",
+    "screen": "04_Lobby",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "4db14f512b09bff019b5d856dada7ff6700ebbc50d73c651946bde9d7d6f467d",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202409_14491_25.png",
+    "screen": "09_HeroSummon",
+    "supplemental_screen": null,
+    "sha256": "9c023750663af59841210e89382294465c1eb22eb9c1977f30cbb0efebf30f25",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202415_14492_25.png",
+    "screen": "08_BattleHUD",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "fea7e26a0091d6a6d0cf5343aa13791d1c31cd61fbb04eb29878c8a6538f609c",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202430_14493_25.png",
+    "screen": "08_BattleHUD",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "6102641c438eacd7692ede44977da47404c50f0487d513b783dbac7d1937ace4",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202513_14494_25.png",
+    "screen": "08_BattleHUD",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "1b32b0d696f37754584f98a13d53091868b540adea6b142ed5cfb37e8737d2ee",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202524_14495_25.png",
+    "screen": "08_BattleHUD",
+    "supplemental_screen": "07_LiveGuide",
+    "sha256": "c570c96f03e3044833d89560ed8e7293d1ed4e5c83a3c8e1a45d46f8d0b2a860",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919202750_14496_25.png",
+    "screen": "10_TroopSummon",
+    "supplemental_screen": null,
+    "sha256": "c8934850a932660abcf445ac5bb77ea0cc5512418b4f71052ca8dbda80b3a857",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204832_14498_25.png",
+    "screen": "11_BattleAnnouncements",
+    "supplemental_screen": null,
+    "sha256": "c57e05e8615023cb5e0714c02db335552794df77afae8f2a75a93a268abbcb6d",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204932_14499_25.png",
+    "screen": "11_BattleAnnouncements",
+    "supplemental_screen": null,
+    "sha256": "2bf567703c958c0c714c13200ab22fb4ede9b463e68441202324611a422e125f",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204932_14500_25.png",
+    "screen": "11_BattleAnnouncements",
+    "supplemental_screen": null,
+    "sha256": "2bf567703c958c0c714c13200ab22fb4ede9b463e68441202324611a422e125f",
+    "identical_to": "微信图片_20260919204932_14499_25.png",
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204932_14501_25.png",
+    "screen": "12_Results",
+    "supplemental_screen": null,
+    "sha256": "7e86063350bd5fc1b61554741659b9c73d85b005bc21e95fc61e08f5e465021d",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204932_14502_25.png",
+    "screen": "12_Results",
+    "supplemental_screen": null,
+    "sha256": "7e86063350bd5fc1b61554741659b9c73d85b005bc21e95fc61e08f5e465021d",
+    "identical_to": "微信图片_20260919204932_14501_25.png",
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204932_14503_25.png",
+    "screen": "12_Results",
+    "supplemental_screen": null,
+    "sha256": "9f039b1cc2c1ee66a8848dcb03c5ab5d8858d79cf7b27348566452a09c14bed6",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  },
+  {
+    "reference": "微信图片_20260919204932_14504_25.png",
+    "screen": "03_ModeSelect",
+    "supplemental_screen": null,
+    "sha256": "0ff51639530259a11697da4f11424f874d9646da552c427e14e9f6d55ee4d119",
+    "identical_to": null,
+    "note": "同一界面的镜头或贴纸位置变化归在同一文件夹；贴纸另拆为 07_LiveGuide。"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "file": "Hero3_1.png",
+  "input": "poc/hero-icon/Hero3_1.png",
+  "input_sha256": "745826d89cb3d0031bba5f90cf3e017946a7042c14cb47b1a7c43e76c4491353",
+  "output_sha256": "6db7b07105abda1f3982c02b3ac2967f9c4e0820fe7c90b56a2ab41bd77058f1",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    162,
+    49,
+    860,
+    974
+  ],
+  "raw_source": "work/hero_icons_20260922/source_art/Hero3_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young noble male strategist, brown hair in high bun with small gold crown, red and gold robe, open white folding fan decorated with delicate dark ink branches. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+}

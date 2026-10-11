@@ -252,6 +252,9 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
         nearestIndex = -1;
         randomIndex = -1;
 
+        if (requestId == -1)
+            return;
+
         int count = resultCount[requestId];
         int offset = requestId * MaxResult;
 

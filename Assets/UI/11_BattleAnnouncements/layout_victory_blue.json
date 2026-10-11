@@ -1,0 +1,829 @@
+{
+  "screen": "11_BattleAnnouncements",
+  "title": "战场大事件",
+  "variant": "victory_blue",
+  "reference_resolution": [
+    1080,
+    1920
+  ],
+  "coordinate_system": "top-left pixels; ordered back to front",
+  "layers": [
+    {
+      "type": "image",
+      "asset": "bg_battle_preview",
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "rendered_rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "fit": "cover",
+      "opacity": 1,
+      "preview_only": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_blue",
+      "rect": [
+        25,
+        44,
+        475,
+        152
+      ],
+      "rendered_rect": [
+        26,
+        44,
+        474,
+        152
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_red",
+      "rect": [
+        580,
+        44,
+        475,
+        152
+      ],
+      "rendered_rect": [
+        580,
+        50,
+        475,
+        141
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "蓝方",
+      "position": [
+        245,
+        83
+      ],
+      "font_size": 27,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        218,
+        70,
+        272,
+        97
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "红方",
+      "position": [
+        835,
+        83
+      ],
+      "font_size": 27,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        808,
+        70,
+        862,
+        97
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "1,580",
+      "position": [
+        250,
+        132
+      ],
+      "font_size": 42,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        192,
+        117,
+        308,
+        155
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "1,420",
+      "position": [
+        830,
+        132
+      ],
+      "font_size": 42,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        772,
+        117,
+        888,
+        155
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "health_strip_blue_decorated",
+      "rect": [
+        137,
+        185,
+        293,
+        38
+      ],
+      "rendered_rect": [
+        158,
+        185,
+        251,
+        38
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "health_strip_red_decorated",
+      "rect": [
+        650,
+        185,
+        293,
+        38
+      ],
+      "rendered_rect": [
+        671,
+        185,
+        251,
+        38
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "城防 250,000",
+      "position": [
+        285,
+        205
+      ],
+      "font_size": 19,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        227,
+        197,
+        342,
+        216
+      ],
+      "runtime_text": true,
+      "tag": "blue_castle_hp"
+    },
+    {
+      "type": "text",
+      "sample": "城防 250,000",
+      "position": [
+        796,
+        205
+      ],
+      "font_size": 19,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        738,
+        197,
+        853,
+        216
+      ],
+      "runtime_text": true,
+      "tag": "red_castle_hp"
+    },
+    {
+      "type": "image",
+      "asset": "faction_blue",
+      "rect": [
+        15,
+        215,
+        92,
+        128
+      ],
+      "rendered_rect": [
+        15,
+        224,
+        92,
+        110
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "faction_red",
+      "rect": [
+        971,
+        215,
+        92,
+        128
+      ],
+      "rendered_rect": [
+        971,
+        224,
+        92,
+        111
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "timer_panel",
+      "rect": [
+        435,
+        16,
+        210,
+        239
+      ],
+      "rendered_rect": [
+        435,
+        28,
+        210,
+        216
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "第 3 回合",
+      "position": [
+        540,
+        64
+      ],
+      "font_size": 23,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        492,
+        53,
+        588,
+        76
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "02:48",
+      "position": [
+        540,
+        141
+      ],
+      "font_size": 37,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        488,
+        128,
+        591,
+        156
+      ],
+      "runtime_text": true,
+      "tag": "battle_timer"
+    },
+    {
+      "type": "image",
+      "asset": "icon_settings",
+      "rect": [
+        973,
+        357,
+        68,
+        68
+      ],
+      "rendered_rect": [
+        973,
+        358,
+        68,
+        66
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "icon_rank",
+      "rect": [
+        973,
+        450,
+        68,
+        68
+      ],
+      "rendered_rect": [
+        973,
+        451,
+        68,
+        66
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "ranking_panel",
+      "rect": [
+        746,
+        256,
+        218,
+        268
+      ],
+      "rendered_rect": [
+        746,
+        268,
+        218,
+        245
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "贡献榜 TOP3",
+      "position": [
+        855,
+        324
+      ],
+      "font_size": 20,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        795,
+        315,
+        915,
+        336
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "medal_gold",
+      "rect": [
+        767,
+        350,
+        38,
+        38
+      ],
+      "rendered_rect": [
+        767,
+        352,
+        38,
+        33
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "1",
+      "position": [
+        786,
+        369
+      ],
+      "font_size": 19,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        780,
+        363,
+        792,
+        377
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "阿青",
+      "position": [
+        817,
+        369
+      ],
+      "font_size": 19,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "regular",
+      "bbox": [
+        817,
+        360,
+        855,
+        380
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "12,800",
+      "position": [
+        939,
+        369
+      ],
+      "font_size": 18,
+      "color": "#253645",
+      "anchor": "rm",
+      "font_weight": "regular",
+      "bbox": [
+        880,
+        363,
+        939,
+        380
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "medal_silver",
+      "rect": [
+        767,
+        399,
+        38,
+        38
+      ],
+      "rendered_rect": [
+        767,
+        401,
+        38,
+        34
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "2",
+      "position": [
+        786,
+        418
+      ],
+      "font_size": 19,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        780,
+        412,
+        792,
+        426
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "小北",
+      "position": [
+        817,
+        418
+      ],
+      "font_size": 19,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "regular",
+      "bbox": [
+        817,
+        410,
+        855,
+        428
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "9,600",
+      "position": [
+        939,
+        418
+      ],
+      "font_size": 18,
+      "color": "#253645",
+      "anchor": "rm",
+      "font_weight": "regular",
+      "bbox": [
+        891,
+        412,
+        939,
+        429
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "medal_bronze",
+      "rect": [
+        767,
+        448,
+        38,
+        38
+      ],
+      "rendered_rect": [
+        767,
+        450,
+        38,
+        34
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "3",
+      "position": [
+        786,
+        467
+      ],
+      "font_size": 19,
+      "color": "#253645",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        780,
+        461,
+        792,
+        475
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "大山",
+      "position": [
+        817,
+        467
+      ],
+      "font_size": 19,
+      "color": "#253645",
+      "anchor": "lm",
+      "font_weight": "regular",
+      "bbox": [
+        817,
+        459,
+        855,
+        477
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "8,200",
+      "position": [
+        939,
+        467
+      ],
+      "font_size": 18,
+      "color": "#253645",
+      "anchor": "rm",
+      "font_weight": "regular",
+      "bbox": [
+        891,
+        461,
+        939,
+        478
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_blue",
+      "rect": [
+        35,
+        1639,
+        495,
+        166
+      ],
+      "rendered_rect": [
+        35,
+        1642,
+        495,
+        159
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "发「1」加入蓝方",
+      "position": [
+        282,
+        1722
+      ],
+      "font_size": 34,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        152,
+        1708,
+        411,
+        1741
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "image",
+      "asset": "join_red",
+      "rect": [
+        550,
+        1639,
+        495,
+        166
+      ],
+      "rendered_rect": [
+        550,
+        1648,
+        495,
+        147
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "发「2」加入红方",
+      "position": [
+        797,
+        1722
+      ],
+      "font_size": 34,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        667,
+        1708,
+        926,
+        1741
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "万人同屏 · 由你指挥",
+      "position": [
+        540,
+        1840
+      ],
+      "font_size": 28,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        416,
+        1828,
+        663,
+        1855
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "engine_overlay",
+      "color": "#08141c",
+      "opacity": 0.25,
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ]
+    },
+    {
+      "type": "image",
+      "asset": "victory_blue",
+      "rect": [
+        75,
+        642,
+        930,
+        736
+      ],
+      "rendered_rect": [
+        75,
+        670,
+        930,
+        681
+      ],
+      "fit": "contain",
+      "opacity": 1,
+      "preview_only": false,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "蓝方胜利",
+      "position": [
+        540,
+        1148
+      ],
+      "font_size": 60,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "bold",
+      "bbox": [
+        420,
+        1122,
+        660,
+        1180
+      ],
+      "runtime_text": true,
+      "tag": null
+    },
+    {
+      "type": "text",
+      "sample": "旌旗所向 · 凯旋而归",
+      "position": [
+        540,
+        1427
+      ],
+      "font_size": 32,
+      "color": "#fff0cc",
+      "anchor": "mm",
+      "font_weight": "regular",
+      "bbox": [
+        399,
+        1413,
+        681,
+        1445
+      ],
+      "runtime_text": true,
+      "tag": null
+    }
+  ],
+  "notes": [
+    "Text and numbers are runtime data; sample strings are proof-only.",
+    "bg_battle_preview is a scenic assembly aid; use the actual Unity world camera at runtime.",
+    "Simple sprites preserve aspect. Fill strips/track alone stretch horizontally. No nine-slice.",
+    "Pointer states: normal=(1,1,1,1), pressed tint=(0.82,0.82,0.82,1), disabled alpha=0.45."
+  ]
+}

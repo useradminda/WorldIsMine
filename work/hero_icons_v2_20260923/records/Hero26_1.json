@@ -1,0 +1,25 @@
+{
+  "file": "Hero26_1.png",
+  "input": "poc/hero-icon/Hero26_1.png",
+  "input_sha256": "37de36ce5e9c4c0621e0055b04b1578725433d64c14f39b377feca43876e97ea",
+  "output_sha256": "d5835bb867bea5eb7c5fb56195bb0524421ff385697d940ec549616fb450aa5a",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    76,
+    49,
+    947,
+    976
+  ],
+  "raw_source": "work/hero_icons_v2_20260923/source_art/Hero26_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: stylized-concept. NEW mature imposing V2 redesign. Image 1 is identity ONLY: preserve gender/species, hair, headgear, signature equipment and main color palette. Discard its baby/chibi proportions. Image 2 is rendering STYLE ONLY: premium semi-realistic fantasy warlord painted game key art; do not copy its costume, sword or mount onto this subject. Subject: Stocky ginger-bearded male bombardier knight, pale silver and bright blue armor, blue helmet with red plume, large powerful single-barrel gray hand cannon. Keep a RIDER ON ONE CHESTNUT WARHORSE. Horse has long legs, strong realistic equine anatomy and natural small eyes, matching military tack. Connected complete rider/mount silhouette. Mature commanding faces, angular bone structure and cheekbones, deep-set natural small eyes, defined jaw and nose; men stern battle-hardened, women proud powerful adult heroines with normal face proportions, elders dignified weathered. Normal adult heroic 7-8-head anatomy, small proportional head, long limbs, broad shoulders appropriate to gender; not short chibi limbs. Rich detailed sculptural metal and layered cloth, subtle wear and intricate fittings, cinematic light/dark modeling with crisp cold rim confined to subject, high material realism and strong readable silhouette. Strong commanding pose in three-quarter view. L3 production polish. Entire subject INCLUDING weapon tips, plume, tail, hooves/feet/wheels fully inside square with 6% empty safety margin all sides. True transparent alpha background and fully opaque solid surfaces. 1024x1024 PNG. NO cute doll face, oversized eyes/head, toy, chibi, baby face, smiles, lowpoly rendering. NO scenery, ground plane, pedestal, external cast shadow, smoke, halo/glow, text, border, watermark, checkerboard. Never crop extremities. Keep recognizable unit role and palette, not a generic repeated knight."
+}

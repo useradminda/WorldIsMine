@@ -1,0 +1,25 @@
+{
+  "file": "Soldier11_1.png",
+  "input": "poc/hero-icon/Soldier11_1.png",
+  "input_sha256": "b287457af953147cf7450aa62e41b996b90fe77b238fdc7007f115820e1af252",
+  "output_sha256": "2e020feec4502898357b1ca3ecc2e86a63502797cfc6058f638b12b2429acdad",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    66,
+    48,
+    959,
+    976
+  ],
+  "raw_source": "work/hero_icons_v2_20260923/source_art/Soldier11_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: precise-object-edit. Polish this exact mature bronze-armored red-scarf cavalry spearman and chestnut warhorse. Keep anatomy, face, equipment, pose, spear and opaque materials. Frame the WHOLE mounted unit smaller: occupy 82 percent of square with 9 percent clear transparent space on every side. Reconstruct complete pointed bronze helmet finial with its apex INSIDE canvas, no touching or clipping the top. The spear tip, butt, horse tail, all hooves and cloth must be entirely visible too. Shorten the decorative white helmet plume into a small practical white tuft so this reads as regular cavalry, not a unique hero. Keep stern adult mature face and imposing semi-realistic fantasy painted style. True transparent alpha exterior. No scenery floor cast shadow smoke glow text UI borders or checkerboard. 1024x1024 PNG."
+}

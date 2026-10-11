@@ -1,0 +1,1710 @@
+{
+  "expected": 68,
+  "completed": 68,
+  "pending": [],
+  "failed_file_checks": [],
+  "file_checks_pass": true,
+  "all_delivered": true,
+  "assets": [
+    {
+      "file": "Hero1_1.png",
+      "input": "poc/hero-icon/Hero1_1.png",
+      "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+      "output_sha256": "6b248857bc50864d6b1c02c416a32559e7fa9babd392472b910cca5094e6ad2c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        135,
+        48,
+        887,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero1_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Input image is the character identity and mount reference, not a quality target. Redesign this low-resolution 3D screenshot into one premium L3 production-quality stylized fantasy strategy game character illustration. Retain the recognizable adult chibi mounted knight: bright red-orange plate armor with silver borders, silver cheek guards on a red helmet, a purple upright plume, navy underclothes, small sword, riding a chestnut brown pony with burgundy forehead armor. Preserve its charming compact proportions, large expressive head and approximate three-quarter view facing right. Make the rider AND horse visibly crafted and beautiful: appealing expressive face, clean sculpted anatomy and readable hands, brushed metal with fine engraved edge accents, rich red lacquer, tailored cloth and leather saddle, groomed horse mane and lively confident horse expression. Art direction: premium hand-painted 3D collectible mobile game illustration, elegant stylization, crisp edge control, soft warm key light and subtle cool rim light, vivid controlled color and rich material separation. It should look like finished character card art, not a raw low-poly render, not a realistic adult photograph, not anime flat line art. Show ONE full rider-and-mount unit with the entire helmet/plume, sword, tail and every hoof INSIDE the image, surrounded by at least 5 percent transparent breathing room; centered with generous horizontal silhouette, fills about 88 percent height. Reconstruct missing or jagged geometry from the screenshot. NO scene, no ground plane, no pedestal, no drop shadow, no smoke or glow outside the silhouette, no UI frame, no text, no logo, no checkerboard. Genuine transparent alpha exterior; solid subject opaque. Exactly square 1024x1024 PNG. Do not crop any extremities."
+    },
+    {
+      "file": "Hero2_1.png",
+      "input": "poc/hero-icon/Hero2_1.png",
+      "input_sha256": "ea51672604c3bb0d3d7afbccb2929d36676f6de626365183cab39a4069dbddd2",
+      "output_sha256": "b692bb85888808dfec2cf7d6e92525c6a534b2dff367888e49d531c3623b0929",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        130,
+        49,
+        894,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero2_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Slender youthful adult swordsman with dark teal high ponytail and side bangs, vivid green tunic, yellow scarf, silver shoulder armor and short sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero3_1.png",
+      "input": "poc/hero-icon/Hero3_1.png",
+      "input_sha256": "745826d89cb3d0031bba5f90cf3e017946a7042c14cb47b1a7c43e76c4491353",
+      "output_sha256": "6db7b07105abda1f3982c02b3ac2967f9c4e0820fe7c90b56a2ab41bd77058f1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        162,
+        49,
+        860,
+        974
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero3_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young noble male strategist, brown hair in high bun with small gold crown, red and gold robe, open white folding fan decorated with delicate dark ink branches. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero4_1.png",
+      "input": "poc/hero-icon/Hero4_1.png",
+      "input_sha256": "a6e81baa5b8cc588b3c45ee2a0378ddce0bcbfeba4788effa6c6b89c13a0b5ea",
+      "output_sha256": "79c7824055d605259a69b62871b497db674c6732bb06479654997d312dbe4c47",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        155,
+        48,
+        867,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero4_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female support hero, brown hair in high bun, turquoise and blue dress with pale sleeves, gold belt, short staff tipped with a pink flower bud. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero5_1.png",
+      "input": "poc/hero-icon/Hero5_1.png",
+      "input_sha256": "5b2d66140424bcd9d0bfdf3311826dbbb824501fb39ca899c119c87e049ccfdd",
+      "output_sha256": "b1ab7d3ab01a2385800fc55132da80958dba63a945096549cdc0cec437e63c8e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        119,
+        48,
+        904,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero5_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Rugged muscular male warrior with brown beard and moustache, red headband, sleeveless brown and steel armor, red wrist wraps, holding a compact crossbow across chest. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero6_1.png",
+      "input": "poc/hero-icon/Hero6_1.png",
+      "input_sha256": "682d81283fd38cca74db3ca7eea7dca29b8fb3bd7824c1b8d929eef0b435f5c3",
+      "output_sha256": "1d64fa5e4ded22f2d87f09979606f2faabd3153861f038918b016c80bc0a0a95",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        134,
+        49,
+        889,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero6_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female dancer strategist, auburn high-bun hair, red and gold outfit, broad open red-and-ivory folding fan. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero7_1.png",
+      "input": "poc/hero-icon/Hero7_1.png",
+      "input_sha256": "e5bddbbc15aa6ce6beaf2be0a317d92d99f2c3731cee4ff4de6ad4c7ac08adf4",
+      "output_sha256": "e1a7c234f7a1a833b7b1eb28acc1785d125d111d7f6def28fe9ae29fb177b5a2",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        123,
+        49,
+        902,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero7_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stout moustached veteran, gold-trimmed silver helmet with red plume, silver lamellar armor, golden shoulder plates, broad short sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero8_1.png",
+      "input": "poc/hero-icon/Hero8_1.png",
+      "input_sha256": "684c2e563b0a542d03970010b8bf7237e3ea2aae81dfa89a0a5185e0463245a3",
+      "output_sha256": "8012ff18e552839625d280463da34c0cf23434b3959a83808d7ba83c20580849",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        92,
+        48,
+        931,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero8_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female agile swordswoman, short straight violet hair, vivid cyan-blue outfit, pale shoulder wrap, short silver blade and blue boots. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero9_1.png",
+      "input": "poc/hero-icon/Hero9_1.png",
+      "input_sha256": "7d22cfeb4688413e489980ea34ee07a0af2e1764198e137121beff29b8a1964c",
+      "output_sha256": "5fdb8272c43ff9630ba442eb054ad2db627d051c89926cc13458064a7e044e21",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        169,
+        49,
+        855,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero9_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult male ceremonial musician, long dark side hair, broad horizontal gold headpiece, red and black robes, gold shoulder armor, round red-rimmed hand drum with pale face at side. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero10_1.png",
+      "input": "poc/hero-icon/Hero10_1.png",
+      "input_sha256": "af77647cda00f06bf74c8598444176d3c9c24b0ba79542f6fcc3d4c2fea3c60b",
+      "output_sha256": "992a545eefd20fc30dc77aa9c7191b91f4e5e8818e5b6d8a420b470220e805d5",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        146,
+        49,
+        876,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero10_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female royal spellcaster, black high bun under ornate turquoise-and-gold headpiece, long turquoise robe with gold edges, ornate broad sleeves. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero11_1.png",
+      "input": "poc/hero-icon/Hero11_1.png",
+      "input_sha256": "c32d31e6d2604f8327f72a6914864f1dfad644c3cef951f94487bb2307da1727",
+      "output_sha256": "7121d6018981cff9108f90b6f47bd20dbfd68a4a3081c8a592e407a3bcb363f0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        58,
+        48,
+        965,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero11_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Long-bearded stern male guandao general, tall green and gold cap, emerald green robe and armor with gold pauldrons, silver crescent guandao polearm. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero12_1.png",
+      "input": "poc/hero-icon/Hero12_1.png",
+      "input_sha256": "b048619138f0ed7085f5804e068663559f1ce4b25549394aa9420f482ddfa28d",
+      "output_sha256": "76e3ef8254ce63969c7d45e335d33a7c6531736d47752032763a509d23f950e0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        122,
+        48,
+        902,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero12_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Powerful male warrior, dark bushy beard and high topknot, emerald and gold armor, crimson scarf, silver broad-pointed polearm. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero13_1.png",
+      "input": "poc/hero-icon/Hero13_1.png",
+      "input_sha256": "611e0d9ebc9c2c0069fa501665d8e9fedb0add918f73c49094f2ab8be1fefa37",
+      "output_sha256": "a27edaffb653fe06c6c684985ec2db623a53b96dd3e8209aa9c1043aa91b5b1b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        110,
+        48,
+        913,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero13_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young male silver knight, ornate pale-blue and silver armor, closed-cheek helmet with white plume, blue cloth, slim silver blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero14_1.png",
+      "input": "poc/hero-icon/Hero14_1.png",
+      "input_sha256": "67dcef30bf549a936b70bc53f61f30804b6206879c7553fcec4aa64e833e8eab",
+      "output_sha256": "044ae774f75c4d791b1bb33b66068a07f329c15d26e5dcfe1fadd4c52c1c6348",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        154,
+        49,
+        869,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero14_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female swordswoman, chestnut side-swept hair and bun adorned with yellow flower, bright emerald and gold outfit, short curved blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero15_1.png",
+      "input": "poc/hero-icon/Hero15_1.png",
+      "input_sha256": "7c53753c5269c2a105cd301d7fde62266ade6df25e2c00c4c0fad2a109347574",
+      "output_sha256": "7f08d5fd1bdcfc0a67be267da4f643e2e41f44b1c3b58a72777aa2605f7ea3cb",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        140,
+        48,
+        882,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero15_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Mature male imperial warlord, pointed black beard, swept black-and-silver hair, tall small gold crown, purple and gold robes with angular gold shoulders, curved silver sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero16_1.png",
+      "input": "poc/hero-icon/Hero16_1.png",
+      "input_sha256": "e755e2cac775223e2ea2307538a87b4fe060fbf3914412c3b141b897c527e849",
+      "output_sha256": "bcb3fcd3046bfed831d2ba38222f6f17352c0c75ba39768338faf14abb793e58",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        161,
+        48,
+        862,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero16_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Burly adult male berserker, reddish-brown hair and topknot, fierce beard, bare chest with leather and gold armor straps, enormous gold pauldrons, round blue spiked shield. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero17_1.png",
+      "input": "poc/hero-icon/Hero17_1.png",
+      "input_sha256": "02955347f84c70080118305d3418c33d136a0b7958d34cc29dace40404193488",
+      "output_sha256": "23bcd8b9ff646bbcee680a35ae0d955eff71caa82a5add69063478d5ba989223",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        119,
+        48,
+        905,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero17_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female noble warrior, vivid purple hair, ornate gold bun ornament, purple and gold dress with ivory collar, elegant curved short blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero18_1.png",
+      "input": "poc/hero-icon/Hero18_1.png",
+      "input_sha256": "a272ee2a6b6c810788fc08dd703ddf3beda06b96f98e8c0c64acb0c96ee1aa20",
+      "output_sha256": "dce97785e552e05cde8d729b0eb38e592e2b6e431f1034039a02eed3dd4414c1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        142,
+        49,
+        882,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero18_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult male red-and-gold armored commander, auburn topknot with swept horizontal gold headpiece, gold dragon-like shoulder detail, short silver dao. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero19_1.png",
+      "input": "poc/hero-icon/Hero19_1.png",
+      "input_sha256": "56252b28ce864cfeb490103f8e8173ea3ba68ae9aadb573a3c94ddad139decd8",
+      "output_sha256": "9f2993e2058333c58dfc48ec99f1372b90f533dfe09c7dfdd13ad3d6abf7b0ba",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        142,
+        49,
+        882,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero19_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female fire dancer, vivid red hair in high bun with pink flower ornament, rich red and magenta outfit trimmed gold, small red-gold baton. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero20_1.png",
+      "input": "poc/hero-icon/Hero20_1.png",
+      "input_sha256": "7c7680b277ebd3d7acf7dc7d9613424051ca9909aad0d1345f2f194e5afd389c",
+      "output_sha256": "636c82e8334936c6f4d2cdfbfa53ab47a6ec3ee30e6fd2316b926ab2dc77dfad",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        122,
+        48,
+        902,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero20_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female forest dancer, light brown high-bun hair with pink flower, emerald and gold outfit, short green-gold baton. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero21_1.png",
+      "input": "poc/hero-icon/Hero21_1.png",
+      "input_sha256": "f5544057cd69a29fabed5570ce10873a96d807d4dd6283bae03a92111a025eeb",
+      "output_sha256": "cf23e232173acc1c3983ae26de4f1378a40e66c64752e66a7403520d4f83f235",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        119,
+        48,
+        905,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero21_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young athletic male dual-stick martial hero, auburn topknot, emerald tunic with yellow scarf, silver shoulder plates, two matching short gold batons, one in each hand. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero22_1.png",
+      "input": "poc/hero-icon/Hero22_1.png",
+      "input_sha256": "14546a026fc2a8ce2a36f2b8fd84a89b242ad5fd7dee05164e9aeb71e4c349aa",
+      "output_sha256": "90dcf3b175412f181937885c73540257fb0a5e8c605ac73e454e4da74419cce6",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        100,
+        48,
+        923,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero22_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Adult male halberd warlord, black hair and sharp features, tall gold crown with two very long curved crimson pheasant feathers, dark steel and gold armor, ornate halberd. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero23_1.png",
+      "input": "poc/hero-icon/Hero23_1.png",
+      "input_sha256": "c44cdbbbedf9610288905e98364e5bf721aed22fea9484478b5ac0e61c94bca2",
+      "output_sha256": "da3073371ae40413ab77caa7bec13ba411e35f79f4a8629959489d89735e0ce6",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        155,
+        49,
+        870,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero23_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female musician, brown side-swept bob beneath gold ornament, pink and cream outfit, holding a pale-gold pear-shaped Chinese pipa lute with neck upward. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero24_1.png",
+      "input": "poc/hero-icon/Hero24_1.png",
+      "input_sha256": "260e8996a217727610e4c9f8c356dcf8bb6d9a51c502bf696fc7c2bd40915509",
+      "output_sha256": "0d51c21f8da2f8d0cc9a8039b12974560f3a226f1bfc01a5364e585082cf0d1b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        133,
+        48,
+        890,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero24_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female red-and-white armored archer, brown high ponytail, red-and-white tall head ornament, fitted red armor and a gold bow. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero25_1.png",
+      "input": "poc/hero-icon/Hero25_1.png",
+      "input_sha256": "cde2f674d4b62435a02d1599e03d4dd2f57f5792ed04f7e6b38e57f1d11dd94a",
+      "output_sha256": "458a7e64f01f38cbf6db44b0fb1082a2d2a1b59a9fa4d391e590562fbcba55c4",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        185,
+        48,
+        838,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero25_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young male pale-silver armored mounted archer, silver helmet and white plume, purple undercloth and sash, wooden bow held beside body. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero26_1.png",
+      "input": "poc/hero-icon/Hero26_1.png",
+      "input_sha256": "37de36ce5e9c4c0621e0055b04b1578725433d64c14f39b377feca43876e97ea",
+      "output_sha256": "c0a333a289f6b6ab997edb81590450db4897140dd3f526841113442a89d97af6",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        159,
+        49,
+        865,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero26_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky ginger-bearded male bombardier knight, pale silver and bright blue armor, blue helmet with red plume, large compact single-barrel gray hand cannon. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero27_1.png",
+      "input": "poc/hero-icon/Hero27_1.png",
+      "input_sha256": "5be4ae51a3c7c6fd828426b1842d6bb7530504cb302f0c328ff145fd3d679454",
+      "output_sha256": "6807d89fa723ff4867cccf6f2ad80eb044b49912ac7d6a0d64f3d87eab8f836e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        152,
+        48,
+        871,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero27_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Male curved-sword commander, ornate gold-and-magenta pointed helmet, purple and crimson outfit with broad gold borders and shoulders, wide curved silver blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero28_1.png",
+      "input": "poc/hero-icon/Hero28_1.png",
+      "input_sha256": "d83419a27aead8e8fd0d07922a38c0eab91af7a22339664461499cb4797417a1",
+      "output_sha256": "a1ab4be89521fb4d264526e72432f8f39358ab42a22fd9d824b4ff27e5513951",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        84,
+        48,
+        940,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero28_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Dark-bearded male lancer, dark navy and silver plate armor, silver helmet with purple plume, long dark-shafted silver spear. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero29_1.png",
+      "input": "poc/hero-icon/Hero29_1.png",
+      "input_sha256": "f335cccfab8e57987ec6d7ab833f577580363f8ce4acb081562c0f494e676aaa",
+      "output_sha256": "d0cdf2982f4b6a33eb1989842ac5afc6162e848790cb945d5a622d7d5bd0a12c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        159,
+        48,
+        866,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero29_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Elderly male sage, long pale cyan-white beard and eyebrows, pale-blue hair in high topknot, flowing cobalt and icy-blue robes with pale borders. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero30_1.png",
+      "input": "poc/hero-icon/Hero30_1.png",
+      "input_sha256": "cf996dd3617f9c15dc9865d193d69a06f0e0ff7e1ac3a96e5003a489c8cf8e40",
+      "output_sha256": "f6a0d561a437435ce298d8f05a49865b0760f9dec3d4eb3509ab1817cc369671",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        157,
+        48,
+        866,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero30_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Male scholarly strategist, very tall emerald-and-gold ceremonial cap, cream robe with green sleeves, broad open ivory folding fan. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero31_1.png",
+      "input": "poc/hero-icon/Hero31_1.png",
+      "input_sha256": "6c725404d18192cd72ee8606c20a36ec7e2f2ab42e081335f37223f36045d80c",
+      "output_sha256": "944cf73b4b4be37b479da4f9a109ecd6363890f10bb67962ebe76a7e6a74c161",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        141,
+        48,
+        883,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero31_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female knight, auburn high ponytail with silver headband, red undercloth and fitted silver shoulder armor, slim steel sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero32_1.png",
+      "input": "poc/hero-icon/Hero32_1.png",
+      "input_sha256": "aa8654160d4e544a72cdf0f528e11f142cb02c1bb468ed7a0020e7584fbf60ab",
+      "output_sha256": "4e0880612195833fd43593e9b4733ccf8656d9d0687935a6b0fb0534c3f496bb",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        57,
+        48,
+        967,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero32_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Burly young male noble fighter, brown high-bun hair with short gold crown, vivid magenta and red robe, wide gold belt, enormous broad gray jagged war blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero33_1.png",
+      "input": "poc/hero-icon/Hero33_1.png",
+      "input_sha256": "43bab10b74a7e3a2831738efc7ad382795872d1a57de6090632c1a53a869ebb6",
+      "output_sha256": "8357d99790493c701d62d8dd3a7aed7775622b78a258761b07f3368caec67c35",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        139,
+        48,
+        883,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero33_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Bearded male purple-armored heavy knight, angular gold and purple helmet, gold pauldrons over deep-purple armor, broad silver curved sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero34_1.png",
+      "input": "poc/hero-icon/Hero34_1.png",
+      "input_sha256": "4e55a5d8fd888106eed660314cbc723026c23acfded43a9bd731c5934ddc8eff",
+      "output_sha256": "4498f4c7e1e348681ff8ad12deff3c901c55aa5202adc4e69c3d0866a186a1d0",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        51,
+        976,
+        973
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero34_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Athletic adult male warrior, swept dark blue hair without helmet, navy clothes, pale metallic collar and bracers, partly bare upper arms, long forked silver polearm. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero35_1.png",
+      "input": "poc/hero-icon/Hero35_1.png",
+      "input_sha256": "183dbae19c5b68fd6b7a897e58930a6f7dab551f4de32c4dc51549df00b0f3fc",
+      "output_sha256": "d21f40d8eca0813cbe59087b8e496a912d5fffe68e03c9da7e879a8bea6dcd59",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        82,
+        48,
+        942,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero35_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Moustached adult male royal knight, black topknot and small gold crown, deep blue-violet robes, ornate gold shoulder armor and bracers, short blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero36_1.png",
+      "input": "poc/hero-icon/Hero36_1.png",
+      "input_sha256": "cd0a53209fde95e0f58b80ac5bcc7fa57677eb7068bb5cf3091ffe486e3f40c8",
+      "output_sha256": "00d88153200c52224247047c370ddb0fc3d45d7c41f5209a76f33942ccf06f5b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        139,
+        49,
+        886,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero36_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Broad dark-bearded male emperor bombardier, purple and gold tall crown, deep-purple and gold robe with crimson sash, huge dark octagonal-barrel hand cannon. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero37_1.png",
+      "input": "poc/hero-icon/Hero37_1.png",
+      "input_sha256": "3993db88bec154fb6a2e7a209f99216e6de7a0b3307983ddc3845a99e270ef1e",
+      "output_sha256": "82942fde3a73f88a9ff0e3423d59664668fdc7b12972bd49f684c23f0c50c8bd",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        121,
+        49,
+        900,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero37_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Elderly male archer with long white beard, red and gold helmet with white plume, red-gold armor and yellow shoulders, wooden bow and arrows. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero38_1.png",
+      "input": "poc/hero-icon/Hero38_1.png",
+      "input_sha256": "f10da07552ac3dac94d3dfd23a5d07af005ffd6cbc32303d4c90288a7d122134",
+      "output_sha256": "af54180a3e8a6188d9ada19edfb4025a0f06ce15151ef85725bec0e15adfbadf",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        117,
+        50,
+        907,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero38_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young male royal silver-and-red knight, long white helmet plume, white silver crown-helmet with red center, red tunic, enormous gold shoulders, slim silver sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero39_1.png",
+      "input": "poc/hero-icon/Hero39_1.png",
+      "input_sha256": "d724c423947f4af9c7494c0c118f20e6e997fdff94a345346b72e60beb312214",
+      "output_sha256": "53d69d73422a6c6266b8a5a958be74fec37f7bdfcffcbf971534c1e919739856",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        158,
+        48,
+        866,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero39_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Elderly white-haired moustached bombardier, lavender-white high ponytail, purple and blue outfit with gold pauldrons, enormous dark gray single-barrel cannon. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero40_1.png",
+      "input": "poc/hero-icon/Hero40_1.png",
+      "input_sha256": "54868affbc5ccb7c2ae729d9652c92f94e22c072bbcfa31088e5b5e0d07403f5",
+      "output_sha256": "a58f3fb5903449754d643ad4068968f265f056ad9b5e4cccd202c3d687284405",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        75,
+        48,
+        948,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero40_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Elderly white-haired noble knight with long straight white hair and beard, small gold crown, green-white-gold outfit, curved silver blade. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props. Composition refinement: hold the curved silver sword diagonally DOWN AND LEFT, clearly separated from the shoulder, hair, tunic and cape with a wide empty transparent gap. Use a DARK GREEN cape contained behind the rider, not a white cape trailing behind the blade. White hair is long smooth solid locks with sharply defined clean silhouette, no fluffy wisps. Silver, ivory and white parts must have clean solid edges without chalky haze, fog, dust, speckles, detached fragments or white matte borders. All solid surfaces opaque. Do not add any glows, particles or cast shadow."
+    },
+    {
+      "file": "Hero41_1.png",
+      "input": "poc/hero-icon/Hero41_1.png",
+      "input_sha256": "7ba7516e7843de6c9e745b88cba140292076a4f34a9a59349042cafdfa66d8d4",
+      "output_sha256": "3065345d056f3c2461293ee0cfaaaf25e0e6a875a3138a0d069ad2b034440112",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        158,
+        48,
+        865,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero41_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Long-black-bearded male ritual sage, black high bun with gold headband, yellow and black robes, short dark staff with a pink rose-like flower head. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero42_1.png",
+      "input": "poc/hero-icon/Hero42_1.png",
+      "input_sha256": "911ef28df5ddec52dc338d32c11b55a74953a020f6f46612d74ff6ed86ff2972",
+      "output_sha256": "f36137495bbdc7b3508bb871002eb2a46b69ff631ddc7f0bbaff7a05fe43888f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        102,
+        50,
+        922,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero42_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young athletic male wild swordsman, spiky dark auburn hair with pale feather ornament, orange-red shoulder cloth, gold one-sided pauldron, open chest armor, straight silver sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero43_1.png",
+      "input": "poc/hero-icon/Hero43_1.png",
+      "input_sha256": "66d693c54461fd96e9a7133efb47d4603fd9d83d7a73d1edd94a776df993beb0",
+      "output_sha256": "6a0f436509046b24ddfadc14a60a83c3e8db0627e0a5f24c0fc44e2ef288ee0b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        148,
+        49,
+        877,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero43_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult female royal swordswoman, shoulder-length dark-magenta hair and high gold ornament, red and gold armor with purple cloth, slim curved sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero44_1.png",
+      "input": "poc/hero-icon/Hero44_1.png",
+      "input_sha256": "94214134e5dbfc1eba67c5e2fc008b0a698de75e29b68471797108fa49c2109e",
+      "output_sha256": "4bcc50196b8b2328822825bfb90fa85163f422614ca6cefbc18f10a82e271ee2",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        134,
+        48,
+        889,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero44_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Elderly male purple-robed court mage, long pale beard, very tall conical purple hat with silver ornament, lavender robes and pale trim, long staff-like accessory. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Hero45_1.png",
+      "input": "poc/hero-icon/Hero45_1.png",
+      "input_sha256": "d92d0dca78b20b967f9dc2fbb364154748787cc06f9e9ae0e8b540273c6e0114",
+      "output_sha256": "19e8644ed570cf8a08e1beb8200d6a3e3aff15bc0a22ae20e20a60fbd81c249a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        135,
+        49,
+        889,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Hero45_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Young adult male green-teal armored ranger, dark high ponytail, blue-and-gold headband, emerald scarf, turquoise armor with gold edges, short silver sword. Keep this as a RIDER ON A CHESTNUT PONY, as in image 1. Preserve horse and rider as one connected unit, with tasteful matching tack, clearly distinguishable rider face, attractive horse anatomy and readable pose.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier1_1.png",
+      "input": "poc/hero-icon/Soldier1_1.png",
+      "input_sha256": "85b9204c61a15fed00562c1f03cef28e9e18043e4943d3f63388195a5f383f8a",
+      "output_sha256": "cd0ee54a296ebb91e0cafb866dd055a36c5dc3d358086824fb74148eb1ede958",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        111,
+        48,
+        912,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier1_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult infantryman, gold pointed helmet, gold segmented armor, bright green scarf and cloth, short sword and large angular silver-blue shield.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier1_2_qin.png",
+      "input": "poc/hero-icon/Soldier1_2_qin.png",
+      "input_sha256": "6d621afe68720a24f9e68dbf8cb327ab4770b7b6cea7270e7fe0589055429a4e",
+      "output_sha256": "47f40cd6865acf3624162eee823283e4b7e8419b91c9882a6b5c41a140b67d9f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        199,
+        48,
+        825,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier1_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Compact adult blue-and-silver armored knight, fully closed silver visor with straight narrow vertical vents, tall blue plume, brown trousers, straight silver sword and blue-white shield. Retain the simple Western-fantasy knight identity of THIS reference.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier2_1.png",
+      "input": "poc/hero-icon/Soldier2_1.png",
+      "input_sha256": "0f89b80c564b9ddf7bc492b9b39e4e59eaa6fb1c97dbb2d9cfdc3be5484ec92e",
+      "output_sha256": "70995ec0a408b309d50464b5fe0ec923dbd1e0949900571bc8042b1febfd1269",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        104,
+        49,
+        920,
+        975
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier2_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult archer, pointed teal helmet, layered turquoise armor and scarf, wooden bow held diagonally across body.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier2_2_qin.png",
+      "input": "poc/hero-icon/Soldier2_2_qin.png",
+      "input_sha256": "92688b57693ceb567b36160870fba847058daf6dfb2b7cfff903700bde9ab4de",
+      "output_sha256": "4e808adcb7a0870208d0f68c3db2651c19d78bcd18f9683d25755dd847e67b05",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        129,
+        49,
+        895,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier2_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Adult compact hooded archer, vivid blue hood and shoulder cape, brown leather tunic with blue straps, gray trousers, curved wooden bow. No helmet. Western fantasy look matching this input.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier3_1.png",
+      "input": "poc/hero-icon/Soldier3_1.png",
+      "input_sha256": "6609d193116ff8fe35ecf58ce7fd82aa120c94fe5a09aac52fb499a18bd36453",
+      "output_sha256": "a3ea512ff672dc75ace42a15824c33c428e88e32dd55bd5800dfce9c7ae349eb",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        145,
+        49,
+        878,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier3_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult red-and-brown armored heavy infantryman, pointed bronze helmet, red scarf and sleeves, large dark metal hammer carried over one shoulder.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier3_2_qin.png",
+      "input": "poc/hero-icon/Soldier3_2_qin.png",
+      "input_sha256": "495986c8abcde773b4e0d8e3943e80326c76fa542a22461aa5bff00d2c5c2a6e",
+      "output_sha256": "1f885bde787ae251fd66e470734e8544c85d5ef90ce2bbe246c53d4c78c5d4b7",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        50,
+        976,
+        973
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier3_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Brawny adult bare-armed axe infantryman, horned closed silver helmet with T-shaped dark face opening, brown leather torso straps and kilt, blue arm bands, broad silver battle axe on long wooden handle.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier4_1.png",
+      "input": "poc/hero-icon/Soldier4_1.png",
+      "input_sha256": "746a14431f022f11628659b53228a2938b95eb6e62bc5b4bd4c829e6a73bceed",
+      "output_sha256": "efa8dac1020c510614246df4fe99809d2285ef4e6d117b7d00364703398afd1e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        173,
+        48,
+        851,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier4_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult turquoise-armored bombardier, pointed teal helmet and blue scarf, large dark gray single-barrel shoulder cannon.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier5_1.png",
+      "input": "poc/hero-icon/Soldier5_1.png",
+      "input_sha256": "e39f3828b346cb91079a2bee50fef06a2a1bb8d4d1dd1a94b9091db1fd440b2f",
+      "output_sha256": "6662a016b5c0a1a617d59f2524a236cf3edfb7343e94984d725c0f336f5ed3fa",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        77,
+        49,
+        946,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier5_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky elderly fantasy woodland dwarf with enormous white beard, green cap and sleeveless green vest, exposed round belly, dark-green trousers, huge bronze-gold gauntlets. Preserve this unusual dwarf, do not replace with regular armored soldier.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier6_1.png",
+      "input": "poc/hero-icon/Soldier6_1.png",
+      "input_sha256": "dda716feaaf7de7eb4f8cd49c755eec93861d4c2c67b24b0d27539c2454bd45b",
+      "output_sha256": "ad579e8479aacfd0d53bba9b3ee302ad395c4773e501ad28faf159b072ef4f2c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        50,
+        48,
+        974,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier6_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult gold-and-green armored heavy infantryman, pointed gold helmet and emerald scarf, enormous square iron war hammer held horizontally, metal angular decorative faces.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier7_1.png",
+      "input": "poc/hero-icon/Soldier7_1.png",
+      "input_sha256": "08ab196c9984655610e129c46ddc242cb83a4605ebc949af7ade196bee8f3f97",
+      "output_sha256": "8d2d6bc00d562ddae007992353a031da36ae74121cef122f36bcb9ea3b5ef99a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        198,
+        48,
+        827,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier7_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult turquoise armored crossbowman, pointed teal helmet and blue scarf, large wood-and-steel crossbow held across both hands.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier8_1.png",
+      "input": "poc/hero-icon/Soldier8_1.png",
+      "input_sha256": "407ae775e4154f58012015a588f92114da9024cc6671c13d1b6dea4ff84ac7ef",
+      "output_sha256": "fcfa2522d1168d90249362ea23a2f13bf3e2ffedfd7c9b048917e25fb8ef382c",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        61,
+        976,
+        963
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier8_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult red-and-brown armored spearman, bronze pointed helmet and red scarf, long horizontal wooden spear with a large angular silver spearhead.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier8_2_qin.png",
+      "input": "poc/hero-icon/Soldier8_2_qin.png",
+      "input_sha256": "b385ffa06f9bfd0643a1f3f677921fdcf1dbc6e38c1c51985436312d67ecdaa6",
+      "output_sha256": "8fc387db966660100019942d29ee3974f104200928ddd6fbe844ab5274d1167b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        252,
+        48,
+        771,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier8_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Compact adult fantasy spearman, horned closed silver T-visor helmet, exposed arms and brown leather kilt with blue arm wraps, long upright silver-tipped spear.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier9_1.png",
+      "input": "poc/hero-icon/Soldier9_1.png",
+      "input_sha256": "a70522a678960048ee52bb1da79e8bb917999a5c8dcfba369f5c2bf0309058b6",
+      "output_sha256": "261247c1a685a32547bc3e61af88468945a17ac9b64ba786f2cab022acecc38d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        99,
+        976,
+        923
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier9_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Stocky adult gold-and-green heavy lancer, pointed gold helmet and green scarf, long dark polearm held horizontally, broad turquoise-silver crescent spearhead.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier10_1.png",
+      "input": "poc/hero-icon/Soldier10_1.png",
+      "input_sha256": "785904e50fbb3bebdf34999ae630877dc96f6e4d934abd2acbe3d0e974830cb6",
+      "output_sha256": "52174c3e80a90125111c4d2df753eb367a8e36b26a25b4427e76cb276e05f3cc",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        50,
+        197,
+        976,
+        825
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier10_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single wooden repeating BALLISTA siege cart, warm reddish-brown carved timber, four small wheels with iron rims, a large horizontal crossbow assembly on top loaded with bolts, front rectangular reinforced wooden shield. Keep the ballista mechanism; NOT a catapult, no character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier10_2_qin.png",
+      "input": "poc/hero-icon/Soldier10_2_qin.png",
+      "input_sha256": "bb6dfaf0001a52a4ff491a048ac9442fa7dc38df73ea36e8c9a0de46a7c5a0c1",
+      "output_sha256": "fa9ceed9b151dd40b67bed9c73c6b8879edd2da5663e88bd88e55cc5f7a13d50",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        195,
+        975,
+        828
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier10_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single compact blue-and-white fantasy BALLISTA siege cart, pale oak frame and chunky wood wheels, blue cloth rectangular front shield with white edging and small silver studs, horizontal crossbow beam on top. Keep ballista identity and blue-white palette. No character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier11_1.png",
+      "input": "poc/hero-icon/Soldier11_1.png",
+      "input_sha256": "b287457af953147cf7450aa62e41b996b90fe77b238fdc7007f115820e1af252",
+      "output_sha256": "f07cddb0a545f5a35900fb0696100909b52414f849c100d54b8ca8e705413aa1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        68,
+        49,
+        955,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier11_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Adult red-and-brown armored cavalry spearman, bronze pointed helmet and red scarf, mounted on a chestnut pony, long wooden spear held across the body with a broad steel tip.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props. Refinement for final cutout quality: the polearm has one sharply defined DARK STEEL spearhead with a subtle cool silver bevel, fully opaque, crisp clean geometry without white glow, chalky highlights bleeding outside the blade, wispy borders or any floating white patches. Keep the spearhead clearly separated from the horse's face and rider's body, no bright fabric behind it. Crisp opaque shapes and perfectly clear transparent negative spaces. The full polearm including both tips and the entire horse fit with generous transparent margins. No external rim glow or particle effects."
+    },
+    {
+      "file": "Soldier11_2_qin.png",
+      "input": "poc/hero-icon/Soldier11_2_qin.png",
+      "input_sha256": "bb5b21a4f3f87df4e0d715766d047bb61e1f7ef1fc7c697e529eaa257588bbd2",
+      "output_sha256": "f49746f597f0efb1898ec64b59f30377210a83955ac92cde685be57dac84ad84",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        192,
+        49,
+        832,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier11_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: Adult closed-visored silver knight with blue helmet plume, blue-and-white tabard, mounted on a chestnut pony with blue-white tack, very long upright blue lance. Western fantasy cavalry matching this input.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier12_1.png",
+      "input": "poc/hero-icon/Soldier12_1.png",
+      "input_sha256": "831c8983a4a94f71528a22529c683deeb6a7940d7fa3d899ec8b9458d3292f01",
+      "output_sha256": "85fc22ed08f1eb691bcf4465ea6643d890bce8957d7372eba67de4b130b35801",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        56,
+        975,
+        968
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier12_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: One hulking fantasy ice troll / yeti, pale icy-blue thick hair and enormous beard, muscular blue-gray long arms and huge blue hands, heavy bent-legged stance, rough brown fur-and-leather loincloth and belt, fierce but charming face. Nonhuman giant, no horse, no weapon.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier13_1.png",
+      "input": "poc/hero-icon/Soldier13_1.png",
+      "input_sha256": "c3300ea91846904d347ec053d4bf56e1fad7ea81f1220de47292fc91e6b18dbf",
+      "output_sha256": "3811d9547f11a8aa95099e539a11d3a8904322477d524c8d1756b7a3eaa984cb",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        133,
+        975,
+        891
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier13_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single large wooden CATAPULT siege engine, reddish timber triangular frame with gray iron fittings and small iron-rimmed wheels, hinged throwing arm with dark stone cup, strong rope windlass, no character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier13_2_qin.png",
+      "input": "poc/hero-icon/Soldier13_2_qin.png",
+      "input_sha256": "aebb5c78976f15f59a8ff0ed40c5cdff2dc0bc2aa3b4117be50a40ea6951be1a",
+      "output_sha256": "f55bcfc438ad6ae5a441ee1de5e93c9c5ef8cbd1624e7115f649ac42d73ad3fd",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        138,
+        976,
+        885
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier13_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single compact blue-and-white fantasy CATAPULT siege engine, pale oak A-frame with white metal braces, chunky wooden wheels, visible yellow rope windlass, broad blue side shield trimmed white with silver studs. Throwing arm, no character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier14_1.png",
+      "input": "poc/hero-icon/Soldier14_1.png",
+      "input_sha256": "000a13cccb67aaa3fc7789d4f5d9bbf25930aa692bcd9036d15fdf6c3e79aa66",
+      "output_sha256": "e88ccae6570cbe28f08c5948e6b934f4202168c8081e7d061eb8fad5ee698d2d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        127,
+        48,
+        896,
+        976
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier14_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: One large burly adult ogre-like executioner infantryman, shaggy dark brown hair and beard, broad mostly bare muscular brown-tan torso, rugged brown leather skirt, huge double-sided gray metal axe carried over shoulder, large boots. Heavy brutish silhouette, no horse.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier15_1.png",
+      "input": "poc/hero-icon/Soldier15_1.png",
+      "input_sha256": "abdc07fc8d774a13677934ead3d9f9971cb62d231626b18c3900efab506df515",
+      "output_sha256": "0b5fdc5bd7bf9f7b99f9b1b59502d413c2e18b7da1e61ecd4955aca46ee9bb4a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        48,
+        222,
+        975,
+        800
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier15_1.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single heavy wooden battering / crushing siege cart with reddish timber box body, gray iron reinforcements, four chunky wooden wheels, enormous forward metal-banded spiked roller / ram mechanism with angular blades. Preserve the unusual low horizontal mechanical silhouette, no character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    },
+    {
+      "file": "Soldier15_2_qin.png",
+      "input": "poc/hero-icon/Soldier15_2_qin.png",
+      "input_sha256": "8a69d87b65036012d6683cd1060a7af74e2b1d25f9e324c093c7d1ab694b2505",
+      "output_sha256": "262b354851dd8aab878dd314e40a430d887d6d7a7500c2541c97a9c3e38da40e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha": [
+        0,
+        255
+      ],
+      "visible_bbox_alpha64": [
+        49,
+        169,
+        974,
+        854
+      ],
+      "raw_source": "work/hero_icons_20260922/source_art/Soldier15_2_qin.png",
+      "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+      "generation": "builtin imagegen",
+      "prompt": "Use case: style-transfer. Image 1 is the ONLY identity, costume, equipment, species and unit-type reference. Image 2 is a STYLE reference only: match its polished premium collectible chibi game illustration rendering, edge quality, material richness and charming expression; do NOT copy its red knight costume or add its horse to nonmounted units. Redesign the low-poly screenshot into finished L3-quality character card art. Preserve recognizable hair, headgear, major color blocks, characteristic equipment and approximate three-quarter facing direction. Improve facial appeal, sculpted form, textile seams, clean beveled metal, tasteful ornament, leather and groomed hair; vivid controlled colors, soft warm key light and cool rim light. Adult characters with charming compact large-head stylized proportions, not realistic adult anatomy, not a flat vector drawing, not a low-poly screenshot. Subject: A single compact blue-and-white fantasy BATTERING RAM cart, pale oak wooden wheels and arched wooden canopy with blue roof tiles, suspended thick cylindrical ram beam with a large silver cap protruding forward. Complete machinery, no character.  ONE complete isolated unit only. Frame the entire silhouette including headgear, plume, hands, weapon tips, feet, and all horse legs/tail or machine wheels as applicable inside the canvas with 6% transparent safety margin. Make a balanced square icon filling 85-90% of the canvas height or width. Reconstruct any missing clipped feet or jagged screenshot geometry. True transparent alpha background, solid surfaces opaque. No landscape, no ground, no pedestal, no external shadow or haze/glow, no UI border, no words, no numbers, no watermarks, no checkerboard. Square 1024x1024 PNG. Do not introduce extra characters, extra mounts, extra limbs or unrequested props."
+    }
+  ]
+}

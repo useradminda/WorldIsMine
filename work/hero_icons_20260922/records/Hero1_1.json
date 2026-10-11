@@ -1,0 +1,25 @@
+{
+  "file": "Hero1_1.png",
+  "input": "poc/hero-icon/Hero1_1.png",
+  "input_sha256": "f01b5e512858d2c59853d82a67136f5f198ad15954ba52b631b97d8f0c6e566a",
+  "output_sha256": "6b248857bc50864d6b1c02c416a32559e7fa9babd392472b910cca5094e6ad2c",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    135,
+    48,
+    887,
+    975
+  ],
+  "raw_source": "work/hero_icons_20260922/source_art/Hero1_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: style-transfer. Input image is the character identity and mount reference, not a quality target. Redesign this low-resolution 3D screenshot into one premium L3 production-quality stylized fantasy strategy game character illustration. Retain the recognizable adult chibi mounted knight: bright red-orange plate armor with silver borders, silver cheek guards on a red helmet, a purple upright plume, navy underclothes, small sword, riding a chestnut brown pony with burgundy forehead armor. Preserve its charming compact proportions, large expressive head and approximate three-quarter view facing right. Make the rider AND horse visibly crafted and beautiful: appealing expressive face, clean sculpted anatomy and readable hands, brushed metal with fine engraved edge accents, rich red lacquer, tailored cloth and leather saddle, groomed horse mane and lively confident horse expression. Art direction: premium hand-painted 3D collectible mobile game illustration, elegant stylization, crisp edge control, soft warm key light and subtle cool rim light, vivid controlled color and rich material separation. It should look like finished character card art, not a raw low-poly render, not a realistic adult photograph, not anime flat line art. Show ONE full rider-and-mount unit with the entire helmet/plume, sword, tail and every hoof INSIDE the image, surrounded by at least 5 percent transparent breathing room; centered with generous horizontal silhouette, fills about 88 percent height. Reconstruct missing or jagged geometry from the screenshot. NO scene, no ground plane, no pedestal, no drop shadow, no smoke or glow outside the silhouette, no UI frame, no text, no logo, no checkerboard. Genuine transparent alpha exterior; solid subject opaque. Exactly square 1024x1024 PNG. Do not crop any extremities."
+}

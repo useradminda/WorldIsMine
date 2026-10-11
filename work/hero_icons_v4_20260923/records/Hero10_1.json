@@ -1,0 +1,25 @@
+{
+  "file": "Hero10_1.png",
+  "input": "poc/hero-icon/Hero10_1.png",
+  "input_sha256": "af77647cda00f06bf74c8598444176d3c9c24b0ba79542f6fcc3d4c2fea3c60b",
+  "output_sha256": "c53f71fcf0553c2d63be6e1be79a6db337b525bfa696ebf684f9b74f830a3289",
+  "size": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha": [
+    0,
+    255
+  ],
+  "visible_bbox_alpha64": [
+    56,
+    49,
+    968,
+    974
+  ],
+  "raw_source": "work/hero_icons_v4_20260923/source_art/Hero10_1.png",
+  "normalization": "Native alpha preserved; uniform resampling into 1024 square with safety margin. No painted alterations.",
+  "generation": "builtin imagegen",
+  "prompt": "Use case: precise-object-edit. Edit THIS exact Korean fantasy game illustration of an adult royal turquoise-robed female spellcaster mounted on chestnut horse. Remove BOTH unintended weapons: the long silver sword from her outstretched hand on image left and the short dagger/blade near the rein-holding hand. Replace sword arm with a graceful empty-handed spellcasting gesture with anatomically correct fingers and a soft contained turquoise light ONLY within her palm; her other hand keeps natural horse reins, no dagger. Change only the unwanted weapons and affected hand details. Preserve her adult attractive face, hair and gold-turquoise headpiece, turquoise embroidered layered robes, Korean manhwa clean line/cel-painted finish, horse pose and tack, perspective, outfit color, all hooves and tail. Keep whole silhouette centered with at least 6% transparent margins, true transparent alpha exterior. No new prop or staff, no background, particles, floating magic outside silhouette, floor, frame, words or watermark. 1024x1024 PNG."
+}
