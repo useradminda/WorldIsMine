@@ -11,6 +11,10 @@ public class UIOperateManager : MonoBehaviour
     private const int MaxSpawnCount = 3000;
     private const int GlobalStoneFlyObjectCfgId = 1001;
     private const int GlobalStoneSkillCfgId = 1001;
+    private const float ReferenceScreenWidth = 1280f;
+    private const float ReferenceScreenHeight = 720f;
+    private const float MinGuiScale = 1.25f;
+    private const float MaxGuiScale = 3f;
 
     private readonly List<SoldierMenuData> redSoldiers = new List<SoldierMenuData>();
     private readonly List<SoldierMenuData> blueSoldiers = new List<SoldierMenuData>();
@@ -43,6 +47,12 @@ public class UIOperateManager : MonoBehaviour
     {
         EnsureStyles();
 
+        float guiScale = GetGuiScale();
+        Matrix4x4 oldMatrix = GUI.matrix;
+        GUI.matrix = Matrix4x4.Scale(new Vector3(guiScale, guiScale, 1f));
+        float guiScreenWidth = Screen.width / guiScale;
+        float guiScreenHeight = Screen.height / guiScale;
+
         string toggleText = isMenuOpen ? "关闭创建士兵" : "打开创建士兵";
         if (GUI.Button(new Rect(20f, 20f, 140f, 40f), toggleText))
         {
@@ -51,14 +61,24 @@ public class UIOperateManager : MonoBehaviour
 
         if (!isMenuOpen)
         {
+            GUI.matrix = oldMatrix;
             return;
         }
 
-        float windowWidth = Mathf.Clamp(Screen.width - 40f, 420f, 900f);
+        float windowWidth = Mathf.Clamp(guiScreenWidth - 40f, 420f, 900f);
         windowRect.width = windowWidth;
-        windowRect.x = Mathf.Clamp(windowRect.x, 0f, Mathf.Max(0f, Screen.width - windowRect.width));
-        windowRect.y = Mathf.Clamp(windowRect.y, 0f, Mathf.Max(0f, Screen.height - windowRect.height));
+        windowRect.x = Mathf.Clamp(windowRect.x, 0f, Mathf.Max(0f, guiScreenWidth - windowRect.width));
+        windowRect.y = Mathf.Clamp(windowRect.y, 0f, Mathf.Max(0f, guiScreenHeight - windowRect.height));
         windowRect = GUI.Window(GetInstanceID(), windowRect, DrawSpawnWindow, "创建士兵");
+        GUI.matrix = oldMatrix;
+    }
+
+    /// <summary>根据当前分辨率计算整个OnGUI工具界面的统一缩放倍率。</summary>
+    private float GetGuiScale()
+    {
+        float widthScale = Screen.width / ReferenceScreenWidth;
+        float heightScale = Screen.height / ReferenceScreenHeight;
+        return Mathf.Clamp(Mathf.Min(widthScale, heightScale), MinGuiScale, MaxGuiScale);
     }
 
     /// <summary>

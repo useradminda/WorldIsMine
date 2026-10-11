@@ -5,6 +5,9 @@ using ZTools;
 public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
 {
     private const float GlobalStoneMinTravelDistance = 30f;
+    private const float GlobalStoneOriginBackwardDistance = 100f;
+    private const float GlobalStoneOriginHeight = 50f;
+    private const float GlobalStoneFallbackDepthRandomDistance = 10f;
 
     private readonly List<CampBuffState> campBuffStateList = new List<CampBuffState>();
     private readonly List<ArrowRainState> arrowRainStateList = new List<ArrowRainState>();
@@ -312,25 +315,30 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
         float segmentWidth = BattleDefine.AreaTotalWith / 3f;
         float segmentCenter = -BattleDefine.AreaTotalWith * 0.5f + segmentWidth * (state.FiredCount + 0.5f);
-        float randomWidthOffset = Random.Range(segmentCenter - segmentWidth * 0.5f, segmentCenter + segmentWidth * 0.5f);
-        Vector3 origin = bornConfig.GetBornPoint(state.CampType) + right * randomWidthOffset;
+        Vector3 origin = bornConfig.GetBornPoint(state.CampType) + right * segmentCenter - forward * GlobalStoneOriginBackwardDistance;
+        origin.y += GlobalStoneOriginHeight;
         Vector3 middleBornPoint = (bornConfig.GetBornPoint(ECampType.Red) + bornConfig.GetBornPoint(ECampType.Blue)) * 0.5f;
-        Vector3 target = enemy != null ? enemy.CurPos : middleBornPoint;
-        if (enemy != null)
+        float targetDepth;
+        if (enemy == null)
         {
-            target.x = origin.x;
+            targetDepth = middleBornPoint.z + Random.Range(-GlobalStoneFallbackDepthRandomDistance, GlobalStoneFallbackDepthRandomDistance);
         }
-        if (state.HasTargetDepth == false)
+        else
         {
-            state.TargetDepth = enemy != null ? enemy.CurPos.z : middleBornPoint.z;
-            state.HasTargetDepth = true;
+            if (state.HasTargetDepth == false)
+            {
+                state.TargetDepth = enemy.CurPos.z;
+                state.HasTargetDepth = true;
+            }
+            targetDepth = state.TargetDepth;
         }
-        target.z = state.TargetDepth;
-        target.y = enemy != null ? enemy.CurPos.y : middleBornPoint.y;
-        float travelDistance = Vector3.Dot(target - origin, forward);
-        if (travelDistance < GlobalStoneMinTravelDistance)
+        float depthDistance = Mathf.Abs(targetDepth - origin.z);
+        float travelDistance = Mathf.Max(GlobalStoneMinTravelDistance, depthDistance);
+        Vector3 target = origin + forward * travelDistance;
+        target.y = middleBornPoint.y;
+        if (depthDistance >= GlobalStoneMinTravelDistance)
         {
-            origin -= forward * (GlobalStoneMinTravelDistance - travelDistance);
+            target.z = targetDepth;
         }
 
         UnitFactory.CreateFlyObjectLogic(state.FlyObjectCfgId, origin, target, state.Attacker, null, enemy, state.SkillLogic, state.Damage);

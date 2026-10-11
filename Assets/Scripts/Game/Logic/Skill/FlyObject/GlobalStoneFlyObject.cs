@@ -15,7 +15,6 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     private float flyTime;
     private float flyDuration;
     private float maxFlyTime;
-    private float flyHeight;
     private bool arrived;
 
     /// <summary>
@@ -35,7 +34,6 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
         maxFlyTime = mFlyObjectCfg.liveTime > 0f
             ? mFlyObjectCfg.liveTime
             : flyDuration + 1f;
-        flyHeight = Mathf.Max(4f, distance * 0.3f);
         arrived = false;
 
         mFlyObjectGob = UnitViewFactory.CreateGob(mFlyObjectCfg.prefab, oriPos, tarPos - oriPos);
@@ -56,8 +54,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
 
         flyTime += dt;
         float progress = Mathf.Clamp01(flyTime / flyDuration);
-        Vector3 currentPosition = Vector3.Lerp(mOriPos, mTarPos, progress);
-        currentPosition.y += Mathf.Sin(progress * Mathf.PI) * flyHeight;
+        Vector3 currentPosition = GetParabolaPosition(progress);
         Vector3 nextPosition = GetParabolaPosition(Mathf.Clamp01((flyTime + 0.02f) / flyDuration));
         UpdateFlyTransform(currentPosition, nextPosition - currentPosition);
 
@@ -131,9 +128,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     /// </summary>
     private Vector3 GetParabolaPosition(float progress)
     {
-        Vector3 position = Vector3.Lerp(mOriPos, mTarPos, progress);
-        position.y += Mathf.Sin(progress * Mathf.PI) * flyHeight;
-        return position;
+        return Vector3.Lerp(mOriPos, mTarPos, progress * progress);
     }
 
     /// <summary>
