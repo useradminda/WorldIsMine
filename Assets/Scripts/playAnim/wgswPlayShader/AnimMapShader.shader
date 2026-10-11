@@ -22,6 +22,7 @@ Shader "zxf/BuiltIn/AnimMapShader"
         _WorldPoint("黑洞中心坐标", Vector) = (1,1,1,0)
         _BlackPower("吸力", float) = 0       
         _GravityValue("重力值",float) = 1
+        _SquashState("压扁状态",float) = 0
         
 
         _MainLightDir("MainLightDir", vector) = (1,1,1)
@@ -124,7 +125,8 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 UNITY_DEFINE_INSTANCED_PROP(float4, _WorldPoint)
                 UNITY_DEFINE_INSTANCED_PROP(float, _BlackPower)
                 UNITY_DEFINE_INSTANCED_PROP(float, _TimeSinceLevelLoad)
-                UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)               
+                UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)
+                UNITY_DEFINE_INSTANCED_PROP(float, _SquashState)
             UNITY_INSTANCING_BUFFER_END(Props)
             
             v2f vert (appdata v, uint vid : SV_VertexID)
@@ -133,6 +135,7 @@ Shader "zxf/BuiltIn/AnimMapShader"
 
                 //// 压扁系数 正常情况为1,压扁情况为0
                 float gravityRadio = UNITY_ACCESS_INSTANCED_PROP(Props, _GravityValue);
+                float squashState = UNITY_ACCESS_INSTANCED_PROP(Props, _SquashState);
 
                 float len = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimLen);
                 float _timeSinceLevelLoad = UNITY_ACCESS_INSTANCED_PROP(Props, _TimeSinceLevelLoad);
@@ -156,6 +159,11 @@ Shader "zxf/BuiltIn/AnimMapShader"
                     f = 0.1;
                 }
 
+                if (squashState > 0.5)
+                {
+                    f = 0.1;
+                }
+
 
                // fmod(f, 1.0);
                f = frac(f);
@@ -165,6 +173,11 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 float animMap_y = f;
 
                 float4 pos = tex2Dlod(_AnimMap, float4(animMap_x, animMap_y, 0, 0));
+
+                if (squashState > 0.5)
+                {
+                    pos.y = 0.05;
+                }
 
                 // 压扁系数
                 pos.z *= gravityRadio;
@@ -450,7 +463,8 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 UNITY_DEFINE_INSTANCED_PROP(float4, _WorldPoint)
                 UNITY_DEFINE_INSTANCED_PROP(float, _BlackPower)
                 UNITY_DEFINE_INSTANCED_PROP(float, _TimeSinceLevelLoad)
-                UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)               
+                UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)
+                UNITY_DEFINE_INSTANCED_PROP(float, _SquashState)
             UNITY_INSTANCING_BUFFER_END(Props)
 
             struct appdata
@@ -478,6 +492,7 @@ Shader "zxf/BuiltIn/AnimMapShader"
 
                 // ========== 1. 和主体完全同步AnimMap动画逻辑（解决影子不动） ==========
                 float gravityRadio = UNITY_ACCESS_INSTANCED_PROP(Props, _GravityValue);
+                float squashState = UNITY_ACCESS_INSTANCED_PROP(Props, _SquashState);
                 float len = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimLen);
                 float _timeSinceLevelLoad = UNITY_ACCESS_INSTANCED_PROP(Props, _TimeSinceLevelLoad);
                 float _cT = UNITY_ACCESS_INSTANCED_PROP(Props, _CurrentTime);
@@ -486,12 +501,18 @@ Shader "zxf/BuiltIn/AnimMapShader"
 
                 if (gravityRadio == 0.2)
                     f = 0.1;
+                if (squashState > 0.5)
+                    f = 0.1;
                 f = frac(f);
 
                 // 根据顶点ID采样动画贴图，拿到动画后的本地顶点
                 float animMap_x = (v.vid + 0.5) * _AnimMap_TexelSize.x ;
                 float animMap_y = f;
                 float4 animLocalPos = tex2Dlod(_AnimMap, float4(animMap_x, animMap_y, 0, 0));
+                if (squashState > 0.5)
+                {
+                    animLocalPos.y = 0.05;
+                }
                 animLocalPos.z *= gravityRadio;
 
                 // ========== 2. 同步黑洞吸力顶点偏移 ==========

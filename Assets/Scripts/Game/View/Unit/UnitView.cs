@@ -237,6 +237,11 @@ public class UnitView : IView
             dieComp = gameObject.GetOrAddComponent<GroundSmashDieComponent>();
             dieComp.SetUnitView(this);
         }
+        else if (dieType == "Squash")
+        {
+            dieComp = gameObject.GetOrAddComponent<SquashDieComponent>();
+            dieComp.SetUnitView(this);
+        }
         else if (dieType == "Tornado")
         {
             dieComp = gameObject.GetOrAddComponent<TornadoDieComponent>();

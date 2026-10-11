@@ -29,10 +29,6 @@ public class SkillLogicBase
         skillGUID = System.Guid.NewGuid().ToString();
         unitLogic = ulb;
         this.skillCfg = skillCfg;
-        if (BNormalSkill != true)
-        {
-            SkillResetCD();
-        }
     }
 
     // 更新
