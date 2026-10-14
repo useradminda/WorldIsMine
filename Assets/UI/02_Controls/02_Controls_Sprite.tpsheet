@@ -1,0 +1,15 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=02_Controls_Sprite.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+btn_primary_gold;1063;1752;2143;506; 0.5;0.5; 0;0;0;0
+icon_close;0;1447;990;969; 0.5;0.5; 0;0;0;0
+icon_mouse;0;2418;758;1133; 0.5;0.5; 0;0;0;0
+keycap;1063;643;1169;1107; 0.5;0.5; 0;0;0;0
+notification_panel;1063;0;2091;641; 0.5;0.5; 0;0;0;0
+panel_scroll_large;0;0;1061;1445; 0.5;0.5; 0;0;0;0

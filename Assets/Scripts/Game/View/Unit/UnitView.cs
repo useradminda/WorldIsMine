@@ -82,6 +82,7 @@ public class UnitView : IView
     {
         this.prefabName = prefabName;
         this.unitLogic = unit;
+        FootSmokeManager.Instance.StopForUnit(this);
         SetAttackBuffColor(false);
         SetDissolveAmount(0f);
         SlachComp.ExitSlash();
@@ -119,12 +120,12 @@ public class UnitView : IView
 
     public override void ViewRefuse()
     {
-
+        FootSmokeManager.Instance.StopForUnit(this);
     }
 
     public void BeHitSlash()
     {
-        BattleClashEffectManager.Instance.ReportHit(transform.position);
+        BattleClashEffectManager.Instance.ReportHit(transform.position, unitLogic != null ? unitLogic.Prop.Radius : 0f);
 
         if (stateType != EStateTyep.Die)
         {
@@ -140,16 +141,26 @@ public class UnitView : IView
             if (unitLogic.StateMachine.StateDirty)
             {
                 this.stateType = stateType;
+                if (aroundEffectObject != null)
+                {
+                    aroundEffectObject.SetActive(stateType == EStateTyep.Move);
+                }
                 if (stateType == EStateTyep.Move)
                 {
                     ActionFlowComponent.PlayAction(EActionType.run);
+                    FootSmokeManager.Instance.StartForSoldier(this, unitLogic);
                 }
                 else if (stateType == EStateTyep.Attack)
                 {
-                   
+                    FootSmokeManager.Instance.StopForUnit(this);
+                }
+                else if (stateType == EStateTyep.Skill)
+                {
+                    FootSmokeManager.Instance.StopForUnit(this);
                 }
                 else if (stateType == EStateTyep.Die)
                 {
+                    FootSmokeManager.Instance.StopForUnit(this);
                     string dieType = paramsInfo[0].ToString();
                     enterDie(dieType, (Vector3)paramsInfo[1]);
                 }
@@ -213,17 +224,6 @@ public class UnitView : IView
     }
     private Quaternion targetQ;
     private Quaternion transQ;
-    private Vector3 escapeForward;
-
-    public void SetEscapeForward(Vector3 forward)
-    {
-        escapeForward = forward.sqrMagnitude > 0.0001f ? forward.normalized : Vector3.zero;
-    }
-
-    public void ClearEscapeForward()
-    {
-        escapeForward = Vector3.zero;
-    }
 
     private void updateRot(float dt)
     {
@@ -231,10 +231,6 @@ public class UnitView : IView
             return;
 
         Vector3 targetForward = unitLogic.TargetForward;
-        if (escapeForward.sqrMagnitude > 0.0001f)
-        {
-            targetForward = (targetForward + escapeForward).normalized;
-        }
         if (targetForward.sqrMagnitude <= 0.0001f)
         {
             return;
@@ -322,7 +318,6 @@ public class UnitView : IView
         if (aroundEffectObject != null)
         {
             aroundEffectObject.SetActive(false);
-            aroundEffectObject.SetActive(true);
             return;
         }
 
@@ -336,6 +331,7 @@ public class UnitView : IView
         aroundEffectObject = Instantiate(effectTemplate, transform, false);
         aroundEffectObject.transform.localPosition = Vector3.zero;
         aroundEffectObject.transform.localRotation = Quaternion.identity;
+        aroundEffectObject.SetActive(false);
     }
 
 }

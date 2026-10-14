@@ -299,6 +299,9 @@ tpsheetFileNames:
 - Assets/Art/UI/Atlas/sdvn/Lng_main.tpsheet
 - Assets/Art/UI/Atlas/sdvn/Lng_public.tpsheet
 - Assets/Art/UI/Atlas/sdvn/Lng_room.tpsheet
+- Assets/UI/02_Controls/02_Controls_Sprite.tpsheet
+- Assets/UI/03_ModeSelect/03_ModeSelect_Sprite.tpsheet
+- Assets/UI/04_Lobby/04_Lobby_Sprite.tpsheet
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.tpsheet
 textureFileNames:
 - Assets/Art/UI/Atlas/hd/ui_activity_01.png
@@ -600,8 +603,14 @@ textureFileNames:
 - Assets/Art/UI/Atlas/sdvn/Lng_main.png
 - Assets/Art/UI/Atlas/sdvn/Lng_public.png
 - Assets/Art/UI/Atlas/sdvn/Lng_room.png
+- Assets/UI/02_Controls/02_Controls_Sprite.png
+- Assets/UI/03_ModeSelect/03_ModeSelect_Sprite.png
+- Assets/UI/04_Lobby/04_Lobby_Sprite.png
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.png
 normalmapFileNames:
+- 
+- 
+- 
 - 
 - 
 - 

@@ -10,11 +10,12 @@ public class NormalDieComponent : DieBaseComponent
     private float duration;
     private float backwardDistance = 10;
     private float maxHeight = 5f;
+    private const float MovementDurationScale = 0.6f;
     private bool playingDie;
     // 进入
     protected override void EnterDieState()
     {
-        this.duration = mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die);
+        this.duration = Mathf.Max(0.5f, mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die) * MovementDurationScale);
         mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
         startPosition = transform.position;
         backwardDirection = -transform.forward;

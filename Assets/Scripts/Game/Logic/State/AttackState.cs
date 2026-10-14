@@ -4,6 +4,7 @@ using UnityEngine;
 public class AttackState : StateBase
 {
     private const float AttackExitRangeBuffer = 0.3f;
+    private const float AreaSearchForwardOffset = 1f;
 
     public override EStateTyep StateType { get { return EStateTyep.Attack; } }
 
@@ -15,6 +16,7 @@ public class AttackState : StateBase
     private int effectSearchReqIndex = -1;
     private int nearestIndex = -1;
     private int randomIndex = -1;
+    private Vector3 attackDirection;
     private readonly List<int> resultUnitIndexList = new List<int>();
 
     public AttackState(UnitLogicBase ulb) : base(ulb)
@@ -130,7 +132,14 @@ public class AttackState : StateBase
         attackEffectPending = false;
         effectSearchReqIndex = -1;
         resultUnitIndexList.Clear();
-        Vector3 attackDirection = UnitLogic.SearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
+        attackDirection = UnitLogic.SearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
+        attackDirection.y = 0f;
+        if (attackDirection.sqrMagnitude <= 0.0001f)
+        {
+            attackDirection = UnitLogic.TargetForward;
+            attackDirection.y = 0f;
+        }
+        attackDirection.Normalize();
         UnitLogic.UnitView.SetForwardForce(attackDirection);
         if (attackTime <= 0f)
         {
@@ -144,7 +153,9 @@ public class AttackState : StateBase
         attackEffectPending = true;
         if (normalSkill.SkillCfg.skillArea > 0)
         {
-            effectSearchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, normalSkill.SkillCfg.skillArea, UnitLogic.OtherCampTypeInt);
+            Vector3 searchPosition = UnitLogic.CurPos + attackDirection * AreaSearchForwardOffset;
+            float searchRadius = normalSkill.SkillCfg.skillArea + Mathf.Max(0f, UnitLogic.Prop.Radius);
+            effectSearchReqIndex = MapCellManager.Instance.RequestSearch(searchPosition, searchRadius, UnitLogic.OtherCampTypeInt);
         }
     }
 

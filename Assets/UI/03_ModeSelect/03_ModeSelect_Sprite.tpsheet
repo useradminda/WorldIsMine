@@ -1,0 +1,19 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=03_ModeSelect_Sprite.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+btn_primary_gold;2405;1001;1607;379; 0.5;0.5; 0;0;0;0
+checkmark;1545;1001;858;756; 0.5;0.5; 0;0;0;0
+hero_blue;0;0;807;1067; 0.5;0.5; 0;0;0;0
+hero_green;809;519;734;1054; 0.5;0.5; 0;0;0;0
+hero_red;0;2154;780;1067; 0.5;0.5; 0;0;0;0
+icon_close;0;3223;742;726; 0.5;0.5; 0;0;0;0
+join_blue;809;0;1613;517; 0.5;0.5; 0;0;0;0
+join_red;2424;0;1617;479; 0.5;0.5; 0;0;0;0
+notification_panel;1545;519;1568;480; 0.5;0.5; 0;0;0;0
+panel_scroll_large;0;1069;795;1083; 0.5;0.5; 0;0;0;0

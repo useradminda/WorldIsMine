@@ -16,6 +16,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     [Header("交战示意特效")]
     public BattleClashEffectSettings ClashEffects = new BattleClashEffectSettings();
+    [Header("士兵移动脚底烟雾")]
+    public FootSmokeSettings FootSmoke = new FootSmokeSettings();
 
     [Header("Legacy Debug")]
     [SerializeField]
@@ -72,6 +74,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     private void OnDestroy()
     {
         BattleClashEffectManager.Instance.ManagerDestroy();
+        FootSmokeManager.Instance.ManagerDestroy();
         UnitManager.Instance.WallDestroyed -= OnWallDestroyed;
         GlobalSkillManager.Instance.ManagerDestroy();
         RvoManager.Instance.ManagerDestroy();
@@ -88,6 +91,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         RvoManager.Instance.ManagerDestroy();
         UnitManager.Instance.ManagerDestroy();
         BattleClashEffectManager.Instance.ManagerDestroy();
+        FootSmokeManager.Instance.ManagerDestroy();
         ECampType winnerCamp = destroyedWallCamp == ECampType.Red
             ? ECampType.Blue
             : ECampType.Red;
@@ -222,6 +226,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         BattleClashEffectManager.Instance.SetSettings(ClashEffects);
         BattleClashEffectManager.Instance.ManagerInit();
+        FootSmokeManager.Instance.SetSettings(FootSmoke);
+        FootSmokeManager.Instance.ManagerInit();
 
         UnitViewManager.Instance.ManagerInit();
 

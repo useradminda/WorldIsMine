@@ -9,7 +9,7 @@ using ZTools;
 public class BattleClashEffectSettings
 {
     public GameObject Prefab;
-    [Range(1, 20)] public int MaxCount = 10;
+    [Range(1, 300)] public int MaxCount = 10;
     [Range(0f, 1f)] public float SpawnChance = 0.1f;
     [FormerlySerializedAs("ContactLifetime")]
     [Min(0.1f)] public float EffectLifetime = 3f;
@@ -27,8 +27,8 @@ public class BattleClashEffectManager : Singleton<BattleClashEffectManager>, IMa
         public bool Active;
     }
 
-    private readonly List<EffectSlot> slots = new List<EffectSlot>(10);
-    private readonly Stack<EffectSlot> freeSlots = new Stack<EffectSlot>(10);
+    private readonly List<EffectSlot> slots = new List<EffectSlot>(100);
+    private readonly Stack<EffectSlot> freeSlots = new Stack<EffectSlot>(100);
     private BattleClashEffectSettings settings;
     private Transform root;
 
@@ -48,7 +48,7 @@ public class BattleClashEffectManager : Singleton<BattleClashEffectManager>, IMa
         }
         root = new GameObject("BattleClashEffects").transform;
         root.gameObject.SetActive(false);
-        int count = Mathf.Clamp(settings.MaxCount, 1, 10);
+        int count = Mathf.Clamp(settings.MaxCount, 1, 300);
         for (int i = 0; i < count; i++)
         {
             GameObject instance = UnityEngine.Object.Instantiate(settings.Prefab, root);
@@ -70,7 +70,7 @@ public class BattleClashEffectManager : Singleton<BattleClashEffectManager>, IMa
     }
 
     /// <summary>有空位时按概率接受当前交战点，满员直接忽略，不保存候选点。</summary>
-    public void ReportHit(Vector3 position)
+    public void ReportHit(Vector3 position, float unitRadius)
     {
         if (root == null || freeSlots.Count == 0)
         {
@@ -84,7 +84,8 @@ public class BattleClashEffectManager : Singleton<BattleClashEffectManager>, IMa
         EffectSlot slot = freeSlots.Pop();
         slot.Active = true;
         slot.RemainingTime = Mathf.Max(0.1f, settings.EffectLifetime);
-        slot.Object.transform.position = position + Vector3.up * settings.HeightOffset;
+        float heightOffset = settings.HeightOffset + Mathf.Max(0f, unitRadius);
+        slot.Object.transform.position = position + Vector3.up * heightOffset;
         slot.Object.SetActive(true);
         for (int i = 0; i < slot.Particles.Length; i++)
         {
@@ -154,4 +155,5 @@ public class BattleClashEffectManager : Singleton<BattleClashEffectManager>, IMa
         slot.RemainingTime = 0f;
         freeSlots.Push(slot);
     }
+
 }

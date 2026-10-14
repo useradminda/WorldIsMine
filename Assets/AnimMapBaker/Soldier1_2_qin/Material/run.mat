@@ -46,6 +46,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BlackPower: 0
+    - _BuffColorStrength: 0
     - _DissolveAmount: 0
     - _DissolveEdgeWidth: 0.05
     - _GravityValue: 1
@@ -59,6 +60,7 @@ Material:
     - _Shadow_Rotated: 0
     - _SquashState: 0
     m_Colors:
+    - _BuffColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveEdgeColor: {r: 1, g: 0.55, b: 0.05, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
