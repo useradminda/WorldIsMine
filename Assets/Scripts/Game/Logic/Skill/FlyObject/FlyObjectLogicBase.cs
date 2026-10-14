@@ -48,6 +48,10 @@ public class FlyObjectLogicBase
 
     }
 
+    public virtual void FlyObjectLateUpdate(float dt)
+    {
+    }
+
     public virtual void ArriveTarPos()
     {
 

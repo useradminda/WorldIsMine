@@ -82,8 +82,23 @@ public class UnitView : IView
     {
         this.prefabName = prefabName;
         this.unitLogic = unit;
+        SetAttackBuffColor(false);
+        SetDissolveAmount(0f);
         SlachComp.ExitSlash();
         InitAroundEffect(unit.SoliderCfg.aroundEffect);
+    }
+
+    public void SetAttackBuffColor(bool enabled)
+    {
+        RenderComponent renderComponent = gameObject.GetOrAddComponentInChild<RenderComponent>();
+        renderComponent.SetPropertyBlockColor("_BuffColor", enabled ? new Color(1f, 0.68f, 0.05f, 1f) : Color.white);
+        renderComponent.SetPropertyBlockFloat("_BuffColorStrength", enabled ? 0.85f : 0f);
+    }
+
+    public void SetDissolveAmount(float amount)
+    {
+        RenderComponent renderComponent = gameObject.GetOrAddComponentInChild<RenderComponent>();
+        renderComponent.SetPropertyBlockFloat("_DissolveAmount", Mathf.Clamp01(amount));
     }
 
     public override void ViewInit()
@@ -198,12 +213,28 @@ public class UnitView : IView
     }
     private Quaternion targetQ;
     private Quaternion transQ;
+    private Vector3 escapeForward;
+
+    public void SetEscapeForward(Vector3 forward)
+    {
+        escapeForward = forward.sqrMagnitude > 0.0001f ? forward.normalized : Vector3.zero;
+    }
+
+    public void ClearEscapeForward()
+    {
+        escapeForward = Vector3.zero;
+    }
+
     private void updateRot(float dt)
     {
-        if (stateType == EStateTyep.Die)
+        if (stateType == EStateTyep.Die || stateType == EStateTyep.Attack)
             return;
 
         Vector3 targetForward = unitLogic.TargetForward;
+        if (escapeForward.sqrMagnitude > 0.0001f)
+        {
+            targetForward = (targetForward + escapeForward).normalized;
+        }
         if (targetForward.sqrMagnitude <= 0.0001f)
         {
             return;
@@ -251,6 +282,11 @@ public class UnitView : IView
         {
             dieComp = gameObject.GetOrAddComponent<ExplosionDieComponent>();
             ((ExplosionDieComponent)dieComp).SetExplosionPoint(beHitPoint);
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Dissolve")
+        {
+            dieComp = gameObject.GetOrAddComponent<DissolveDieComponent>();
             dieComp.SetUnitView(this);
         }
         else if (dieType == "Normal")

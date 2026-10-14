@@ -21,7 +21,7 @@ public class SlashComponent : MonoBehaviour
     {
         if (slashState == true)
             return;
-        RenderComponenter.SetPropertyBlockColor("_SlashColor", new Color(159/ 255f, 153/ 255f, 82/255f, 1f));
+        RenderComponenter.SetPropertyBlockColor("_SlashColor", Color.white);
         currentTime = 0.05f;
         slashState = true;
     }

@@ -52,7 +52,7 @@ public class WaitListTemplate<T>
 
     public void RemoveSwapBack(T data)
     {
-        waitingRemoveList.RemoveSwapBack(data);
+        dataList.RemoveSwapBack(data);
     }
 
     public void AddWaitingList()

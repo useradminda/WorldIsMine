@@ -22,7 +22,10 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-        //flyObjectList.AddWaitingList();
+        for (int i = FlyObjectList.Count - 1; i >= 0; i--)
+        {
+            FlyObjectList[i].FlyObjectLateUpdate(dt);
+        }
     }
 
     public void ManagerRefuse()

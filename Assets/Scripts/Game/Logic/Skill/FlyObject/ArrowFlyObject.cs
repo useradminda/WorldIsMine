@@ -18,7 +18,7 @@ public class ArrowFlyObject : FlyObjectLogicBase
     {
         CreateArriveEffect(mTarPos);
         damage();
-        die();
+        StickToTargetSurface();
     }
 
     private void damage()
@@ -30,6 +30,31 @@ public class ArrowFlyObject : FlyObjectLogicBase
     private void die()
     {
         UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);
+        UnitFactory.RemoveFlyObjectLogic(this);
+    }
+
+    private void StickToTargetSurface()
+    {
+        if (mFlyObjectGob == null || mSearchTargetUnitLogic == null || mSearchTargetUnitLogic.UnitView == null)
+        {
+            die();
+            return;
+        }
+        Vector3 targetCenter = mSearchTargetUnitLogic.UnitView.transform.position;
+        Vector3 incomingDirection = mFlyObjectGob.transform.forward;
+        incomingDirection.y = 0f;
+        if (incomingDirection.sqrMagnitude <= 0.0001f)
+        {
+            incomingDirection = targetCenter - mOriPos;
+            incomingDirection.y = 0f;
+        }
+        incomingDirection.Normalize();
+        float surfaceRadius = Mathf.Max(0.05f, mSearchTargetUnitLogic.Prop.Radius + 0.05f);
+        Vector3 surfacePosition = targetCenter - incomingDirection * surfaceRadius;
+        surfacePosition.y = mFlyObjectGob.transform.position.y;
+        mFlyObjectGob.transform.position = surfacePosition;
+        mFlyObjectGob.transform.SetParent(mSearchTargetUnitLogic.UnitView.transform, true);
+        mFlyObjectGob.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(2f, mFlyObjectCfg.prefab);
         UnitFactory.RemoveFlyObjectLogic(this);
     }
 

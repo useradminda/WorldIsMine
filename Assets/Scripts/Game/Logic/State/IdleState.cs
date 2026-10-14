@@ -24,5 +24,8 @@ public class IdleState : StateBase
 
     }
 
-   
+    public override void LateUpdateState(float dt)
+    {
+        
+    }
 }

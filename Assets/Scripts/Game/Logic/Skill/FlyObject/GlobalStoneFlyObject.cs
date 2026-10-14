@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class GlobalStoneFlyObject : FlyObjectLogicBase
 {
+    private const float ArcHeight = 20f;
+
     private readonly List<int> resultUnitIndexList = new List<int>();
 
     private int searchReqIndex = -1;
@@ -15,7 +17,10 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     private float flyTime;
     private float flyDuration;
     private float maxFlyTime;
+    private float launchDelay;
+    private bool launched;
     private bool arrived;
+    private bool damagePending;
 
     /// <summary>
     /// 初始化全局火球，并创建火球表现对象。
@@ -34,10 +39,31 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
         maxFlyTime = mFlyObjectCfg.liveTime > 0f
             ? mFlyObjectCfg.liveTime
             : flyDuration + 1f;
+        launchDelay = 0f;
+        launched = true;
         arrived = false;
 
         mFlyObjectGob = UnitViewFactory.CreateGob(mFlyObjectCfg.prefab, oriPos, tarPos - oriPos);
         UpdateFlyTransform(oriPos, tarPos - oriPos);
+    }
+
+    public void SetLaunchDelay(float delay)
+    {
+        launchDelay = Mathf.Max(0f, delay);
+        launched = launchDelay <= 0f;
+        if (mFlyObjectGob != null)
+        {
+            mFlyObjectGob.SetActive(launched);
+        }
+    }
+
+    public void SetFlyDuration(float duration)
+    {
+        flyDuration = Mathf.Max(0.2f, duration);
+        if (mFlyObjectCfg.liveTime <= 0f)
+        {
+            maxFlyTime = flyDuration + 1f;
+        }
     }
 
     /// <summary>
@@ -50,7 +76,17 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
             return;
         }
 
-        RequestDamageSearch();
+        if (!launched)
+        {
+            launchDelay -= dt;
+            if (launchDelay > 0f)
+            {
+                return;
+            }
+
+            launched = true;
+            mFlyObjectGob.SetActive(true);
+        }
 
         flyTime += dt;
         float progress = Mathf.Clamp01(flyTime / flyDuration);
@@ -75,9 +111,21 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
         }
 
         arrived = true;
+        RequestDamageSearch();
+        damagePending = true;
+    }
+
+    public override void FlyObjectLateUpdate(float dt)
+    {
+        if (!damagePending)
+        {
+            return;
+        }
+        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
         CreateArriveEffect(mTarPos);
         DamageTargets();
         Die();
+        damagePending = false;
     }
 
     /// <summary>
@@ -91,7 +139,6 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
         }
 
         searchReqIndex = MapCellManager.Instance.RequestSearch(mTarPos, mSkillLogic.SkillCfg.skillArea, mAtkUnitLogic.OtherCampTypeInt);
-        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
     }
 
     /// <summary>
@@ -128,7 +175,9 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     /// </summary>
     private Vector3 GetParabolaPosition(float progress)
     {
-        return Vector3.Lerp(mOriPos, mTarPos, progress * progress);
+        Vector3 position = Vector3.Lerp(mOriPos, mTarPos, progress);
+        position.y += Mathf.Sin(progress * Mathf.PI) * ArcHeight;
+        return position;
     }
 
     /// <summary>

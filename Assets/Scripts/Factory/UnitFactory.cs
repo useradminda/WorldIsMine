@@ -25,29 +25,37 @@ public static class UnitFactory
         return campType == ECampType.Red ? redActiveCount : blueActiveCount;
     }
 
-    public static bool CanCreateUnit(ECampType campType)
+    public static bool IsHero(int cfgId)
     {
-        return GetActiveCount(campType) < MaxActiveUnitCountPerCamp;
+        SoliderCfg soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
+        return soliderCfg != null && soliderCfg.unitType == 101;
     }
 
-    public static bool CanCreateUnitGroup(ECampType campType, int count)
+    public static bool CanCreateUnit(int cfgId, ECampType campType)
     {
-        return count > 0 && GetActiveCount(campType) + count <= MaxActiveUnitCountPerCamp;
+        return IsHero(cfgId) || GetActiveCount(campType) < MaxActiveUnitCountPerCamp;
+    }
+
+    public static bool CanCreateUnitGroup(int cfgId, ECampType campType, int count)
+    {
+        return count > 0 && (IsHero(cfgId) || GetActiveCount(campType) + count <= MaxActiveUnitCountPerCamp);
     }
     
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
         int cfgId,
-        Vector3 bornPoint,
         Vector3 moveForward,
         ECampType campType, int index)
     {
-        if (!CanCreateUnit(campType))
+        if (!CanCreateUnit(cfgId, campType))
         {
             return null;
         }
 
-        AddActiveCount(campType);
+        if (!IsHero(cfgId))
+        {
+            AddActiveCount(campType);
+        }
         UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index);
         return unit;
     }
@@ -58,7 +66,7 @@ public static class UnitFactory
         Vector3 moveForward,
         ECampType campType)
     {
-        if (!CanCreateUnit(campType))
+        if (!CanCreateUnit(cfgId, campType))
         {
             return null;
         }
@@ -70,7 +78,10 @@ public static class UnitFactory
             
         }
         UnitLogicBase unit = UnitManager.Instance.UnitList[unitIndex];
-        AddActiveCount(campType);
+        if (!IsHero(cfgId))
+        {
+            AddActiveCount(campType);
+        }
         unit.CycleUse(cfgId, getUId(campType), moveForward);
         unit.Agenter.pos = bornPoint;
         unit.Agenter.prefVelocity = moveForward;
@@ -177,6 +188,10 @@ public static class UnitFactory
         {
             flyObjectLogic = new GlobalStoneFlyObject();
         }
+        else if (flyObjectCfg.flyType == "globalArrow")
+        {
+            flyObjectLogic = new GlobalArrowFlyObject();
+        }
         else if (flyObjectCfg.flyType == "areaRandom")
         {
             flyObjectLogic = new AreaRandomFlyObject();
@@ -197,9 +212,12 @@ public static class UnitFactory
     }
 
     // 回收UnitIndex
-    public static void RecycleId(ECampType campType, int recycleUnitIndex)
+    public static void RecycleId(ECampType campType, int recycleUnitIndex, bool isHero)
     {
-        RemoveActiveCount(campType);
+        if (!isHero)
+        {
+            RemoveActiveCount(campType);
+        }
         if (campType == ECampType.Red)
         {
             redFreeCount = redFreeCount + 1;

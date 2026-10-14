@@ -11,6 +11,13 @@ public class UIOperateManager : MonoBehaviour
     private const int MaxSpawnCount = 3000;
     private const int GlobalStoneFlyObjectCfgId = 1001;
     private const int GlobalStoneSkillCfgId = 1001;
+    private const int GlobalArrowBlueFlyObjectCfgId = 1002;
+    private const int GlobalArrowBlueSkillCfgId = 1002;
+    private const int GlobalArrowRedFlyObjectCfgId = 1003;
+    private const int GlobalArrowRedSkillCfgId = 1003;
+    private const int GlobalDragonBreathFlyObjectCfgId = 1004;
+    private const int GlobalDragonBreathSkillCfgId = 1004;
+    private const int GlobalAttackBuffId = 2;
     private const float ReferenceScreenWidth = 1280f;
     private const float ReferenceScreenHeight = 720f;
     private const float MinGuiScale = 1.25f;
@@ -19,7 +26,7 @@ public class UIOperateManager : MonoBehaviour
     private readonly List<SoldierMenuData> redSoldiers = new List<SoldierMenuData>();
     private readonly List<SoldierMenuData> blueSoldiers = new List<SoldierMenuData>();
 
-    private Rect windowRect = new Rect(20f, 70f, 760f, 385f);
+    private Rect windowRect = new Rect(20f, 70f, 760f, 510f);
     private Vector2 redScrollPosition;
     private Vector2 blueScrollPosition;
     private string redSpawnCountText = "100";
@@ -100,7 +107,7 @@ public class UIOperateManager : MonoBehaviour
             DrawCampMenu("蓝色阵营", ECampType.Blue, blueSoldiers, ref blueScrollPosition, Color.white);
         }
 
-        DrawGlobalStoneButtons();
+        DrawGlobalSkillButtons();
         DrawCloseButton();
 
         if (!string.IsNullOrEmpty(operationTip))
@@ -129,7 +136,7 @@ public class UIOperateManager : MonoBehaviour
     /// <summary>
     /// 绘制红蓝双方的全局火球释放按钮。
     /// </summary>
-    private void DrawGlobalStoneButtons()
+    private void DrawGlobalSkillButtons()
     {
         GUILayout.Space(4f);
         GUILayout.Label("全局技能", campTitleStyle);
@@ -141,6 +148,36 @@ public class UIOperateManager : MonoBehaviour
         if (GUILayout.Button("蓝方释放全局火球", GUILayout.Height(32f)))
         {
             CastGlobalStone(ECampType.Blue);
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("红方释放全局箭雨", GUILayout.Height(32f)))
+        {
+            CastGlobalArrow(ECampType.Red);
+        }
+        if (GUILayout.Button("蓝方释放全局箭雨", GUILayout.Height(32f)))
+        {
+            CastGlobalArrow(ECampType.Blue);
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("红方释放火龙吐息", GUILayout.Height(32f)))
+        {
+            CastGlobalDragonBreath(ECampType.Red);
+        }
+        if (GUILayout.Button("蓝方释放火龙吐息", GUILayout.Height(32f)))
+        {
+            CastGlobalDragonBreath(ECampType.Blue);
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("红方全军攻击强化", GUILayout.Height(32f)))
+        {
+            CastGlobalAttackBuff(ECampType.Red);
+        }
+        if (GUILayout.Button("蓝方全军攻击强化", GUILayout.Height(32f)))
+        {
+            CastGlobalAttackBuff(ECampType.Blue);
         }
         GUILayout.EndHorizontal();
     }
@@ -166,8 +203,34 @@ public class UIOperateManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 释放指定阵营的全局箭雨。
+    /// </summary>
+    private void CastGlobalArrow(ECampType campType)
+    {
+        int flyObjectCfgId = campType == ECampType.Red ? GlobalArrowRedFlyObjectCfgId : GlobalArrowBlueFlyObjectCfgId;
+        int skillCfgId = campType == ECampType.Red ? GlobalArrowRedSkillCfgId : GlobalArrowBlueSkillCfgId;
+        bool castSuccess = GlobalSkillManager.Instance.ApplyGlobalArrow(campType, flyObjectCfgId, skillCfgId);
+        string campName = campType == ECampType.Red ? "红方" : "蓝方";
+        operationTip = castSuccess ? $"{campName}已释放全局箭雨。" : $"{campName}全局箭雨释放失败。";
+    }
+
+    /// <summary>
     /// 绘制指定阵营的出兵数量输入框。
     /// </summary>
+    private void CastGlobalDragonBreath(ECampType campType)
+    {
+        bool castSuccess = GlobalSkillManager.Instance.ApplyGlobalDragonBreath(campType, GlobalDragonBreathFlyObjectCfgId, GlobalDragonBreathSkillCfgId);
+        string campName = campType == ECampType.Red ? "Red" : "Blue";
+        operationTip = castSuccess ? $"{campName} dragon breath cast successfully." : $"{campName} dragon breath cast failed.";
+    }
+
+    private void CastGlobalAttackBuff(ECampType campType)
+    {
+        bool castSuccess = GlobalSkillManager.Instance.ApplyCampAttackBuff(campType, GlobalAttackBuffId);
+        string campName = campType == ECampType.Red ? "红方" : "蓝方";
+        operationTip = castSuccess ? $"{campName}已获得全军攻击强化。" : $"{campName}全军攻击强化释放失败。";
+    }
+
     private void DrawSpawnCountInput(string label, ref string countText)
     {
         GUILayout.BeginHorizontal();

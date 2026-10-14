@@ -1,143 +1,68 @@
-
 using UnityEngine;
 
 public class ExplosionDieComponent : DieBaseComponent
 {
-    [Header("爆炸点")]
     [SerializeField] private Vector3 explosionPoint;
-
-    [Header("爆开距离")]
-    [SerializeField] private float explosionDistance = 2f;
-
-    [Header("向上")]
-    [SerializeField] private float upwardHeight = 1f;
-
-    [Header("旋转")]
-    [SerializeField] private float rotateSpeed = 720f;
-
-    [Header("随机方向")]
+    [SerializeField] private float explosionSpeed = 17.5f;
+    [SerializeField] private float upwardHeight = 17.5f;
+    [SerializeField] private float duration = 1.5f;
+    [SerializeField] private float rollSpeed = 0;
     [SerializeField] private float randomAngle = 10f;
 
     private Vector3 startPosition;
+    private Quaternion startRotation;
     private Vector3 explosionDirection;
-
-    private float time;
-    private float duration;
-
-    private float randomRotate;
-
+    private Vector3 rollAxis;
+    private float elapsed;
     private bool playing;
 
-    public void SetExplosionPoint(Vector3 explosionPoint)
+    public void SetExplosionPoint(Vector3 point)
     {
-        this.explosionPoint = explosionPoint;
+        explosionPoint = point;
     }
 
     protected override void EnterDieState()
     {
         startPosition = transform.position;
-
-        time = 0f;
-
-        duration =
-            mUnitView.ActionFlowComponent.GetAnimLen(
-                EActionType.die
-            );
-
-        // 爆炸点 -> 当前单位
+        startRotation = transform.rotation;
+        elapsed = 0f;
+        duration = Mathf.Max(0.01f, duration);
         explosionDirection = transform.position - explosionPoint;
-
-        // 只计算水平爆炸方向
         explosionDirection.y = 0f;
-
-        // 防止单位刚好在爆炸中心
-        if (explosionDirection.sqrMagnitude < 0.0001f)
+        if (explosionDirection.sqrMagnitude <= 0.0001f)
         {
-            float angle = Random.Range(0f, 360f);
-
-            float rad = angle * Mathf.Deg2Rad;
-
-            explosionDirection = new Vector3(
-                Mathf.Cos(rad),
-                0f,
-                Mathf.Sin(rad)
-            );
+            explosionDirection = Random.insideUnitSphere;
+            explosionDirection.y = 0f;
         }
-        else
+        explosionDirection.Normalize();
+        rollAxis = Vector3.Cross(Vector3.up, explosionDirection).normalized;
+        if (rollAxis.sqrMagnitude <= 0.0001f)
         {
-            explosionDirection.Normalize();
-
-            // 在爆炸方向基础上增加一点随机偏转
-            if (randomAngle > 0f)
-            {
-                float angle =
-                    Random.Range(-randomAngle, randomAngle);
-
-                explosionDirection =
-                    Quaternion.Euler(
-                        0f,
-                        angle,
-                        0f
-                    ) * explosionDirection;
-            }
+            rollAxis = Vector3.right;
         }
-
-        // 随机旋转方向
-        randomRotate =
-            Random.value > 0.5f ? 1f : -1f;
-
+        if (randomAngle > 0f)
+        {
+            explosionDirection = Quaternion.Euler(0f, Random.Range(-randomAngle, randomAngle), 0f) * explosionDirection;
+        }
+        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
         playing = true;
     }
-
 
     protected override void UpdateDie(float dt)
     {
         if (!playing)
+        {
             return;
+        }
 
-        time += dt;
-
-        float t =
-            Mathf.Clamp01(time / duration);
-
-        // 爆炸初期速度快，后面减速
-        float explosionT =
-            1f - Mathf.Pow(1f - t, 3f);
-
-        Vector3 horizontalOffset =
-            explosionDirection *
-            explosionDistance *
-            explosionT;
-
-        // 抛物线
-        float height =
-            upwardHeight *
-            Mathf.Sin(t * Mathf.PI);
-
-        transform.position =
-            startPosition +
-            horizontalOffset +
-            Vector3.up * height;
-
-        // 自身旋转
-        transform.Rotate(
-            Vector3.up,
-            rotateSpeed *
-            randomRotate *
-            dt,
-            Space.Self
-        );
-
-        // 结束
-        if (t >= 1f)
+        elapsed += dt;
+        float normalizedTime = Mathf.Clamp01(elapsed / duration);
+        float verticalOffset = upwardHeight * 4f * normalizedTime * (1f - normalizedTime);
+        transform.position = startPosition + explosionDirection * explosionSpeed * elapsed + Vector3.up * verticalOffset;
+        transform.rotation = Quaternion.AngleAxis(rollSpeed * elapsed, rollAxis) * startRotation;
+        if (elapsed >= duration)
         {
             playing = false;
-
-            transform.position =
-                startPosition +
-                explosionDirection *
-                explosionDistance;
-
             CycleUnitView();
         }
     }

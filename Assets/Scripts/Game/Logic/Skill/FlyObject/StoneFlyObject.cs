@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StoneFlyObject : FlyObjectLogicBase
 {
+    private bool damagePending;
     public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int flyUIndex)
     {
         base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, flyUIndex);
@@ -13,15 +14,28 @@ public class StoneFlyObject : FlyObjectLogicBase
 
     public override void FlyObjectUpdate(float dt)
     {
-        reqSearchTar();
-        setSearchTar();   
     }
 
     public override void ArriveTarPos()
     {
+        if (!damagePending)
+        {
+            reqSearchTar();
+            damagePending = true;
+        }
+    }
+
+    public override void FlyObjectLateUpdate(float dt)
+    {
+        if (!damagePending)
+        {
+            return;
+        }
+        setSearchTar();
         CreateArriveEffect(mTarPos);
         damage();
         die();
+        damagePending = false;
     }
 
     private int searchReqIndex = -1;

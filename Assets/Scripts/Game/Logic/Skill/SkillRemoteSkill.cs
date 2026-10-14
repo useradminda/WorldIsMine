@@ -1,45 +1,21 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+
 public class SkillRemoteSkill : SkillLogicBase
 {
     public SkillRemoteSkill(UnitLogicBase ulb, SkillCfg skillCfg) : base(ulb, skillCfg)
     {
     }
 
-    public override void OnSkillDoEffect(List<int> resultUnitIndexList)
+    public override void OnSkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
     {
-        createFlyObject();
-    }
-
-    private void createFlyObject()
-    {
+        if (target == null || target.IsDead)
+        {
+            return;
+        }
         int flyCfgId = SkillCfg.flyObjectId;
         Vector3 oriPos = UnitLogic.CurPos;
-        Vector3 tarPos = SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos);
-        UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, SkillSearchTarget, this, GetAttackDamageSnapshot());
-    }
-
-    public override UnitLogicBase GetSkillSearchTargetSingleResult()
-    {
-        skillSearchTarget = null;
-        if (searchReqIndex < 0)
-            return skillSearchTarget;
-
-        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
-        if (resultUnitIndexList.Count > 0)
-        {
-            skillSearchTarget = UnitManager.Instance.UnitList[randomIndex];
-            if (skillSearchTarget == UnitLogic ||
-                skillSearchTarget.CampType == UnitLogic.CampType)
-            {
-                Debug.LogError("严重错误搜索到自己了!!");
-                skillSearchTarget = null;
-            }
-            searchReqIndex = -1;
-            return skillSearchTarget;
-        }
-        skillSearchTarget = null;
-        searchReqIndex = -1;
-        return null;
+        Vector3 tarPos = target.GetClosestPoint(UnitLogic.CurPos);
+        UnitFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, target, this, GetAttackDamageSnapshot());
     }
 }

@@ -27,6 +27,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 190074c2bf8403c40a8447defcd28b6a, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DissolveTex:
+        m_Texture: {fileID: 2800000, guid: 8e923eebb0f6e284199040c5cd2737bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ICETex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -42,6 +46,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _BlackPower: 0
+    - _DissolveAmount: 0
+    - _DissolveEdgeWidth: 0.05
     - _GravityValue: 1
     - _GroundY: 0
     - _HalfLambertValue: 0.5
@@ -51,7 +57,9 @@ Material:
     - _MaskValue: 0
     - _Shadow_Length: 1
     - _Shadow_Rotated: 0
+    - _SquashState: 0
     m_Colors:
+    - _DissolveEdgeColor: {r: 1, g: 0.55, b: 0.05, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}

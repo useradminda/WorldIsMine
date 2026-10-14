@@ -31,6 +31,13 @@ Shader "zxf/BuiltIn/AnimMapShader"
         _HalfLambertValue("HalfLambertValue", float) = 0.5
 
         _HighLightValue("HighLightValue", float) = 1
+
+        _DissolveTex("Dissolve Texture", 2D) = "gray" {}
+        _DissolveAmount("Dissolve Amount", Range(0, 1)) = 0
+        _DissolveEdgeWidth("Dissolve Edge Width", Range(0, 0.2)) = 0.05
+        _DissolveEdgeColor("Dissolve Edge Color", Color) = (1, 0.55, 0.05, 1)
+        _BuffColor("Buff Color", Color) = (1, 1, 1, 1)
+        _BuffColorStrength("Buff Color Strength", Range(0, 1)) = 0
         
 
         // 假影子参数（实例化控制）
@@ -102,6 +109,9 @@ Shader "zxf/BuiltIn/AnimMapShader"
             sampler2D _Mask;
             float4 _MaskColor;
 
+            sampler2D _DissolveTex;
+            float4 _DissolveTex_ST;
+
             float _MaskValue;
 
             float _HalfLambertValue;
@@ -127,6 +137,11 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 UNITY_DEFINE_INSTANCED_PROP(float, _TimeSinceLevelLoad)
                 UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)
                 UNITY_DEFINE_INSTANCED_PROP(float, _SquashState)
+                UNITY_DEFINE_INSTANCED_PROP(float, _DissolveAmount)
+                UNITY_DEFINE_INSTANCED_PROP(float, _DissolveEdgeWidth)
+                UNITY_DEFINE_INSTANCED_PROP(float4, _DissolveEdgeColor)
+                UNITY_DEFINE_INSTANCED_PROP(float4, _BuffColor)
+                UNITY_DEFINE_INSTANCED_PROP(float, _BuffColorStrength)
             UNITY_INSTANCING_BUFFER_END(Props)
             
             v2f vert (appdata v, uint vid : SV_VertexID)
@@ -237,11 +252,23 @@ Shader "zxf/BuiltIn/AnimMapShader"
                
                 fixed4 col = tex2D(_MainTex, i.uv);      
 
+                float dissolveAmount = UNITY_ACCESS_INSTANCED_PROP(Props, _DissolveAmount);
+                float dissolveEdgeWidth = UNITY_ACCESS_INSTANCED_PROP(Props, _DissolveEdgeWidth);
+                float4 dissolveEdgeColor = UNITY_ACCESS_INSTANCED_PROP(Props, _DissolveEdgeColor);
+                float2 dissolveUv = i.uv * _DissolveTex_ST.xy + _DissolveTex_ST.zw;
+                float dissolveValue = tex2D(_DissolveTex, dissolveUv).r;
+                clip(dissolveValue - dissolveAmount);
+                float dissolveEdge = 1 - smoothstep(dissolveAmount, dissolveAmount + dissolveEdgeWidth, dissolveValue);
+                col.rgb = lerp(col.rgb, dissolveEdgeColor.rgb, dissolveEdge);
+
                 // float3 lDir = normalize(_WorldSpaceLightPos0.xyz); // 获取真实光源
                 float3 lDir = normalize(_MainLightDir.xyz);// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
                 //光照渐变 i.objectNormal => i.worldNormal 灯光不变 ，模型阴影变     i.objectNormal 跟着模型走，不管模型旋转方向
                 float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;// saturate(dot(tangentNormal, tangentLight)) * 0.5 + _HalfLambertValue;// saturate(dot(i.worldNormal, _MainLightDir)) * 0.5 + _HalfLambertValue;//dot(mainLight.direction, i.normalWS) * 0.5 + _HalfLambertValue; //  
                 col.rgb *= Ramp_light * _LightColor * _LightScale;//Ramp_light * mainLight.color;
+                float4 buffColor = UNITY_ACCESS_INSTANCED_PROP(Props, _BuffColor);
+                float buffColorStrength = saturate(UNITY_ACCESS_INSTANCED_PROP(Props, _BuffColorStrength));
+                col.rgb = lerp(col.rgb, buffColor.rgb, buffColorStrength);
 
                 // // float3 normal = normalize(i.objectNormal);
                 // // float3 lDir = normalize(_MainLightDir.xyz);

@@ -9,6 +9,7 @@ public class JumpArrowFlyObject : FlyObjectLogicBase
     private int nearestIndex = -1;
     private int randomIndex = -1;
     private bool flying;
+    private bool searchPending;
     private Vector3 currentPosition;
 
     private float liveTime = 0;
@@ -24,17 +25,43 @@ public class JumpArrowFlyObject : FlyObjectLogicBase
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, oriPos, tarPos - oriPos);
         startFly();
         liveTime = flyObjectCfg.liveTime;
+        searchPending = false;
     }
 
     public override void FlyObjectUpdate(float dt)
     {
-        searchReqIndex = MapCellManager.Instance.RequestSearch(mFlyObjectGob.transform.position, mSkillLogic.SkillCfg.searchRange, mAtkUnitLogic.OtherCampTypeInt);
-        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
+        if (!flying && !searchPending)
+        {
+            searchReqIndex = MapCellManager.Instance.RequestSearch(mFlyObjectGob.transform.position, mSkillLogic.SkillCfg.searchRange, mAtkUnitLogic.OtherCampTypeInt);
+            searchPending = true;
+        }
         UpdateFlyPosition(dt);
         liveTime -= dt;
         if (liveTime < 0)
         {
             Die();
+        }
+    }
+
+    public override void FlyObjectLateUpdate(float dt)
+    {
+        if (!searchPending)
+        {
+            return;
+        }
+        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
+        searchReqIndex = -1;
+        searchPending = false;
+        if (flying || randomIndex < 0 || randomIndex >= UnitManager.Instance.UnitList.Count)
+        {
+            return;
+        }
+        UnitLogicBase target = UnitManager.Instance.UnitList[randomIndex];
+        if (target != null && target.IsDead == false && target.CampTypeInt != mAtkUnitLogic.CampTypeInt)
+        {
+            mSearchTargetUnitLogic = target;
+            targetUID = target.UId;
+            startFly();
         }
     }
 
@@ -73,22 +100,6 @@ public class JumpArrowFlyObject : FlyObjectLogicBase
             {
                 flying = false;
                 ArriveTarPos();
-            }
-        }
-        else
-        {
-            if(randomIndex != -1)
-            {
-                if (randomIndex <= UnitManager.Instance.UnitList.Count - 1)
-                {
-                    UnitLogicBase tarUnit = UnitManager.Instance.UnitList[randomIndex];
-                    if (tarUnit != null && tarUnit.IsDead == false && tarUnit.CampTypeInt != mAtkUnitLogic.CampTypeInt)
-                    {
-                        mSearchTargetUnitLogic = tarUnit;
-                        targetUID = mSearchTargetUnitLogic.UId;
-                        startFly();
-                    }
-                }
             }
         }
     }

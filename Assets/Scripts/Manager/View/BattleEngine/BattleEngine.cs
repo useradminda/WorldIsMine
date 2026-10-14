@@ -41,9 +41,9 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return;
        
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
-        ProjectileJobManager.Instance.ManagerUpdate(Time.deltaTime);
         RvoManager.Instance.ManagerUpdate(Time.deltaTime);
         MapCellManager.Instance.ManagerUpdate(Time.deltaTime);
+        ProjectileJobManager.Instance.ManagerUpdate(Time.deltaTime);
         FlyObjectManager.Instance.ManagerUpdate(Time.deltaTime);
         GlobalSkillManager.Instance.ManagerUpdate(Time.deltaTime);
 
@@ -58,10 +58,12 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return;
         if (battleFinished)
             return;
+
+        MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
         UnitManager.Instance.ManagerLateUpdate(Time.deltaTime);
         ProjectileJobManager.Instance.ManagerLateUpdate(Time.deltaTime);
-        RvoManager.Instance.ManagerLateUpdate(Time.deltaTime);
-        MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
+        FlyObjectManager.Instance.ManagerLateUpdate(Time.deltaTime);
 
         UnitViewManager.Instance.ManagerLateUpdate(Time.deltaTime);
         BattleClashEffectManager.Instance.ManagerLateUpdate(Time.deltaTime);
@@ -114,7 +116,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return;
         }
 
-        if (!UnitFactory.CanCreateUnitGroup(campType, count))
+        if (!UnitFactory.CanCreateUnitGroup(cfgId, campType, count))
         {
             UnitManager.Instance.EnqueueSpawn(cfgId, campType, count);
             return;
@@ -125,7 +127,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     private int CreateAvailableUnits(int cfgId, ECampType campType, int count)
     {
-        int creatableCount = Mathf.Min(count, UnitFactory.MaxActiveUnitCountPerCamp - UnitFactory.GetActiveCount(campType));
+        int creatableCount = UnitFactory.IsHero(cfgId) ? count : Mathf.Min(count, UnitFactory.MaxActiveUnitCountPerCamp - UnitFactory.GetActiveCount(campType));
         if (creatableCount <= 0)
         {
             return 0;
@@ -142,7 +144,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
             if(unitLogic == null)
             { 
-                unitLogic = UnitFactory.CreateUnit(cfgId, bornPoint, forward, campType, UnitManager.Instance.UnitList.Count);
+                unitLogic = UnitFactory.CreateUnit(cfgId, forward, campType, UnitManager.Instance.UnitList.Count);
                 if (unitLogic == null)
                 {
                     return i;

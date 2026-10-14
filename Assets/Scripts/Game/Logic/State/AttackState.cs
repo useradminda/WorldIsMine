@@ -1,152 +1,173 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
+
 public class AttackState : StateBase
 {
     private const float AttackExitRangeBuffer = 0.3f;
 
     public override EStateTyep StateType { get { return EStateTyep.Attack; } }
 
-    private SkillLogicBase useSkill;
-    private SkillLogicBase superSkill;
-    private float attackTime = 0;
+    private SkillLogicBase normalSkill;
+    private float attackTime;
+    private float attackEffectTime;
+    private bool attackEffectTriggered;
+    private bool attackEffectPending;
+    private int effectSearchReqIndex = -1;
+    private int nearestIndex = -1;
+    private int randomIndex = -1;
+    private readonly List<int> resultUnitIndexList = new List<int>();
 
     public AttackState(UnitLogicBase ulb) : base(ulb)
     {
-        attackTime = 0;
     }
 
     public override void EnterState(params object[] objects)
     {
-        resultUnitIndexList.Clear();
         UnitLogic.TriggerMoveStop();
         UnitLogic.UnitView.EnterState(EStateTyep.Attack);
-        useSkill = UnitLogic.NormalSkill;
-        useSkillPlay();
-
+        normalSkill = UnitLogic.NormalSkill;
+        effectSearchReqIndex = -1;
+        resultUnitIndexList.Clear();
+        StartNormalAttack();
     }
 
     public override void UpdateState(float dt)
-    {  
-        if (UnitLogic.IsDead)
-            return;
-
-        judgeTargetBeDead();
-        if (UnitLogic.StateMachine.GetCurrentState() != this)
-            return;
-
-        reqSearchTar();
-        setSearchTar();
-
-        updateSuprerSkill();
-        if (attackTime > 0)
+    {
+        if (UnitLogic.IsDead || normalSkill == null)
         {
-            attackTime -= dt * UnitLogic.LogicRatio;
+            return;
         }
-        else
+
+        if (attackTime > 0f)
         {
-            if(superSkill != null)
+            float deltaTime = dt * UnitLogic.LogicRatio;
+            attackTime -= deltaTime;
+            attackEffectTime -= deltaTime;
+            if (!attackEffectTriggered && attackEffectTime <= 0f)
             {
-                useSkill = superSkill;
-                useSkillPlay();
+                RequestNormalAttackEffect();
             }
-            else
+            if (attackTime <= 0f)
             {
-                useSkill = UnitLogic.NormalSkill;
-                useSkillPlay();
+                attackTime = 0f;
+                UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
             }
+            return;
         }
+
+        if (attackEffectPending)
+        {
+            return;
+        }
+
+        if (UnitLogic.SearchTarget == null || !UnitLogic.IsTargetInAttackRange(UnitLogic.SearchTarget, normalSkill.SkillCfg.atkRange, AttackExitRangeBuffer))
+        {
+            normalSkill.SkillClearCD();
+            UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
+            return;
+        }
+
+        if (HasReadySkillInRange())
+        {
+            UnitLogic.StateMachine.ChangeState(EStateTyep.Skill);
+            return;
+        }
+
+        if (normalSkill.CurCD <= 0f)
+        {
+            StartNormalAttack();
+        }
+    }
+
+    public override void LateUpdateState(float dt)
+    {
+        if (UnitLogic.IsDead || normalSkill == null || !attackEffectPending)
+        {
+            return;
+        }
+
+        if (normalSkill.SkillCfg.skillArea > 0)
+        {
+            if (effectSearchReqIndex < 0)
+            {
+                return;
+            }
+            resultUnitIndexList.Clear();
+            MapCellManager.Instance.GetResult(effectSearchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
+            effectSearchReqIndex = -1;
+        }
+
+        ExecuteNormalAttackEffect();
     }
 
     public override void ExitState()
     {
-        if (useSkill != null)
-            useSkill.SkillRelease();
-        if (superSkill != null && superSkill != useSkill)
-            superSkill.SkillRelease();
-        attackTime = 0;
-        useSkill = null;
-        superSkill = null;
-
-        if (UnitLogic.IsDead)
+        if (normalSkill != null)
         {
-            UnitLogic.SetSearchTarget(null);
+            normalSkill.SkillRelease();
         }
+        normalSkill = null;
+        attackTime = 0f;
+        attackEffectTime = 0f;
+        attackEffectTriggered = false;
+        attackEffectPending = false;
+        effectSearchReqIndex = -1;
         resultUnitIndexList.Clear();
     }
 
-    private void judgeTargetBeDead()
+    private void StartNormalAttack()
     {
-        if (useSkill.BNormalSkill)
+        if (normalSkill == null || normalSkill.CurCD > 0f || UnitLogic.SearchTarget == null || UnitLogic.SearchTarget.IsDead)
         {
-            if (useSkill.SkillSearchTarget != null)
+            attackTime = 0f;
+            return;
+        }
+
+        UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.attack);
+        attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.attack);
+        attackEffectTime = attackTime * 0.5f;
+        attackEffectTriggered = false;
+        attackEffectPending = false;
+        effectSearchReqIndex = -1;
+        resultUnitIndexList.Clear();
+        Vector3 attackDirection = UnitLogic.SearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
+        UnitLogic.UnitView.SetForwardForce(attackDirection);
+        if (attackTime <= 0f)
+        {
+            RequestNormalAttackEffect();
+        }
+    }
+
+    private void RequestNormalAttackEffect()
+    {
+        attackEffectTriggered = true;
+        attackEffectPending = true;
+        if (normalSkill.SkillCfg.skillArea > 0)
+        {
+            effectSearchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, normalSkill.SkillCfg.skillArea, UnitLogic.OtherCampTypeInt);
+        }
+    }
+
+    private void ExecuteNormalAttackEffect()
+    {
+        if (UnitLogic.SearchTarget != null && !UnitLogic.SearchTarget.IsDead)
+        {
+            normalSkill.SkillDoEffect(UnitLogic.SearchTarget, resultUnitIndexList);
+        }
+        attackEffectPending = false;
+    }
+
+    private bool HasReadySkillInRange()
+    {
+        for (int i = 0; i < UnitLogic.SkillList.Count; i++)
+        {
+            SkillLogicBase skill = UnitLogic.SkillList[i];
+            if (skill.BNormalSkill == false && skill.CurCD <= 0f && UnitLogic.IsTargetInAttackRange(UnitLogic.SearchTarget, skill.SkillCfg.atkRange))
             {
-                if (useSkill.SkillSearchTarget.IsDead)
-                {
-                    if (attackTime <= 0f)
-                    {
-                        UnitLogic.NormalSkill.SkillClearCD();
-                        UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
-                    }
-                    return;
-                }
-                if (!UnitLogic.IsTargetInAttackRange(
-                        useSkill.SkillSearchTarget,
-                        UnitLogic.NormalSkill.SkillCfg.atkRange,
-                        AttackExitRangeBuffer))
-                {
-                    UnitLogic.NormalSkill.SkillClearCD();
-                    UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
-                    return;
-                }
+                return true;
             }
-        }  
-    }
-
-    private void updateSuprerSkill()
-    {
-        superSkill = UnitLogic.GetSuperSkillBySearchTarget();
-    }
-
-    private void useSkillPlay()
-    {
-        if (UnitLogic.IsDead || useSkill == null || useSkill.SkillSearchTarget == null)
-            return;
-
-        // 攻击动画结束后可能早于技能冷却结束，冷却期间不能重复释放技能。
-        if (useSkill.CurCD > 0f)
-            return;
-
-        if (useSkill.BNormalSkill == true)
-        {
-            UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.attack);
-            attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.attack);         
         }
-        else
-        {
-            UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.skill);
-            attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.skill);
-        }
-        Vector3 atkDir =  useSkill.SkillSearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
-        UnitLogic.UnitView.SetForwardForce(atkDir);
-        useSkill.SkillDoEffect(resultUnitIndexList);
-    }
-
-    private int searchReqIndex = -1;
-    List<int> resultUnitIndexList = new List<int>();
-    private int neastIndex = -1;
-    private int randomIndex = -1;
-    private void reqSearchTar()
-    {
-        if (UnitLogic.IsDead || useSkill == null || useSkill.BNormalSkill == false || useSkill.SkillCfg.skillArea == 0)
-            return;
-        searchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, useSkill.SkillCfg.skillArea, UnitLogic.OtherCampTypeInt);
-    }
-
-    private void setSearchTar()
-    { 
-        if (UnitLogic.IsDead || useSkill == null || useSkill.BNormalSkill == false || useSkill.SkillCfg.skillArea == 0)
-            return;
-        MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
+        return false;
     }
 
 }

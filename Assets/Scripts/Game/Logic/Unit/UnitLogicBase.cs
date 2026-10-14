@@ -81,6 +81,8 @@ public class UnitLogicBase
 
     public bool IsDead => Prop.Hp <= 0;
 
+    public UnitLogicBase SearchTarget => searchTarget != null && searchTarget.IsDead == false && searchTarget.UId == searchTargetUId ? searchTarget : null;
+
     private int uid;
     public int UId => uid;
 
@@ -174,6 +176,14 @@ public class UnitLogicBase
         }
     }
 
+    public void UnitLateUpdate(float dt)
+    {
+        if (UnitType == EUnitType.Solider && stateMachine != null)
+        {
+            stateMachine.LateUpdateState(dt);
+        }
+    }
+
     public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
     {
         if (IsDead)
@@ -192,12 +202,12 @@ public class UnitLogicBase
             return;
         }
 
-        if (IsDead && StateMachine != null)
-            StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
         if (UnitView != null)
         {
             UnitView.BeHitSlash();
         }
+        if (IsDead && StateMachine != null)
+            StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
     }
    
     public void TriggerMoveStop()
@@ -262,62 +272,6 @@ public class UnitLogicBase
     {
         int finalAttack = Mathf.Max(0, SoliderCfg.atk + attackBuffValue);
         return System.Convert.ToInt32(Mathf.Max(0, finalAttack * skillDamageRate));
-    }
-
-    // normal
-    public SkillLogicBase GetNormalSkillBySearchTarget()
-    {
-        if (NormalSkill == null)
-        {
-            return null;
-        }
-
-        UnitLogicBase currentTarget = NormalSkill.SkillSearchTarget;
-        bool lockRemoteTarget = NormalSkill is SkillRemoteSkill;
-        if (lockRemoteTarget &&
-            currentTarget != null &&
-            currentTarget.IsDead == false &&
-            currentTarget.UnitType != EUnitType.Wall &&
-            currentTarget.CampType != CampType)
-        {
-            return NormalSkill;
-        }
-
-        NormalSkill.SearchTargetFunc();
-        UnitLogicBase skillTarget = NormalSkill.GetSkillSearchTargetSingleResult();
-        if (skillTarget == null || skillTarget.IsDead)
-        {
-            skillTarget = UnitManager.Instance.GetOtherWallLogic(CampType);
-            NormalSkill.SetSkillSearchTarget(skillTarget);
-        }
-
-        if (skillTarget != null && skillTarget.IsDead == false)
-        {
-            return NormalSkill;
-        }
-
-        return null;
-    }
-
-    // not normal
-    public SkillLogicBase GetSuperSkillBySearchTarget()
-    {
-        if (skillList.Count > 1)
-        {
-            for (int i = 1; i < skillList.Count; i++)
-            {
-                if (skillList[i].CurCD <= 0)
-                {
-                    skillList[i].SearchTargetFunc();
-                    UnitLogicBase skillTar = skillList[i].GetSkillSearchTargetSingleResult();
-                    if (skillTar != null && skillTar.IsDead == false)
-                    {
-                        return skillList[i];
-                    }
-                }
-            }
-        }
-        return null;
     }
 
     public void SetSearchTarget(UnitLogicBase logic)

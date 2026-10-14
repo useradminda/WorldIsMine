@@ -7,6 +7,10 @@ using UnityEngine;
 public class UnitManager : Singleton<UnitManager>, IManager
 {
     public WaitListTemplate<UnitLogicBase> UnitList = new WaitListTemplate<UnitLogicBase>(null);
+    private readonly List<UnitLogicBase> redUnitList = new List<UnitLogicBase>();
+    private readonly List<UnitLogicBase> blueUnitList = new List<UnitLogicBase>();
+    public List<UnitLogicBase> RedUnitList => redUnitList;
+    public List<UnitLogicBase> BlueUnitList => blueUnitList;
     private readonly Queue<UnitSpawnRequest> redWaitingRequests = new Queue<UnitSpawnRequest>();
     private readonly Queue<UnitSpawnRequest> blueWaitingRequests = new Queue<UnitSpawnRequest>();
     private Func<int, ECampType, int, int> spawnHandler;
@@ -156,7 +160,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
         }
 
         UnitSpawnRequest request = queue.Peek();
-        if (!UnitFactory.CanCreateUnitGroup(campType, request.Count))
+        if (!UnitFactory.CanCreateUnitGroup(request.CfgId, campType, request.Count))
         {
             return;
         }
@@ -172,7 +176,10 @@ public class UnitManager : Singleton<UnitManager>, IManager
 
     public void ManagerLateUpdate(float dt)
     {
-        //UnitList.AddWaitingList();
+        for (int i = 0; i < UnitList.Count; i++)
+        {
+            UnitList[i].UnitLateUpdate(dt);
+        }
     }
 
     public void ManagerRefuse()
@@ -196,7 +203,14 @@ public class UnitManager : Singleton<UnitManager>, IManager
     public UnitLogicBase AddUnitImmediately(UnitLogicBase unit)
     {
         UnitList.AddImmediately(unit);
+        GetCampUnitList(unit.CampType).Add(unit);
         return unit;
+    }
+
+    /// <summary>获取指定阵营创建过的全部士兵逻辑对象，包含已经死亡并等待复用的对象。</summary>
+    public List<UnitLogicBase> GetCampUnitList(ECampType campType)
+    {
+        return campType == ECampType.Red ? redUnitList : blueUnitList;
     }
 
     public void ClearWaiting()

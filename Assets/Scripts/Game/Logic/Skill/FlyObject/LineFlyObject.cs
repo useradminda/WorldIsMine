@@ -8,6 +8,7 @@ public class LineFlyObject : FlyObjectLogicBase
     private float liveTime = 0;
     private float damageClipTime = 0;
     private int triggeredDamageCount;
+    private bool damagePending;
     private Vector3 moveForward = Vector3.zero;
     private Vector3 curPos = Vector3.zero;
     public override void SetFlyObjectInfo(FlyObjectCfg flyObjectCfg, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetUnit, SkillLogicBase skillLogic, int attackDamage, int uIndex)
@@ -19,21 +20,18 @@ public class LineFlyObject : FlyObjectLogicBase
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
         triggeredDamageCount = 0;
+        damagePending = false;
     }
 
     public override void FlyObjectUpdate(float dt)
     {
         if (CanTriggerDamage())
         {
-            reqSearchTar();
-            setSearchTar();
-
             damageClipTime -= dt;
-            if (damageClipTime < 0)
+            if (damageClipTime < 0 && !damagePending)
             {
-                damage();
-                triggeredDamageCount++;
-                damageClipTime = mFlyObjectCfg.damClipTime;
+                reqSearchTar();
+                damagePending = true;
             }
         }
 
@@ -42,6 +40,19 @@ public class LineFlyObject : FlyObjectLogicBase
         liveTime -= dt;
         if (liveTime < 0)
             die();
+    }
+
+    public override void FlyObjectLateUpdate(float dt)
+    {
+        if (!damagePending)
+        {
+            return;
+        }
+        setSearchTar();
+        damage();
+        triggeredDamageCount++;
+        damageClipTime = mFlyObjectCfg.damClipTime;
+        damagePending = false;
     }
 
     /// <summary>

@@ -5,6 +5,7 @@ public enum EStateTyep
     Idle,
     Move,
     Attack,
+    Skill,
     Die,
 }
 
@@ -24,7 +25,7 @@ public abstract class StateBase
 
     public abstract void UpdateState(float dt);
 
-
-
+    public abstract void LateUpdateState(float dt);
+  
     public abstract void ExitState();
 }

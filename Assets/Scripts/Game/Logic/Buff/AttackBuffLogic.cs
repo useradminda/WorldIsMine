@@ -24,12 +24,20 @@ public class AttackBuffLogic : BuffLogicBase
         attackValue = Mathf.RoundToInt(
             mUnitLogic.SoliderCfg.atk * BuffCfg.value);
         mUnitLogic.ChangeAttackBuffValue(attackValue);
+        if (CfgId == 2 && mUnitLogic.UnitView != null)
+        {
+            mUnitLogic.UnitView.SetAttackBuffColor(true);
+        }
     }
 
     /// <summary>移除Buff时撤销本Buff提供的攻击力。</summary>
     public override void Exit()
     {
         mUnitLogic.ChangeAttackBuffValue(-attackValue);
+        if (CfgId == 2 && mUnitLogic.UnitView != null)
+        {
+            mUnitLogic.UnitView.SetAttackBuffColor(false);
+        }
         attackValue = 0;
     }
 }

@@ -15,6 +15,7 @@ public class StateMachine
     /// </summary>
     private bool stateDirty = true;
     public bool StateDirty => stateDirty;
+    private bool stateChangedThisFrame;
 
     public StateMachine(UnitLogicBase unitLogic)
     {
@@ -24,6 +25,7 @@ public class StateMachine
         statesByEState.Add(EStateTyep.Idle, new IdleState(unitLogic));
         statesByEState.Add(EStateTyep.Move, new MoveState(unitLogic));
         statesByEState.Add(EStateTyep.Attack, new AttackState(unitLogic));
+        statesByEState.Add(EStateTyep.Skill, new SkillState(unitLogic));
         statesByEState.Add(EStateTyep.Die, new DieState(unitLogic));
     }
 
@@ -37,6 +39,7 @@ public class StateMachine
                 currentState.ExitState();
             }
             stateDirty = true;
+            stateChangedThisFrame = true;
             currentState = enterState;
             currentState?.EnterState(objects);
         }
@@ -44,10 +47,25 @@ public class StateMachine
 
     public void UpdateState(float dt)
     {
+        stateChangedThisFrame = false;
         if (currentState != null)
         {
             currentState.UpdateState(dt);
         }
+    }
+
+    public void LateUpdateState(float dt)
+    {
+        if (stateChangedThisFrame)
+        {
+            stateChangedThisFrame = false;
+            return;
+        }
+        if (currentState != null)
+        {
+            currentState.LateUpdateState(dt);
+        }
+        stateChangedThisFrame = false;
     }
 
    
