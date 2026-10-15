@@ -16,7 +16,7 @@ public class NormalDieComponent : DieBaseComponent
     protected override void EnterDieState()
     {
         this.duration = Mathf.Max(0.5f, mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die) * MovementDurationScale);
-        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
+        PlayDieActionForDuration(duration);
         startPosition = transform.position;
         backwardDirection = -transform.forward;
         startTime = Time.time;

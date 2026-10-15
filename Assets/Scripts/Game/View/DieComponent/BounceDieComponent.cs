@@ -22,7 +22,7 @@ public class BounceDieComponent : DieBaseComponent
         direction = Vector3.ProjectOnPlane(-transform.forward, Vector3.up).normalized;
         elapsed = 0f;
         playing = true;
-        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
+        PlayDieActionForDuration(duration);
     }
 
     /// <summary>依次播放主抛物线、二次弹跳和落地停留。</summary>

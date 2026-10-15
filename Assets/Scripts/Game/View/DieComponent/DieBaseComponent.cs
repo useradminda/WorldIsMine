@@ -17,6 +17,14 @@ public class DieBaseComponent : MonoBehaviour
 
     }
 
+    protected void PlayDieActionForDuration(float duration)
+    {
+        float animationLength = mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die);
+        float speedRatio = animationLength > 0.0001f ? duration / animationLength : 1f;
+        mUnitView.ActionFlowComponent.SetAnimationSpeed(speedRatio);
+        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
+    }
+
     // Update is called once per frame
     void Update()
     {

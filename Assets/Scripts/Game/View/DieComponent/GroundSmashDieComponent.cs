@@ -19,7 +19,7 @@ public class GroundSmashDieComponent : DieBaseComponent
         startScale = transform.localScale;
         elapsed = 0f;
         playing = true;
-        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
+        PlayDieActionForDuration(duration);
     }
 
     /// <summary>通过分段曲线控制抬升、悬停、下砸和落地形变。</summary>

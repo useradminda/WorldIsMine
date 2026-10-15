@@ -83,6 +83,7 @@ public class UnitView : IView
         this.prefabName = prefabName;
         this.unitLogic = unit;
         FootSmokeManager.Instance.StopForUnit(this);
+        ActionFlowComponent.SetAnimationSpeed(1f);
         SetAttackBuffColor(false);
         SetDissolveAmount(0f);
         SlachComp.ExitSlash();

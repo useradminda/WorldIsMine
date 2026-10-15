@@ -31,6 +31,7 @@ public class RollDieComponent : DieBaseComponent
         time = 0f;
 
         duration = mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die);
+        PlayDieActionForDuration(duration);
 
         // 随机一个水平飞行方向
         float angle = Random.Range(0f, 360f);

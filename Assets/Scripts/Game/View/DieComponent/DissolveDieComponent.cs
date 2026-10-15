@@ -12,7 +12,7 @@ public class DissolveDieComponent : DieBaseComponent
         elapsed = 0f;
         duration = Mathf.Max(0.01f, duration);
         mUnitView.SetDissolveAmount(0f);
-        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
+        PlayDieActionForDuration(duration);
         playing = true;
     }
 

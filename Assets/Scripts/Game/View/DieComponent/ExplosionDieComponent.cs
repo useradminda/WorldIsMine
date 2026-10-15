@@ -44,7 +44,7 @@ public class ExplosionDieComponent : DieBaseComponent
         {
             explosionDirection = Quaternion.Euler(0f, Random.Range(-randomAngle, randomAngle), 0f) * explosionDirection;
         }
-        mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
+        PlayDieActionForDuration(duration);
         playing = true;
     }
 

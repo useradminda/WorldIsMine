@@ -9,6 +9,7 @@ using ZTools;
 // 战斗引擎
 public class BattleEngine : MonoSingleton<BattleEngine>
 {
+    private const float SpawnUnitPadding = 1f;
     // 场地碰撞配置
     public ObstacleConfig ObstacleConfigIns;
     // 出生位置
@@ -139,10 +140,12 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         Vector3 forward = BornConfigIns.GetForward(campType);
         Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
+        SoliderCfg soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
+        float unitRadius = soliderCfg != null ? soliderCfg.radius : 1.5f;
        
         for (int i = 0; i < creatableCount; i++)
         {
-            Vector3 bornPoint = GetCreatePoint( baseBornPoint, forward, i, count);
+            Vector3 bornPoint = GetCreatePoint(baseBornPoint, forward, i, creatableCount, unitRadius);
 
             UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType);
 
@@ -177,19 +180,20 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         Vector3 bornPoint,
         Vector3 forward,
         int unitIndex,
-        int totalCount)
+        int totalCount,
+        float unitRadius)
     {
-        int maxColumns = Mathf.Max(1, BattleDefine.FootManWithCount);
-        int columns = Mathf.Min(maxColumns, Mathf.Max(1, totalCount));
+        float spacing = Mathf.Max(0.1f, unitRadius * 2f + SpawnUnitPadding);
+        int columns = Mathf.Max(1, Mathf.FloorToInt(BattleDefine.AreaTotalWith / spacing));
+        columns = Mathf.Min(columns, Mathf.Max(1, totalCount));
         int row = unitIndex / columns;
         int column = unitIndex % columns;
         int unitsInRow = Mathf.Min(columns, totalCount - row * columns);
 
-        float horizontalSpacing = BattleDefine.AreaTotalWith / maxColumns;
         float centeredColumn = column - (unitsInRow - 1) * 0.5f;
         Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
-        Vector3 rowOffset = -forward * row * BattleDefine.FootManHeightSegDis;
-        Vector3 columnOffset = right * centeredColumn * horizontalSpacing;
+        Vector3 rowOffset = -forward * row * spacing;
+        Vector3 columnOffset = right * centeredColumn * spacing;
         return bornPoint + rowOffset + columnOffset;
     }
 
