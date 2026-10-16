@@ -61,7 +61,7 @@ public class SoliderCfg
 	public float restrainValue;
 	public string prefab;
 	public int myLayer;
-	public int ignoreLayer;
+	public int[] ignoreLayer;
 	public string aroundEffect;
 	
 }

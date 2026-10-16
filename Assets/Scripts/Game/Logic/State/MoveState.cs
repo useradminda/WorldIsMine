@@ -5,6 +5,11 @@ public class MoveState : StateBase
     private int searchReqIndex = -1;
     private int nearestIndex = -1;
     private int randomIndex = -1;
+    private float stuckCheckTime;
+    private float escapeTime;
+    private float escapeCooldownTime;
+    private Vector3 stuckCheckPosition;
+    private Vector3 escapeDirection;
     private readonly List<int> searchResultList = new List<int>();
 
     public override EStateTyep StateType { get { return EStateTyep.Move; } }
@@ -19,13 +24,20 @@ public class MoveState : StateBase
         UnitLogic.TriggerMove();
         UnitLogic.SetSearchTarget(null);
         searchReqIndex = -1;
+        stuckCheckTime = 0f;
+        escapeTime = 0f;
+        escapeCooldownTime = 0f;
+        stuckCheckPosition = UnitLogic.CurPos;
+        escapeDirection = Vector3.zero;
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
+        RequestTargetSearch();
     }
 
     public override void UpdateState(float dt)
     {
-        UnitLogic.AgentMoveForward();
         RequestTargetSearch();
+        UpdateEscape(dt);
+        UnitLogic.AgentMoveForward(escapeDirection);
     }
 
     public override void LateUpdateState(float dt)
@@ -44,6 +56,8 @@ public class MoveState : StateBase
             if (target == null || target.IsDead)
             {
                 UnitLogic.SetSearchTarget(null);
+                UnitLogic.TriggerMove();
+                UnitLogic.UnitView.EnterState(EStateTyep.Move);
                 return;
             }
         }
@@ -53,16 +67,67 @@ public class MoveState : StateBase
         {
             if (UnitLogic.IsTargetInAttackRange(target, UnitLogic.NormalSkill.SkillCfg.atkRange))
             {
-                Vector3 attackDirection = target.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
-                UnitLogic.UnitView.SetForwardForce(attackDirection);
                 UnitLogic.StateMachine.ChangeState(HasReadySkillInRange(target) ? EStateTyep.Skill : EStateTyep.Attack);
+                return;
             }
         }
+
+        UnitLogic.TriggerMove();
+        UnitLogic.UnitView.EnterState(EStateTyep.Move);
     }
 
     public override void ExitState()
     {
         searchReqIndex = -1;
+        stuckCheckTime = 0f;
+        escapeTime = 0f;
+        escapeCooldownTime = 0f;
+        escapeDirection = Vector3.zero;
+    }
+
+    private void UpdateEscape(float dt)
+    {
+        if (escapeCooldownTime > 0f)
+        {
+            escapeCooldownTime = Mathf.Max(0f, escapeCooldownTime - dt);
+        }
+        if (escapeTime > 0f)
+        {
+            escapeTime = Mathf.Max(0f, escapeTime - dt);
+            if (escapeTime <= 0f)
+            {
+                escapeDirection = Vector3.zero;
+                escapeCooldownTime = RvoEscapeConfig.EscapeCooldown;
+                stuckCheckTime = 0f;
+                stuckCheckPosition = UnitLogic.CurPos;
+            }
+            return;
+        }
+        escapeDirection = Vector3.zero;
+        stuckCheckTime += dt;
+        if (stuckCheckTime < RvoEscapeConfig.CheckWindow)
+        {
+            return;
+        }
+        Vector3 displacement = UnitLogic.CurPos - stuckCheckPosition;
+        displacement.y = 0f;
+        bool isStuck = displacement.sqrMagnitude <= RvoEscapeConfig.MaxDisplacement * RvoEscapeConfig.MaxDisplacement;
+        stuckCheckTime = 0f;
+        stuckCheckPosition = UnitLogic.CurPos;
+        if (!isStuck || escapeCooldownTime > 0f)
+        {
+            return;
+        }
+        Vector3 forward = UnitLogic.TargetForward;
+        forward.y = 0f;
+        if (forward.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+        forward.Normalize();
+        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+        escapeDirection = (UnitLogic.UId & 1) == 0 ? right : -right;
+        escapeTime = RvoEscapeConfig.EscapeDuration;
     }
 
     private void RequestTargetSearch()

@@ -12,7 +12,6 @@ public class DieState : StateBase
     public override void EnterState(params object[] objects)
     {
         UnitLogic.TriggerDie();
-        UnitFactory.RecycleId(UnitLogic.CampType, UnitLogic.Index, UnitFactory.IsHero(UnitLogic.SoliderCfg.id));
         UnitLogic.UnitView.EnterState(EStateTyep.Die, objects);
     }
 

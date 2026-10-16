@@ -38,6 +38,7 @@ public class DieBaseComponent : MonoBehaviour
 
     protected void CycleUnitView()
     {
+        mUnitView.NotifyDeathViewFinished();
         UnitViewFactory.RemoveUnitView(mUnitView);
         DieBaseComponent dieComp = GetComponent<DieBaseComponent>();
         GameObject.Destroy(dieComp);

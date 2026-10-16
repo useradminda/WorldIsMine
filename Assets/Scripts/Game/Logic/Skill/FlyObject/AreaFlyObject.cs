@@ -59,6 +59,7 @@ public class AreaFlyObject : FlyObjectLogicBase
 
     private int searchReqIndex = -1;
     List<int> resultUnitIndexList = new List<int>();
+    List<int> resultUnitUidList = new List<int>();
     private int neastIndex = -1;
     private int randomIndex = -1;
     private void reqSearchTar()
@@ -69,6 +70,7 @@ public class AreaFlyObject : FlyObjectLogicBase
     private void setSearchTar()
     {
         MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref neastIndex, ref randomIndex);
+        UnitTargetSnapshot.Capture(resultUnitIndexList, resultUnitUidList);
     }
 
     private void damage()
@@ -78,8 +80,11 @@ public class AreaFlyObject : FlyObjectLogicBase
             for (int i = 0; i < resultUnitIndexList.Count; i++)
             {
                 int unitIndex = resultUnitIndexList[i];
-                UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), tarUnitLogic.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
+                if (!UnitTargetSnapshot.TryGet(resultUnitIndexList, resultUnitUidList, i, out UnitLogicBase tarUnitLogic) || tarUnitLogic.CampTypeInt == mAtkUnitLogic.CampTypeInt)
+                {
+                    continue;
+                }
+                BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), resultUnitUidList[i], mSkillLogic.SkillCfg.dieType, mTarPos);
                 mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }

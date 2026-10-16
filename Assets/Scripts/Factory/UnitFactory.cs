@@ -89,7 +89,7 @@ public static class UnitFactory
         unit.Agenter.radius = unit.Prop.Radius;
         unit.Agenter.radiusObst = unit.Prop.Radius;
         unit.Agenter.maxNeighbors = 20;
-        unit.Agenter.timeHorizon = 0.1f;   // 距离其他代理检查
+        unit.Agenter.timeHorizon = 0.3f; /// 0.1f;   // 距离其他代理检查
         unit.Agenter.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         unit.Agenter.saveMaxSpeed = unit.Prop.MaxSpeed;
         unit.Agenter.maxSpeed = unit.Prop.MaxSpeed;
@@ -98,7 +98,7 @@ public static class UnitFactory
     }
 
     // 创建一个RVO智能体
-    public static Agent  CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int ignoreLayer)
+    public static Agent  CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int[] ignoreLayers)
     {        
         Agent agent = Pool.Rent<Agent>();   
         agent.pos = bornPoint;
@@ -107,19 +107,27 @@ public static class UnitFactory
         agent.radius = radius;
         agent.radiusObst = radius;
         agent.maxNeighbors = 20;
-        agent.timeHorizon = 0.1f;   // 距离其他代理检查
+        agent.timeHorizon = 0.3f; //0.1f;   // 距离其他代理检查
         agent.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
         agent.saveMaxSpeed = maxSpeed;
         agent.maxSpeed = maxSpeed;
-        SetAgentLayers(agent, myLayer, ignoreLayer);
+        SetAgentLayers(agent, myLayer, ignoreLayers);
         return agent;
     }
 
     // 根据单位配置设置RVO占用层和忽略层，忽略层为0时不忽略任何层。
-    private static void SetAgentLayers(Agent agent, int myLayer, int ignoreLayer)
+    private static void SetAgentLayers(Agent agent, int myLayer, int[] ignoreLayers)
     {
         agent.layerOccupation = ConvertConfigLayer(myLayer);
-        agent.layerIgnore = ConvertConfigLayer(ignoreLayer);
+        agent.layerIgnore = ORCALayer.NONE;
+        if (ignoreLayers == null)
+        {
+            return;
+        }
+        for (int i = 0; i < ignoreLayers.Length; i++)
+        {
+            agent.layerIgnore |= ConvertConfigLayer(ignoreLayers[i]);
+        }
     }
 
     // 表格使用从1开始的层编号，转换成ORCA需要的位掩码；0表示不占用或不忽略任何层。

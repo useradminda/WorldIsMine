@@ -162,11 +162,33 @@ public class UnitManager : Singleton<UnitManager>, IManager
         UnitSpawnRequest request = queue.Peek();
         if (!UnitFactory.CanCreateUnitGroup(request.CfgId, campType, request.Count))
         {
+            UnitSpawnRequest heroRequest = TakeFirstCreatableHeroRequest(queue, campType);
+            if (heroRequest != null)
+            {
+                spawnHandler(heroRequest.CfgId, campType, heroRequest.Count);
+            }
             return;
         }
 
         spawnHandler(request.CfgId, campType, request.Count);
         queue.Dequeue();
+    }
+
+    private UnitSpawnRequest TakeFirstCreatableHeroRequest(Queue<UnitSpawnRequest> queue, ECampType campType)
+    {
+        int requestCount = queue.Count;
+        UnitSpawnRequest heroRequest = null;
+        for (int i = 0; i < requestCount; i++)
+        {
+            UnitSpawnRequest request = queue.Dequeue();
+            if (heroRequest == null && UnitFactory.IsHero(request.CfgId) && UnitFactory.CanCreateUnitGroup(request.CfgId, campType, request.Count))
+            {
+                heroRequest = request;
+                continue;
+            }
+            queue.Enqueue(request);
+        }
+        return heroRequest;
     }
 
     private Queue<UnitSpawnRequest> GetWaitingQueue(ECampType campType)

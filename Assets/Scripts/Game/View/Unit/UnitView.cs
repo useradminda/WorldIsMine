@@ -176,6 +176,14 @@ public class UnitView : IView
         return ActionFlowComponent.GetAnimLen(EActionType.die);
     }
 
+    public void NotifyDeathViewFinished()
+    {
+        if (unitLogic != null)
+        {
+            unitLogic.RecycleAfterDeathView();
+        }
+    }
+
     public void PlayEffect(string prefabName, Vector3 pos, Vector3 forward, float time)
     {
         if (prefabName == "")

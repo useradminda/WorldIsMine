@@ -21,6 +21,7 @@ public class SkillState : StateBase
     public override void EnterState(params object[] objects)
     {
         UnitLogic.TriggerMoveStop();
+        UnitLogic.SetCombatRadius();
         UnitLogic.UnitView.EnterState(EStateTyep.Skill);
         skillLogic = GetReadySkill();
         executePending = skillLogic != null;
@@ -76,6 +77,7 @@ public class SkillState : StateBase
 
     public override void ExitState()
     {
+        UnitLogic.RestoreAgentRadius();
         skillLogic = null;
         searchReqIndex = -1;
         executePending = false;

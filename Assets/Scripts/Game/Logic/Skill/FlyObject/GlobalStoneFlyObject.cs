@@ -10,6 +10,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     private const float ArcHeight = 20f;
 
     private readonly List<int> resultUnitIndexList = new List<int>();
+    private readonly List<int> resultUnitUidList = new List<int>();
 
     private int searchReqIndex = -1;
     private int nearestIndex = -1;
@@ -122,6 +123,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
             return;
         }
         MapCellManager.Instance.GetResult(searchReqIndex, resultUnitIndexList, ref nearestIndex, ref randomIndex);
+        UnitTargetSnapshot.Capture(resultUnitIndexList, resultUnitUidList);
         CreateArriveEffect(mTarPos);
         DamageTargets();
         Die();
@@ -159,8 +161,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
                 continue;
             }
 
-            UnitLogicBase target = UnitManager.Instance.UnitList[unitIndex];
-            if (target == null || target.IsDead || target.CampTypeInt == mAtkUnitLogic.CampTypeInt)
+            if (!UnitTargetSnapshot.TryGet(resultUnitIndexList, resultUnitUidList, i, out UnitLogicBase target) || target.CampTypeInt == mAtkUnitLogic.CampTypeInt)
             {
                 continue;
             }

@@ -115,7 +115,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return;
         }
 
-        if (UnitManager.Instance.HasWaitingRequest(campType))
+        if (!UnitFactory.IsHero(cfgId) && UnitManager.Instance.HasWaitingRequest(campType))
         {
             UnitManager.Instance.EnqueueSpawn(cfgId, campType, count);
             return;

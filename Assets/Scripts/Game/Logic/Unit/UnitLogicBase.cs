@@ -90,6 +90,7 @@ public class UnitLogicBase
     public int Index => index;
 
     private int attackBuffValue;
+    private bool recycleIdQueued;
 
     private float logicRatio = 1;
     public float LogicRatio
@@ -123,6 +124,7 @@ public class UnitLogicBase
     public void CycleUse(int cfgId, int uid, Vector3 moveForward)
     {
         buffLogicMachine.Die();
+        recycleIdQueued = false;
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
@@ -147,6 +149,16 @@ public class UnitLogicBase
     public void BindUnitView(UnitView unitView)
     {
         this.UnitView = unitView;
+    }
+
+    public void RecycleAfterDeathView()
+    {
+        if (recycleIdQueued)
+        {
+            return;
+        }
+        recycleIdQueued = true;
+        UnitFactory.RecycleId(CampType, Index, UnitFactory.IsHero(SoliderCfg.id));
     }
 
     public void UnitUpdate(float dt)
@@ -220,8 +232,22 @@ public class UnitLogicBase
 
     public void TriggerMove()
     {
+        RestoreAgentRadius();
         Agenter.navigationEnabled = true;
         Agenter.collisionEnabled = true;
+    }
+
+    public void SetCombatRadius()
+    {
+        float radius = Prop.Radius * Mathf.Clamp(RvoEscapeConfig.CombatRadiusScale, 0.1f, 1f);
+        Agenter.radius = radius;
+        Agenter.radiusObst = radius;
+    }
+
+    public void RestoreAgentRadius()
+    {
+        Agenter.radius = Prop.Radius;
+        Agenter.radiusObst = Prop.Radius;
     }
 
     public void TriggerDie()
@@ -235,9 +261,23 @@ public class UnitLogicBase
 
     public void AgentMoveForward()
     {
+        AgentMoveForward(Vector3.zero);
+    }
+
+    public void AgentMoveForward(Vector3 lateralDirection)
+    {
         float agentSpeed = Agenter.saveMaxSpeed * LogicRatio;
         Agenter.maxSpeed = agentSpeed;
-        Agenter.prefVelocity = TargetForward.normalized * SoliderCfg.moveSpeed * LogicRatio;
+        Vector3 forward = TargetForward;
+        forward.y = 0f;
+        forward.Normalize();
+        if (lateralDirection.sqrMagnitude > 0.0001f)
+        {
+            lateralDirection.y = 0f;
+            lateralDirection.Normalize();
+            forward = (forward + lateralDirection * RvoEscapeConfig.LateralWeight).normalized;
+        }
+        Agenter.prefVelocity = forward * SoliderCfg.moveSpeed * LogicRatio;
     }
 
     /// <summary>根据配置ID创建并添加Buff。</summary>
