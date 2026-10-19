@@ -1,0 +1,11 @@
+{
+  "gap_px": 200,
+  "canvas": [1024, 3430],
+  "components": [
+    {"index": 1, "name": "classic_mode_card", "output_rect": [27, 0, 995, 314], "size": [968, 314]},
+    {"index": 2, "name": "advanced_mode_card", "output_rect": [26, 514, 997, 836], "size": [971, 322]},
+    {"index": 3, "name": "peak_mode_card", "output_rect": [26, 1036, 997, 1367], "size": [971, 331]},
+    {"index": 4, "name": "confirm_button", "output_rect": [37, 1567, 985, 1745], "size": [948, 178]},
+    {"index": 5, "name": "mode_panel_background", "output_rect": [0, 1945, 1024, 3430], "size": [1024, 1485]}
+  ]
+}

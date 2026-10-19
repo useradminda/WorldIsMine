@@ -300,9 +300,20 @@ tpsheetFileNames:
 - Assets/Art/UI/Atlas/sdvn/Lng_public.tpsheet
 - Assets/Art/UI/Atlas/sdvn/Lng_room.tpsheet
 - Assets/UI/02_Controls/02_Controls_Sprite.tpsheet
-- Assets/UI/03_ModeSelect/03_ModeSelect_Sprite.tpsheet
 - Assets/UI/04_Lobby/04_Lobby_Sprite.tpsheet
+- Assets/UI/05_Leaderboard/05_Leaderboard_Sprite.tpsheet
+- Assets/UI/06_Settings/06_Settings_Sprite.tpsheet
+- Assets/UI/07_LiveGuide/07_LiveGuide_Sprite.tpsheet
+- Assets/UI/08_BattleHUD/08_BattleHUD_Sprite.tpsheet
+- Assets/UI/09_HeroSummon/09_HeroSummon_Sprite.tpsheet
+- Assets/UI/10_TroopSummon/10_TroopSummon_Sprite.tpsheet
+- Assets/UI/11_BattleAnnouncements/11_BattleAnnouncements_Sprite.tpsheet
+- Assets/UI/12_Results/12_Results_Sprite.tpsheet
+- Assets/UI/GeneratedUI/01_Loading/01_Loading_Sprite.tpsheet
+- Assets/UI/needUI/Generated_ThreeKingdoms_Qin_Sprite.tpsheet
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.tpsheet
+- Assets/UIAtlas/01_Loading_Sprite.tpsheet
+- Assets/UIAtlas/03_ModeSelect_Sprite.tpsheet
 textureFileNames:
 - Assets/Art/UI/Atlas/hd/ui_activity_01.png
 - Assets/Art/UI/Atlas/hd/ui_activity_02.png
@@ -604,10 +615,32 @@ textureFileNames:
 - Assets/Art/UI/Atlas/sdvn/Lng_public.png
 - Assets/Art/UI/Atlas/sdvn/Lng_room.png
 - Assets/UI/02_Controls/02_Controls_Sprite.png
-- Assets/UI/03_ModeSelect/03_ModeSelect_Sprite.png
 - Assets/UI/04_Lobby/04_Lobby_Sprite.png
+- Assets/UI/05_Leaderboard/05_Leaderboard_Sprite.png
+- Assets/UI/06_Settings/06_Settings_Sprite.png
+- Assets/UI/07_LiveGuide/07_LiveGuide_Sprite.png
+- Assets/UI/08_BattleHUD/08_BattleHUD_Sprite.png
+- Assets/UI/09_HeroSummon/09_HeroSummon_Sprite.png
+- Assets/UI/10_TroopSummon/10_TroopSummon_Sprite.png
+- Assets/UI/11_BattleAnnouncements/11_BattleAnnouncements_Sprite.png
+- Assets/UI/12_Results/12_Results_Sprite.png
+- Assets/UI/GeneratedUI/01_Loading/01_Loading_Sprite.png
+- Assets/UI/needUI/Generated_ThreeKingdoms_Qin_Sprite.png
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.png
+- Assets/UIAtlas/01_Loading_Sprite.png
+- Assets/UIAtlas/03_ModeSelect_Sprite.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

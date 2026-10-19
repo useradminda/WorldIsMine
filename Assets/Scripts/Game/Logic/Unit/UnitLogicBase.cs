@@ -206,6 +206,11 @@ public class UnitLogicBase
         Prop.ChangeHp(damage);
         if (UnitType == EUnitType.Wall)
         {
+            // 城门没有状态机和死亡动作，但每次受击仍走 UnitView 的闪白逻辑。
+            if (UnitView != null)
+            {
+                UnitView.BeHitSlash();
+            }
             if (IsDead)
             {
                 UnitManager.Instance.NotifyWallDestroyed(CampType);

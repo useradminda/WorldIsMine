@@ -1,0 +1,20 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=06_Settings_Sprite.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+btn_primary_gold;797;1376;1607;379; 0.5;0.5; 0;0;0;0
+checkmark;2562;519;858;756; 0.5;0.5; 0;0;0;0
+health_fill_blue;0;1813;384;24; 0.5;0.5; 0;0;0;0
+health_track;744;1085;48;12; 0.5;0.5; 0;0;0;0
+icon_close;0;1085;742;726; 0.5;0.5; 0;0;0;0
+join_blue;797;0;1613;517; 0.5;0.5; 0;0;0;0
+keycap;1684;519;876;830; 0.5;0.5; 0;0;0;0
+notification_panel;2412;0;1568;480; 0.5;0.5; 0;0;0;0
+panel_row;2406;1376;1558;201; 0.5;0.5; 0;0;0;0
+panel_scroll_large;0;0;795;1083; 0.5;0.5; 0;0;0;0
+slider_thumb;797;519;885;855; 0.5;0.5; 0;0;0;0

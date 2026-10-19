@@ -1,0 +1,28 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=11_BattleAnnouncements_Sprite.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+faction_blue;1705;692;254;303; 0.5;0.5; 0;0;0;0
+faction_red;1449;692;254;306; 0.5;0.5; 0;0;0;0
+health_fill_blue;0;3228;512;32; 0.5;0.5; 0;0;0;0
+health_fill_red;0;3262;512;32; 0.5;0.5; 0;0;0;0
+health_frame;3200;692;303;65; 0.5;0.5; 0;0;0;0
+health_strip_blue_decorated;3200;759;277;42; 0.5;0.5; 0;0;0;0
+health_strip_red_decorated;3200;803;277;42; 0.5;0.5; 0;0;0;0
+health_track;1449;1000;64;16; 0.5;0.5; 0;0;0;0
+icon_rank;0;2090;1162;1136; 0.5;0.5; 0;0;0;0
+icon_settings;1423;1689;1145;1118; 0.5;0.5; 0;0;0;0
+join_blue;1449;0;2151;690; 0.5;0.5; 0;0;0;0
+join_red;1423;1048;2157;639; 0.5;0.5; 0;0;0;0
+medal_bronze;2444;692;251;224; 0.5;0.5; 0;0;0;0
+medal_gold;2949;692;249;217; 0.5;0.5; 0;0;0;0
+medal_silver;2697;692;250;222; 0.5;0.5; 0;0;0;0
+ranking_panel;1961;692;244;274; 0.5;0.5; 0;0;0;0
+timer_panel;2207;692;235;242; 0.5;0.5; 0;0;0;0
+victory_blue;0;1048;1421;1040; 0.5;0.5; 0;0;0;0
+victory_red;0;0;1447;1046; 0.5;0.5; 0;0;0;0

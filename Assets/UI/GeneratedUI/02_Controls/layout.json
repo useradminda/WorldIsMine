@@ -1,0 +1,20 @@
+{
+  "screen": "02_Controls",
+  "reference_resolution": [1024, 1536],
+  "coordinate_system": "top-left pixels; ordered back to front",
+  "preview_only_background": true,
+  "layers": [
+    {"asset":"controls_header","rect":[175,65,675,265]},
+    {"asset":"controls_main_panel","rect":[175,330,675,475]},
+    {"asset":"key_w","rect":[270,795,185,170]},
+    {"asset":"key_a","rect":[95,925,190,185]},
+    {"asset":"key_s","rect":[280,925,195,185]},
+    {"asset":"key_d","rect":[465,925,195,185]},
+    {"asset":"key_1","rect":[625,900,190,205]},
+    {"asset":"key_2","rect":[795,900,195,205]},
+    {"asset":"red_flag","rect":[0,1080,155,420]},
+    {"asset":"mouse_panel","rect":[145,1110,330,380]},
+    {"asset":"action_panel","rect":[470,1110,415,380]},
+    {"asset":"blue_flag","rect":[870,1080,154,420]}
+  ]
+}

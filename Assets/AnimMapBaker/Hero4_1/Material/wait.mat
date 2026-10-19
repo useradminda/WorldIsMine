@@ -57,7 +57,7 @@ Material:
     - _LightScale: 1
     - _MaskValue: 0
     - _Shadow_Length: 1
-    - _Shadow_Rotated: 0
+    - _Shadow_Rotated: 50
     - _SquashState: 0
     m_Colors:
     - _BuffColor: {r: 1, g: 1, b: 1, a: 1}
@@ -65,7 +65,7 @@ Material:
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
     - _SlashColor: {r: 0, g: 0, b: 0, a: 1}
     - _WorldPoint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

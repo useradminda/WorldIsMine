@@ -1,0 +1,27 @@
+{
+  "gap_px": 50,
+  "canvas": [1410, 1157],
+  "components": [
+    {
+      "index": 1,
+      "name": "loading_title",
+      "source_bbox": [14, 0, 1396, 720],
+      "output_rect": [14, 0, 1396, 720],
+      "size": [1382, 720]
+    },
+    {
+      "index": 2,
+      "name": "loading_frame",
+      "source_bbox": [0, 770, 1410, 1013],
+      "output_rect": [0, 770, 1410, 1013],
+      "size": [1410, 243]
+    },
+    {
+      "index": 3,
+      "name": "loading_fill",
+      "source_bbox": [91, 1063, 1318, 1157],
+      "output_rect": [91, 1063, 1318, 1157],
+      "size": [1227, 94]
+    }
+  ]
+}

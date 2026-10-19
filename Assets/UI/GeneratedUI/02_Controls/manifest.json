@@ -1,0 +1,21 @@
+﻿{
+  "screen": "02_Controls",
+  "source": "Preview/02_Controls_Components.png",
+  "source_size": [1024, 1536],
+  "alpha_threshold": 64,
+  "preview": "Preview/Preview_02_Controls_RedLeftBlueRight_NeonAdjusted.png",
+  "assets": [
+    {"id":"controls_header","crop_xyxy":[180,100,840,305],"preserve_aspect":true},
+    {"id":"controls_main_panel","crop_xyxy":[180,345,840,775],"preserve_aspect":true},
+    {"id":"key_w","crop_xyxy":[285,790,455,935],"preserve_aspect":true},
+    {"id":"key_a","crop_xyxy":[120,930,285,1105],"preserve_aspect":true},
+    {"id":"key_s","crop_xyxy":[285,950,455,1105],"preserve_aspect":true},
+    {"id":"key_d","crop_xyxy":[450,930,620,1105],"preserve_aspect":true},
+    {"id":"key_1","crop_xyxy":[625,900,805,1105],"preserve_aspect":true},
+    {"id":"key_2","crop_xyxy":[795,900,985,1105],"preserve_aspect":true},
+    {"id":"red_flag","crop_xyxy":[0,1120,150,1490],"preserve_aspect":true},
+    {"id":"mouse_panel","crop_xyxy":[150,1125,470,1485],"preserve_aspect":true},
+    {"id":"action_panel","crop_xyxy":[470,1125,860,1485],"preserve_aspect":true},
+    {"id":"blue_flag","crop_xyxy":[875,1120,1024,1490],"preserve_aspect":true}
+  ]
+}

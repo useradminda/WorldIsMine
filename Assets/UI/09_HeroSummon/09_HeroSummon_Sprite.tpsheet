@@ -1,0 +1,27 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=09_HeroSummon_Sprite.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+faction_blue;256;1425;254;303; 0.5;0.5; 0;0;0;0
+faction_red;0;1425;254;306; 0.5;0.5; 0;0;0;0
+health_fill_blue;0;1959;512;32; 0.5;0.5; 0;0;0;0
+health_fill_red;514;1959;512;32; 0.5;0.5; 0;0;0;0
+health_frame;756;1733;303;65; 0.5;0.5; 0;0;0;0
+health_strip_blue_decorated;756;1800;277;42; 0.5;0.5; 0;0;0;0
+health_strip_red_decorated;756;1844;277;42; 0.5;0.5; 0;0;0;0
+health_track;512;1701;64;16; 0.5;0.5; 0;0;0;0
+hero_blue;0;0;1077;1423; 0.5;0.5; 0;0;0;0
+icon_rank;1079;1333;1162;1136; 0.5;0.5; 0;0;0;0
+icon_settings;1079;2471;1145;1118; 0.5;0.5; 0;0;0;0
+join_blue;1079;0;2151;690; 0.5;0.5; 0;0;0;0
+join_red;1079;692;2157;639; 0.5;0.5; 0;0;0;0
+medal_bronze;0;1733;251;224; 0.5;0.5; 0;0;0;0
+medal_gold;505;1733;249;217; 0.5;0.5; 0;0;0;0
+medal_silver;253;1733;250;222; 0.5;0.5; 0;0;0;0
+ranking_panel;512;1425;244;274; 0.5;0.5; 0;0;0;0
+timer_panel;758;1425;235;242; 0.5;0.5; 0;0;0;0

@@ -1,0 +1,29 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=10_TroopSummon_Sprite.png
+:size=4096x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+faction_blue;2153;308;254;303; 0.5;0.5; 0;0;0;0
+faction_red;2153;0;254;306; 0.5;0.5; 0;0;0;0
+health_fill_blue;3213;0;512;32; 0.5;0.5; 0;0;0;0
+health_fill_red;3213;34;512;32; 0.5;0.5; 0;0;0;0
+health_frame;2908;0;303;65; 0.5;0.5; 0;0;0;0
+health_strip_blue_decorated;2908;67;277;42; 0.5;0.5; 0;0;0;0
+health_strip_red_decorated;2908;111;277;42; 0.5;0.5; 0;0;0;0
+health_track;2153;613;64;16; 0.5;0.5; 0;0;0;0
+icon_rank;1050;1976;1162;1136; 0.5;0.5; 0;0;0;0
+icon_settings;2214;1976;1145;1118; 0.5;0.5; 0;0;0;0
+join_blue;0;0;2151;690; 0.5;0.5; 0;0;0;0
+join_red;1050;692;2157;639; 0.5;0.5; 0;0;0;0
+medal_bronze;2655;0;251;224; 0.5;0.5; 0;0;0;0
+medal_gold;2655;450;249;217; 0.5;0.5; 0;0;0;0
+medal_silver;2655;226;250;222; 0.5;0.5; 0;0;0;0
+notification_panel;1050;1333;2091;641; 0.5;0.5; 0;0;0;0
+ranking_panel;2409;0;244;274; 0.5;0.5; 0;0;0;0
+soldier_shield;0;692;1048;1413; 0.5;0.5; 0;0;0;0
+timer_panel;2409;276;235;242; 0.5;0.5; 0;0;0;0
+unit_shield;0;2107;755;1230; 0.5;0.5; 0;0;0;0

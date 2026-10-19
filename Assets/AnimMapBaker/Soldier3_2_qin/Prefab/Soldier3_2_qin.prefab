@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1007271936096390403
+--- !u!1 &2350273420618379394
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8388794194880785597}
-  - component: {fileID: 502866400837962074}
-  - component: {fileID: 7276311130357227981}
-  - component: {fileID: 4202780434005475136}
+  - component: {fileID: 8796869553334943615}
+  - component: {fileID: 8313712981916288806}
+  - component: {fileID: 7455239492091895495}
+  - component: {fileID: 8927327850939158668}
   m_Layer: 0
   m_Name: Soldier3_2_qin
   m_TagString: Untagged
@@ -19,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8388794194880785597
+--- !u!4 &8796869553334943615
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007271936096390403}
+  m_GameObject: {fileID: 2350273420618379394}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &502866400837962074
+--- !u!23 &8313712981916288806
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007271936096390403}
+  m_GameObject: {fileID: 2350273420618379394}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -76,21 +76,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &7276311130357227981
+--- !u!33 &7455239492091895495
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007271936096390403}
+  m_GameObject: {fileID: 2350273420618379394}
   m_Mesh: {fileID: 4300000, guid: 2cedeb0811d54824c8df7bf44c15bc0d, type: 2}
---- !u!114 &4202780434005475136
+--- !u!114 &8927327850939158668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007271936096390403}
+  m_GameObject: {fileID: 2350273420618379394}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
@@ -98,18 +98,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAnimTime: 0
   ActionDataList:
-  - Mat: {fileID: 2100000, guid: 0abbc9cfe1317a147a229512bac3d4ae, type: 2}
-    AnimLen: 4.666667
-    ActionType: 4
-  - Mat: {fileID: 2100000, guid: 708c35cea4ca71547b1dd334c19d9db3, type: 2}
-    AnimLen: 1.5000001
-    ActionType: 7
-  - Mat: {fileID: 2100000, guid: 5cad2c81045ff5d4badebd964cf63133, type: 2}
-    AnimLen: 0.6666667
-    ActionType: 1
-  - Mat: {fileID: 2100000, guid: 0f950e57a0721f54e8d20358c740dba1, type: 2}
-    AnimLen: 1.6666667
-    ActionType: 3
   - Mat: {fileID: 2100000, guid: 93176fd3f1689c04abbf336c51038a96, type: 2}
     AnimLen: 1.5000001
     ActionType: 2
+  - Mat: {fileID: 2100000, guid: 0f950e57a0721f54e8d20358c740dba1, type: 2}
+    AnimLen: 1.6666667
+    ActionType: 3
+  - Mat: {fileID: 2100000, guid: 5cad2c81045ff5d4badebd964cf63133, type: 2}
+    AnimLen: 0.6666667
+    ActionType: 1
+  - Mat: {fileID: 2100000, guid: 0abbc9cfe1317a147a229512bac3d4ae, type: 2}
+    AnimLen: 4.666667
+    ActionType: 4

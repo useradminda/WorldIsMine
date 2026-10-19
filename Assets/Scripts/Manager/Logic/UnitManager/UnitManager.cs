@@ -53,10 +53,15 @@ public class UnitManager : Singleton<UnitManager>, IManager
             return;
         }
 
-        redWallCenter = bornConfig.GetBornPoint(ECampType.Red)
-            + bornConfig.GetForward(ECampType.Red);
-        blueWallCenter = bornConfig.GetBornPoint(ECampType.Blue)
-            + bornConfig.GetForward(ECampType.Blue);
+        redWallCenter = bornConfig.RedCityLogicPoint.transform.position;
+        blueWallCenter = bornConfig.BlueCityLogicPoint.transform.position;
+
+        // 城门模型位置和城门逻辑位置分离：
+        // CityDoorPoint 只负责模型显示，攻击搜索/命中仍使用原来的出生点逻辑位置。
+        //redWallCenter = bornConfig.GetBornPoint(ECampType.Red)
+        //    + bornConfig.GetForward(ECampType.Red) * 2f;
+        //blueWallCenter = bornConfig.GetBornPoint(ECampType.Blue)
+        //    + bornConfig.GetForward(ECampType.Blue) * 2f;
     }
 
     public void ManagerUpdate(float dt)
@@ -111,6 +116,11 @@ public class UnitManager : Singleton<UnitManager>, IManager
         if (campType == ECampType.Red)
             return blueWallLogic;
         return redWallLogic;
+    }
+
+    public UnitLogicBase GetWallLogic(ECampType campType)
+    {
+        return campType == ECampType.Red ? redWallLogic : blueWallLogic;
     }
 
     /// <summary>

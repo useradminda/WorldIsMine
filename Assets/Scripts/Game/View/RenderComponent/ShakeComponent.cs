@@ -23,8 +23,9 @@ public class ShakeComponent : MonoBehaviour
         originalPos = shakeBody.localPosition;
     }
 
-    public void SetShake()
+    public void SetShake(float shakeAmount = 0.06f)
     {
+        this.shakeAmount = shakeAmount;
         shakeTime = 0f;
         shakeState = true;
         // 每次受击随机一个局部抖动方向

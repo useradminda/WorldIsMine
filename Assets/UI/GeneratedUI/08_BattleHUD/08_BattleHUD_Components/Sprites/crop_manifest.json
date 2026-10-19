@@ -1,0 +1,249 @@
+[
+  {
+    "name": "top_red",
+    "source_rect": [
+      0,
+      15,
+      490,
+      305
+    ],
+    "size": [
+      490,
+      290
+    ]
+  },
+  {
+    "name": "timer_panel",
+    "source_rect": [
+      465,
+      15,
+      720,
+      305
+    ],
+    "size": [
+      255,
+      275
+    ]
+  },
+  {
+    "name": "top_blue",
+    "source_rect": [
+      685,
+      15,
+      1159,
+      305
+    ],
+    "size": [
+      474,
+      288
+    ]
+  },
+  {
+    "name": "health_panel_red",
+    "source_rect": [
+      0,
+      330,
+      375,
+      485
+    ],
+    "size": [
+      362,
+      151
+    ]
+  },
+  {
+    "name": "ranking_panel",
+    "source_rect": [
+      375,
+      325,
+      785,
+      735
+    ],
+    "size": [
+      397,
+      405
+    ]
+  },
+  {
+    "name": "medal_gold",
+    "source_rect": [
+      785,
+      335,
+      915,
+      465
+    ],
+    "size": [
+      127,
+      127
+    ]
+  },
+  {
+    "name": "medal_silver",
+    "source_rect": [
+      910,
+      335,
+      1040,
+      465
+    ],
+    "size": [
+      130,
+      125
+    ]
+  },
+  {
+    "name": "medal_bronze",
+    "source_rect": [
+      1030,
+      335,
+      1159,
+      465
+    ],
+    "size": [
+      115,
+      121
+    ]
+  },
+  {
+    "name": "icon_red",
+    "source_rect": [
+      795,
+      450,
+      910,
+      575
+    ],
+    "size": [
+      104,
+      125
+    ]
+  },
+  {
+    "name": "icon_blue",
+    "source_rect": [
+      920,
+      450,
+      1030,
+      575
+    ],
+    "size": [
+      110,
+      125
+    ]
+  },
+  {
+    "name": "icon_gold",
+    "source_rect": [
+      1040,
+      450,
+      1135,
+      575
+    ],
+    "size": [
+      87,
+      125
+    ]
+  },
+  {
+    "name": "gold_button",
+    "source_rect": [
+      830,
+      560,
+      1115,
+      670
+    ],
+    "size": [
+      264,
+      110
+    ]
+  },
+  {
+    "name": "dark_button",
+    "source_rect": [
+      830,
+      650,
+      1115,
+      765
+    ],
+    "size": [
+      276,
+      115
+    ]
+  },
+  {
+    "name": "health_panel_blue",
+    "source_rect": [
+      0,
+      485,
+      375,
+      650
+    ],
+    "size": [
+      359,
+      165
+    ]
+  },
+  {
+    "name": "main_panel",
+    "source_rect": [
+      0,
+      710,
+      870,
+      1030
+    ],
+    "size": [
+      870,
+      320
+    ]
+  },
+  {
+    "name": "health_fill_red",
+    "source_rect": [
+      840,
+      770,
+      1159,
+      865
+    ],
+    "size": [
+      303,
+      90
+    ]
+  },
+  {
+    "name": "health_fill_blue",
+    "source_rect": [
+      840,
+      850,
+      1159,
+      945
+    ],
+    "size": [
+      303,
+      95
+    ]
+  },
+  {
+    "name": "bottom_red",
+    "source_rect": [
+      0,
+      1010,
+      580,
+      1358
+    ],
+    "size": [
+      580,
+      348
+    ]
+  },
+  {
+    "name": "bottom_blue",
+    "source_rect": [
+      570,
+      1010,
+      1159,
+      1358
+    ],
+    "size": [
+      589,
+      332
+    ]
+  }
+]

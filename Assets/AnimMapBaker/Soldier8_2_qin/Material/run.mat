@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: run
+  m_Name: Run
   m_Shader: {fileID: 4800000, guid: 10dc17c1caee4134ebde40595af3b6ee, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveTex:
-        m_Texture: {fileID: 2800000, guid: 8e923eebb0f6e284199040c5cd2737bf, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ICETex:
@@ -46,6 +46,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BlackPower: 0
+    - _BuffColorStrength: 0
     - _DissolveAmount: 0
     - _DissolveEdgeWidth: 0.05
     - _GravityValue: 1
@@ -56,14 +57,15 @@ Material:
     - _LightScale: 1
     - _MaskValue: 0
     - _Shadow_Length: 1
-    - _Shadow_Rotated: 0
+    - _Shadow_Rotated: 50
     - _SquashState: 0
     m_Colors:
+    - _BuffColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveEdgeColor: {r: 1, g: 0.55, b: 0.05, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
     - _SlashColor: {r: 0, g: 0, b: 0, a: 1}
     - _WorldPoint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

@@ -143,7 +143,7 @@ public static class UnitFactory
 
     public static UnitLogicBase CreateWall(ECampType campType)
     {
-        int wallCfgId = 10001;
+        int wallCfgId = campType == ECampType.Red ? 10001 : 20001;
         int uid = 999999;
         int index = uid;
         if(campType == ECampType.Blue)

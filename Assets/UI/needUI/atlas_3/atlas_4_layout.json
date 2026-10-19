@@ -1,0 +1,23 @@
+{
+  "gap_px": 200,
+  "special_gap_after": "red_health_background",
+  "special_gap_px": 400,
+  "canvas": [871, 4483],
+  "text_policy": "no_text",
+  "components": [
+    {"index": 1, "name": "invitation_panel", "output_rect": [132, 0, 738, 215], "size": [606, 215]},
+    {"index": 2, "name": "settings_icon", "output_rect": [361, 415, 510, 545], "size": [149, 130]},
+    {"index": 3, "name": "ranking_icon", "output_rect": [360, 745, 510, 874], "size": [150, 129]},
+    {"index": 4, "name": "blue_health_background", "output_rect": [102, 1074, 768, 1166], "size": [666, 92]},
+    {"index": 5, "name": "blue_health_fill", "output_rect": [170, 1366, 701, 1411], "size": [531, 45]},
+    {"index": 6, "name": "blue_points_background", "output_rect": [256, 1611, 614, 1684], "size": [358, 73]},
+    {"index": 7, "name": "blue_points_fill", "output_rect": [312, 1884, 559, 1941], "size": [247, 57]},
+    {"index": 8, "name": "timer_background", "output_rect": [265, 2141, 605, 2229], "size": [340, 88]},
+    {"index": 9, "name": "score_pool_background", "output_rect": [250, 2429, 620, 2596], "size": [370, 167]},
+    {"index": 10, "name": "red_health_background", "output_rect": [103, 2796, 768, 2906], "size": [665, 110]},
+    {"index": 11, "name": "red_health_fill", "output_rect": [162, 3306, 708, 3348], "size": [546, 42]},
+    {"index": 12, "name": "red_points_background", "output_rect": [255, 3548, 615, 3620], "size": [360, 72]},
+    {"index": 13, "name": "red_points_fill", "output_rect": [312, 3820, 559, 3871], "size": [247, 51]},
+    {"index": 14, "name": "waiting_panel_background", "output_rect": [0, 4071, 871, 4483], "size": [871, 412]}
+  ]
+}

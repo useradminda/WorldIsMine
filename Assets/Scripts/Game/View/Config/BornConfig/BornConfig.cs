@@ -9,6 +9,11 @@ public class BornConfig : MonoBehaviour
 
     public Transform BluePoint;
 
+    public Transform RedCityDoorPoint;
+    public Transform BlueCityDoorPoint;
+
+    public Transform RedCityLogicPoint;
+    public Transform BlueCityLogicPoint;
     public Vector3 GetBornPoint(ECampType campType)
     {
         Transform point = GetPoint(campType);
@@ -22,6 +27,22 @@ public class BornConfig : MonoBehaviour
             return new Vector3(0, 0, -1);
         }
         return new Vector3(0, 0, 1);
+    }
+
+    public Vector3 GetCityDoorPoint(ECampType campType)
+    {
+        Transform point = campType == ECampType.Red ? RedCityDoorPoint : BlueCityDoorPoint;
+        if (point != null)
+            return point.position;
+        return GetBornPoint(campType);
+    }
+
+    public Vector3 GetCityDoorForward(ECampType campType)
+    {
+        Transform point = campType == ECampType.Red ? RedCityDoorPoint : BlueCityDoorPoint;
+        if (point != null && point.forward.sqrMagnitude > 0.0001f)
+            return point.forward.normalized;
+        return GetForward(campType);
     }
 
    

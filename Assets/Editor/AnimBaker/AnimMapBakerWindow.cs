@@ -212,6 +212,9 @@ public class AnimMapBakerWindow : EditorWindow {
 
         var smr = _targetGo.GetComponentInChildren<SkinnedMeshRenderer>();
         var mat = new Material(_animMapShader);
+        // AnimMapShader 已开启实例化变体；批量生成的角色材质默认启用 GPU Instancing，
+        // 这样同一材质的角色实例可以走实例化批处理。
+        mat.enableInstancing = true;
         var animTex = SaveAnimTex(ref data);
         string mainTexPath = _mainTexFolderPath + "/" + name + ".png";
         var mainTex = AssetDatabase.LoadAssetAtPath<Texture2D>(mainTexPath);

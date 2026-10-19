@@ -83,10 +83,18 @@ public class UnitView : IView
         this.prefabName = prefabName;
         this.unitLogic = unit;
         FootSmokeManager.Instance.StopForUnit(this);
+        SlachComp.ExitSlash();
+
+        // 城门是静态单位：只保留渲染和受击闪白，不创建/播放任何 Action 或死亡表现。
+        if (unit != null && unit.UnitType == EUnitType.Wall)
+        {
+            stateType = EStateTyep.Idle;
+            return;
+        }
+
         ActionFlowComponent.SetAnimationSpeed(1f);
         SetAttackBuffColor(false);
         SetDissolveAmount(0f);
-        SlachComp.ExitSlash();
         InitAroundEffect(unit.SoliderCfg.aroundEffect);
     }
 
@@ -110,6 +118,8 @@ public class UnitView : IView
 
     public override void ViewUpdate(float dt)
     {
+        if (unitLogic != null && unitLogic.UnitType == EUnitType.Wall)
+            return;
         updatePos(dt);
         updateRot(dt);
     }
@@ -130,8 +140,17 @@ public class UnitView : IView
 
         if (stateType != EStateTyep.Die)
         {
-            SlachComp.SetSlash();
-            ShakeComp.SetShake();
+            if (unitLogic.UnitType == EUnitType.Wall)
+            {
+                SlachComp.SetSlash(Color.white, 0.1f);
+                ShakeComp.SetShake(0.2f);
+            }
+            else
+            {
+                SlachComp.SetSlash(Color.white);
+                ShakeComp.SetShake();
+            }
+           
         }
     }
 

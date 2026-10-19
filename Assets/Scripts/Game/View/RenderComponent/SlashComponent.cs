@@ -17,12 +17,12 @@ public class SlashComponent : MonoBehaviour
         }
     }
 
-    public void SetSlash()
+    public void SetSlash(Color slashColor, float time = 0.05f)
     {
         if (slashState == true)
             return;
-        RenderComponenter.SetPropertyBlockColor("_SlashColor", Color.white);
-        currentTime = 0.05f;
+        RenderComponenter.SetPropertyBlockColor("_SlashColor", slashColor);
+        currentTime = time;
         slashState = true;
     }
 

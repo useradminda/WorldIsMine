@@ -102,7 +102,31 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     public void CreateWall()
     {
-        
+        if (BornConfigIns == null)
+            return;
+
+        CreateWallView(ECampType.Red);
+        CreateWallView(ECampType.Blue);
+    }
+
+    private void CreateWallView(ECampType campType)
+    {
+        UnitLogicBase wallLogic = UnitManager.Instance.GetWallLogic(campType);
+        if (wallLogic == null || wallLogic.SoliderCfg == null)
+            return;
+
+        Vector3 position = BornConfigIns.GetCityDoorPoint(campType);
+        Vector3 forward = BornConfigIns.GetCityDoorForward(campType);
+        if (forward.sqrMagnitude <= 0.0001f)
+            forward = Vector3.forward;
+
+        UnitView wallView = UnitViewFactory.CreateUnitView(
+            wallLogic.SoliderCfg.prefab,
+            position,
+            forward,
+            wallLogic);
+        UnitViewManager.Instance.AddUnitViewImmediately(wallView, true);
+        wallLogic.BindUnitView(wallView);
     }
 
     // 创建单位
@@ -234,6 +258,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         FootSmokeManager.Instance.ManagerInit();
 
         UnitViewManager.Instance.ManagerInit();
+        CreateWall();
 
         return true;
     }
