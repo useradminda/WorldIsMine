@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4642555213255608249}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentAnimTime: 0.45279545
+  CurrentAnimTime: 0.9037787
   ActionDataList:
   - Mat: {fileID: 2100000, guid: 88ea581aee4f76b49aa1f3733ae5e64e, type: 2}
     AnimLen: 1.3333334

@@ -1,0 +1,15 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_5_Sprite.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+01_summon_panel_diagonal;0;0;1024;512; 0.5;0.5; 0;0;0;0
+01_summon_panel_diagonal_blue;0;514;1024;512; 0.5;0.5; 0;0;0;0
+02_avatar_frame;1026;0;512;512; 0.5;0.5; 0;0;0;0
+02_avatar_frame_blue;0;1028;512;512; 0.5;0.5; 0;0;0;0
+03_lightning_flourish_diagonal;0;1542;512;256; 0.5;0.5; 0;0;0;0
+03_lightning_flourish_diagonal_blue;1026;514;512;256; 0.5;0.5; 0;0;0;0

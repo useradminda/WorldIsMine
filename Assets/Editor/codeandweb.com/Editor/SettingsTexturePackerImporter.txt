@@ -310,10 +310,17 @@ tpsheetFileNames:
 - Assets/UI/11_BattleAnnouncements/11_BattleAnnouncements_Sprite.tpsheet
 - Assets/UI/12_Results/12_Results_Sprite.tpsheet
 - Assets/UI/GeneratedUI/01_Loading/01_Loading_Sprite.tpsheet
+- Assets/UI/needUI/atlas_1/atlas_1_Sprite.tpsheet
+- Assets/UI/needUI/atlas_10/atlas_10_Sprite.tpsheet
+- Assets/UI/needUI/atlas_11/atlas_11_Sprite.tpsheet
+- Assets/UI/needUI/atlas_2/atlas_2_Sprite.tpsheet
+- Assets/UI/needUI/atlas_3/atlas_3_Sprite.tpsheet
+- Assets/UI/needUI/atlas_4/atlas_4_Sprite.tpsheet
+- Assets/UI/needUI/atlas_5/atlas_5_Sprite.tpsheet
+- Assets/UI/needUI/atlas_6/atlas_6_Sprite.tpsheet
+- Assets/UI/needUI/atlas_7/atlas_7_Sprite.tpsheet
 - Assets/UI/needUI/Generated_ThreeKingdoms_Qin_Sprite.tpsheet
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.tpsheet
-- Assets/UIAtlas/01_Loading_Sprite.tpsheet
-- Assets/UIAtlas/03_ModeSelect_Sprite.tpsheet
 textureFileNames:
 - Assets/Art/UI/Atlas/hd/ui_activity_01.png
 - Assets/Art/UI/Atlas/hd/ui_activity_02.png
@@ -625,11 +632,25 @@ textureFileNames:
 - Assets/UI/11_BattleAnnouncements/11_BattleAnnouncements_Sprite.png
 - Assets/UI/12_Results/12_Results_Sprite.png
 - Assets/UI/GeneratedUI/01_Loading/01_Loading_Sprite.png
+- Assets/UI/needUI/atlas_1/atlas_1_Sprite.png
+- Assets/UI/needUI/atlas_10/atlas_10_Sprite.png
+- Assets/UI/needUI/atlas_11/atlas_11_Sprite.png
+- Assets/UI/needUI/atlas_2/atlas_2_Sprite.png
+- Assets/UI/needUI/atlas_3/atlas_3_Sprite.png
+- Assets/UI/needUI/atlas_4/atlas_4_Sprite.png
+- Assets/UI/needUI/atlas_5/atlas_5_Sprite.png
+- Assets/UI/needUI/atlas_6/atlas_6_Sprite.png
+- Assets/UI/needUI/atlas_7/atlas_7_Sprite.png
 - Assets/UI/needUI/Generated_ThreeKingdoms_Qin_Sprite.png
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.png
-- Assets/UIAtlas/01_Loading_Sprite.png
-- Assets/UIAtlas/03_ModeSelect_Sprite.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

@@ -1,0 +1,149 @@
+{
+  "gap_px": 200,
+  "canvas": [
+    770,
+    4367
+  ],
+  "components": [
+    {
+      "index": 1,
+      "name": "ranking_title",
+      "output_rect": [
+        0,
+        0,
+        770,
+        278
+      ],
+      "size": [
+        770,
+        278
+      ]
+    },
+    {
+      "index": 2,
+      "name": "ranking_panel_background",
+      "output_rect": [
+        40,
+        478,
+        729,
+        1519
+      ],
+      "size": [
+        689,
+        1041
+      ]
+    },
+    {
+      "index": 3,
+      "name": "first_rank_row",
+      "output_rect": [
+        4,
+        1719,
+        766,
+        1841
+      ],
+      "size": [
+        762,
+        122
+      ]
+    },
+    {
+      "index": 4,
+      "name": "standard_rank_row",
+      "output_rect": [
+        7,
+        2041,
+        763,
+        2161
+      ],
+      "size": [
+        756,
+        120
+      ]
+    },
+    {
+      "index": 5,
+      "name": "gold_rank_badge",
+      "output_rect": [
+        290,
+        2361,
+        479,
+        2539
+      ],
+      "size": [
+        189,
+        178
+      ]
+    },
+    {
+      "index": 6,
+      "name": "silver_rank_badge",
+      "output_rect": [
+        299,
+        2739,
+        471,
+        2916
+      ],
+      "size": [
+        172,
+        177
+      ]
+    },
+    {
+      "index": 7,
+      "name": "bronze_rank_badge",
+      "output_rect": [
+        295,
+        3116,
+        474,
+        3293
+      ],
+      "size": [
+        179,
+        177
+      ]
+    },
+    {
+      "index": 8,
+      "name": "avatar_frame",
+      "output_rect": [
+        266,
+        3493,
+        503,
+        3712
+      ],
+      "size": [
+        237,
+        219
+      ]
+    },
+    {
+      "index": 9,
+      "name": "continue_button",
+      "output_rect": [
+        219,
+        3912,
+        550,
+        4042
+      ],
+      "size": [
+        331,
+        130
+      ]
+    },
+    {
+      "index": 10,
+      "name": "rank_row_background",
+      "output_rect": [
+        4,
+        4242,
+        766,
+        4367
+      ],
+      "size": [
+        762,
+        125
+      ]
+    }
+  ]
+}

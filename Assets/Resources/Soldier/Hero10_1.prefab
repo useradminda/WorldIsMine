@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentAnimTime: 0.61593443
+  CurrentAnimTime: 0.28746563
   ActionDataList:
   - Mat: {fileID: 2100000, guid: 171dd1e9a6eb85d4bac78e5776d5aa74, type: 2}
     AnimLen: 0.5333334

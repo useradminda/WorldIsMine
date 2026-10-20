@@ -1,0 +1,29 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_4_Sprite.png
+:size=2048x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+01_ranking_title;514;1026;1024;256; 0.5;0.5; 0;0;0;0
+01_ranking_title_blue;514;1284;1024;256; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background;0;0;512;1024; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background_neutral;514;0;512;1024; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background_neutral_green_v2;1028;0;512;1024; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background_neutral_olive;0;1026;512;1024; 0.5;0.5; 0;0;0;0
+03_first_rank_row;514;1542;512;128; 0.5;0.5; 0;0;0;0
+03_first_rank_row_blue;514;1672;512;128; 0.5;0.5; 0;0;0;0
+03_first_rank_row_neutral;514;1802;512;128; 0.5;0.5; 0;0;0;0
+03_first_rank_row_neutral_gray;1028;1542;512;128; 0.5;0.5; 0;0;0;0
+04_standard_rank_row;1028;1672;512;128; 0.5;0.5; 0;0;0;0
+05_gold_rank_badge;1800;0;128;128; 0.5;0.5; 0;0;0;0
+05_gold_rank_badge_blue;1800;258;128;128; 0.5;0.5; 0;0;0;0
+06_silver_rank_badge;1800;516;128;128; 0.5;0.5; 0;0;0;0
+07_bronze_rank_badge;1542;646;128;128; 0.5;0.5; 0;0;0;0
+07_bronze_rank_badge_blue;1542;776;128;128; 0.5;0.5; 0;0;0;0
+08_avatar_frame;1542;0;256;256; 0.5;0.5; 0;0;0;0
+08_avatar_frame_blue;1542;258;256;256; 0.5;0.5; 0;0;0;0
+09_continue_button;1542;516;256;128; 0.5;0.5; 0;0;0;0
+10_rank_row_background;1028;1802;512;128; 0.5;0.5; 0;0;0;0

@@ -1,0 +1,18 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_11_Sprite.png
+:size=2048x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+01_ranking_title_banner_red;0;3078;1024;256; 0.5;0.5; 0;0;0;0
+01_ranking_title_banner_red_blue;0;3336;1024;256; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background;0;0;1024;1024; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background_blue;0;1026;1024;1024; 0.5;0.5; 0;0;0;0
+02_ranking_panel_background_neutral;0;2052;1024;1024; 0.5;0.5; 0;0;0;0
+03_ranking_row_brown;1026;0;512;128; 0.5;0.5; 0;0;0;0
+03_ranking_row_brown_blue;1026;130;512;128; 0.5;0.5; 0;0;0;0
+03_ranking_row_brown_neutral;1026;260;512;128; 0.5;0.5; 0;0;0;0
+04_continue_button_gold;1026;390;512;128; 0.5;0.5; 0;0;0;0

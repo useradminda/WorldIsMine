@@ -1,0 +1,110 @@
+{
+  "source": "../atlas_6_components_preview.png",
+  "components": [
+    {
+      "index": 1,
+      "name": "objective_fortress_badge",
+      "file": "01_objective_fortress_badge.png",
+      "size": [
+        546,
+        437
+      ],
+      "atlas_rect": [
+        213,
+        0,
+        759,
+        437
+      ]
+    },
+    {
+      "index": 2,
+      "name": "player_info_bar",
+      "file": "02_player_info_bar.png",
+      "size": [
+        973,
+        267
+      ],
+      "atlas_rect": [
+        0,
+        637,
+        973,
+        904
+      ]
+    },
+    {
+      "index": 3,
+      "name": "score_status_bar",
+      "file": "03_score_status_bar.png",
+      "size": [
+        640,
+        171
+      ],
+      "atlas_rect": [
+        166,
+        1104,
+        806,
+        1275
+      ]
+    },
+    {
+      "index": 4,
+      "name": "unit_nameplate_blue",
+      "file": "04_unit_nameplate_blue.png",
+      "size": [
+        797,
+        183
+      ],
+      "atlas_rect": [
+        88,
+        1475,
+        885,
+        1658
+      ]
+    },
+    {
+      "index": 5,
+      "name": "unit_nameplate_red",
+      "file": "05_unit_nameplate_red.png",
+      "size": [
+        797,
+        183
+      ],
+      "atlas_rect": [
+        88,
+        1858,
+        885,
+        2041
+      ]
+    },
+    {
+      "index": 6,
+      "name": "victory_point_pool_bar",
+      "file": "06_victory_point_pool_bar.png",
+      "size": [
+        1205,
+        294
+      ],
+      "atlas_rect": [
+        6,
+        2241,
+        1211,
+        2535
+      ]
+    },
+    {
+      "index": 7,
+      "name": "player_name_status_strip",
+      "file": "07_player_name_status_strip.png",
+      "size": [
+        1217,
+        374
+      ],
+      "atlas_rect": [
+        0,
+        2735,
+        1217,
+        3109
+      ]
+    }
+  ]
+}

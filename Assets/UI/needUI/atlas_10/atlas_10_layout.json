@@ -1,0 +1,99 @@
+{
+  "canvas_size": [
+    721,
+    3613
+  ],
+  "spacing_px": 200,
+  "components": [
+    {
+      "name": "victory_banner_blue",
+      "output_rect": [
+        0,
+        0,
+        721,
+        372
+      ],
+      "file": "01_victory_banner_blue.png"
+    },
+    {
+      "name": "tab_selected_gold",
+      "output_rect": [
+        114,
+        572,
+        493,
+        131
+      ],
+      "file": "02_tab_selected_gold.png"
+    },
+    {
+      "name": "tab_unselected_cream",
+      "output_rect": [
+        114,
+        903,
+        493,
+        132
+      ],
+      "file": "03_tab_unselected_cream.png"
+    },
+    {
+      "name": "ranking_panel_outer",
+      "output_rect": [
+        18,
+        1235,
+        684,
+        761
+      ],
+      "file": "04_ranking_panel_outer.png"
+    },
+    {
+      "name": "ranking_header_strip",
+      "output_rect": [
+        18,
+        2196,
+        684,
+        150
+      ],
+      "file": "05_ranking_header_strip.png"
+    },
+    {
+      "name": "ranking_row_blue",
+      "output_rect": [
+        9,
+        2546,
+        702,
+        131
+      ],
+      "file": "06_ranking_row_blue.png"
+    },
+    {
+      "name": "rank_badge_blue",
+      "output_rect": [
+        338,
+        2877,
+        45,
+        95
+      ],
+      "file": "07_rank_badge_blue.png"
+    },
+    {
+      "name": "avatar_circle_blue",
+      "output_rect": [
+        317,
+        3172,
+        86,
+        89
+      ],
+      "file": "08_avatar_circle_blue.png"
+    },
+    {
+      "name": "continue_button_gold",
+      "output_rect": [
+        146,
+        3461,
+        428,
+        152
+      ],
+      "file": "09_continue_button_gold.png"
+    }
+  ]
+}

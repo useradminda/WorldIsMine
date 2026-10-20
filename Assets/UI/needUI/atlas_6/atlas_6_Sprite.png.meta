@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 272c65cc6634f014c9ab4ea2bfd287be
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33d4aff643eeae4b925a51d33e9a4e2
+      internalID: -985760116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge_blue
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 514
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f2dc67b9a19654897dbd8c3911b728
+      internalID: -1650031618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge_neutral
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1028
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19129854ed2578b4396f83a6030e90ca
+      internalID: 1813978516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge_neutral_gray
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a5e8cfa9fd0da47ad2bb87fb5ee42e
+      internalID: -1333893760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge_neutral_gray_v2
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 514
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df3cf77b2ffcda4fa49a083de5f85cc
+      internalID: 875850097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge_neutral_gray_v3
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1028
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697cf4fa64ea2da4ca12e7863e674955
+      internalID: -668256601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_objective_fortress_badge_neutral_green
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08e589e7900422479a84b0838a1d561
+      internalID: 759437883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 0
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff346225eefe664e9b70adce50d65b0
+      internalID: 559543315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_blue
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 0
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63af2b0417b555c49be6ff3fc30d3690
+      internalID: 703538510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_neutral
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 258
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ca568018ff8dd42abca7a04ee0eedf
+      internalID: -1623719853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_neutral_gray
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 258
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12994ed0fc108fe4aa37d1a623c8675f
+      internalID: 1171750562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_neutral_green
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 516
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61869c6e36ab2d4e96d56683a66396c
+      internalID: 1806078488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_neutral_green_v2
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 774
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94652fc5168454745909f77155001515
+      internalID: 895855944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_neutral_olive
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1032
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f127cd07b6306834d95bdab073877de2
+      internalID: -1050851210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_score_status_bar
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1542
+        width: 512
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ce60a71a99ac444a4e7a92c003ca9f
+      internalID: -1643973934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_score_status_bar_blue
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1672
+        width: 512
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52063e6e7b818b640b2224656cef17e1
+      internalID: 1115267664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_score_status_bar_neutral
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1802
+        width: 512
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8cef3e3466c7ec4da642edac8dcc343
+      internalID: 671543762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 04_unit_nameplate_blue
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1806
+        width: 1024
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767375388b4303940b292f532475322e
+      internalID: -1172157207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 05_unit_nameplate_red
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1290
+        width: 1024
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4755736de754e4abf952c018701388
+      internalID: -993643484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06_victory_point_pool_bar
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1290
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d4c404d221ec2418324b87afaf2438
+      internalID: 380008165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 06_victory_point_pool_bar_neutral
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1548
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1271badacb3c21947aff856123ae6ec3
+      internalID: -1433779968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07_player_name_status_strip
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 516
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a39f41957694942857ae7cde1ef00e
+      internalID: 484257613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07_player_name_status_strip_blue
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 774
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21b4c27428b55d2498855dde9b42ec17
+      internalID: 29498868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 07_player_name_status_strip_neutral
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1032
+        width: 1024
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b9bc9e31c489d4a9ebb1a0ce7f121c
+      internalID: 657143415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 344965d33c685af419b32eb893f58dbf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      01_objective_fortress_badge: -985760116
+      01_objective_fortress_badge_blue: -1650031618
+      01_objective_fortress_badge_neutral: 1813978516
+      01_objective_fortress_badge_neutral_gray: -1333893760
+      01_objective_fortress_badge_neutral_gray_v2: 875850097
+      01_objective_fortress_badge_neutral_gray_v3: -668256601
+      01_objective_fortress_badge_neutral_green: 759437883
+      02_player_info_bar: 559543315
+      02_player_info_bar_blue: 703538510
+      02_player_info_bar_neutral: -1623719853
+      02_player_info_bar_neutral_gray: 1171750562
+      02_player_info_bar_neutral_green: 1806078488
+      02_player_info_bar_neutral_green_v2: 895855944
+      02_player_info_bar_neutral_olive: -1050851210
+      03_score_status_bar: -1643973934
+      03_score_status_bar_blue: 1115267664
+      03_score_status_bar_neutral: 671543762
+      04_unit_nameplate_blue: -1172157207
+      05_unit_nameplate_red: -993643484
+      06_victory_point_pool_bar: 380008165
+      06_victory_point_pool_bar_neutral: -1433779968
+      07_player_name_status_strip: 484257613
+      07_player_name_status_strip_blue: 29498868
+      07_player_name_status_strip_neutral: 657143415
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

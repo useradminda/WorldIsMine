@@ -1,0 +1,155 @@
+{
+  "source": "../atlas_4_components_preview.png",
+  "components": [
+    {
+      "index": 1,
+      "name": "ranking_title",
+      "file": "01_ranking_title.png",
+      "size": [
+        770,
+        278
+      ],
+      "atlas_rect": [
+        0,
+        0,
+        770,
+        278
+      ]
+    },
+    {
+      "index": 2,
+      "name": "ranking_panel_background",
+      "file": "02_ranking_panel_background.png",
+      "size": [
+        689,
+        1041
+      ],
+      "atlas_rect": [
+        40,
+        478,
+        729,
+        1519
+      ]
+    },
+    {
+      "index": 3,
+      "name": "first_rank_row",
+      "file": "03_first_rank_row.png",
+      "size": [
+        762,
+        122
+      ],
+      "atlas_rect": [
+        4,
+        1719,
+        766,
+        1841
+      ]
+    },
+    {
+      "index": 4,
+      "name": "standard_rank_row",
+      "file": "04_standard_rank_row.png",
+      "size": [
+        756,
+        120
+      ],
+      "atlas_rect": [
+        7,
+        2041,
+        763,
+        2161
+      ]
+    },
+    {
+      "index": 5,
+      "name": "gold_rank_badge",
+      "file": "05_gold_rank_badge.png",
+      "size": [
+        189,
+        178
+      ],
+      "atlas_rect": [
+        290,
+        2361,
+        479,
+        2539
+      ]
+    },
+    {
+      "index": 6,
+      "name": "silver_rank_badge",
+      "file": "06_silver_rank_badge.png",
+      "size": [
+        172,
+        177
+      ],
+      "atlas_rect": [
+        299,
+        2739,
+        471,
+        2916
+      ]
+    },
+    {
+      "index": 7,
+      "name": "bronze_rank_badge",
+      "file": "07_bronze_rank_badge.png",
+      "size": [
+        179,
+        177
+      ],
+      "atlas_rect": [
+        295,
+        3116,
+        474,
+        3293
+      ]
+    },
+    {
+      "index": 8,
+      "name": "avatar_frame",
+      "file": "08_avatar_frame.png",
+      "size": [
+        237,
+        219
+      ],
+      "atlas_rect": [
+        266,
+        3493,
+        503,
+        3712
+      ]
+    },
+    {
+      "index": 9,
+      "name": "continue_button",
+      "file": "09_continue_button.png",
+      "size": [
+        331,
+        130
+      ],
+      "atlas_rect": [
+        219,
+        3912,
+        550,
+        4042
+      ]
+    },
+    {
+      "index": 10,
+      "name": "rank_row_background",
+      "file": "10_rank_row_background.png",
+      "size": [
+        762,
+        125
+      ],
+      "atlas_rect": [
+        4,
+        4242,
+        766,
+        4367
+      ]
+    }
+  ]
+}

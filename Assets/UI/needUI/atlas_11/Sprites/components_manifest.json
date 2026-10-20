@@ -1,0 +1,76 @@
+{
+  "source": "../atlas_11_components_preview.png",
+  "spacing_px": 200,
+  "components": [
+    {
+      "name": "ranking_title_banner_red",
+      "file": "01_ranking_title_banner_red.png",
+      "preview_rect": [
+        0,
+        0,
+        855,
+        336
+      ],
+      "size": [
+        855,
+        336
+      ]
+    },
+    {
+      "name": "ranking_panel_outer",
+      "file": "02_ranking_panel_outer.png",
+      "preview_rect": [
+        11,
+        536,
+        832,
+        921
+      ],
+      "size": [
+        832,
+        921
+      ]
+    },
+    {
+      "name": "ranking_row_brown",
+      "file": "03_ranking_row_brown.png",
+      "preview_rect": [
+        55,
+        1657,
+        745,
+        126
+      ],
+      "size": [
+        745,
+        126
+      ]
+    },
+    {
+      "name": "rank_badge_red",
+      "file": "04_rank_badge_red.png",
+      "preview_rect": [
+        385,
+        1983,
+        84,
+        99
+      ],
+      "size": [
+        84,
+        99
+      ]
+    },
+    {
+      "name": "avatar_circle_brown",
+      "file": "05_avatar_circle_brown.png",
+      "preview_rect": [
+        386,
+        2282,
+        83,
+        84
+      ],
+      "size": [
+        83,
+        84
+      ]
+    }
+  ]
+}

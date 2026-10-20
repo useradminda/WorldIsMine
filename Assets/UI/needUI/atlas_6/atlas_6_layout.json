@@ -1,0 +1,107 @@
+{
+  "gap_px": 200,
+  "canvas": [
+    1217,
+    3109
+  ],
+  "components": [
+    {
+      "index": 1,
+      "name": "objective_fortress_badge",
+      "output_rect": [
+        213,
+        0,
+        759,
+        437
+      ],
+      "size": [
+        546,
+        437
+      ]
+    },
+    {
+      "index": 2,
+      "name": "player_info_bar",
+      "output_rect": [
+        0,
+        637,
+        973,
+        904
+      ],
+      "size": [
+        973,
+        267
+      ]
+    },
+    {
+      "index": 3,
+      "name": "score_status_bar",
+      "output_rect": [
+        166,
+        1104,
+        806,
+        1275
+      ],
+      "size": [
+        640,
+        171
+      ]
+    },
+    {
+      "index": 4,
+      "name": "unit_nameplate_blue",
+      "output_rect": [
+        88,
+        1475,
+        885,
+        1658
+      ],
+      "size": [
+        797,
+        183
+      ]
+    },
+    {
+      "index": 5,
+      "name": "unit_nameplate_red",
+      "output_rect": [
+        88,
+        1858,
+        885,
+        2041
+      ],
+      "size": [
+        797,
+        183
+      ]
+    },
+    {
+      "index": 6,
+      "name": "victory_point_pool_bar",
+      "output_rect": [
+        6,
+        2241,
+        1211,
+        2535
+      ],
+      "size": [
+        1205,
+        294
+      ]
+    },
+    {
+      "index": 7,
+      "name": "player_name_status_strip",
+      "output_rect": [
+        0,
+        2735,
+        1217,
+        3109
+      ],
+      "size": [
+        1217,
+        374
+      ]
+    }
+  ]
+}

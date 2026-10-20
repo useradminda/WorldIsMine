@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8780307018308486917
+--- !u!1 &2125333372601395071
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9089344590131325527}
-  - component: {fileID: 5316756614720339145}
-  - component: {fileID: 4623723082692028452}
-  - component: {fileID: 7289159015621937305}
+  - component: {fileID: 6230812363538872077}
+  - component: {fileID: 9139329338225909926}
+  - component: {fileID: 8536609212842348996}
+  - component: {fileID: 8077073348282355230}
+  - component: {fileID: 3669457930392992419}
   m_Layer: 0
   m_Name: Hero3_1
   m_TagString: Untagged
@@ -19,28 +20,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9089344590131325527
+--- !u!4 &6230812363538872077
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8780307018308486917}
+  m_GameObject: {fileID: 2125333372601395071}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 9089344590131325527}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &5316756614720339145
+--- !u!23 &9139329338225909926
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8780307018308486917}
+  m_GameObject: {fileID: 2125333372601395071}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -54,7 +55,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a1bf3836d086f874e9678f515cd423e1, type: 2}
+  - {fileID: 2100000, guid: 5e55ee4f9266fd94d89340208b49686e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,27 +77,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &4623723082692028452
+--- !u!33 &8536609212842348996
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8780307018308486917}
+  m_GameObject: {fileID: 2125333372601395071}
   m_Mesh: {fileID: 4300000, guid: 4c331416cbac4d443bb14bb91fc1de1f, type: 2}
---- !u!114 &7289159015621937305
+--- !u!114 &8077073348282355230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8780307018308486917}
+  m_GameObject: {fileID: 2125333372601395071}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentAnimTime: 0
+  CurrentAnimTime: 0.29420298
   ActionDataList:
   - Mat: {fileID: 2100000, guid: 5e55ee4f9266fd94d89340208b49686e, type: 2}
     AnimLen: 0.5333334
@@ -116,3 +117,47 @@ MonoBehaviour:
   - Mat: {fileID: 2100000, guid: 71cd9588cceeada47acca393e1898bd3, type: 2}
     AnimLen: 1.1000009
     ActionType: 6
+--- !u!114 &3669457930392992419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125333372601395071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fbf8a9fd600d4846a59eb630d3ad688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8780307018308486917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9089344590131325527}
+  m_Layer: 0
+  m_Name: Hero3_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9089344590131325527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8780307018308486917}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6230812363538872077}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

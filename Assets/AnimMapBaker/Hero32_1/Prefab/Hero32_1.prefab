@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9089184001718350726
+--- !u!1 &8333462507707964752
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6377021976336750038}
-  - component: {fileID: 4326715311928990050}
-  - component: {fileID: 6828239381843144289}
-  - component: {fileID: 3231875762483539793}
+  - component: {fileID: 8428771506037040302}
+  - component: {fileID: 3935226912645195032}
+  - component: {fileID: 4763657170268996812}
+  - component: {fileID: 5372714582973265374}
   m_Layer: 0
   m_Name: Hero32_1
   m_TagString: Untagged
@@ -19,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6377021976336750038
+--- !u!4 &8428771506037040302
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089184001718350726}
+  m_GameObject: {fileID: 8333462507707964752}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &4326715311928990050
+--- !u!23 &3935226912645195032
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089184001718350726}
+  m_GameObject: {fileID: 8333462507707964752}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -76,21 +76,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6828239381843144289
+--- !u!33 &4763657170268996812
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089184001718350726}
+  m_GameObject: {fileID: 8333462507707964752}
   m_Mesh: {fileID: 4300000, guid: a96c5c2a009d3904082eee6cab97476f, type: 2}
---- !u!114 &3231875762483539793
+--- !u!114 &5372714582973265374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9089184001718350726}
+  m_GameObject: {fileID: 8333462507707964752}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
@@ -98,21 +98,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAnimTime: 0
   ActionDataList:
-  - Mat: {fileID: 2100000, guid: 742cce22d24340447b5c041869acddff, type: 2}
-    AnimLen: 0.5333334
-    ActionType: 1
   - Mat: {fileID: 2100000, guid: 7b46cd9fff117ce4d87005376193a3b1, type: 2}
     AnimLen: 1.0000001
     ActionType: 4
-  - Mat: {fileID: 2100000, guid: c365f1b676104ed41b1e9dd4dd42b5a7, type: 2}
-    AnimLen: 0.9000001
-    ActionType: 3
-  - Mat: {fileID: 2100000, guid: c7456be9849a3e144b9953fe386fe3bc, type: 2}
-    AnimLen: 0.66666675
-    ActionType: 2
   - Mat: {fileID: 2100000, guid: 4912c225cfdcefe40bb6cb63db678dcc, type: 2}
     AnimLen: 1.0000005
     ActionType: 5
   - Mat: {fileID: 2100000, guid: e83edd86159f24a47855bd6df2621ffb, type: 2}
     AnimLen: 1.9333339
     ActionType: 6
+  - Mat: {fileID: 2100000, guid: 742cce22d24340447b5c041869acddff, type: 2}
+    AnimLen: 0.5333334
+    ActionType: 1
+  - Mat: {fileID: 2100000, guid: c365f1b676104ed41b1e9dd4dd42b5a7, type: 2}
+    AnimLen: 0.9000001
+    ActionType: 3
+  - Mat: {fileID: 2100000, guid: c7456be9849a3e144b9953fe386fe3bc, type: 2}
+    AnimLen: 0.66666675
+    ActionType: 2

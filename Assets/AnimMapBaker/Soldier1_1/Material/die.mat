@@ -48,7 +48,7 @@ Material:
     - _BlackPower: 0
     - _BuffColorStrength: 0
     - _DissolveAmount: 0
-    - _DissolveEdgeWidth: 0.05
+    - _DissolveEdgeWidth: 0.2
     - _GravityValue: 1
     - _GroundY: 0
     - _HalfLambertValue: 0.5
@@ -61,7 +61,7 @@ Material:
     - _SquashState: 0
     m_Colors:
     - _BuffColor: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveEdgeColor: {r: 1, g: 0.55, b: 0.05, a: 1}
+    - _DissolveEdgeColor: {r: 1, g: 0.39118552, b: 0.05098039, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}

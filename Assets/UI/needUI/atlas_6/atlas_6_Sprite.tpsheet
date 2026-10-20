@@ -1,0 +1,33 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_6_Sprite.png
+:size=4096x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+01_objective_fortress_badge;0;0;512;512; 0.5;0.5; 0;0;0;0
+01_objective_fortress_badge_blue;0;514;512;512; 0.5;0.5; 0;0;0;0
+01_objective_fortress_badge_neutral;0;1028;512;512; 0.5;0.5; 0;0;0;0
+01_objective_fortress_badge_neutral_gray;514;0;512;512; 0.5;0.5; 0;0;0;0
+01_objective_fortress_badge_neutral_gray_v2;514;514;512;512; 0.5;0.5; 0;0;0;0
+01_objective_fortress_badge_neutral_gray_v3;514;1028;512;512; 0.5;0.5; 0;0;0;0
+01_objective_fortress_badge_neutral_green;1028;0;512;512; 0.5;0.5; 0;0;0;0
+02_player_info_bar;1542;0;1024;256; 0.5;0.5; 0;0;0;0
+02_player_info_bar_blue;2568;0;1024;256; 0.5;0.5; 0;0;0;0
+02_player_info_bar_neutral;1542;258;1024;256; 0.5;0.5; 0;0;0;0
+02_player_info_bar_neutral_gray;2568;258;1024;256; 0.5;0.5; 0;0;0;0
+02_player_info_bar_neutral_green;1542;516;1024;256; 0.5;0.5; 0;0;0;0
+02_player_info_bar_neutral_green_v2;1542;774;1024;256; 0.5;0.5; 0;0;0;0
+02_player_info_bar_neutral_olive;1542;1032;1024;256; 0.5;0.5; 0;0;0;0
+03_score_status_bar;0;1542;512;128; 0.5;0.5; 0;0;0;0
+03_score_status_bar_blue;0;1672;512;128; 0.5;0.5; 0;0;0;0
+03_score_status_bar_neutral;0;1802;512;128; 0.5;0.5; 0;0;0;0
+04_unit_nameplate_blue;1542;1806;1024;128; 0.5;0.5; 0;0;0;0
+05_unit_nameplate_red;2568;1290;1024;128; 0.5;0.5; 0;0;0;0
+06_victory_point_pool_bar;1542;1290;1024;256; 0.5;0.5; 0;0;0;0
+06_victory_point_pool_bar_neutral;1542;1548;1024;256; 0.5;0.5; 0;0;0;0
+07_player_name_status_strip;2568;516;1024;256; 0.5;0.5; 0;0;0;0
+07_player_name_status_strip_blue;2568;774;1024;256; 0.5;0.5; 0;0;0;0
+07_player_name_status_strip_neutral;2568;1032;1024;256; 0.5;0.5; 0;0;0;0

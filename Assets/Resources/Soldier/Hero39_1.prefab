@@ -23,16 +23,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321649282634273072}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2065197538244470284}
+  - {fileID: 7776876647972438143}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8044806716921677004
+--- !u!1 &6926510036320146541
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2065197538244470284}
-  - component: {fileID: 3928925081529521722}
-  - component: {fileID: 6037432146946769497}
-  - component: {fileID: 5624742616660920102}
-  - component: {fileID: 5969068405848532964}
+  - component: {fileID: 7776876647972438143}
+  - component: {fileID: 1129370808785813600}
+  - component: {fileID: 6238007806323312601}
+  - component: {fileID: 5144425968279169125}
+  - component: {fileID: 3747794509812724502}
   m_Layer: 0
   m_Name: Hero39_1
   m_TagString: Untagged
@@ -52,28 +52,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2065197538244470284
+--- !u!4 &7776876647972438143
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044806716921677004}
+  m_GameObject: {fileID: 6926510036320146541}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.8, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5269319808472632617}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &3928925081529521722
+--- !u!23 &1129370808785813600
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044806716921677004}
+  m_GameObject: {fileID: 6926510036320146541}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -109,27 +109,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6037432146946769497
+--- !u!33 &6238007806323312601
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044806716921677004}
+  m_GameObject: {fileID: 6926510036320146541}
   m_Mesh: {fileID: 4300000, guid: 96e026c7d007e6e4f809d6ff904f1d4b, type: 2}
---- !u!114 &5624742616660920102
+--- !u!114 &5144425968279169125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044806716921677004}
+  m_GameObject: {fileID: 6926510036320146541}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89280b14b38538b42ab9f40e5472def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentAnimTime: 0.087955356
+  CurrentAnimTime: 0.37605494
   ActionDataList:
   - Mat: {fileID: 2100000, guid: 510b42505f60f54499b83de4f0e9648d, type: 2}
     AnimLen: 0.5333334
@@ -149,13 +149,13 @@ MonoBehaviour:
   - Mat: {fileID: 2100000, guid: 127a11b1783452e43828f428e42d5b11, type: 2}
     AnimLen: 1.4666677
     ActionType: 6
---- !u!114 &5969068405848532964
+--- !u!114 &3747794509812724502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8044806716921677004}
+  m_GameObject: {fileID: 6926510036320146541}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fbf8a9fd600d4846a59eb630d3ad688, type: 3}

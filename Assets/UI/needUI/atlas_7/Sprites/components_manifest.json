@@ -1,0 +1,84 @@
+{
+  "source": "../atlas_7_components_preview.png",
+  "components": [
+    {
+      "name": "summon_panel_blue",
+      "file": "01_summon_panel_blue.png",
+      "preview_band": [
+        0,
+        20,
+        1037,
+        331
+      ],
+      "trim_bbox": [
+        18,
+        0,
+        1015,
+        331
+      ],
+      "size": [
+        997,
+        331
+      ],
+      "preview_rect": [
+        4,
+        0,
+        997,
+        331
+      ]
+    },
+    {
+      "name": "avatar_frame_blue",
+      "file": "02_avatar_frame_blue.png",
+      "preview_band": [
+        0,
+        542,
+        1037,
+        510
+      ],
+      "trim_bbox": [
+        220,
+        0,
+        792,
+        510
+      ],
+      "size": [
+        572,
+        510
+      ],
+      "preview_rect": [
+        216,
+        531,
+        572,
+        510
+      ]
+    },
+    {
+      "name": "summon_text_strip_blue",
+      "file": "03_summon_text_strip_blue.png",
+      "preview_band": [
+        0,
+        1246,
+        1037,
+        246
+      ],
+      "trim_bbox": [
+        5,
+        0,
+        1010,
+        246
+      ],
+      "size": [
+        1005,
+        246
+      ],
+      "preview_rect": [
+        0,
+        1241,
+        1005,
+        246
+      ]
+    }
+  ],
+  "spacing_px": 200
+}

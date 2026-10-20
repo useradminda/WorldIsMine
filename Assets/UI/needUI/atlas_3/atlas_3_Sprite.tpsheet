@@ -1,0 +1,32 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_3_Sprite.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+blue_health_background;1026;388;512;64; 0.5;0.5; 0;0;0;0
+blue_health_fill;1026;454;512;32; 0.5;0.5; 0;0;0;0
+blue_points_fill;1540;130;256;64; 0.5;0.5; 0;0;0;0
+invitation_panel;1026;0;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_blue;0;514;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_neutral;0;772;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_neutral_gray_v2;0;1030;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_neutral_green;0;1288;512;256; 0.5;0.5; 0;0;0;0
+pub_back;1540;196;256;64; 0.5;0.5; 0;0;0;0
+ranking_icon;1798;0;128;128; 0.5;0.5; 0;0;0;0
+ranking_icon_blue;1540;262;128;128; 0.5;0.5; 0;0;0;0
+ranking_icon_neutral;1670;262;128;128; 0.5;0.5; 0;0;0;0
+ranking_icon_neutral_olive;1800;262;128;128; 0.5;0.5; 0;0;0;0
+red_health_background;1026;258;512;128; 0.5;0.5; 0;0;0;0
+red_health_fill;0;1546;512;32; 0.5;0.5; 0;0;0;0
+red_points_background;0;1580;256;64; 0.5;0.5; 0;0;0;0
+red_points_background_blue;0;1646;256;64; 0.5;0.5; 0;0;0;0
+red_points_fill;0;1712;256;64; 0.5;0.5; 0;0;0;0
+score_pool_background;1540;0;256;128; 0.5;0.5; 0;0;0;0
+settings_icon;0;1778;128;128; 0.5;0.5; 0;0;0;0
+settings_icon_neutral;0;1908;128;128; 0.5;0.5; 0;0;0;0
+timer_background;130;1778;256;64; 0.5;0.5; 0;0;0;0
+waiting_panel_background;0;0;1024;512; 0.5;0.5; 0;0;0;0

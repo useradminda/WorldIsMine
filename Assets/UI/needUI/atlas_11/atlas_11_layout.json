@@ -1,0 +1,59 @@
+{
+  "canvas_size": [
+    855,
+    2366
+  ],
+  "spacing_px": 200,
+  "components": [
+    {
+      "name": "ranking_title_banner_red",
+      "output_rect": [
+        0,
+        0,
+        855,
+        336
+      ],
+      "file": "01_ranking_title_banner_red.png"
+    },
+    {
+      "name": "ranking_panel_outer",
+      "output_rect": [
+        11,
+        536,
+        832,
+        921
+      ],
+      "file": "02_ranking_panel_outer.png"
+    },
+    {
+      "name": "ranking_row_brown",
+      "output_rect": [
+        55,
+        1657,
+        745,
+        126
+      ],
+      "file": "03_ranking_row_brown.png"
+    },
+    {
+      "name": "rank_badge_red",
+      "output_rect": [
+        385,
+        1983,
+        84,
+        99
+      ],
+      "file": "04_rank_badge_red.png"
+    },
+    {
+      "name": "avatar_circle_brown",
+      "output_rect": [
+        386,
+        2282,
+        83,
+        84
+      ],
+      "file": "05_avatar_circle_brown.png"
+    }
+  ]
+}

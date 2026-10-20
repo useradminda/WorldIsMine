@@ -1,0 +1,50 @@
+{
+  "source": "../atlas_5_components_preview_original.png",
+  "components": [
+    {
+      "index": 1,
+      "name": "summon_panel_diagonal",
+      "file": "01_summon_panel_diagonal.png",
+      "size": [
+        1003,
+        462
+      ],
+      "source_rect": [
+        0,
+        146,
+        1024,
+        608
+      ]
+    },
+    {
+      "index": 2,
+      "name": "avatar_frame",
+      "file": "02_avatar_frame.png",
+      "size": [
+        483,
+        456
+      ],
+      "source_rect": [
+        0,
+        689,
+        1024,
+        1145
+      ]
+    },
+    {
+      "index": 3,
+      "name": "lightning_flourish_diagonal",
+      "file": "03_lightning_flourish_diagonal.png",
+      "size": [
+        759,
+        238
+      ],
+      "source_rect": [
+        0,
+        1194,
+        1024,
+        1444
+      ]
+    }
+  ]
+}

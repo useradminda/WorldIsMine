@@ -1,0 +1,39 @@
+{
+  "canvas_size": [
+    1005,
+    1487
+  ],
+  "spacing_px": 200,
+  "components": [
+    {
+      "name": "summon_panel_blue",
+      "output_rect": [
+        4,
+        0,
+        997,
+        331
+      ],
+      "file": "01_summon_panel_blue.png"
+    },
+    {
+      "name": "avatar_frame_blue",
+      "output_rect": [
+        216,
+        531,
+        572,
+        510
+      ],
+      "file": "02_avatar_frame_blue.png"
+    },
+    {
+      "name": "summon_text_strip_blue",
+      "output_rect": [
+        0,
+        1241,
+        1005,
+        246
+      ],
+      "file": "03_summon_text_strip_blue.png"
+    }
+  ]
+}

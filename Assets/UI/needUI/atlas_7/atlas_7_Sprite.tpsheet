@@ -1,0 +1,18 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_7_Sprite.png
+:size=4096x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+01_battle_notification_blue;0;0;2048;512; 0.5;0.5; 0;0;0;0
+01_battle_notification_red;0;514;2048;512; 0.5;0.5; 0;0;0;0
+01_summon_panel_blue;0;1542;1024;256; 0.5;0.5; 0;0;0;0
+01_summon_panel_red;2050;0;1024;256; 0.5;0.5; 0;0;0;0
+02_avatar_frame_blue;2050;258;512;512; 0.5;0.5; 0;0;0;0
+02_avatar_frame_red;2050;772;512;512; 0.5;0.5; 0;0;0;0
+02_battle_notification_blue;0;1028;2048;512; 0.5;0.5; 0;0;0;0
+03_summon_text_strip_blue;2564;258;1024;256; 0.5;0.5; 0;0;0;0
+03_summon_text_strip_red_v3;2564;516;1024;256; 0.5;0.5; 0;0;0;0

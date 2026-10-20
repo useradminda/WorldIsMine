@@ -1,0 +1,18 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=atlas_1_Sprite.png
+:size=2048x4096
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+loading_fill;0;1800;1024;64; 0.5;0.5; 0;0;0;0
+loading_frame;0;1542;1024;256; 0.5;0.5; 0;0;0;0
+loading_title;0;1028;1024;512; 0.5;0.5; 0;0;0;0
+progress_bar_blue;0;1866;1024;64; 0.5;0.5; 0;0;0;0
+progress_bar_blue_empty;0;0;2048;512; 0.5;0.5; 0;0;0;0
+progress_bar_blue_solid;0;1932;1024;64; 0.5;0.5; 0;0;0;0
+progress_bar_red;0;1998;1024;64; 0.5;0.5; 0;0;0;0
+progress_bar_red_empty;0;514;2048;512; 0.5;0.5; 0;0;0;0
+progress_bar_red_solid;0;2064;1024;64; 0.5;0.5; 0;0;0;0

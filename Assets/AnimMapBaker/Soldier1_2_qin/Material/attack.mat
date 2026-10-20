@@ -54,7 +54,7 @@ Material:
     - _HalfLambertValue: 0.5
     - _HighLightValue: 1
     - _ICEState: 0
-    - _LightScale: 1
+    - _LightScale: 1.15
     - _MaskValue: 0
     - _Shadow_Length: 1
     - _Shadow_Rotated: 50
@@ -63,7 +63,7 @@ Material:
     - _BuffColor: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveEdgeColor: {r: 1, g: 0.55, b: 0.05, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
+    - _MainLightDir: {r: -2.49, g: 0, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}
     - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
     - _SlashColor: {r: 0, g: 0, b: 0, a: 1}

@@ -1,0 +1,132 @@
+{
+  "source": "../atlas_10_components_preview.png",
+  "spacing_px": 200,
+  "components": [
+    {
+      "name": "victory_banner_blue",
+      "file": "01_victory_banner_blue.png",
+      "preview_rect": [
+        0,
+        0,
+        721,
+        372
+      ],
+      "size": [
+        721,
+        372
+      ]
+    },
+    {
+      "name": "tab_selected_gold",
+      "file": "02_tab_selected_gold.png",
+      "preview_rect": [
+        114,
+        572,
+        493,
+        131
+      ],
+      "size": [
+        493,
+        131
+      ]
+    },
+    {
+      "name": "tab_unselected_cream",
+      "file": "03_tab_unselected_cream.png",
+      "preview_rect": [
+        114,
+        903,
+        493,
+        132
+      ],
+      "size": [
+        493,
+        132
+      ]
+    },
+    {
+      "name": "ranking_panel_outer",
+      "file": "04_ranking_panel_outer.png",
+      "preview_rect": [
+        18,
+        1235,
+        684,
+        761
+      ],
+      "size": [
+        684,
+        761
+      ]
+    },
+    {
+      "name": "ranking_header_strip",
+      "file": "05_ranking_header_strip.png",
+      "preview_rect": [
+        18,
+        2196,
+        684,
+        150
+      ],
+      "size": [
+        684,
+        150
+      ]
+    },
+    {
+      "name": "ranking_row_blue",
+      "file": "06_ranking_row_blue.png",
+      "preview_rect": [
+        9,
+        2546,
+        702,
+        131
+      ],
+      "size": [
+        702,
+        131
+      ]
+    },
+    {
+      "name": "rank_badge_blue",
+      "file": "07_rank_badge_blue.png",
+      "preview_rect": [
+        338,
+        2877,
+        45,
+        95
+      ],
+      "size": [
+        45,
+        95
+      ]
+    },
+    {
+      "name": "avatar_circle_blue",
+      "file": "08_avatar_circle_blue.png",
+      "preview_rect": [
+        317,
+        3172,
+        86,
+        89
+      ],
+      "size": [
+        86,
+        89
+      ]
+    },
+    {
+      "name": "continue_button_gold",
+      "file": "09_continue_button_gold.png",
+      "preview_rect": [
+        146,
+        3461,
+        428,
+        152
+      ],
+      "size": [
+        428,
+        152
+      ]
+    }
+  ]
+}

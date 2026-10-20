@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveTex:
-        m_Texture: {fileID: 2800000, guid: 8e923eebb0f6e284199040c5cd2737bf, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ICETex:
@@ -57,7 +57,7 @@ Material:
     - _LightScale: 1
     - _MaskValue: 0
     - _Shadow_Length: 1
-    - _Shadow_Rotated: 50
+    - _Shadow_Rotated: 0
     - _SquashState: 0
     m_Colors:
     - _BuffColor: {r: 1, g: 1, b: 1, a: 1}
@@ -65,7 +65,7 @@ Material:
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 1}
     - _SlashColor: {r: 0, g: 0, b: 0, a: 1}
     - _WorldPoint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
