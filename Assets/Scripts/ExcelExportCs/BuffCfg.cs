@@ -55,5 +55,6 @@ public class BuffCfg
 	public int tyep;
 	public float time;
 	public float value;
+	public string enterBuffEff;
 	
 }

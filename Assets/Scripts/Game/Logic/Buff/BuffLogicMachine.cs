@@ -24,6 +24,7 @@ public class BuffLogicMachine
         buffList.Add(buffLogic);
         buffLogic.Refresh(duration);
         buffLogic.Enter();
+        buffLogic.PlayEnterEffect();
         return true;
     }
 

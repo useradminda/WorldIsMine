@@ -24,6 +24,18 @@ public abstract class BuffLogicBase
     /// <summary>Buff生效时调用。</summary>
     public abstract void Enter();
 
+    public void PlayEnterEffect()
+    {
+        if (mUnitLogic == null || mUnitLogic.UnitView == null || BuffCfg == null
+            || string.IsNullOrWhiteSpace(BuffCfg.enterBuffEff))
+        {
+            return;
+        }
+
+        float effectTime = BuffCfg.time > 0f ? BuffCfg.time : 2f;
+        mUnitLogic.UnitView.PlayAttachEffect(BuffCfg.enterBuffEff, effectTime);
+    }
+
     /// <summary>更新Buff剩余时间。</summary>
     public void Update(float dt)
     {

@@ -211,6 +211,25 @@ public class UnitView : IView
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }
 
+    public void PlayAttachEffect(string prefabName, float time)
+    {
+        if (string.IsNullOrWhiteSpace(prefabName))
+        {
+            return;
+        }
+
+        GameObject go = UnitViewFactory.CreateGob(prefabName, transform.position, transform.forward);
+        if (go == null)
+        {
+            return;
+        }
+
+        go.transform.SetParent(transform, false);
+        go.transform.localPosition = Vector3.zero;
+        go.transform.localRotation = Quaternion.identity;
+        go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
+    }
+
     public void SetForwardForce(Vector3 foward)
     {
         if (foward.sqrMagnitude <= 0.0001f)

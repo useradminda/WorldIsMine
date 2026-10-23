@@ -68,6 +68,8 @@ public static class FlyObjectFactory
                 return new PointToPointFlyObject();
             case "blackHall":
                 return new BlackHallFlyObject();
+            case "translateArea":
+                return new TranslateAreaFlyObject();
             default:
                 Debug.LogWarning($"Unknown fly object type '{flyType}', using base fly object logic.");
                 return new FlyObjectLogicBase();
