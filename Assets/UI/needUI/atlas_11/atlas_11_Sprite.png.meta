@@ -269,7 +269,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1026
-        y: 390
+        y: 520
         width: 512
         height: 128
       alignment: 0
@@ -281,6 +281,27 @@ TextureImporter:
       bones: []
       spriteID: 48f5876f998ca764d9dbf39de7ab0c5b
       internalID: 886575418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03_ranking_row_brown_neutral_no_emblem
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 390
+        width: 512
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3688fec24ee8e3e489bafa502235db78
+      internalID: -1724520399
       vertices: []
       indices: 
       edges: []
@@ -304,6 +325,7 @@ TextureImporter:
       03_ranking_row_brown: -1429159610
       03_ranking_row_brown_blue: 1434008654
       03_ranking_row_brown_neutral: -1745990572
+      03_ranking_row_brown_neutral_no_emblem: -1724520399
       04_continue_button_gold: 886575418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

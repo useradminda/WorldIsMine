@@ -282,22 +282,7 @@ public class UnitView : IView
     private void enterDie(string dieType, Vector3 beHitPoint)
     {
         DieBaseComponent dieComp;
-         if (dieType == "Bounce")
-        {
-            dieComp = gameObject.GetOrAddComponent<BounceDieComponent>();
-            dieComp.SetUnitView(this);
-        }
-        else if (dieType == "GroundSmash")
-        {
-            dieComp = gameObject.GetOrAddComponent<GroundSmashDieComponent>();
-            dieComp.SetUnitView(this);
-        }
-        else if (dieType == "Squash")
-        {
-            dieComp = gameObject.GetOrAddComponent<SquashDieComponent>();
-            dieComp.SetUnitView(this);
-        }
-        else if (dieType == "Tornado")
+        if (dieType == "Tornado")
         {
             dieComp = gameObject.GetOrAddComponent<TornadoDieComponent>();
             dieComp.SetUnitView(this);
@@ -318,9 +303,19 @@ public class UnitView : IView
             dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
             dieComp.SetUnitView(this);
         }
-        else if (dieType == "RollDie")
+        else if (dieType == "PushDie")
         {
-            dieComp = gameObject.GetOrAddComponent<RollDieComponent>();
+            dieComp = gameObject.GetOrAddComponent<PushDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "PushUp")
+        {
+            dieComp = gameObject.GetOrAddComponent<PushUpComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "PushCameraSide")
+        {
+            dieComp = gameObject.GetOrAddComponent<PushCameraSideComponent>();
             dieComp.SetUnitView(this);
         }
         else

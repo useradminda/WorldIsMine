@@ -8,6 +8,7 @@ using UnityEngine.SocialPlatforms;
 public static class UnitFactory
 {
     public const int MaxActiveUnitCountPerCamp = 3000;
+    public const int MaxActiveReinforcementCountPerCamp = 1000;
     private static int blueUId = 0;
     private static int redUId = 0;
 
@@ -19,10 +20,17 @@ public static class UnitFactory
 
     private static int redActiveCount = 0;
     private static int blueActiveCount = 0;
+    private static int redReinforcementCount = 0;
+    private static int blueReinforcementCount = 0;
 
     public static int GetActiveCount(ECampType campType)
     {
         return campType == ECampType.Red ? redActiveCount : blueActiveCount;
+    }
+
+    public static int GetReinforcementCount(ECampType campType)
+    {
+        return campType == ECampType.Red ? redReinforcementCount : blueReinforcementCount;
     }
 
     public static bool IsHero(int cfgId)
@@ -31,23 +39,57 @@ public static class UnitFactory
         return soliderCfg != null && soliderCfg.unitType == 101;
     }
 
-    public static bool CanCreateUnit(int cfgId, ECampType campType)
+    public static bool CanCreateUnit(int cfgId, ECampType campType, bool isReinforcement = false)
     {
-        return IsHero(cfgId) || GetActiveCount(campType) < MaxActiveUnitCountPerCamp;
+        if (IsHero(cfgId))
+        {
+            return true;
+        }
+
+        return GetActiveCount(campType) < MaxActiveUnitCountPerCamp
+            && (!isReinforcement || GetReinforcementCount(campType) < MaxActiveReinforcementCountPerCamp);
     }
 
-    public static bool CanCreateUnitGroup(int cfgId, ECampType campType, int count)
+    public static bool CanCreateUnitGroup(int cfgId, ECampType campType, int count, bool isReinforcement = false)
     {
-        return count > 0 && (IsHero(cfgId) || GetActiveCount(campType) + count <= MaxActiveUnitCountPerCamp);
+        if (count <= 0 || IsHero(cfgId))
+        {
+            return count > 0;
+        }
+
+        return GetCreatableUnitCount(cfgId, campType, count, isReinforcement) >= count;
+    }
+
+    public static int GetCreatableUnitCount(int cfgId, ECampType campType, int requestedCount, bool isReinforcement = false)
+    {
+        if (requestedCount <= 0)
+        {
+            return 0;
+        }
+
+        if (IsHero(cfgId))
+        {
+            return requestedCount;
+        }
+
+        int totalRemaining = Mathf.Max(0, MaxActiveUnitCountPerCamp - GetActiveCount(campType));
+        if (!isReinforcement)
+        {
+            return Mathf.Min(requestedCount, totalRemaining);
+        }
+
+        int reinforcementRemaining = Mathf.Max(0, MaxActiveReinforcementCountPerCamp - GetReinforcementCount(campType));
+        return Mathf.Min(requestedCount, Mathf.Min(totalRemaining, reinforcementRemaining));
     }
     
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
         int cfgId,
         Vector3 moveForward,
-        ECampType campType, int index)
+        ECampType campType, int index,
+        bool isReinforcement = false)
     {
-        if (!CanCreateUnit(cfgId, campType))
+        if (!CanCreateUnit(cfgId, campType, isReinforcement))
         {
             return null;
         }
@@ -55,8 +97,12 @@ public static class UnitFactory
         if (!IsHero(cfgId))
         {
             AddActiveCount(campType);
+            if (isReinforcement)
+            {
+                AddReinforcementCount(campType);
+            }
         }
-        UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index);
+        UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index, isReinforcement);
         return unit;
     }
 
@@ -64,9 +110,10 @@ public static class UnitFactory
     public static UnitLogicBase GetUnitCatch(int cfgId,
         Vector3 bornPoint,
         Vector3 moveForward,
-        ECampType campType)
+        ECampType campType,
+        bool isReinforcement = false)
     {
-        if (!CanCreateUnit(cfgId, campType))
+        if (!CanCreateUnit(cfgId, campType, isReinforcement))
         {
             return null;
         }
@@ -81,8 +128,12 @@ public static class UnitFactory
         if (!IsHero(cfgId))
         {
             AddActiveCount(campType);
+            if (isReinforcement)
+            {
+                AddReinforcementCount(campType);
+            }
         }
-        unit.CycleUse(cfgId, getUId(campType), moveForward);
+        unit.CycleUse(cfgId, getUId(campType), moveForward, isReinforcement);
         unit.Agenter.pos = bornPoint;
         unit.Agenter.prefVelocity = moveForward;
         unit.Agenter.velocity = moveForward;
@@ -167,52 +218,6 @@ public static class UnitFactory
         return new UnitLogicBase(cfgId, uid, campType, Vector3.zero, index);
     }
 
-    public static FlyObjectLogicBase CreateFlyObjectLogic(int flyObjectCfgId, Vector3 oriPos, Vector3 tarPos, UnitLogicBase atkUnitLogic, List<UnitLogicBase> targetLogicList, UnitLogicBase searchTargetLogic, SkillLogicBase skillLogic, int attackDamage)
-    {
-        FlyObjectLogicBase flyObjectLogic = null;
-        FlyObjectCfg flyObjectCfg = FlyObjectCfgConfig.Ins.SearchById(flyObjectCfgId);
-        int flyUIndex = -1;
-        if (flyObjectCfg.flyType == "arrow")
-        {
-            flyObjectLogic = new ArrowFlyObject();
-        }
-        else if (flyObjectCfg.flyType == "area")
-        {
-            flyObjectLogic = new AreaFlyObject();      
-        }
-        else if (flyObjectCfg.flyType == "stone")
-        {
-            flyObjectLogic = new StoneFlyObject();
-        }
-        else if (flyObjectCfg.flyType == "line")
-        {
-            flyObjectLogic = new LineFlyObject();
-        }
-        else if (flyObjectCfg.flyType == "jumpArrow")
-        {
-            flyObjectLogic = new JumpArrowFlyObject();
-        }
-        else if (flyObjectCfg.flyType == "globalStone")
-        {
-            flyObjectLogic = new GlobalStoneFlyObject();
-        }
-        else if (flyObjectCfg.flyType == "globalArrow")
-        {
-            flyObjectLogic = new GlobalArrowFlyObject();
-        }
-        else if (flyObjectCfg.flyType == "areaRandom")
-        {
-            flyObjectLogic = new AreaRandomFlyObject();
-        }
-        else
-        {
-            flyObjectLogic = new FlyObjectLogicBase();  
-        }
-        flyUIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
-        flyObjectLogic.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetLogic, skillLogic, attackDamage, flyUIndex);
-        return flyObjectLogic;
-    }
-
     // 移除
     public static void RemoveFlyObjectLogic(FlyObjectLogicBase flyObjectLogic)
     {
@@ -220,11 +225,15 @@ public static class UnitFactory
     }
 
     // 回收UnitIndex
-    public static void RecycleId(ECampType campType, int recycleUnitIndex, bool isHero)
+    public static void RecycleId(ECampType campType, int recycleUnitIndex, bool isHero, bool isReinforcement = false)
     {
         if (!isHero)
         {
             RemoveActiveCount(campType);
+            if (isReinforcement)
+            {
+                RemoveReinforcementCount(campType);
+            }
         }
         if (campType == ECampType.Red)
         {
@@ -296,6 +305,30 @@ public static class UnitFactory
         else
         {
             blueActiveCount = Mathf.Max(0, blueActiveCount - 1);
+        }
+    }
+
+    private static void AddReinforcementCount(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            redReinforcementCount++;
+        }
+        else
+        {
+            blueReinforcementCount++;
+        }
+    }
+
+    private static void RemoveReinforcementCount(ECampType campType)
+    {
+        if (campType == ECampType.Red)
+        {
+            redReinforcementCount = Mathf.Max(0, redReinforcementCount - 1);
+        }
+        else
+        {
+            blueReinforcementCount = Mathf.Max(0, blueReinforcementCount - 1);
         }
     }
 }

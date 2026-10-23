@@ -24,6 +24,12 @@ public static class BuffLogicFactory
                 return new AttackBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             case BuffDefine.EBuffType.Paralysis:
                 return new ParalysisBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
+            case BuffDefine.EBuffType.DeathSave:
+                return new DeathSaveBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
+            case BuffDefine.EBuffType.LastStand:
+                return new LastStandBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
+            case BuffDefine.EBuffType.CounterSpiral:
+                return new CounterSpiralBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             default:
                 Debug.LogError($"未实现的Buff类型，BuffId={buffCfgId}，Type={buffCfg.tyep}");
                 return null;

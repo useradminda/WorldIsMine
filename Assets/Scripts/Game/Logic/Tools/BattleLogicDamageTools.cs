@@ -13,12 +13,17 @@ public static class BattleLogicDamageTools
         if (beAtkedUnit.UId == beAtkedUid)
         {
             bool wasAlive = !beAtkedUnit.IsDead;
-            beAtkedUnit.ChangeHp(finalDamage, dieTyp, beHitPoint);
+            int counterDamage = beAtkedUnit.ChangeHp(finalDamage, dieTyp, beHitPoint);
             int damage = Mathf.Max(0, -finalDamage);
             BattleScoreManager.Instance.AddDamageReward(damage);
             if (wasAlive && beAtkedUnit.IsDead)
             {
                 BattleScoreManager.Instance.AddKillReward(1, damage);
+            }
+
+            if (counterDamage > 0 && !beAtkedUnit.IsDead && atkUnit != null && !atkUnit.IsDead)
+            {
+                DoDamage(beAtkedUnit, atkUnit, -counterDamage, atkUnit.UId, string.Empty, beAtkedUnit.CurPos);
             }
         }
     }

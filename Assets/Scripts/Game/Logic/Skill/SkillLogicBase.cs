@@ -12,6 +12,18 @@ public class SkillLogicBase
 
     public bool BNormalSkill => skillCfg.normal == 1;
 
+    /// <summary>技能是否需要战斗目标后才能释放。</summary>
+    public bool RequiresTarget => skillCfg != null && skillCfg.needTarget != 0;
+    public bool TargetsSelf => skillCfg != null && skillCfg.needTarget == 2;
+    public bool RequiresEnemyTarget => skillCfg != null && (skillCfg.needTarget == 1 || skillCfg.needTarget == 3);
+    public bool RequiresHeroTarget => skillCfg != null && skillCfg.needTarget == 3;
+    public virtual bool IsTriggerBeforeDie => false;
+
+    public virtual bool CanUseWithTarget(UnitLogicBase target)
+    {
+        return true;
+    }
+
     private float curCD;
     public float CurCD => curCD;
 
@@ -51,9 +63,26 @@ public class SkillLogicBase
         targetList.Clear();
     }
 
+    public virtual bool TryTriggerBeforeDie()
+    {
+        return false;
+    }
+
     public virtual void OnSkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
     {
-        if (unitLogic == null || unitLogic.IsDead || target == null || target.IsDead)
+        if (unitLogic == null || unitLogic.IsDead || skillCfg == null)
+        {
+            return;
+        }
+
+        if (skillCfg.needTarget == 2)
+        {
+            // needTarget=2 表示技能目标固定为施法者自身，直接使用施法者，避免外部传入错误目标。
+            ApplyBuffs(unitLogic);
+            return;
+        }
+
+        if (target == null || target.IsDead)
         {
             return;
         }

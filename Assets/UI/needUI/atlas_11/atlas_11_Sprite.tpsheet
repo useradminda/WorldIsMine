@@ -15,4 +15,5 @@
 03_ranking_row_brown;1026;0;512;128; 0.5;0.5; 0;0;0;0
 03_ranking_row_brown_blue;1026;130;512;128; 0.5;0.5; 0;0;0;0
 03_ranking_row_brown_neutral;1026;260;512;128; 0.5;0.5; 0;0;0;0
-04_continue_button_gold;1026;390;512;128; 0.5;0.5; 0;0;0;0
+03_ranking_row_brown_neutral_no_emblem;1026;390;512;128; 0.5;0.5; 0;0;0;0
+04_continue_button_gold;1026;520;512;128; 0.5;0.5; 0;0;0;0

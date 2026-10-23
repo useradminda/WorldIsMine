@@ -319,6 +319,7 @@ tpsheetFileNames:
 - Assets/UI/needUI/atlas_5/atlas_5_Sprite.tpsheet
 - Assets/UI/needUI/atlas_6/atlas_6_Sprite.tpsheet
 - Assets/UI/needUI/atlas_7/atlas_7_Sprite.tpsheet
+- Assets/UI/needUI/Common/Common_Sprite.tpsheet
 - Assets/UI/needUI/Generated_ThreeKingdoms_Qin_Sprite.tpsheet
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.tpsheet
 textureFileNames:
@@ -641,9 +642,11 @@ textureFileNames:
 - Assets/UI/needUI/atlas_5/atlas_5_Sprite.png
 - Assets/UI/needUI/atlas_6/atlas_6_Sprite.png
 - Assets/UI/needUI/atlas_7/atlas_7_Sprite.png
+- Assets/UI/needUI/Common/Common_Sprite.png
 - Assets/UI/needUI/Generated_ThreeKingdoms_Qin_Sprite.png
 - Assets/UI/UI_Clean_5_Styles/Clean_5_Sprite.png
 normalmapFileNames:
+- 
 - 
 - 
 - 

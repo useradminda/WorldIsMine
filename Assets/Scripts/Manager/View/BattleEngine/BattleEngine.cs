@@ -109,6 +109,16 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         CreateWallView(ECampType.Blue);
     }
 
+    public Vector3 GetCityDoorPoint(ECampType campType)
+    {
+        return BornConfigIns != null ? BornConfigIns.GetCityDoorPoint(campType) : Vector3.zero;
+    }
+
+    public Vector3 GetCityDoorForward(ECampType campType)
+    {
+        return BornConfigIns != null ? BornConfigIns.GetCityDoorForward(campType) : Vector3.forward;
+    }
+
     private void CreateWallView(ECampType campType)
     {
         UnitLogicBase wallLogic = UnitManager.Instance.GetWallLogic(campType);
@@ -132,6 +142,22 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     // 创建单位
     public void CreateUnit(int cfgId, ECampType campType, int count)
     {
+        CreateUnitInternal(cfgId, campType, count, false, false, Vector3.zero, Vector3.zero);
+    }
+
+    public void CreateReinforcementUnits(int cfgId, ECampType campType, int count)
+    {
+        CreateUnitInternal(cfgId, campType, count, true, false, Vector3.zero, Vector3.zero);
+    }
+
+    public void CreateReinforcementUnits(int cfgId, ECampType campType, int count, Vector3 spawnPoint, Vector3 spawnForward)
+    {
+        CreateUnitInternal(cfgId, campType, count, true, true, spawnPoint, spawnForward);
+    }
+
+    private void CreateUnitInternal(int cfgId, ECampType campType, int count, bool isReinforcement,
+        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward)
+    {
         if (battleFinished == true)
             return;
         if (count <= 0)
@@ -141,41 +167,48 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         if (!UnitFactory.IsHero(cfgId) && UnitManager.Instance.HasWaitingRequest(campType))
         {
-            UnitManager.Instance.EnqueueSpawn(cfgId, campType, count);
+            UnitManager.Instance.EnqueueSpawn(cfgId, campType, count, isReinforcement,
+                hasSpawnPoint, spawnPoint, spawnForward);
             return;
         }
 
-        if (!UnitFactory.CanCreateUnitGroup(cfgId, campType, count))
+        if (!UnitFactory.CanCreateUnitGroup(cfgId, campType, count, isReinforcement))
         {
-            UnitManager.Instance.EnqueueSpawn(cfgId, campType, count);
+            UnitManager.Instance.EnqueueSpawn(cfgId, campType, count, isReinforcement,
+                hasSpawnPoint, spawnPoint, spawnForward);
             return;
         }
 
-        CreateAvailableUnits(cfgId, campType, count);
+        CreateAvailableUnits(cfgId, campType, count, isReinforcement, hasSpawnPoint, spawnPoint, spawnForward);
     }
 
-    private int CreateAvailableUnits(int cfgId, ECampType campType, int count)
+    private int CreateAvailableUnits(int cfgId, ECampType campType, int count, bool isReinforcement,
+        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward)
     {
-        int creatableCount = UnitFactory.IsHero(cfgId) ? count : Mathf.Min(count, UnitFactory.MaxActiveUnitCountPerCamp - UnitFactory.GetActiveCount(campType));
+        int creatableCount = UnitFactory.GetCreatableUnitCount(cfgId, campType, count, isReinforcement);
         if (creatableCount <= 0)
         {
             return 0;
         }
 
-        Vector3 forward = BornConfigIns.GetForward(campType);
-        Vector3 baseBornPoint = BornConfigIns.GetBornPoint(campType);
+        Vector3 forward = hasSpawnPoint && spawnForward.sqrMagnitude > 0.0001f
+            ? spawnForward.normalized
+            : BornConfigIns.GetForward(campType);
+        Vector3 baseBornPoint = hasSpawnPoint ? spawnPoint : BornConfigIns.GetBornPoint(campType);
         SoliderCfg soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         float unitRadius = soliderCfg != null ? soliderCfg.radius : 1.5f;
        
         for (int i = 0; i < creatableCount; i++)
         {
-            Vector3 bornPoint = GetCreatePoint(baseBornPoint, forward, i, creatableCount, unitRadius);
+            Vector3 bornPoint = isReinforcement && hasSpawnPoint
+                ? GetReinforcementCreatePoint(baseBornPoint, i, creatableCount, unitRadius)
+                : GetCreatePoint(baseBornPoint, forward, i, creatableCount, unitRadius);
 
-            UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType);
+            UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType, isReinforcement);
 
             if(unitLogic == null)
             { 
-                unitLogic = UnitFactory.CreateUnit(cfgId, forward, campType, UnitManager.Instance.UnitList.Count);
+                unitLogic = UnitFactory.CreateUnit(cfgId, forward, campType, UnitManager.Instance.UnitList.Count, isReinforcement);
                 if (unitLogic == null)
                 {
                     return i;
@@ -219,6 +252,25 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         Vector3 rowOffset = -forward * row * spacing;
         Vector3 columnOffset = right * centeredColumn * spacing;
         return bornPoint + rowOffset + columnOffset;
+    }
+
+    private Vector3 GetReinforcementCreatePoint(
+        Vector3 center,
+        int unitIndex,
+        int totalCount,
+        float unitRadius)
+    {
+        if (totalCount <= 0)
+        {
+            return center;
+        }
+
+        float spacing = Mathf.Max(0.1f, unitRadius * 2f + SpawnUnitPadding);
+        float circumferenceRadius = spacing * totalCount / (Mathf.PI * 2f);
+        float radius = Mathf.Max(spacing * 1.5f, circumferenceRadius);
+        float angle = Mathf.PI * 2f * unitIndex / totalCount;
+        Vector3 offset = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * radius;
+        return center + offset;
     }
 
     private bool initBattle()

@@ -58,5 +58,6 @@ public class FlyObjectCfg
 	public float liveTime;
 	public string arrivePrefab;
 	public int triggerDamageCount;
+	public string flyParam;
 	
 }

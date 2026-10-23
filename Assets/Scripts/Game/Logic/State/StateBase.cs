@@ -6,6 +6,7 @@ public enum EStateTyep
     Move,
     Attack,
     Skill,
+    Push,
     Die,
 }
 

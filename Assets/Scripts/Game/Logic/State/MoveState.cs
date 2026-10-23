@@ -35,6 +35,12 @@ public class MoveState : StateBase
 
     public override void UpdateState(float dt)
     {
+        if (HasReadySkillWithoutTarget())
+        {
+            UnitLogic.StateMachine.ChangeState(EStateTyep.Skill);
+            return;
+        }
+
         RequestTargetSearch();
         UpdateEscape(dt);
         UnitLogic.AgentMoveForward(escapeDirection);
@@ -49,7 +55,9 @@ public class MoveState : StateBase
 
         MapCellManager.Instance.GetResult(searchReqIndex, searchResultList, ref nearestIndex, ref randomIndex);
         searchReqIndex = -1;
-        UnitLogicBase target = nearestIndex >= 0 && nearestIndex < UnitManager.Instance.UnitList.Count ? UnitManager.Instance.UnitList[nearestIndex] : null;
+        UnitLogicBase target = nearestIndex >= 0 && nearestIndex < UnitManager.Instance.UnitList.Count
+            ? UnitManager.Instance.UnitList[nearestIndex]
+            : null;
         if (target == null || target.IsDead || target.CampType == UnitLogic.CampType)
         {
             target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
@@ -144,11 +152,27 @@ public class MoveState : StateBase
         for (int i = 0; i < UnitLogic.SkillList.Count; i++)
         {
             SkillLogicBase skill = UnitLogic.SkillList[i];
-            if (skill.BNormalSkill == false && skill.CurCD <= 0f && UnitLogic.IsTargetInAttackRange(target, skill.SkillCfg.atkRange))
+            if (!skill.BNormalSkill && !skill.IsTriggerBeforeDie && skill.CurCD <= 0f &&
+                (skill.TargetsSelf || !skill.RequiresEnemyTarget ||
+                 (skill.CanUseWithTarget(target) && UnitLogic.IsTargetInAttackRange(target, skill.SkillCfg.atkRange))))
             {
                 return true;
             }
         }
+        return false;
+    }
+
+    private bool HasReadySkillWithoutTarget()
+    {
+        for (int i = 0; i < UnitLogic.SkillList.Count; i++)
+        {
+            SkillLogicBase skill = UnitLogic.SkillList[i];
+            if (!skill.BNormalSkill && !skill.IsTriggerBeforeDie && !skill.RequiresEnemyTarget && skill.CurCD <= 0f)
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 }

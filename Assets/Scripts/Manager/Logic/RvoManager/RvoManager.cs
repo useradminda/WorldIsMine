@@ -12,6 +12,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
 
     private ORCA simulation;
     private ObstacleGroup obstacles = new ObstacleGroup();
+    private ObstacleGroup dynamicObstacles = new ObstacleGroup();
 
 
     public void ManagerInit()
@@ -20,6 +21,7 @@ public class RvoManager : Singleton<RvoManager>, IManager
         simulation = new ORCA();
         simulation.plane = Nebukam.Common.AxisPair.XZ;
         simulation.agents = Agents;
+        simulation.dynamicObstacles = dynamicObstacles;
     }
 
     public void SetBorderInfo(List<Vector3> borderList)
@@ -54,7 +56,9 @@ public class RvoManager : Singleton<RvoManager>, IManager
         agents.Clear();
         agents.Release();
         simulation.staticObstacles = null;
+        simulation.dynamicObstacles = null;
         obstacles.Clear();
+        dynamicObstacles.Clear(true);
         simulation.agents = null;
         simulation.DisposeAll();
         simulation = null;
@@ -65,6 +69,32 @@ public class RvoManager : Singleton<RvoManager>, IManager
         Nebukam.Common.IVertex a = (Nebukam.Common.IVertex)agent;
         Agents.Add(a);
         return agent;
+    }
+
+    public Obstacle AddDynamicObstacle(List<Vector3> vertices)
+    {
+        if (vertices == null || vertices.Count < 2)
+        {
+            return null;
+        }
+
+        List<float3> obstacleVertices = new List<float3>(vertices.Count);
+        for (int i = 0; i < vertices.Count; i++)
+        {
+            obstacleVertices.Add(vertices[i]);
+        }
+
+        return dynamicObstacles.Add(obstacleVertices, false, 10f);
+    }
+
+    public void RemoveDynamicObstacle(Obstacle obstacle)
+    {
+        if (obstacle == null)
+        {
+            return;
+        }
+
+        obstacle.Release();
     }
 
    

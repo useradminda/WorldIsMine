@@ -148,7 +148,7 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
             UnitLogicBase enemy = enemyList[i];
             Vector3 target = enemy.CurPos;
             Vector3 origin = target - forward * GlobalStoneFlightDistance + Vector3.up * GlobalStoneOriginHeight;
-            GlobalStoneFlyObject stoneFlyObject = UnitFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, actualDamage) as GlobalStoneFlyObject;
+            GlobalStoneFlyObject stoneFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, actualDamage) as GlobalStoneFlyObject;
             if (stoneFlyObject != null)
             {
                 stoneFlyObject.SetLaunchDelay(i * GlobalStoneLaunchInterval);
@@ -199,7 +199,7 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
             Vector3 arrowOriginDirection = (Vector3.up - bornConfig.GetForward(casterCamp).normalized).normalized;
             float arrowOriginDistance = GlobalArrowOriginDistance + Random.Range(-GlobalArrowRandomDistance, GlobalArrowRandomDistance);
             Vector3 origin = target + arrowOriginDirection * arrowOriginDistance;
-            GlobalArrowFlyObject arrowFlyObject = UnitFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, 0) as GlobalArrowFlyObject;
+            GlobalArrowFlyObject arrowFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, 0) as GlobalArrowFlyObject;
             if (arrowFlyObject != null)
             {
                 arrowFlyObject.SetDamageContext(damageContext);
@@ -243,7 +243,7 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         Vector3 origin = bornConfig.GetBornPoint(casterCamp);
         Vector3 target = bornConfig.GetBornPoint(targetCamp);
         SkillLogicBase skillLogic = new SkillLogicBase(attacker, skillCfg);
-        LineFlyObject lineFlyObject = UnitFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, null, skillLogic, actualDamage) as LineFlyObject;
+        LineFlyObject lineFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, null, skillLogic, actualDamage) as LineFlyObject;
         if (lineFlyObject == null)
         {
             return false;
@@ -321,7 +321,7 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
             target.z = targetDepth;
         }
 
-        UnitFactory.CreateFlyObjectLogic(state.FlyObjectCfgId, origin, target, state.Attacker, null, enemy, state.SkillLogic, state.Damage);
+        FlyObjectFactory.CreateFlyObjectLogic(state.FlyObjectCfgId, origin, target, state.Attacker, null, enemy, state.SkillLogic, state.Damage);
 
         state.FiredCount++;
         return true;

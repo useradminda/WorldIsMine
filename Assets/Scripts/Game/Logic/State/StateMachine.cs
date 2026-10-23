@@ -26,6 +26,7 @@ public class StateMachine
         statesByEState.Add(EStateTyep.Move, new MoveState(unitLogic));
         statesByEState.Add(EStateTyep.Attack, new AttackState(unitLogic));
         statesByEState.Add(EStateTyep.Skill, new SkillState(unitLogic));
+        statesByEState.Add(EStateTyep.Push, new PushState(unitLogic));
         statesByEState.Add(EStateTyep.Die, new DieState(unitLogic));
     }
 

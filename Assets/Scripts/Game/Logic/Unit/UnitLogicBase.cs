@@ -91,6 +91,8 @@ public class UnitLogicBase
 
     private int attackBuffValue;
     private bool recycleIdQueued;
+    private bool isReinforcement;
+    public bool IsReinforcement => isReinforcement;
 
     private float logicRatio = 1;
     public float LogicRatio
@@ -106,7 +108,7 @@ public class UnitLogicBase
     private EUnitType eUnitType = EUnitType.Solider;
     public EUnitType UnitType => eUnitType;
 
-    public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index)
+    public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index, bool isReinforcement = false)
     {
         this.index = index;
         this.uid = uid;
@@ -115,18 +117,20 @@ public class UnitLogicBase
         this.campTypeInt = (int)campType;
         this.otherCampTypeInt = campType == ECampType.Blue ? (int)ECampType.Red : (int)ECampType.Blue;
         this.moveForward = Vector3.Normalize(moveForward);
+        this.isReinforcement = isReinforcement;
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
     }
 
     // 回收使用
-    public void CycleUse(int cfgId, int uid, Vector3 moveForward)
+    public void CycleUse(int cfgId, int uid, Vector3 moveForward, bool isReinforcement = false)
     {
         buffLogicMachine.Die();
         recycleIdQueued = false;
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
+        this.isReinforcement = isReinforcement;
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         logicRatio = 1f;
         attackBuffValue = 0;
@@ -158,7 +162,7 @@ public class UnitLogicBase
             return;
         }
         recycleIdQueued = true;
-        UnitFactory.RecycleId(CampType, Index, UnitFactory.IsHero(SoliderCfg.id));
+        UnitFactory.RecycleId(CampType, Index, UnitFactory.IsHero(SoliderCfg.id), IsReinforcement);
     }
 
     public void UnitUpdate(float dt)
@@ -196,14 +200,26 @@ public class UnitLogicBase
         }
     }
 
-    public void ChangeHp(int damage, string dieType, Vector3 beHitPoint)
+    public int ChangeHp(int damage, string dieType, Vector3 beHitPoint)
     {
         if (IsDead)
         {
-            return;
+            return 0;
         }
 
+        bool isAttack = damage < 0;
+        if (damage < 0 && Prop.Hp + damage <= 0)
+        {
+            TryTriggerBeforeDieSkill();
+        }
+        BuffLogicMachine.ModifyDamage(ref damage);
+        int counterDamage = BuffLogicMachine.RecordDamage(damage, isAttack);
         Prop.ChangeHp(damage);
+        if (IsDead && BuffLogicMachine.TryPreventDeath())
+        {
+            SetSearchTarget(null);
+            return counterDamage;
+        }
         if (UnitType == EUnitType.Wall)
         {
             // 城门没有状态机和死亡动作，但每次受击仍走 UnitView 的闪白逻辑。
@@ -216,7 +232,7 @@ public class UnitLogicBase
                 UnitManager.Instance.NotifyWallDestroyed(CampType);
             }
 
-            return;
+            return counterDamage;
         }
 
         if (UnitView != null)
@@ -225,6 +241,51 @@ public class UnitLogicBase
         }
         if (IsDead && StateMachine != null)
             StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
+
+        return counterDamage;
+    }
+
+    public void KillNow(string dieType, Vector3 beHitPoint)
+    {
+        if (IsDead)
+        {
+            return;
+        }
+
+        Prop.ChangeHp(-Prop.Hp);
+        SetSearchTarget(null);
+        if (UnitView != null)
+        {
+            UnitView.BeHitSlash();
+        }
+        if (StateMachine != null)
+        {
+            StateMachine.ChangeState(EStateTyep.Die, dieType, beHitPoint);
+        }
+    }
+
+    private bool TryTriggerBeforeDieSkill()
+    {
+        if (SkillList.Count == 0)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < SkillList.Count; i++)
+        {
+            SkillLogicBase skill = SkillList[i];
+            if (!skill.IsTriggerBeforeDie)
+            {
+                continue;
+            }
+
+            if (skill.TryTriggerBeforeDie())
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
    
     public void TriggerMoveStop()
@@ -238,6 +299,28 @@ public class UnitLogicBase
     public void TriggerMove()
     {
         RestoreAgentRadius();
+        Agenter.navigationEnabled = true;
+        Agenter.collisionEnabled = true;
+    }
+
+    public void TeleportTo(Vector3 position, Vector3 forward)
+    {
+        if (Agenter == null)
+        {
+            return;
+        }
+
+        Vector3 flatForward = forward;
+        flatForward.y = 0f;
+        if (flatForward.sqrMagnitude <= 0.0001f)
+        {
+            flatForward = Vector3.forward;
+        }
+        flatForward.Normalize();
+
+        Agenter.pos = position;
+        Agenter.prefVelocity = flatForward * SoliderCfg.moveSpeed * LogicRatio;
+        Agenter.velocity = Agenter.prefVelocity;
         Agenter.navigationEnabled = true;
         Agenter.collisionEnabled = true;
     }
@@ -328,6 +411,41 @@ public class UnitLogicBase
             searchTargetUId = logic.UId;
     }
 
+    public void SetMoveForward(Vector3 forward)
+    {
+        forward.y = 0f;
+        if (forward.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        moveForward = forward.normalized;
+        catchForward = Vector3.zero;
+        DirtyForward = true;
+    }
+
+    public void AgentMoveForward(Vector3 forward, float speedMultiplier)
+    {
+        if (Agenter == null)
+        {
+            return;
+        }
+
+        forward.y = 0f;
+        if (forward.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        forward.Normalize();
+        float safeMultiplier = Mathf.Max(0f, speedMultiplier);
+        float effectiveSpeed = Agenter.saveMaxSpeed * safeMultiplier * LogicRatio;
+        Agenter.navigationEnabled = true;
+        Agenter.collisionEnabled = true;
+        Agenter.maxSpeed = effectiveSpeed;
+        Agenter.prefVelocity = forward * effectiveSpeed;
+    }
+
     // 设置类型
     public void SetUnitType(EUnitType unitType)
     {
@@ -396,25 +514,21 @@ public class UnitLogicBase
 
     private void initSkills()
     {
+        normalSkill = null;
         skillList.Clear();
         for (int i = 0; i < soliderCfg.skill.Length; i++)
         {
             SkillCfg skillCfg = SkillCfgConfig.Ins.SearchById(soliderCfg.skill[i]);
             if (skillCfg != null)
             {
-                SkillLogicBase skill = null;
-                if (skillCfg.skillType == 1)
+                SkillLogicBase skill = SkillFactory.CreateSkillLogic(this, skillCfg);
+                if (skill == null)
                 {
-                    skill = new SkillCloseSkill(this, skillCfg);
+                    continue;
                 }
-                else if(skillCfg.skillType == 2)
-                {
-                    skill = new SkillRemoteSkill(this, skillCfg); // new SkillRemoteSkill(this, skillCfg);
-                }
+
                 if (skill.BNormalSkill)
-                {
                     normalSkill = skill;
-                }
                 skillList.Add(skill);
             }
         }

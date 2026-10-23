@@ -124,6 +124,36 @@ public class ActionFlow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Freezes the current shader animation at an exact time. _AnimLen remains
+    /// the real animation length; _CurrentTime and _TimeSinceLevelLoad hold the frame.
+    /// </summary>
+    public void FreezeAnimationAt(float animationTime)
+    {
+        if (currentActionData == null)
+        {
+            return;
+        }
+
+        float animationLength = Mathf.Max(0.0001f, currentActionData.AnimLen);
+        CurrentAnimTime = Mathf.Clamp(animationTime, 0f, animationLength);
+        RenderComponenter.SetPropertyBlockFloat("_AnimLen", animationLength);
+        RenderComponenter.SetPropertyBlockFloat("_CurrentTime", CurrentAnimTime);
+        RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", Time.time);
+    }
+
+    public void ResumeAnimation()
+    {
+        if (currentActionData == null)
+        {
+            return;
+        }
+
+        RenderComponenter.SetPropertyBlockFloat("_AnimLen", Mathf.Max(0.0001f, currentActionData.AnimLen));
+        RenderComponenter.SetPropertyBlockFloat("_CurrentTime", CurrentAnimTime);
+        RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", Time.time);
+    }
+
     // 设置动画时长
     private void setActionAnimLenth(ActionData _actionData)
     {

@@ -5,8 +5,12 @@ public abstract class BuffLogicBase
     protected UnitLogicBase mUnitLogic;
 
     private float remainTime;
+    public float RemainTIme =>  remainTime;
+
     public int CfgId => BuffCfg.id;
-    public bool IsExpired => remainTime <= 0f;
+
+    public bool IsTimeFlow => BuffCfg != null && BuffCfg.time >= 0;
+
     protected BuffCfg BuffCfg { get; private set; }
 
     public BuffLogicBase(UnitLogicBase unitLoigc, BuffLogicMachine buffLogicMachie, int cfgId)
@@ -34,4 +38,20 @@ public abstract class BuffLogicBase
 
     /// <summary>Buff移除时恢复它修改的属性。</summary>
     public abstract void Exit();
+
+    public virtual bool TryPreventDeath()
+    {
+        return false;
+    }
+
+    /// <summary>在伤害真正扣除前修改伤害数值。</summary>
+    public virtual void ModifyDamage(ref int damage)
+    {
+    }
+
+    /// <summary>记录一次受击，并返回本次受击后需要反击的伤害。</summary>
+    public virtual int RecordDamage(int damage, bool isAttack)
+    {
+        return 0;
+    }
 }

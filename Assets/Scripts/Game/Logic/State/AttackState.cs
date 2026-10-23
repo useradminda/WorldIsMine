@@ -167,7 +167,9 @@ public class AttackState : StateBase
         targetSearchResultList.Clear();
         MapCellManager.Instance.GetResult(targetSearchReqIndex, targetSearchResultList, ref targetNearestIndex, ref targetRandomIndex);
         targetSearchReqIndex = -1;
-        UnitLogicBase target = targetNearestIndex >= 0 && targetNearestIndex < UnitManager.Instance.UnitList.Count ? UnitManager.Instance.UnitList[targetNearestIndex] : null;
+        UnitLogicBase target = targetNearestIndex >= 0 && targetNearestIndex < UnitManager.Instance.UnitList.Count
+            ? UnitManager.Instance.UnitList[targetNearestIndex]
+            : null;
         if (target == null || target.IsDead || target.CampType == UnitLogic.CampType)
         {
             UnitLogic.SetSearchTarget(null);
@@ -258,7 +260,10 @@ public class AttackState : StateBase
         for (int i = 0; i < UnitLogic.SkillList.Count; i++)
         {
             SkillLogicBase skill = UnitLogic.SkillList[i];
-            if (skill.BNormalSkill == false && skill.CurCD <= 0f && UnitLogic.IsTargetInAttackRange(UnitLogic.SearchTarget, skill.SkillCfg.atkRange))
+            if (!skill.BNormalSkill && !skill.IsTriggerBeforeDie && skill.CurCD <= 0f &&
+                (skill.TargetsSelf || !skill.RequiresEnemyTarget ||
+                 (skill.CanUseWithTarget(UnitLogic.SearchTarget) &&
+                  UnitLogic.IsTargetInAttackRange(UnitLogic.SearchTarget, skill.SkillCfg.atkRange))))
             {
                 return true;
             }

@@ -1,0 +1,27 @@
+#
+# Sprite sheet data for Unity.
+#
+:format=40300
+:texture=Common_Sprite.png
+:size=512x512
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+pub_avatar_back01;0;0;256;256; 0.5;0.5; 0;0;0;0
+pub_back;0;258;256;64; 0.5;0.5; 0;0;0;0
+pub_backmask;258;196;128;32; 0.5;0.5; 0;0;0;0
+pub_badge_02;454;0;32;32; 0.5;0.5; 0;0;0;0
+pub_badge_03;388;66;64;32; 0.5;0.5; 0;0;0;0
+pub_box_01;488;0;8;8; 0.5;0.5; 0;0;0;0
+pub_box_04;388;0;64;64; 0.5;0.5; 0;0;0;0
+pub_box_11;454;66;32;32; 0.5;0.5; 0;0;0;0
+pub_box_14;258;0;128;128; 0.5;0.5; 0;0;0;0
+pub_box_20;0;324;128;128; 0.5;0.5; 0;0;0;0
+pub_box_21;258;130;128;64; 0.5;0.5; 0;0;0;0
+result_rating_01;388;130;64;32; 0.5;0.5; 0;0;0;0
+result_rating_02;388;164;64;32; 0.5;0.5; 0;0;0;0
+result_rating_03;388;198;64;32; 0.5;0.5; 0;0;0;0
+result_rating_04;0;454;64;32; 0.5;0.5; 0;0;0;0
+result_rating_05;130;324;64;32; 0.5;0.5; 0;0;0;0
+result_rating_06;130;358;64;32; 0.5;0.5; 0;0;0;0
+result_rating_07;130;392;64;32; 0.5;0.5; 0;0;0;0

@@ -46,12 +46,64 @@ public class BuffLogicMachine
         {
             BuffLogicBase buffLogic = buffList[i];
             buffLogic.Update(dt);
-            if (buffLogic.IsExpired)
+            if (buffLogic.IsTimeFlow && buffLogic.RemainTIme <= 0)
             {
                 buffList.RemoveAt(i);
                 buffLogic.Exit();
             }
         }
+    }
+
+    public bool TryPreventDeath()
+    {
+        for (int i = buffList.Count - 1; i >= 0; i--)
+        {
+            BuffLogicBase buffLogic = buffList[i];
+            if (!buffLogic.TryPreventDeath())
+            {
+                continue;
+            }
+
+            buffList.RemoveAt(i);
+            buffLogic.Exit();
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>让所有Buff在伤害扣除前依次处理伤害。</summary>
+    public void ModifyDamage(ref int damage)
+    {
+        for (int i = buffList.Count - 1; i >= 0; i--)
+        {
+            buffList[i].ModifyDamage(ref damage);
+        }
+    }
+
+    /// <summary>让所有Buff记录一次受击，并汇总本次需要反击的伤害。</summary>
+    public int RecordDamage(int damage, bool isAttack)
+    {
+        int counterDamage = 0;
+        for (int i = buffList.Count - 1; i >= 0; i--)
+        {
+            int currentCounterDamage = buffList[i].RecordDamage(damage, isAttack);
+            if (currentCounterDamage <= 0)
+            {
+                continue;
+            }
+
+            if (int.MaxValue - counterDamage < currentCounterDamage)
+            {
+                counterDamage = int.MaxValue;
+            }
+            else
+            {
+                counterDamage += currentCounterDamage;
+            }
+        }
+
+        return counterDamage;
     }
 
     /// <summary>单位死亡或被复用时清理全部Buff。</summary>

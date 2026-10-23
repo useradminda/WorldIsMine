@@ -59,9 +59,11 @@ public class SkillCfg
 	public float skillDamageRate;
 	public float cd;
 	public int normal;
-	public int skillType;
+	public int needTarget;
+	public string skillType;
 	public int flyObjectId;
 	public int[] buffId;
 	public string dieType;
+	public string skillParam;
 	
 }

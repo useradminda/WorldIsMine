@@ -33,7 +33,7 @@ public class SkillState : StateBase
 
     public override void UpdateState(float dt)
     {
-        if (UnitLogic.IsDead || skillLogic == null || UnitLogic.SearchTarget == null || (!executed && skillLogic.CurCD > 0f))
+        if (UnitLogic.IsDead || skillLogic == null || (skillLogic.RequiresEnemyTarget && UnitLogic.SearchTarget == null) || (!executed && skillLogic.CurCD > 0f))
         {
             UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
             return;
@@ -41,7 +41,7 @@ public class SkillState : StateBase
 
         if (!executed)
         {
-            if (searchReqIndex < 0 && executePending && skillLogic.SkillCfg.skillArea > 0)
+            if (searchReqIndex < 0 && executePending && skillLogic.RequiresEnemyTarget && skillLogic.SkillCfg.skillArea > 0)
             {
                 searchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, skillLogic.SkillCfg.skillArea, UnitLogic.OtherCampTypeInt);
             }
@@ -63,7 +63,7 @@ public class SkillState : StateBase
             return;
         }
 
-        if (skillLogic.SkillCfg.skillArea > 0)
+        if (skillLogic.RequiresEnemyTarget && skillLogic.SkillCfg.skillArea > 0)
         {
             if (searchReqIndex < 0)
             {
@@ -90,7 +90,15 @@ public class SkillState : StateBase
         for (int i = 0; i < UnitLogic.SkillList.Count; i++)
         {
             SkillLogicBase skill = UnitLogic.SkillList[i];
-            if (skill.BNormalSkill == false && skill.CurCD <= 0f && UnitLogic.SearchTarget != null && UnitLogic.IsTargetInAttackRange(UnitLogic.SearchTarget, skill.SkillCfg.atkRange))
+            if (skill.BNormalSkill || skill.IsTriggerBeforeDie || skill.CurCD > 0f)
+            {
+                continue;
+            }
+
+            if (skill.TargetsSelf || !skill.RequiresEnemyTarget ||
+                (UnitLogic.SearchTarget != null &&
+                 skill.CanUseWithTarget(UnitLogic.SearchTarget) &&
+                 UnitLogic.IsTargetInAttackRange(UnitLogic.SearchTarget, skill.SkillCfg.atkRange)))
             {
                 return skill;
             }
@@ -100,16 +108,25 @@ public class SkillState : StateBase
 
     private void ExecuteSkill()
     {
-        if (executed || skillLogic == null || UnitLogic.SearchTarget == null || skillLogic.CurCD > 0f)
+        if (executed || skillLogic == null || skillLogic.CurCD > 0f ||
+            (skillLogic.RequiresEnemyTarget &&
+             (UnitLogic.SearchTarget == null || !skillLogic.CanUseWithTarget(UnitLogic.SearchTarget))))
         {
             return;
         }
 
         UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.skill);
         skillTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.skill);
-        Vector3 attackDirection = UnitLogic.SearchTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
+        UnitLogicBase skillTarget = skillLogic.TargetsSelf ? UnitLogic : UnitLogic.SearchTarget;
+        Vector3 attackDirection = skillTarget != null && skillTarget != UnitLogic
+            ? skillTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos
+            : UnitLogic.TargetForward;
+        if (attackDirection.sqrMagnitude <= 0.0001f)
+        {
+            attackDirection = Vector3.forward;
+        }
         UnitLogic.UnitView.SetForwardForce(attackDirection);
-        skillLogic.SkillDoEffect(UnitLogic.SearchTarget, resultUnitIndexList);
+        skillLogic.SkillDoEffect(skillTarget, resultUnitIndexList);
         executed = true;
         executePending = false;
     }
