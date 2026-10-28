@@ -8,11 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: city_door
-  m_Shader: {fileID: 4800000, guid: 9e5fe6e2616c28444af49667912970be, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4de94e5a6d5c4b9f8e6a7c1d3f2b0a88, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ENABLEOUTLINE_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -77,6 +78,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AmbientStrength: 1.5
     - _BlackPower: 0
     - _BuffColorStrength: 0
     - _BumpScale: 1
@@ -85,6 +87,7 @@ Material:
     - _DissolveAmount: 0
     - _DissolveEdgeWidth: 0.05
     - _DstBlend: 0
+    - _EnableOutline: 1
     - _FlashStrength: 0.3
     - _Glossiness: 0
     - _GravityValue: 1
@@ -97,11 +100,15 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OutlineWidth: 0.0568
     - _Parallax: 0.02
     - _Shadow_Length: 1
     - _Shadow_Rotated: 0
+    - _SpecularSize: 32
+    - _SpecularStrength: 0.15
     - _SquashState: 0
     - _SrcBlend: 1
+    - _ToonSteps: 3
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -114,7 +121,10 @@ Material:
     - _LightColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainLightDir: {r: 1, g: 1, b: 1, a: 1}
     - _MaskColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowColor: {r: 0.45, g: 0.45, b: 0.55, a: 1}
     - _Shadow_Color: {r: 0, g: 0, b: 0, a: 1}
-    - _SlashColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SlashColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _WorldPoint: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

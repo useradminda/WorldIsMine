@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>显示并控制对局倒计时。</summary>
-public class BattleTimerPanel : BasePanel
+public class BattleTimerPanel : MonoBehaviour
 {
     [SerializeField] private Text timerText;
     private float remainSeconds;
@@ -14,7 +14,6 @@ public class BattleTimerPanel : BasePanel
         remainSeconds = Mathf.Max(0f, seconds);
         running = true;
         RefreshText();
-        Open();
     }
 
     /// <summary>暂停倒计时。</summary>

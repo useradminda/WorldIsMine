@@ -9,6 +9,11 @@ public class DieBaseComponent : MonoBehaviour
     public void SetUnitView(UnitView unitView)
     {
         mUnitView = unitView;
+        // 进入死亡表现前清理普攻卡刀，避免角色死亡后停留在攻击动画帧。
+        if (mUnitView != null)
+        {
+            mUnitView.AttackStopComp.Cancel();
+        }
         EnterDieState();
     }
 

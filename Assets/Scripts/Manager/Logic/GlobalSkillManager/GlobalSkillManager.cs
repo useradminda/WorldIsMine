@@ -5,7 +5,7 @@ using ZTools;
 public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
 {
     private const int GlobalAttackBuffId = 2;
-    public const int GlobalStoneProjectileCount = 3;
+    public const int GlobalStoneProjectileCount = 5;
     private const float GlobalStoneOriginHeight = 50f;
     private const float GlobalStoneLaunchInterval = 1f;
     private const float GlobalStoneFlightDistance = 160f;

@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms;
 
 public static class UnitFactory
 {
-    public const int MaxActiveUnitCountPerCamp = 3000;
+    public const int MaxActiveUnitCountPerCamp = 5000;
     public const int MaxActiveReinforcementCountPerCamp = 1000;
     private static int blueUId = 0;
     private static int redUId = 0;

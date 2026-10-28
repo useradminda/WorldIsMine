@@ -25,7 +25,7 @@ Shader "zxf/BuiltIn/AnimMapShader"
         _SquashState("压扁状态",float) = 0
         
 
-        _MainLightDir("MainLightDir", vector) = (1,1,1)
+        //_MainLightDir("MainLightDir", vector) = (1,1,1)
         _LightColor("LightColor", Color) = (1,1,1)
         _LightScale("LightScale", float) = 1
         _HalfLambertValue("HalfLambertValue", float) = 0.5
@@ -117,7 +117,7 @@ Shader "zxf/BuiltIn/AnimMapShader"
             float _HalfLambertValue;
             float _LightScale;
             float4 _LightColor;
-            float4 _MainLightDir;
+            //float4 _MainLightDir;
 
             float _HighLightValue;
             //float4 _WorldPoint;
@@ -257,12 +257,24 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 float4 dissolveEdgeColor = UNITY_ACCESS_INSTANCED_PROP(Props, _DissolveEdgeColor);
                 float2 dissolveUv = i.uv * _DissolveTex_ST.xy + _DissolveTex_ST.zw;
                 float dissolveValue = tex2D(_DissolveTex, dissolveUv).r;
-                clip(dissolveValue - dissolveAmount);
-                float dissolveEdge = 1 - smoothstep(dissolveAmount, dissolveAmount + dissolveEdgeWidth, dissolveValue);
-                col.rgb = lerp(col.rgb, dissolveEdgeColor.rgb, dissolveEdge);
+                // 只有真正开始溶解时才执行裁剪和边缘着色。
+                // 这样即使材质上的 _DissolveEdgeWidth 设置为 0.2，
+                // 在 _DissolveAmount == 0 时也不会出现误显示的溶解边缘。
+                if (dissolveAmount > 0.001)
+                {
+                    clip(dissolveValue - dissolveAmount);
+                    float dissolveEdge = 1 - smoothstep(dissolveAmount, dissolveAmount + dissolveEdgeWidth, dissolveValue);
+                    col.rgb = lerp(col.rgb, dissolveEdgeColor.rgb, dissolveEdge);
+                }
 
-                // float3 lDir = normalize(_WorldSpaceLightPos0.xyz); // 获取真实光源
-                float3 lDir = normalize(_MainLightDir.xyz);// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
+                // 原始实现：使用材质参数 _MainLightDir 作为光照方向。
+                // 这种方式需要外部逐材质设置方向，不同材质设置不同值时可能影响批处理。
+                // float3 lDir = normalize(_MainLightDir.xyz);// mul(unity_ObjectToWorld, _MainLightDir);// ObjSpaceLightDir(i.vertex);
+
+                // 新实现：直接读取 Unity 内置管线提供的场景主光源方向。
+                // _WorldSpaceLightPos0 是全局光照数据，不需要逐角色设置材质参数，有利于保持合批。
+                // Directional Light 在内置管线中 w 为 0，UnityWorldSpaceLightDir 会返回正确的世界空间光照方向。
+                float3 lDir = normalize(UnityWorldSpaceLightDir(float3(0, 0, 0)));
                 //光照渐变 i.objectNormal => i.worldNormal 灯光不变 ，模型阴影变     i.objectNormal 跟着模型走，不管模型旋转方向
                 float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;// saturate(dot(tangentNormal, tangentLight)) * 0.5 + _HalfLambertValue;// saturate(dot(i.worldNormal, _MainLightDir)) * 0.5 + _HalfLambertValue;//dot(mainLight.direction, i.normalWS) * 0.5 + _HalfLambertValue; //  
                 col.rgb *= Ramp_light * _LightColor * _LightScale;//Ramp_light * mainLight.color;
@@ -470,6 +482,7 @@ Shader "zxf/BuiltIn/AnimMapShader"
             // 开启实例化保证合批
             #pragma multi_compile_instancing
             #include "UnityCG.cginc"
+            #include "Lighting.cginc"
 
             // 动画贴图相关（同步主体模型动画）
             sampler2D _AnimMap;
@@ -560,12 +573,22 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 worldPos.y = _GroundY;
 
                 half lerpVal = lerp(0, _Shadow_Length, originalY - _GroundY);
-                half radian = _Shadow_Rotated / 180.0 * UNITY_PI;
-                half2 ratatedAngle = half2(
-                    (0 * cos(radian) - 1 * sin(radian)),
-                    (0 * sin(radian) + 1 * cos(radian))
-                );
-                worldPos.xz += lerpVal * ratatedAngle;
+                // 新实现：从场景主光源获得方向，影子沿光线反方向投射。
+                float3 mainLightDir = normalize(UnityWorldSpaceLightDir(worldPos.xyz));
+                float2 mainLightShadowDir = -mainLightDir.xz;
+                if (dot(mainLightShadowDir, mainLightShadowDir) > 0.0001)
+                {
+                    mainLightShadowDir = normalize(mainLightShadowDir);
+                    worldPos.xz += lerpVal * mainLightShadowDir;
+                }
+
+                // 旧实现：通过 _Shadow_Rotated 手工指定固定影子角度，保留注释便于回滚。
+                // half radian = _Shadow_Rotated / 180.0 * UNITY_PI;
+                // half2 ratatedAngle = half2(
+                //     (0 * cos(radian) - 1 * sin(radian)),
+                //     (0 * sin(radian) + 1 * cos(radian))
+                // );
+                // worldPos.xz += lerpVal * ratatedAngle;
 
                 o.worldPos = worldPos;
                 o.pos = mul(UNITY_MATRIX_VP, worldPos);

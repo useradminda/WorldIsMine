@@ -14,6 +14,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     public ObstacleConfig ObstacleConfigIns;
     // 出生位置
     public BornConfig BornConfigIns;
+    // 战场自动出兵控制器
+    public BattleAutoSpawnController AutoSpawnController;
 
     [Header("交战示意特效")]
     public BattleClashEffectSettings ClashEffects = new BattleClashEffectSettings();
@@ -143,6 +145,14 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     public void CreateUnit(int cfgId, ECampType campType, int count)
     {
         CreateUnitInternal(cfgId, campType, count, false, false, Vector3.zero, Vector3.zero);
+    }
+
+    /// <summary>
+    /// 在指定出生点创建一个普通单位，供自动出兵系统使用。
+    /// </summary>
+    public void CreateUnitAtPoint(int cfgId, ECampType campType, Vector3 spawnPoint, Vector3 spawnForward)
+    {
+        CreateUnitInternal(cfgId, campType, 1, false, true, spawnPoint, spawnForward);
     }
 
     public void CreateReinforcementUnits(int cfgId, ECampType campType, int count)
@@ -311,6 +321,15 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
         UnitViewManager.Instance.ManagerInit();
         CreateWall();
+
+        if (AutoSpawnController == null)
+        {
+            AutoSpawnController = GetComponent<BattleAutoSpawnController>();
+        }
+        if (AutoSpawnController != null)
+        {
+            AutoSpawnController.Initialize(this);
+        }
 
         return true;
     }

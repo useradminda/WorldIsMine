@@ -78,10 +78,27 @@ public class UnitView : IView
         }
     }
 
+    private AttackStopComponent attackStopComp;
+    public AttackStopComponent AttackStopComp
+    {
+        get
+        {
+            if (attackStopComp == null)
+            {
+                attackStopComp = gameObject.GetOrAddComponent<AttackStopComponent>();
+            }
+            return attackStopComp;
+        }
+    }
+
     public void Init(UnitLogicBase unit, string prefabName)
     {
         this.prefabName = prefabName;
         this.unitLogic = unit;
+        if (attackStopComp != null)
+        {
+            attackStopComp.Cancel();
+        }
         FootSmokeManager.Instance.StopForUnit(this);
         SlachComp.ExitSlash();
 

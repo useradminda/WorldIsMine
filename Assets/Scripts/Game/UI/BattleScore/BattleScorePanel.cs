@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>显示红蓝双方积分和胜点。</summary>
-public class BattleScorePanel : BasePanel
+public class BattleScorePanel : MonoBehaviour
 {
     [SerializeField] private Text redScoreText;
     [SerializeField] private Text blueScoreText;

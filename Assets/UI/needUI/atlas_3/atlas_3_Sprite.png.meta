@@ -100,7 +100,7 @@ TextureImporter:
       name: blue_health_background
       rect:
         serializedVersion: 2
-        x: 1026
+        x: 3076
         y: 388
         width: 512
         height: 64
@@ -121,7 +121,7 @@ TextureImporter:
       name: blue_health_fill
       rect:
         serializedVersion: 2
-        x: 1026
+        x: 3076
         y: 454
         width: 512
         height: 32
@@ -142,7 +142,7 @@ TextureImporter:
       name: blue_points_fill
       rect:
         serializedVersion: 2
-        x: 1540
+        x: 3590
         y: 130
         width: 256
         height: 64
@@ -163,7 +163,7 @@ TextureImporter:
       name: invitation_panel
       rect:
         serializedVersion: 2
-        x: 1026
+        x: 3076
         y: 0
         width: 512
         height: 256
@@ -184,7 +184,7 @@ TextureImporter:
       name: invitation_panel_blue
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2050
         y: 514
         width: 512
         height: 256
@@ -205,8 +205,8 @@ TextureImporter:
       name: invitation_panel_neutral
       rect:
         serializedVersion: 2
-        x: 0
-        y: 772
+        x: 2564
+        y: 514
         width: 512
         height: 256
       alignment: 0
@@ -226,8 +226,8 @@ TextureImporter:
       name: invitation_panel_neutral_gray_v2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1030
+        x: 3078
+        y: 514
         width: 512
         height: 256
       alignment: 0
@@ -247,8 +247,8 @@ TextureImporter:
       name: invitation_panel_neutral_green
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1288
+        x: 2050
+        y: 1028
         width: 512
         height: 256
       alignment: 0
@@ -268,7 +268,7 @@ TextureImporter:
       name: ranking_icon
       rect:
         serializedVersion: 2
-        x: 1798
+        x: 3848
         y: 0
         width: 128
         height: 128
@@ -289,7 +289,7 @@ TextureImporter:
       name: ranking_icon_blue
       rect:
         serializedVersion: 2
-        x: 1540
+        x: 3590
         y: 262
         width: 128
         height: 128
@@ -310,7 +310,7 @@ TextureImporter:
       name: ranking_icon_neutral
       rect:
         serializedVersion: 2
-        x: 1670
+        x: 3720
         y: 262
         width: 128
         height: 128
@@ -331,7 +331,7 @@ TextureImporter:
       name: ranking_icon_neutral_olive
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 3850
         y: 262
         width: 128
         height: 128
@@ -352,7 +352,7 @@ TextureImporter:
       name: red_health_background
       rect:
         serializedVersion: 2
-        x: 1026
+        x: 3076
         y: 258
         width: 512
         height: 128
@@ -373,8 +373,8 @@ TextureImporter:
       name: red_health_fill
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1546
+        x: 2050
+        y: 772
         width: 512
         height: 32
       alignment: 0
@@ -394,8 +394,8 @@ TextureImporter:
       name: red_points_background
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1580
+        x: 2050
+        y: 806
         width: 256
         height: 64
       alignment: 0
@@ -415,8 +415,8 @@ TextureImporter:
       name: red_points_background_blue
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1646
+        x: 2050
+        y: 872
         width: 256
         height: 64
       alignment: 0
@@ -436,8 +436,8 @@ TextureImporter:
       name: red_points_fill
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1712
+        x: 2050
+        y: 938
         width: 256
         height: 64
       alignment: 0
@@ -457,7 +457,7 @@ TextureImporter:
       name: score_pool_background
       rect:
         serializedVersion: 2
-        x: 1540
+        x: 3590
         y: 0
         width: 256
         height: 128
@@ -478,8 +478,8 @@ TextureImporter:
       name: settings_icon
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1778
+        x: 2308
+        y: 806
         width: 128
         height: 128
       alignment: 0
@@ -499,8 +499,8 @@ TextureImporter:
       name: settings_icon_neutral
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1908
+        x: 2564
+        y: 772
         width: 128
         height: 128
       alignment: 0
@@ -520,8 +520,8 @@ TextureImporter:
       name: timer_background
       rect:
         serializedVersion: 2
-        x: 130
-        y: 1778
+        x: 2694
+        y: 772
         width: 256
         height: 64
       alignment: 0
@@ -541,7 +541,7 @@ TextureImporter:
       name: waiting_panel_background
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2050
         y: 0
         width: 1024
         height: 512
@@ -562,7 +562,7 @@ TextureImporter:
       name: pub_back
       rect:
         serializedVersion: 2
-        x: 1540
+        x: 3590
         y: 196
         width: 256
         height: 64
@@ -579,6 +579,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: blue_health_background_simple_v2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2048
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d5a4f24b05e8345b7c2e0663e29b72
+      internalID: -383502035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exec-50420013-74a2-44e8-98e3-552a5f8648c5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 514
+        width: 2048
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c43131fbcb6721c4e9f98b74b3c5a65f
+      internalID: 1026143325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: exec-faa1c0a7-c808-4b27-971b-283b506ae440
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1028
+        width: 2048
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48fac27bcc5e8142b17c4b83d00c791
+      internalID: -1058981573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_health_background_simple_v2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1542
+        width: 2048
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6eeabf82f46652489f7293c6a0342ab
+      internalID: -2124351346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -591,8 +675,11 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       blue_health_background: -2008911056
+      blue_health_background_simple_v2: -383502035
       blue_health_fill: 746531597
       blue_points_fill: 1771013569
+      exec-50420013-74a2-44e8-98e3-552a5f8648c5: 1026143325
+      exec-faa1c0a7-c808-4b27-971b-283b506ae440: -1058981573
       invitation_panel: -392893182
       invitation_panel_blue: -274086108
       invitation_panel_neutral: 1938732286
@@ -604,6 +691,7 @@ TextureImporter:
       ranking_icon_neutral: -1893623997
       ranking_icon_neutral_olive: 1436379067
       red_health_background: -2122239082
+      red_health_background_simple_v2: -2124351346
       red_health_fill: -299692466
       red_points_background: -1279763042
       red_points_background_blue: 306229756

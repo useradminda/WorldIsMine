@@ -10,6 +10,7 @@ public class AttackState : StateBase
 
     private SkillLogicBase normalSkill;
     private float attackTime;
+    private float attackAnimationLength;
     private float attackEffectTime;
     private bool attackEffectTriggered;
     private bool attackEffectPending;
@@ -59,7 +60,12 @@ public class AttackState : StateBase
             if (attackTime <= 0f)
             {
                 attackTime = 0f;
-                UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
+                // 英雄的攻击动画由 AttackStopComponent 在动画真正结束时切换 wait。
+                // 普通小兵保持原有的逻辑时间切换方式。
+                if (!IsHeroNormalAttack())
+                {
+                    UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
+                }
             }
             return;
         }
@@ -83,6 +89,10 @@ public class AttackState : StateBase
 
         if (normalSkill.CurCD <= 0f)
         {
+            if (IsHeroNormalAttack() && UnitLogic.UnitView.AttackStopComp.IsAttackAnimationPlaying)
+            {
+                return;
+            }
             StartNormalAttack();
         }
     }
@@ -121,6 +131,10 @@ public class AttackState : StateBase
 
     public override void ExitState()
     {
+        if (UnitLogic.UnitView != null && IsHeroNormalAttack())
+        {
+            UnitLogic.UnitView.AttackStopComp.Cancel();
+        }
         UnitLogic.RestoreAgentRadius();
         if (normalSkill != null)
         {
@@ -128,6 +142,7 @@ public class AttackState : StateBase
         }
         normalSkill = null;
         attackTime = 0f;
+        attackAnimationLength = 0f;
         attackEffectTime = 0f;
         attackEffectTriggered = false;
         attackEffectPending = false;
@@ -205,6 +220,11 @@ public class AttackState : StateBase
             return;
         }
 
+        if (IsHeroNormalAttack() && UnitLogic.UnitView.AttackStopComp.IsAttackAnimationPlaying)
+        {
+            return;
+        }
+
         if (normalSkill.CurCD > 0f)
         {
             UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
@@ -214,6 +234,11 @@ public class AttackState : StateBase
 
         UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.attack);
         attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.attack);
+        attackAnimationLength = attackTime;
+        if (IsHeroNormalAttack())
+        {
+            UnitLogic.UnitView.AttackStopComp.BeginAttackAnimation(UnitLogic, attackAnimationLength);
+        }
         attackEffectTime = attackTime * 0.5f;
         attackEffectTriggered = false;
         attackEffectPending = false;
@@ -251,6 +276,12 @@ public class AttackState : StateBase
         if (UnitLogic.SearchTarget != null && !UnitLogic.SearchTarget.IsDead)
         {
             normalSkill.SkillDoEffect(UnitLogic.SearchTarget, resultUnitIndexList);
+            if (!UnitLogic.IsDead && UnitLogic.UnitView != null
+                && UnitLogic.SoliderCfg != null
+                && UnitFactory.IsHero(UnitLogic.SoliderCfg.id))
+            {
+                UnitLogic.UnitView.AttackStopComp.TryStart(UnitLogic);
+            }
         }
         attackEffectPending = false;
     }
@@ -269,6 +300,11 @@ public class AttackState : StateBase
             }
         }
         return false;
+    }
+
+    private bool IsHeroNormalAttack()
+    {
+        return UnitLogic.SoliderCfg != null && UnitFactory.IsHero(UnitLogic.SoliderCfg.id);
     }
 
 }

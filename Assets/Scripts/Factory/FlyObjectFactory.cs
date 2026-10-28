@@ -70,6 +70,8 @@ public static class FlyObjectFactory
                 return new BlackHallFlyObject();
             case "translateArea":
                 return new TranslateAreaFlyObject();
+            case "fastArrow":
+                return new FastArrowFlyObject();
             default:
                 Debug.LogWarning($"Unknown fly object type '{flyType}', using base fly object logic.");
                 return new FlyObjectLogicBase();

@@ -3,30 +3,34 @@
 #
 :format=40300
 :texture=atlas_3_Sprite.png
-:size=2048x2048
+:size=4096x4096
 :pivotpoints=enabled
 :borders=disabled
 :alphahandling=ClearTransparentPixels
-blue_health_background;1026;388;512;64; 0.5;0.5; 0;0;0;0
-blue_health_fill;1026;454;512;32; 0.5;0.5; 0;0;0;0
-blue_points_fill;1540;130;256;64; 0.5;0.5; 0;0;0;0
-invitation_panel;1026;0;512;256; 0.5;0.5; 0;0;0;0
-invitation_panel_blue;0;514;512;256; 0.5;0.5; 0;0;0;0
-invitation_panel_neutral;0;772;512;256; 0.5;0.5; 0;0;0;0
-invitation_panel_neutral_gray_v2;0;1030;512;256; 0.5;0.5; 0;0;0;0
-invitation_panel_neutral_green;0;1288;512;256; 0.5;0.5; 0;0;0;0
-pub_back;1540;196;256;64; 0.5;0.5; 0;0;0;0
-ranking_icon;1798;0;128;128; 0.5;0.5; 0;0;0;0
-ranking_icon_blue;1540;262;128;128; 0.5;0.5; 0;0;0;0
-ranking_icon_neutral;1670;262;128;128; 0.5;0.5; 0;0;0;0
-ranking_icon_neutral_olive;1800;262;128;128; 0.5;0.5; 0;0;0;0
-red_health_background;1026;258;512;128; 0.5;0.5; 0;0;0;0
-red_health_fill;0;1546;512;32; 0.5;0.5; 0;0;0;0
-red_points_background;0;1580;256;64; 0.5;0.5; 0;0;0;0
-red_points_background_blue;0;1646;256;64; 0.5;0.5; 0;0;0;0
-red_points_fill;0;1712;256;64; 0.5;0.5; 0;0;0;0
-score_pool_background;1540;0;256;128; 0.5;0.5; 0;0;0;0
-settings_icon;0;1778;128;128; 0.5;0.5; 0;0;0;0
-settings_icon_neutral;0;1908;128;128; 0.5;0.5; 0;0;0;0
-timer_background;130;1778;256;64; 0.5;0.5; 0;0;0;0
-waiting_panel_background;0;0;1024;512; 0.5;0.5; 0;0;0;0
+blue_health_background;3076;388;512;64; 0.5;0.5; 0;0;0;0
+blue_health_background_simple_v2;0;0;2048;512; 0.5;0.5; 0;0;0;0
+blue_health_fill;3076;454;512;32; 0.5;0.5; 0;0;0;0
+blue_points_fill;3590;130;256;64; 0.5;0.5; 0;0;0;0
+exec-50420013-74a2-44e8-98e3-552a5f8648c5;0;514;2048;512; 0.5;0.5; 0;0;0;0
+exec-faa1c0a7-c808-4b27-971b-283b506ae440;0;1028;2048;512; 0.5;0.5; 0;0;0;0
+invitation_panel;3076;0;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_blue;2050;514;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_neutral;2564;514;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_neutral_gray_v2;3078;514;512;256; 0.5;0.5; 0;0;0;0
+invitation_panel_neutral_green;2050;1028;512;256; 0.5;0.5; 0;0;0;0
+pub_back;3590;196;256;64; 0.5;0.5; 0;0;0;0
+ranking_icon;3848;0;128;128; 0.5;0.5; 0;0;0;0
+ranking_icon_blue;3590;262;128;128; 0.5;0.5; 0;0;0;0
+ranking_icon_neutral;3720;262;128;128; 0.5;0.5; 0;0;0;0
+ranking_icon_neutral_olive;3850;262;128;128; 0.5;0.5; 0;0;0;0
+red_health_background;3076;258;512;128; 0.5;0.5; 0;0;0;0
+red_health_background_simple_v2;0;1542;2048;512; 0.5;0.5; 0;0;0;0
+red_health_fill;2050;772;512;32; 0.5;0.5; 0;0;0;0
+red_points_background;2050;806;256;64; 0.5;0.5; 0;0;0;0
+red_points_background_blue;2050;872;256;64; 0.5;0.5; 0;0;0;0
+red_points_fill;2050;938;256;64; 0.5;0.5; 0;0;0;0
+score_pool_background;3590;0;256;128; 0.5;0.5; 0;0;0;0
+settings_icon;2308;806;128;128; 0.5;0.5; 0;0;0;0
+settings_icon_neutral;2564;772;128;128; 0.5;0.5; 0;0;0;0
+timer_background;2694;772;256;64; 0.5;0.5; 0;0;0;0
+waiting_panel_background;2050;0;1024;512; 0.5;0.5; 0;0;0;0
