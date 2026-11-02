@@ -4,14 +4,15 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: mat_fx_fire_02
-  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: e6ed112f94dfaa5499de6dbeb552865e, type: 3}
   m_ShaderKeywords: BlendAdd Clip_OFF FrameBlend_ON SoftParticles_ON VertLight_OFF
-    _ALPHABLEND_ON _BLENDMODE_BLEND
+    _BLENDMODE_ADD
   m_LightmapFlags: 0
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -20,6 +21,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClipTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -83,9 +88,9 @@ Material:
     - DstMode: 1
     - SrcMode: 5
     - _AlphaTestRef: 0.5
-    - _BlendMode: 1
+    - _BlendMode: 0
     - _BumpScale: 1
-    - _CullMode: 0
+    - _CullMode: 2
     - _Cutoff: 0.5
     - _Cutout: 0.2
     - _CutoutThreshold: 0.015
@@ -93,21 +98,20 @@ Material:
     - _DetailMode: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
-    - _DstMode: 10
+    - _DstMode: 1
     - _EmissionScale: 1
-    - _FogColorMultiplier: 0
     - _FresnelFadeFactor: 3
     - _FresnelPow: 5
     - _FresnelR0: 0.04
     - _Glossiness: 1
     - _InvFade: 3
+    - _IsDecalProjector: 0
     - _Lightmapping: 0
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Refract_Tile: 0.1
     - _Refraction_Amount: 0.05
-    - _SoftInverted: 0
     - _SrcBlend: 5
     - _SrcMode: 5
     - _UVPrim: 0
@@ -122,6 +126,7 @@ Material:
     - _UseParticlesAlphaCutout: 0
     - _UseSoft: 0
     - _UseSoftCutout: 0
+    - _UseSoftInverted: 0
     - _UseVertexStreamRandom: 0
     - _ZWrite: 0
     - _ZWriteMode: 0
@@ -132,8 +137,7 @@ Material:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _CutoutColor: {r: 1, g: 1, b: 1, a: 1}
     - _DistortionSpeedScale: {r: 1, g: -1, b: 0.15, a: 0.15}
-    - _FogColorMultiplier: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
     - _Tiling: {r: 800, g: 400, b: 8, a: 4}
-    - _TintColor: {r: 1, g: 0.6876267, b: 0.5955882, a: 1}
+    - _TintColor: {r: 1.9294118, g: 0.59607846, b: 0.21176471, a: 1}

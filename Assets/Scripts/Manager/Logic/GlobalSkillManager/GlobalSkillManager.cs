@@ -6,12 +6,12 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
 {
     private const int GlobalAttackBuffId = 2;
     public const int GlobalStoneProjectileCount = 5;
-    private const float GlobalStoneOriginHeight = 50f;
+    private const float GlobalStoneOriginHeight = 25f;
     private const float GlobalStoneLaunchInterval = 1f;
-    private const float GlobalStoneFlightDistance = 160f;
+    private const float GlobalStoneFlightDistance = 80f;
     public const int GlobalArrowMaxArrowCount = 100;
-    private const float GlobalArrowOriginDistance = 100f;
-    private const float GlobalArrowRandomDistance = 40f;
+    private const float GlobalArrowOriginDistance = 50f;
+    private const float GlobalArrowRandomDistance = 20f;
     public const int GlobalDragonBreathFlyObjectCfgId = 1004;
     public const int GlobalDragonBreathSkillCfgId = 1004;
 

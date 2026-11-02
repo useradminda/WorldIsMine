@@ -11,6 +11,7 @@ public static class SkillFactory
     public const string KillNowSkillType = "killNow";
     public const string PushSkillType = "push";
     public const string CreateWallSkillType = "createWall";
+    public const string RectSkillType = "rectSkill";
 
     public static SkillLogicBase CreateSkillLogic(UnitLogicBase unitLogic, SkillCfg skillCfg)
     {
@@ -34,6 +35,8 @@ public static class SkillFactory
                 return new PushSkill(unitLogic, skillCfg);
             case CreateWallSkillType:
                 return new CreateWallSkill(unitLogic, skillCfg);
+            case RectSkillType:
+                return new RectSkill(unitLogic, skillCfg);
             case NormalCloseSkillType:
                 return new SkillCloseSkill(unitLogic, skillCfg);
             case RemoteSkillType:

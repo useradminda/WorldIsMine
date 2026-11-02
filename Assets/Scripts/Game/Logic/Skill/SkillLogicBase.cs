@@ -24,6 +24,27 @@ public class SkillLogicBase
         return true;
     }
 
+    /// <summary>
+    /// 是否需要为范围技能执行一次地图初筛。
+    /// </summary>
+    public virtual bool RequiresAreaSearch => skillCfg != null && skillCfg.skillArea > 0f;
+
+    /// <summary>
+    /// 范围初筛中心点，默认使用施法者当前位置。
+    /// </summary>
+    public virtual UnityEngine.Vector3 GetAreaSearchPosition()
+    {
+        return unitLogic.CurPos;
+    }
+
+    /// <summary>
+    /// 范围初筛半径，默认使用技能表中的范围。
+    /// </summary>
+    public virtual float GetAreaSearchRadius()
+    {
+        return skillCfg != null ? skillCfg.skillArea : 0f;
+    }
+
     private float curCD;
     public float CurCD => curCD;
 
@@ -53,7 +74,7 @@ public class SkillLogicBase
 
     public void SkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
     {
-        playStartEffect();
+        PlayStartEffect();
         SkillResetCD();
         OnSkillDoEffect(target, resultUnitIndexList);
     }
@@ -140,12 +161,12 @@ public class SkillLogicBase
         return unitLogic.GetAttackDamage(skillCfg.skillDamageRate);
     }
 
-    private int GetFinalDamage(int attackDamage, UnitLogicBase target)
+    protected int GetFinalDamage(int attackDamage, UnitLogicBase target)
     {
         return -BattleLogicDamageTools.CalcFinalDamage(unitLogic.SoliderCfg.unitType, target.SoliderCfg.unitType, attackDamage, unitLogic.SoliderCfg.restrainValue);
     }
 
-    private void playStartEffect()
+    protected virtual void PlayStartEffect()
     {
         unitLogic.UnitView.PlayEffect(skillCfg.startEffect, unitLogic.CurPos, UnityEngine.Vector3.forward, 5f);
     }

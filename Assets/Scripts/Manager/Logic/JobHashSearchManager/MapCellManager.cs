@@ -12,15 +12,15 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     // Cell + Camp -> UnitIndex
     NativeParallelMultiHashMap<int, int> cellMap;
 
-    public float cellSize = 20f;
+    public float cellSize = 10f;
     public float invCellSize;
 
     // 地图范围
-    public float minX = -300f;
-    public float maxX = 300f;
+    public float minX = -150f;
+    public float maxX = 150f;
 
-    public float minZ = -300f;
-    public float maxZ = 300f;
+    public float minZ = -150f;
+    public float maxZ = 150f;
 
     public int cellCountX;
     public int cellCountZ;
@@ -39,7 +39,7 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
     NativeArray<int> randomResultIndex;
 
     const int MaxSearchRequest = 20000;
-    const int MaxResult = 32;
+    const int MaxResult = 64;
 
     private int unitCount = 0;
 

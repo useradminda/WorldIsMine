@@ -52,6 +52,7 @@ public class SkillCfg
 	public int id;
 	public string name;
 	public string des;
+	public string skillGrade;
 	public string startEffect;
 	public float searchRange;
 	public float atkRange;

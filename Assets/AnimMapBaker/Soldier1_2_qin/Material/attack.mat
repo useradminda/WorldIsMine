@@ -54,7 +54,7 @@ Material:
     - _HalfLambertValue: 0.5
     - _HighLightValue: 1
     - _ICEState: 0
-    - _LightScale: 1.15
+    - _LightScale: 1
     - _MaskValue: 0
     - _Shadow_Length: 1
     - _Shadow_Rotated: 50

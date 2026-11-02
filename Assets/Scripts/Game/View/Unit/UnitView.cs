@@ -230,6 +230,11 @@ public class UnitView : IView
 
     public void PlayAttachEffect(string prefabName, float time)
     {
+        PlayAttachEffect(prefabName, time, Vector3.zero);
+    }
+
+    public void PlayAttachEffect(string prefabName, float time, Vector3 localPosition)
+    {
         if (string.IsNullOrWhiteSpace(prefabName))
         {
             return;
@@ -242,7 +247,7 @@ public class UnitView : IView
         }
 
         go.transform.SetParent(transform, false);
-        go.transform.localPosition = Vector3.zero;
+        go.transform.localPosition = localPosition;
         go.transform.localRotation = Quaternion.identity;
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }

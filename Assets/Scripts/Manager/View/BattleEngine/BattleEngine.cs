@@ -16,6 +16,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     public BornConfig BornConfigIns;
     // 战场自动出兵控制器
     public BattleAutoSpawnController AutoSpawnController;
+    // 战场中线投石控制器
+    public BattleCenterStoneController CenterStoneController;
 
     [Header("交战示意特效")]
     public BattleClashEffectSettings ClashEffects = new BattleClashEffectSettings();
@@ -329,6 +331,15 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (AutoSpawnController != null)
         {
             AutoSpawnController.Initialize(this);
+        }
+
+        if (CenterStoneController == null)
+        {
+            CenterStoneController = GetComponent<BattleCenterStoneController>();
+        }
+        if (CenterStoneController != null)
+        {
+            CenterStoneController.Initialize(this);
         }
 
         return true;

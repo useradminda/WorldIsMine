@@ -91,8 +91,10 @@ public class UnitLogicBase
 
     private int attackBuffValue;
     private bool recycleIdQueued;
+    private bool crossedBattleCenter;
     private bool isReinforcement;
     public bool IsReinforcement => isReinforcement;
+    public bool HasCrossedBattleCenter => crossedBattleCenter;
 
     private float logicRatio = 1;
     public float LogicRatio
@@ -128,6 +130,7 @@ public class UnitLogicBase
     {
         buffLogicMachine.Die();
         recycleIdQueued = false;
+        crossedBattleCenter = false;
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
         this.isReinforcement = isReinforcement;
@@ -189,7 +192,14 @@ public class UnitLogicBase
                     skillList[i].SkillUpdate(dt);
                 }
             }
+
+            BattleCenterStoneController.Instance?.CheckUnitCrossing(this);
         }
+    }
+
+    public void MarkCrossedBattleCenter()
+    {
+        crossedBattleCenter = true;
     }
 
     public void UnitLateUpdate(float dt)

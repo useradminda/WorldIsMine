@@ -41,9 +41,12 @@ public class SkillState : StateBase
 
         if (!executed)
         {
-            if (searchReqIndex < 0 && executePending && skillLogic.RequiresEnemyTarget && skillLogic.SkillCfg.skillArea > 0)
+            if (searchReqIndex < 0 && executePending && skillLogic.RequiresEnemyTarget && skillLogic.RequiresAreaSearch)
             {
-                searchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, skillLogic.SkillCfg.skillArea, UnitLogic.OtherCampTypeInt);
+                searchReqIndex = MapCellManager.Instance.RequestSearch(
+                    skillLogic.GetAreaSearchPosition(),
+                    skillLogic.GetAreaSearchRadius(),
+                    UnitLogic.OtherCampTypeInt);
             }
             return;
         }
@@ -63,7 +66,7 @@ public class SkillState : StateBase
             return;
         }
 
-        if (skillLogic.RequiresEnemyTarget && skillLogic.SkillCfg.skillArea > 0)
+        if (skillLogic.RequiresEnemyTarget && skillLogic.RequiresAreaSearch)
         {
             if (searchReqIndex < 0)
             {
