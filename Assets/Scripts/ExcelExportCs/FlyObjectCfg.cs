@@ -51,6 +51,7 @@ public class FlyObjectCfg
 {
 	public int id;
 	public string name;
+	public string des;
 	public float speed;
 	public string flyType;
 	public string prefab;

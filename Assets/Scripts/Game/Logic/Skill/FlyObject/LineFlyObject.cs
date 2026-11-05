@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-// Area Object
+/// <summary>
+/// 沿固定方向持续前进的直线范围飞行器。
+/// 适用于冲击波、火焰射线和直线穿透攻击，飞行过程中按周期搜索当前位置周围敌人。
+/// </summary>
 public class LineFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;

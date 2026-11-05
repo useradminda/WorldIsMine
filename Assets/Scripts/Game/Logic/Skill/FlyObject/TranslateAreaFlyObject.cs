@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Teleports enemies found around the caster to their own camp door.</summary>
+/// <summary>
+/// 范围城门传送飞行器。
+/// 适用于持续搜索施法者周围敌人并将其传送到各自阵营城门的战场控制技能。
+/// </summary>
 public class TranslateAreaFlyObject : FlyObjectLogicBase
 {
     private int searchRequest = -1;

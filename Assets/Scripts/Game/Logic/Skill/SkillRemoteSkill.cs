@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 通用远程技能类型。
+/// 适用于需要通过 flyObjectId 发射箭、石块或其他飞行器的技能；自身目标技能则直接施加 Buff。
+/// </summary>
 public class SkillRemoteSkill : SkillLogicBase
 {
     public SkillRemoteSkill(UnitLogicBase ulb, SkillCfg skillCfg) : base(ulb, skillCfg)

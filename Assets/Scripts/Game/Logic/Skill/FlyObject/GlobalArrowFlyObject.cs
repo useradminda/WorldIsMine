@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 全局箭飞行器。
+/// 适用于战场系统触发的全局落点攻击，到达目标位置后进行范围搜索，并通过伤害上下文避免重复伤害。
+/// </summary>
 public class GlobalArrowFlyObject : FlyObjectLogicBase
 {
     public class DamageContext

@@ -8,7 +8,6 @@ using UnityEngine.SocialPlatforms;
 public static class UnitFactory
 {
     public const int MaxActiveUnitCountPerCamp = 5000;
-    public const int MaxActiveReinforcementCountPerCamp = 1000;
     private static int blueUId = 0;
     private static int redUId = 0;
 
@@ -20,17 +19,10 @@ public static class UnitFactory
 
     private static int redActiveCount = 0;
     private static int blueActiveCount = 0;
-    private static int redReinforcementCount = 0;
-    private static int blueReinforcementCount = 0;
 
     public static int GetActiveCount(ECampType campType)
     {
         return campType == ECampType.Red ? redActiveCount : blueActiveCount;
-    }
-
-    public static int GetReinforcementCount(ECampType campType)
-    {
-        return campType == ECampType.Red ? redReinforcementCount : blueReinforcementCount;
     }
 
     public static bool IsHero(int cfgId)
@@ -41,18 +33,17 @@ public static class UnitFactory
 
     public static bool CanCreateUnit(int cfgId, ECampType campType, bool isReinforcement = false)
     {
-        if (IsHero(cfgId))
+        if (IsHero(cfgId) || isReinforcement)
         {
             return true;
         }
 
-        return GetActiveCount(campType) < MaxActiveUnitCountPerCamp
-            && (!isReinforcement || GetReinforcementCount(campType) < MaxActiveReinforcementCountPerCamp);
+        return GetActiveCount(campType) < MaxActiveUnitCountPerCamp;
     }
 
     public static bool CanCreateUnitGroup(int cfgId, ECampType campType, int count, bool isReinforcement = false)
     {
-        if (count <= 0 || IsHero(cfgId))
+        if (count <= 0 || IsHero(cfgId) || isReinforcement)
         {
             return count > 0;
         }
@@ -67,19 +58,13 @@ public static class UnitFactory
             return 0;
         }
 
-        if (IsHero(cfgId))
+        if (IsHero(cfgId) || isReinforcement)
         {
             return requestedCount;
         }
 
         int totalRemaining = Mathf.Max(0, MaxActiveUnitCountPerCamp - GetActiveCount(campType));
-        if (!isReinforcement)
-        {
-            return Mathf.Min(requestedCount, totalRemaining);
-        }
-
-        int reinforcementRemaining = Mathf.Max(0, MaxActiveReinforcementCountPerCamp - GetReinforcementCount(campType));
-        return Mathf.Min(requestedCount, Mathf.Min(totalRemaining, reinforcementRemaining));
+        return Mathf.Min(requestedCount, totalRemaining);
     }
     
     // 创建一个单位
@@ -96,10 +81,9 @@ public static class UnitFactory
 
         if (!IsHero(cfgId))
         {
-            AddActiveCount(campType);
-            if (isReinforcement)
+            if (!isReinforcement)
             {
-                AddReinforcementCount(campType);
+                AddActiveCount(campType);
             }
         }
         UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index, isReinforcement);
@@ -127,10 +111,9 @@ public static class UnitFactory
         UnitLogicBase unit = UnitManager.Instance.UnitList[unitIndex];
         if (!IsHero(cfgId))
         {
-            AddActiveCount(campType);
-            if (isReinforcement)
+            if (!isReinforcement)
             {
-                AddReinforcementCount(campType);
+                AddActiveCount(campType);
             }
         }
         unit.CycleUse(cfgId, getUId(campType), moveForward, isReinforcement);
@@ -227,13 +210,9 @@ public static class UnitFactory
     // 回收UnitIndex
     public static void RecycleId(ECampType campType, int recycleUnitIndex, bool isHero, bool isReinforcement = false)
     {
-        if (!isHero)
+        if (!isHero && !isReinforcement)
         {
             RemoveActiveCount(campType);
-            if (isReinforcement)
-            {
-                RemoveReinforcementCount(campType);
-            }
         }
         if (campType == ECampType.Red)
         {
@@ -308,27 +287,4 @@ public static class UnitFactory
         }
     }
 
-    private static void AddReinforcementCount(ECampType campType)
-    {
-        if (campType == ECampType.Red)
-        {
-            redReinforcementCount++;
-        }
-        else
-        {
-            blueReinforcementCount++;
-        }
-    }
-
-    private static void RemoveReinforcementCount(ECampType campType)
-    {
-        if (campType == ECampType.Red)
-        {
-            redReinforcementCount = Mathf.Max(0, redReinforcementCount - 1);
-        }
-        else
-        {
-            blueReinforcementCount = Mathf.Max(0, blueReinforcementCount - 1);
-        }
-    }
 }

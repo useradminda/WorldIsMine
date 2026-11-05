@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 全局火球的单发飞行逻辑。
-/// 火球不进入 ProjectileJobManager，自己计算抛物线并在落点结算范围伤害。
+/// 全局投石的单发飞行器。
+/// 适用于战场中线投石或陨石事件；不进入 ProjectileJobManager，自己计算抛物线并在落点结算范围伤害。
 /// </summary>
 public class GlobalStoneFlyObject : FlyObjectLogicBase
 {

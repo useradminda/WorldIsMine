@@ -118,8 +118,11 @@ public class SkillState : StateBase
             return;
         }
 
-        UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.skill);
-        skillTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.skill);
+        ActionFlow actionFlow = UnitLogic.UnitView.ActionFlowComponent;
+        actionFlow.PlayAction(skillLogic.SkillCfg.skillAnim);
+        skillTime = actionFlow.CurrentActionData != null
+            ? actionFlow.CurrentActionData.AnimLen
+            : actionFlow.GetAnimLen(EActionType.skill);
         UnitLogicBase skillTarget = skillLogic.TargetsSelf ? UnitLogic : UnitLogic.SearchTarget;
         Vector3 attackDirection = skillTarget != null && skillTarget != UnitLogic
             ? skillTarget.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos

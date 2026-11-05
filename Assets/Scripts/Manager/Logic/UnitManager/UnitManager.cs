@@ -13,7 +13,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
     public List<UnitLogicBase> BlueUnitList => blueUnitList;
     private readonly Queue<UnitSpawnRequest> redWaitingRequests = new Queue<UnitSpawnRequest>();
     private readonly Queue<UnitSpawnRequest> blueWaitingRequests = new Queue<UnitSpawnRequest>();
-    private Func<int, ECampType, int, bool, bool, Vector3, Vector3, int> spawnHandler;
+    private Func<int, ECampType, int, bool, bool, Vector3, Vector3, List<Vector3>, int> spawnHandler;
 
     private UnitLogicBase redWallLogic;
     private UnitLogicBase blueWallLogic;
@@ -34,6 +34,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
         public bool HasSpawnPoint;
         public Vector3 SpawnPoint;
         public Vector3 SpawnForward;
+        public List<Vector3> SpawnPoints;
     }
   
     public void ManagerInit()
@@ -79,7 +80,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
         ProcessWaitingRequests(ECampType.Blue);
     }
 
-    public void SetSpawnHandler(Func<int, ECampType, int, bool, bool, Vector3, Vector3, int> handler)
+    public void SetSpawnHandler(Func<int, ECampType, int, bool, bool, Vector3, Vector3, List<Vector3>, int> handler)
     {
         spawnHandler = handler;
     }
@@ -102,7 +103,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
     }
 
     public void EnqueueSpawn(int cfgId, ECampType campType, int count, bool isReinforcement = false,
-        bool hasSpawnPoint = false, Vector3 spawnPoint = default(Vector3), Vector3 spawnForward = default(Vector3))
+        bool hasSpawnPoint = false, Vector3 spawnPoint = default(Vector3), Vector3 spawnForward = default(Vector3), List<Vector3> spawnPoints = null)
     {
         if (count <= 0)
         {
@@ -116,7 +117,8 @@ public class UnitManager : Singleton<UnitManager>, IManager
             IsReinforcement = isReinforcement,
             HasSpawnPoint = hasSpawnPoint,
             SpawnPoint = spawnPoint,
-            SpawnForward = spawnForward
+            SpawnForward = spawnForward,
+            SpawnPoints = spawnPoints
         });
     }
 
@@ -185,13 +187,13 @@ public class UnitManager : Singleton<UnitManager>, IManager
             if (heroRequest != null)
             {
                 spawnHandler(heroRequest.CfgId, campType, heroRequest.Count, heroRequest.IsReinforcement,
-                    heroRequest.HasSpawnPoint, heroRequest.SpawnPoint, heroRequest.SpawnForward);
+                    heroRequest.HasSpawnPoint, heroRequest.SpawnPoint, heroRequest.SpawnForward, heroRequest.SpawnPoints);
             }
             return;
         }
 
         spawnHandler(request.CfgId, campType, request.Count, request.IsReinforcement,
-            request.HasSpawnPoint, request.SpawnPoint, request.SpawnForward);
+            request.HasSpawnPoint, request.SpawnPoint, request.SpawnForward, request.SpawnPoints);
         queue.Dequeue();
     }
 

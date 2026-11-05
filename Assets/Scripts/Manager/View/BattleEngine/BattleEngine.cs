@@ -9,7 +9,6 @@ using ZTools;
 // 战斗引擎
 public class BattleEngine : MonoSingleton<BattleEngine>
 {
-    private const float SpawnUnitPadding = 1f;
     // 场地碰撞配置
     public ObstacleConfig ObstacleConfigIns;
     // 出生位置
@@ -157,18 +156,16 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         CreateUnitInternal(cfgId, campType, 1, false, true, spawnPoint, spawnForward);
     }
 
-    public void CreateReinforcementUnits(int cfgId, ECampType campType, int count)
+    /// <summary>
+    /// 按召唤技能提供的出生点列表创建援军。
+    /// </summary>
+    public void CreateReinforcementUnits(int cfgId, ECampType campType, List<Vector3> spawnPoints, Vector3 spawnForward)
     {
-        CreateUnitInternal(cfgId, campType, count, true, false, Vector3.zero, Vector3.zero);
-    }
-
-    public void CreateReinforcementUnits(int cfgId, ECampType campType, int count, Vector3 spawnPoint, Vector3 spawnForward)
-    {
-        CreateUnitInternal(cfgId, campType, count, true, true, spawnPoint, spawnForward);
+        CreateUnitInternal(cfgId, campType, spawnPoints.Count, true, true, Vector3.zero, spawnForward, spawnPoints);
     }
 
     private void CreateUnitInternal(int cfgId, ECampType campType, int count, bool isReinforcement,
-        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward)
+        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward, List<Vector3> spawnPoints = null)
     {
         if (battleFinished == true)
             return;
@@ -177,25 +174,25 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return;
         }
 
-        if (!UnitFactory.IsHero(cfgId) && UnitManager.Instance.HasWaitingRequest(campType))
+        if (!isReinforcement && !UnitFactory.IsHero(cfgId) && UnitManager.Instance.HasWaitingRequest(campType))
         {
             UnitManager.Instance.EnqueueSpawn(cfgId, campType, count, isReinforcement,
-                hasSpawnPoint, spawnPoint, spawnForward);
+                hasSpawnPoint, spawnPoint, spawnForward, spawnPoints);
             return;
         }
 
-        if (!UnitFactory.CanCreateUnitGroup(cfgId, campType, count, isReinforcement))
+        if (!isReinforcement && !UnitFactory.CanCreateUnitGroup(cfgId, campType, count, isReinforcement))
         {
             UnitManager.Instance.EnqueueSpawn(cfgId, campType, count, isReinforcement,
-                hasSpawnPoint, spawnPoint, spawnForward);
+                hasSpawnPoint, spawnPoint, spawnForward, spawnPoints);
             return;
         }
 
-        CreateAvailableUnits(cfgId, campType, count, isReinforcement, hasSpawnPoint, spawnPoint, spawnForward);
+        CreateAvailableUnits(cfgId, campType, count, isReinforcement, hasSpawnPoint, spawnPoint, spawnForward, spawnPoints);
     }
 
     private int CreateAvailableUnits(int cfgId, ECampType campType, int count, bool isReinforcement,
-        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward)
+        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward, List<Vector3> spawnPoints = null)
     {
         int creatableCount = UnitFactory.GetCreatableUnitCount(cfgId, campType, count, isReinforcement);
         if (creatableCount <= 0)
@@ -212,8 +209,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
        
         for (int i = 0; i < creatableCount; i++)
         {
-            Vector3 bornPoint = isReinforcement && hasSpawnPoint
-                ? GetReinforcementCreatePoint(baseBornPoint, i, creatableCount, unitRadius)
+            Vector3 bornPoint = isReinforcement
+                ? spawnPoints[i]
                 : GetCreatePoint(baseBornPoint, forward, i, creatableCount, unitRadius);
 
             UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType, isReinforcement);
@@ -252,7 +249,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         int totalCount,
         float unitRadius)
     {
-        float spacing = Mathf.Max(0.1f, unitRadius * 2f + SpawnUnitPadding);
+        float spacing = Mathf.Max(0.1f, unitRadius * 2f + BattleDefine.SpawnUnitPadding);
         int columns = Mathf.Max(1, Mathf.FloorToInt(BattleDefine.AreaTotalWith / spacing));
         columns = Mathf.Min(columns, Mathf.Max(1, totalCount));
         int row = unitIndex / columns;
@@ -264,25 +261,6 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         Vector3 rowOffset = -forward * row * spacing;
         Vector3 columnOffset = right * centeredColumn * spacing;
         return bornPoint + rowOffset + columnOffset;
-    }
-
-    private Vector3 GetReinforcementCreatePoint(
-        Vector3 center,
-        int unitIndex,
-        int totalCount,
-        float unitRadius)
-    {
-        if (totalCount <= 0)
-        {
-            return center;
-        }
-
-        float spacing = Mathf.Max(0.1f, unitRadius * 2f + SpawnUnitPadding);
-        float circumferenceRadius = spacing * totalCount / (Mathf.PI * 2f);
-        float radius = Mathf.Max(spacing * 1.5f, circumferenceRadius);
-        float angle = Mathf.PI * 2f * unitIndex / totalCount;
-        Vector3 offset = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * radius;
-        return center + offset;
     }
 
     private bool initBattle()

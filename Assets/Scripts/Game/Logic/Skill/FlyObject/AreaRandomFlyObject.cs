@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 随机位置持续范围飞行器。
+/// 适用于落点不断变化的区域攻击，每次触发时从搜索结果中选择随机单位位置作为表现位置。
+/// </summary>
 public class AreaRandomFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;
@@ -89,8 +93,9 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
                 {
                     continue;
                 }
+                CreateArriveEffect(tarUnitLogic.CurPos);
                 BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), resultUnitUidList[i], mSkillLogic.SkillCfg.dieType, mTarPos);
-                mSkillLogic.ApplyBuffs(tarUnitLogic);
+                mSkillLogic.ApplyBuffs(tarUnitLogic); 
             }
         }
     }

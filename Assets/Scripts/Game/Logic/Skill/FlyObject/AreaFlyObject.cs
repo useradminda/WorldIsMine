@@ -1,7 +1,10 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-// Area Object
+/// <summary>
+/// 固定落点持续范围飞行器。
+/// 适用于火焰区域、毒雾和持续地面伤害，按 damClipTime 周期搜索并结算范围伤害。
+/// </summary>
 public class AreaFlyObject : FlyObjectLogicBase
 {
     private float liveTime = 0;

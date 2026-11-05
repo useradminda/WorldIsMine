@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4971103697616947732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4971103697616947734}
+  - component: {fileID: 4971103697616947735}
+  m_Layer: 0
+  m_Name: Fairy Black Hole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4971103697616947734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971103697616947732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8144717750819585662}
+  - {fileID: 2017126644116485977}
+  - {fileID: 7438096843431754768}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4971103697616947735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971103697616947732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3965e2f8bb9f2694db78e024fb08860d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castParticle: {fileID: 8144717750819585665}
+  castFXDuration: 0.78
+  loopingParticle: {fileID: 7438096843431754769}
+  loopDuration: 2
+  endParticle: {fileID: 2017126644116485982}
+--- !u!1001 &4971103698972025788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4971103697616947734}
+    m_Modifications:
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016301, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackHole_Fairy_Loop
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577613500800016301, guid: 2c141e47617e7934f9d38ccbb252bff8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2c141e47617e7934f9d38ccbb252bff8, type: 3}
+--- !u!4 &7438096843431754768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2577613500800016300, guid: 2c141e47617e7934f9d38ccbb252bff8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971103698972025788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7438096843431754769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2577613500800016301, guid: 2c141e47617e7934f9d38ccbb252bff8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971103698972025788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4971103699025115528
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4971103697616947734}
+    m_Modifications:
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510038, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackHole_Fairy_Dissipation
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846225179082510038, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf2bfb0702f97cb4aab29bed2bd33511, type: 3}
+--- !u!4 &2017126644116485977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6846225179082510033, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971103699025115528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2017126644116485982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846225179082510038, guid: bf2bfb0702f97cb4aab29bed2bd33511,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971103699025115528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4971103699377759713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4971103697616947734}
+    m_Modifications:
+    - target: {fileID: 3889757531414846304, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackHole_Fairy_BuildUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846304, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bcb6ba758468a394c93eccc7bfb81ea6, type: 3}
+--- !u!4 &8144717750819585662 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3889757531414846367, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971103699377759713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8144717750819585665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3889757531414846304, guid: bcb6ba758468a394c93eccc7bfb81ea6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4971103699377759713}
+  m_PrefabAsset: {fileID: 0}

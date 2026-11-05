@@ -33,7 +33,17 @@ public abstract class BuffLogicBase
         }
 
         float effectTime = BuffCfg.time > 0f ? BuffCfg.time : 2f;
-        mUnitLogic.UnitView.PlayAttachEffect(BuffCfg.enterBuffEff, effectTime);
+        mUnitLogic.UnitView.PlayAttachEffect(BuffCfg.enterBuffEff, effectTime, UnityEngine.Vector3.zero);
+    }
+
+    public void PlayTriggerEffect()
+    {
+         if (mUnitLogic == null || mUnitLogic.UnitView == null || BuffCfg == null
+            || string.IsNullOrWhiteSpace(BuffCfg.triggerBuffEff))
+        {
+            return;
+        }
+        mUnitLogic.UnitView.PlayEffect(BuffCfg.enterBuffEff, mUnitLogic.CurPos, 2);
     }
 
     /// <summary>更新Buff剩余时间。</summary>

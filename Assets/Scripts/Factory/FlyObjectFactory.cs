@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Creates and registers runtime fly-object logic from FlyObjectCfg.
+/// 根据飞行器配置创建并注册运行时飞行器逻辑。
 /// </summary>
 public static class FlyObjectFactory
 {
@@ -23,9 +23,7 @@ public static class FlyObjectFactory
             return null;
         }
 
-        FlyObjectLogicBase flyObjectLogic = flyObjectCfgId == 14
-            ? new CreateWallFlyObject()
-            : CreateFlyObjectLogic(flyObjectCfg.flyType);
+        FlyObjectLogicBase flyObjectLogic = CreateFlyObjectLogic(flyObjectCfg.flyType);
         int flyUIndex = FlyObjectManager.Instance.AddFlyUnitImmediately(flyObjectLogic);
         flyObjectLogic.SetFlyObjectInfo(
             flyObjectCfg,

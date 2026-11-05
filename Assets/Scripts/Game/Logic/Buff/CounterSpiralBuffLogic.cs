@@ -45,6 +45,7 @@ public class CounterSpiralBuffLogic : BuffLogicBase
         }
         receivedAttackCount = 0;
         accumulatedDamage = 0;
+        PlayTriggerEffect();
         return Mathf.Max(0, counterDamage);
     }
 

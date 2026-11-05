@@ -1,0 +1,312 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6417584139267587202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6417584139267587200}
+  - component: {fileID: 6417584139267587203}
+  m_Layer: 0
+  m_Name: Wind Black Hole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6417584139267587200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417584139267587202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3648795426062242425}
+  - {fileID: 7051154064251124907}
+  - {fileID: 4067495487454105416}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6417584139267587203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417584139267587202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3965e2f8bb9f2694db78e024fb08860d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castParticle: {fileID: 3648795426062242426}
+  castFXDuration: 0.34
+  loopingParticle: {fileID: 4067495487454105417}
+  loopDuration: 2
+  endParticle: {fileID: 7051154064251124906}
+--- !u!1001 &6417584138000811673
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6417584139267587200}
+    m_Modifications:
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762851, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackHole_Wind_BuildUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758847691684762851, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f00cfd11a0612ee4ba1ff6060dd66006, type: 3}
+--- !u!4 &3648795426062242425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7758847691684762848, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+    type: 3}
+  m_PrefabInstance: {fileID: 6417584138000811673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3648795426062242426 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7758847691684762851, guid: f00cfd11a0612ee4ba1ff6060dd66006,
+    type: 3}
+  m_PrefabInstance: {fileID: 6417584138000811673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6417584138079700491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6417584139267587200}
+    m_Modifications:
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152289, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackHole_Wind_Dissipation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095299862119152289, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1, type: 3}
+--- !u!1 &7051154064251124906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4095299862119152289, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6417584138079700491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7051154064251124907 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4095299862119152288, guid: 9debd3fa35fe69f40b53ffb89fa1d7d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6417584138079700491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6417584138627035655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6417584139267587200}
+    m_Modifications:
+    - target: {fileID: 7024897840597925198, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_Name
+      value: BlackHole_Wind_Loop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925198, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7e2512de412ece74cbe0e4005c2a7f8a, type: 3}
+--- !u!4 &4067495487454105416 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7024897840597925199, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6417584138627035655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4067495487454105417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7024897840597925198, guid: 7e2512de412ece74cbe0e4005c2a7f8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6417584138627035655}
+  m_PrefabAsset: {fileID: 0}

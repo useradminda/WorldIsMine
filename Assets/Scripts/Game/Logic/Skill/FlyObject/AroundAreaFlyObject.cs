@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Follows its caster and repeatedly damages enemies around the caster.</summary>
+/// <summary>
+/// 跟随施法者的持续范围飞行器。
+/// 适用于光环、冲撞和近身持续伤害，按 damClipTime 搜索施法者周围敌人并持续结算。
+/// </summary>
 public class AroundAreaFlyObject : FlyObjectLogicBase
 {
     private float liveTime;

@@ -1,6 +1,10 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+/// <summary>
+/// 单目标直线箭飞行器。
+/// 适用于普通远程攻击和单目标投射物，由 ProjectileJobManager 驱动到达目标后结算一次伤害。
+/// </summary>
 public class ArrowFlyObject : FlyObjectLogicBase
 {
     private int targetUid;

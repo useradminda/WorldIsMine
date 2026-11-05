@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 3372dfca043bf3445832b4a37461bbf8
+AssetOrigin:
+  serializedVersion: 1
+  productId: 315464
+  packageName: Triple-A MOBA Projectiles
+  packageVersion: 1.4
+  assetPath: Assets/Hovl Studio/HSFiles/Textures/Trail66.png
+  uploadId: 832152
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -154,10 +161,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 315467
-  packageName: Triple-A Sci-fi effects
-  packageVersion: 2.0
-  assetPath: Assets/Hovl Studio/HSFiles/Textures/Trail66.png
-  uploadId: 865434

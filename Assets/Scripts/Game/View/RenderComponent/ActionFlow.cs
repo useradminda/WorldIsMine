@@ -104,6 +104,21 @@ public class ActionFlow : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 按配置中的动作名称播放动作。
+    /// </summary>
+    public void PlayAction(string actionType)
+    {
+        if (!string.IsNullOrWhiteSpace(actionType)
+            && System.Enum.TryParse(actionType, true, out EActionType parsedActionType))
+        {
+            PlayAction(parsedActionType);
+            return;
+        }
+
+        PlayAction(EActionType.skill);
+    }
+
     // 获取动作时长
     public float GetAnimLen(EActionType _actionType)
     {

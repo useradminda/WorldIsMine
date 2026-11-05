@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Creates a rectangular runtime RVO obstacle in front of the caster.
-/// skillParam format: length,width,forwardDistance. The visual and lifetime come from flyObjectId 14.
+/// 创建临时矩形 RVO 障碍的技能类型。
+/// 适用于堵路、分割战场和保护阵地；城墙尺寸与位置参数由关联飞行器的 flyParam 提供。
 /// </summary>
 public class CreateWallSkill : SkillLogicBase
 {
@@ -19,7 +19,7 @@ public class CreateWallSkill : SkillLogicBase
             return;
         }
         FlyObjectFactory.CreateFlyObjectLogic(
-            14,
+            SkillCfg.flyObjectId,
             UnitLogic.CurPos,
             UnitLogic.CurPos,
             UnitLogic,

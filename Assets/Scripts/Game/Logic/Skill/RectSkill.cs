@@ -4,7 +4,8 @@ using System.Globalization;
 using UnityEngine;
 
 /// <summary>
-/// 近战矩形范围技能。技能释放时立即完成一次范围判定，不创建飞行器。
+/// 矩形范围瞬发技能类型。
+/// 适用于长条形斩击、扇形替代判定和前方区域攻击；释放时立即判定一次，不创建飞行器。
 /// skillParam 格式：矩形宽度,矩形前方长度。
 /// </summary>
 public class RectSkill : SkillLogicBase
@@ -14,6 +15,7 @@ public class RectSkill : SkillLogicBase
     private float rectWidth;
     private float rectLength;
     private bool paramLogged;
+    private float delayedEffectTime;
 
     public RectSkill(UnitLogicBase unitLogic, SkillCfg skillCfg) : base(unitLogic, skillCfg)
     {
@@ -22,6 +24,40 @@ public class RectSkill : SkillLogicBase
     public override bool RequiresAreaSearch => false;
 
     public override void OnSkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
+    {
+        float triggerDelay = GetTriggerSkillTime();
+        if (triggerDelay > 0f)
+        {
+            delayedEffectTime = triggerDelay;
+            return;
+        }
+
+        ExecuteRectEffect();
+    }
+
+    public override void SkillUpdate(float dt)
+    {
+        base.SkillUpdate(dt);
+        if (delayedEffectTime <= 0f)
+        {
+            return;
+        }
+
+        if (UnitLogic == null || UnitLogic.IsDead)
+        {
+            delayedEffectTime = 0f;
+            return;
+        }
+
+        delayedEffectTime -= dt * UnitLogic.LogicRatio;
+        if (delayedEffectTime <= 0f)
+        {
+            delayedEffectTime = 0f;
+            ExecuteRectEffect();
+        }
+    }
+
+    private void ExecuteRectEffect()
     {
         if (!TryParseRect(out rectWidth, out rectLength))
         {
@@ -44,19 +80,14 @@ public class RectSkill : SkillLogicBase
         }
     }
 
-    protected override void PlayStartEffect()
+    private float GetTriggerSkillTime()
     {
-        if (SkillCfg == null || string.IsNullOrWhiteSpace(SkillCfg.startEffect)
-            || UnitLogic.UnitView == null)
+        if (SkillCfg == null)
         {
-            return;
+            return 0f;
         }
 
-        // 将技能特效挂在角色胸前，角色移动时特效同步移动并由对象池回收。
-        UnitLogic.UnitView.PlayAttachEffect(
-            SkillCfg.startEffect,
-            5f,
-            new Vector3(0f, 0.8f, 0.5f));
+        return SkillCfg.triigerSkillTime;
     }
 
     private void TryDamageTarget(UnitLogicBase target, int attackDamage)

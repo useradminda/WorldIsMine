@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 可连续追踪多个目标的跳跃箭飞行器。
+/// 适用于弹射箭或连锁投射物，命中后继续搜索未受击目标，次数由 triggerDamageCount 控制。
+/// </summary>
 public class JumpArrowFlyObject : FlyObjectLogicBase
 {
     private readonly List<int> resultUnitIndexList = new List<int>();

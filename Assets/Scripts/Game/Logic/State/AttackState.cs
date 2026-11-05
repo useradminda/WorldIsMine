@@ -232,8 +232,13 @@ public class AttackState : StateBase
             return;
         }
 
-        UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.attack);
-        attackTime = UnitLogic.UnitView.ActionFlowComponent.GetAnimLen(EActionType.attack);
+        ActionFlow actionFlow = UnitLogic.UnitView.ActionFlowComponent;
+        actionFlow.PlayAction(string.IsNullOrWhiteSpace(normalSkill.SkillCfg.skillAnim)
+            ? EActionType.attack.ToString()
+            : normalSkill.SkillCfg.skillAnim);
+        attackTime = actionFlow.CurrentActionData != null
+            ? actionFlow.CurrentActionData.AnimLen
+            : actionFlow.GetAnimLen(EActionType.attack);
         attackAnimationLength = attackTime;
         if (IsHeroNormalAttack())
         {

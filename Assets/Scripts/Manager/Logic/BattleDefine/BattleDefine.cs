@@ -4,6 +4,7 @@ public class BattleDefine
     public const int FootManWithCount = 20;
     public const float FootManHeightSegDis = 1.5f;
     public const float AreaTotalWith = 40f;
+    public const float SpawnUnitPadding = 1f;
 
     public const int SearchInterval = 20;
 }

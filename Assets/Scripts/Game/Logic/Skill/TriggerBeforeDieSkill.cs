@@ -1,3 +1,7 @@
+/// <summary>
+/// 死亡前触发技能类型。
+/// 适用于单位即将死亡时自动触发一次技能效果，例如给自身添加 Buff 或产生特殊反击。
+/// </summary>
 public class TriggerBeforeDieSkill : SkillLogicBase
 {
     public override bool IsTriggerBeforeDie => true;

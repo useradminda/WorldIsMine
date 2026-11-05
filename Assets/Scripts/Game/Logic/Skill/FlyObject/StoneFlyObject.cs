@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 单目标投石飞行器。
+/// 适用于普通抛物线石块攻击，由 ProjectileJobManager 驱动到达目标位置后结算一次伤害。
+/// </summary>
 public class StoneFlyObject : FlyObjectLogicBase
 {
     private bool damagePending;

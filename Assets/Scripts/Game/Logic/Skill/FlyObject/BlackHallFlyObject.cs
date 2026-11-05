@@ -2,7 +2,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-/// <summary>Applies an RVO pull toward the caster to enemies inside the skill area.</summary>
+/// <summary>
+/// 黑洞牵引飞行器。
+/// 适用于范围控制技能，按周期搜索范围内敌人并通过 RVO 将其牵引向施法者。
+/// </summary>
 public class BlackHallFlyObject : FlyObjectLogicBase
 {
     private float liveTime;

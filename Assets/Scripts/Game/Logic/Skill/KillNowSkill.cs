@@ -1,6 +1,10 @@
 using System.Globalization;
 using UnityEngine;
 
+/// <summary>
+/// 生命值斩杀技能类型。
+/// 适用于对满足生命值阈值的敌方英雄执行立即击杀，阈值由 skillParam 配置。
+/// </summary>
 public class KillNowSkill : SkillLogicBase
 {
     private const float DefaultKillThreshold = 0.15f;

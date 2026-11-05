@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Summons a small reinforcement group for the owner's camp.</summary>
+/// <summary>
+/// 援军召唤技能类型。
+/// 适用于战场上按红蓝双方士兵配置批量生成援军的技能，默认每次召唤 10 个单位。
+/// </summary>
 public class CallFriendSkill : SkillLogicBase
 {
-    public const int DefaultFriendCount = 20;
+    public const int DefaultFriendCount = 10;
+    private const float SpawnEffectDuration = 2f;
 
     public CallFriendSkill(UnitLogicBase ulb, SkillCfg skillCfg)
         : base(ulb, skillCfg)
@@ -31,12 +36,61 @@ public class CallFriendSkill : SkillLogicBase
             spawnForward = Vector3.forward;
         }
 
+        List<Vector3> spawnPoints = CreateSpawnPoints(UnitLogic.CurPos, DefaultFriendCount, reinforcementCfgId);
         BattleEngine.Instance.CreateReinforcementUnits(
             reinforcementCfgId,
             UnitLogic.CampType,
-            DefaultFriendCount,
-            UnitLogic.CurPos,
+            spawnPoints,
             spawnForward.normalized);
+
+        PlaySpawnEffects(spawnPoints, spawnForward.normalized);
+    }
+
+    /// <summary>
+    /// 计算援军围绕召唤者的圆周出生点。
+    /// </summary>
+    private List<Vector3> CreateSpawnPoints(Vector3 center, int count, int soldierCfgId)
+    {
+        List<Vector3> spawnPoints = new List<Vector3>(count);
+        if (count <= 0)
+        {
+            return spawnPoints;
+        }
+
+        SoliderCfg soldierCfg = SoliderCfgConfig.Ins.SearchById(soldierCfgId);
+        float unitRadius = soldierCfg != null ? soldierCfg.radius : 1.5f;
+        float spacing = Mathf.Max(0.1f, unitRadius * 2f + BattleDefine.SpawnUnitPadding);
+        float circumferenceRadius = spacing * count / (Mathf.PI * 2f);
+        float radius = Mathf.Max(spacing * 1.5f, circumferenceRadius);
+
+        for (int i = 0; i < count; i++)
+        {
+            float angle = Mathf.PI * 2f * i / count;
+            Vector3 offset = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * radius;
+            spawnPoints.Add(center + offset);
+        }
+
+        return spawnPoints;
+    }
+
+    /// <summary>
+    /// 在每个援军出生点播放技能配置中的出生特效。
+    /// </summary>
+    private void PlaySpawnEffects(List<Vector3> spawnPoints, Vector3 spawnForward)
+    {
+        if (SkillCfg == null || string.IsNullOrWhiteSpace(SkillCfg.startEffect) || spawnPoints == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            GameObject effect = UnitViewFactory.CreateGob(SkillCfg.startEffect, spawnPoints[i], spawnForward);
+            if (effect != null)
+            {
+                effect.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(SpawnEffectDuration, SkillCfg.startEffect);
+            }
+        }
     }
 
     private bool TryGetReinforcementCfgId(out int reinforcementCfgId)

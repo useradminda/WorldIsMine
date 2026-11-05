@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Locks the current enemy target's direction, then keeps charging for the duration
-/// configured by the selected aroundArea fly object.
+/// 锁定当前敌方目标方向并进入持续冲撞的技能类型。
+/// 适用于英雄向敌方阵营突进；移动由 PushState 负责，持续范围伤害由关联的 aroundArea 飞行器负责。
 /// </summary>
 public class PushSkill : SkillLogicBase
 {

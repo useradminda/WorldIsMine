@@ -56,5 +56,6 @@ public class BuffCfg
 	public float time;
 	public float value;
 	public string enterBuffEff;
+	public string triggerBuffEff;
 	
 }

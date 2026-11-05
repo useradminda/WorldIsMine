@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Teleports all enemies found in the skill area to their city door.</summary>
+/// <summary>
+/// 城门传送技能类型。
+/// 适用于把技能范围内的敌人传送到其所属阵营城门，常用于驱离或战场重置。
+/// </summary>
 public class TransformToCityDoorSkill : SkillLogicBase
 {
     public TransformToCityDoorSkill(UnitLogicBase ulb, SkillCfg skillCfg)

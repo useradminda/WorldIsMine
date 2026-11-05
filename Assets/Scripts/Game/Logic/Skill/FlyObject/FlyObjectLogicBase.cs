@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+/// <summary>
+/// 所有飞行器逻辑的基类。
+/// 负责保存施法者、目标、技能、伤害快照和表现对象，并提供统一的生命周期与回收入口。
+/// </summary>
 public class FlyObjectLogicBase
 {
     protected FlyObjectCfg mFlyObjectCfg;

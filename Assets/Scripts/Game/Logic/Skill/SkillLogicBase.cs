@@ -1,5 +1,9 @@
 using System.Collections.Generic;
 
+/// <summary>
+/// 所有技能逻辑的基类。
+/// 负责保存技能配置、施法者引用，并提供目标判定、伤害和 Buff 结算等通用能力。
+/// </summary>
 public class SkillLogicBase
 {
     public float SkillSearchRange => SkillCfg.searchRange;
@@ -60,7 +64,7 @@ public class SkillLogicBase
         this.skillCfg = skillCfg;
     }
 
-    public void SkillUpdate(float dt)
+    public virtual void SkillUpdate(float dt)
     {
         if (unitLogic.IsDead)
         {
@@ -168,6 +172,6 @@ public class SkillLogicBase
 
     protected virtual void PlayStartEffect()
     {
-        unitLogic.UnitView.PlayEffect(skillCfg.startEffect, unitLogic.CurPos, UnityEngine.Vector3.forward, 5f);
+        unitLogic.UnitView.PlayEffect(skillCfg.startEffect, unitLogic.CurPos, 5f);
     }
 }

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-/// <summary>Spawns several homing projectiles, each following its own random Bezier path.</summary>
+/// <summary>
+/// 多发随机贝塞尔轨迹追踪飞行器。
+/// 适用于多发追踪弹或曲线弹幕，flyParam 配置发射数量和发射间隔，每发独立追踪同一目标。
+/// </summary>
 public class PointToPointFlyObject : FlyObjectLogicBase
 {
     private sealed class Projectile

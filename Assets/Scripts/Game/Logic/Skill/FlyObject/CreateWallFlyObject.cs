@@ -4,7 +4,10 @@ using System.Globalization;
 using Nebukam.ORCA;
 using UnityEngine;
 
-/// <summary>Creates and owns a temporary rectangular RVO obstacle.</summary>
+/// <summary>
+/// 临时矩形 RVO 障碍飞行器。
+/// 适用于创建城墙或阻挡区域；长度、宽度和前方距离从 flyParam 读取，并在生命周期结束时移除对应的 RVO 障碍和表现对象。
+/// </summary>
 public class CreateWallFlyObject : FlyObjectLogicBase
 {
     private Obstacle obstacle;
@@ -22,11 +25,10 @@ public class CreateWallFlyObject : FlyObjectLogicBase
             targetLogicList, searchTargetLogic, skillLogic, attackDamage, flyUIndex);
         liveTime = flyObjectCfg.liveTime;
 
-        if (!TryParseSkillParam(skillLogic != null && skillLogic.SkillCfg != null
-                ? skillLogic.SkillCfg.skillParam : string.Empty,
+        if (!TryParseFlyParam(flyObjectCfg != null ? flyObjectCfg.flyParam : string.Empty,
                 out float length, out float width, out float forwardDistance))
         {
-            Debug.LogError($"Create wall skillParam is invalid. SkillId={skillLogic?.SkillCfg?.id}");
+            Debug.LogError($"Create wall flyParam is invalid. FlyObjectId={flyObjectCfg?.id}");
             Die();
             return;
         }
@@ -68,7 +70,7 @@ public class CreateWallFlyObject : FlyObjectLogicBase
         UnitFactory.RemoveFlyObjectLogic(this);
     }
 
-    private static bool TryParseSkillParam(string value, out float length, out float width, out float distance)
+    private static bool TryParseFlyParam(string value, out float length, out float width, out float distance)
     {
         length = width = distance = 0f;
         string[] parts = (value ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);

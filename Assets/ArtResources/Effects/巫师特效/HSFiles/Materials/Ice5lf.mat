@@ -37,7 +37,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ice5lf
-  m_Shader: {fileID: -6465566751694194690, guid: 04a157cda4db57f45a293a0d2991b21d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 04a157cda4db57f45a293a0d2991b21d,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -243,7 +244,6 @@ Material:
     - _SpeedXYFresnelEmission: {r: 0, g: 0, b: 3, a: 2}
     - _UpColor: {r: 0.78431374, g: 0.7607843, b: 0.7372549, a: 1}
   m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!114 &595872929346401453
 MonoBehaviour:
   m_ObjectHideFlags: 11

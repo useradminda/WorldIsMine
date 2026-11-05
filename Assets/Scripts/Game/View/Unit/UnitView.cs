@@ -220,19 +220,15 @@ public class UnitView : IView
         }
     }
 
-    public void PlayEffect(string prefabName, Vector3 pos, Vector3 forward, float time)
+    public void PlayEffect(string prefabName, Vector3 pos, float time)
     {
         if (prefabName == "")
             return;
-        GameObject go = UnitViewFactory.CreateGob(prefabName, pos, forward);
+        GameObject go = UnitViewFactory.CreateGob(prefabName, pos, transform.forward);
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }
 
-    public void PlayAttachEffect(string prefabName, float time)
-    {
-        PlayAttachEffect(prefabName, time, Vector3.zero);
-    }
-
+  
     public void PlayAttachEffect(string prefabName, float time, Vector3 localPosition)
     {
         if (string.IsNullOrWhiteSpace(prefabName))
