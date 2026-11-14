@@ -21,6 +21,9 @@ public class TriggerBeforeDieSkill : SkillLogicBase
         return true;
     }
 
+    /// <summary>
+    /// 执行死亡前技能的实际效果，延迟由技能基类统一处理。
+    /// </summary>
     public override void OnSkillDoEffect(UnitLogicBase target, System.Collections.Generic.List<int> resultUnitIndexList)
     {
         ApplyBuffs(UnitLogic);

@@ -4,6 +4,22 @@ public class BuffLogicMachine
 {
     private List<BuffLogicBase> buffList = new List<BuffLogicBase>();
 
+    /// <summary>
+    /// 判断当前单位是否拥有指定类型的 Buff。
+    /// </summary>
+    public bool HasBuffType(BuffDefine.EBuffType buffType)
+    {
+        for (int i = 0; i < buffList.Count; i++)
+        {
+            if (buffList[i].IsType(buffType))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /// <summary>添加Buff；同配置Buff已存在时只刷新持续时间。</summary>
     public bool AddBuff(BuffLogicBase buffLogic, float duration = -1f)
     {

@@ -22,10 +22,14 @@ public class DieBaseComponent : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 按死亡表现持续时间换算动画速度，确保死亡动作在指定时间内完整播放一次。
+    /// </summary>
     protected void PlayDieActionForDuration(float duration)
     {
         float animationLength = mUnitView.ActionFlowComponent.GetAnimLen(EActionType.die);
-        float speedRatio = animationLength > 0.0001f ? duration / animationLength : 1f;
+        float safeDuration = Mathf.Max(0.0001f, duration);
+        float speedRatio = animationLength > 0.0001f ? animationLength / safeDuration : 1f;
         mUnitView.ActionFlowComponent.SetAnimationSpeed(speedRatio);
         mUnitView.ActionFlowComponent.PlayAction(EActionType.die);
     }

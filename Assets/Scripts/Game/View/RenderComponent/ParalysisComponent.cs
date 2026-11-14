@@ -21,11 +21,20 @@ public class ParalysisComponent : MonoBehaviour
     public void SetParalysis(float ratio)
     {
         ActionFlowComponent.SetAnimationSpeed(ratio);
+        if (ratio <= 0f)
+        {
+            ActionFlowComponent.FreezeCurrentAnimation();
+        }
     }
 
     /// <summary>退出麻痹表现并按退出后的逻辑倍率恢复动作速度。</summary>
     public void ExitParalysis(float ratio)
     {
         ActionFlowComponent.SetAnimationSpeed(ratio);
+        // 仍有其他控制效果时继续冻结，最后一个控制结束后才恢复动画。
+        if (ratio > 0f)
+        {
+            ActionFlowComponent.ResumeAnimation();
+        }
     }
 }

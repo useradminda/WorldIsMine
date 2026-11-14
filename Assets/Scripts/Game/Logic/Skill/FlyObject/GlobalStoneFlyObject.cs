@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -52,6 +53,10 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     {
         launchDelay = Mathf.Max(0f, delay);
         launched = launchDelay <= 0f;
+        if (launched)
+        {
+            RefreshTargetForLaunch();
+        }
         if (mFlyObjectGob != null)
         {
             mFlyObjectGob.SetActive(launched);
@@ -85,6 +90,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
                 return;
             }
 
+            RefreshTargetForLaunch();
             launched = true;
             mFlyObjectGob.SetActive(true);
         }
@@ -99,6 +105,58 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
         {
             ArriveTarPos();
         }
+    }
+
+    /// <summary>
+    /// 在每一发火球真正发射前重新选择仍存活的敌人，并更新本发火球的落点。
+    /// </summary>
+    private void RefreshTargetForLaunch()
+    {
+        if (mAtkUnitLogic == null || UnitManager.Instance == null)
+        {
+            return;
+        }
+
+        ECampType enemyCamp = mAtkUnitLogic.CampType == ECampType.Red ? ECampType.Blue : ECampType.Red;
+        List<UnitLogicBase> enemyList = UnitManager.Instance.GetCampUnitList(enemyCamp);
+        UnitLogicBase selectedTarget = null;
+        if (enemyList != null && enemyList.Count > 0)
+        {
+            int startIndex = Random.Range(0, enemyList.Count);
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                UnitLogicBase candidate = enemyList[(startIndex + i) % enemyList.Count];
+                if (candidate != null && !candidate.IsDead)
+                {
+                    selectedTarget = candidate;
+                    break;
+                }
+            }
+        }
+
+        if (selectedTarget == null)
+        {
+            if (mSearchTargetUnitLogic == null || mSearchTargetUnitLogic.IsDead)
+            {
+                return;
+            }
+
+            selectedTarget = mSearchTargetUnitLogic;
+        }
+
+        mSearchTargetUnitLogic = selectedTarget;
+        mTarPos = selectedTarget.CurPos;
+        Vector3 horizontalOffset = mTarPos - mOriPos;
+        horizontalOffset.y = 0f;
+        float distance = horizontalOffset.magnitude;
+        float speed = Mathf.Max(0.01f, mFlyObjectCfg.speed);
+        flyTime = 0f;
+        flyDuration = Mathf.Max(0.2f, distance / speed);
+        if (mFlyObjectCfg.liveTime <= 0f)
+        {
+            maxFlyTime = flyDuration + 1f;
+        }
+        UpdateFlyTransform(mOriPos, mTarPos - mOriPos);
     }
 
     /// <summary>

@@ -18,11 +18,13 @@ Shader "zxf/BuiltIn/AnimMapShader"
         _MaskValue("MaskValue", float) = 0
 
         _SlashColor("闪白叠加色", Color) = (0, 0, 0, 1)
-        _ICEState("闪白值", float) = 0
+        _ICEState("冰冻值", float) = 0
         _WorldPoint("黑洞中心坐标", Vector) = (1,1,1,0)
         _BlackPower("吸力", float) = 0       
         _GravityValue("重力值",float) = 1
         _SquashState("压扁状态",float) = 0
+        _AnimationLoop("动画循环",float) = 1
+        _AnimationPaused("动画暂停",float) = 0
         
 
         //_MainLightDir("MainLightDir", vector) = (1,1,1)
@@ -142,6 +144,8 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 UNITY_DEFINE_INSTANCED_PROP(float4, _DissolveEdgeColor)
                 UNITY_DEFINE_INSTANCED_PROP(float4, _BuffColor)
                 UNITY_DEFINE_INSTANCED_PROP(float, _BuffColorStrength)
+                UNITY_DEFINE_INSTANCED_PROP(float, _AnimationLoop)
+                UNITY_DEFINE_INSTANCED_PROP(float, _AnimationPaused)
             UNITY_INSTANCING_BUFFER_END(Props)
             
             v2f vert (appdata v, uint vid : SV_VertexID)
@@ -160,13 +164,12 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 //float f = (_cT + _Time.y  - _timeSinceLevelLoad) / len;
 
                 float invLen = rcp(len);
+                float animationPaused = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimationPaused);
 
                 float f =
-                (
-                    _cT +
-                    _Time.y -
-                    _timeSinceLevelLoad
-                ) * invLen;
+                animationPaused > 0.5
+                    ? _cT * invLen
+                    : (_cT + _Time.y - _timeSinceLevelLoad) * invLen;
 
 
                 if (gravityRadio == 0.2)
@@ -180,8 +183,8 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 }
 
 
-               // fmod(f, 1.0);
-               f = frac(f);
+               float animationLoop = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimationLoop);
+               f = animationLoop > 0.5 ? frac(f) : min(saturate(f), 0.9999);
                
 
                 float animMap_x = (vid + 0.5) * _AnimMap_TexelSize.x ;
@@ -241,7 +244,10 @@ Shader "zxf/BuiltIn/AnimMapShader"
 
                 
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                o.worldNormal = mul(unity_ObjectToWorld, v.normal).xyz;
+                 // 旧实现：直接使用矩阵乘法转换法线；非统一缩放时法线可能不准确。
+                 // o.worldNormal = mul(unity_ObjectToWorld, v.normal).xyz;
+                 // 新实现：使用 Unity 提供的法线转换，保证角色旋转后高光跟随模型方向。
+                 o.worldNormal = UnityObjectToWorldNormal(v.normal);
                 o.objectNormal = v.normal.xyz;
                 return o;
             }
@@ -276,7 +282,10 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 // Directional Light 在内置管线中 w 为 0，UnityWorldSpaceLightDir 会返回正确的世界空间光照方向。
                 float3 lDir = normalize(UnityWorldSpaceLightDir(float3(0, 0, 0)));
                 //光照渐变 i.objectNormal => i.worldNormal 灯光不变 ，模型阴影变     i.objectNormal 跟着模型走，不管模型旋转方向
-                float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;// saturate(dot(tangentNormal, tangentLight)) * 0.5 + _HalfLambertValue;// saturate(dot(i.worldNormal, _MainLightDir)) * 0.5 + _HalfLambertValue;//dot(mainLight.direction, i.normalWS) * 0.5 + _HalfLambertValue; //  
+                 // 旧实现：使用局部空间法线，角色旋转后不同角色会出现相同一侧受光。
+                 // float Ramp_light = saturate(dot(i.objectNormal, normalize(lDir))) * 0.5 + _HalfLambertValue;
+                 // 新实现：使用世界空间法线，让高光随角色朝向旋转。
+                 float Ramp_light = saturate(dot(normalize(i.worldNormal), normalize(lDir))) * 0.5 + _HalfLambertValue;
                 col.rgb *= Ramp_light * _LightColor * _LightScale;//Ramp_light * mainLight.color;
                 float4 buffColor = UNITY_ACCESS_INSTANCED_PROP(Props, _BuffColor);
                 float buffColorStrength = saturate(UNITY_ACCESS_INSTANCED_PROP(Props, _BuffColorStrength));
@@ -505,6 +514,8 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 UNITY_DEFINE_INSTANCED_PROP(float, _TimeSinceLevelLoad)
                 UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)
                 UNITY_DEFINE_INSTANCED_PROP(float, _SquashState)
+                UNITY_DEFINE_INSTANCED_PROP(float, _AnimationLoop)
+                UNITY_DEFINE_INSTANCED_PROP(float, _AnimationPaused)
             UNITY_INSTANCING_BUFFER_END(Props)
 
             struct appdata
@@ -537,13 +548,17 @@ Shader "zxf/BuiltIn/AnimMapShader"
                 float _timeSinceLevelLoad = UNITY_ACCESS_INSTANCED_PROP(Props, _TimeSinceLevelLoad);
                 float _cT = UNITY_ACCESS_INSTANCED_PROP(Props, _CurrentTime);
                 float invLen = rcp(len);
-                float f = (_cT + _Time.y - _timeSinceLevelLoad) * invLen;
+                float animationPaused = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimationPaused);
+                float f = animationPaused > 0.5
+                    ? _cT * invLen
+                    : (_cT + _Time.y - _timeSinceLevelLoad) * invLen;
 
                 if (gravityRadio == 0.2)
                     f = 0.1;
                 if (squashState > 0.5)
                     f = 0.1;
-                f = frac(f);
+                float animationLoop = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimationLoop);
+                f = animationLoop > 0.5 ? frac(f) : min(saturate(f), 0.9999);
 
                 // 根据顶点ID采样动画贴图，拿到动画后的本地顶点
                 float animMap_x = (v.vid + 0.5) * _AnimMap_TexelSize.x ;

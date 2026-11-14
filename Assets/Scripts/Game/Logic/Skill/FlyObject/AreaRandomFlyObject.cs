@@ -119,7 +119,7 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
 
     private Vector3 getRandomPos()
     {
-        if (randomIndex <= 0)
+        if (randomIndex < 0)
             return mTarPos;
         UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[randomIndex];
         return tarUnitLogic.CurPos;

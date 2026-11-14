@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -50,6 +50,8 @@ public static class FlyObjectFactory
                 return new StoneFlyObject();
             case "line":
                 return new LineFlyObject();
+            case "lineRender":
+                return new LineRenderFlyObject();
             case "jumpArrow":
                 return new JumpArrowFlyObject();
             case "globalStone":
@@ -68,9 +70,12 @@ public static class FlyObjectFactory
                 return new BlackHallFlyObject();
             case "translateArea":
                 return new TranslateAreaFlyObject();
+            case "swordSpecial":
+                return new SwordSpecialFlyObject();
             default:
                 Debug.LogWarning($"Unknown fly object type '{flyType}', using base fly object logic.");
                 return new FlyObjectLogicBase();
         }
     }
 }
+

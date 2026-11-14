@@ -19,6 +19,9 @@ public class KillNowSkill : SkillLogicBase
         return IsKillableHero(target);
     }
 
+    /// <summary>
+    /// 执行斩杀技能的实际效果，延迟由技能基类统一处理。
+    /// </summary>
     public override void OnSkillDoEffect(UnitLogicBase target, System.Collections.Generic.List<int> resultUnitIndexList)
     {
         if (!IsKillableHero(target))

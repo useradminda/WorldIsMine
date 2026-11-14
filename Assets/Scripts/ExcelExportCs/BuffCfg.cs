@@ -57,5 +57,6 @@ public class BuffCfg
 	public float value;
 	public string enterBuffEff;
 	public string triggerBuffEff;
+	public string buffParam;
 	
 }

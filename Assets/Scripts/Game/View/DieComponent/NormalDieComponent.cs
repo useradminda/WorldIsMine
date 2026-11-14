@@ -12,7 +12,7 @@ public class NormalDieComponent : DieBaseComponent
     private float maxHeight = 5f;
     private const float MovementDurationScale = 0.6f;
     [SerializeField] private float actionLeadTime = 0.1f;
-    [SerializeField, Range(0, 8)] private int freezeFrameCount = 5;
+    [SerializeField, Range(0, 12)] private int freezeFrameCount = 8;
     [SerializeField] private float recoverySpeed = 2f;
     private bool playingDie;
     private float elapsed;

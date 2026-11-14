@@ -7,8 +7,8 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
     private const int GlobalAttackBuffId = 2;
     public const int GlobalStoneProjectileCount = 5;
     private const float GlobalStoneOriginHeight = 25f;
+    private const float GlobalStoneOriginBackwardDistance = 8f;
     private const float GlobalStoneLaunchInterval = 1f;
-    private const float GlobalStoneFlightDistance = 80f;
     public const int GlobalArrowMaxArrowCount = 100;
     private const float GlobalArrowOriginDistance = 50f;
     private const float GlobalArrowRandomDistance = 20f;
@@ -131,7 +131,7 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
             return false;
         }
 
-        int projectileCount = Mathf.Min(GlobalStoneProjectileCount, enemyList.Count);
+        int projectileCount = Mathf.Min(ParseProjectileCount(skillCfg.skillParam, GlobalStoneProjectileCount), enemyList.Count);
         for (int i = 0; i < projectileCount; i++)
         {
             int randomEnemyIndex = Random.Range(i, enemyList.Count);
@@ -141,14 +141,15 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         }
 
         Vector3 forward = bornConfig.GetForward(casterCamp).normalized;
+        Vector3 gatePosition = bornConfig.GetBornPoint(casterCamp);
+        Vector3 origin = gatePosition - forward * GlobalStoneOriginBackwardDistance;
+        origin.y += GlobalStoneOriginHeight;
         SkillLogicBase skillLogic = new SkillLogicBase(attacker, skillCfg);
         int createdCount = 0;
         for (int i = 0; i < projectileCount; i++)
         {
-            UnitLogicBase enemy = enemyList[i];
-            Vector3 target = enemy.CurPos;
-            Vector3 origin = target - forward * GlobalStoneFlightDistance + Vector3.up * GlobalStoneOriginHeight;
-            GlobalStoneFlyObject stoneFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, actualDamage) as GlobalStoneFlyObject;
+            Vector3 target = enemyList[i].CurPos;
+            GlobalStoneFlyObject stoneFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemyList[i], skillLogic, actualDamage) as GlobalStoneFlyObject;
             if (stoneFlyObject != null)
             {
                 stoneFlyObject.SetLaunchDelay(i * GlobalStoneLaunchInterval);
@@ -190,6 +191,11 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         }
 
         SkillLogicBase skillLogic = new SkillLogicBase(attacker, skillCfg);
+        int actualDamage = attacker.GetAttackDamage(skillCfg.skillDamageRate);
+        if (actualDamage <= 0)
+        {
+            return false;
+        }
         GlobalArrowFlyObject.DamageContext damageContext = new GlobalArrowFlyObject.DamageContext();
         int createdCount = 0;
         for (int i = 0; i < arrowCount; i++)
@@ -199,7 +205,7 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
             Vector3 arrowOriginDirection = (Vector3.up - bornConfig.GetForward(casterCamp).normalized).normalized;
             float arrowOriginDistance = GlobalArrowOriginDistance + Random.Range(-GlobalArrowRandomDistance, GlobalArrowRandomDistance);
             Vector3 origin = target + arrowOriginDirection * arrowOriginDistance;
-            GlobalArrowFlyObject arrowFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, 0) as GlobalArrowFlyObject;
+            GlobalArrowFlyObject arrowFlyObject = FlyObjectFactory.CreateFlyObjectLogic(flyObjectCfgId, origin, target, attacker, null, enemy, skillLogic, actualDamage) as GlobalArrowFlyObject;
             if (arrowFlyObject != null)
             {
                 arrowFlyObject.SetDamageContext(damageContext);
@@ -344,6 +350,17 @@ public class GlobalSkillManager : Singleton<GlobalSkillManager>, IManager
         }
 
         return enemyList;
+    }
+
+    /// <summary>读取全局投石数量配置，配置无效时使用默认数量。</summary>
+    private int ParseProjectileCount(string skillParam, int defaultCount)
+    {
+        if (int.TryParse(skillParam, out int count) && count > 0)
+        {
+            return count;
+        }
+
+        return defaultCount;
     }
 
     /// <summary>随机取得一个存活的敌方单位。</summary>

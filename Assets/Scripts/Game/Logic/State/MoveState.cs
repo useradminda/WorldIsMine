@@ -10,6 +10,7 @@ public class MoveState : StateBase
     private float escapeCooldownTime;
     private Vector3 stuckCheckPosition;
     private Vector3 escapeDirection;
+    private float lastEscapeSide = 1f;
     private readonly List<int> searchResultList = new List<int>();
 
     public override EStateTyep StateType { get { return EStateTyep.Move; } }
@@ -29,6 +30,7 @@ public class MoveState : StateBase
         escapeCooldownTime = 0f;
         stuckCheckPosition = UnitLogic.CurPos;
         escapeDirection = Vector3.zero;
+        lastEscapeSide = 1f;
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
         RequestTargetSearch();
     }
@@ -42,6 +44,7 @@ public class MoveState : StateBase
         }
 
         RequestTargetSearch();
+        RedirectBlockedSearchTarget();
         UpdateEscape(dt);
         UnitLogic.AgentMoveForward(escapeDirection);
     }
@@ -58,6 +61,10 @@ public class MoveState : StateBase
         UnitLogicBase target = nearestIndex >= 0 && nearestIndex < UnitManager.Instance.UnitList.Count
             ? UnitManager.Instance.UnitList[nearestIndex]
             : null;
+        if (target != null && UnitLogic.IsTargetBlockedByEnemyWall(target))
+        {
+            target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
+        }
         if (target == null || target.IsDead || target.CampType == UnitLogic.CampType)
         {
             target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
@@ -75,7 +82,14 @@ public class MoveState : StateBase
         {
             if (UnitLogic.IsTargetInAttackRange(target, UnitLogic.NormalSkill.SkillCfg.atkRange))
             {
-                UnitLogic.StateMachine.ChangeState(HasReadySkillInRange(target) ? EStateTyep.Skill : EStateTyep.Attack);
+                if (IsArcherUnit())
+                {
+                    UnitLogic.StateMachine.ChangeState(EStateTyep.ArcherPosition);
+                }
+                else
+                {
+                    UnitLogic.StateMachine.ChangeState(HasReadySkillInRange(target) ? EStateTyep.Skill : EStateTyep.Attack);
+                }
                 return;
             }
         }
@@ -91,6 +105,7 @@ public class MoveState : StateBase
         escapeTime = 0f;
         escapeCooldownTime = 0f;
         escapeDirection = Vector3.zero;
+        lastEscapeSide = 1f;
     }
 
     private void UpdateEscape(float dt)
@@ -133,9 +148,42 @@ public class MoveState : StateBase
             return;
         }
         forward.Normalize();
-        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
-        escapeDirection = (UnitLogic.UId & 1) == 0 ? right : -right;
+        escapeDirection = SelectEscapeDirection(forward);
         escapeTime = RvoEscapeConfig.EscapeDuration;
+    }
+
+    /// <summary>根据实际避让速度和目标相对方向选择贴边绕行方向，避免使用单位 ID 固定左右。</summary>
+    private Vector3 SelectEscapeDirection(Vector3 forward)
+    {
+        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+        Vector3 actualVelocity = UnitLogic.Agenter.velocity;
+        actualVelocity.y = 0f;
+        float lateralVelocity = Vector3.Dot(actualVelocity, right);
+        float sideSign;
+
+        if (actualVelocity.sqrMagnitude > 0.01f && Mathf.Abs(lateralVelocity) > 0.05f
+            && Vector3.Dot(actualVelocity.normalized, forward) > -0.1f)
+        {
+            sideSign = Mathf.Sign(lateralVelocity);
+        }
+        else
+        {
+            UnitLogicBase target = UnitLogic.SearchTarget;
+            if (target != null && !target.IsDead)
+            {
+                Vector3 toTarget = target.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
+                toTarget.y = 0f;
+                float targetSide = Vector3.Dot(toTarget, right);
+                sideSign = Mathf.Abs(targetSide) > 0.05f ? Mathf.Sign(targetSide) : lastEscapeSide;
+            }
+            else
+            {
+                sideSign = lastEscapeSide;
+            }
+        }
+
+        lastEscapeSide = -sideSign;
+        return right * sideSign;
     }
 
     private void RequestTargetSearch()
@@ -145,6 +193,18 @@ public class MoveState : StateBase
             return;
         }
         searchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, UnitLogic.NormalSkill.SkillSearchRange, UnitLogic.OtherCampTypeInt);
+    }
+
+    /// <summary>
+    /// 在异步索敌结果返回前，先把已经位于敌方城门后方的旧目标切换为敌方城墙。
+    /// </summary>
+    private void RedirectBlockedSearchTarget()
+    {
+        UnitLogicBase target = UnitLogic.SearchTarget;
+        if (target != null && UnitLogic.IsTargetBlockedByEnemyWall(target))
+        {
+            UnitLogic.SetSearchTarget(UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType));
+        }
     }
 
     private bool HasReadySkillInRange(UnitLogicBase target)
@@ -174,5 +234,12 @@ public class MoveState : StateBase
         }
 
         return false;
+    }
+
+    /// <summary>判断当前单位是否为使用独立攻击流程的弓手。</summary>
+    private bool IsArcherUnit()
+    {
+        return UnitLogic.SoliderCfg != null
+            && (UnitLogic.SoliderCfg.id == 102 || UnitLogic.SoliderCfg.id == 202);
     }
 }

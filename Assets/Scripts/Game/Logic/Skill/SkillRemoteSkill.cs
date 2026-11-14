@@ -11,6 +11,9 @@ public class SkillRemoteSkill : SkillLogicBase
     {
     }
 
+    /// <summary>
+    /// 执行远程技能的实际效果，延迟由技能基类统一处理。
+    /// </summary>
     public override void OnSkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
     {
         if (SkillCfg.needTarget == 2)
@@ -27,6 +30,13 @@ public class SkillRemoteSkill : SkillLogicBase
         int flyCfgId = SkillCfg.flyObjectId;
         Vector3 oriPos = UnitLogic.CurPos;
         Vector3 tarPos = target.GetClosestPoint(UnitLogic.CurPos);
+        Vector3 attackDirection = tarPos - oriPos;
+        attackDirection.y = 0f;
+        if (attackDirection.sqrMagnitude > 0.0001f && UnitLogic.UnitView != null)
+        {
+            // 远程飞行技能释放时同步角色朝向到第一发目标方向。
+            UnitLogic.UnitView.SetForwardForce(attackDirection.normalized);
+        }
         FlyObjectFactory.CreateFlyObjectLogic(flyCfgId, oriPos, tarPos, UnitLogic, TargetList, target, this, GetAttackDamageSnapshot());
     }
 }

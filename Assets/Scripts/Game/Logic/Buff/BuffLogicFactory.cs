@@ -24,6 +24,8 @@ public static class BuffLogicFactory
                 return new AttackBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             case BuffDefine.EBuffType.Paralysis:
                 return new ParalysisBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
+            case BuffDefine.EBuffType.SpeedUp:
+                return new SpeedUpBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             case BuffDefine.EBuffType.DeathSave:
                 return new DeathSaveBuffLogic(unitLogic, buffLogicMachine, buffCfgId);
             case BuffDefine.EBuffType.LastStand:

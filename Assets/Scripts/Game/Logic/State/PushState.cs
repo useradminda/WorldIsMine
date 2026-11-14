@@ -33,6 +33,8 @@ public class PushState : StateBase
         UnitLogic.SetMoveForward(chargeDirection);
         UnitLogic.TriggerMove();
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
+        // 冲锋开始时立即同步模型朝向，避免模型仍保持进入技能前的方向。
+        UnitLogic.UnitView.SetForwardForce(chargeDirection);
         UpdatePushAnimationSpeed();
 
         remainTime = pushSkill.Duration;
@@ -54,10 +56,20 @@ public class PushState : StateBase
         }
 
         UpdatePushAnimationSpeed();
+        // 清理可能残留的目标方向，并持续写入固定冲锋方向。
+        UnitLogic.SetSearchTarget(null);
+        UnitLogic.SetMoveForward(chargeDirection);
+        // 冲锋期间保持模型朝向与固定冲锋方向一致，不跟随 RVO 的侧向修正转向。
+        if (UnitLogic.UnitView != null)
+        {
+            UnitLogic.UnitView.SetForwardForce(chargeDirection);
+        }
 
         if (!wallBlocked)
         {
             UnitLogic.AgentMoveForward(chargeDirection, pushSkill.SpeedMultiplier);
+            // 英雄冲锋期间不参与单位间 RVO 碰撞，避免在己方城门或己方单位附近被挡住。
+            UnitLogic.Agenter.collisionEnabled = false;
         }
         else
         {
@@ -73,6 +85,11 @@ public class PushState : StateBase
             return;
         }
 
+        UnitLogic.SetMoveForward(chargeDirection);
+        if (UnitLogic.UnitView != null)
+        {
+            UnitLogic.UnitView.SetForwardForce(chargeDirection);
+        }
         ClampAtWallIfNeeded();
     }
 
@@ -104,7 +121,7 @@ public class PushState : StateBase
         }
 
         UnitLogic.Agenter.navigationEnabled = true;
-        UnitLogic.Agenter.collisionEnabled = true;
+        UnitLogic.Agenter.collisionEnabled = false;
         UnitLogic.Agenter.maxSpeed = UnitLogic.Agenter.saveMaxSpeed
             * pushSkill.SpeedMultiplier
             * UnitLogic.LogicRatio;
@@ -131,9 +148,9 @@ public class PushState : StateBase
             return;
         }
 
-        UnitLogicBase redWall = UnitManager.Instance.GetWallLogic(ECampType.Red);
-        UnitLogicBase blueWall = UnitManager.Instance.GetWallLogic(ECampType.Blue);
-        if (TryClampAtWall(redWall) || TryClampAtWall(blueWall))
+        // 冲锋只允许在敌方城门处停止，不能把己方出生城门当成冲锋终点。
+        UnitLogicBase enemyWall = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
+        if (TryClampAtWall(enemyWall))
         {
             wallBlocked = true;
             KeepMovingAnimationWithoutDisplacement();
@@ -142,7 +159,7 @@ public class PushState : StateBase
 
     private bool TryClampAtWall(UnitLogicBase wall)
     {
-        if (wall == null || wall.IsDead)
+        if (wall == null || wall.IsDead || wall.CampType == UnitLogic.CampType)
         {
             return false;
         }

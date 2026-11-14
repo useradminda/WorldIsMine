@@ -25,8 +25,11 @@ public class StateMachine
         statesByEState.Add(EStateTyep.Idle, new IdleState(unitLogic));
         statesByEState.Add(EStateTyep.Move, new MoveState(unitLogic));
         statesByEState.Add(EStateTyep.Attack, new AttackState(unitLogic));
+        statesByEState.Add(EStateTyep.ArcherPosition, new ArcherPositionState(unitLogic));
+        statesByEState.Add(EStateTyep.ArcherAttack, new ArcherAttackState(unitLogic));
         statesByEState.Add(EStateTyep.Skill, new SkillState(unitLogic));
         statesByEState.Add(EStateTyep.Push, new PushState(unitLogic));
+        statesByEState.Add(EStateTyep.KnightCharge, new KnightChargeState(unitLogic));
         statesByEState.Add(EStateTyep.Die, new DieState(unitLogic));
     }
 

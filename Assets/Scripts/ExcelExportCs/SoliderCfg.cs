@@ -53,6 +53,7 @@ public class SoliderCfg
 	public string name;
 	public string des;
 	public int[] skill;
+	public int exSKillId;
 	public int hp;
 	public int atk;
 	public float moveSpeed;

@@ -53,11 +53,11 @@ public class SkillCfg
 	public string name;
 	public string des;
 	public string skillGrade;
-	public string startEffect;
+	public string[] startEffect;
 	public float searchRange;
 	public float atkRange;
 	public float skillArea;
-	public float triigerSkillTime;
+	public float trigerSkillTime;
 	public string skillAnim;
 	public float skillDamageRate;
 	public float cd;

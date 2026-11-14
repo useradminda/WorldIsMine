@@ -157,6 +157,16 @@ public class UnitManager : Singleton<UnitManager>, IManager
         return blueWallCenter;
     }
 
+    /// <summary>
+    /// 获取用于出生点避让的城墙显示中心；出生避让应以城门模型位置为准。
+    /// </summary>
+    public Vector3 GetWallSpawnCenter(ECampType campType)
+    {
+        return bornConfig != null
+            ? bornConfig.GetCityDoorPoint(campType)
+            : GetWallCenter(campType);
+    }
+
     public Vector3 GetWallSize()
     {
         return WallSize;

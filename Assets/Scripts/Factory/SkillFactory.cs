@@ -10,6 +10,7 @@ public static class SkillFactory
     public const string TriggerBeforeDieSkillType = "triggerBeforeDie";
     public const string KillNowSkillType = "killNow";
     public const string PushSkillType = "push";
+    public const string KnightChargeSkillType = "knightCharge";
     public const string CreateWallSkillType = "createWall";
     public const string RectSkillType = "rectSkill";
 
@@ -33,6 +34,8 @@ public static class SkillFactory
                 return new KillNowSkill(unitLogic, skillCfg);
             case PushSkillType:
                 return new PushSkill(unitLogic, skillCfg);
+            case KnightChargeSkillType:
+                return new KnightChargeSkill(unitLogic, skillCfg);
             case CreateWallSkillType:
                 return new CreateWallSkill(unitLogic, skillCfg);
             case RectSkillType:

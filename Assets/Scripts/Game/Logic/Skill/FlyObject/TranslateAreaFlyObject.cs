@@ -36,8 +36,12 @@ public class TranslateAreaFlyObject : FlyObjectLogicBase
     public override void FlyObjectUpdate(float dt)
     {
         if (destroyed) return;
-        liveTime -= dt;
-        if (liveTime <= 0f) { Die(); return; }
+            liveTime -= dt;
+        if (liveTime <= 0f) 
+        { 
+            Die(); 
+            return; 
+        }
         if (!searchPending)
         {
             searchRequest = MapCellManager.Instance.RequestSearch(
@@ -64,7 +68,7 @@ public class TranslateAreaFlyObject : FlyObjectLogicBase
             {
                 continue;
             }
-
+            playTranslateEffect(enemy.CurPos);
             Vector3 doorPoint = BattleEngine.Instance.GetCityDoorPoint(enemy.CampType);
             Vector3 doorForward = BattleEngine.Instance.GetCityDoorForward(enemy.CampType);
             enemy.TeleportTo(doorPoint, doorForward);
@@ -74,12 +78,21 @@ public class TranslateAreaFlyObject : FlyObjectLogicBase
     private void Die()
     {
         if (destroyed) return;
-        destroyed = true;
+            destroyed = true;
         if (mFlyObjectGob != null)
         {
             UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);
             mFlyObjectGob = null;
         }
         UnitFactory.RemoveFlyObjectLogic(this);
+    }
+
+    private void playTranslateEffect(Vector3 pos)
+    {
+        string arrivePrefab = mFlyObjectCfg.arrivePrefab;
+        if (arrivePrefab == "")
+            return;
+        GameObject arrivePrefabGO = UnitViewFactory.CreateGob(arrivePrefab, pos, Vector3.zero);
+        arrivePrefabGO.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(1, arrivePrefab);
     }
 }

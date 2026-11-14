@@ -12,6 +12,9 @@ public class TransformToCityDoorSkill : SkillLogicBase
     {
     }
 
+    /// <summary>
+    /// 执行城门传送技能的实际效果，延迟由技能基类统一处理。
+    /// </summary>
     public override void OnSkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
     {
         if (UnitLogic == null || UnitLogic.IsDead || BattleEngine.Instance == null)

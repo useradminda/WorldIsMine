@@ -32,6 +32,10 @@ public class UnitViewFactory
             }
         }   
         GameObject template = Resources.Load<GameObject>(prefab);
+        if (template == null)
+        {
+            Debug.LogError("创建预制体出错 prefab :" + prefab);
+        }
         Quaternion qua = Quaternion.LookRotation(initForward);
         unitGob = UnityEngine.Object.Instantiate(template, initPos, qua);
         return unitGob;

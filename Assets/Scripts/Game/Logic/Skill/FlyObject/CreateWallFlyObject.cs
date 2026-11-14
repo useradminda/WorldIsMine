@@ -50,7 +50,6 @@ public class CreateWallFlyObject : FlyObjectLogicBase
         };
         obstacle = RvoManager.Instance.AddDynamicObstacle(vertices);
         wallGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, center, forward);
-        wallGob.transform.localScale = new Vector3(length, 1f, width);
     }
 
     public override void FlyObjectUpdate(float dt)

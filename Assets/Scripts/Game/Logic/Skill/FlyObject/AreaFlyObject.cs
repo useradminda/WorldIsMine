@@ -82,11 +82,12 @@ public class AreaFlyObject : FlyObjectLogicBase
         {
             for (int i = 0; i < resultUnitIndexList.Count; i++)
             {
-                int unitIndex = resultUnitIndexList[i];
                 if (!UnitTargetSnapshot.TryGet(resultUnitIndexList, resultUnitUidList, i, out UnitLogicBase tarUnitLogic) || tarUnitLogic.CampTypeInt == mAtkUnitLogic.CampTypeInt)
                 {
                     continue;
                 }
+                // 区域伤害命中每个单位时，在受击者当前位置播放到达特效。
+                CreateArriveEffect(tarUnitLogic.CurPos);
                 BattleLogicDamageTools.DoDamage(mAtkUnitLogic, tarUnitLogic, GetFinalDamage(tarUnitLogic), resultUnitUidList[i], mSkillLogic.SkillCfg.dieType, mTarPos);
                 mSkillLogic.ApplyBuffs(tarUnitLogic);
             }

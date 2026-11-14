@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ICETex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 671a16f648e7cbd418788489e12ffea9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -45,6 +45,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AnimationLoop: 1
+    - _AnimationPaused: 0
     - _BlackPower: 0
     - _BuffColorStrength: 0
     - _DissolveAmount: 0
@@ -54,7 +56,7 @@ Material:
     - _HalfLambertValue: 0.5
     - _HighLightValue: 1
     - _ICEState: 0
-    - _LightScale: 1
+    - _LightScale: 1.2
     - _MaskValue: 0
     - _Shadow_Length: 1
     - _Shadow_Rotated: 221

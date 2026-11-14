@@ -4,7 +4,6 @@ using UnityEngine;
 public class AttackState : StateBase
 {
     private const float AttackExitRangeBuffer = 0.3f;
-    private const float AreaSearchForwardOffset = 1f;
 
     public override EStateTyep StateType { get { return EStateTyep.Attack; } }
 
@@ -185,6 +184,10 @@ public class AttackState : StateBase
         UnitLogicBase target = targetNearestIndex >= 0 && targetNearestIndex < UnitManager.Instance.UnitList.Count
             ? UnitManager.Instance.UnitList[targetNearestIndex]
             : null;
+        if (target != null && UnitLogic.IsTargetBlockedByEnemyWall(target))
+        {
+            target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
+        }
         if (target == null || target.IsDead || target.CampType == UnitLogic.CampType)
         {
             UnitLogic.SetSearchTarget(null);
@@ -233,6 +236,8 @@ public class AttackState : StateBase
         }
 
         ActionFlow actionFlow = UnitLogic.UnitView.ActionFlowComponent;
+        // 普通攻击从动作开始计时，避免红蓝单位的攻击动画长度差异改变实际攻击频率。
+        normalSkill.StartAttackCooldown();
         actionFlow.PlayAction(string.IsNullOrWhiteSpace(normalSkill.SkillCfg.skillAnim)
             ? EActionType.attack.ToString()
             : normalSkill.SkillCfg.skillAnim);
@@ -264,15 +269,23 @@ public class AttackState : StateBase
         }
     }
 
+    /// <summary>请求普通攻击效果；范围普攻以当前主目标位置为圆心搜索附加目标。</summary>
     private void RequestNormalAttackEffect()
     {
         attackEffectTriggered = true;
+        if (UnitLogic.SearchTarget == null || UnitLogic.SearchTarget.IsDead)
+        {
+            attackEffectPending = false;
+            return;
+        }
+
         attackEffectPending = true;
         if (normalSkill.SkillCfg.skillArea > 0)
         {
-            Vector3 searchPosition = UnitLogic.CurPos + attackDirection * AreaSearchForwardOffset;
-            float searchRadius = normalSkill.SkillCfg.skillArea + Mathf.Max(0f, UnitLogic.Prop.Radius);
-            effectSearchReqIndex = MapCellManager.Instance.RequestSearch(searchPosition, searchRadius, UnitLogic.OtherCampTypeInt);
+            effectSearchReqIndex = MapCellManager.Instance.RequestSearch(
+                UnitLogic.SearchTarget.CurPos,
+                normalSkill.SkillCfg.skillArea,
+                UnitLogic.OtherCampTypeInt);
         }
     }
 
@@ -309,7 +322,11 @@ public class AttackState : StateBase
 
     private bool IsHeroNormalAttack()
     {
-        return UnitLogic.SoliderCfg != null && UnitFactory.IsHero(UnitLogic.SoliderCfg.id);
+        return UnitLogic.SoliderCfg != null
+            && UnitFactory.IsHero(UnitLogic.SoliderCfg.id)
+            && normalSkill != null
+            && normalSkill.SkillCfg != null
+            && normalSkill.SkillCfg.skillType != SkillFactory.RemoteSkillType;
     }
 
 }

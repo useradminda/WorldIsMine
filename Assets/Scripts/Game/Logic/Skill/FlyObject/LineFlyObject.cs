@@ -18,8 +18,10 @@ public class LineFlyObject : FlyObjectLogicBase
     {
         base.SetFlyObjectInfo(flyObjectCfg, oriPos, tarPos, atkUnitLogic, targetLogicList, searchTargetUnit, skillLogic, attackDamage, uIndex);
         curPos = oriPos;
-        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, curPos, Vector3.zero);
         moveForward = (tarPos - oriPos).normalized;
+        if(flyObjectCfg.prefab != "")
+           mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, curPos, moveForward);
+       
         liveTime = flyObjectCfg.liveTime;
         damageClipTime = flyObjectCfg.damClipTime;
         triggeredDamageCount = 0;
@@ -85,7 +87,8 @@ public class LineFlyObject : FlyObjectLogicBase
     private void updateMoveForward(float dt)
     {
         curPos = curPos + moveForward * dt * mFlyObjectCfg.speed;
-        mFlyObjectGob.transform.position = Vector3.Lerp(mFlyObjectGob.transform.position, curPos, dt * 3);
+        if (mFlyObjectGob)
+            mFlyObjectGob.transform.position = Vector3.Lerp(mFlyObjectGob.transform.position, curPos, dt * 3);
     }
 
     private void damage()
@@ -108,6 +111,7 @@ public class LineFlyObject : FlyObjectLogicBase
     private void die()
     {
         UnitFactory.RemoveFlyObjectLogic(this);
-        UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);
+        if (mFlyObjectGob)
+           UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);
     }
 }

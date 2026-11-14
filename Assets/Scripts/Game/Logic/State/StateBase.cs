@@ -6,7 +6,10 @@ public enum EStateTyep
     Move,
     Attack,
     Skill,
+    ArcherPosition,
+    ArcherAttack,
     Push,
+    KnightCharge,
     Die,
 }
 

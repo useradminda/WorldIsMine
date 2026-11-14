@@ -235,7 +235,7 @@ public class UnitLogicBase
             // 城门没有状态机和死亡动作，但每次受击仍走 UnitView 的闪白逻辑。
             if (UnitView != null)
             {
-                UnitView.BeHitSlash();
+                UnitView.BeHitSlash(beHitPoint);
             }
             if (IsDead)
             {
@@ -313,6 +313,9 @@ public class UnitLogicBase
         Agenter.collisionEnabled = true;
     }
 
+    /// <summary>
+    /// 立即将单位逻辑、Agent 和表现模型同步到目标位置。
+    /// </summary>
     public void TeleportTo(Vector3 position, Vector3 forward)
     {
         if (Agenter == null)
@@ -333,6 +336,11 @@ public class UnitLogicBase
         Agenter.velocity = Agenter.prefVelocity;
         Agenter.navigationEnabled = true;
         Agenter.collisionEnabled = true;
+        if (UnitView != null)
+        {
+            UnitView.SnapToPosition(position);
+            UnitView.SetForwardForce(flatForward);
+        }
     }
 
     public void SetCombatRadius()
@@ -373,7 +381,13 @@ public class UnitLogicBase
         {
             lateralDirection.y = 0f;
             lateralDirection.Normalize();
-            forward = (forward + lateralDirection * RvoEscapeConfig.LateralWeight).normalized;
+            float lateralWeight = Mathf.Max(0f, RvoEscapeConfig.LateralWeight);
+            Vector3 escapeForward = forward + lateralDirection * lateralWeight;
+            if (Vector3.Dot(escapeForward, forward) <= 0.2f)
+            {
+                escapeForward = forward + lateralDirection;
+            }
+            forward = escapeForward.normalized;
         }
         Agenter.prefVelocity = forward * SoliderCfg.moveSpeed * LogicRatio;
     }
@@ -515,6 +529,88 @@ public class UnitLogicBase
         }
 
         return offset.sqrMagnitude <= effectiveRange * effectiveRange;
+    }
+
+    /// <summary>
+    /// 判断目标是否位于敌方存活城墙后方，避免单位为了追击目标穿过敌方城门。
+    /// </summary>
+    public bool IsTargetBlockedByEnemyWall(UnitLogicBase target)
+    {
+        if (target == null || target.IsDead || target.UnitType == EUnitType.Wall || target.CampType == CampType)
+        {
+            return false;
+        }
+
+        UnitLogicBase enemyWall = UnitManager.Instance.GetOtherWallLogic(CampType);
+        if (enemyWall == null || enemyWall.IsDead)
+        {
+            return false;
+        }
+
+        Vector3 wallCenter = UnitManager.Instance.GetWallSpawnCenter(enemyWall.CampType);
+        Vector3 wallSize = UnitManager.Instance.GetWallSize();
+        float expand = Mathf.Max(0f, Prop.Radius) + BattleDefine.SpawnUnitPadding;
+        return SegmentIntersectsWall(
+            CurPos,
+            target.CurPos,
+            wallCenter,
+            wallSize.x * 0.5f + expand,
+            wallSize.z * 0.5f + expand);
+    }
+
+    /// <summary>
+    /// 判断单位当前位置到目标位置的线段是否穿过城墙矩形。
+    /// </summary>
+    private static bool SegmentIntersectsWall(
+        Vector3 start,
+        Vector3 end,
+        Vector3 wallCenter,
+        float halfWidth,
+        float halfDepth)
+    {
+        float minX = wallCenter.x - halfWidth;
+        float maxX = wallCenter.x + halfWidth;
+        float minZ = wallCenter.z - halfDepth;
+        float maxZ = wallCenter.z + halfDepth;
+        float tMin = 0f;
+        float tMax = 1f;
+
+        if (!UpdateSegmentInterval(start.x, end.x - start.x, minX, maxX, ref tMin, ref tMax))
+        {
+            return false;
+        }
+
+        return UpdateSegmentInterval(start.z, end.z - start.z, minZ, maxZ, ref tMin, ref tMax);
+    }
+
+    /// <summary>
+    /// 使用分离轴区间更新线段与矩形的相交范围。
+    /// </summary>
+    private static bool UpdateSegmentInterval(
+        float start,
+        float direction,
+        float min,
+        float max,
+        ref float tMin,
+        ref float tMax)
+    {
+        if (Mathf.Abs(direction) <= 0.0001f)
+        {
+            return start >= min && start <= max;
+        }
+
+        float first = (min - start) / direction;
+        float second = (max - start) / direction;
+        if (first > second)
+        {
+            float swap = first;
+            first = second;
+            second = swap;
+        }
+
+        tMin = Mathf.Max(tMin, first);
+        tMax = Mathf.Min(tMax, second);
+        return tMin <= tMax;
     }
 
     private void initProp()

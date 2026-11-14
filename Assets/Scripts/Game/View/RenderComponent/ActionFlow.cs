@@ -35,6 +35,12 @@ public class ActionFlow : MonoBehaviour
     public float CurrentAnimTime;
     // 动画播放速率
     private float animPlaySpeedValue = 1;
+    // 当前动作开始计算时间的时间点
+    private float animationTimeReference;
+    // 当前动作是否循环播放
+    private bool animationLoop;
+    // 当前动作是否冻结在指定帧
+    private bool animationPaused;
 
     // 当前播放的动画
     private ActionData currentActionData;
@@ -89,16 +95,22 @@ public class ActionFlow : MonoBehaviour
                 RenderComponenter.SetMat(_actionData.Mat);
             }
             setActionAnimLenth(currentActionData);
+            // 死亡动作只播放一次并停在末帧，其他动作继续循环播放。
+            animationLoop = _actionType != EActionType.die;
+            animationPaused = false;
+            animationTimeReference = Time.time;
+            RenderComponenter.SetPropertyBlockFloat("_AnimationLoop", animationLoop ? 1f : 0f);
+            RenderComponenter.SetPropertyBlockFloat("_AnimationPaused", 0f);
             if (_actionType == EActionType.run)
             {
                 CurrentAnimTime = Random.Range(0, 1f);
-                RenderComponenter.SetPropertyBlockFloat("_CurrentTime", CurrentAnimTime);
+                RenderComponenter.SetPropertyBlockFloat("_CurrentTime", GetShaderStartTime());
                 RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", Time.time);
             }
             else
             {
                 CurrentAnimTime = 0;
-                RenderComponenter.SetPropertyBlockFloat("_CurrentTime", CurrentAnimTime);
+                RenderComponenter.SetPropertyBlockFloat("_CurrentTime", GetShaderStartTime());
                 RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", Time.time);
             }          
         }
@@ -132,16 +144,30 @@ public class ActionFlow : MonoBehaviour
     /// <summary>设置当前动作播放速度，负数会按零处理。</summary>
     public void SetAnimationSpeed(float speedRatio)
     {
+        if (currentActionData != null && !animationPaused)
+        {
+            CurrentAnimTime = GetCurrentAnimationTime();
+        }
+
         animPlaySpeedValue = Mathf.Max(0f, speedRatio);
+        animationTimeReference = Time.time;
         if (currentActionData != null)
         {
-            setActionAnimLenth(currentActionData);
+            if (animationPaused)
+            {
+                setPausedAnimationFrame();
+            }
+            else
+            {
+                setActionAnimLenth(currentActionData);
+                RenderComponenter.SetPropertyBlockFloat("_CurrentTime", GetShaderStartTime());
+                RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", animationTimeReference);
+            }
         }
     }
 
     /// <summary>
-    /// Freezes the current shader animation at an exact time. _AnimLen remains
-    /// the real animation length; _CurrentTime and _TimeSinceLevelLoad hold the frame.
+    /// 将当前动作冻结在指定帧，供卡刀等表现逻辑使用。
     /// </summary>
     public void FreezeAnimationAt(float animationTime)
     {
@@ -152,27 +178,76 @@ public class ActionFlow : MonoBehaviour
 
         float animationLength = Mathf.Max(0.0001f, currentActionData.AnimLen);
         CurrentAnimTime = Mathf.Clamp(animationTime, 0f, animationLength);
-        RenderComponenter.SetPropertyBlockFloat("_AnimLen", animationLength);
-        RenderComponenter.SetPropertyBlockFloat("_CurrentTime", CurrentAnimTime);
-        RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", Time.time);
+        animationPaused = true;
+        setPausedAnimationFrame();
     }
 
-    public void ResumeAnimation()
+    /// <summary>计算当前动作在真实动画时间轴上的帧位置。</summary>
+    private float GetCurrentAnimationTime()
+    {
+        if (currentActionData == null || animationPaused)
+        {
+            return CurrentAnimTime;
+        }
+
+        float animationLength = Mathf.Max(0.0001f, currentActionData.AnimLen);
+        float elapsedTime = Mathf.Max(0f, Time.time - animationTimeReference) * animPlaySpeedValue;
+        float animationTime = CurrentAnimTime + elapsedTime;
+        return animationLoop ? Mathf.Repeat(animationTime, animationLength) : Mathf.Min(animationTime, animationLength);
+    }
+
+    /// <summary>冻结当前正在显示的动作帧，供麻痹和冰冻效果使用。</summary>
+    public void FreezeCurrentAnimation()
     {
         if (currentActionData == null)
         {
             return;
         }
 
-        RenderComponenter.SetPropertyBlockFloat("_AnimLen", Mathf.Max(0.0001f, currentActionData.AnimLen));
+        CurrentAnimTime = GetCurrentAnimationTime();
+        animationPaused = true;
+        setPausedAnimationFrame();
+    }
+
+    /// <summary>解除动作冻结并从冻结帧继续播放。</summary>
+    public void ResumeAnimation()
+    {
+        if (currentActionData == null || !animationPaused)
+        {
+            return;
+        }
+
+        animationPaused = false;
+        animationTimeReference = Time.time;
+        setActionAnimLenth(currentActionData);
+        RenderComponenter.SetPropertyBlockFloat("_CurrentTime", GetShaderStartTime());
+        RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", animationTimeReference);
+        RenderComponenter.SetPropertyBlockFloat("_AnimationPaused", 0f);
+    }
+
+    /// <summary>把当前帧写入材质属性，并通知 Shader 停止使用全局时间推进。</summary>
+    private void setPausedAnimationFrame()
+    {
+        float animationLength = Mathf.Max(0.0001f, currentActionData.AnimLen);
+        RenderComponenter.SetPropertyBlockFloat("_AnimLen", animationLength);
         RenderComponenter.SetPropertyBlockFloat("_CurrentTime", CurrentAnimTime);
         RenderComponenter.SetPropertyBlockFloat("_TimeSinceLevelLoad", Time.time);
+        RenderComponenter.SetPropertyBlockFloat("_AnimationPaused", 1f);
+    }
+
+    /// <summary>将原始动画时间换算成当前倍率下的起始时间，保证变速前后的帧位置一致。</summary>
+    private float GetShaderStartTime()
+    {
+        float safeSpeedRatio = animPlaySpeedValue > 0f ? animPlaySpeedValue : 0.0001f;
+        return CurrentAnimTime / safeSpeedRatio;
     }
 
     // 设置动画时长
     private void setActionAnimLenth(ActionData _actionData)
     {
-        float _animLenth = _actionData.AnimLen * animPlaySpeedValue;
+        // Shader 使用时间除以动画长度，速度倍率越大，动画长度需要越短。
+        float safeSpeedRatio = animPlaySpeedValue > 0f ? animPlaySpeedValue : 0.0001f;
+        float _animLenth = _actionData.AnimLen / safeSpeedRatio;
         RenderComponenter.SetPropertyBlockFloat("_AnimLen", _animLenth);
     }
 

@@ -6,6 +6,7 @@ public class BuffDefine
         Freeze = 1,
         AddAtk = 2,
         Paralysis = 3,
+        SpeedUp = 4,
         DeathSave = 5,
         LastStand = 6,
         CounterSpiral = 7,

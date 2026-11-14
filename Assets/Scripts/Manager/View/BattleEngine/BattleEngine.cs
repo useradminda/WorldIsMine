@@ -235,7 +235,14 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             unitLogic.BindUnitView(unityView);
 
             unitLogic.InitStateMachine();
-            unitLogic.StateMachine.ChangeState(EStateTyep.Move);
+            if (unitLogic.SoliderCfg != null && unitLogic.SoliderCfg.unitType == 3)
+            {
+                unitLogic.StateMachine.ChangeState(EStateTyep.KnightCharge);
+            }
+            else
+            {
+                unitLogic.StateMachine.ChangeState(EStateTyep.Move);
+            }
         }
 
         return creatableCount;

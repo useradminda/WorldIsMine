@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class UnitView : IView
 {
@@ -12,6 +13,7 @@ public class UnitView : IView
     private EStateTyep stateType;
 
     private ActionFlow actionFlow;
+    private BuffColorBlinkComponent buffColorBlinkComponent;
     public ActionFlow ActionFlowComponent
     {
         get
@@ -115,11 +117,31 @@ public class UnitView : IView
         InitAroundEffect(unit.SoliderCfg.aroundEffect);
     }
 
+    /// <summary>
+    /// 开启或停止攻击 Buff 的金色闪烁表现，并在停止时清理材质属性块。
+    /// </summary>
     public void SetAttackBuffColor(bool enabled)
     {
+        if (enabled)
+        {
+            if (buffColorBlinkComponent == null)
+            {
+                buffColorBlinkComponent = gameObject.GetOrAddComponentInChild<BuffColorBlinkComponent>();
+            }
+
+            buffColorBlinkComponent.StartBlink();
+            return;
+        }
+
+        if (buffColorBlinkComponent != null)
+        {
+            buffColorBlinkComponent.StopBlink();
+            return;
+        }
+
         RenderComponent renderComponent = gameObject.GetOrAddComponentInChild<RenderComponent>();
-        renderComponent.SetPropertyBlockColor("_BuffColor", enabled ? new Color(1f, 0.68f, 0.05f, 1f) : Color.white);
-        renderComponent.SetPropertyBlockFloat("_BuffColorStrength", enabled ? 0.85f : 0f);
+        renderComponent.SetPropertyBlockColor("_BuffColor", Color.white);
+        renderComponent.SetPropertyBlockFloat("_BuffColorStrength", 0f);
     }
 
     public void SetDissolveAmount(float amount)
@@ -153,13 +175,22 @@ public class UnitView : IView
 
     public void BeHitSlash()
     {
-        BattleClashEffectManager.Instance.ReportHit(transform.position, unitLogic != null ? unitLogic.Prop.Radius : 0f);
+        BeHitSlash(transform.position);
+    }
+
+    /// <summary>
+    /// 播放受击闪白、抖动和交战随机特效，支持使用实际受击点。
+    /// </summary>
+    public void BeHitSlash(Vector3 hitPoint)
+    {
+        Vector3 effectPoint = hitPoint.sqrMagnitude > 0.0001f ? hitPoint : transform.position;
+        BattleClashEffectManager.Instance.ReportHit(effectPoint, unitLogic != null ? unitLogic.Prop.Radius : 0f);
 
         if (stateType != EStateTyep.Die)
         {
             if (unitLogic.UnitType == EUnitType.Wall)
             {
-                SlachComp.SetSlash(Color.white, 0.1f);
+                SlachComp.SetSlash(Color.white, 0.1f, 0.3f);
                 ShakeComp.SetShake(0.2f);
             }
             else
@@ -167,7 +198,6 @@ public class UnitView : IView
                 SlachComp.SetSlash(Color.white);
                 ShakeComp.SetShake();
             }
-           
         }
     }
 
@@ -199,7 +229,12 @@ public class UnitView : IView
                 {
                     FootSmokeManager.Instance.StopForUnit(this);
                     string dieType = paramsInfo[0].ToString();
-                    enterDie(dieType, (Vector3)paramsInfo[1]);
+                    bool wasFrozen = paramsInfo.Length > 2
+                        && paramsInfo[2] is bool
+                        && (bool)paramsInfo[2];
+                    // 旧调用：只传入死亡类型和受击点，无法知道死亡前是否处于冰冻状态。
+                    // enterDie(dieType, (Vector3)paramsInfo[1]);
+                    enterDie(dieType, (Vector3)paramsInfo[1], wasFrozen);
                 }
                 unitLogic.StateMachine.ClearStateDirty();
             }
@@ -248,6 +283,24 @@ public class UnitView : IView
         go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
     }
 
+    public void PlayNoAttachEffect(string prefabName, float time)
+    {
+        if (string.IsNullOrWhiteSpace(prefabName))
+        {
+            return;
+        }
+
+        GameObject go = UnitViewFactory.CreateGob(prefabName, transform.position, transform.forward);
+        if (go == null)
+        {
+            return;
+        }
+
+        go.transform.position = transform.position;
+        go.transform.rotation = transform.rotation.normalized;
+        go.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(time, prefabName);
+    }
+
     public void SetForwardForce(Vector3 foward)
     {
         if (foward.sqrMagnitude <= 0.0001f)
@@ -259,6 +312,16 @@ public class UnitView : IView
         transform.rotation = forceRotation;
         targetQ = forceRotation;
         transQ = forceRotation;
+    }
+
+    /// <summary>
+    /// 立即同步角色模型位置，供传送等不需要位置插值的逻辑使用。
+    /// </summary>
+    public void SnapToPosition(Vector3 position)
+    {
+        transform.position = position;
+        tarPos = position;
+        transPos = position;
     }
 
     private Vector3 tarPos;
@@ -316,10 +379,23 @@ public class UnitView : IView
         transform.rotation = transQ;
     }
 
-    private void enterDie(string dieType, Vector3 beHitPoint)
+    /// <summary>
+    /// 根据死亡类型创建死亡表现；拥有冰冻 Buff 的角色优先使用碎裂死亡效果。
+    /// </summary>
+    private void enterDie(string dieType, Vector3 beHitPoint, bool wasFrozen = false)
     {
         DieBaseComponent dieComp;
-        if (dieType == "Tornado")
+        // 旧逻辑：进入死亡表现后再查询 Buff；此时 Buff 可能已经被 TriggerDie 清理。
+        // bool isFrozen = unitLogic != null
+        //     && unitLogic.BuffLogicMachine.HasBuffType(BuffDefine.EBuffType.Freeze);
+        bool isFrozen = wasFrozen || (unitLogic != null
+            && unitLogic.BuffLogicMachine.HasBuffType(BuffDefine.EBuffType.Freeze));
+        if (isFrozen || dieType == "Split")
+        {
+            dieComp = gameObject.GetOrAddComponent<SplitDieComponent>();
+            dieComp.SetUnitView(this);
+        }
+        else if (dieType == "Tornado")
         {
             dieComp = gameObject.GetOrAddComponent<TornadoDieComponent>();
             dieComp.SetUnitView(this);

@@ -40,7 +40,7 @@ public class AroundAreaFlyObject : FlyObjectLogicBase
         resultUnitIndexList.Clear();
         resultUnitUidList.Clear();
         mTarPos = atkUnitLogic != null ? atkUnitLogic.CurPos : oriPos;
-        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, mTarPos, Vector3.zero);
+        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, mTarPos, tarPos - oriPos);
     }
 
     public override void FlyObjectUpdate(float dt)

@@ -18,7 +18,7 @@ public class AttackStopComponent : MonoBehaviour
     private UnitLogicBase unitLogic;
     private ActionFlow actionFlow;
     private float attackAnimationLength;
-    private float animationStartTime;
+    private float animationElapsedTime;
     private float frozenAnimationTime;
     private float recoveryAnimationTime;
     private float recoveryAnimationSpeed;
@@ -41,7 +41,7 @@ public class AttackStopComponent : MonoBehaviour
         unitLogic = attacker;
         actionFlow = attacker.UnitView.ActionFlowComponent;
         attackAnimationLength = animationLength;
-        animationStartTime = Time.time;
+        animationElapsedTime = 0f;
         frozenAnimationTime = 0f;
         recoveryAnimationTime = 0f;
         recoveryAnimationSpeed = 0f;
@@ -50,7 +50,8 @@ public class AttackStopComponent : MonoBehaviour
         stopping = false;
         recovering = false;
         attackAnimationPlaying = true;
-        actionFlow.SetAnimationSpeed(1f);
+        // 卡刀动画从当前逻辑速度开始，保证动画、攻击状态和攻击冷却使用同一倍率。
+        actionFlow.SetAnimationSpeed(attacker.LogicRatio);
     }
 
     /// <summary>普攻命中时调用，只处理动画卡刀，不参与伤害和逻辑状态。</summary>
@@ -64,7 +65,7 @@ public class AttackStopComponent : MonoBehaviour
         }
 
         frozenAnimationTime = Mathf.Clamp(
-            Time.time - animationStartTime,
+            animationElapsedTime,
             0f,
             Mathf.Max(0.0001f, attackAnimationLength - 0.001f));
         recoveryAnimationTime = frozenAnimationTime;
@@ -75,6 +76,7 @@ public class AttackStopComponent : MonoBehaviour
         actionFlow.FreezeAnimationAt(frozenAnimationTime);
     }
 
+    /// <summary>按逻辑速度推进英雄普攻动画，并处理卡刀和恢复阶段。</summary>
     private void Update()
     {
         if (!attackAnimationPlaying)
@@ -82,7 +84,7 @@ public class AttackStopComponent : MonoBehaviour
             return;
         }
 
-        if (unitLogic == null || unitLogic.IsDead || unitLogic.LogicRatio < 0.999f
+        if (unitLogic == null || unitLogic.IsDead
             || unitLogic.StateMachine == null
             || unitLogic.StateMachine.GetCurrentState() == null
             || unitLogic.StateMachine.GetCurrentState().StateType != EStateTyep.Attack)
@@ -91,9 +93,15 @@ public class AttackStopComponent : MonoBehaviour
             return;
         }
 
+        // 麻痹期间保留攻击和卡刀进度，解除后从原进度继续，避免取消流程后计时错位。
+        if (unitLogic.LogicRatio <= 0f)
+        {
+            return;
+        }
+
         if (stopping)
         {
-            remainStopTime -= Time.deltaTime;
+            remainStopTime -= Time.deltaTime * unitLogic.LogicRatio;
             actionFlow.FreezeAnimationAt(frozenAnimationTime);
             if (remainStopTime > 0f)
             {
@@ -117,18 +125,19 @@ public class AttackStopComponent : MonoBehaviour
 
         if (recovering)
         {
+            float logicDeltaTime = Time.deltaTime * unitLogic.LogicRatio;
             if (recoverySlowRemainTime > 0f)
             {
-                recoverySlowRemainTime -= Time.deltaTime;
+                recoverySlowRemainTime -= logicDeltaTime;
             }
             else
             {
                 recoveryAnimationSpeed = Mathf.MoveTowards(
                     recoveryAnimationSpeed,
                     1f,
-                    Mathf.Max(0f, recoveryAcceleration) * Time.deltaTime);
+                    Mathf.Max(0f, recoveryAcceleration) * logicDeltaTime);
             }
-            recoveryAnimationTime += Time.deltaTime * recoveryAnimationSpeed;
+            recoveryAnimationTime += logicDeltaTime * recoveryAnimationSpeed;
 
             if (recoveryAnimationTime >= attackAnimationLength)
             {
@@ -145,12 +154,16 @@ public class AttackStopComponent : MonoBehaviour
             return;
         }
 
-        if (Time.time - animationStartTime >= attackAnimationLength)
+        // 普通播放阶段累计逻辑动画时间，变速时仍与 AttackState 的攻击时长保持一致。
+        animationElapsedTime += Time.deltaTime * unitLogic.LogicRatio;
+        if (animationElapsedTime >= attackAnimationLength)
         {
+            animationElapsedTime = attackAnimationLength;
             FinishAttackAnimation();
         }
     }
 
+    /// <summary>结束卡刀流程，恢复当前速度并切换到等待动作。</summary>
     private void FinishAttackAnimation()
     {
         if (!attackAnimationPlaying)
@@ -165,7 +178,9 @@ public class AttackStopComponent : MonoBehaviour
         recoveryAnimationTime = 0f;
         recoveryAnimationSpeed = 0f;
         recoverySlowRemainTime = 0f;
-        actionFlow.SetAnimationSpeed(1f);
+        // 卡刀结束后恢复当前逻辑速度，避免速度 Buff 被重置。
+        actionFlow.ResumeAnimation();
+        actionFlow.SetAnimationSpeed(unitLogic != null ? unitLogic.LogicRatio : 1f);
 
         if (unitLogic != null && !unitLogic.IsDead
             && unitLogic.StateMachine != null
@@ -192,6 +207,7 @@ public class AttackStopComponent : MonoBehaviour
         recoverySlowRemainTime = 0f;
         if (actionFlow != null && unitLogic != null && !unitLogic.IsDead)
         {
+            actionFlow.ResumeAnimation();
             actionFlow.SetAnimationSpeed(unitLogic.LogicRatio);
         }
         actionFlow = null;

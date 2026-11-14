@@ -25,15 +25,20 @@ public class UIOperateManager : MonoBehaviour
 
     private readonly List<SoldierMenuData> redSoldiers = new List<SoldierMenuData>();
     private readonly List<SoldierMenuData> blueSoldiers = new List<SoldierMenuData>();
+    private readonly List<SoldierMenuData> redHeroes = new List<SoldierMenuData>();
+    private readonly List<SoldierMenuData> blueHeroes = new List<SoldierMenuData>();
 
-    private Rect windowRect = new Rect(20f, 70f, 760f, 510f);
-    private Vector2 redScrollPosition;
-    private Vector2 blueScrollPosition;
+    private Rect windowRect = new Rect(20f, 70f, 620f, 650f);
+    private Vector2 redContentScrollPosition;
+    private Vector2 blueContentScrollPosition;
     private string redSpawnCountText = "100";
     private string blueSpawnCountText = "100";
+    private string redHeroSpawnCountText = "1";
+    private string blueHeroSpawnCountText = "1";
     private string operationTip = string.Empty;
     private bool isMenuOpen;
     private bool configLoaded;
+    private int activeTab;
 
     private GUIStyle campTitleStyle;
     private GUIStyle itemLabelStyle;
@@ -72,11 +77,11 @@ public class UIOperateManager : MonoBehaviour
             return;
         }
 
-        float windowWidth = Mathf.Clamp(guiScreenWidth - 40f, 420f, 900f);
-        windowRect.width = windowWidth;
+        windowRect.width = Mathf.Clamp(guiScreenWidth * 0.48f, 480f, 720f);
+        windowRect.height = Mathf.Clamp(guiScreenHeight * 0.82f, 500f, 720f);
         windowRect.x = Mathf.Clamp(windowRect.x, 0f, Mathf.Max(0f, guiScreenWidth - windowRect.width));
         windowRect.y = Mathf.Clamp(windowRect.y, 0f, Mathf.Max(0f, guiScreenHeight - windowRect.height));
-        windowRect = GUI.Window(GetInstanceID(), windowRect, DrawSpawnWindow, "创建士兵");
+        windowRect = GUI.Window(GetInstanceID() + 1, windowRect, DrawTabbedWindow, "创建士兵");
         GUI.matrix = oldMatrix;
     }
 
@@ -88,49 +93,80 @@ public class UIOperateManager : MonoBehaviour
         return Mathf.Clamp(Mathf.Min(widthScale, heightScale), MinGuiScale, MaxGuiScale);
     }
 
-    /// <summary>
-    /// 绘制完整的士兵创建窗口。
-    /// </summary>
-    private void DrawSpawnWindow(int windowId)
+    /// <summary>绘制红方、蓝方和全局技能三个页签的统一窗口。</summary>
+    private void DrawTabbedWindow(int windowId)
+    {
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Toggle(activeTab == 0, "红方", GUI.skin.button, GUILayout.Height(32f)))
+        {
+            activeTab = 0;
+        }
+        if (GUILayout.Toggle(activeTab == 1, "蓝方", GUI.skin.button, GUILayout.Height(32f)))
+        {
+            activeTab = 1;
+        }
+        if (GUILayout.Toggle(activeTab == 2, "全局技能", GUI.skin.button, GUILayout.Height(32f)))
+        {
+            activeTab = 2;
+        }
+        GUILayout.EndHorizontal();
+
+        if (activeTab == 0)
+        {
+            DrawCampWindowContent(ECampType.Red, redSoldiers, redHeroes,
+                ref redSpawnCountText, ref redHeroSpawnCountText, ref redContentScrollPosition);
+        }
+        else if (activeTab == 1)
+        {
+            DrawCampWindowContent(ECampType.Blue, blueSoldiers, blueHeroes,
+                ref blueSpawnCountText, ref blueHeroSpawnCountText, ref blueContentScrollPosition);
+        }
+        else
+        {
+            DrawGlobalSkillButtons();
+            if (!string.IsNullOrEmpty(operationTip))
+            {
+                GUILayout.Label(operationTip, tipStyle);
+            }
+        }
+
+        GUI.DragWindow(new Rect(0f, 0f, windowRect.width - 45f, 24f));
+    }
+
+    /// <summary>绘制单个阵营窗口中的数量输入、士兵网格和英雄网格。</summary>
+    private void DrawCampWindowContent(
+        ECampType campType,
+        List<SoldierMenuData> soldiers,
+        List<SoldierMenuData> heroes,
+        ref string soldierCountText,
+        ref string heroCountText,
+        ref Vector2 scrollPosition)
     {
         GUILayout.BeginVertical();
-        DrawSpawnCountInput("红方出兵数量", ref redSpawnCountText);
-
+        scrollPosition = GUILayout.BeginScrollView(
+            scrollPosition,
+            false,
+            true,
+            GUILayout.Height(Mathf.Max(200f, windowRect.height - 90f)));
         if (!configLoaded)
         {
             GUILayout.Label("SoliderCfg.json 读取失败，请查看控制台日志。", tipStyle);
         }
         else
         {
-            DrawCampMenu("红色阵营", ECampType.Red, redSoldiers, ref redScrollPosition, Color.white);
-            DrawSpawnCountInput("蓝方出兵数量", ref blueSpawnCountText);
-            DrawCampMenu("蓝色阵营", ECampType.Blue, blueSoldiers, ref blueScrollPosition, Color.white);
+            DrawSpawnCountInput("士兵出生数量", ref soldierCountText);
+            GUILayout.Label("士兵", itemLabelStyle, GUILayout.Height(22f));
+            DrawUnitMenuGrid(soldiers, campType, false);
+            DrawSpawnCountInput("英雄出生数量", ref heroCountText);
+            GUILayout.Label("英雄", itemLabelStyle, GUILayout.Height(22f));
+            DrawUnitMenuGrid(heroes, campType, true);
         }
-
-        DrawGlobalSkillButtons();
-        DrawCloseButton();
-
+        GUILayout.EndScrollView();
         if (!string.IsNullOrEmpty(operationTip))
         {
             GUILayout.Label(operationTip, tipStyle);
         }
-
         GUILayout.EndVertical();
-        GUI.DragWindow(new Rect(0f, 0f, windowRect.width - 45f, 24f));
-    }
-
-    /// <summary>
-    /// 绘制并校验单次创建数量输入框。
-    /// </summary>
-    private void DrawCloseButton()
-    {
-        GUILayout.BeginHorizontal();
-        GUILayout.FlexibleSpace();
-        if (GUILayout.Button("关闭", GUILayout.Width(70f)))
-        {
-            isMenuOpen = false;
-        }
-        GUILayout.EndHorizontal();
     }
 
     /// <summary>
@@ -240,51 +276,49 @@ public class UIOperateManager : MonoBehaviour
         GUILayout.EndHorizontal();
     }
     /// <summary>
-    /// 绘制一个阵营的横向士兵列表。
+    /// 绘制同一类别的四列单位网格，避免英雄需要横向拖动才能选择。
     /// </summary>
-    private void DrawCampMenu(
-        string title,
-        ECampType campType,
-        List<SoldierMenuData> soldiers,
-        ref Vector2 scrollPosition,
-        Color titleColor)
+    private void DrawUnitMenuGrid(List<SoldierMenuData> units, ECampType campType, bool isHero)
     {
-        Color oldColor = campTitleStyle.normal.textColor;
-        campTitleStyle.normal.textColor = titleColor;
-        GUILayout.Label(title, campTitleStyle);
-        campTitleStyle.normal.textColor = oldColor;
-
-        scrollPosition = GUILayout.BeginScrollView(
-            scrollPosition,
-            false,
-            false,
-            GUILayout.Height(82f));
-        GUILayout.BeginHorizontal();
-
-        for (int i = 0; i < soldiers.Count; i++)
+        float cardWidth = Mathf.Max(90f, (windowRect.width - 40f) / 4f);
+        float contentWidth = Mathf.Max(80f, cardWidth - 10f);
+        for (int i = 0; i < units.Count; i++)
         {
-            SoldierMenuData soldier = soldiers[i];
-            GUILayout.BeginVertical(GUI.skin.box, GUILayout.Width(155f), GUILayout.Height(60f));
-            GUILayout.Label(soldier.DisplayName, itemLabelStyle, GUILayout.Width(145f));
-            if (GUILayout.Button("生成", GUILayout.Width(145f), GUILayout.Height(26f)))
+            if (i % 4 == 0)
             {
-                SpawnSoldier(soldier.ConfigId, soldier.DisplayName, campType);
+                GUILayout.BeginHorizontal();
+            }
+
+            SoldierMenuData soldier = units[i];
+            GUILayout.BeginVertical(GUI.skin.box, GUILayout.Width(cardWidth), GUILayout.Height(64f));
+            GUILayout.Label(soldier.DisplayName, itemLabelStyle, GUILayout.Width(contentWidth), GUILayout.Height(26f));
+            if (GUILayout.Button("生成", GUILayout.Width(contentWidth), GUILayout.Height(28f)))
+            {
+                SpawnSoldier(soldier.ConfigId, soldier.DisplayName, campType, isHero);
             }
             GUILayout.EndVertical();
-        }
 
-        GUILayout.EndHorizontal();
-        GUILayout.EndScrollView();
+            if (i % 4 == 3 || i == units.Count - 1)
+            {
+                GUILayout.EndHorizontal();
+            }
+        }
     }
 
     /// <summary>
     /// 根据当前输入数量提交一组士兵创建请求。
     /// </summary>
-    private void SpawnSoldier(int configId, string displayName, ECampType campType)
+    private void SpawnSoldier(int configId, string displayName, ECampType campType, bool isHero)
     {
-        string countText = campType == ECampType.Red
-            ? redSpawnCountText
-            : blueSpawnCountText;
+        string countText;
+        if (campType == ECampType.Red)
+        {
+            countText = isHero ? redHeroSpawnCountText : redSpawnCountText;
+        }
+        else
+        {
+            countText = isHero ? blueHeroSpawnCountText : blueSpawnCountText;
+        }
 
         if (!TryGetSpawnCount(ref countText, out int spawnCount))
         {
@@ -294,11 +328,25 @@ public class UIOperateManager : MonoBehaviour
 
         if (campType == ECampType.Red)
         {
-            redSpawnCountText = countText;
+            if (isHero)
+            {
+                redHeroSpawnCountText = countText;
+            }
+            else
+            {
+                redSpawnCountText = countText;
+            }
         }
         else
         {
-            blueSpawnCountText = countText;
+            if (isHero)
+            {
+                blueHeroSpawnCountText = countText;
+            }
+            else
+            {
+                blueSpawnCountText = countText;
+            }
         }
 
         BattleEngine.Instance.CreateUnit(configId, campType, spawnCount);
@@ -326,6 +374,8 @@ public class UIOperateManager : MonoBehaviour
     {
         redSoldiers.Clear();
         blueSoldiers.Clear();
+        redHeroes.Clear();
+        blueHeroes.Clear();
 
         try
         {
@@ -339,7 +389,16 @@ public class UIOperateManager : MonoBehaviour
                 }
 
                 SoldierMenuData menuData = new SoldierMenuData(config.id, config.name);
-                if (campType == ECampType.Red)
+                bool isHero = UnitFactory.IsHero(config.id);
+                if (campType == ECampType.Red && isHero)
+                {
+                    redHeroes.Add(menuData);
+                }
+                else if (campType == ECampType.Blue && isHero)
+                {
+                    blueHeroes.Add(menuData);
+                }
+                else if (campType == ECampType.Red)
                 {
                     redSoldiers.Add(menuData);
                 }
@@ -365,13 +424,17 @@ public class UIOperateManager : MonoBehaviour
     {
         campType = ECampType.Red;
 
-        if (configId >= 100 && configId < 200 || configId >= 1000 && configId < 2000)
+        if (configId >= 100 && configId < 200
+            || configId >= 1000 && configId < 2000
+            || configId >= 10000 && configId < 20000)
         {
             campType = ECampType.Red;
             return true;
         }
 
-        if (configId >= 200 && configId < 300 || configId >= 2000 && configId < 3000)
+        if (configId >= 200 && configId < 300
+            || configId >= 2000 && configId < 3000
+            || configId >= 20000 && configId < 30000)
         {
             campType = ECampType.Blue;
             return true;

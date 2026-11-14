@@ -7,6 +7,11 @@ using ZTools;
 
 public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 {
+    // 箭类投射物固定经过的世界高度，保证近距离射击也能看到高抛轨迹。
+    private const float ArrowApexY = 20f;
+    // 当起点和目标都高于弧顶配置时，仍保留最小抛物线高度。
+    private const float ArrowMinimumArcHeight = 2f;
+
     // 最大箭数量
     private const int MaxProjectileCount = 10000;
 
@@ -73,8 +78,10 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
             float arcHeight = 1;
 
             if (flyType == "arrow")
-            { 
-               arcHeight = math.clamp(distance * 0.2f, 2f, 10f);
+            {
+               // 旧逻辑：弧高跟随水平距离变化，近距离时弧顶过低，容易被单位或城墙遮挡。
+               // arcHeight = math.clamp(distance * 0.2f, 2f, 10f);
+               arcHeight = CalculateArrowArcHeight(startPosition, targetPosition);
             }
             else if(flyType == "stone")
             {
@@ -130,6 +137,13 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
 
         // 没有空闲箭
         return -1;
+    }
+
+    /// <summary>计算弓箭抛物线弧高，使轨迹中点固定经过指定世界高度。</summary>
+    private static float CalculateArrowArcHeight(float3 startPosition, float3 targetPosition)
+    {
+        float middleLinearY = math.lerp(startPosition.y, targetPosition.y, 0.5f);
+        return math.max(ArrowMinimumArcHeight, ArrowApexY - middleLinearY);
     }
 
     // ========================================
@@ -228,6 +242,7 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
                 projectile;
 
             projectileTransformsDic[projectile.FlyUIndex] = null;
+            projectileTransformsDic.Remove(projectile.FlyUIndex);
         }
     }
 

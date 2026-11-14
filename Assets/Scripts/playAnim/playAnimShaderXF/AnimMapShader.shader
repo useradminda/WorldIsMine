@@ -19,6 +19,7 @@ Shader "chenjd/BuiltIn/AnimMapShader"
         _WorldPoint("黑洞中心坐标", Vector) = (1,1,1,0)
         _BlackPower("吸力", float) = 0       
         _GravityValue("重力值",float) = 1
+        _AnimationLoop("动画循环",float) = 1
         
 
         _MainLightDir("MainLightDir", vector) = (1,1,1)
@@ -118,6 +119,7 @@ Shader "chenjd/BuiltIn/AnimMapShader"
                 UNITY_DEFINE_INSTANCED_PROP(float, _BlackPower)
                 UNITY_DEFINE_INSTANCED_PROP(float, _TimeSinceLevelLoad)
                 UNITY_DEFINE_INSTANCED_PROP(float, _GravityValue)               
+                UNITY_DEFINE_INSTANCED_PROP(float, _AnimationLoop)
             UNITY_INSTANCING_BUFFER_END(Props)
             
             v2f vert (appdata v, uint vid : SV_VertexID)
@@ -141,7 +143,8 @@ Shader "chenjd/BuiltIn/AnimMapShader"
 
                 //float f = _cT / len;
 
-                fmod(f, 1.0);
+                float animationLoop = UNITY_ACCESS_INSTANCED_PROP(Props, _AnimationLoop);
+                f = animationLoop > 0.5 ? frac(f) : min(saturate(f), 0.9999);
 
                
 

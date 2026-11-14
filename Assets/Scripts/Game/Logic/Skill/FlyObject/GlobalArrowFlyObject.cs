@@ -134,8 +134,8 @@ public class GlobalArrowFlyObject : FlyObjectLogicBase
                 continue;
             }
 
-            int damage = Mathf.Max(1, Mathf.CeilToInt(target.SoliderCfg.hp / 3f));
-            BattleLogicDamageTools.DoDamage(mAtkUnitLogic, target, -damage, target.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
+            int damage = GetFinalDamage(target);
+            BattleLogicDamageTools.DoDamage(mAtkUnitLogic, target, damage, target.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
             mSkillLogic.ApplyBuffs(target);
         }
     }
