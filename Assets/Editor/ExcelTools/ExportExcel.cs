@@ -36,6 +36,7 @@ public class ExportExcel
         }
         catch (Exception ex)
         {
+            Debug.LogError(ex);
         }
     }
 
@@ -172,7 +173,10 @@ public class ExportExcel
                 string propValueStr = propValue.ToString();
                 if (propType == "int")
                 {
-                    propValue = Convert.ToInt32(propValue);
+                    if (propValue == "")
+                        propValue = 0;
+                    else
+                        propValue = Convert.ToInt32(propValue);
                 }
                 else if(propType == "float")
                 {
