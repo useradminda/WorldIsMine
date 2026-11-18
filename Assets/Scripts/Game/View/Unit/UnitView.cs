@@ -432,7 +432,15 @@ public class UnitView : IView
         }
         else if (dieType == "PushDie")
         {
-            dieComp = gameObject.GetOrAddComponent<PushDieComponent>();
+            // 骑兵模型通常带有特殊骨骼和翻身动作，PushDie 会造成姿势异常，因此使用普通死亡表现。
+            if (unitLogic != null && unitLogic.SoliderCfg != null && unitLogic.SoliderCfg.unitType == 3)
+            {
+                dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
+            }
+            else
+            {
+                dieComp = gameObject.GetOrAddComponent<PushDieComponent>();
+            }
             dieComp.SetUnitView(this);
         }
         else if (dieType == "PushUp")

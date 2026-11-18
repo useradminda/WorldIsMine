@@ -63,27 +63,27 @@ public class BattleHUDPanel : MonoBehaviour
     }
 
     /// <summary>创建或复用一组士兵的总血量 HUD。</summary>
-    public BattleSoldierHudItem CreateSoldierGroupHud(IList<UnitLogicBase> soldierLogics, BattlePlayer player, float refreshInterval = 0f)
+    public long CreateSoldierGroupHud(IList<UnitLogicBase> soldierLogics, BattlePlayer player, float refreshInterval = 0f)
     {
-        return soldierHudPanel == null ? null : soldierHudPanel.CreateGroupHud(soldierLogics, player, refreshInterval);
+        return soldierHudPanel == null ? 0 : soldierHudPanel.CreateGroupHud(soldierLogics, player, refreshInterval);
     }
 
     /// <summary>从士兵组 HUD 中移除死亡或回收的士兵。</summary>
-    public void RemoveSoldierFromGroup(BattlePlayer player, UnitLogicBase soldierLogic)
+    public void RemoveSoldierFromGroup(long groupId, UnitLogicBase soldierLogic)
     {
-        soldierHudPanel?.RemoveSoldier(player, soldierLogic);
+        soldierHudPanel?.RemoveSoldier(groupId, soldierLogic);
     }
 
     /// <summary>将伤害同步到士兵组 HUD，并刷新组血量显示。</summary>
-    public void ApplySoldierGroupDamage(BattlePlayer player, int damage)
+    public void ApplySoldierGroupDamage(long groupId, int damage)
     {
-        soldierHudPanel?.ApplyDamage(player, damage);
+        soldierHudPanel?.ApplyDamage(groupId, damage);
     }
 
     /// <summary>直接回收一组士兵 HUD。</summary>
-    public void RemoveSoldierGroupHud(BattlePlayer player)
+    public void RemoveSoldierGroupHud(long groupId)
     {
-        soldierHudPanel?.RemoveGroup(player);
+        soldierHudPanel?.RemoveGroup(groupId);
     }
 
     /// <summary>
