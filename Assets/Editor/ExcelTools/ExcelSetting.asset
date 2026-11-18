@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: ExcelSetting
   m_EditorClassIdentifier: 
   ExcelCatchInfoList:
-  - ExcelName: SoliderUnit.xlsx
-    SheetNameList:
-    - SoliderCfg
   - ExcelName: FlyObject.xlsx
     SheetNameList:
     - FlyObjectCfg
-  - ExcelName: Skill.xlsx
-    SheetNameList:
-    - SkillCfg
   - ExcelName: Buff.xlsx
     SheetNameList:
     - BuffCfg
+  - ExcelName: Skill.xlsx
+    SheetNameList:
+    - SkillCfg
+  - ExcelName: SoliderUnit.xlsx
+    SheetNameList:
+    - SoliderCfg

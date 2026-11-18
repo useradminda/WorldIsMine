@@ -97,160 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 01_objective_fortress_badge
-      rect:
-        serializedVersion: 2
-        x: 1154
-        y: 1740
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e33d4aff643eeae4b925a51d33e9a4e2
-      internalID: -985760116
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01_objective_fortress_badge_blue
-      rect:
-        serializedVersion: 2
-        x: 3462
-        y: 870
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1f2dc67b9a19654897dbd8c3911b728
-      internalID: -1650031618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01_objective_fortress_badge_neutral
-      rect:
-        serializedVersion: 2
-        x: 3752
-        y: 870
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19129854ed2578b4396f83a6030e90ca
-      internalID: 1813978516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01_objective_fortress_badge_neutral_gray
-      rect:
-        serializedVersion: 2
-        x: 3464
-        y: 1160
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2a5e8cfa9fd0da47ad2bb87fb5ee42e
-      internalID: -1333893760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01_objective_fortress_badge_neutral_gray_v2
-      rect:
-        serializedVersion: 2
-        x: 3754
-        y: 1160
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4df3cf77b2ffcda4fa49a083de5f85cc
-      internalID: 875850097
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01_objective_fortress_badge_neutral_gray_v3
-      rect:
-        serializedVersion: 2
-        x: 1154
-        y: 1450
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 697cf4fa64ea2da4ca12e7863e674955
-      internalID: -668256601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 01_objective_fortress_badge_neutral_green
-      rect:
-        serializedVersion: 2
-        x: 1154
-        y: 2030
-        width: 288
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c08e589e7900422479a84b0838a1d561
-      internalID: 759437883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 02_player_info_bar
       rect:
         serializedVersion: 2
-        x: 2600
-        y: 1450
-        width: 576
-        height: 144
+        x: 3076
+        y: 0
+        width: 768
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +121,10 @@ TextureImporter:
       name: 02_player_info_bar_blue
       rect:
         serializedVersion: 2
-        x: 3178
-        y: 1450
-        width: 576
-        height: 144
+        x: 3076
+        y: 386
+        width: 768
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,181 +139,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 02_player_info_bar_neutral
-      rect:
-        serializedVersion: 2
-        x: 2022
-        y: 1596
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44ca568018ff8dd42abca7a04ee0eedf
-      internalID: -1623719853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_neutral_gray
-      rect:
-        serializedVersion: 2
-        x: 2600
-        y: 1596
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 12994ed0fc108fe4aa37d1a623c8675f
-      internalID: 1171750562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_neutral_green
-      rect:
-        serializedVersion: 2
-        x: 3462
-        y: 580
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f61869c6e36ab2d4e96d56683a66396c
-      internalID: 1806078488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_neutral_green_v2
-      rect:
-        serializedVersion: 2
-        x: 3462
-        y: 0
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94652fc5168454745909f77155001515
-      internalID: 895855944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_neutral_olive
-      rect:
-        serializedVersion: 2
-        x: 3462
-        y: 290
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f127cd07b6306834d95bdab073877de2
-      internalID: -1050851210
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 03_score_status_bar
-      rect:
-        serializedVersion: 2
-        x: 3752
-        y: 726
-        width: 288
-        height: 72
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74ce60a71a99ac444a4e7a92c003ca9f
-      internalID: -1643973934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 03_score_status_bar_blue
-      rect:
-        serializedVersion: 2
-        x: 3462
-        y: 726
-        width: 288
-        height: 72
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52063e6e7b818b640b2224656cef17e1
-      internalID: 1115267664
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 03_score_status_bar_neutral
-      rect:
-        serializedVersion: 2
-        x: 2308
-        y: 1306
-        width: 288
-        height: 72
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8cef3e3466c7ec4da642edac8dcc343
-      internalID: 671543762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 04_unit_nameplate_blue
       rect:
         serializedVersion: 2
-        x: 3462
-        y: 146
-        width: 576
-        height: 72
+        x: 3076
+        y: 194
+        width: 768
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +163,10 @@ TextureImporter:
       name: 05_unit_nameplate_red
       rect:
         serializedVersion: 2
-        x: 3462
-        y: 436
-        width: 576
-        height: 72
+        x: 3076
+        y: 580
+        width: 768
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -499,10 +184,10 @@ TextureImporter:
       name: 06_victory_point_pool_bar
       rect:
         serializedVersion: 2
-        x: 2308
-        y: 1160
-        width: 576
-        height: 144
+        x: 3076
+        y: 772
+        width: 768
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -517,34 +202,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 06_victory_point_pool_bar_neutral
-      rect:
-        serializedVersion: 2
-        x: 2886
-        y: 1160
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1271badacb3c21947aff856123ae6ec3
-      internalID: -1433779968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 07_player_name_status_strip
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 1596
-        width: 576
-        height: 144
+        x: 3076
+        y: 1158
+        width: 768
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -562,10 +226,10 @@ TextureImporter:
       name: 07_player_name_status_strip_blue
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 1450
-        width: 576
-        height: 144
+        x: 3076
+        y: 1544
+        width: 768
+        height: 192
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -580,34 +244,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 07_player_name_status_strip_neutral
-      rect:
-        serializedVersion: 2
-        x: 2022
-        y: 1450
-        width: 576
-        height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8b9bc9e31c489d4a9ebb1a0ce7f121c
-      internalID: 657143415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 02_player_info_bar_hp_star_exp_level_v10
       rect:
         serializedVersion: 2
         x: 0
-        y: 870
-        width: 1152
-        height: 288
+        y: 1544
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,97 +265,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 02_player_info_bar_hp_star_exp_level_v6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1160
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cc9b68d56e982340bd2da963244002f
-      internalID: 1036475639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_hp_star_exp_level_v7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1450
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c9874d72b23d624391c3ea49ca734a3
-      internalID: 696560076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_hp_star_exp_level_v8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f914e6d12c4edc040a7208fb245d55a3
-      internalID: -438704933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_hp_star_exp_level_v9
-      rect:
-        serializedVersion: 2
-        x: 2308
-        y: 0
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9528c00b4b0d5b54ab24e857affe7658
-      internalID: -1590020255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 02_player_info_bar_hp_star_exp_v2
       rect:
         serializedVersion: 2
         x: 0
-        y: 290
-        width: 1152
-        height: 288
+        y: 1930
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -727,55 +286,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 02_player_info_bar_hp_star_exp_v3
-      rect:
-        serializedVersion: 2
-        x: 1154
-        y: 290
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2071e9a8b36124c4db9da326d5f582df
-      internalID: -1256827379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02_player_info_bar_hp_star_exp_v5
-      rect:
-        serializedVersion: 2
-        x: 2308
-        y: 290
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 497c3edf4d8cfee47a9784fee51f82ec
-      internalID: 689743253
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 03_score_status_bar_simple_blue_exact_v1
       rect:
         serializedVersion: 2
-        x: 2308
-        y: 580
-        width: 1152
-        height: 288
+        x: 0
+        y: 2316
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -794,9 +311,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 580
-        width: 1152
-        height: 288
+        y: 2702
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -814,10 +331,10 @@ TextureImporter:
       name: 03_score_status_bar_simple_cloud_blue_v2
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 0
-        width: 1152
-        height: 288
+        x: 0
+        y: 3088
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -835,10 +352,10 @@ TextureImporter:
       name: 03_score_status_bar_simple_cloud_v2
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 580
-        width: 1152
-        height: 288
+        x: 0
+        y: 3474
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -856,10 +373,10 @@ TextureImporter:
       name: 03_score_status_bar_simple_v3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1740
-        width: 1152
-        height: 288
+        x: 1538
+        y: 1158
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -877,10 +394,10 @@ TextureImporter:
       name: 06_victory_point_pool_bar_simple_blue_exact_v1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2030
-        width: 1152
-        height: 288
+        x: 1538
+        y: 1544
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -898,10 +415,10 @@ TextureImporter:
       name: 06_victory_point_pool_bar_simple_blue_v3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2320
-        width: 1152
-        height: 288
+        x: 1538
+        y: 1930
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -919,10 +436,10 @@ TextureImporter:
       name: 06_victory_point_pool_bar_simple_v3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2610
-        width: 1152
-        height: 288
+        x: 1538
+        y: 2316
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -937,97 +454,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 07_player_name_status_strip_simple_blue_exact_v1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3190
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 256f5f6a7eb830f49927405b775d7256
-      internalID: -1126877241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 07_player_name_status_strip_simple_blue_v2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3480
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 471222127cab73240b01c5dfb97e9492
-      internalID: 1775538320
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 07_player_name_status_strip_simple_blue_v3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3770
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85f53f97edaee104997a7246ac32341e
-      internalID: 1266001857
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 07_player_name_status_strip_simple_blue_v4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2900
-        width: 1152
-        height: 288
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e143a962b6e9713438b1a469ba0e69e3
-      internalID: -362741975
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 07_player_name_status_strip_simple_v2
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 870
-        width: 1152
-        height: 288
+        x: 1538
+        y: 2702
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1045,10 +478,10 @@ TextureImporter:
       name: 07_player_name_status_strip_simple_v3
       rect:
         serializedVersion: 2
-        x: 2308
-        y: 870
-        width: 1152
-        height: 288
+        x: 1538
+        y: 3088
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1066,10 +499,10 @@ TextureImporter:
       name: progress_bar_green_v2
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 1742
-        width: 1152
-        height: 72
+        x: 0
+        y: 3860
+        width: 1536
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1087,10 +520,10 @@ TextureImporter:
       name: progress_bar_red_v2
       rect:
         serializedVersion: 2
-        x: 2598
-        y: 1742
-        width: 1152
-        height: 72
+        x: 0
+        y: 3958
+        width: 1536
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1108,10 +541,10 @@ TextureImporter:
       name: progress_bar_yellow_v2
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 1816
-        width: 1152
-        height: 72
+        x: 1538
+        y: 3860
+        width: 1536
+        height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1129,10 +562,10 @@ TextureImporter:
       name: progress_bars_red_yellow_green_v2
       rect:
         serializedVersion: 2
-        x: 1154
-        y: 1160
-        width: 1152
-        height: 288
+        x: 1538
+        y: 3474
+        width: 1536
+        height: 384
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1142,6 +575,153 @@ TextureImporter:
       bones: []
       spriteID: 50a59b179e6dfdb48aa2c1b64fea4c68
       internalID: -813774380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_background_empty_thin_v4_blue_clean
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7249f210811137c43b8510b3f00b8fe0
+      internalID: -751577429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_background_empty_thin_v4_red_clean
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 0
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbaa24cf465c3f04b999c3c7b790ad99
+      internalID: 478065867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_empty_compact_v1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 386
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d69abee2f20f514dbc47a6572518c62
+      internalID: 593176192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_empty_v1
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 386
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e87a8b5b8f2154a9315584e8949fee
+      internalID: -1554722780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_equal_v1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 772
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748b3246a88608f4d97a13b2f7c06201
+      internalID: -315110337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_equal_v2
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 772
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bf3d7c1c5194584a820c30d9e33b2e5
+      internalID: -89822262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02_player_info_bar_hp_exp_star_equal_v3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1158
+        width: 1536
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e76cad9feb0cc42bc8793f0d98a9ae
+      internalID: -761545273
       vertices: []
       indices: 
       edges: []
@@ -1157,31 +737,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      01_objective_fortress_badge: -985760116
-      01_objective_fortress_badge_blue: -1650031618
-      01_objective_fortress_badge_neutral: 1813978516
-      01_objective_fortress_badge_neutral_gray: -1333893760
-      01_objective_fortress_badge_neutral_gray_v2: 875850097
-      01_objective_fortress_badge_neutral_gray_v3: -668256601
-      01_objective_fortress_badge_neutral_green: 759437883
       02_player_info_bar: 559543315
       02_player_info_bar_blue: 703538510
+      02_player_info_bar_hp_exp_star_background_empty_thin_v4_blue_clean: -751577429
+      02_player_info_bar_hp_exp_star_background_empty_thin_v4_red_clean: 478065867
+      02_player_info_bar_hp_exp_star_empty_compact_v1: 593176192
+      02_player_info_bar_hp_exp_star_empty_v1: -1554722780
+      02_player_info_bar_hp_exp_star_equal_v1: -315110337
+      02_player_info_bar_hp_exp_star_equal_v2: -89822262
+      02_player_info_bar_hp_exp_star_equal_v3: -761545273
       02_player_info_bar_hp_star_exp_level_v10: -1988348624
-      02_player_info_bar_hp_star_exp_level_v6: 1036475639
-      02_player_info_bar_hp_star_exp_level_v7: 696560076
-      02_player_info_bar_hp_star_exp_level_v8: -438704933
-      02_player_info_bar_hp_star_exp_level_v9: -1590020255
       02_player_info_bar_hp_star_exp_v2: 1317988908
-      02_player_info_bar_hp_star_exp_v3: -1256827379
-      02_player_info_bar_hp_star_exp_v5: 689743253
-      02_player_info_bar_neutral: -1623719853
-      02_player_info_bar_neutral_gray: 1171750562
-      02_player_info_bar_neutral_green: 1806078488
-      02_player_info_bar_neutral_green_v2: 895855944
-      02_player_info_bar_neutral_olive: -1050851210
-      03_score_status_bar: -1643973934
-      03_score_status_bar_blue: 1115267664
-      03_score_status_bar_neutral: 671543762
       03_score_status_bar_simple_blue_exact_v1: 1380577501
       03_score_status_bar_simple_blue_v3: 1896490399
       03_score_status_bar_simple_cloud_blue_v2: -766729541
@@ -1190,17 +756,11 @@ TextureImporter:
       04_unit_nameplate_blue: -1172157207
       05_unit_nameplate_red: -993643484
       06_victory_point_pool_bar: 380008165
-      06_victory_point_pool_bar_neutral: -1433779968
       06_victory_point_pool_bar_simple_blue_exact_v1: 510686624
       06_victory_point_pool_bar_simple_blue_v3: -88247140
       06_victory_point_pool_bar_simple_v3: 842444188
       07_player_name_status_strip: 484257613
       07_player_name_status_strip_blue: 29498868
-      07_player_name_status_strip_neutral: 657143415
-      07_player_name_status_strip_simple_blue_exact_v1: -1126877241
-      07_player_name_status_strip_simple_blue_v2: 1775538320
-      07_player_name_status_strip_simple_blue_v3: 1266001857
-      07_player_name_status_strip_simple_blue_v4: -362741975
       07_player_name_status_strip_simple_v2: -724732402
       07_player_name_status_strip_simple_v3: -319674145
       progress_bar_green_v2: 1206879695

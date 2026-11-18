@@ -101,7 +101,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 1026
         width: 2048
         height: 512
       alignment: 0
@@ -122,7 +122,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 514
+        y: 1540
         width: 2048
         height: 512
       alignment: 0
@@ -142,8 +142,8 @@ TextureImporter:
       name: 01_summon_panel_blue
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1542
+        x: 2050
+        y: 0
         width: 1024
         height: 256
       alignment: 0
@@ -164,7 +164,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2050
-        y: 0
+        y: 258
         width: 1024
         height: 256
       alignment: 0
@@ -184,8 +184,8 @@ TextureImporter:
       name: 02_avatar_frame_blue
       rect:
         serializedVersion: 2
-        x: 2050
-        y: 258
+        x: 3076
+        y: 0
         width: 512
         height: 512
       alignment: 0
@@ -206,7 +206,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2050
-        y: 772
+        y: 1026
         width: 512
         height: 512
       alignment: 0
@@ -227,7 +227,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1028
+        y: 2054
         width: 2048
         height: 512
       alignment: 0
@@ -247,8 +247,8 @@ TextureImporter:
       name: 03_summon_text_strip_blue
       rect:
         serializedVersion: 2
-        x: 2564
-        y: 258
+        x: 2050
+        y: 516
         width: 1024
         height: 256
       alignment: 0
@@ -269,7 +269,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2564
-        y: 516
+        y: 1026
         width: 1024
         height: 256
       alignment: 0
@@ -281,6 +281,69 @@ TextureImporter:
       bones: []
       spriteID: 611b0e7e74d7faf4ea57fc7a567e1f20
       internalID: 1542103370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01_battle_notification_blue_ends_blue_v1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2048
+        height: 1024
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bec4fe24f3bbb94e90fc88e8e2e8473
+      internalID: -1138116485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_name_ink_blue_v1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2568
+        width: 2048
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c732c5404b8e6845a90b6c9c89e6ab1
+      internalID: -1533283638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero_name_ink_red_v1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3082
+        width: 2048
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a530dd7ed4564be43910ba9924d7363f
+      internalID: -545580798
       vertices: []
       indices: 
       edges: []
@@ -297,6 +360,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       01_battle_notification_blue: -773775079
+      01_battle_notification_blue_ends_blue_v1: -1138116485
       01_battle_notification_red: 589102977
       01_summon_panel_blue: -1120779065
       01_summon_panel_red: -49885836
@@ -305,6 +369,8 @@ TextureImporter:
       02_battle_notification_blue: 385585985
       03_summon_text_strip_blue: 685406020
       03_summon_text_strip_red_v3: 1542103370
+      hero_name_ink_blue_v1: -1533283638
+      hero_name_ink_red_v1: -545580798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

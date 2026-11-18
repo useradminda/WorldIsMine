@@ -169,8 +169,10 @@ public class ExportExcel
             {
                 string propName = propNameList[j].ToString();
                 string propType = propTypeList[j].ToString();
+                
                 object propValue = valueList[j];
                 string propValueStr = propValue.ToString();
+                Debug.LogError("当前处理:" + propName + "  " + propType + "  "  + propValue + " i = " + i + " j =" + j);
                 if (propType == "int")
                 {
                     if (propValue == "")
@@ -180,7 +182,10 @@ public class ExportExcel
                 }
                 else if(propType == "float")
                 {
-                    propValue = Convert.ToSingle(propValue);
+                    if (propValue == "")
+                        propValue = 0;
+                    else
+                        propValue = Convert.ToSingle(propValue);
                 }
                 else if (propType == "string")
                 {
