@@ -12,6 +12,7 @@ public static class SkillFactory
     public const string PushSkillType = "push";
     public const string KnightChargeSkillType = "knightCharge";
     public const string CreateWallSkillType = "createWall";
+    public const string CreateCircleSkillType = "createCircle";
     public const string RectSkillType = "rectSkill";
 
     public static SkillLogicBase CreateSkillLogic(UnitLogicBase unitLogic, SkillCfg skillCfg)
@@ -38,6 +39,8 @@ public static class SkillFactory
                 return new KnightChargeSkill(unitLogic, skillCfg);
             case CreateWallSkillType:
                 return new CreateWallSkill(unitLogic, skillCfg);
+            case CreateCircleSkillType:
+                return new CreateCircleSkill(unitLogic, skillCfg);
             case RectSkillType:
                 return new RectSkill(unitLogic, skillCfg);
             case NormalCloseSkillType:

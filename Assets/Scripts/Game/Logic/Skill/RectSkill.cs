@@ -51,6 +51,7 @@ public class RectSkill : SkillLogicBase
         {
             TryDamageTarget(enemyUnits[i], attackDamage);
         }
+        TryDamageTarget(UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType), attackDamage);
     }
 
     private void TryDamageTarget(UnitLogicBase target, int attackDamage)
@@ -61,7 +62,7 @@ public class RectSkill : SkillLogicBase
             return;
         }
 
-        Vector3 offset = target.CurPos - UnitLogic.CurPos;
+        Vector3 offset = target.GetClosestPoint(UnitLogic.CurPos) - UnitLogic.CurPos;
         offset.y = 0f;
         float forwardDistance = Vector3.Dot(offset, castForward);
         Vector3 right = Vector3.Cross(Vector3.up, castForward).normalized;

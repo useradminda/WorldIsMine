@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UnitView : IView
@@ -171,6 +171,20 @@ public class UnitView : IView
     public override void ViewRefuse()
     {
         FootSmokeManager.Instance.StopForUnit(this);
+    }
+
+    /// <summary>
+    /// 清理单位 View 的临时表现组件，避免缓存复用时继续执行上一单位的死亡逻辑。
+    /// </summary>
+    public void ResetForRecycle()
+    {
+        ViewRefuse();
+        AttackStopComp.Cancel();
+        DieBaseComponent dieComponent = gameObject.GetComponent<DieBaseComponent>();
+        if (dieComponent != null)
+        {
+            dieComponent.ClearForRecycle();
+        }
     }
 
     public void BeHitSlash()
@@ -431,6 +445,11 @@ public class UnitView : IView
             dieComp = gameObject.GetOrAddComponent<PushCameraSideComponent>();
             dieComp.SetUnitView(this);
         }
+        else if (dieType == "TranslateDie")
+        {
+            dieComp = gameObject.GetOrAddComponent<TranslateDieComponent>();
+            dieComp.SetUnitView(this);
+        }
         else
         {
             dieComp = gameObject.GetOrAddComponent<NormalDieComponent>();
@@ -471,3 +490,4 @@ public class UnitView : IView
     }
 
 }
+

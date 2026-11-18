@@ -60,6 +60,11 @@ public class CreateWallFlyObject : FlyObjectLogicBase
         if (liveTime <= 0f) Die();
     }
 
+    public override void ClearForBattle()
+    {
+        Die();
+    }
+
     private void Die()
     {
         if (destroyed) return;

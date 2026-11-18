@@ -98,6 +98,12 @@ public class AreaRandomFlyObject : FlyObjectLogicBase
                 mSkillLogic.ApplyBuffs(tarUnitLogic); 
             }
         }
+        DamageEnemyWallInArea(mTarPos, mSkillLogic.SkillCfg.skillArea);
+    }
+
+    public override void ClearForBattle()
+    {
+        die();
     }
 
     private void die()

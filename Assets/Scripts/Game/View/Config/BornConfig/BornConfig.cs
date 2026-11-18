@@ -45,6 +45,20 @@ public class BornConfig : MonoBehaviour
         return GetForward(campType);
     }
 
+    /// <summary>
+    /// 获取指定阵营的城门逻辑出生位置，供英雄出生和战斗逻辑使用。
+    /// </summary>
+    public Vector3 GetCityLogicPoint(ECampType campType)
+    {
+        Transform point = campType == ECampType.Red ? RedCityLogicPoint : BlueCityLogicPoint;
+        if (point != null)
+        {
+            return point.position;
+        }
+
+        return GetBornPoint(campType);
+    }
+
    
     private Transform GetPoint(ECampType campType)
     {

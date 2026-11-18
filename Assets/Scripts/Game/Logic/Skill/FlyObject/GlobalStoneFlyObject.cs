@@ -206,7 +206,7 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     /// </summary>
     private void DamageTargets()
     {
-        if (mSkillLogic == null || resultUnitIndexList.Count == 0)
+        if (mSkillLogic == null)
         {
             return;
         }
@@ -227,6 +227,8 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
             BattleLogicDamageTools.DoDamage(mAtkUnitLogic, target, GetFinalDamage(target), target.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
             mSkillLogic.ApplyBuffs(target);
         }
+
+        DamageEnemyWallInArea(mTarPos, mSkillLogic.SkillCfg.skillArea);
     }
 
     /// <summary>
@@ -254,6 +256,11 @@ public class GlobalStoneFlyObject : FlyObjectLogicBase
     /// <summary>
     /// 回收火球表现并从飞行物管理器移除逻辑对象。
     /// </summary>
+    public override void ClearForBattle()
+    {
+        Die();
+    }
+
     private void Die()
     {
         if (mFlyObjectGob != null)

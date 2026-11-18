@@ -1,28 +1,18 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using TMPro;
 
-/// <summary>显示红蓝双方积分和胜点。</summary>
+/// <summary>显示全局积分池的 UI 面板，不区分红蓝双方积分。</summary>
 public class BattleScorePanel : MonoBehaviour
 {
-    [SerializeField] private Text redScoreText;
-    [SerializeField] private Text blueScoreText;
-    [SerializeField] private Text redVictoryPointText;
-    [SerializeField] private Text blueVictoryPointText;
+    [SerializeField] private TextMeshProUGUI totalPointText;
 
-    /// <summary>刷新双方战绩。</summary>
-    public void SetScore(int redScore, int blueScore, int redVictoryPoint, int blueVictoryPoint)
+    /// <summary>设置积分池总数，并按照全局积分规则格式化显示。</summary>
+    public void SetScore(int totalScore)
     {
-        SetText(redScoreText, redScore);
-        SetText(blueScoreText, blueScore);
-        SetText(redVictoryPointText, redVictoryPoint);
-        SetText(blueVictoryPointText, blueVictoryPoint);
-    }
-
-    private void SetText(Text target, int value)
-    {
-        if (target != null)
+        if (totalPointText != null)
         {
-            target.text = value.ToString();
+            totalPointText.text = BattleScoreRule.FormatScore(totalScore);
         }
     }
+
 }

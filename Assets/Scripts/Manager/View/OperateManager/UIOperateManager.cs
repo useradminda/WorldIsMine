@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -350,7 +350,98 @@ public class UIOperateManager : MonoBehaviour
         }
 
         BattleEngine.Instance.CreateUnit(configId, campType, spawnCount);
+        if (isHero)
+        {
+            EnqueuePlayerHeroCall(configId, campType);
+            CreatePlayerHeroHud(configId, campType);
+        }
+        else
+        {
+            EnqueuePlayerSoldierCall(configId, spawnCount, campType);
+            CreatePlayerSoldierHud(campType);
+        }
         operationTip = $"已提交：{displayName} × {spawnCount}";
+    }
+
+    /// <summary>将玩家在操作面板中手动召唤的士兵加入士兵召唤提示队列。</summary>
+    private void EnqueuePlayerSoldierCall(int soldierCfgId, int count, ECampType campType)
+    {
+        SoliderCfg soldierCfg = SoliderCfgConfig.Ins.SearchById(soldierCfgId);
+        UnitLogicBase playerLogic = UnitManager.Instance.GetPlayerLogic(campType);
+        BattlePanel.Instance?.EnqueueSoldierCall(
+            campType,
+            soldierCfgId,
+            count,
+            playerLogic != null ? playerLogic.PlayerInfo : null,
+            soldierCfg != null ? soldierCfg.headImg : string.Empty);
+    }
+
+    /// <summary>将玩家在操作面板中手动召唤的英雄加入英雄召唤提示队列。</summary>
+    private void EnqueuePlayerHeroCall(int heroCfgId, ECampType campType)
+    {
+        UnitLogicBase playerLogic = UnitManager.Instance.GetPlayerLogic(campType);
+        BattlePanel.Instance?.EnqueueHeroCall(campType, heroCfgId, playerLogic != null ? playerLogic.PlayerInfo : null);
+    }
+
+    /// <summary>
+    /// 为手动召唤的英雄创建初始 HUD，英雄初始等级为 1、经验为 0、最大经验为 100、星级为 1。
+    /// </summary>
+    private void CreatePlayerHeroHud(int heroCfgId, ECampType campType)
+    {
+        UnitLogicBase playerLogic = UnitManager.Instance.GetPlayerLogic(campType);
+        BattlePlayer player = playerLogic != null ? playerLogic.PlayerInfo : null;
+        if (player == null || BattleHUDPanel.Instance == null)
+        {
+            return;
+        }
+
+        List<UnitLogicBase> campUnits = UnitManager.Instance.GetCampUnitList(campType);
+        for (int i = campUnits.Count - 1; i >= 0; i--)
+        {
+            UnitLogicBase heroLogic = campUnits[i];
+            if (heroLogic == null || heroLogic.IsDead || heroLogic.SoliderCfg == null
+                || heroLogic.SoliderCfg.id != heroCfgId || !UnitFactory.IsHero(heroLogic.SoliderCfg.id)
+                || heroLogic.PlayerInfo != player)
+            {
+                continue;
+            }
+
+            BattleHUDPanel.Instance.CreateHeroHud(heroLogic, 1, 0, 100, 1);
+            return;
+        }
+    }
+
+    /// <summary>
+    /// 为手动召唤的玩家士兵刷新该玩家的整组士兵 HUD。
+    /// </summary>
+    private void CreatePlayerSoldierHud(ECampType campType)
+    {
+        UnitLogicBase playerLogic = UnitManager.Instance.GetPlayerLogic(campType);
+        BattlePlayer player = playerLogic != null ? playerLogic.PlayerInfo : null;
+        if (player == null || BattleHUDPanel.Instance == null)
+        {
+            return;
+        }
+
+        List<UnitLogicBase> soldierLogics = new List<UnitLogicBase>();
+        List<UnitLogicBase> campUnits = UnitManager.Instance.GetCampUnitList(campType);
+        for (int i = 0; i < campUnits.Count; i++)
+        {
+            UnitLogicBase soldierLogic = campUnits[i];
+            if (soldierLogic == null || soldierLogic.IsDead || soldierLogic.SoliderCfg == null
+                || UnitFactory.IsHero(soldierLogic.SoliderCfg.id)
+                || soldierLogic.PlayerInfo != player)
+            {
+                continue;
+            }
+
+            soldierLogics.Add(soldierLogic);
+        }
+
+        if (soldierLogics.Count > 0)
+        {
+            BattleHUDPanel.Instance.CreateSoldierGroupHud(soldierLogics, player);
+        }
     }
 
     /// <summary>

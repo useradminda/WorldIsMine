@@ -51,17 +51,18 @@ public class SkillCfg
 {
 	public int id;
 	public string name;
+	public string showName;
 	public string des;
 	public string skillGrade;
 	public string[] startEffect;
 	public float searchRange;
 	public float atkRange;
 	public float skillArea;
-	public float trigerSkillTime;
-	public string skillAnim;
 	public float skillDamageRate;
 	public float cd;
 	public int normal;
+	public float trigerSkillTime;
+	public string skillAnim;
 	public int needTarget;
 	public string skillType;
 	public int flyObjectId;

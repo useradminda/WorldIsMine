@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// 黑洞牵引飞行器。
-/// 适用于范围控制技能，按周期搜索范围内敌人并通过 RVO 将其牵引向施法者。
+/// 适用于范围控制技能，按周期搜索范围内敌人并通过 RVO 将其牵引向黑洞中心。
 /// </summary>
 public class BlackHallFlyObject : FlyObjectLogicBase
 {
@@ -16,6 +16,7 @@ public class BlackHallFlyObject : FlyObjectLogicBase
     private bool destroyed;
     private readonly List<int> resultIndices = new List<int>();
     private readonly List<int> resultUids = new List<int>();
+    private readonly HashSet<UnitLogicBase> pulledTargets = new HashSet<UnitLogicBase>();
     private int nearestIndex = -1;
     private int randomIndex = -1;
 
@@ -33,6 +34,7 @@ public class BlackHallFlyObject : FlyObjectLogicBase
         destroyed = false;
         resultIndices.Clear();
         resultUids.Clear();
+        pulledTargets.Clear();
 
         if (!float.TryParse(flyObjectCfg.flyParam, NumberStyles.Float,
                 CultureInfo.InvariantCulture, out pullMultiplier) || pullMultiplier <= 0f)
@@ -42,7 +44,8 @@ public class BlackHallFlyObject : FlyObjectLogicBase
             return;
         }
 
-        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, atkUnitLogic.CurPos, Vector3.zero);
+        mTarPos = tarPos;
+        mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, mTarPos, Vector3.zero);
     }
 
     public override void FlyObjectUpdate(float dt)
@@ -50,7 +53,6 @@ public class BlackHallFlyObject : FlyObjectLogicBase
         if (destroyed) return;
         if (mAtkUnitLogic == null || mAtkUnitLogic.IsDead) { Die(); return; }
 
-        mTarPos = mAtkUnitLogic.CurPos;
         if (mFlyObjectGob != null) mFlyObjectGob.transform.position = mTarPos;
         liveTime -= dt;
         if (liveTime <= 0f) { Die(); return; }
@@ -75,6 +77,7 @@ public class BlackHallFlyObject : FlyObjectLogicBase
         UnitTargetSnapshot.Capture(resultIndices, resultUids);
         searchPending = false;
 
+        bool pulledAnyTarget = false;
         for (int i = 0; i < resultIndices.Count; i++)
         {
             if (!UnitTargetSnapshot.TryGet(resultIndices, resultUids, i, out UnitLogicBase target)
@@ -84,19 +87,56 @@ public class BlackHallFlyObject : FlyObjectLogicBase
                 continue;
             }
 
-            Vector3 pullDirection = mTarPos - target.CurPos;
-            pullDirection.y = 0f;
-            if (pullDirection.sqrMagnitude > 0.0001f)
+            pulledAnyTarget |= TryPullTarget(target);
+        }
+
+        if (!pulledAnyTarget && mTargetLogicList != null)
+        {
+            for (int i = 0; i < mTargetLogicList.Count; i++)
             {
-                target.AgentMoveForward(pullDirection.normalized, pullMultiplier);
+                UnitLogicBase target = mTargetLogicList[i];
+                if (target == null || target.IsDead
+                    || target.CampTypeInt == mAtkUnitLogic.CampTypeInt)
+                {
+                    continue;
+                }
+
+                TryPullTarget(target);
             }
         }
+    }
+
+    /// <summary>
+    /// 将单个有效目标的RVO期望速度指向黑洞中心。
+    /// </summary>
+    private bool TryPullTarget(UnitLogicBase target)
+    {
+        Vector3 pullDirection = mTarPos - target.CurPos;
+        pullDirection.y = 0f;
+        if (pullDirection.sqrMagnitude <= 0.0001f)
+        {
+            return false;
+        }
+
+        target.SetExternalPull(pullDirection.normalized, pullMultiplier, 0.12f);
+        pulledTargets.Add(target);
+        return true;
+    }
+
+    public override void ClearForBattle()
+    {
+        Die();
     }
 
     private void Die()
     {
         if (destroyed) return;
         destroyed = true;
+        foreach (UnitLogicBase target in pulledTargets)
+        {
+            target?.ClearExternalPull();
+        }
+        pulledTargets.Clear();
         if (mFlyObjectGob != null)
         {
             UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);

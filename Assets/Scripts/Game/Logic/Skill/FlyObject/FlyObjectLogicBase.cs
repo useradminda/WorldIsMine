@@ -56,6 +56,18 @@ public class FlyObjectLogicBase
     {
     }
 
+    /// <summary>
+    /// 清理飞行器逻辑和表现对象，用于战斗结束或场景重置。
+    /// </summary>
+    public virtual void ClearForBattle()
+    {
+        if (mFlyObjectGob != null && mFlyObjectCfg != null)
+        {
+            UnitViewFactory.RemoveGob(mFlyObjectCfg.prefab, mFlyObjectGob);
+            mFlyObjectGob = null;
+        }
+    }
+
     public virtual void ArriveTarPos()
     {
 
@@ -64,6 +76,44 @@ public class FlyObjectLogicBase
     protected int GetFinalDamage(UnitLogicBase target)
     {
         return -BattleLogicDamageTools.CalcFinalDamage(mAttackUnitType, target.SoliderCfg.unitType, mAttackDamage, mRestrainValue);
+    }
+
+    /// <summary>
+    /// 查找指定范围内的敌方城门；范围搜索表只包含普通单位，因此城门需要单独判断。
+    /// </summary>
+    protected UnitLogicBase FindEnemyWallInArea(Vector3 center, float radius)
+    {
+        UnitLogicBase enemyWall = UnitManager.Instance.GetOtherWallLogic(mAtkUnitLogic.CampType);
+        if (enemyWall == null || enemyWall.IsDead)
+        {
+            return null;
+        }
+
+        Vector3 wallPoint = enemyWall.GetClosestPoint(center);
+        Vector3 offset = wallPoint - center;
+        offset.y = 0f;
+        return offset.sqrMagnitude <= radius * radius ? enemyWall : null;
+    }
+
+    /// <summary>
+    /// 对指定范围内的敌方城门执行一次飞行器伤害。
+    /// </summary>
+    protected void DamageEnemyWallInArea(Vector3 center, float radius)
+    {
+        UnitLogicBase enemyWall = FindEnemyWallInArea(center, radius);
+        if (enemyWall == null || mSkillLogic == null)
+        {
+            return;
+        }
+
+        Vector3 hitPoint = enemyWall.GetClosestPoint(center);
+        BattleLogicDamageTools.DoDamage(
+            mAtkUnitLogic,
+            enemyWall,
+            GetFinalDamage(enemyWall),
+            enemyWall.UId,
+            mSkillLogic.SkillCfg.dieType,
+            hitPoint);
     }
 
     protected void CreateArriveEffect(Vector3 createPos)

@@ -23,6 +23,20 @@ public class UnitProp
         this.maxSpeed = maxSpeed;
     }
 
+    /// <summary>重新设置最大血量，可选是否同步恢复当前血量。</summary>
+    public void SetMaxHp(int value, bool restoreCurrentHp)
+    {
+        maxHp = math.max(0, value);
+        if (restoreCurrentHp)
+        {
+            hp = maxHp;
+        }
+        else
+        {
+            hp = math.min(hp, maxHp);
+        }
+    }
+
     public void ChangeHp(int value)
     {
         hp += value;

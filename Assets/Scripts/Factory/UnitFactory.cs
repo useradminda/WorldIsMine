@@ -20,6 +20,46 @@ public static class UnitFactory
     private static int redActiveCount = 0;
     private static int blueActiveCount = 0;
 
+    /// <summary>
+    /// 重置单位循环池、UID和活动数量，为下一场战斗重新建立可复用索引。
+    /// </summary>
+    public static void ResetRuntimeState(List<UnitLogicBase> unitList)
+    {
+        redFreeIndexList.Clear();
+        blueFreeIndexList.Clear();
+        redFreeCount = 0;
+        blueFreeCount = 0;
+        redActiveCount = 0;
+        blueActiveCount = 0;
+        redUId = 0;
+        blueUId = 0;
+
+        if (unitList == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < unitList.Count; i++)
+        {
+            UnitLogicBase unitLogic = unitList[i];
+            if (unitLogic == null || unitLogic.UnitType == EUnitType.Wall)
+            {
+                continue;
+            }
+
+            if (unitLogic.CampType == ECampType.Red)
+            {
+                redFreeIndexList.Add(i);
+                redFreeCount++;
+            }
+            else
+            {
+                blueFreeIndexList.Add(i);
+                blueFreeCount++;
+            }
+        }
+    }
+
     public static int GetActiveCount(ECampType campType)
     {
         return campType == ECampType.Red ? redActiveCount : blueActiveCount;
@@ -66,13 +106,14 @@ public static class UnitFactory
         int totalRemaining = Mathf.Max(0, MaxActiveUnitCountPerCamp - GetActiveCount(campType));
         return Mathf.Min(requestedCount, totalRemaining);
     }
-    
+
     // 创建一个单位
     public static UnitLogicBase CreateUnit(
         int cfgId,
         Vector3 moveForward,
         ECampType campType, int index,
-        bool isReinforcement = false)
+        bool isReinforcement = false,
+        BattlePlayer ownerPlayer = null)
     {
         if (!CanCreateUnit(cfgId, campType, isReinforcement))
         {
@@ -86,7 +127,7 @@ public static class UnitFactory
                 AddActiveCount(campType);
             }
         }
-        UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index, isReinforcement);
+        UnitLogicBase unit = new UnitLogicBase(cfgId, getUId(campType), campType, moveForward, index, isReinforcement, ownerPlayer);
         return unit;
     }
 
@@ -95,7 +136,8 @@ public static class UnitFactory
         Vector3 bornPoint,
         Vector3 moveForward,
         ECampType campType,
-        bool isReinforcement = false)
+        bool isReinforcement = false,
+        BattlePlayer ownerPlayer = null)
     {
         if (!CanCreateUnit(cfgId, campType, isReinforcement))
         {
@@ -106,7 +148,7 @@ public static class UnitFactory
         if (unitIndex == -1)
         {
             return null;
-            
+
         }
         UnitLogicBase unit = UnitManager.Instance.UnitList[unitIndex];
         if (!IsHero(cfgId))
@@ -116,15 +158,17 @@ public static class UnitFactory
                 AddActiveCount(campType);
             }
         }
-        unit.CycleUse(cfgId, getUId(campType), moveForward, isReinforcement);
+        unit.CycleUse(cfgId, getUId(campType), moveForward, isReinforcement, ownerPlayer);
         unit.Agenter.pos = bornPoint;
         unit.Agenter.prefVelocity = moveForward;
         unit.Agenter.velocity = moveForward;
+        unit.Agenter.navigationEnabled = true;
+        unit.Agenter.collisionEnabled = true;
         unit.Agenter.radius = unit.Prop.Radius;
         unit.Agenter.radiusObst = unit.Prop.Radius;
         unit.Agenter.maxNeighbors = 20;
         unit.Agenter.timeHorizon = 0.3f; /// 0.1f;   // 距离其他代理检查
-        unit.Agenter.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
+        unit.Agenter.timeHorizonObst = RvoEscapeConfig.ObstacleTimeHorizon;
         unit.Agenter.saveMaxSpeed = unit.Prop.MaxSpeed;
         unit.Agenter.maxSpeed = unit.Prop.MaxSpeed;
         SetAgentLayers(unit.Agenter, unit.SoliderCfg.myLayer, unit.SoliderCfg.ignoreLayer);
@@ -133,8 +177,8 @@ public static class UnitFactory
 
     // 创建一个RVO智能体
     public static Agent  CreateAgent(Vector3 bornPoint, Vector3 forward, float radius, float maxSpeed, int myLayer, int[] ignoreLayers)
-    {        
-        Agent agent = Pool.Rent<Agent>();   
+    {
+        Agent agent = Pool.Rent<Agent>();
         agent.pos = bornPoint;
         agent.prefVelocity = forward;
         agent.velocity = forward;
@@ -142,7 +186,7 @@ public static class UnitFactory
         agent.radiusObst = radius;
         agent.maxNeighbors = 20;
         agent.timeHorizon = 0.3f; //0.1f;   // 距离其他代理检查
-        agent.timeHorizonObst = 4f; // 速度越小，这个值越大，才不会穿透不可行走区域，距离障碍
+        agent.timeHorizonObst = RvoEscapeConfig.ObstacleTimeHorizon;
         agent.saveMaxSpeed = maxSpeed;
         agent.maxSpeed = maxSpeed;
         SetAgentLayers(agent, myLayer, ignoreLayers);
@@ -219,11 +263,11 @@ public static class UnitFactory
             redFreeCount = redFreeCount + 1;
             redFreeIndexList.Add(recycleUnitIndex);
         }
-        else if (campType == ECampType.Blue) 
+        else if (campType == ECampType.Blue)
         {
             blueFreeCount = blueFreeCount + 1;
             blueFreeIndexList.Add(recycleUnitIndex);
-        }        
+        }
     }
 
     // 获取回收的UnitIndex

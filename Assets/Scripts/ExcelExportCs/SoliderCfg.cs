@@ -64,5 +64,8 @@ public class SoliderCfg
 	public int myLayer;
 	public int[] ignoreLayer;
 	public string aroundEffect;
+	public float atkAnimTime;
+	public string bigImg;
+	public string headImg;
 	
 }

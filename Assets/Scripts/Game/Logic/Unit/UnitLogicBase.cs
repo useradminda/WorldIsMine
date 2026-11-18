@@ -10,6 +10,44 @@ public class UnitLogicBase
     private UnitProp prop;
     public UnitProp Prop => prop;
 
+    private BattlePlayer ownerPlayer;
+    /// <summary>当前单位所属玩家，单位循环复用时会重新绑定。</summary>
+    public BattlePlayer OwnerPlayer => ownerPlayer;
+    /// <summary>当前单位所属玩家的简写访问属性。</summary>
+    public BattlePlayer Player => ownerPlayer;
+    /// <summary>英雄或士兵读取的完整玩家信息，包括 UID、名称、头像、胜点和队形。</summary>
+    public BattlePlayer PlayerInfo => ownerPlayer;
+
+    /// <summary>重新设置单位所属玩家，适用于特殊召唤或英雄重生时切换归属。</summary>
+    public void SetOwnerPlayer(BattlePlayer player)
+    {
+        ownerPlayer = player;
+    }
+
+    /// <summary>
+    /// 清理单位在本场战斗中的状态、Buff、搜索目标和玩家归属。
+    /// </summary>
+    public void ClearBattleRuntime()
+    {
+        stateMachine?.ExitState();
+        buffLogicMachine?.Die();
+        prop?.SetMaxHp(0, false);
+        for (int i = 0; i < skillList.Count; i++)
+        {
+            skillList[i]?.ClearBattleRuntime();
+        }
+        searchTarget = null;
+        searchTargetUId = -1;
+        ownerPlayer = null;
+        soldierHudGroupId = 0;
+        UnitView = null;
+        recycleIdQueued = false;
+        crossedBattleCenter = false;
+        externalPullDirection = Vector3.zero;
+        externalPullMultiplier = 0f;
+        externalPullRemainTime = 0f;
+    }
+
     private Vector3 moveForward;
 
     public bool DirtyForward = true;
@@ -93,8 +131,13 @@ public class UnitLogicBase
     private bool recycleIdQueued;
     private bool crossedBattleCenter;
     private bool isReinforcement;
+    private long soldierHudGroupId;
+    private Vector3 externalPullDirection;
+    private float externalPullMultiplier;
+    private float externalPullRemainTime;
     public bool IsReinforcement => isReinforcement;
     public bool HasCrossedBattleCenter => crossedBattleCenter;
+    public long SoldierHudGroupId => soldierHudGroupId;
 
     private float logicRatio = 1;
     public float LogicRatio
@@ -110,7 +153,7 @@ public class UnitLogicBase
     private EUnitType eUnitType = EUnitType.Solider;
     public EUnitType UnitType => eUnitType;
 
-    public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index, bool isReinforcement = false)
+    public UnitLogicBase(int cfgId, int uid, ECampType campType, Vector3 moveForward, int index, bool isReinforcement = false, BattlePlayer ownerPlayer = null)
     {
         this.index = index;
         this.uid = uid;
@@ -120,23 +163,35 @@ public class UnitLogicBase
         this.otherCampTypeInt = campType == ECampType.Blue ? (int)ECampType.Red : (int)ECampType.Blue;
         this.moveForward = Vector3.Normalize(moveForward);
         this.isReinforcement = isReinforcement;
+        soldierHudGroupId = 0;
+        // 重生或循环复用没有传入新玩家时，保留原召唤者；首次创建才使用阵营默认玩家。
+        this.ownerPlayer = ownerPlayer ?? BattlePlayerManager.Instance.GetCampPlayer(campType);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         initProp();
         initSkills();
     }
 
     // 回收使用
-    public void CycleUse(int cfgId, int uid, Vector3 moveForward, bool isReinforcement = false)
+    public void CycleUse(int cfgId, int uid, Vector3 moveForward, bool isReinforcement = false, BattlePlayer ownerPlayer = null)
     {
         buffLogicMachine.Die();
+        soldierHudGroupId = 0;
         recycleIdQueued = false;
         crossedBattleCenter = false;
         this.uid = uid;
         this.moveForward = Vector3.Normalize(moveForward);
+        searchTarget = null;
+        searchTargetUId = -1;
+        catchForward = Vector3.zero;
+        DirtyForward = true;
         this.isReinforcement = isReinforcement;
+        this.ownerPlayer = ownerPlayer ?? this.ownerPlayer ?? BattlePlayerManager.Instance.GetCampPlayer(campType);
         soliderCfg = SoliderCfgConfig.Ins.SearchById(cfgId);
         logicRatio = 1f;
         attackBuffValue = 0;
+        externalPullDirection = Vector3.zero;
+        externalPullMultiplier = 0f;
+        externalPullRemainTime = 0f;
         initProp();
         initSkills();
     }
@@ -156,6 +211,10 @@ public class UnitLogicBase
     public void BindUnitView(UnitView unitView)
     {
         this.UnitView = unitView;
+        if (SoliderCfg != null && SoliderCfg.atkAnimTime > 0f)
+        {
+            UnitView.ActionFlowComponent.SetActionAnimationLength(EActionType.attack, SoliderCfg.atkAnimTime);
+        }
     }
 
     public void RecycleAfterDeathView()
@@ -164,8 +223,25 @@ public class UnitLogicBase
         {
             return;
         }
+        if (UnitFactory.IsHero(SoliderCfg.id))
+        {
+            BattleHUDPanel.Instance?.RemoveHeroHud(this);
+        }
+        else if (soldierHudGroupId > 0)
+        {
+            BattleHUDPanel.Instance?.RemoveSoldierFromGroup(soldierHudGroupId, this);
+            soldierHudGroupId = 0;
+        }
         recycleIdQueued = true;
         UnitFactory.RecycleId(CampType, Index, UnitFactory.IsHero(SoliderCfg.id), IsReinforcement);
+    }
+
+    /// <summary>
+    /// 记录该士兵所属的玩家召唤组 HUD 编号。
+    /// </summary>
+    public void SetSoldierHudGroupId(long groupId)
+    {
+        soldierHudGroupId = groupId;
     }
 
     public void UnitUpdate(float dt)
@@ -181,6 +257,7 @@ public class UnitLogicBase
             {
                 stateMachine.UpdateState(dt);
             }
+            ApplyExternalPull(dt);
             if (buffLogicMachine != null)
             {
                 buffLogicMachine.UpdateBuffMachine(dt);
@@ -207,6 +284,25 @@ public class UnitLogicBase
         if (UnitType == EUnitType.Solider && stateMachine != null)
         {
             stateMachine.LateUpdateState(dt);
+            ClampAgentInsideRvoBorder();
+        }
+    }
+
+    /// <summary>
+    /// 在RVO完成本帧计算后校正越过边界的单位位置，避免单位被挤出河道或场地范围。
+    /// </summary>
+    private void ClampAgentInsideRvoBorder()
+    {
+        if (IsDead || Agenter == null || !Agenter.navigationEnabled)
+        {
+            return;
+        }
+
+        Vector3 clampedPosition = RvoManager.Instance.ClampPositionInsideBorder(Agenter.pos, Agenter.radiusObst);
+        if ((clampedPosition - (Vector3)Agenter.pos).sqrMagnitude > 0.0001f)
+        {
+            Agenter.pos = clampedPosition;
+            Agenter.velocity = Vector3.zero;
         }
     }
 
@@ -359,6 +455,7 @@ public class UnitLogicBase
     public void TriggerDie()
     {
         buffLogicMachine.Die();
+        externalPullRemainTime = 0f;
         Agenter.navigationEnabled = false;
         Agenter.collisionEnabled = false;
         Agenter.prefVelocity = Vector3.zero;
@@ -433,6 +530,69 @@ public class UnitLogicBase
             searchTargetUId = -1;
         else
             searchTargetUId = logic.UId;
+    }
+
+    /// <summary>
+    /// 提交一个短时外部牵引请求，供黑洞等范围控制效果在下一帧RVO计算前使用。
+    /// </summary>
+    public void SetExternalPull(Vector3 direction, float speedMultiplier, float duration)
+    {
+        direction.y = 0f;
+        if (direction.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        externalPullDirection = direction.normalized;
+        externalPullMultiplier = Mathf.Max(0f, speedMultiplier);
+        externalPullRemainTime = Mathf.Max(externalPullRemainTime, duration);
+    }
+
+    /// <summary>立即清理黑洞等技能施加的外部牵引，并停止残留的 Agent 位移。</summary>
+    public void ClearExternalPull()
+    {
+        externalPullDirection = Vector3.zero;
+        externalPullMultiplier = 0f;
+        externalPullRemainTime = 0f;
+        if (Agenter == null || IsDead)
+        {
+            return;
+        }
+
+        Agenter.prefVelocity = Vector3.zero;
+        Agenter.velocity = Vector3.zero;
+        Agenter.maxSpeed = Agenter.saveMaxSpeed * LogicRatio;
+    }
+
+    /// <summary>
+    /// 将尚未过期的外部牵引请求写入Agent期望速度，确保本帧RVO使用牵引方向。
+    /// </summary>
+    private void ApplyExternalPull(float dt)
+    {
+        if (externalPullRemainTime <= 0f)
+        {
+            return;
+        }
+
+        externalPullRemainTime -= dt;
+        if (externalPullRemainTime <= 0f || IsDead || Agenter == null)
+        {
+            externalPullRemainTime = 0f;
+            externalPullMultiplier = 0f;
+            if (Agenter != null && !IsDead)
+            {
+                Agenter.prefVelocity = Vector3.zero;
+                Agenter.velocity = Vector3.zero;
+                Agenter.maxSpeed = Agenter.saveMaxSpeed * LogicRatio;
+            }
+            return;
+        }
+
+        float effectiveSpeed = Agenter.saveMaxSpeed * externalPullMultiplier * LogicRatio;
+        Agenter.navigationEnabled = true;
+        Agenter.collisionEnabled = true;
+        Agenter.maxSpeed = effectiveSpeed;
+        Agenter.prefVelocity = externalPullDirection * effectiveSpeed;
     }
 
     public void SetMoveForward(Vector3 forward)
@@ -547,70 +707,15 @@ public class UnitLogicBase
             return false;
         }
 
-        Vector3 wallCenter = UnitManager.Instance.GetWallSpawnCenter(enemyWall.CampType);
+        // 索敌阻挡判断使用城墙逻辑点，不使用城门模型出生点，避免模型点偏移导致城内单位被误判为城外单位。
+        Vector3 wallCenter = UnitManager.Instance.GetWallCenter(enemyWall.CampType);
         Vector3 wallSize = UnitManager.Instance.GetWallSize();
         float expand = Mathf.Max(0f, Prop.Radius) + BattleDefine.SpawnUnitPadding;
-        return SegmentIntersectsWall(
-            CurPos,
-            target.CurPos,
-            wallCenter,
-            wallSize.x * 0.5f + expand,
-            wallSize.z * 0.5f + expand);
-    }
-
-    /// <summary>
-    /// 判断单位当前位置到目标位置的线段是否穿过城墙矩形。
-    /// </summary>
-    private static bool SegmentIntersectsWall(
-        Vector3 start,
-        Vector3 end,
-        Vector3 wallCenter,
-        float halfWidth,
-        float halfDepth)
-    {
-        float minX = wallCenter.x - halfWidth;
-        float maxX = wallCenter.x + halfWidth;
-        float minZ = wallCenter.z - halfDepth;
-        float maxZ = wallCenter.z + halfDepth;
-        float tMin = 0f;
-        float tMax = 1f;
-
-        if (!UpdateSegmentInterval(start.x, end.x - start.x, minX, maxX, ref tMin, ref tMax))
-        {
-            return false;
-        }
-
-        return UpdateSegmentInterval(start.z, end.z - start.z, minZ, maxZ, ref tMin, ref tMax);
-    }
-
-    /// <summary>
-    /// 使用分离轴区间更新线段与矩形的相交范围。
-    /// </summary>
-    private static bool UpdateSegmentInterval(
-        float start,
-        float direction,
-        float min,
-        float max,
-        ref float tMin,
-        ref float tMax)
-    {
-        if (Mathf.Abs(direction) <= 0.0001f)
-        {
-            return start >= min && start <= max;
-        }
-
-        float first = (min - start) / direction;
-        float second = (max - start) / direction;
-        if (first > second)
-        {
-            float swap = first;
-            first = second;
-            second = swap;
-        }
-
-        tMin = Mathf.Max(tMin, first);
-        tMax = Mathf.Min(tMax, second);
-        return tMin <= tMax;
+        float halfDepth = wallSize.z * 0.5f + expand;
+        Vector3 wallForward = enemyWall.CampType == ECampType.Red ? Vector3.forward : Vector3.back;
+        float targetDepth = Vector3.Dot(target.CurPos - wallCenter, wallForward);
+        // 目标只要位于敌方城墙内部，就不能作为普通索敌目标；不再依赖攻击者当前是否已经在城墙内部。
+        return targetDepth < -halfDepth;
     }
 
     private void initProp()

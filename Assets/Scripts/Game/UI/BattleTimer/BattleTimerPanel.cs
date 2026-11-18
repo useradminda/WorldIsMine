@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 /// <summary>显示并控制对局倒计时。</summary>
 public class BattleTimerPanel : MonoBehaviour
 {
-    [SerializeField] private Text timerText;
+    [SerializeField] private TextMeshProUGUI timerText;
     private float remainSeconds;
     private bool running;
 

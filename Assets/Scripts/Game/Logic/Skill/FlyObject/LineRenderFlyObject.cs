@@ -279,6 +279,8 @@ public class LineRenderFlyObject : FlyObjectLogicBase
                 targetPoint.Position);
             mSkillLogic.ApplyBuffs(targetPoint.Target);
         }
+
+        DamageEnemyWallInArea(GetSearchCenter(), mSkillLogic.SkillCfg.skillArea);
     }
 
     /// <summary>
@@ -336,6 +338,11 @@ public class LineRenderFlyObject : FlyObjectLogicBase
     /// <summary>
     /// 回收 LineRenderer 飞行器、全部受击特效和对应的飞行器逻辑。
     /// </summary>
+    public override void ClearForBattle()
+    {
+        Die();
+    }
+
     private void Die()
     {
         if (destroyed)

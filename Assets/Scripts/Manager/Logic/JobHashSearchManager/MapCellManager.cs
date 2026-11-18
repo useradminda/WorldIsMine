@@ -291,7 +291,47 @@ public class MapCellManager : Singleton<MapCellManager>, IManager
 
     public void ManagerDestroy()
     {
+        ClearAll();
         Dispose();
+    }
+
+    /// <summary>
+    /// 清空当前战斗的单位空间索引和待处理搜索请求。
+    /// </summary>
+    public void ClearAll()
+    {
+        if (!initState)
+        {
+            return;
+        }
+
+        cellMap.Clear();
+        unitCount = 0;
+        curRequestCount = 0;
+    }
+
+    /// <summary>
+    /// 根据当前单位逻辑池重建搜索空间，用于重新开始战斗后的复用对象恢复。
+    /// </summary>
+    public void RebuildFromUnitList()
+    {
+        if (!initState)
+        {
+            return;
+        }
+
+        unitCount = System.Math.Min(UnitManager.Instance.UnitList.Count, units.Length);
+        for (int i = 0; i < unitCount; i++)
+        {
+            UnitLogicBase unitLogic = UnitManager.Instance.UnitList[i];
+            units[i] = new UnitData
+            {
+                UnitIndex = i,
+                Position = unitLogic.CurPos,
+                CampType = unitLogic.CampTypeInt,
+                DeadState = unitLogic.IsDead ? 1 : 0
+            };
+        }
     }
 
 

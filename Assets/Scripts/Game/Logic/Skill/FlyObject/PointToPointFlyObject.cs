@@ -288,6 +288,11 @@ public class PointToPointFlyObject : FlyObjectLogicBase
             && UnitManager.Instance.UnitList[projectile.targetIndex] == projectile.target;
     }
 
+    public override void ClearForBattle()
+    {
+        Die();
+    }
+
     private void Die()
     {
         if (destroyed) return;

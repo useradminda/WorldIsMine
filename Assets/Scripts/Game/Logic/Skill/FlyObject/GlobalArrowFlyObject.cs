@@ -112,7 +112,7 @@ public class GlobalArrowFlyObject : FlyObjectLogicBase
 
     private void DamageTargets()
     {
-        if (mSkillLogic == null || mAtkUnitLogic == null || resultUnitIndexList.Count == 0)
+        if (mSkillLogic == null || mAtkUnitLogic == null)
         {
             return;
         }
@@ -138,6 +138,23 @@ public class GlobalArrowFlyObject : FlyObjectLogicBase
             BattleLogicDamageTools.DoDamage(mAtkUnitLogic, target, damage, target.UId, mSkillLogic.SkillCfg.dieType, mTarPos);
             mSkillLogic.ApplyBuffs(target);
         }
+
+        UnitLogicBase enemyWall = FindEnemyWallInArea(mTarPos, mSkillLogic.SkillCfg.skillArea);
+        if (enemyWall != null && (damageContext == null || damageContext.TryMarkDamaged(enemyWall.UId)))
+        {
+            BattleLogicDamageTools.DoDamage(
+                mAtkUnitLogic,
+                enemyWall,
+                GetFinalDamage(enemyWall),
+                enemyWall.UId,
+                mSkillLogic.SkillCfg.dieType,
+                enemyWall.GetClosestPoint(mTarPos));
+        }
+    }
+
+    public override void ClearForBattle()
+    {
+        Die();
     }
 
     private void Die()

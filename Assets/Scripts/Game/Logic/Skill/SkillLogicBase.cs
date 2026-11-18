@@ -25,7 +25,7 @@ public class SkillLogicBase
 
     public virtual bool CanUseWithTarget(UnitLogicBase target)
     {
-        return true;
+        return target != null && (BNormalSkill || target.UnitType != EUnitType.Wall);
     }
 
     /// <summary>
@@ -140,6 +140,17 @@ public class SkillLogicBase
     public virtual void SkillRelease()
     {
         targetList.Clear();
+    }
+
+    /// <summary>
+    /// 清理技能在本场战斗中的目标、延迟效果和冷却状态。
+    /// </summary>
+    public void ClearBattleRuntime()
+    {
+        SkillRelease();
+        ClearDelayedEffect();
+        curCD = 0f;
+        attackCooldownStarted = false;
     }
 
     /// <summary>
@@ -279,31 +290,65 @@ public class SkillLogicBase
             return;
         }
 
-        if (target == null || target.IsDead)
+        if (target == null || target.IsDead || (!BNormalSkill && target.UnitType == EUnitType.Wall))
         {
             return;
         }
         int attackDamage = GetAttackDamageSnapshot();
         BattleLogicDamageTools.DoDamage(unitLogic, target, GetFinalDamage(attackDamage, target), target.UId, skillCfg.dieType, target.GetClosestPoint(unitLogic.CurPos));
         ApplyBuffs(target);
-        if (skillCfg.skillArea > 0 && resultUnitIndexList != null)
+        if (skillCfg.skillArea > 0)
         {
-            for (int i = 0; i < resultUnitIndexList.Count; i++)
+            if (resultUnitIndexList != null)
             {
-                int unitIndex = resultUnitIndexList[i];
-                if (unitIndex < 0 || unitIndex >= UnitManager.Instance.UnitList.Count || unitIndex == target.Index)
+                for (int i = 0; i < resultUnitIndexList.Count; i++)
                 {
-                    continue;
+                    int unitIndex = resultUnitIndexList[i];
+                    if (unitIndex < 0 || unitIndex >= UnitManager.Instance.UnitList.Count || unitIndex == target.Index)
+                    {
+                        continue;
+                    }
+                    UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
+                    if (tarUnitLogic == null || tarUnitLogic.IsDead || tarUnitLogic.CampTypeInt == unitLogic.CampTypeInt)
+                    {
+                        continue;
+                    }
+                    BattleLogicDamageTools.DoDamage(unitLogic, tarUnitLogic, GetFinalDamage(attackDamage, tarUnitLogic), tarUnitLogic.UId, skillCfg.dieType, tarUnitLogic.GetClosestPoint(unitLogic.CurPos));
+                    ApplyBuffs(tarUnitLogic);
                 }
-                UnitLogicBase tarUnitLogic = UnitManager.Instance.UnitList[unitIndex];
-                if (tarUnitLogic == null || tarUnitLogic.IsDead || tarUnitLogic.CampTypeInt == unitLogic.CampTypeInt)
-                {
-                    continue;
-                }
-                BattleLogicDamageTools.DoDamage(unitLogic, tarUnitLogic, GetFinalDamage(attackDamage, tarUnitLogic), tarUnitLogic.UId, skillCfg.dieType, tarUnitLogic.GetClosestPoint(unitLogic.CurPos));
-                ApplyBuffs(tarUnitLogic);
             }
+
+            // 范围技能的主目标仍需是士兵或英雄，但范围内的敌方城门也参与一次范围伤害。
+            TryDamageEnemyWallInArea(GetAreaSearchPosition(), skillCfg.skillArea, attackDamage);
         }
+    }
+
+    /// <summary>
+    /// 判断敌方城门是否位于范围技能区域内，并执行一次城门伤害。
+    /// </summary>
+    protected void TryDamageEnemyWallInArea(UnityEngine.Vector3 center, float radius, int attackDamage)
+    {
+        UnitLogicBase enemyWall = UnitManager.Instance.GetOtherWallLogic(unitLogic.CampType);
+        if (enemyWall == null || enemyWall.IsDead)
+        {
+            return;
+        }
+
+        UnityEngine.Vector3 wallPoint = enemyWall.GetClosestPoint(center);
+        UnityEngine.Vector3 offset = wallPoint - center;
+        offset.y = 0f;
+        if (offset.sqrMagnitude > radius * radius)
+        {
+            return;
+        }
+
+        BattleLogicDamageTools.DoDamage(
+            unitLogic,
+            enemyWall,
+            GetFinalDamage(attackDamage, enemyWall),
+            enemyWall.UId,
+            skillCfg.dieType,
+            wallPoint);
     }
 
     public void ApplyBuffs(UnitLogicBase targetUnit)

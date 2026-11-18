@@ -13,12 +13,21 @@ public static class BattleLogicDamageTools
         if (beAtkedUnit.UId == beAtkedUid)
         {
             bool wasAlive = !beAtkedUnit.IsDead;
+            int hpBeforeDamage = beAtkedUnit.Prop.Hp;
             int counterDamage = beAtkedUnit.ChangeHp(finalDamage, dieTyp, beHitPoint);
-            int damage = Mathf.Max(0, -finalDamage);
-            BattleScoreManager.Instance.AddDamageReward(damage);
+            int actualDamage = Mathf.Max(0, hpBeforeDamage - beAtkedUnit.Prop.Hp);
+            BattleScoreManager.Instance.AddDamageScore(actualDamage, beAtkedUnit.UnitType);
+            if (beAtkedUnit.UnitType == EUnitType.Wall)
+            {
+                BattlePanel.Instance?.RefreshCityHp();
+            }
+            else if (UnitFactory.IsHero(beAtkedUnit.SoliderCfg.id))
+            {
+                BattleHUDPanel.Instance?.RefreshHeroHp(beAtkedUnit);
+            }
             if (wasAlive && beAtkedUnit.IsDead)
             {
-                BattleScoreManager.Instance.AddKillReward(1, damage);
+                BattleScoreManager.Instance.AddVictoryPoint(1);
             }
 
             if (counterDamage > 0 && !beAtkedUnit.IsDead && atkUnit != null && !atkUnit.IsDead)

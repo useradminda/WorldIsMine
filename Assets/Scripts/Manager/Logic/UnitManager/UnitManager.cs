@@ -13,7 +13,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
     public List<UnitLogicBase> BlueUnitList => blueUnitList;
     private readonly Queue<UnitSpawnRequest> redWaitingRequests = new Queue<UnitSpawnRequest>();
     private readonly Queue<UnitSpawnRequest> blueWaitingRequests = new Queue<UnitSpawnRequest>();
-    private Func<int, ECampType, int, bool, bool, Vector3, Vector3, List<Vector3>, int> spawnHandler;
+    private Func<int, ECampType, int, bool, bool, Vector3, Vector3, List<Vector3>, BattlePlayer, int> spawnHandler;
 
     private UnitLogicBase redWallLogic;
     private UnitLogicBase blueWallLogic;
@@ -35,6 +35,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
         public Vector3 SpawnPoint;
         public Vector3 SpawnForward;
         public List<Vector3> SpawnPoints;
+        public BattlePlayer OwnerPlayer;
     }
   
     public void ManagerInit()
@@ -43,6 +44,9 @@ public class UnitManager : Singleton<UnitManager>, IManager
         blueWallLogic = UnitFactory.CreateWall(ECampType.Blue);
         redPlayerLogic = UnitFactory.CreatePlayerLogic(ECampType.Red);
         bluePlayerLogic = UnitFactory.CreatePlayerLogic(ECampType.Blue);
+        BattleScoreManager.Instance.InitializeScorePool(redWallLogic.Prop.MaxHp);
+        BattlePanel.Instance?.RefreshCityHp();
+        BattlePanel.Instance?.RefreshWaitingSoldierCount();
     }
 
     /// <summary>
@@ -80,7 +84,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
         ProcessWaitingRequests(ECampType.Blue);
     }
 
-    public void SetSpawnHandler(Func<int, ECampType, int, bool, bool, Vector3, Vector3, List<Vector3>, int> handler)
+    public void SetSpawnHandler(Func<int, ECampType, int, bool, bool, Vector3, Vector3, List<Vector3>, BattlePlayer, int> handler)
     {
         spawnHandler = handler;
     }
@@ -102,8 +106,24 @@ public class UnitManager : Singleton<UnitManager>, IManager
         return count;
     }
 
+    /// <summary>获取指定阵营等待队列中的士兵数量，不包含英雄请求。</summary>
+    public int GetWaitingSoldierCount(ECampType campType)
+    {
+        int count = 0;
+        Queue<UnitSpawnRequest> queue = GetWaitingQueue(campType);
+        foreach (UnitSpawnRequest request in queue)
+        {
+            if (!UnitFactory.IsHero(request.CfgId))
+            {
+                count += request.Count;
+            }
+        }
+
+        return count;
+    }
+
     public void EnqueueSpawn(int cfgId, ECampType campType, int count, bool isReinforcement = false,
-        bool hasSpawnPoint = false, Vector3 spawnPoint = default(Vector3), Vector3 spawnForward = default(Vector3), List<Vector3> spawnPoints = null)
+        bool hasSpawnPoint = false, Vector3 spawnPoint = default(Vector3), Vector3 spawnForward = default(Vector3), List<Vector3> spawnPoints = null, BattlePlayer ownerPlayer = null)
     {
         if (count <= 0)
         {
@@ -118,8 +138,10 @@ public class UnitManager : Singleton<UnitManager>, IManager
             HasSpawnPoint = hasSpawnPoint,
             SpawnPoint = spawnPoint,
             SpawnForward = spawnForward,
-            SpawnPoints = spawnPoints
+            SpawnPoints = spawnPoints,
+            OwnerPlayer = ownerPlayer
         });
+        BattlePanel.Instance?.RefreshWaitingSoldierCount();
     }
 
     public UnitLogicBase GetOtherWallLogic(ECampType campType)
@@ -197,14 +219,16 @@ public class UnitManager : Singleton<UnitManager>, IManager
             if (heroRequest != null)
             {
                 spawnHandler(heroRequest.CfgId, campType, heroRequest.Count, heroRequest.IsReinforcement,
-                    heroRequest.HasSpawnPoint, heroRequest.SpawnPoint, heroRequest.SpawnForward, heroRequest.SpawnPoints);
+                    heroRequest.HasSpawnPoint, heroRequest.SpawnPoint, heroRequest.SpawnForward, heroRequest.SpawnPoints, heroRequest.OwnerPlayer);
+                BattlePanel.Instance?.RefreshWaitingSoldierCount();
             }
             return;
         }
 
         spawnHandler(request.CfgId, campType, request.Count, request.IsReinforcement,
-            request.HasSpawnPoint, request.SpawnPoint, request.SpawnForward, request.SpawnPoints);
+            request.HasSpawnPoint, request.SpawnPoint, request.SpawnForward, request.SpawnPoints, request.OwnerPlayer);
         queue.Dequeue();
+        BattlePanel.Instance?.RefreshWaitingSoldierCount();
     }
 
     private UnitSpawnRequest TakeFirstCreatableHeroRequest(Queue<UnitSpawnRequest> queue, ECampType campType)
@@ -246,6 +270,7 @@ public class UnitManager : Singleton<UnitManager>, IManager
         ClearWaiting();
         redPlayerLogic = null;
         bluePlayerLogic = null;
+        BattlePlayerManager.Instance.Reset();
     }
 
     //// 增加一个Unit
@@ -255,11 +280,51 @@ public class UnitManager : Singleton<UnitManager>, IManager
     //    return unit;
     //}
 
+    /// <summary>
+    /// 清理本场战斗的单位逻辑、玩家归属和等待队列，同时保留逻辑对象以供下一场复用。
+    /// </summary>
+    public void ClearBattleUnits()
+    {
+        ClearWaiting();
+        for (int i = 0; i < UnitList.Count; i++)
+        {
+            UnitLogicBase unitLogic = UnitList[i];
+            if (unitLogic != null)
+            {
+                unitLogic.ClearBattleRuntime();
+            }
+        }
+
+        redUnitList.Clear();
+        blueUnitList.Clear();
+        redPlayerLogic = null;
+        bluePlayerLogic = null;
+        BattlePlayerManager.Instance.Reset();
+        UnitFactory.ResetRuntimeState(UnitList.DataList);
+    }
+
     public UnitLogicBase AddUnitImmediately(UnitLogicBase unit)
     {
         UnitList.AddImmediately(unit);
         GetCampUnitList(unit.CampType).Add(unit);
         return unit;
+    }
+
+    /// <summary>
+    /// 将循环复用的单位重新登记到阵营逻辑列表，避免重新开始后阵营列表丢失。
+    /// </summary>
+    public void RegisterReusedUnit(UnitLogicBase unit)
+    {
+        if (unit == null)
+        {
+            return;
+        }
+
+        List<UnitLogicBase> campList = GetCampUnitList(unit.CampType);
+        if (!campList.Contains(unit))
+        {
+            campList.Add(unit);
+        }
     }
 
     /// <summary>获取指定阵营创建过的全部士兵逻辑对象，包含已经死亡并等待复用的对象。</summary>

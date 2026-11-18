@@ -141,6 +141,24 @@ public class ActionFlow : MonoBehaviour
         }
         return 1;
     }
+
+    /// <summary>
+    /// 使用单位配置覆盖指定动作的动画时长，并同步当前正在播放的动作参数。
+    /// </summary>
+    public void SetActionAnimationLength(EActionType actionType, float animationLength)
+    {
+        if (animationLength <= 0f || ActionDataDic == null || !ActionDataDic.ContainsKey(actionType))
+        {
+            return;
+        }
+
+        ActionData actionData = ActionDataDic[actionType];
+        actionData.AnimLen = animationLength;
+        if (currentActionData != null && currentActionData.ActionType == actionType && !animationPaused)
+        {
+            setActionAnimLenth(currentActionData);
+        }
+    }
     /// <summary>设置当前动作播放速度，负数会按零处理。</summary>
     public void SetAnimationSpeed(float speedRatio)
     {

@@ -32,6 +32,21 @@ public class UnitViewManager : MonoSingleton<UnitViewManager>, IManager
 
     }
 
+    /// <summary>
+    /// 回收当前场景中的全部单位表现对象。
+    /// </summary>
+    public void ClearAll()
+    {
+        for (int i = UnitList.Count - 1; i >= 0; i--)
+        {
+            UnitView unitView = UnitList[i];
+            if (unitView != null)
+            {
+                UnitViewFactory.RemoveUnitView(unitView);
+            }
+        }
+    }
+
     public void AddUnitViewImmediately(UnitView unitView, bool immediately)
     {
         if ( immediately)

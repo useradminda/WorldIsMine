@@ -55,6 +55,7 @@ public class UnitViewFactory
     // 移除unitView
     public static void RemoveUnitView(UnitView unitView)
     {
+        unitView.ResetForRecycle();
         UnitViewManager.Instance.RemoveSwapBackUnitView(unitView);
         RemoveGob(unitView.PrefabName, unitView.gameObject);
     }

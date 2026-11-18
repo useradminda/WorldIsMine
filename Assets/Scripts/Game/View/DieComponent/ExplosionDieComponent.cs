@@ -3,7 +3,7 @@ using UnityEngine;
 public class ExplosionDieComponent : DieBaseComponent
 {
     [SerializeField] private Vector3 explosionPoint;
-    [SerializeField] private float explosionSpeed = 17.5f;
+    [SerializeField] private float explosionSpeed = 15.5f;
     [SerializeField] private float upwardHeight = 17.5f;
     [SerializeField] private float duration = 1.5f;
     [SerializeField] private float rollSpeed = 0;

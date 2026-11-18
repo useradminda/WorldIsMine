@@ -145,6 +145,12 @@ public class AroundAreaFlyObject : FlyObjectLogicBase
                 mTarPos);
             mSkillLogic.ApplyBuffs(target);
         }
+        DamageEnemyWallInArea(mTarPos, mSkillLogic.SkillCfg.skillArea);
+    }
+
+    public override void ClearForBattle()
+    {
+        Die();
     }
 
     private void Die()

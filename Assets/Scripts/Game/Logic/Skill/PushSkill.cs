@@ -26,7 +26,8 @@ public class PushSkill : SkillLogicBase
     {
         return target != null
             && !target.IsDead
-            && target.CampType != UnitLogic.CampType;
+            && target.CampType != UnitLogic.CampType
+            && target.UnitType != EUnitType.Wall;
     }
 
     /// <summary>
@@ -34,9 +35,22 @@ public class PushSkill : SkillLogicBase
     /// </summary>
     public override void OnSkillDoEffect(UnitLogicBase target, List<int> resultUnitIndexList)
     {
-        if (UnitLogic == null || UnitLogic.IsDead || !CanUseWithTarget(target))
+        if (UnitLogic == null || UnitLogic.IsDead)
         {
             return;
+        }
+
+        // 延迟释放期间主目标死亡或被回收时，保留冲锋技能本身，方向交给角色当前正方向。
+        // 目标仍然有效时继续锁定目标方向；目标失效时传入空目标，让 PushState 使用 TargetForward。
+        if (target != null && !target.IsDead
+            && (target.CampType == UnitLogic.CampType || target.UnitType == EUnitType.Wall))
+        {
+            return;
+        }
+
+        if (!CanUseWithTarget(target))
+        {
+            target = null;
         }
 
         UnitLogic.StateMachine.ChangeState(EStateTyep.Push, this, target);

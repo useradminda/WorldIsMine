@@ -9,6 +9,8 @@ public class KnightChargeState : StateBase
 {
     // 冲锋移动速度，单位为世界坐标每秒，可直接在代码中调整。
     private const float ChargeSpeed = 15f;
+    // 冲锋期间的动画播放倍率，只影响表现速度，不修改逻辑速度和 LogicRatio。
+    private const float ChargeAnimationSpeed = 1.8f;
     // 没有命中目标时的最大冲锋持续时间，单位为秒。
     private const float ChargeDuration = 5f;
     // 冲锋特效资源路径，可按项目资源实际路径修改。
@@ -67,6 +69,7 @@ public class KnightChargeState : StateBase
         UnitLogic.Agenter.collisionEnabled = false;
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
         UnitLogic.UnitView.SetForwardForce(chargeDirection);
+        ApplyChargeAnimationSpeed();
         CreateChargeEffect();
     }
 
@@ -89,6 +92,7 @@ public class KnightChargeState : StateBase
             UnitLogic.Agenter.collisionEnabled = true;
             if (UnitLogic.UnitView != null)
             {
+                UnitLogic.UnitView.ActionFlowComponent.SetAnimationSpeed(UnitLogic.LogicRatio);
                 UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
             }
             if (impactWaitRemain <= 0f)
@@ -104,6 +108,8 @@ public class KnightChargeState : StateBase
             UnitLogic.StateMachine.ChangeState(EStateTyep.Move);
             return;
         }
+
+        ApplyChargeAnimationSpeed();
 
         // 冲锋直接推进 Agent 位置，绕过前排单位的 RVO 实际速度限制。
         UnitLogic.Agenter.navigationEnabled = false;
@@ -175,6 +181,7 @@ public class KnightChargeState : StateBase
     /// </summary>
     public override void ExitState()
     {
+        RestoreAnimationSpeed();
         RestoreAgent();
         RecycleChargeEffect();
         chargeDirection = Vector3.zero;
@@ -185,6 +192,15 @@ public class KnightChargeState : StateBase
         finishing = false;
         impactWaitRemain = 0f;
         chargeRemainTime = 0f;
+    }
+
+    /// <summary>退出冲锋状态时恢复普通动画速度，并保留当前单位的 buff 倍率。</summary>
+    private void RestoreAnimationSpeed()
+    {
+        if (UnitLogic.UnitView != null)
+        {
+            UnitLogic.UnitView.ActionFlowComponent.SetAnimationSpeed(UnitLogic.LogicRatio);
+        }
     }
 
     /// <summary>
@@ -215,7 +231,8 @@ public class KnightChargeState : StateBase
             }
 
             UnitLogicBase candidate = UnitManager.Instance.UnitList[unitIndex];
-            if (candidate == null || candidate.IsDead || candidate.CampType == UnitLogic.CampType)
+            if (candidate == null || candidate.IsDead || candidate.CampType == UnitLogic.CampType
+                || UnitLogic.IsTargetBlockedByEnemyWall(candidate))
             {
                 continue;
             }
@@ -275,6 +292,7 @@ public class KnightChargeState : StateBase
         if (UnitLogic.UnitView != null)
         {
             UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
+            UnitLogic.UnitView.ActionFlowComponent.SetAnimationSpeed(UnitLogic.LogicRatio);
         }
     }
 
@@ -293,6 +311,15 @@ public class KnightChargeState : StateBase
         UnitLogic.Agenter.maxSpeed = UnitLogic.Agenter.saveMaxSpeed * UnitLogic.LogicRatio;
         UnitLogic.Agenter.prefVelocity = Vector3.zero;
         UnitLogic.Agenter.velocity = Vector3.zero;
+    }
+
+    /// <summary>应用冲锋动画倍率，并叠加当前单位的加速、减速和冻结逻辑倍率。</summary>
+    private void ApplyChargeAnimationSpeed()
+    {
+        if (UnitLogic.UnitView != null)
+        {
+            UnitLogic.UnitView.ActionFlowComponent.SetAnimationSpeed(ChargeAnimationSpeed * UnitLogic.LogicRatio);
+        }
     }
 
     /// <summary>

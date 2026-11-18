@@ -132,6 +132,17 @@ public class SkillState : StateBase
             attackDirection = Vector3.forward;
         }
         UnitLogic.UnitView.SetForwardForce(attackDirection);
+        if (UnitLogic.SoliderCfg != null && UnitFactory.IsHero(UnitLogic.SoliderCfg.id))
+        {
+            string skillName = string.IsNullOrWhiteSpace(skillLogic.SkillCfg.showName)
+                ? skillLogic.SkillCfg.name
+                : skillLogic.SkillCfg.showName;
+            BattlePanel.Instance?.EnqueueHeroSkill(
+                UnitLogic.CampType,
+                UnitLogic.SoliderCfg.id,
+                UnitLogic.PlayerInfo,
+                skillName);
+        }
         skillLogic.SkillDoEffect(skillTarget, resultUnitIndexList);
         executed = true;
         executePending = false;

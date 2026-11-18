@@ -8,4 +8,6 @@ public static class RvoEscapeConfig
     // public static float LateralWeight = 5f;
     public static float LateralWeight = 1.5f;
     public static float CombatRadiusScale = 0.2f;
+    // RVO 预判静态边界的时间，增大后会更早避让河道边界，减少被挤出场地。
+    public static float ObstacleTimeHorizon = 8f;
 }

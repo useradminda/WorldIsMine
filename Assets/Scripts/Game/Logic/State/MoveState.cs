@@ -58,13 +58,7 @@ public class MoveState : StateBase
 
         MapCellManager.Instance.GetResult(searchReqIndex, searchResultList, ref nearestIndex, ref randomIndex);
         searchReqIndex = -1;
-        UnitLogicBase target = nearestIndex >= 0 && nearestIndex < UnitManager.Instance.UnitList.Count
-            ? UnitManager.Instance.UnitList[nearestIndex]
-            : null;
-        if (target != null && UnitLogic.IsTargetBlockedByEnemyWall(target))
-        {
-            target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
-        }
+        UnitLogicBase target = FindReachableUnitTarget();
         if (target == null || target.IsDead || target.CampType == UnitLogic.CampType)
         {
             target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
@@ -96,6 +90,23 @@ public class MoveState : StateBase
 
         UnitLogic.TriggerMove();
         UnitLogic.UnitView.EnterState(EStateTyep.Move);
+    }
+
+    /// <summary>
+    /// 使用地图搜索返回的最近单位；如果最近单位在敌方城墙内部，则返回空目标并改为追击城门。
+    /// </summary>
+    private UnitLogicBase FindReachableUnitTarget()
+    {
+        UnitLogicBase nearestTarget = nearestIndex >= 0 && nearestIndex < UnitManager.Instance.UnitList.Count
+            ? UnitManager.Instance.UnitList[nearestIndex]
+            : null;
+        if (nearestTarget != null && !nearestTarget.IsDead
+            && nearestTarget.CampType != UnitLogic.CampType)
+        {
+            return UnitLogic.IsTargetBlockedByEnemyWall(nearestTarget) ? null : nearestTarget;
+        }
+
+        return null;
     }
 
     public override void ExitState()

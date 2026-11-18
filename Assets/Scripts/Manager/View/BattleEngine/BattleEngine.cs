@@ -29,8 +29,12 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     private bool enableLegacySpawnHotkeys = false;
 
     private bool battleInit = false;
+    private bool battleStarted = false;
     private bool battleFinished = false;
+    private List<UnitLogicBase> collectingCreatedUnits;
     public event Action<ECampType> BattleFinishedFunction;
+    public bool IsBattleStarted => battleStarted;
+    public bool IsBattleFinished => battleFinished;
 
     private void Awake()
     {
@@ -43,7 +47,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         if (battleInit == false)
             return;
-        if (battleFinished)
+        if (battleFinished || !battleStarted)
             return;
        
         UnitManager.Instance.ManagerUpdate(Time.deltaTime);
@@ -62,7 +66,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         if (battleInit == false)
             return;
-        if (battleFinished)
+        if (battleFinished || !battleStarted)
             return;
 
         MapCellManager.Instance.ManagerLateUpdate(Time.deltaTime);
@@ -77,11 +81,8 @@ public class BattleEngine : MonoSingleton<BattleEngine>
 
     private void OnDestroy()
     {
-        BattleClashEffectManager.Instance.ManagerDestroy();
-        FootSmokeManager.Instance.ManagerDestroy();
+        ClearBattle();
         UnitManager.Instance.WallDestroyed -= OnWallDestroyed;
-        GlobalSkillManager.Instance.ManagerDestroy();
-        RvoManager.Instance.ManagerDestroy();
     }
 
     private void OnWallDestroyed(ECampType destroyedWallCamp)
@@ -91,16 +92,156 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return;
         }
 
-        battleFinished = true;
-        RvoManager.Instance.ManagerDestroy();
-        UnitManager.Instance.ManagerDestroy();
-        BattleClashEffectManager.Instance.ManagerDestroy();
-        FootSmokeManager.Instance.ManagerDestroy();
         ECampType winnerCamp = destroyedWallCamp == ECampType.Red
             ? ECampType.Blue
             : ECampType.Red;
-        BattleFinishedFunction?.Invoke(winnerCamp);
+        Victory(winnerCamp);
         Debug.Log($"Battle finished. DestroyedWall={destroyedWallCamp}, Winner={winnerCamp}");
+    }
+
+    /// <summary>
+    /// 开始战斗并激活预先创建的单位逻辑。
+    /// </summary>
+    public bool StartBattle()
+    {
+        if (!battleInit || battleFinished || battleStarted)
+        {
+            return false;
+        }
+
+        battleStarted = true;
+        for (int i = 0; i < UnitManager.Instance.UnitList.Count; i++)
+        {
+            UnitLogicBase unitLogic = UnitManager.Instance.UnitList[i];
+            if (unitLogic == null || unitLogic.IsDead || unitLogic.UnitType == EUnitType.Wall)
+            {
+                continue;
+            }
+
+            ActivateUnit(unitLogic);
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// 激活单个单位的战斗状态，骑士进入冲锋，其余单位进入移动。
+    /// </summary>
+    private void ActivateUnit(UnitLogicBase unitLogic)
+    {
+        if (unitLogic.SoliderCfg != null && unitLogic.SoliderCfg.unitType == 3)
+        {
+            unitLogic.StateMachine.ChangeState(EStateTyep.KnightCharge);
+        }
+        else
+        {
+            unitLogic.StateMachine.ChangeState(EStateTyep.Move);
+        }
+    }
+
+    /// <summary>
+    /// 记录胜利阵营并通知胜利界面、自动出兵和其他战斗表现系统。
+    /// </summary>
+    public void Victory(ECampType winnerCamp)
+    {
+        if (battleFinished)
+        {
+            return;
+        }
+
+        battleFinished = true;
+        BattleFinishedFunction?.Invoke(winnerCamp);
+    }
+
+    /// <summary>
+    /// 检查双方城门状态并在城门被摧毁时触发胜利流程。
+    /// </summary>
+    public void JudgeBattleResult()
+    {
+        if (battleFinished)
+        {
+            return;
+        }
+
+        UnitLogicBase redWall = UnitManager.Instance.GetWallLogic(ECampType.Red);
+        UnitLogicBase blueWall = UnitManager.Instance.GetWallLogic(ECampType.Blue);
+        if (redWall != null && redWall.IsDead)
+        {
+            Victory(ECampType.Blue);
+        }
+        else if (blueWall != null && blueWall.IsDead)
+        {
+            Victory(ECampType.Red);
+        }
+    }
+
+    /// <summary>
+    /// 清理本场战斗的逻辑、表现、搜索、RVO、飞行器和投射物数据。
+    /// </summary>
+    public void ClearBattle()
+    {
+        if (!battleInit)
+        {
+            return;
+        }
+
+        battleStarted = false;
+        battleFinished = true;
+        FlyObjectManager.Instance.ClearAll();
+        ProjectileJobManager.Instance.ManagerDestroy();
+        GlobalSkillManager.Instance.ManagerDestroy();
+        MapCellManager.Instance.ManagerDestroy();
+        UnitManager.Instance.ClearBattleUnits();
+        BattleHUDPanel.Instance?.ClearAll();
+        UnitViewManager.Instance.ClearAll();
+        BattleScoreManager.Instance.Reset();
+        RvoManager.Instance.ManagerDestroy();
+        BattleClashEffectManager.Instance.ManagerDestroy();
+        FootSmokeManager.Instance.ManagerDestroy();
+    }
+
+    /// <summary>
+    /// 清理上一局并重新初始化整场战斗，供重新开始按钮调用。
+    /// </summary>
+    public bool RestartBattle()
+    {
+        if (!battleInit)
+        {
+            return false;
+        }
+
+        ClearBattle();
+
+        UnitManager.Instance.SetBornConfig(BornConfigIns);
+        UnitManager.Instance.ManagerInit();
+        RvoManager.Instance.ManagerInit();
+        MapCellManager.Instance.ManagerInit();
+        MapCellManager.Instance.RebuildFromUnitList();
+        ProjectileJobManager.Instance.ManagerInit();
+        FlyObjectManager.Instance.ManagerInit();
+        GlobalSkillManager.Instance.ManagerInit();
+        GlobalSkillManager.Instance.SetBornConfig(BornConfigIns);
+        UnitManager.Instance.SetSpawnHandler(CreateAvailableUnits);
+        UnitManager.Instance.WallDestroyed -= OnWallDestroyed;
+        UnitManager.Instance.WallDestroyed += OnWallDestroyed;
+
+        if (ObstacleConfigIns != null)
+        {
+            RvoManager.Instance.SetBorderInfo(ObstacleConfigIns.GetComponent<ObstacleConfig>().BorderList);
+        }
+
+        BattleClashEffectManager.Instance.SetSettings(ClashEffects);
+        BattleClashEffectManager.Instance.ManagerInit();
+        FootSmokeManager.Instance.SetSettings(FootSmoke);
+        FootSmokeManager.Instance.ManagerInit();
+        UnitViewManager.Instance.ManagerInit();
+        CreateWall();
+
+        AutoSpawnController?.Initialize(this);
+        CenterStoneController?.Initialize(this);
+        battleStarted = false;
+        battleFinished = false;
+        return true;
     }
 
     public void CreateWall()
@@ -143,9 +284,23 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     }
 
     // 创建单位
-    public void CreateUnit(int cfgId, ECampType campType, int count)
+    public List<UnitLogicBase> CreateUnit(int cfgId, ECampType campType, int count)
     {
-        CreateUnitInternal(cfgId, campType, count, false, false, Vector3.zero, Vector3.zero);
+        collectingCreatedUnits = new List<UnitLogicBase>();
+        CreateUnitInternal(cfgId, campType, count, false, false, Vector3.zero, Vector3.zero, null, null);
+        List<UnitLogicBase> result = collectingCreatedUnits;
+        collectingCreatedUnits = null;
+        return result;
+    }
+
+    /// <summary>?????????????</summary>
+    public List<UnitLogicBase> CreateUnit(int cfgId, ECampType campType, int count, BattlePlayer ownerPlayer)
+    {
+        collectingCreatedUnits = new List<UnitLogicBase>();
+        CreateUnitInternal(cfgId, campType, count, false, false, Vector3.zero, Vector3.zero, null, ownerPlayer);
+        List<UnitLogicBase> result = collectingCreatedUnits;
+        collectingCreatedUnits = null;
+        return result;
     }
 
     /// <summary>
@@ -153,7 +308,13 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     /// </summary>
     public void CreateUnitAtPoint(int cfgId, ECampType campType, Vector3 spawnPoint, Vector3 spawnForward)
     {
-        CreateUnitInternal(cfgId, campType, 1, false, true, spawnPoint, spawnForward);
+        CreateUnitInternal(cfgId, campType, 1, false, true, spawnPoint, spawnForward, null, null);
+    }
+
+    /// <summary>在指定出生点为指定玩家召唤一个单位。</summary>
+    public void CreateUnitAtPoint(int cfgId, ECampType campType, Vector3 spawnPoint, Vector3 spawnForward, BattlePlayer ownerPlayer)
+    {
+        CreateUnitInternal(cfgId, campType, 1, false, true, spawnPoint, spawnForward, null, ownerPlayer);
     }
 
     /// <summary>
@@ -161,11 +322,17 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     /// </summary>
     public void CreateReinforcementUnits(int cfgId, ECampType campType, List<Vector3> spawnPoints, Vector3 spawnForward)
     {
-        CreateUnitInternal(cfgId, campType, spawnPoints.Count, true, true, Vector3.zero, spawnForward, spawnPoints);
+        CreateUnitInternal(cfgId, campType, spawnPoints.Count, true, true, Vector3.zero, spawnForward, spawnPoints, null);
+    }
+
+    /// <summary>使用指定出生点列表为指定玩家召唤援军。</summary>
+    public void CreateReinforcementUnits(int cfgId, ECampType campType, List<Vector3> spawnPoints, Vector3 spawnForward, BattlePlayer ownerPlayer)
+    {
+        CreateUnitInternal(cfgId, campType, spawnPoints.Count, true, true, Vector3.zero, spawnForward, spawnPoints, ownerPlayer);
     }
 
     private void CreateUnitInternal(int cfgId, ECampType campType, int count, bool isReinforcement,
-        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward, List<Vector3> spawnPoints = null)
+        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward, List<Vector3> spawnPoints = null, BattlePlayer ownerPlayer = null)
     {
         if (battleFinished == true)
             return;
@@ -177,22 +344,22 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         if (!isReinforcement && !UnitFactory.IsHero(cfgId) && UnitManager.Instance.HasWaitingRequest(campType))
         {
             UnitManager.Instance.EnqueueSpawn(cfgId, campType, count, isReinforcement,
-                hasSpawnPoint, spawnPoint, spawnForward, spawnPoints);
+                hasSpawnPoint, spawnPoint, spawnForward, spawnPoints, ownerPlayer);
             return;
         }
 
         if (!isReinforcement && !UnitFactory.CanCreateUnitGroup(cfgId, campType, count, isReinforcement))
         {
             UnitManager.Instance.EnqueueSpawn(cfgId, campType, count, isReinforcement,
-                hasSpawnPoint, spawnPoint, spawnForward, spawnPoints);
+                hasSpawnPoint, spawnPoint, spawnForward, spawnPoints, ownerPlayer);
             return;
         }
 
-        CreateAvailableUnits(cfgId, campType, count, isReinforcement, hasSpawnPoint, spawnPoint, spawnForward, spawnPoints);
+        CreateAvailableUnits(cfgId, campType, count, isReinforcement, hasSpawnPoint, spawnPoint, spawnForward, spawnPoints, ownerPlayer);
     }
 
     private int CreateAvailableUnits(int cfgId, ECampType campType, int count, bool isReinforcement,
-        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward, List<Vector3> spawnPoints = null)
+        bool hasSpawnPoint, Vector3 spawnPoint, Vector3 spawnForward, List<Vector3> spawnPoints = null, BattlePlayer ownerPlayer = null)
     {
         int creatableCount = UnitFactory.GetCreatableUnitCount(cfgId, campType, count, isReinforcement);
         if (creatableCount <= 0)
@@ -209,15 +376,19 @@ public class BattleEngine : MonoSingleton<BattleEngine>
        
         for (int i = 0; i < creatableCount; i++)
         {
+            bool isHero = UnitFactory.IsHero(cfgId);
             Vector3 bornPoint = isReinforcement
                 ? spawnPoints[i]
-                : GetCreatePoint(baseBornPoint, forward, i, creatableCount, unitRadius);
+                : isHero
+                    ? GetHeroCreatePoint(campType, forward, unitRadius)
+                    : GetCreatePoint(baseBornPoint, forward, i, creatableCount, unitRadius);
+            bornPoint = RvoManager.Instance.ClampPositionInsideBorder(bornPoint, unitRadius);
 
-            UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType, isReinforcement);
+            UnitLogicBase unitLogic = UnitFactory.GetUnitCatch(cfgId, bornPoint, forward, campType, isReinforcement, ownerPlayer);
 
             if(unitLogic == null)
             { 
-                unitLogic = UnitFactory.CreateUnit(cfgId, forward, campType, UnitManager.Instance.UnitList.Count, isReinforcement);
+                unitLogic = UnitFactory.CreateUnit(cfgId, forward, campType, UnitManager.Instance.UnitList.Count, isReinforcement, ownerPlayer);
                 if (unitLogic == null)
                 {
                     return i;
@@ -229,13 +400,28 @@ public class BattleEngine : MonoSingleton<BattleEngine>
                 RvoManager.Instance.AddAgentImmediately(unitLogic.Agenter);
                 MapCellManager.Instance.AddUnit(unitLogic.Agenter.pos, unitLogic.CampTypeInt);
             }
-           
+            else
+            {
+                UnitManager.Instance.RegisterReusedUnit(unitLogic);
+                RvoManager.Instance.AddAgentImmediately(unitLogic.Agenter);
+            }
+
             UnitView unityView = UnitViewFactory.CreateUnitView(unitLogic.SoliderCfg.prefab, bornPoint, forward, unitLogic);
             UnitViewManager.Instance.AddUnitViewImmediately(unityView, true);
             unitLogic.BindUnitView(unityView);
+            collectingCreatedUnits?.Add(unitLogic);
+            if (isHero)
+            {
+                BattleHUDPanel.Instance?.CreateHeroHud(unitLogic);
+            }
 
             unitLogic.InitStateMachine();
-            if (unitLogic.SoliderCfg != null && unitLogic.SoliderCfg.unitType == 3)
+            if (!battleStarted)
+            {
+                unitLogic.StateMachine.ChangeState(EStateTyep.Idle);
+                unitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
+            }
+            else if (unitLogic.SoliderCfg != null && unitLogic.SoliderCfg.unitType == 3)
             {
                 unitLogic.StateMachine.ChangeState(EStateTyep.KnightCharge);
             }
@@ -268,6 +454,18 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         Vector3 rowOffset = -forward * row * spacing;
         Vector3 columnOffset = right * centeredColumn * spacing;
         return bornPoint + rowOffset + columnOffset;
+    }
+
+    /// <summary>
+    /// 在阵营城门逻辑位置生成英雄，并在战场横向合法范围内随机分配 X 轴位置。
+    /// </summary>
+    private Vector3 GetHeroCreatePoint(ECampType campType, Vector3 forward, float unitRadius)
+    {
+        Vector3 logicDoorPoint = BornConfigIns.GetCityLogicPoint(campType);
+        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+        float maxLateralOffset = Mathf.Min(12f, Mathf.Max(0f, BattleDefine.AreaTotalWith * 0.5f - unitRadius - BattleDefine.SpawnUnitPadding));
+        float randomLateralOffset = UnityEngine.Random.Range(-maxLateralOffset, maxLateralOffset);
+        return logicDoorPoint + right * randomLateralOffset;
     }
 
     private bool initBattle()

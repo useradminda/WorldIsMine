@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,10 +7,16 @@ using UnityEngine;
 /// </summary>
 public class TranslateAreaFlyObject : FlyObjectLogicBase
 {
+    // 传送总额度，普通士兵消耗1点，英雄消耗20点。
+    private const int MaxTranslateCost = 100;
+    private const int SoldierTranslateCost = 1;
+    private const int HeroTranslateCost = 20;
+
     private int searchRequest = -1;
     private bool searchPending;
     private bool destroyed;
     private float liveTime;
+    private int translatedCost;
     private readonly List<int> resultIndices = new List<int>();
     private readonly List<int> resultUids = new List<int>();
     private int nearestIndex = -1;
@@ -27,15 +33,21 @@ public class TranslateAreaFlyObject : FlyObjectLogicBase
         destroyed = false;
         searchPending = false;
         liveTime = flyObjectCfg.liveTime;
+        translatedCost = 0;
         resultIndices.Clear();
         resultUids.Clear();
-        mTarPos = oriPos;
+        mTarPos = tarPos;
         mFlyObjectGob = UnitViewFactory.CreateGob(flyObjectCfg.prefab, mTarPos, Vector3.zero);
     }
 
     public override void FlyObjectUpdate(float dt)
     {
         if (destroyed) return;
+        if (translatedCost >= MaxTranslateCost)
+        {
+            Die();
+            return;
+        }
             liveTime -= dt;
         if (liveTime <= 0f) 
         { 
@@ -68,11 +80,30 @@ public class TranslateAreaFlyObject : FlyObjectLogicBase
             {
                 continue;
             }
+            int translateCost = UnitFactory.IsHero(enemy.SoliderCfg.id)
+                ? HeroTranslateCost
+                : SoldierTranslateCost;
+            if (translatedCost >= MaxTranslateCost)
+            {
+                break;
+            }
             playTranslateEffect(enemy.CurPos);
+
             Vector3 doorPoint = BattleEngine.Instance.GetCityDoorPoint(enemy.CampType);
             Vector3 doorForward = BattleEngine.Instance.GetCityDoorForward(enemy.CampType);
             enemy.TeleportTo(doorPoint, doorForward);
+            translatedCost += translateCost;
         }
+
+        if (translatedCost >= MaxTranslateCost)
+        {
+            Die();
+        }
+    }
+
+    public override void ClearForBattle()
+    {
+        Die();
     }
 
     private void Die()
@@ -96,3 +127,4 @@ public class TranslateAreaFlyObject : FlyObjectLogicBase
         arrivePrefabGO.GetOrAddComponent<RecycleGobComponent>().SetRecycleGobTime(1, arrivePrefab);
     }
 }
+

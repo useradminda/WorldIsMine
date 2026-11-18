@@ -323,6 +323,11 @@ public class SwordSpecialFlyObject : FlyObjectLogicBase
     }
 
     /// <summary>回收全部剑对象和飞行器逻辑，结束本次技能表现。</summary>
+    public override void ClearForBattle()
+    {
+        Die();
+    }
+
     private void Die()
     {
         if (destroyed)

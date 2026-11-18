@@ -64,6 +64,8 @@ public static class FlyObjectFactory
                 return new AroundAreaFlyObject();
             case "createWall":
                 return new CreateWallFlyObject();
+            case "createCircle":
+                return new CreateCircleFlyObject();
             case "pointToPoint":
                 return new PointToPointFlyObject();
             case "blackHall":

@@ -354,6 +354,29 @@ public class ProjectileJobManager : Singleton<ProjectileJobManager>, IManager
         dispose();
     }
 
+    /// <summary>
+    /// 清空所有尚未结束的投射物和对应的表现变换。
+    /// </summary>
+    public void ClearAll()
+    {
+        if (!initState)
+        {
+            return;
+        }
+
+        for (int i = 0; i < activeProjectileIds.Length; i++)
+        {
+            int projectileIndex = activeProjectileIds[i];
+            ProjectileData projectile = projectiles[projectileIndex];
+            projectile.State = StateFree;
+            projectiles[projectileIndex] = projectile;
+        }
+
+        activeProjectileIds.Clear();
+        arrivedProjectileIds.Clear();
+        projectileTransformsDic.Clear();
+    }
+
     private void init()
     {
         projectiles = new NativeArray<ProjectileData>(

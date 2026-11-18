@@ -35,7 +35,26 @@ public class FlyObjectManager : Singleton<FlyObjectManager>, IManager
 
     public void ManagerDestroy()
     {
+        ClearAll();
+    }
 
+    /// <summary>
+    /// 清理所有飞行器逻辑、表现和索引。
+    /// </summary>
+    public void ClearAll()
+    {
+        while (FlyObjectList.Count > 0)
+        {
+            FlyObjectLogicBase flyObject = FlyObjectList[FlyObjectList.Count - 1];
+            flyObject?.ClearForBattle();
+            if (flyObject != null && FlyObjectList.DataList.Contains(flyObject))
+            {
+                FlyObjectList.RemoveImmediately(flyObject);
+            }
+        }
+
+        FlyObjectList.DataList.Clear();
+        FlyObjectDic.Clear();
     }
 
     public int AddFlyUnitImmediately(FlyObjectLogicBase flyObjet)

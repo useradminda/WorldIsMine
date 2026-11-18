@@ -135,7 +135,7 @@ public class ProjectileMoveScript : MonoBehaviour {
         else
         {
             rb.useGravity = true;
- 
+
             ContactPoint contact = co.contacts[0];
             rb.AddForce (Vector3.Reflect((contact.point - startPos).normalized, contact.normal) * bounceForce, ForceMode.Impulse);
             Destroy ( this );

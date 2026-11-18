@@ -92,6 +92,7 @@ public class AreaFlyObject : FlyObjectLogicBase
                 mSkillLogic.ApplyBuffs(tarUnitLogic);
             }
         }
+        DamageEnemyWallInArea(mTarPos, mSkillLogic.SkillCfg.skillArea);
     }
 
     private void die()

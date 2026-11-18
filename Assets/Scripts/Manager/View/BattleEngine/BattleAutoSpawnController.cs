@@ -107,7 +107,7 @@ public class BattleAutoSpawnController : MonoBehaviour
 
     private void Update()
     {
-        if (!initialized || battleFinished || battleEngine == null)
+        if (!initialized || battleFinished || battleEngine == null || !battleEngine.IsBattleStarted)
         {
             return;
         }

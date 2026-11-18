@@ -123,6 +123,11 @@ public class JumpArrowFlyObject : FlyObjectLogicBase
         }
     }
 
+    public override void ClearForBattle()
+    {
+        Die();
+    }
+
     private void Die()
     {
         flying = false;

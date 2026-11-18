@@ -89,7 +89,7 @@ public class BattleCenterStoneController : MonoBehaviour
 
     private void Update()
     {
-        if (!initialized || battleFinished)
+        if (!initialized || battleFinished || battleEngine == null || !battleEngine.IsBattleStarted)
         {
             return;
         }
