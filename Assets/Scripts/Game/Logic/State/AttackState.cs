@@ -13,6 +13,8 @@ public class AttackState : StateBase
     private float attackEffectTime;
     private bool attackEffectTriggered;
     private bool attackEffectPending;
+    private float wallTargetSearchCooldown;
+    private bool wallTargetRefreshSearch;
     private int effectSearchReqIndex = -1;
     private int targetSearchReqIndex = -1;
     private int targetNearestIndex = -1;
@@ -67,6 +69,18 @@ public class AttackState : StateBase
                 }
             }
             return;
+        }
+
+        if (IsHeroOrArcher() && UnitLogic.SearchTarget != null
+            && UnitLogic.SearchTarget.UnitType == EUnitType.Wall)
+        {
+            wallTargetSearchCooldown -= dt;
+            if (wallTargetSearchCooldown <= 0f)
+            {
+                wallTargetSearchCooldown = 0.5f;
+                RequestTargetSearch();
+                return;
+            }
         }
 
         if (attackEffectPending)
@@ -145,6 +159,8 @@ public class AttackState : StateBase
         attackEffectTime = 0f;
         attackEffectTriggered = false;
         attackEffectPending = false;
+        wallTargetSearchCooldown = 0f;
+        wallTargetRefreshSearch = false;
         effectSearchReqIndex = -1;
         targetSearchReqIndex = -1;
         targetSearchResultList.Clear();
@@ -158,8 +174,23 @@ public class AttackState : StateBase
             return;
         }
         targetSearchReqIndex = MapCellManager.Instance.RequestSearch(UnitLogic.CurPos, GetTargetSearchRange(), UnitLogic.OtherCampTypeInt);
+        wallTargetRefreshSearch = IsHeroOrArcher() && UnitLogic.SearchTarget != null
+            && UnitLogic.SearchTarget.UnitType == EUnitType.Wall;
         UnitLogic.TriggerMoveStop();
         UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
+    }
+
+    /// <summary>判断单位是否为需要在攻击城墙期间持续关注城外目标的英雄或弓手。</summary>
+    private bool IsHeroOrArcher()
+    {
+        if (UnitLogic.SoliderCfg == null)
+        {
+            return false;
+        }
+
+        return UnitFactory.IsHero(UnitLogic.SoliderCfg.id)
+            || UnitLogic.SoliderCfg.id == 102
+            || UnitLogic.SoliderCfg.id == 202;
     }
 
     private float GetTargetSearchRange()
@@ -184,6 +215,15 @@ public class AttackState : StateBase
         UnitLogicBase target = targetNearestIndex >= 0 && targetNearestIndex < UnitManager.Instance.UnitList.Count
             ? UnitManager.Instance.UnitList[targetNearestIndex]
             : null;
+        if (wallTargetRefreshSearch)
+        {
+            UnitLogicBase outsideTarget = FindNearestOutsideTargetFromRefreshResults();
+            if (outsideTarget != null)
+            {
+                target = outsideTarget;
+            }
+        }
+        wallTargetRefreshSearch = false;
         if (target != null && UnitLogic.IsTargetBlockedByEnemyWall(target))
         {
             target = UnitManager.Instance.GetOtherWallLogic(UnitLogic.CampType);
@@ -213,6 +253,37 @@ public class AttackState : StateBase
         {
             UnitLogic.UnitView.ActionFlowComponent.PlayAction(EActionType.wait);
         }
+    }
+
+    /// <summary>仅在英雄或弓手以城墙为目标的重搜中，从本次结果里找城墙外敌人。</summary>
+    private UnitLogicBase FindNearestOutsideTargetFromRefreshResults()
+    {
+        UnitLogicBase bestTarget = null;
+        float bestDistance = float.MaxValue;
+        for (int i = 0; i < targetSearchResultList.Count; i++)
+        {
+            int unitIndex = targetSearchResultList[i];
+            if (unitIndex < 0 || unitIndex >= UnitManager.Instance.UnitList.Count)
+            {
+                continue;
+            }
+
+            UnitLogicBase candidate = UnitManager.Instance.UnitList[unitIndex];
+            if (candidate == null || candidate.IsDead || candidate.CampType == UnitLogic.CampType
+                || UnitLogic.IsTargetBlockedByEnemyWall(candidate))
+            {
+                continue;
+            }
+
+            float distance = (candidate.CurPos - UnitLogic.CurPos).sqrMagnitude;
+            if (distance < bestDistance)
+            {
+                bestDistance = distance;
+                bestTarget = candidate;
+            }
+        }
+
+        return bestTarget;
     }
 
     private void StartNormalAttack()

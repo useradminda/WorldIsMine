@@ -58,6 +58,24 @@ public sealed class BattlePlayerManager : Singleton<BattlePlayerManager>
         bluePlayer = null;
     }
 
+    /// <summary>返回当前已注册的全部玩家对象。</summary>
+    public List<BattlePlayer> GetAllPlayers()
+    {
+        return new List<BattlePlayer>(playerMap.Values);
+    }
+
+    /// <summary>记录玩家本场充值数据，并同步增加全局积分。</summary>
+    public void RecordRecharge(BattlePlayer player, int amount)
+    {
+        if (player == null || amount <= 0)
+        {
+            return;
+        }
+
+        player.AddRechargeCount(amount);
+        BattleScoreManager.Instance.AddRechargeScore(amount);
+    }
+
     /// <summary>创建阵营默认玩家。</summary>
     private BattlePlayer CreateDefaultPlayer(ECampType campType)
     {

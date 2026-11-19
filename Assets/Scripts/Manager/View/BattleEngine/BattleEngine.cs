@@ -40,6 +40,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
     {
         gameObject.GetOrAddComponent<UIOperateManager>();
         battleInit = initBattle();
+        StartBattle();
     }
 
     // Update is called once per frame
@@ -150,6 +151,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
         }
 
         battleFinished = true;
+        BattleResultPanel.Instance?.ShowResult(winnerCamp);
         BattleFinishedFunction?.Invoke(winnerCamp);
     }
 
@@ -210,6 +212,7 @@ public class BattleEngine : MonoSingleton<BattleEngine>
             return false;
         }
 
+        BattleResultPanel.Instance?.Hide();
         ClearBattle();
 
         UnitManager.Instance.SetBornConfig(BornConfigIns);

@@ -16,6 +16,15 @@ public sealed class BattlePlayer
     /// <summary>玩家当前胜点。</summary>
     public int VictoryPoint { get; private set; }
 
+    /// <summary>本场战斗的充值金额统计。</summary>
+    public int RechargeCount { get; private set; }
+
+    /// <summary>本场战斗分配给该玩家的积分。</summary>
+    public int SharedScore { get; private set; }
+
+    /// <summary>本场战斗的击杀数量。</summary>
+    public int KillCount { get; private set; }
+
     /// <summary>玩家当前队形信息，红方默认左侧，蓝方默认右侧。</summary>
     public BattleFormationInfo FormationInfo { get; private set; }
 
@@ -43,6 +52,33 @@ public sealed class BattlePlayer
     public void SetVictoryPoint(int value)
     {
         VictoryPoint = value < 0 ? 0 : value;
+    }
+
+    /// <summary>增加本场战斗充值统计。</summary>
+    public void AddRechargeCount(int value)
+    {
+        RechargeCount = System.Math.Max(0, RechargeCount + value);
+    }
+
+    /// <summary>增加本场战斗分配积分。</summary>
+    public void AddSharedScore(int value)
+    {
+        SharedScore = System.Math.Max(0, SharedScore + value);
+    }
+
+    /// <summary>增加本场战斗击杀数量。</summary>
+    public void AddKillCount(int value = 1)
+    {
+        KillCount = System.Math.Max(0, KillCount + value);
+    }
+
+    /// <summary>清零本场战斗统计数据。</summary>
+    public void ResetBattleStats()
+    {
+        RechargeCount = 0;
+        SharedScore = 0;
+        VictoryPoint = 0;
+        KillCount = 0;
     }
 
     /// <summary>更新玩家基础资料。</summary>

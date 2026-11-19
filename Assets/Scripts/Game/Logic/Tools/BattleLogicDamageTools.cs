@@ -17,6 +17,11 @@ public static class BattleLogicDamageTools
             int counterDamage = beAtkedUnit.ChangeHp(finalDamage, dieTyp, beHitPoint);
             int actualDamage = Mathf.Max(0, hpBeforeDamage - beAtkedUnit.Prop.Hp);
             BattleScoreManager.Instance.AddDamageScore(actualDamage, beAtkedUnit.UnitType);
+            if (atkUnit != null && atkUnit.PlayerInfo != null && actualDamage > 0)
+            {
+                int score = beAtkedUnit.UnitType == EUnitType.Wall ? actualDamage : actualDamage * 10;
+                atkUnit.PlayerInfo.AddSharedScore(score);
+            }
             if (beAtkedUnit.UnitType == EUnitType.Wall)
             {
                 BattlePanel.Instance?.RefreshCityHp();
@@ -28,6 +33,11 @@ public static class BattleLogicDamageTools
             if (wasAlive && beAtkedUnit.IsDead)
             {
                 BattleScoreManager.Instance.AddVictoryPoint(1);
+                if (atkUnit != null && atkUnit.PlayerInfo != null)
+                {
+                    atkUnit.PlayerInfo.AddKillCount();
+                    atkUnit.PlayerInfo.AddVictoryPoint(1);
+                }
             }
 
             if (counterDamage > 0 && !beAtkedUnit.IsDead && atkUnit != null && !atkUnit.IsDead)

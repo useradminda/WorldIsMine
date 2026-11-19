@@ -9,7 +9,7 @@ using UnityEngine;
 public class BattleHeroCallInfoPanel : MonoBehaviour
 {
     /// <summary>英雄召唤提示单次展示时长，单位为秒。</summary>
-    private const float HeroDisplayDuration = 2.5f;
+    private const float HeroDisplayDuration = 1.9f;
 
     [SerializeField] private BattleHeroCallInfoItem redHeroCallItem;
     [SerializeField] private BattleHeroCallInfoItem blueHeroCallItem;
